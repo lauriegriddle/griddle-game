@@ -1,19 +1,12 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { ChefHat, Share2, BarChart3, X, Award } from 'lucide-react';
-
+import { getTodaysPuzzle } from './puzzles';
 const PancakeWordGame = () => {
-  const gameData = {
-    category: "Candy",
-    puzzleNumber: 48,
-    words: [
-      { word: "MINT", hint: "A refreshing flavor often paired with chocolate, popular in after-dinner treats", revealedIndex: 1 },
-      { word: "GUMMY", hint: "Chewy, jiggly candy that comes in shapes like bears, worms, and rings", revealedIndex: 2 },
-      { word: "BONBON", hint: "A small chocolate-covered confection, French for 'good good'", revealedIndex: 3 },
-      { word: "CARAMEL", hint: "A sweet, sticky golden treat made from heated sugar and cream", revealedIndex: 0 },
-      { word: "LOLLIPOP", hint: "A hard candy on a stick, perfect for licking and comes in swirls", revealedIndex: 5 }
-    ]
-  };
+     const gameData = getTodaysPuzzle();
+
+     
+
 
   const achievements = [
     { id: 'single_stack', name: 'Single Stack', icon: '🥞', description: '3-day streak', requirement: (stats) => stats.currentStreak >= 3 },

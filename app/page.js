@@ -561,8 +561,12 @@ Play at lettergriddle.com`}
           </div>
         </div>
       )}
+{/* Copyright Footer */}
+      <div className="text-center py-6 text-xs text-amber-700 mt-8">
+        © 2025 Letter Griddle. All rights reserved.
+      </div>  
     </div>
-  );
+    );
 };
 
 export default PancakeWordGame;

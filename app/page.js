@@ -368,7 +368,7 @@ const PancakeWordGame = () => {
                       
                       {hintsRevealed[wordIdx] && (
                         <div className="bg-white border border-amber-300 rounded p-1 mb-1 shadow-inner">
-                          <p className="text-[10px] text-gray-700 leading-tight">{wordData.hint}</p>
+                          <p className="text-lg text-gray-700 leading-tight">{wordData.hint}</p>
                         </div>
                       )}
                       

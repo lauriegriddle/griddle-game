@@ -289,9 +289,9 @@ const PancakeWordGame = () => {
       <div className="max-w-5xl mx-auto relative">
         {/* Compact Header */}
         <div className="flex justify-between items-center mb-1.5 px-1">
-          <div className="text-xl">🥞</div>
+          <div className="text-xl invisible">🥞🥞</div>
           <h1 className="text-lg md:text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-            Griddle
+            Daily Griddle
           </h1>
           <div className="flex items-center gap-2">
             <div className="text-xl">🥞</div>

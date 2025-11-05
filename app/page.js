@@ -565,7 +565,13 @@ Play at www.lettergriddle.com`}
       )}
 {/* Copyright Footer */}
       <div className="text-center py-6 text-xs text-amber-700 mt-8">
-        © 2025 Letter Griddle. All rights reserved.
+        <div>
+                © 2025 Letter Griddle. All rights reserved.
+                {' | '}
+                <a href="/privacy" className="hover:text-amber-600 underline">Privacy Policy</a>
+                {' | '}
+                <a href="/terms" className="hover:text-amber-600 underline">Terms of Service</a>
+              </div>
       </div>  
     </div>
     );

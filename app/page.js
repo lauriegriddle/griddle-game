@@ -291,7 +291,7 @@ const PancakeWordGame = () => {
         <div className="flex justify-between items-center mb-1.5 px-1">
           <div className="text-xl invisible">🥞🥞</div>
           <h1 className="text-lg md:text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-            Daily Griddle
+            Today's Special
           </h1>
           <div className="flex items-center gap-2">
             <div className="text-xl">🥞</div>
@@ -442,7 +442,7 @@ const PancakeWordGame = () => {
               
               {/* Instructions */}
               <div className="mt-2 text-center text-[10px] text-amber-700 bg-amber-50 rounded-lg p-1.5">
-                <p className="font-semibold">🥞 Click a letter, then click an empty spot to place it</p>
+                <p className="text-base font-semibold">🥞 Click a letter, then click an empty spot to place it</p>
               </div>
             </div>
           </div>

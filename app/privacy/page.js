@@ -96,7 +96,7 @@ export default function Privacy() {
             <p>
               If you have questions about this Privacy Policy, please contact us at:{' '}
               <a href="mailto:laurie@lettergriddle.com" className="text-amber-600 hover:text-amber-700 underline">
-                laurie@lettergriddle.com
+                lettergriddle@gmail.com
               </a>
             </p>
           </section>

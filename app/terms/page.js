@@ -72,8 +72,8 @@ export default function Terms() {
             <h2 className="text-2xl font-bold text-amber-800 mb-3">Contact</h2>
             <p>
               Questions? Contact us at{' '}
-              <a href="mailto:laurie@lettergriddle.com" className="text-amber-600 hover:text-amber-700 underline">
-                laurie@lettergriddle.com
+              <a href="mailto:lettergriddle.gmail.com" className="text-amber-600 hover:text-amber-700 underline">
+                lettergriddle@gmailcom
               </a>
             </p>
           </section>

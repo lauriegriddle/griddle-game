@@ -20,15 +20,26 @@ const PancakeWordGame = () => {
     return gameData.words.map(w => {
       const letters = Array(w.word.length).fill('');
       letters[w.revealedIndex] = w.word[w.revealedIndex];
+      
+      // Reveal a second letter for words with 6+ letters
+      if (w.word.length >= 6) {
+        let secondIndex;
+        do {
+          secondIndex = Math.floor(Math.random() * w.word.length);
+        } while (secondIndex === w.revealedIndex);
+        letters[secondIndex] = w.word[secondIndex];
+      }
+      
       return letters;
     });
   };
 
-  const allLetters = gameData.words.flatMap(w =>
-    w.word.split('').filter((_, idx) => idx !== w.revealedIndex)
+  const initializedWords = initializeWords();
+  const allLetters = gameData.words.flatMap((w, wordIdx) =>
+    w.word.split('').filter((_, idx) => initializedWords[wordIdx][idx] === '')
   ).sort();
 
-  const [selectedLetters, setSelectedLetters] = useState(initializeWords());
+  const [selectedLetters, setSelectedLetters] = useState(initializedWords);
   const [availableLetters, setAvailableLetters] = useState([...allLetters]);
   const [hintsRevealed, setHintsRevealed] = useState(Array(5).fill(false));
   const [completedWords, setCompletedWords] = useState(Array(5).fill(false));
@@ -138,7 +149,16 @@ const PancakeWordGame = () => {
     setSelectedLetter(letter);
     setSelectedLetterIndex(letterIndex);
   };
-
+const shuffleLetters = () => {
+    setAvailableLetters(prev => {
+      const shuffled = [...prev];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    });
+  };
   const handleSlotClick = (wordIdx, slotIdx) => {
     if (slotIdx === gameData.words[wordIdx].revealedIndex) return;
 
@@ -374,7 +394,7 @@ const PancakeWordGame = () => {
                       
                       <div className="flex gap-1 justify-center flex-wrap">
                         {wordData.word.split('').map((letter, letterIdx) => {
-                          const isRevealed = letterIdx === wordData.revealedIndex;
+                          const isRevealed = (letterIdx === wordData.revealedIndex) && !isComplete;
                           const currentLetter = revealed[letterIdx] || '';
                           const isWrong = wrongPlacements[`${wordIdx}-${letterIdx}`];
                           
@@ -417,6 +437,12 @@ const PancakeWordGame = () => {
                     Letter Griddle
                   </h3>
                   <span className="text-base">🍳</span>
+                  <button
+          onClick={shuffleLetters}
+          className="mt-2 bg-amber-500 hover:bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-semibold transition-all"
+        >
+          🔀 Shuffle
+        </button>
                 </div>
                 <div className="flex flex-wrap gap-1 justify-center">
                   {availableLetters.map((letter, idx) => (

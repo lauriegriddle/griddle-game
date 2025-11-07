@@ -1,12 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { ChefHat, Share2, BarChart3, X, Award } from 'lucide-react';
+import { ChefHat, Share2, BarChart3, X, Award, Shuffle } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
+
 const PancakeWordGame = () => {
-     const gameData = getTodaysPuzzle();
-
-     
-
+  const gameData = getTodaysPuzzle();
 
   const achievements = [
     { id: 'single_stack', name: 'Single Stack', icon: '🥞', description: '3-day streak', requirement: (stats) => stats.currentStreak >= 3 },
@@ -20,16 +18,6 @@ const PancakeWordGame = () => {
     return gameData.words.map(w => {
       const letters = Array(w.word.length).fill('');
       letters[w.revealedIndex] = w.word[w.revealedIndex];
-      
-      // Reveal a second letter for words with 6+ letters
-      if (w.word.length >= 6) {
-        let secondIndex;
-        do {
-          secondIndex = Math.floor(Math.random() * w.word.length);
-        } while (secondIndex === w.revealedIndex);
-        letters[secondIndex] = w.word[secondIndex];
-      }
-      
       return letters;
     });
   };
@@ -149,7 +137,8 @@ const PancakeWordGame = () => {
     setSelectedLetter(letter);
     setSelectedLetterIndex(letterIndex);
   };
-const shuffleLetters = () => {
+
+  const shuffleLetters = () => {
     setAvailableLetters(prev => {
       const shuffled = [...prev];
       for (let i = shuffled.length - 1; i > 0; i--) {
@@ -159,12 +148,20 @@ const shuffleLetters = () => {
       return shuffled;
     });
   };
+
+  // handleSlotClick function with proper locking
   const handleSlotClick = (wordIdx, slotIdx) => {
-    if (slotIdx === gameData.words[wordIdx].revealedIndex) return;
+    const wordData = gameData.words[wordIdx];
+    
+    // Block clicks on the revealed position
+    if (slotIdx === wordData.revealedIndex) {
+      return; // Don't allow clicking on the revealed letter
+    }
 
     const currentLetter = selectedLetters[wordIdx][slotIdx];
 
     if (currentLetter) {
+      // Remove letter from word and return to tray
       setAvailableLetters(prev => [...prev, currentLetter].sort());
       setSelectedLetters(prev => {
         const newSelected = [...prev];
@@ -179,6 +176,7 @@ const shuffleLetters = () => {
         return newWrong;
       });
     } else if (selectedLetter !== null) {
+      // Place selected letter from tray into word
       setAvailableLetters(prev => {
         const newAvailable = [...prev];
         newAvailable.splice(selectedLetterIndex, 1);
@@ -394,6 +392,7 @@ const shuffleLetters = () => {
                       
                       <div className="flex gap-1 justify-center flex-wrap">
                         {wordData.word.split('').map((letter, letterIdx) => {
+                          // Check if this letter is the revealed letter
                           const isRevealed = (letterIdx === wordData.revealedIndex) && !isComplete;
                           const currentLetter = revealed[letterIdx] || '';
                           const isWrong = wrongPlacements[`${wordIdx}-${letterIdx}`];
@@ -437,14 +436,8 @@ const shuffleLetters = () => {
                     Letter Griddle
                   </h3>
                   <span className="text-base">🍳</span>
-                  <button
-          onClick={shuffleLetters}
-          className="mt-2 bg-amber-500 hover:bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-semibold transition-all"
-        >
-          🔀 Shuffle
-        </button>
                 </div>
-                <div className="flex flex-wrap gap-1 justify-center">
+                <div className="flex flex-wrap gap-1 justify-center mb-2">
                   {availableLetters.map((letter, idx) => (
                     <button
                       key={idx}
@@ -459,9 +452,19 @@ const shuffleLetters = () => {
                     </button>
                   ))}
                 </div>
-                {availableLetters.length === 0 && (
+                {availableLetters.length === 0 ? (
                   <div className="text-center mt-1.5">
                     <p className="text-amber-200 font-bold text-xs">✨ Clean! ✨</p>
+                  </div>
+                ) : (
+                  <div className="text-center">
+                    <button
+                      onClick={shuffleLetters}
+                      className="bg-amber-500 hover:bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-semibold transition-all inline-flex items-center gap-1"
+                    >
+                      <Shuffle size={12} />
+                      Shuffle
+                    </button>
                   </div>
                 )}
               </div>
@@ -476,8 +479,6 @@ const shuffleLetters = () => {
       </div>
 
       {showShareModal && (
-
-    
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowShareModal(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
             <button
@@ -589,18 +590,19 @@ Play at www.lettergriddle.com`}
           </div>
         </div>
       )}
-{/* Copyright Footer */}
+
+      {/* Copyright Footer */}
       <div className="text-center py-6 text-xs text-amber-700 mt-8">
         <div>
-                © 2025 Letter Griddle. All rights reserved.
-                {' | '}
-                <a href="/privacy" className="hover:text-amber-600 underline">Privacy Policy</a>
-                {' | '}
-                <a href="/terms" className="hover:text-amber-600 underline">Terms of Service</a>
-              </div>
+          © 2025 Letter Griddle. All rights reserved.
+          {' | '}
+          <a href="/privacy" className="hover:text-amber-600 underline">Privacy Policy</a>
+          {' | '}
+          <a href="/terms" className="hover:text-amber-600 underline">Terms of Service</a>
+        </div>
       </div>  
     </div>
-    );
+  );
 };
 
 export default PancakeWordGame;

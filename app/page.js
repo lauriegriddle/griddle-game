@@ -37,12 +37,13 @@ const PancakeWordGame = () => {
   const [wrongPlacements, setWrongPlacements] = useState({});
   const [showShareModal, setShowShareModal] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
-  const [showMissionModal, setShowMissionModal] = useState(false); // NEW!
+  const [showMissionModal, setShowMissionModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [startTime] = useState(Date.now());
   const [completionTime, setCompletionTime] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [newAchievements, setNewAchievements] = useState([]);
+  const [timeUntilNext, setTimeUntilNext] = useState(''); // NEW: Countdown timer state
 
   const [stats, setStats] = useState(() => {
     try {
@@ -68,6 +69,49 @@ const PancakeWordGame = () => {
   });
 
   const allComplete = completedWords.every(c => c);
+
+  // NEW: Function to calculate time until next puzzle (7 PM EST)
+  const calculateTimeUntilNext = () => {
+    const now = new Date();
+    const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    
+    // Get today's 7 PM EST
+    const nextPuzzleTime = new Date(estTime);
+    nextPuzzleTime.setHours(19, 0, 0, 0); // 7 PM
+    
+    // If it's already past 7 PM, set to tomorrow's 7 PM
+    if (estTime.getHours() >= 19) {
+      nextPuzzleTime.setDate(nextPuzzleTime.getDate() + 1);
+    }
+    
+    // Calculate difference in milliseconds
+    const diff = nextPuzzleTime - estTime;
+    
+    // Convert to hours and minutes
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    
+    if (hours > 0) {
+      return `${hours}h ${minutes}m`;
+    } else {
+      return `${minutes}m`;
+    }
+  };
+
+  // NEW: Update countdown timer every minute
+  useEffect(() => {
+    if (allComplete) {
+      // Update immediately
+      setTimeUntilNext(calculateTimeUntilNext());
+      
+      // Then update every minute
+      const interval = setInterval(() => {
+        setTimeUntilNext(calculateTimeUntilNext());
+      }, 60000); // Update every 60 seconds
+      
+      return () => clearInterval(interval);
+    }
+  }, [allComplete]);
 
   const checkAchievements = (newStats) => {
     const newlyUnlocked = [];
@@ -150,19 +194,16 @@ const PancakeWordGame = () => {
     });
   };
 
-  // handleSlotClick function with proper locking
   const handleSlotClick = (wordIdx, slotIdx) => {
     const wordData = gameData.words[wordIdx];
     
-    // Block clicks on the revealed position
     if (slotIdx === wordData.revealedIndex) {
-      return; // Don't allow clicking on the revealed letter
+      return;
     }
 
     const currentLetter = selectedLetters[wordIdx][slotIdx];
 
     if (currentLetter) {
-      // Remove letter from word and return to tray
       setAvailableLetters(prev => [...prev, currentLetter].sort());
       setSelectedLetters(prev => {
         const newSelected = [...prev];
@@ -177,7 +218,6 @@ const PancakeWordGame = () => {
         return newWrong;
       });
     } else if (selectedLetter !== null) {
-      // Place selected letter from tray into word
       setAvailableLetters(prev => {
         const newAvailable = [...prev];
         newAvailable.splice(selectedLetterIndex, 1);
@@ -306,7 +346,7 @@ const PancakeWordGame = () => {
       `}</style>
 
       <div className="max-w-5xl mx-auto relative">
-        {/* Compact Header with NEW About Button */}
+        {/* Compact Header */}
         <div className="flex justify-between items-center mb-1.5 px-1">
           <div className="text-xl invisible">🥞🥞</div>
           <h1 className="text-lg md:text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
@@ -314,7 +354,6 @@ const PancakeWordGame = () => {
           </h1>
           <div className="flex items-center gap-2">
             <div className="text-xl">🥞</div>
-            {/* NEW ABOUT BUTTON */}
             <button
               onClick={() => setShowMissionModal(true)}
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
@@ -343,10 +382,13 @@ const PancakeWordGame = () => {
             <p className="text-center text-xs md:text-sm font-bold" style={{fontFamily: 'Georgia, serif'}}>{gameData.category}</p>
           </div>
           
+          {/* UPDATED COMPLETION BANNER WITH TIMER */}
           {allComplete && (
             <div className="bg-gradient-to-r from-yellow-100 to-amber-100 border-2 border-amber-400 rounded-lg p-2 mb-2 text-center shadow-lg">
               <p className="text-base font-bold text-amber-800 mb-0.5">🎉 Complete! 🎉</p>
-              <p className="text-xs text-amber-700 mb-1.5">Time: {formatTime(completionTime)}</p>
+              <p className="text-xs text-amber-700 mb-1">Time: {formatTime(completionTime)}</p>
+              {/* NEW: Countdown Timer */}
+              <p className="text-xs text-amber-600 mb-1.5">⏰ Next puzzle in: {timeUntilNext}</p>
               <button
                 onClick={() => setShowShareModal(true)}
                 className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg transition-all flex items-center gap-1 mx-auto"
@@ -401,7 +443,6 @@ const PancakeWordGame = () => {
                       
                       <div className="flex gap-1 justify-center flex-wrap">
                         {wordData.word.split('').map((letter, letterIdx) => {
-                          // Check if this letter is the revealed letter
                           const isRevealed = (letterIdx === wordData.revealedIndex) && !isComplete;
                           const currentLetter = revealed[letterIdx] || '';
                           const isWrong = wrongPlacements[`${wordIdx}-${letterIdx}`];
@@ -487,7 +528,7 @@ const PancakeWordGame = () => {
         </div>
       </div>
 
-      {/* NEW MISSION MODAL */}
+      {/* Mission Modal */}
       {showMissionModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowMissionModal(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
@@ -527,6 +568,7 @@ const PancakeWordGame = () => {
         </div>
       )}
 
+      {/* Share Modal */}
       {showShareModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowShareModal(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
@@ -562,6 +604,7 @@ Play at www.lettergriddle.com`}
         </div>
       )}
 
+      {/* Stats Modal */}
       {showStatsModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4 overflow-y-auto" onClick={() => setShowStatsModal(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative my-8" onClick={(e) => e.stopPropagation()}>

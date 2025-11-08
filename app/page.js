@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { ChefHat, Share2, BarChart3, X, Award, Shuffle } from 'lucide-react';
+import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
 
 const PancakeWordGame = () => {
@@ -37,6 +37,7 @@ const PancakeWordGame = () => {
   const [wrongPlacements, setWrongPlacements] = useState({});
   const [showShareModal, setShowShareModal] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
+  const [showMissionModal, setShowMissionModal] = useState(false); // NEW!
   const [shareCopied, setShareCopied] = useState(false);
   const [startTime] = useState(Date.now());
   const [completionTime, setCompletionTime] = useState(null);
@@ -305,7 +306,7 @@ const PancakeWordGame = () => {
       `}</style>
 
       <div className="max-w-5xl mx-auto relative">
-        {/* Compact Header */}
+        {/* Compact Header with NEW About Button */}
         <div className="flex justify-between items-center mb-1.5 px-1">
           <div className="text-xl invisible">🥞🥞</div>
           <h1 className="text-lg md:text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
@@ -313,6 +314,14 @@ const PancakeWordGame = () => {
           </h1>
           <div className="flex items-center gap-2">
             <div className="text-xl">🥞</div>
+            {/* NEW ABOUT BUTTON */}
+            <button
+              onClick={() => setShowMissionModal(true)}
+              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
+              title="About Letter Griddle"
+            >
+              <Info size={18} />
+            </button>
             <button
               onClick={() => setShowStatsModal(true)}
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md relative"
@@ -477,6 +486,46 @@ const PancakeWordGame = () => {
           </div>
         </div>
       </div>
+
+      {/* NEW MISSION MODAL */}
+      {showMissionModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowMissionModal(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowMissionModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+              aria-label="Close"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="text-center mb-6">
+              <div className="text-6xl mb-3">🥞</div>
+              <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+                Letter Griddle Mission
+              </h2>
+            </div>
+            
+            <div className="space-y-4 text-center">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
+                <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
+                  At the Letter Griddle, we <span className="font-bold text-amber-800">serve up joy and creativity</span> through our sweet, pancake-inspired word game, sparking cozy connections with every puzzle, warming hearts worldwide.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-6 border-2 border-amber-200">
+                <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
+                  We're committed to <span className="font-bold text-amber-800">nourishing minds</span> with our game, building a sweeter, smarter world, one puzzle at a time.
+                </p>
+              </div>
+              
+              <div className="flex justify-center gap-3 mt-6 text-4xl">
+                🍯 🧈 🍓 🧇
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {showShareModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowShareModal(false)}>

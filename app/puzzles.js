@@ -203,6 +203,17 @@ const puzzles = [
       { word: "SWEATER", hint: "A knitted garment worn on the upper body, often made of wool", revealedIndex: 0 },
       { word: "CASHMERE", hint: "A luxuriously soft wool fabric from the Kashmir goat", revealedIndex: 5 }
     ]
+  },
+  {
+    category: "Friendship",
+    puzzleNumber: 66,
+    words: [
+      { word: "ALLY", hint: "A trusted friend who supports and stands by you", revealedIndex: 0 },
+      { word: "LOYAL", hint: "Faithful and devoted through thick and thin", revealedIndex: 2 },
+      { word: "TRUSTY", hint: "Reliable and dependable, someone you can count on", revealedIndex: 3 },
+      { word: "SUPPORT", hint: "To give help, encouragement, and assistance to someone", revealedIndex: 0 },
+      { word: "KINDNESS", hint: "The quality of being friendly, generous, and considerate", revealedIndex: 5 }
+    ]
   }
 ];
 

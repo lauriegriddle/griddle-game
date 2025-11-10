@@ -1,139 +1,236 @@
-// All available puzzles for Griddle
-export const puzzles = [
+// Letter Griddle - Daily Puzzles
+// Each puzzle rotates based on the day
+// Puzzle changes at 7 PM EST daily
+
+const puzzles = [
+  // EXISTING PUZZLES (48-58)
   {
     category: "Candy",
     puzzleNumber: 48,
     words: [
-      { word: "MINT", hint: "A refreshing flavor often paired with chocolate, popular in after-dinner treats", revealedIndex: 1 },
-      { word: "GUMMY", hint: "Chewy, jiggly candy that comes in shapes like bears, worms, and rings", revealedIndex: 2 },
-      { word: "BONBON", hint: "A small chocolate-covered confection, French for 'good good'", revealedIndex: 3 },
-      { word: "CARAMEL", hint: "A sweet, sticky golden treat made from heated sugar and cream", revealedIndex: 0 },
-      { word: "LOLLIPOP", hint: "A hard candy on a stick, perfect for licking and comes in swirls", revealedIndex: 5 }
+      { word: "MINT", hint: "A refreshing flavored candy often used after dinner", revealedIndex: 0 },
+      { word: "TAFFY", hint: "A chewy candy often sold at boardwalks and beaches", revealedIndex: 2 },
+      { word: "GUMMY", hint: "Soft, chewy candy often shaped like bears or worms", revealedIndex: 3 },
+      { word: "LOLLIPOP", hint: "Hard candy on a stick, a classic carnival treat", revealedIndex: 0 },
+      { word: "CHOCOLATE", hint: "Sweet treat made from cacao beans, enjoyed worldwide", revealedIndex: 5 }
     ]
   },
   {
     category: "Autumn",
     puzzleNumber: 49,
     words: [
-      { word: "COZY", hint: "A warm and comfortable feeling, perfect for snuggling with blankets and hot drinks", revealedIndex: 1 },
-      { word: "CRISP", hint: "Fresh and cool air that makes you want to wear a light jacket", revealedIndex: 2 },
-      { word: "LEAVES", hint: "They change colors and fall from trees during this season", revealedIndex: 3 },
-      { word: "FOLIAGE", hint: "The collective term for all the colorful leaves on trees", revealedIndex: 0 },
-      { word: "COLORFUL", hint: "Describing the brilliant reds, oranges, yellows, and browns of the season", revealedIndex: 5 }
+      { word: "LEAF", hint: "Tree foliage that changes color and falls in this season", revealedIndex: 0 },
+      { word: "APPLE", hint: "Round fruit often picked at orchards in fall", revealedIndex: 2 },
+      { word: "PUMPKIN", hint: "Large orange gourd carved for Halloween", revealedIndex: 3 },
+      { word: "HARVEST", hint: "The gathering of crops at the end of the growing season", revealedIndex: 0 },
+      { word: "SWEATER", hint: "Cozy knitted clothing worn when temperatures drop", revealedIndex: 5 }
     ]
   },
   {
     category: "Hiking",
     puzzleNumber: 50,
     words: [
-      { word: "TREK", hint: "A long, adventurous journey on foot through challenging terrain", revealedIndex: 1 },
-      { word: "TRAIL", hint: "A marked path through the wilderness for hikers to follow", revealedIndex: 2 },
-      { word: "BLAZER", hint: "Someone who marks a new path through unexplored territory", revealedIndex: 3 },
-      { word: "CLIMBER", hint: "A person who ascends steep mountains or rock faces", revealedIndex: 0 },
-      { word: "RAMBLING", hint: "Walking for pleasure in the countryside without a fixed route", revealedIndex: 5 }
+      { word: "BOOT", hint: "Sturdy footwear essential for trail walking", revealedIndex: 0 },
+      { word: "TRAIL", hint: "A marked path through nature for walking", revealedIndex: 2 },
+      { word: "SUMMIT", hint: "The highest point of a mountain", revealedIndex: 3 },
+      { word: "COMPASS", hint: "Navigation tool that points north", revealedIndex: 0 },
+      { word: "BACKPACK", hint: "Bag worn on shoulders to carry supplies", revealedIndex: 5 }
     ]
   },
   {
     category: "Dessert",
     puzzleNumber: 51,
     words: [
-      { word: "CAKE", hint: "A sweet baked treat with layers, frosting, and often candles for celebrations", revealedIndex: 1 },
-      { word: "FRUIT", hint: "Fresh, natural sweet treats like berries, melons, and apples served after dinner", revealedIndex: 2 },
-      { word: "COOKIE", hint: "Small, sweet baked treats that are crispy or chewy, perfect with milk", revealedIndex: 3 },
-      { word: "PUDDING", hint: "A creamy, smooth dessert that can be chocolate, vanilla, or butterscotch", revealedIndex: 0 },
-      { word: "SHERBET", hint: "A frozen fruity dessert, lighter and icier than ice cream", revealedIndex: 5 }
+      { word: "TART", hint: "A pastry with fruit filling and no top crust", revealedIndex: 0 },
+      { word: "FUDGE", hint: "Rich, creamy chocolate confection", revealedIndex: 2 },
+      { word: "SUNDAE", hint: "Ice cream topped with sauce, whipped cream, and a cherry", revealedIndex: 3 },
+      { word: "BROWNIE", hint: "Dense, chocolate baked square dessert", revealedIndex: 0 },
+      { word: "CHEESECAKE", hint: "Creamy dessert with a graham cracker crust", revealedIndex: 5 }
     ]
   },
   {
     category: "What's in the bag?",
     puzzleNumber: 52,
     words: [
-      { word: "BOOK", hint: "Something you read with pages, a cover, and a story or information inside", revealedIndex: 1 },
-      { word: "SNACK", hint: "A small bite of food to eat between meals when you're a bit hungry", revealedIndex: 2 },
-      { word: "TABLET", hint: "A portable touchscreen device for browsing the internet and using apps", revealedIndex: 3 },
-      { word: "LAPTOP", hint: "A portable computer you can open and close, perfect for work or school", revealedIndex: 0 },
-      { word: "NOTEBOOK", hint: "Blank pages bound together for writing notes, lists, or journaling", revealedIndex: 5 }
+      { word: "KEYS", hint: "Metal items that unlock doors and start cars", revealedIndex: 0 },
+      { word: "PHONE", hint: "Mobile device for calls, texts, and apps", revealedIndex: 2 },
+      { word: "WALLET", hint: "Folding case for money and cards", revealedIndex: 3 },
+      { word: "LIPSTICK", hint: "Cosmetic applied to add color to lips", revealedIndex: 0 },
+      { word: "SUNGLASSES", hint: "Eyewear that protects from bright light", revealedIndex: 5 }
     ]
   },
   {
     category: "Fruits",
     puzzleNumber: 53,
     words: [
-      { word: "PEAR", hint: "A sweet fruit with a rounded bottom and narrow top", revealedIndex: 0 },
-      { word: "APPLE", hint: "A crisp fruit that comes in red, green, and yellow varieties", revealedIndex: 2 },
-      { word: "CHERRY", hint: "A small, round stone fruit often used in pies and desserts", revealedIndex: 3 },
-      { word: "APRICOT", hint: "A small orange fruit with velvety skin and a single pit", revealedIndex: 0 },
-      { word: "HONEYDEW", hint: "A pale green melon with sweet, juicy flesh", revealedIndex: 5 }
+      { word: "PEAR", hint: "A sweet fruit with a narrow top and rounded bottom", revealedIndex: 0 },
+      { word: "MANGO", hint: "Tropical stone fruit with orange flesh", revealedIndex: 2 },
+      { word: "ORANGE", hint: "Citrus fruit known for its vitamin C content", revealedIndex: 3 },
+      { word: "APRICOT", hint: "Small orange stone fruit related to peaches", revealedIndex: 0 },
+      { word: "PINEAPPLE", hint: "Tropical fruit with spiky skin and sweet yellow interior", revealedIndex: 5 }
     ]
   },
   {
     category: "Animals",
     puzzleNumber: 54,
     words: [
-      { word: "BEAR", hint: "A large mammal with thick fur that hibernates in winter and loves honey", revealedIndex: 0 },
-      { word: "TIGER", hint: "A large striped cat native to Asia, known as the biggest of all wild cats", revealedIndex: 2 },
-      { word: "MONKEY", hint: "A primate with a long tail that swings through trees and eats bananas", revealedIndex: 3 },
-      { word: "CHEETAH", hint: "The fastest land animal, a spotted big cat that can run up to 70 mph", revealedIndex: 0 },
-      { word: "ELEPHANT", hint: "The largest land animal with a trunk, large ears, and exceptional memory", revealedIndex: 5 }
+      { word: "BEAR", hint: "Large mammal that hibernates in winter", revealedIndex: 0 },
+      { word: "TIGER", hint: "Large striped cat native to Asia", revealedIndex: 2 },
+      { word: "GIRAFFE", hint: "Tallest land animal with a long neck", revealedIndex: 3 },
+      { word: "ELEPHANT", hint: "Largest land mammal with a trunk", revealedIndex: 0 },
+      { word: "ALLIGATOR", hint: "Large reptile found in swamps and rivers", revealedIndex: 5 }
     ]
   },
   {
     category: "Occupations",
     puzzleNumber: 55,
     words: [
-      { word: "CHEF", hint: "A professional cook who manages a kitchen and creates culinary dishes", revealedIndex: 0 },
-      { word: "NURSE", hint: "A healthcare professional who cares for patients in hospitals and clinics", revealedIndex: 2 },
-      { word: "DOCTOR", hint: "A medical professional who diagnoses and treats illnesses and injuries", revealedIndex: 3 },
-      { word: "REALTOR", hint: "A licensed professional who helps people buy, sell, or rent properties", revealedIndex: 0 },
-      { word: "BOTANIST", hint: "A scientist who studies plants, their structure, properties, and biochemical processes", revealedIndex: 5 }
+      { word: "CHEF", hint: "Professional who prepares food in a restaurant", revealedIndex: 0 },
+      { word: "NURSE", hint: "Healthcare worker who cares for patients", revealedIndex: 2 },
+      { word: "TEACHER", hint: "Educator who instructs students in a classroom", revealedIndex: 3 },
+      { word: "ENGINEER", hint: "Professional who designs and builds systems", revealedIndex: 0 },
+      { word: "ARCHITECT", hint: "Designer of buildings and structures", revealedIndex: 5 }
     ]
   },
   {
     category: "Sports",
     puzzleNumber: 56,
     words: [
-      { word: "GOLF", hint: "A precision sport played with clubs and a small white ball on a course", revealedIndex: 0 },
-      { word: "RUGBY", hint: "A full-contact team sport played with an oval ball", revealedIndex: 2 },
-      { word: "BOXING", hint: "A combat sport where two athletes fight with gloved fists in a ring", revealedIndex: 3 },
-      { word: "CYCLING", hint: "A sport involving racing or riding bicycles", revealedIndex: 0 },
-      { word: "LACROSSE", hint: "A team sport played with a stick with a netted pocket for catching and throwing a ball", revealedIndex: 5 }
+      { word: "GOLF", hint: "Sport played with clubs and a small white ball", revealedIndex: 0 },
+      { word: "RUGBY", hint: "Contact team sport played with an oval ball", revealedIndex: 2 },
+      { word: "TENNIS", hint: "Racquet sport played on a court with a net", revealedIndex: 3 },
+      { word: "SWIMMING", hint: "Water sport involving moving through water", revealedIndex: 0 },
+      { word: "BASKETBALL", hint: "Team sport where players shoot a ball through a hoop", revealedIndex: 5 }
     ]
   },
   {
     category: "U.S. States",
     puzzleNumber: 57,
     words: [
-      { word: "IOWA", hint: "A Midwestern state known for corn production and hosting the first presidential caucuses", revealedIndex: 0 },
-      { word: "TEXAS", hint: "The Lone Star State, the second largest state by area and population", revealedIndex: 2 },
-      { word: "HAWAII", hint: "An island state in the Pacific Ocean, the 50th state to join the union", revealedIndex: 3 },
-      { word: "ARIZONA", hint: "Home to the Grand Canyon and known for its desert climate", revealedIndex: 0 },
-      { word: "COLORADO", hint: "The Centennial State, famous for the Rocky Mountains and skiing", revealedIndex: 5 }
+      { word: "UTAH", hint: "Western state known for its national parks", revealedIndex: 0 },
+      { word: "TEXAS", hint: "The Lone Star State, second largest by area", revealedIndex: 2 },
+      { word: "OREGON", hint: "Pacific Northwest state known for its forests", revealedIndex: 3 },
+      { word: "GEORGIA", hint: "Southern state known as the Peach State", revealedIndex: 0 },
+      { word: "CALIFORNIA", hint: "Most populous state on the West Coast", revealedIndex: 5 }
     ]
   },
   {
     category: "School Days",
     puzzleNumber: 58,
     words: [
-      { word: "MATH", hint: "Subject involving numbers, equations, and problem-solving", revealedIndex: 0 },
-      { word: "LUNCH", hint: "Midday meal break at school", revealedIndex: 2 },
-      { word: "RECESS", hint: "Outdoor playtime break between classes", revealedIndex: 3 },
-      { word: "SCIENCE", hint: "Subject exploring how the world works through experiments", revealedIndex: 0 },
-      { word: "NOTEBOOK", hint: "Lined book for writing notes and completing assignments", revealedIndex: 5 }
+      { word: "DESK", hint: "Furniture where students sit and work", revealedIndex: 0 },
+      { word: "LUNCH", hint: "Midday meal eaten in the cafeteria", revealedIndex: 2 },
+      { word: "RECESS", hint: "Break time for outdoor play", revealedIndex: 3 },
+      { word: "SCIENCE", hint: "Subject exploring how the world works", revealedIndex: 0 },
+      { word: "TEXTBOOK", hint: "Educational book used for studying", revealedIndex: 5 }
+    ]
+  },
+
+  // NEW PUZZLES (59-65)
+  {
+    category: "Trees and Shrubs",
+    puzzleNumber: 59,
+    words: [
+      { word: "PALM", hint: "Tropical tree with large fan-shaped or feathery leaves", revealedIndex: 0 },
+      { word: "MAPLE", hint: "Deciduous tree known for its colorful fall foliage and sweet sap", revealedIndex: 2 },
+      { word: "BANYAN", hint: "Fig tree with aerial roots that grow down to form additional trunks", revealedIndex: 3 },
+      { word: "JASMINE", hint: "Fragrant flowering shrub often used in perfumes and teas", revealedIndex: 0 },
+      { word: "CINNAMON", hint: "Aromatic evergreen tree whose inner bark is used as a spice", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "Movie Titles",
+    puzzleNumber: 60,
+    words: [
+      { word: "JAWS", hint: "1975 Spielberg thriller about a great white shark terrorizing a beach town", revealedIndex: 0 },
+      { word: "ALIEN", hint: "1979 sci-fi horror classic with Sigourney Weaver fighting extraterrestrials", revealedIndex: 2 },
+      { word: "FROZEN", hint: "Disney animated film featuring Elsa, Anna, and the song 'Let It Go'", revealedIndex: 3 },
+      { word: "TITANIC", hint: "1997 epic romance about the doomed ocean liner starring DiCaprio and Winslet", revealedIndex: 0 },
+      { word: "INCEPTION", hint: "Christopher Nolan mind-bending thriller about dreams within dreams", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "Colors",
+    puzzleNumber: 61,
+    words: [
+      { word: "BLUE", hint: "The color of a clear sky on a sunny day", revealedIndex: 0 },
+      { word: "BEIGE", hint: "A neutral sandy or tan shade often used in interior design", revealedIndex: 2 },
+      { word: "INDIGO", hint: "A deep purple-blue color between blue and violet in the rainbow", revealedIndex: 3 },
+      { word: "EMERALD", hint: "A rich green color named after a precious gemstone", revealedIndex: 0 },
+      { word: "BURGUNDY", hint: "A deep reddish-purple wine color named after a French region", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "International Foods",
+    puzzleNumber: 62,
+    words: [
+      { word: "TACO", hint: "A Mexican dish with a folded tortilla and various fillings", revealedIndex: 0 },
+      { word: "SUSHI", hint: "Japanese dish of vinegared rice with raw fish or vegetables", revealedIndex: 2 },
+      { word: "PAELLA", hint: "A Spanish rice dish from Valencia with seafood and saffron", revealedIndex: 3 },
+      { word: "RAVIOLI", hint: "Italian pasta pillows filled with cheese, meat, or vegetables", revealedIndex: 0 },
+      { word: "CROISSANT", hint: "A flaky, buttery French pastry shaped like a crescent", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "Games",
+    puzzleNumber: 63,
+    words: [
+      { word: "RISK", hint: "Strategic board game of world domination with armies and dice", revealedIndex: 0 },
+      { word: "CHESS", hint: "Ancient strategy game with kings, queens, and checkmate", revealedIndex: 2 },
+      { word: "DOMINO", hint: "Tile game with numbered dots played by matching ends", revealedIndex: 3 },
+      { word: "YAHTZEE", hint: "Dice game where players try to score combinations and get five of a kind", revealedIndex: 0 },
+      { word: "SCRABBLE", hint: "Word-building board game where letter tiles score points on a grid", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "Cities Around the World",
+    puzzleNumber: 64,
+    words: [
+      { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum", revealedIndex: 0 },
+      { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum", revealedIndex: 2 },
+      { word: "LONDON", hint: "UK capital on the Thames River with Big Ben and Buckingham Palace", revealedIndex: 3 },
+      { word: "TORONTO", hint: "Canada's largest city, known for the CN Tower and multicultural neighborhoods", revealedIndex: 0 },
+      { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudí's architecture and La Rambla", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "Cool Weather Clothing",
+    puzzleNumber: 65,
+    words: [
+      { word: "COAT", hint: "A long outer garment worn over other clothes for warmth", revealedIndex: 0 },
+      { word: "SCARF", hint: "A piece of fabric worn around the neck for warmth or style", revealedIndex: 2 },
+      { word: "JACKET", hint: "A shorter outer garment that covers the upper body and arms", revealedIndex: 3 },
+      { word: "SWEATER", hint: "A knitted garment worn on the upper body, often made of wool", revealedIndex: 0 },
+      { word: "CASHMERE", hint: "A luxuriously soft wool fabric from the Kashmir goat", revealedIndex: 5 }
     ]
   }
 ];
 
-// Get today's puzzle based on the current date
-export const getTodaysPuzzle = () => {
-  // Launch date - November 2, 2025 (today!)
-  const launchDate = new Date('2025-11-02');
-  const today = new Date();
+// Function to get today's puzzle based on EST time
+export function getTodaysPuzzle() {
+  // Get current time in EST
+  const now = new Date();
+  const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
   
-  // Calculate how many days have passed since launch
-  const daysSinceLaunch = Math.floor((today - launchDate) / (1000 * 60 * 60 * 24));
+  // Puzzle changes at 7 PM EST
+  const hour = estTime.getHours();
+  const puzzleDate = new Date(estTime);
   
-  // Get puzzle index (cycles through all 5 puzzles)
-  const puzzleIndex = daysSinceLaunch % puzzles.length;
+  // If before 7 PM, use previous day's puzzle; if after 7 PM, use current day's puzzle
+if (hour < 19) {
+  puzzleDate.setDate(puzzleDate.getDate() - 1);
+} else {
+  puzzleDate.setDate(puzzleDate.getDate());
+}
+  
+  // Calculate days since epoch (Jan 1, 1970) to determine puzzle index
+  const epoch = new Date('1970-01-01');
+  const daysSinceEpoch = Math.floor((puzzleDate - epoch) / (1000 * 60 * 60 * 24));
+  
+  // Rotate through puzzles (now 18 total puzzles)
+  const puzzleIndex = daysSinceEpoch % puzzles.length;
   
   return puzzles[puzzleIndex];
-};
+}
+
+export default puzzles;

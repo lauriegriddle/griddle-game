@@ -236,8 +236,19 @@ const puzzles = [
       { word: "COMPANY", hint: "Stephen Sondheim musical about a bachelor and his married friends in New York", revealedIndex: 0 },
       { word: "HAMILTON", hint: "Lin-Manuel Miranda's hip-hop musical about a founding father", revealedIndex: 5 }
     ]
-}
-];
+  },
+  {
+    category: "Football",
+    puzzleNumber: 69,
+    words: [
+      { word: "DOWN", hint: "A play in football; teams get four tries to advance 10 yards", revealedIndex: 0 },
+      { word: "BLITZ", hint: "A defensive play where extra players rush the quarterback", revealedIndex: 2 },
+      { word: "CENTER", hint: "The offensive lineman who snaps the ball to the quarterback", revealedIndex: 3 },
+      { word: "DEFENSE", hint: "The team trying to stop the other team from scoring", revealedIndex: 0 },
+      { word: "GRIDIRON", hint: "Another name for a football field, named for its yard lines", revealedIndex: 5 }
+    ]
+  }
+  ];
 
 // Function to get today's puzzle based on EST time
 export function getTodaysPuzzle() {

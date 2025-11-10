@@ -214,7 +214,18 @@ const puzzles = [
       { word: "SUPPORT", hint: "To give help, encouragement, and assistance to someone", revealedIndex: 0 },
       { word: "KINDNESS", hint: "The quality of being friendly, generous, and considerate", revealedIndex: 5 }
     ]
-  }
+  },
+  {
+    category: "Art Projects",
+    puzzleNumber: 67,
+    words: [
+      { word: "LINE", hint: "A mark made by a pencil, pen, or brush across a surface", revealedIndex: 0 },
+      { word: "SHADE", hint: "The use of darkness to create depth and dimension in artwork", revealedIndex: 2 },
+      { word: "CANVAS", hint: "A piece of cloth stretched over a frame for painting", revealedIndex: 3 },
+      { word: "DRAWING", hint: "The art of creating images with pencils, pens, or charcoal", revealedIndex: 0 },
+      { word: "COLLAGE", hint: "Artwork made by gluing paper, photos, and other materials together", revealedIndex: 5 }
+    ]
+}
 ];
 
 // Function to get today's puzzle based on EST time

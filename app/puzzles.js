@@ -225,6 +225,17 @@ const puzzles = [
       { word: "DRAWING", hint: "The art of creating images with pencils, pens, or charcoal", revealedIndex: 0 },
       { word: "COLLAGE", hint: "Artwork made by gluing paper, photos, and other materials together", revealedIndex: 5 }
     ]
+  },
+  {
+    category: "Musicals",
+    puzzleNumber: 68,
+    words: [
+      { word: "RENT", hint: "Jonathan Larson's rock musical about struggling artists in New York City", revealedIndex: 0 },
+      { word: "EVITA", hint: "Andrew Lloyd Webber musical about Argentina's first lady Eva Perón", revealedIndex: 2 },
+      { word: "WICKED", hint: "Musical telling the untold story of the witches of Oz", revealedIndex: 3 },
+      { word: "COMPANY", hint: "Stephen Sondheim musical about a bachelor and his married friends in New York", revealedIndex: 0 },
+      { word: "HAMILTON", hint: "Lin-Manuel Miranda's hip-hop musical about a founding father", revealedIndex: 5 }
+    ]
 }
 ];
 

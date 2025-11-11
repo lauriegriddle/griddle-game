@@ -263,13 +263,14 @@ export function getTodaysPuzzle() {
   // Puzzle drops at 7 PM and stays live until next 7 PM
   // If before 7 PM today, show yesterday's puzzle (which dropped at 7 PM yesterday)
   // If after 7 PM today, show today's puzzle (which just dropped)
-  if (hour >= 19) {
-    // After 7 PM - use today's date (puzzle just dropped)
-    puzzleDate.setDate(puzzleDate.getDate());
-  } else {
+  // Puzzle drops at 7 PM and stays live until next 7 PM (24 hours)
+  // If before 7 PM today, show yesterday's puzzle (which dropped at 7 PM yesterday)
+  // If after 7 PM today, show today's puzzle (which just dropped)
+  if (hour < 19) {
     // Before 7 PM - use yesterday's date (still showing yesterday's 7 PM puzzle)
     puzzleDate.setDate(puzzleDate.getDate() - 1);
   }
+  // After 7 PM - puzzleDate stays as current date (today's puzzle just dropped)
   
   // Calculate days since epoch (Jan 1, 1970) to determine puzzle index
   const epoch = new Date('1970-01-01');

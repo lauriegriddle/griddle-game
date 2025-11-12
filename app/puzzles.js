@@ -269,8 +269,12 @@ export function getTodaysPuzzle() {
   if (hour < 19) {
     // Before 7 PM - use yesterday's date (still showing yesterday's 7 PM puzzle)
     puzzleDate.setDate(puzzleDate.getDate() - 1);
+    puzzleDate.setHours(19, 0, 0, 0);
   }
-  // After 7 PM - puzzleDate stays as current date (today's puzzle just dropped)
+    // After 7 PM - puzzleDate stays as current date (today's puzzle just dropped)
+   else {
+     puzzleDate.setHours(19, 0, 0, 0);
+   }
   
   // Calculate days since epoch (Jan 1, 1970) to determine puzzle index
   const epoch = new Date('1970-01-01');

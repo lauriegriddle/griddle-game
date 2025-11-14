@@ -353,6 +353,13 @@ const PancakeWordGame = () => {
             Today's Special
           </h1>
           <div className="flex items-center gap-2">
+
+            {/* Elevator Pitch */}
+      <div className="text-center px-4 mb-2">
+        <p className="text-sm md:text-base text-amber-800 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
+          Letter Griddle is a cozy word game that sometimes teaches but it's always just fun! 🥞
+        </p>
+      </div>
             <div className="text-xl">🥞</div>
             <button
               onClick={() => setShowMissionModal(true)}

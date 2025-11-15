@@ -403,11 +403,11 @@ const PancakeWordGame = () => {
                 </p>
                 <p className="text-xs text-amber-700 leading-relaxed text-center">
                   {(() => {
-                    const randomWord = gameData.words[Math.floor(Math.random() * 5)];
+                    const lastWord = gameData.words[4];
                     return (
                       <>
-                        {randomWord.hint}
-                        <span className="block text-amber-600 font-semibold mt-1">- {randomWord.word}</span>
+                        {lastWord.hint}
+                        <span className="block text-amber-600 font-semibold mt-1">- {lastWord.word}</span>
                       </>
                     );
                   })()}

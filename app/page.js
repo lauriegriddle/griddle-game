@@ -396,6 +396,23 @@ const PancakeWordGame = () => {
               <p className="text-xs text-amber-700 mb-1">Time: {formatTime(completionTime)}</p>
               {/* NEW: Countdown Timer */}
               <p className="text-xs text-amber-600 mb-1.5">⏰ Next puzzle in: {timeUntilNext}</p>
+              {/* NEW: Did You Know */}
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-3 mb-2 border-2 border-amber-300">
+                <p className="text-sm font-bold text-amber-800 mb-1 flex items-center justify-center gap-1">
+                  <span className="text-lg">🍯</span> Did You Know?
+                </p>
+                <p className="text-xs text-amber-700 leading-relaxed text-center">
+                  {(() => {
+                    const randomWord = gameData.words[Math.floor(Math.random() * 5)];
+                    return (
+                      <>
+                        {randomWord.hint}
+                        <span className="block text-amber-600 font-semibold mt-1">- {randomWord.word}</span>
+                      </>
+                    );
+                  })()}
+                </p>
+              </div>
               <button
                 onClick={() => setShowShareModal(true)}
                 className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg transition-all flex items-center gap-1 mx-auto"

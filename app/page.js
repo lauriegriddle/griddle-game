@@ -529,6 +529,7 @@ const PancakeWordGame = () => {
               {/* Instructions */}
               <div className="mt-2 text-center text-[10px] text-amber-700 bg-amber-50 rounded-lg p-1.5">
                 <p className="text-base font-semibold">🥞 Click a letter, then click an empty spot to place it</p>
+                <p className="text-sm text-amber-600 mt-0.5">💡 Hints reveal fun facts - give them a try!</p>
               </div>
             </div>
           </div>

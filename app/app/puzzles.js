@@ -279,7 +279,7 @@ export function getTodaysPuzzle() {
   const epoch = new Date('1970-01-01');
   const daysSinceEpoch = Math.floor((puzzleDate - epoch) / (1000 * 60 * 60 * 24));
   
-  // Rotate through puzzles (now 18 total puzzles)
+  // Rotate through puzzles (NOW 22 TOTAL PUZZLES - ACTIVE FILE!)
   const puzzleIndex = (daysSinceEpoch) % puzzles.length;
   
   return puzzles[puzzleIndex];

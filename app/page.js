@@ -14,14 +14,6 @@ const PancakeWordGame = () => {
     { id: 'butter_pat', name: 'Butter Pat', icon: '🧈', description: 'Complete under 3 minutes', requirement: (stats) => stats.fastestTime && stats.fastestTime < 180 },
   ];
 
-  // NEW: Progress encouragement messages
-  const progressMessages = {
-    1: { text: "Great start!", emoji: "🍯" },
-    2: { text: "You're cooking!", emoji: "🥞" },
-    3: { text: "You're on a roll!", emoji: "🧈" },
-    4: { text: "Almost there!", emoji: "🍓" }
-  };
-
   const initializeWords = () => {
     return gameData.words.map(w => {
       const letters = Array(w.word.length).fill('');
@@ -51,9 +43,6 @@ const PancakeWordGame = () => {
   const [completionTime, setCompletionTime] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [newAchievements, setNewAchievements] = useState([]);
-  
-  // NEW: State for progress encouragement toast
-  const [progressToast, setProgressToast] = useState(null);
 
   const [stats, setStats] = useState(() => {
     try {
@@ -129,7 +118,6 @@ const PancakeWordGame = () => {
     }
   }, [allComplete, completionTime, startTime, stats]);
 
-  // UPDATED: checkWordComplete with progress encouragement
   const checkWordComplete = (wordIdx, letters) => {
     const word = gameData.words[wordIdx].word;
     const filledWord = letters.join('');
@@ -138,17 +126,6 @@ const PancakeWordGame = () => {
       setCompletedWords(prev => {
         const newCompleted = [...prev];
         newCompleted[wordIdx] = true;
-        
-        // NEW: Count how many words are now complete
-        const completedCount = newCompleted.filter(c => c).length;
-        
-        // NEW: Show progress encouragement (but not on 5th word - that has its own celebration)
-        if (completedCount < 5 && progressMessages[completedCount]) {
-          const message = progressMessages[completedCount];
-          setProgressToast(message);
-          setTimeout(() => setProgressToast(null), 2500);
-        }
-        
         return newCompleted;
       });
       
@@ -314,16 +291,6 @@ const PancakeWordGame = () => {
           </div>
         </div>
       )}
-
-      {/* NEW: Progress Encouragement Toast */}
-      {progressToast && (
-        <div className="fixed top-32 left-1/2 transform -translate-x-1/2 z-50 animate-fade-in-out">
-          <div className="bg-gradient-to-r from-yellow-400 to-amber-400 text-amber-900 px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 font-bold">
-            <span className="text-2xl">{progressToast.emoji}</span>
-            <span className="text-lg">{progressToast.text}</span>
-          </div>
-        </div>
-      )}
       
       <style>{`
         @keyframes fall {
@@ -332,29 +299,6 @@ const PancakeWordGame = () => {
             opacity: 0;
           }
         }
-        
-        @keyframes fade-in-out {
-          0% {
-            opacity: 0;
-            transform: translate(-50%, -20px);
-          }
-          10% {
-            opacity: 1;
-            transform: translate(-50%, 0);
-          }
-          90% {
-            opacity: 1;
-            transform: translate(-50%, 0);
-          }
-          100% {
-            opacity: 0;
-            transform: translate(-50%, -20px);
-          }
-        }
-        
-        .animate-fade-in-out {
-          animation: fade-in-out 2.5s ease-in-out;
-        }
       `}</style>
 
       <div className="max-w-5xl mx-auto relative">
@@ -362,7 +306,7 @@ const PancakeWordGame = () => {
         <div className="flex justify-between items-center mb-1.5 px-1">
           <div className="text-xl invisible">🥞🥞</div>
           <h1 className="text-lg md:text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-            Today's Special
+            Welcome back for Today's Special
           </h1>
           <div className="flex items-center gap-2">
             <div className="text-xl">🥞</div>
@@ -387,6 +331,11 @@ const PancakeWordGame = () => {
             </button>
           </div>
         </div>
+
+        {/* Tagline */}
+        <p className="text-sm text-amber-700 italic text-center mb-2" style={{fontFamily: 'Georgia, serif'}}>
+          Letter Griddle is a cozy word game that sometimes teaches but it's always just fun! 🥞
+        </p>
 
         <div className="bg-white rounded-xl shadow-2xl p-2 border-2 border-amber-200">
           {/* Thin Category */}
@@ -423,7 +372,7 @@ const PancakeWordGame = () => {
                       {isCelebrating && (
                         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
                           <div className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-2xl animate-bounce">
-                            🍯 Delicious! 🍯
+                            {wordIdx === 0 ? '🎉 Great start! 🎉 🍯 Delicious! 🍯' : wordIdx === 1 ? '🔥 You\'re cooking! 🔥 🍯 Delicious! 🍯' : wordIdx === 2 ? '⭐ You\'re on a roll! ⭐ 🍯 Delicious! 🍯' : wordIdx === 3 ? '🍓 Almost there! 🍓 🍯 Delicious! 🍯' : '⭐ Amazing! ⭐ 🍯 Delicious! 🍯'}
                           </div>
                         </div>
                       )}
@@ -528,9 +477,11 @@ const PancakeWordGame = () => {
                 )}
               </div>
               
-              {/* Instructions */}
+              {/* Instructions - ALL THREE LINES */}
               <div className="mt-2 text-center text-[10px] text-amber-700 bg-amber-50 rounded-lg p-1.5">
                 <p className="text-base font-semibold">🥞 Click a letter, then click an empty spot to place it</p>
+                <p className="text-sm text-amber-600 mt-0.5">💡 Hints reveal fun facts - give them a try!</p>
+                <p className="text-sm text-amber-600 mt-0.5">☕ No rush, enjoy the puzzle</p>
               </div>
             </div>
           </div>

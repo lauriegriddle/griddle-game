@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info } from 'lucide-react';
+import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, HelpCircle  } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
 
 const PancakeWordGame = () => {
@@ -38,6 +38,7 @@ const PancakeWordGame = () => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
   const [showMissionModal, setShowMissionModal] = useState(false);
+  const [showHowToPlayModal, setShowHowToPlayModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [startTime] = useState(Date.now());
   const [completionTime, setCompletionTime] = useState(null);
@@ -311,6 +312,13 @@ const PancakeWordGame = () => {
           <div className="flex items-center gap-2">
             <div className="text-xl">🥞</div>
             <button
+              onClick={() => setShowHowToPlayModal(true)}
+              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
+              title="How to Play"
+            >
+              <HelpCircle size={18} />
+            </button>
+            <button
               onClick={() => setShowMissionModal(true)}
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
               title="About Letter Griddle"
@@ -533,6 +541,68 @@ const PancakeWordGame = () => {
               <div className="flex justify-center gap-3 mt-6 text-4xl">
                 🍯 🧈 🍓 🧇
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* How to Play Modal */}
+      {showHowToPlayModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowHowToPlayModal(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowHowToPlayModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+              aria-label="Close"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="text-center mb-6">
+              <div className="text-6xl mb-3">🥞</div>
+              <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+                How to Play
+              </h2>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
+                <h3 className="font-bold text-amber-800 mb-2">🥞 Goal</h3>
+                <p className="text-gray-700">Fill in all 5 words using the available letters!</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
+                <h3 className="font-bold text-amber-800 mb-2">🍯 How to Play</h3>
+                <ol className="text-gray-700 space-y-2 list-decimal list-inside">
+                  <li>Click a letter from the griddle (letter tray)</li>
+                  <li>Click an empty spot in a word to place it</li>
+                  <li>Blue letters are already revealed to help you!</li>
+                  <li>Wrong letter? Click it to remove and try again</li>
+                </ol>
+              </div>
+              
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
+                <h3 className="font-bold text-amber-800 mb-2">🧈 Tips</h3>
+                <ul className="text-gray-700 space-y-2">
+                  <li>• Use the <strong>Shuffle</strong> button to rearrange letters</li>
+                  <li>• Click <strong>Hint</strong> for clues about each word</li>
+                  <li>• New puzzle every day at 7 PM EST!</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
+                <h3 className="font-bold text-amber-800 mb-2">☕ Enjoy the Puzzle!</h3>
+                <p className="text-gray-700">Take your time, have fun, and enjoy your favorite daily word game with a cozy cup of coffee! ☕🥞</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
+                <h3 className="font-bold text-amber-800 mb-2">📧 Questions or Feedback?</h3>
+                <p className="text-gray-700">We'd love to hear from you! Email us at <a href="mailto:lettergriddle@gmail.com" className="text-amber-600 hover:text-amber-700 font-semibold underline">lettergriddle@gmail.com</a></p>
+              </div>
+            </div>
+            
+            <div className="flex justify-center gap-3 mt-6 text-4xl">
+              🍯 🧈 🍓 🧇
             </div>
           </div>
         </div>

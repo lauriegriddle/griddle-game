@@ -92,7 +92,7 @@ const PancakeWordGame = () => {
       const timeInSeconds = Math.floor((Date.now() - startTime) / 1000);
       setCompletionTime(timeInSeconds);
       setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 6000);
+      setTimeout(() => setShowConfetti(false), 10000);
 
       const today = new Date().toDateString();
       const yesterday = new Date(Date.now() - 86400000).toDateString();
@@ -270,7 +270,7 @@ const PancakeWordGame = () => {
                 style={{
                   left: `${left}%`,
                   top: '-50px',
-                  animation: `fall 3s ease-in ${(i % 10) * 0.1}s forwards`
+                  animation: `fall 6s ease-in ${(i % 10) * 0.1}s forwards`
                 }}
               >
                 {emoji}
@@ -347,6 +347,16 @@ const PancakeWordGame = () => {
             <div className="bg-gradient-to-r from-yellow-100 to-amber-100 border-2 border-amber-400 rounded-lg p-2 mb-2 text-center shadow-lg">
               <p className="text-base font-bold text-amber-800 mb-0.5">🎉 Complete! 🎉</p>
               <p className="text-xs text-amber-700 mb-1.5">Time: {formatTime(completionTime)}</p>
+              {/* Did You Know */}
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-3 mb-2 border-2 border-amber-300">
+                <p className="text-sm font-bold text-amber-800 mb-1 flex items-center justify-center gap-1">
+                  <span className="text-lg">🍯</span> Did You Know?
+                </p>
+                <p className="text-xs text-amber-700 leading-relaxed text-center">
+                  {gameData.words[gameData.words.length - 1].hint}
+                  <span className="block text-amber-600 font-semibold mt-1">- {gameData.words[gameData.words.length - 1].word}</span>
+                </p>
+              </div>
               <button
                 onClick={() => setShowShareModal(true)}
                 className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg transition-all flex items-center gap-1 mx-auto"

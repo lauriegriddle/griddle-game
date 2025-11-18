@@ -14,6 +14,14 @@ const PancakeWordGame = () => {
     { id: 'butter_pat', name: 'Butter Pat', icon: '🧈', description: 'Complete under 3 minutes', requirement: (stats) => stats.fastestTime && stats.fastestTime < 180 },
   ];
 
+  // NEW: Progress encouragement messages
+  const progressMessages = {
+    1: { text: "Great start!", emoji: "🍯" },
+    2: { text: "You're cooking!", emoji: "🥞" },
+    3: { text: "You're on a roll!", emoji: "🧈" },
+    4: { text: "Almost there!", emoji: "🍓" }
+  };
+
   const initializeWords = () => {
     return gameData.words.map(w => {
       const letters = Array(w.word.length).fill('');
@@ -43,7 +51,9 @@ const PancakeWordGame = () => {
   const [completionTime, setCompletionTime] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [newAchievements, setNewAchievements] = useState([]);
-  const [timeUntilNext, setTimeUntilNext] = useState(''); // NEW: Countdown timer state
+  
+  // NEW: State for progress encouragement toast
+  const [progressToast, setProgressToast] = useState(null);
 
   const [stats, setStats] = useState(() => {
     try {
@@ -69,49 +79,6 @@ const PancakeWordGame = () => {
   });
 
   const allComplete = completedWords.every(c => c);
-
-  // NEW: Function to calculate time until next puzzle (7 PM EST)
-  const calculateTimeUntilNext = () => {
-    const now = new Date();
-    const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-    
-    // Get today's 7 PM EST
-    const nextPuzzleTime = new Date(estTime);
-    nextPuzzleTime.setHours(19, 0, 0, 0); // 7 PM
-    
-    // If it's already past 7 PM, set to tomorrow's 7 PM
-    if (estTime.getHours() >= 19) {
-      nextPuzzleTime.setDate(nextPuzzleTime.getDate() + 1);
-    }
-    
-    // Calculate difference in milliseconds
-    const diff = nextPuzzleTime - estTime;
-    
-    // Convert to hours and minutes
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    
-    if (hours > 0) {
-      return `${hours}h ${minutes}m`;
-    } else {
-      return `${minutes}m`;
-    }
-  };
-
-  // NEW: Update countdown timer every minute
-  useEffect(() => {
-    if (allComplete) {
-      // Update immediately
-      setTimeUntilNext(calculateTimeUntilNext());
-      
-      // Then update every minute
-      const interval = setInterval(() => {
-        setTimeUntilNext(calculateTimeUntilNext());
-      }, 60000); // Update every 60 seconds
-      
-      return () => clearInterval(interval);
-    }
-  }, [allComplete]);
 
   const checkAchievements = (newStats) => {
     const newlyUnlocked = [];
@@ -162,6 +129,7 @@ const PancakeWordGame = () => {
     }
   }, [allComplete, completionTime, startTime, stats]);
 
+  // UPDATED: checkWordComplete with progress encouragement
   const checkWordComplete = (wordIdx, letters) => {
     const word = gameData.words[wordIdx].word;
     const filledWord = letters.join('');
@@ -170,6 +138,17 @@ const PancakeWordGame = () => {
       setCompletedWords(prev => {
         const newCompleted = [...prev];
         newCompleted[wordIdx] = true;
+        
+        // NEW: Count how many words are now complete
+        const completedCount = newCompleted.filter(c => c).length;
+        
+        // NEW: Show progress encouragement (but not on 5th word - that has its own celebration)
+        if (completedCount < 5 && progressMessages[completedCount]) {
+          const message = progressMessages[completedCount];
+          setProgressToast(message);
+          setTimeout(() => setProgressToast(null), 2500);
+        }
+        
         return newCompleted;
       });
       
@@ -276,7 +255,7 @@ const PancakeWordGame = () => {
     const seconds = completionTime % 60;
     const timeStr = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
 
-    const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\n⏰ New puzzle daily at 7 PM EST\n💬 Share with friends to play together daily!\nPlay at www.lettergriddle.com`;
+    const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at www.lettergriddle.com`;
 
     navigator.clipboard.writeText(shareText).then(() => {
       setShareCopied(true);
@@ -335,6 +314,16 @@ const PancakeWordGame = () => {
           </div>
         </div>
       )}
+
+      {/* NEW: Progress Encouragement Toast */}
+      {progressToast && (
+        <div className="fixed top-32 left-1/2 transform -translate-x-1/2 z-50 animate-fade-in-out">
+          <div className="bg-gradient-to-r from-yellow-400 to-amber-400 text-amber-900 px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 font-bold">
+            <span className="text-2xl">{progressToast.emoji}</span>
+            <span className="text-lg">{progressToast.text}</span>
+          </div>
+        </div>
+      )}
       
       <style>{`
         @keyframes fall {
@@ -342,6 +331,29 @@ const PancakeWordGame = () => {
             transform: translateY(100vh) rotate(360deg);
             opacity: 0;
           }
+        }
+        
+        @keyframes fade-in-out {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -20px);
+          }
+          10% {
+            opacity: 1;
+            transform: translate(-50%, 0);
+          }
+          90% {
+            opacity: 1;
+            transform: translate(-50%, 0);
+          }
+          100% {
+            opacity: 0;
+            transform: translate(-50%, -20px);
+          }
+        }
+        
+        .animate-fade-in-out {
+          animation: fade-in-out 2.5s ease-in-out;
         }
       `}</style>
 
@@ -353,13 +365,6 @@ const PancakeWordGame = () => {
             Today's Special
           </h1>
           <div className="flex items-center gap-2">
-
-            {/* Elevator Pitch */}
-      <div className="text-center px-4 mb-2">
-        <p className="text-sm md:text-base text-amber-800 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
-          Letter Griddle is a cozy word game that sometimes teaches but it's always just fun! 🥞
-        </p>
-      </div>
             <div className="text-xl">🥞</div>
             <button
               onClick={() => setShowMissionModal(true)}
@@ -389,30 +394,10 @@ const PancakeWordGame = () => {
             <p className="text-center text-xs md:text-sm font-bold" style={{fontFamily: 'Georgia, serif'}}>{gameData.category}</p>
           </div>
           
-          {/* UPDATED COMPLETION BANNER WITH TIMER */}
           {allComplete && (
             <div className="bg-gradient-to-r from-yellow-100 to-amber-100 border-2 border-amber-400 rounded-lg p-2 mb-2 text-center shadow-lg">
               <p className="text-base font-bold text-amber-800 mb-0.5">🎉 Complete! 🎉</p>
-              <p className="text-xs text-amber-700 mb-1">Time: {formatTime(completionTime)}</p>
-              {/* NEW: Countdown Timer */}
-              <p className="text-xs text-amber-600 mb-1.5">⏰ Next puzzle in: {timeUntilNext}</p>
-              {/* NEW: Did You Know */}
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-3 mb-2 border-2 border-amber-300">
-                <p className="text-sm font-bold text-amber-800 mb-1 flex items-center justify-center gap-1">
-                  <span className="text-lg">🍯</span> Did You Know?
-                </p>
-                <p className="text-xs text-amber-700 leading-relaxed text-center">
-                  {(() => {
-                    const lastWord = gameData.words[4];
-                    return (
-                      <>
-                        {lastWord.hint}
-                        <span className="block text-amber-600 font-semibold mt-1">- {lastWord.word}</span>
-                      </>
-                    );
-                  })()}
-                </p>
-              </div>
+              <p className="text-xs text-amber-700 mb-1.5">Time: {formatTime(completionTime)}</p>
               <button
                 onClick={() => setShowShareModal(true)}
                 className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg transition-all flex items-center gap-1 mx-auto"
@@ -546,7 +531,6 @@ const PancakeWordGame = () => {
               {/* Instructions */}
               <div className="mt-2 text-center text-[10px] text-amber-700 bg-amber-50 rounded-lg p-1.5">
                 <p className="text-base font-semibold">🥞 Click a letter, then click an empty spot to place it</p>
-                <p className="text-sm text-amber-600 mt-0.5">💡 Hints reveal fun facts - give them a try!</p>
               </div>
             </div>
           </div>

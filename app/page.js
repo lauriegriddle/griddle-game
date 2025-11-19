@@ -233,7 +233,7 @@ const PancakeWordGame = () => {
     const seconds = completionTime % 60;
     const timeStr = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
 
-    const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at www.lettergriddle.com`;
+    const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\n⏰ New puzzle daily at 7 PM EST\n💬 Share with friends to play together daily!\nPlay at www.lettergriddle.com`;
 
     navigator.clipboard.writeText(shareText).then(() => {
       setShareCopied(true);

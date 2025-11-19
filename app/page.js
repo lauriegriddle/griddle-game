@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, HelpCircle  } from 'lucide-react';
+import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
 
 const PancakeWordGame = () => {
@@ -38,6 +38,7 @@ const PancakeWordGame = () => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
   const [showMissionModal, setShowMissionModal] = useState(false);
+  const [showBookmarkPrompt, setShowBookmarkPrompt] = useState(false);
   const [showHowToPlayModal, setShowHowToPlayModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [startTime] = useState(Date.now());
@@ -68,6 +69,16 @@ const PancakeWordGame = () => {
     }
   });
 
+  // Track bookmark prompt views
+  const [bookmarkPromptCount, setBookmarkPromptCount] = useState(() => {
+    try {
+      const saved = localStorage.getItem('griddleBookmarkPromptCount');
+      return saved ? parseInt(saved) : 0;
+    } catch {
+      return 0;
+    }
+  });
+  
   const allComplete = completedWords.every(c => c);
 
   const checkAchievements = (newStats) => {
@@ -115,9 +126,22 @@ const PancakeWordGame = () => {
         localStorage.setItem('griddleStats', JSON.stringify(newStats));
       } catch (e) {
         console.error('Could not save stats', e);
+      }// Show bookmark prompt (first 3 completions only)
+      // Wait for confetti to finish (10 seconds), then show prompt
+      if (bookmarkPromptCount < 3) {
+        setTimeout(() => {
+          setShowBookmarkPrompt(true);
+          const newCount = bookmarkPromptCount + 1;
+          setBookmarkPromptCount(newCount);
+          try {
+            localStorage.setItem('griddleBookmarkPromptCount', newCount.toString());
+          } catch (e) {
+            console.error('Could not save bookmark count', e);
+          }
+        }, 10500); // Show 0.5s after confetti ends
       }
     }
-  }, [allComplete, completionTime, startTime, stats]);
+  }, [allComplete, completionTime, startTime, stats, bookmarkPromptCount]);
 
   const checkWordComplete = (wordIdx, letters) => {
     const word = gameData.words[wordIdx].word;
@@ -505,7 +529,73 @@ const PancakeWordGame = () => {
           </div>
         </div>
       </div>
+{/* BOOKMARK PROMPT MODAL */}
+      {showBookmarkPrompt && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[110] p-4" onClick={() => setShowBookmarkPrompt(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative animate-[slideUp_0.3s_ease-out]" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowBookmarkPrompt(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+              aria-label="Close"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="text-center mb-6">
+              <div className="text-6xl mb-3">🔖</div>
+              <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+                Never Miss a Puzzle!
+              </h2>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
+                <p className="text-lg text-gray-700 leading-relaxed text-center" style={{fontFamily: 'Georgia, serif'}}>
+                  Bookmark <span className="font-bold text-amber-800">www.lettergriddle.com</span> to make your daily puzzle just a click away! 🥞
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-4 border-2 border-amber-200">
+                <div className="flex items-start gap-3">
+                  <Bookmark size={24} className="text-amber-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      <span className="font-bold text-amber-800">Quick tip:</span> Press{' '}
+                      <kbd className="px-2 py-1 bg-white rounded border border-amber-300 text-xs font-mono">Ctrl+D</kbd>{' '}
+                      (or <kbd className="px-2 py-1 bg-white rounded border border-amber-300 text-xs font-mono">⌘+D</kbd> on Mac) to bookmark now!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <button
+                onClick={() => setShowBookmarkPrompt(false)}
+                className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-6 py-4 rounded-full font-bold text-lg shadow-lg transition-all"
+              >
+                Got it! 👍
+              </button>
+              
+              <p className="text-center text-xs text-gray-500">
+                New puzzle daily at 7 PM EST
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
+      {/* Animation for bookmark prompt slide-up */}
+      <style>{`
+        @keyframes slideUp {
+          from {
+            transform: translateY(20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      `}</style>
       {/* Mission Modal */}
       {showMissionModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowMissionModal(false)}>

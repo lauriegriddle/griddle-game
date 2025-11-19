@@ -3,7 +3,7 @@
 // Puzzle changes at 7 PM EST daily
 
 const puzzles = [
-  // EXISTING PUZZLES (48-58)
+  // EXISTING PUZZLES (48-77)
   {
     category: "Candy",
     puzzleNumber: 48,
@@ -367,7 +367,7 @@ export function getTodaysPuzzle() {
   const epoch = new Date('1970-01-01');
   const daysSinceEpoch = Math.floor((puzzleDate - epoch) / (1000 * 60 * 60 * 24));
   
-  // Rotate through puzzles (NOW 22 TOTAL PUZZLES - ACTIVE FILE!)
+  // Rotate through puzzles (NOW 31 TOTAL PUZZLES - ACTIVE FILE!)
   const puzzleIndex = (daysSinceEpoch) % puzzles.length;
   
   return puzzles[puzzleIndex];

@@ -38,6 +38,7 @@ const PancakeWordGame = () => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
   const [showMissionModal, setShowMissionModal] = useState(false);
+  const [showKitchenModal, setShowKitchenModal] = useState(false);
   const [showBookmarkPrompt, setShowBookmarkPrompt] = useState(false);
   const [showHowToPlayModal, setShowHowToPlayModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
@@ -342,6 +343,14 @@ const PancakeWordGame = () => {
             >
               <HelpCircle size={18} />
             </button>
+
+            <button
+              onClick={() => setShowKitchenModal(true)}
+              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
+              title="Kitchen & Recipes"
+            >
+              <ChefHat size={18} />
+            </button>
             <button
               onClick={() => setShowMissionModal(true)}
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
@@ -596,6 +605,79 @@ const PancakeWordGame = () => {
           }
         }
       `}</style>
+
+      {/* Kitchen Modal */}
+      {showKitchenModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowKitchenModal(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-2xl w-full shadow-2xl relative max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowKitchenModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+              aria-label="Close"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="text-center mb-6">
+              <div className="text-6xl mb-3">🧑‍🍳</div>
+              <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+                From the Kitchen
+              </h2>
+            </div>
+            <div className="space-y-6">
+              {/* Pancake Recipe */}
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
+                <h3 className="text-2xl font-bold text-amber-800 mb-4 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}>
+                  🥞 Favorite Pancakes
+                </h3>
+                
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-bold text-amber-800 mb-2">Ingredients:</h4>
+                    <ul className="text-gray-700 space-y-1 ml-4">
+                      <li>• 1¼ cups sifted all-purpose flour</li>
+                      <li>• 3 teaspoons baking powder</li>
+                      <li>• 1 tablespoon sugar</li>
+                      <li>• ½ teaspoon salt</li>
+                      <li>• 1 beaten egg</li>
+                      <li>• 1 cup milk*</li>
+                      <li>• 2 tablespoons salad oil</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-amber-800 mb-2">Instructions:</h4>
+                    <ol className="text-gray-700 space-y-1 ml-4">
+                      <li>1. Sift together dry ingredients</li>
+                      <li>2. Combine egg, milk, and salad oil</li>
+                      <li>3. Add to dry ingredients, stirring just till moistened</li>
+                      <li>4. Bake on hot griddle</li>
+                    </ol>
+                  </div>
+                  
+                  <div className="text-sm text-gray-600 italic">
+                    <p>Makes about 12 dollar-size, or eight 4-inch pancakes</p>
+                    <p className="mt-1">*For thinner pancakes, add 2 tablespoons milk to batter</p>
+                  </div>
+                  
+                  <div className="text-xs text-gray-500 mt-4 pt-4 border-t border-amber-200">
+                    Recipe from Better Homes and Gardens New Cookbook
+                  </div>
+                </div>
+              </div>
+              {/* Coffee Tip */}
+              <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-6 border-2 border-amber-200">
+                <h3 className="text-2xl font-bold text-amber-800 mb-3 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}>
+                  ☕ Coffee Tip
+                </h3>
+                <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
+                  Freshly ground beans make for an excellent cup of coffee.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Mission Modal */}
       {showMissionModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowMissionModal(false)}>

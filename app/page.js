@@ -814,6 +814,17 @@ Play at www.lettergriddle.com`}
             >
               {shareCopied ? '✓ Copied!' : <><Share2 size={20} /> Copy to Clipboard</>}
             </button>
+            {/* Instagram Follow */}
+            <div className="mt-4 text-center">
+              <a 
+                href="https://instagram.com/letter_griddle" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-amber-600 hover:text-amber-800 text-sm font-semibold inline-flex items-center gap-1"
+              >
+                📸 Follow us @letter_griddle
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -898,15 +909,17 @@ Play at www.lettergriddle.com`}
       )}
 
       {/* Copyright Footer */}
-      <div className="text-center py-6 text-xs text-amber-700 mt-8">
-        <div>
-          © 2025 Letter Griddle. All rights reserved.
-          {' | '}
-          <a href="/privacy" className="hover:text-amber-600 underline">Privacy Policy</a>
-          {' | '}
-          <a href="/terms" className="hover:text-amber-600 underline">Terms of Service</a>
-        </div>
-      </div>  
+<div className="text-center py-6 text-xs text-amber-700 mt-8">
+  <div>
+    © 2025 Letter Griddle. All rights reserved.
+    {' | '}
+    <a href="/privacy" className="hover:text-amber-600 underline">Privacy Policy</a>
+    {' | '}
+    <a href="/terms" className="hover:text-amber-600 underline">Terms of Service</a>
+    {' | '}
+    <a href="https://instagram.com/letter_griddle" target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 underline">📸 @letter_griddle</a>
+  </div>
+</div> 
     </div>
   );
 };

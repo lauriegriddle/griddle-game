@@ -280,7 +280,7 @@ const puzzles = [
   },
   {
     category: "Cool Weather Clothing",
-    puzzleNumber: 65,
+    puzzleNumber: 72,
     words: [
       { word: "COAT", hint: "A long outer garment worn over other clothes for warmth", revealedIndex: 0 },
       { word: "SCARF", hint: "A piece of fabric worn around the neck for warmth or style", revealedIndex: 2 },
@@ -291,7 +291,7 @@ const puzzles = [
   },
   {
     category: "Friendship",
-    puzzleNumber: 66,
+    puzzleNumber: 73,
     words: [
       { word: "ALLY", hint: "A trusted friend who supports and stands by you", revealedIndex: 0 },
       { word: "LOYAL", hint: "Faithful and devoted through thick and thin", revealedIndex: 2 },
@@ -302,7 +302,7 @@ const puzzles = [
   },
   {
     category: "Art Projects",
-    puzzleNumber: 73,
+    puzzleNumber: 74,
     words: [
       { word: "LINE", hint: "A mark made by a pencil, pen, or brush across a surface", revealedIndex: 0 },
       { word: "SHADE", hint: "The use of darkness to create depth and dimension in artwork", revealedIndex: 2 },
@@ -313,7 +313,7 @@ const puzzles = [
   },
   {
     category: "Musicals",
-    puzzleNumber: 68,
+    puzzleNumber: 75,
     words: [
       { word: "RENT", hint: "Jonathan Larson's rock musical about struggling artists in New York City", revealedIndex: 0 },
       { word: "EVITA", hint: "Andrew Lloyd Webber musical about Argentina's first lady Eva Perón", revealedIndex: 2 },
@@ -324,7 +324,7 @@ const puzzles = [
   },
   {
     category: "Football",
-    puzzleNumber: 69,
+    puzzleNumber: 76,
     words: [
       { word: "DOWN", hint: "A play in football; teams get four tries to advance 10 yards", revealedIndex: 0 },
       { word: "BLITZ", hint: "A defensive play where extra players rush the quarterback", revealedIndex: 2 },
@@ -335,7 +335,7 @@ const puzzles = [
   },
   {  
     category: "Cities Around the World",
-    puzzleNumber: 70,
+    puzzleNumber: 77,
     words: [
       { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum", revealedIndex: 0 },
       { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum", revealedIndex: 2 },

@@ -190,8 +190,9 @@ const puzzles = [
       { word: "CLUE", hint: "Classic murder mystery board game with suspects and weapons", revealedIndex: 2 },
       { word: "TWISTER", hint: "Physical game with colored circles where players contort their bodies", revealedIndex: 3 },
       { word: "CHECKERS", hint: "Strategy board game where pieces jump to capture opponents", revealedIndex: 0 },
-      { word: "MONOPOLY", hint: "Real estate trading game where players buy properties and collect rent", revealedIndex: 5, funFact: "The game Monopoly has been translated into 47 languages." }
-    ]
+      { word: "MONOPOLY", hint: "Real estate trading game where players buy properties and collect rent", revealedIndex: 5 }
+    ],
+    funFact: "Monopoly has been licensed in over 113 countries and printed in more than 46 languages."
   },
   {
     category: "Cool Weather Clothing",

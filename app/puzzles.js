@@ -217,7 +217,7 @@ const puzzles = [
   },
   {
     category: "Art Projects",
-    puzzleNumber: 67,
+    puzzleNumber: 73,
     words: [
       { word: "LINE", hint: "A mark made by a pencil, pen, or brush across a surface", revealedIndex: 0 },
       { word: "SHADE", hint: "The use of darkness to create depth and dimension in artwork", revealedIndex: 2 },
@@ -283,7 +283,7 @@ const puzzles = [
   },
   {
     category: "Thanksgiving",
-    puzzleNumber: 73,
+    puzzleNumber: 67,
     words: [
       { word: "MEAL", hint: "A festive feast shared with family and friends", revealedIndex: 0 },
       { word: "GOURD", hint: "A decorative squash often used as autumn decor", revealedIndex: 2 },

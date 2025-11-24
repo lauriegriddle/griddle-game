@@ -195,6 +195,83 @@ const puzzles = [
     funFact: "Monopoly has been licensed in over 113 countries and printed in more than 46 languages."
   },
   {
+    category: "It's a Mystery!",
+    puzzleNumber: 65,
+    words: [
+      { word: "CLUE", hint: "A piece of evidence that helps solve a puzzle or crime", revealedIndex: 0 },
+      { word: "CRIME", hint: "An illegal act that breaks the law", revealedIndex: 2 },
+      { word: "ARREST", hint: "When police take someone into custody for breaking the law", revealedIndex: 3 },
+      { word: "SUSPECT", hint: "A person believed to have committed a crime", revealedIndex: 0 },
+      { word: "SOLUTION", hint: "The answer or resolution to a mystery or problem", revealedIndex: 5, funFact: "Mystery writers use \"red herrings,\" carefully planted false leads designed to distract or misguide readers." }
+    ]
+  },
+  {
+    category: "Favorite Bookshop",
+    puzzleNumber: 66,
+    words: [
+      { word: "CAFE", hint: "A cozy spot in a bookstore serving coffee and treats", revealedIndex: 0 },
+      { word: "MERCH", hint: "Merchandise like bookmarks, tote bags, and literary-themed gifts", revealedIndex: 2 },
+      { word: "AUTHOR", hint: "A writer who may visit to discuss and promote their books", revealedIndex: 3 },
+      { word: "SIGNING", hint: "An event where a writer autographs copies of their book", revealedIndex: 0 },
+      { word: "AMBIANCE", hint: "The welcoming atmosphere and character of a beloved bookshop", revealedIndex: 5, funFact: "The world's oldest book store, in Lisbon, Portugal, has been in operation since 1732." }
+    ]
+  },
+  {
+    category: "Thanksgiving",
+    puzzleNumber: 67,
+    words: [
+      { word: "MEAL", hint: "A festive feast shared with family and friends", revealedIndex: 0 },
+      { word: "GOURD", hint: "A decorative squash often used as autumn decor", revealedIndex: 2 },
+      { word: "GOBBLE", hint: "The distinctive sound a turkey makes", revealedIndex: 3 },
+      { word: "HARVEST", hint: "The gathering of crops celebrated at this holiday", revealedIndex: 0 },
+      { word: "GRATEFUL", hint: "Feeling thankful and appreciative for blessings", revealedIndex: 5, funFact: "Sarah Josepha Hale, the author of \"Mary Had a Little Lamb,\" is credited with convincing President Lincoln to declare Thanksgiving a national holiday after 17 years of writing letters." }
+    ]
+  },
+  {
+    category: "Music Storage",
+    puzzleNumber: 68,
+    words: [
+      { word: "DISK", hint: "A circular storage medium for music, like CDs or vinyl", revealedIndex: 0 },
+      { word: "TRACK", hint: "An individual song on an album or recording", revealedIndex: 2 },
+      { word: "RECORD", hint: "A vinyl disc that plays music when spun on a turntable", revealedIndex: 3 },
+      { word: "NAPSTER", hint: "Revolutionary file-sharing service that changed music distribution", revealedIndex: 0 },
+      { word: "CASSETTE", hint: "Magnetic tape format popular in the 1980s and 90s", revealedIndex: 5, funFact: "The cassette was invented in 1962 for voice recording not music." }
+    ]
+  },
+  {
+    category: "Jim Henson's Muppets",
+    puzzleNumber: 69,
+    words: [
+      { word: "BIRD", hint: "Big yellow character who lives on Sesame Street", revealedIndex: 0 },
+      { word: "PIGGY", hint: "Miss ___, glamorous diva and Kermit's love interest", revealedIndex: 2 },
+      { word: "KERMIT", hint: "The famous green frog who sings 'Rainbow Connection'", revealedIndex: 3 },
+      { word: "SNUFFLE", hint: "___ upagus, the woolly mammoth-like creature on Sesame Street", revealedIndex: 0 },
+      { word: "PUPPETRY", hint: "The art of bringing characters to life with hand movements", revealedIndex: 5, funFact: "Jim Henson coined the word muppet by combining the words marionette and puppet." }
+    ]
+  },
+  {
+    category: "Pizza, pizza!",
+    puzzleNumber: 70,
+    words: [
+      { word: "MEAT", hint: "A savory protein topping category for pizza", revealedIndex: 0 },
+      { word: "SAUCE", hint: "Tomato-based spread that goes on the dough", revealedIndex: 2 },
+      { word: "TOMATO", hint: "Red fruit used as the base for pizza sauce", revealedIndex: 3 },
+      { word: "SAUSAGE", hint: "Spiced ground meat topping, often Italian-style", revealedIndex: 0 },
+      { word: "MUSHROOM", hint: "Earthy fungus that's a popular vegetable topping", revealedIndex: 5, funFact: "Pepperoni is the most popular pizza topping, with over 450 million pounds used annually." }
+    ]
+  },
+  {
+    category: "Video Games",
+    puzzleNumber: 71,
+    words: [
+      { word: "PONG", hint: "Classic table tennis video game from the 1970s", revealedIndex: 0 },
+      { word: "ATARI", hint: "Iconic gaming company that pioneered home video game consoles", revealedIndex: 2 },
+      { word: "ARCADE", hint: "Entertainment venue filled with coin-operated game machines", revealedIndex: 3 },
+      { word: "CONSOLE", hint: "Home gaming device that connects to a TV", revealedIndex: 0 },
+      { word: "JOYSTICK", hint: "Hand-held controller used to navigate games", revealedIndex: 5, funFact: "The first video game, thought to be Pong, was created in 1958 and became popular in the 1970s." }
+    ]
+  },
+  {
     category: "Cool Weather Clothing",
     puzzleNumber: 65,
     words: [
@@ -260,83 +337,7 @@ const puzzles = [
       { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudí's architecture and La Rambla", revealedIndex: 5 }
     ]
   },
-  {
-    category: "It's a Mystery!",
-    puzzleNumber: 71,
-    words: [
-      { word: "CLUE", hint: "A piece of evidence that helps solve a puzzle or crime", revealedIndex: 0 },
-      { word: "CRIME", hint: "An illegal act that breaks the law", revealedIndex: 2 },
-      { word: "ARREST", hint: "When police take someone into custody for breaking the law", revealedIndex: 3 },
-      { word: "SUSPECT", hint: "A person believed to have committed a crime", revealedIndex: 0 },
-      { word: "SOLUTION", hint: "The answer or resolution to a mystery or problem", revealedIndex: 5, funFact: "Mystery writers use \"red herrings,\" carefully planted false leads designed to distract or misguide readers." }
-    ]
-  },
-  {
-    category: "Favorite Bookshop",
-    puzzleNumber: 72,
-    words: [
-      { word: "CAFE", hint: "A cozy spot in a bookstore serving coffee and treats", revealedIndex: 0 },
-      { word: "MERCH", hint: "Merchandise like bookmarks, tote bags, and literary-themed gifts", revealedIndex: 2 },
-      { word: "AUTHOR", hint: "A writer who may visit to discuss and promote their books", revealedIndex: 3 },
-      { word: "SIGNING", hint: "An event where a writer autographs copies of their book", revealedIndex: 0 },
-      { word: "AMBIANCE", hint: "The welcoming atmosphere and character of a beloved bookshop", revealedIndex: 5, funFact: "The world's oldest book store, in Lisbon, Portugal, has been in operation since 1732." }
-    ]
-  },
-  {
-    category: "Thanksgiving",
-    puzzleNumber: 67,
-    words: [
-      { word: "MEAL", hint: "A festive feast shared with family and friends", revealedIndex: 0 },
-      { word: "GOURD", hint: "A decorative squash often used as autumn decor", revealedIndex: 2 },
-      { word: "GOBBLE", hint: "The distinctive sound a turkey makes", revealedIndex: 3 },
-      { word: "HARVEST", hint: "The gathering of crops celebrated at this holiday", revealedIndex: 0 },
-      { word: "GRATEFUL", hint: "Feeling thankful and appreciative for blessings", revealedIndex: 5, funFact: "Sarah Josepha Hale, the author of \"Mary Had a Little Lamb,\" is credited with convincing President Lincoln to declare Thanksgiving a national holiday after 17 years of writing letters." }
-    ]
-  },
-  {
-    category: "Music Storage",
-    puzzleNumber: 74,
-    words: [
-      { word: "DISK", hint: "A circular storage medium for music, like CDs or vinyl", revealedIndex: 0 },
-      { word: "TRACK", hint: "An individual song on an album or recording", revealedIndex: 2 },
-      { word: "RECORD", hint: "A vinyl disc that plays music when spun on a turntable", revealedIndex: 3 },
-      { word: "NAPSTER", hint: "Revolutionary file-sharing service that changed music distribution", revealedIndex: 0 },
-      { word: "CASSETTE", hint: "Magnetic tape format popular in the 1980s and 90s", revealedIndex: 5, funFact: "The cassette was invented in 1962 for voice recording not music." }
-    ]
-  },
-  {
-    category: "Jim Henson's Muppets",
-    puzzleNumber: 75,
-    words: [
-      { word: "BIRD", hint: "Big yellow character who lives on Sesame Street", revealedIndex: 0 },
-      { word: "PIGGY", hint: "Miss ___, glamorous diva and Kermit's love interest", revealedIndex: 2 },
-      { word: "KERMIT", hint: "The famous green frog who sings 'Rainbow Connection'", revealedIndex: 3 },
-      { word: "SNUFFLE", hint: "___ upagus, the woolly mammoth-like creature on Sesame Street", revealedIndex: 0 },
-      { word: "PUPPETRY", hint: "The art of bringing characters to life with hand movements", revealedIndex: 5, funFact: "Jim Henson coined the word muppet by combining the words marionette and puppet." }
-    ]
-  },
-  {
-    category: "Pizza, pizza!",
-    puzzleNumber: 76,
-    words: [
-      { word: "MEAT", hint: "A savory protein topping category for pizza", revealedIndex: 0 },
-      { word: "SAUCE", hint: "Tomato-based spread that goes on the dough", revealedIndex: 2 },
-      { word: "TOMATO", hint: "Red fruit used as the base for pizza sauce", revealedIndex: 3 },
-      { word: "SAUSAGE", hint: "Spiced ground meat topping, often Italian-style", revealedIndex: 0 },
-      { word: "MUSHROOM", hint: "Earthy fungus that's a popular vegetable topping", revealedIndex: 5, funFact: "Pepperoni is the most popular pizza topping, with over 450 million pounds used annually." }
-    ]
-  },
-  {
-    category: "Video Games",
-    puzzleNumber: 77,
-    words: [
-      { word: "PONG", hint: "Classic table tennis video game from the 1970s", revealedIndex: 0 },
-      { word: "ATARI", hint: "Iconic gaming company that pioneered home video game consoles", revealedIndex: 2 },
-      { word: "ARCADE", hint: "Entertainment venue filled with coin-operated game machines", revealedIndex: 3 },
-      { word: "CONSOLE", hint: "Home gaming device that connects to a TV", revealedIndex: 0 },
-      { word: "JOYSTICK", hint: "Hand-held controller used to navigate games", revealedIndex: 5, funFact: "The first video game, thought to be Pong, was created in 1958 and became popular in the 1970s." }
-    ]
-  }
+  
   ];
 
 // Function to get today's puzzle based on EST time

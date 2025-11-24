@@ -183,14 +183,14 @@ const puzzles = [
     ]
   },
   {
-    category: "Game Night",
+    category: "Cities Around the World",
     puzzleNumber: 64,
     words: [
-      { word: "UNO", hint: "Popular card game where players match colors and numbers", revealedIndex: 0 },
-      { word: "CLUE", hint: "Classic murder mystery board game with suspects and weapons", revealedIndex: 2 },
-      { word: "TWISTER", hint: "Physical game with colored circles where players contort their bodies", revealedIndex: 3 },
-      { word: "CHECKERS", hint: "Strategy board game where pieces jump to capture opponents", revealedIndex: 0 },
-      { word: "MONOPOLY", hint: "Real estate trading game where players buy properties and collect rent", revealedIndex: 5, funFact: "The game Monopoly has been translated into 47 languages." }
+      { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum", revealedIndex: 0 },
+      { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum", revealedIndex: 2 },
+      { word: "LONDON", hint: "UK capital on the Thames River with Big Ben and Buckingham Palace", revealedIndex: 3 },
+      { word: "TORONTO", hint: "Canada's largest city, known for the CN Tower and multicultural neighborhoods", revealedIndex: 0 },
+      { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudí's architecture and La Rambla", revealedIndex: 5 }
     ]
   },
   {
@@ -217,7 +217,7 @@ const puzzles = [
   },
   {
     category: "Art Projects",
-    puzzleNumber: 73,
+    puzzleNumber: 67,
     words: [
       { word: "LINE", hint: "A mark made by a pencil, pen, or brush across a surface", revealedIndex: 0 },
       { word: "SHADE", hint: "The use of darkness to create depth and dimension in artwork", revealedIndex: 2 },
@@ -248,15 +248,15 @@ const puzzles = [
       { word: "GRIDIRON", hint: "Another name for a football field, named for its yard lines", revealedIndex: 5 }
     ]
   },
-  {  
-    category: "Cities Around the World",
+  {
+    category: "Game Night",
     puzzleNumber: 70,
     words: [
-      { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum", revealedIndex: 0 },
-      { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum", revealedIndex: 2 },
-      { word: "LONDON", hint: "UK capital on the Thames River with Big Ben and Buckingham Palace", revealedIndex: 3 },
-      { word: "TORONTO", hint: "Canada's largest city, known for the CN Tower and multicultural neighborhoods", revealedIndex: 0 },
-      { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudí's architecture and La Rambla", revealedIndex: 5 }
+      { word: "UNO", hint: "Popular card game where players match colors and numbers", revealedIndex: 0 },
+      { word: "CLUE", hint: "Classic murder mystery board game with suspects and weapons", revealedIndex: 2 },
+      { word: "TWISTER", hint: "Physical game with colored circles where players contort their bodies", revealedIndex: 3 },
+      { word: "CHECKERS", hint: "Strategy board game where pieces jump to capture opponents", revealedIndex: 0 },
+      { word: "MONOPOLY", hint: "Real estate trading game where players buy properties and collect rent", revealedIndex: 5, funFact: "The game Monopoly has been translated into 47 languages." }
     ]
   },
   {
@@ -283,7 +283,7 @@ const puzzles = [
   },
   {
     category: "Thanksgiving",
-    puzzleNumber: 67,
+    puzzleNumber: 73,
     words: [
       { word: "MEAL", hint: "A festive feast shared with family and friends", revealedIndex: 0 },
       { word: "GOURD", hint: "A decorative squash often used as autumn decor", revealedIndex: 2 },

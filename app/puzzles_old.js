@@ -3,7 +3,7 @@
 // Puzzle changes at 7 PM EST daily
 
 const puzzles = [
-  // EXISTING PUZZLES (48-77)
+  // EXISTING PUZZLES (48-58)
   {
     category: "Candy",
     puzzleNumber: 48,
@@ -126,7 +126,7 @@ const puzzles = [
     ]
   },
 
-  /// NEW PUZZLES (59-77)
+  // NEW PUZZLES (59-65)
   {
     category: "Trees and Shrubs",
     puzzleNumber: 59,
@@ -183,14 +183,14 @@ const puzzles = [
     ]
   },
   {
-    category: "Game Night",
+    category: "Cities Around the World",
     puzzleNumber: 64,
     words: [
-      { word: "UNO", hint: "Popular card game where players match colors and numbers", revealedIndex: 0 },
-      { word: "CLUE", hint: "Classic murder mystery board game with suspects and weapons", revealedIndex: 2 },
-      { word: "TWISTER", hint: "Physical game with colored circles where players contort their bodies", revealedIndex: 3 },
-      { word: "CHECKERS", hint: "Strategy board game where pieces jump to capture opponents", revealedIndex: 0 },
-      { word: "MONOPOLY", hint: "Real estate trading game where players buy properties and collect rent", revealedIndex: 5, funFact: "The game Monopoly has been translated into 47 languages." }
+      { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum", revealedIndex: 0 },
+      { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum", revealedIndex: 2 },
+      { word: "LONDON", hint: "UK capital on the Thames River with Big Ben and Buckingham Palace", revealedIndex: 3 },
+      { word: "TORONTO", hint: "Canada's largest city, known for the CN Tower and multicultural neighborhoods", revealedIndex: 0 },
+      { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudí's architecture and La Rambla", revealedIndex: 5 }
     ]
   },
   {
@@ -217,7 +217,7 @@ const puzzles = [
   },
   {
     category: "Art Projects",
-    puzzleNumber: 73,
+    puzzleNumber: 67,
     words: [
       { word: "LINE", hint: "A mark made by a pencil, pen, or brush across a surface", revealedIndex: 0 },
       { word: "SHADE", hint: "The use of darkness to create depth and dimension in artwork", revealedIndex: 2 },
@@ -247,94 +247,6 @@ const puzzles = [
       { word: "DEFENSE", hint: "The team trying to stop the other team from scoring", revealedIndex: 0 },
       { word: "GRIDIRON", hint: "Another name for a football field, named for its yard lines", revealedIndex: 5 }
     ]
-  },
-  {  
-    category: "Cities Around the World",
-    puzzleNumber: 70,
-    words: [
-      { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum", revealedIndex: 0 },
-      { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum", revealedIndex: 2 },
-      { word: "LONDON", hint: "UK capital on the Thames River with Big Ben and Buckingham Palace", revealedIndex: 3 },
-      { word: "TORONTO", hint: "Canada's largest city, known for the CN Tower and multicultural neighborhoods", revealedIndex: 0 },
-      { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudí's architecture and La Rambla", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "It's a Mystery!",
-    puzzleNumber: 71,
-    words: [
-      { word: "CLUE", hint: "A piece of evidence that helps solve a puzzle or crime", revealedIndex: 0 },
-      { word: "CRIME", hint: "An illegal act that breaks the law", revealedIndex: 2 },
-      { word: "ARREST", hint: "When police take someone into custody for breaking the law", revealedIndex: 3 },
-      { word: "SUSPECT", hint: "A person believed to have committed a crime", revealedIndex: 0 },
-      { word: "SOLUTION", hint: "The answer or resolution to a mystery or problem", revealedIndex: 5, funFact: "Mystery writers use \"red herrings,\" carefully planted false leads designed to distract or misguide readers." }
-    ]
-  },
-  {
-    category: "Favorite Bookshop",
-    puzzleNumber: 72,
-    words: [
-      { word: "CAFE", hint: "A cozy spot in a bookstore serving coffee and treats", revealedIndex: 0 },
-      { word: "MERCH", hint: "Merchandise like bookmarks, tote bags, and literary-themed gifts", revealedIndex: 2 },
-      { word: "AUTHOR", hint: "A writer who may visit to discuss and promote their books", revealedIndex: 3 },
-      { word: "SIGNING", hint: "An event where a writer autographs copies of their book", revealedIndex: 0 },
-      { word: "AMBIANCE", hint: "The welcoming atmosphere and character of a beloved bookshop", revealedIndex: 5, funFact: "The world's oldest book store, in Lisbon, Portugal, has been in operation since 1732." }
-    ]
-  },
-  {
-    category: "Thanksgiving",
-    puzzleNumber: 67,
-    words: [
-      { word: "MEAL", hint: "A festive feast shared with family and friends", revealedIndex: 0 },
-      { word: "GOURD", hint: "A decorative squash often used as autumn decor", revealedIndex: 2 },
-      { word: "GOBBLE", hint: "The distinctive sound a turkey makes", revealedIndex: 3 },
-      { word: "HARVEST", hint: "The gathering of crops celebrated at this holiday", revealedIndex: 0 },
-      { word: "GRATEFUL", hint: "Feeling thankful and appreciative for blessings", revealedIndex: 5, funFact: "Sarah Josepha Hale, the author of \"Mary Had a Little Lamb,\" is credited with convincing President Lincoln to declare Thanksgiving a national holiday after 17 years of writing letters." }
-    ]
-  },
-  {
-    category: "Music Storage",
-    puzzleNumber: 74,
-    words: [
-      { word: "DISK", hint: "A circular storage medium for music, like CDs or vinyl", revealedIndex: 0 },
-      { word: "TRACK", hint: "An individual song on an album or recording", revealedIndex: 2 },
-      { word: "RECORD", hint: "A vinyl disc that plays music when spun on a turntable", revealedIndex: 3 },
-      { word: "NAPSTER", hint: "Revolutionary file-sharing service that changed music distribution", revealedIndex: 0 },
-      { word: "CASSETTE", hint: "Magnetic tape format popular in the 1980s and 90s", revealedIndex: 5, funFact: "The cassette was invented in 1962 for voice recording not music." }
-    ]
-  },
-  {
-    category: "Jim Henson's Muppets",
-    puzzleNumber: 75,
-    words: [
-      { word: "BIRD", hint: "Big yellow character who lives on Sesame Street", revealedIndex: 0 },
-      { word: "PIGGY", hint: "Miss ___, glamorous diva and Kermit's love interest", revealedIndex: 2 },
-      { word: "KERMIT", hint: "The famous green frog who sings 'Rainbow Connection'", revealedIndex: 3 },
-      { word: "SNUFFLE", hint: "___ upagus, the woolly mammoth-like creature on Sesame Street", revealedIndex: 0 },
-      { word: "PUPPETRY", hint: "The art of bringing characters to life with hand movements", revealedIndex: 5, funFact: "Jim Henson coined the word muppet by combining the words marionette and puppet." }
-    ]
-  },
-  {
-    category: "Pizza, pizza!",
-    puzzleNumber: 76,
-    words: [
-      { word: "MEAT", hint: "A savory protein topping category for pizza", revealedIndex: 0 },
-      { word: "SAUCE", hint: "Tomato-based spread that goes on the dough", revealedIndex: 2 },
-      { word: "TOMATO", hint: "Red fruit used as the base for pizza sauce", revealedIndex: 3 },
-      { word: "SAUSAGE", hint: "Spiced ground meat topping, often Italian-style", revealedIndex: 0 },
-      { word: "MUSHROOM", hint: "Earthy fungus that's a popular vegetable topping", revealedIndex: 5, funFact: "Pepperoni is the most popular pizza topping, with over 450 million pounds used annually." }
-    ]
-  },
-  {
-    category: "Video Games",
-    puzzleNumber: 77,
-    words: [
-      { word: "PONG", hint: "Classic table tennis video game from the 1970s", revealedIndex: 0 },
-      { word: "ATARI", hint: "Iconic gaming company that pioneered home video game consoles", revealedIndex: 2 },
-      { word: "ARCADE", hint: "Entertainment venue filled with coin-operated game machines", revealedIndex: 3 },
-      { word: "CONSOLE", hint: "Home gaming device that connects to a TV", revealedIndex: 0 },
-      { word: "JOYSTICK", hint: "Hand-held controller used to navigate games", revealedIndex: 5, funFact: "The first video game, thought to be Pong, was created in 1958 and became popular in the 1970s." }
-    ]
   }
   ];
 
@@ -358,16 +270,17 @@ export function getTodaysPuzzle() {
     // Before 7 PM - use yesterday's date (still showing yesterday's 7 PM puzzle)
     puzzleDate.setDate(puzzleDate.getDate() - 1);
     puzzleDate.setHours(19, 0, 0, 0);
-  } 
-  // After 7 PM - puzzleDate stays as current date (today's puzzle just dropped)
-  else {
-  puzzleDate.setHours(19, 0, 0, 0);
-}
+  }
+    // After 7 PM - puzzleDate stays as current date (today's puzzle just dropped)
+   else {
+     puzzleDate.setHours(19, 0, 0, 0);
+   }
+  
   // Calculate days since epoch (Jan 1, 1970) to determine puzzle index
   const epoch = new Date('1970-01-01');
   const daysSinceEpoch = Math.floor((puzzleDate - epoch) / (1000 * 60 * 60 * 24));
   
-  // Rotate through puzzles (NOW 31 TOTAL PUZZLES - ACTIVE FILE!)
+  // Rotate through puzzles (now 18 total puzzles)
   const puzzleIndex = (daysSinceEpoch) % puzzles.length;
   
   return puzzles[puzzleIndex];

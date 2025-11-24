@@ -394,8 +394,10 @@ const PancakeWordGame = () => {
                   <span className="text-lg">🍯</span> Did You Know?
                 </p>
                 <p className="text-xs text-amber-700 leading-relaxed text-center">
-                  {gameData.words[gameData.words.length - 1].hint}
-                  <span className="block text-amber-600 font-semibold mt-1">- {gameData.words[gameData.words.length - 1].word}</span>
+                  {gameData.funFact || gameData.words[gameData.words.length - 1].hint}
+                  {!gameData.funFact && (
+                    <span className="block text-amber-600 font-semibold mt-1">- {gameData.words[gameData.words.length - 1].word}</span>
+                  )}
                 </p>
               </div>
               <button

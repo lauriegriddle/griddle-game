@@ -184,7 +184,7 @@ const puzzles = [
   },
   {
     category: "Cities Around the World",
-    puzzleNumber: 64,
+    puzzleNumber: 70,
     words: [
       { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum", revealedIndex: 0 },
       { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum", revealedIndex: 2 },
@@ -250,7 +250,7 @@ const puzzles = [
   },
   {
     category: "Game Night",
-    puzzleNumber: 70,
+    puzzleNumber: 64,
     words: [
       { word: "UNO", hint: "Popular card game where players match colors and numbers", revealedIndex: 0 },
       { word: "CLUE", hint: "Classic murder mystery board game with suspects and weapons", revealedIndex: 2 },

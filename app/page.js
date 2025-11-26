@@ -7,6 +7,8 @@ const PancakeWordGame = () => {
   const gameData = getTodaysPuzzle();
 
   const achievements = [
+    { id: 'first_pancake', name: 'First Pancake', icon: '🥞', description: 'Complete your first puzzle', requirement: (stats) => stats.puzzlesCompleted >= 1 },
+    { id: 'sweet_tooth', name: 'Sweet Tooth', icon: '🍯', description: 'Complete 15 puzzles', requirement: (stats) => stats.puzzlesCompleted >= 15 },
     { id: 'single_stack', name: 'Single Stack', icon: '🥞', description: '3-day streak', requirement: (stats) => stats.currentStreak >= 3 },
     { id: 'double_stack', name: 'Double Stack', icon: '🥞🥞', description: '7-day streak', requirement: (stats) => stats.currentStreak >= 7 },
     { id: 'chefs_hat', name: "Chef's Hat", icon: '👨‍🍳', description: 'Complete 10 puzzles', requirement: (stats) => stats.puzzlesCompleted >= 10 },

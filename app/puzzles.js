@@ -1,286 +1,32 @@
 // Letter Griddle - Daily Puzzles
-// Each puzzle rotates based on the day
+// ANCHOR DATE ROTATION SYSTEM
 // Puzzle changes at 7 PM EST daily
+//
+// ===========================================
+// HOW THIS SYSTEM WORKS:
+// ===========================================
+// - ANCHOR_DATE = A specific date/time when index 0 was/will be shown
+// - Puzzles are shown in array order starting from that date
+// - Adding new puzzles to the END won't disrupt existing rotation!
+// - New puzzles naturally appear after all current puzzles have cycled
+//
+// TO ADD NEW PUZZLES:
+// 1. Just add them to the END of the puzzles array
+// 2. They'll automatically appear after the current rotation completes
+// 3. No need to change anything else!
+// ===========================================
+
+// ANCHOR DATE: November 29, 2025 at 7:00 PM EST
+// On this date, puzzle at index 0 ('Round the Hearth) will be shown
+const ANCHOR_DATE = new Date('2025-11-29T19:00:00-05:00');
 
 const puzzles = [
-  // EXISTING PUZZLES (48-77)
-  {
-    category: "Candy",
-    puzzleNumber: 48,
-    words: [
-      { word: "MINT", hint: "A refreshing flavored candy often used after dinner", revealedIndex: 0 },
-      { word: "TAFFY", hint: "A chewy candy often sold at boardwalks and beaches", revealedIndex: 2 },
-      { word: "GUMMY", hint: "Soft, chewy candy often shaped like bears or worms", revealedIndex: 3 },
-      { word: "LOLLIPOP", hint: "Hard candy on a stick, a classic carnival treat", revealedIndex: 0 },
-      { word: "CHOCOLATE", hint: "Sweet treat made from cacao beans, enjoyed worldwide", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Autumn",
-    puzzleNumber: 49,
-    words: [
-      { word: "LEAF", hint: "Tree foliage that changes color and falls in this season", revealedIndex: 0 },
-      { word: "APPLE", hint: "Round fruit often picked at orchards in fall", revealedIndex: 2 },
-      { word: "PUMPKIN", hint: "Large orange gourd carved for Halloween", revealedIndex: 3 },
-      { word: "HARVEST", hint: "The gathering of crops at the end of the growing season", revealedIndex: 0 },
-      { word: "SWEATER", hint: "Cozy knitted clothing worn when temperatures drop", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Hiking",
-    puzzleNumber: 50,
-    words: [
-      { word: "BOOT", hint: "Sturdy footwear essential for trail walking", revealedIndex: 0 },
-      { word: "TRAIL", hint: "A marked path through nature for walking", revealedIndex: 2 },
-      { word: "SUMMIT", hint: "The highest point of a mountain", revealedIndex: 3 },
-      { word: "COMPASS", hint: "Navigation tool that points north", revealedIndex: 0 },
-      { word: "BACKPACK", hint: "Bag worn on shoulders to carry supplies", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Dessert",
-    puzzleNumber: 51,
-    words: [
-      { word: "TART", hint: "A pastry with fruit filling and no top crust", revealedIndex: 0 },
-      { word: "FUDGE", hint: "Rich, creamy chocolate confection", revealedIndex: 2 },
-      { word: "SUNDAE", hint: "Ice cream topped with sauce, whipped cream, and a cherry", revealedIndex: 3 },
-      { word: "BROWNIE", hint: "Dense, chocolate baked square dessert", revealedIndex: 0 },
-      { word: "CHEESECAKE", hint: "Creamy dessert with a graham cracker crust", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "What's in the bag?",
-    puzzleNumber: 52,
-    words: [
-      { word: "KEYS", hint: "Metal items that unlock doors and start cars", revealedIndex: 0 },
-      { word: "PHONE", hint: "Mobile device for calls, texts, and apps", revealedIndex: 2 },
-      { word: "WALLET", hint: "Folding case for money and cards", revealedIndex: 3 },
-      { word: "LIPSTICK", hint: "Cosmetic applied to add color to lips", revealedIndex: 0 },
-      { word: "SUNGLASSES", hint: "Eyewear that protects from bright light", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Fruits",
-    puzzleNumber: 53,
-    words: [
-      { word: "PEAR", hint: "A sweet fruit with a narrow top and rounded bottom", revealedIndex: 0 },
-      { word: "MANGO", hint: "Tropical stone fruit with orange flesh", revealedIndex: 2 },
-      { word: "ORANGE", hint: "Citrus fruit known for its vitamin C content", revealedIndex: 3 },
-      { word: "APRICOT", hint: "Small orange stone fruit related to peaches", revealedIndex: 0 },
-      { word: "PINEAPPLE", hint: "Tropical fruit with spiky skin and sweet yellow interior", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Animals",
-    puzzleNumber: 54,
-    words: [
-      { word: "BEAR", hint: "Large mammal that hibernates in winter", revealedIndex: 0 },
-      { word: "TIGER", hint: "Large striped cat native to Asia", revealedIndex: 2 },
-      { word: "GIRAFFE", hint: "Tallest land animal with a long neck", revealedIndex: 3 },
-      { word: "ELEPHANT", hint: "Largest land mammal with a trunk", revealedIndex: 0 },
-      { word: "ALLIGATOR", hint: "Large reptile found in swamps and rivers", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Occupations",
-    puzzleNumber: 55,
-    words: [
-      { word: "CHEF", hint: "Professional who prepares food in a restaurant", revealedIndex: 0 },
-      { word: "NURSE", hint: "Healthcare worker who cares for patients", revealedIndex: 2 },
-      { word: "TEACHER", hint: "Educator who instructs students in a classroom", revealedIndex: 3 },
-      { word: "ENGINEER", hint: "Professional who designs and builds systems", revealedIndex: 0 },
-      { word: "ARCHITECT", hint: "Designer of buildings and structures", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Sports",
-    puzzleNumber: 56,
-    words: [
-      { word: "GOLF", hint: "Sport played with clubs and a small white ball", revealedIndex: 0 },
-      { word: "RUGBY", hint: "Contact team sport played with an oval ball", revealedIndex: 2 },
-      { word: "TENNIS", hint: "Racquet sport played on a court with a net", revealedIndex: 3 },
-      { word: "SWIMMING", hint: "Water sport involving moving through water", revealedIndex: 0 },
-      { word: "BASKETBALL", hint: "Team sport where players shoot a ball through a hoop", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "U.S. States",
-    puzzleNumber: 57,
-    words: [
-      { word: "UTAH", hint: "Western state known for its national parks", revealedIndex: 0 },
-      { word: "TEXAS", hint: "The Lone Star State, second largest by area", revealedIndex: 2 },
-      { word: "OREGON", hint: "Pacific Northwest state known for its forests", revealedIndex: 3 },
-      { word: "GEORGIA", hint: "Southern state known as the Peach State", revealedIndex: 0 },
-      { word: "CALIFORNIA", hint: "Most populous state on the West Coast", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "School Days",
-    puzzleNumber: 58,
-    words: [
-      { word: "DESK", hint: "Furniture where students sit and work", revealedIndex: 0 },
-      { word: "LUNCH", hint: "Midday meal eaten in the cafeteria", revealedIndex: 2 },
-      { word: "RECESS", hint: "Break time for outdoor play", revealedIndex: 3 },
-      { word: "SCIENCE", hint: "Subject exploring how the world works", revealedIndex: 0 },
-      { word: "TEXTBOOK", hint: "Educational book used for studying", revealedIndex: 5 }
-    ]
-  },
-
-  /// NEW PUZZLES (59-77)
-  {
-    category: "Trees and Shrubs",
-    puzzleNumber: 59,
-    words: [
-      { word: "PALM", hint: "Tropical tree with large fan-shaped or feathery leaves", revealedIndex: 0 },
-      { word: "MAPLE", hint: "Deciduous tree known for its colorful fall foliage and sweet sap", revealedIndex: 2 },
-      { word: "BANYAN", hint: "Fig tree with aerial roots that grow down to form additional trunks", revealedIndex: 3 },
-      { word: "JASMINE", hint: "Fragrant flowering shrub often used in perfumes and teas", revealedIndex: 0 },
-      { word: "CINNAMON", hint: "Aromatic evergreen tree whose inner bark is used as a spice", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Movie Titles",
-    puzzleNumber: 60,
-    words: [
-      { word: "JAWS", hint: "1975 Spielberg thriller about a great white shark terrorizing a beach town", revealedIndex: 0 },
-      { word: "ALIEN", hint: "1979 sci-fi horror classic with Sigourney Weaver fighting extraterrestrials", revealedIndex: 2 },
-      { word: "FROZEN", hint: "Disney animated film featuring Elsa, Anna, and the song 'Let It Go'", revealedIndex: 3 },
-      { word: "TITANIC", hint: "1997 epic romance about the doomed ocean liner starring DiCaprio and Winslet", revealedIndex: 0 },
-      { word: "INCEPTION", hint: "Christopher Nolan mind-bending thriller about dreams within dreams", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Colors",
-    puzzleNumber: 61,
-    words: [
-      { word: "BLUE", hint: "The color of a clear sky on a sunny day", revealedIndex: 0 },
-      { word: "BEIGE", hint: "A neutral sandy or tan shade often used in interior design", revealedIndex: 2 },
-      { word: "INDIGO", hint: "A deep purple-blue color between blue and violet in the rainbow", revealedIndex: 3 },
-      { word: "EMERALD", hint: "A rich green color named after a precious gemstone", revealedIndex: 0 },
-      { word: "BURGUNDY", hint: "A deep reddish-purple wine color named after a French region", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "International Foods",
-    puzzleNumber: 62,
-    words: [
-      { word: "TACO", hint: "A Mexican dish with a folded tortilla and various fillings", revealedIndex: 0 },
-      { word: "SUSHI", hint: "Japanese dish of vinegared rice with raw fish or vegetables", revealedIndex: 2 },
-      { word: "PAELLA", hint: "A Spanish rice dish from Valencia with seafood and saffron", revealedIndex: 3 },
-      { word: "RAVIOLI", hint: "Italian pasta pillows filled with cheese, meat, or vegetables", revealedIndex: 0 },
-      { word: "CROISSANT", hint: "A flaky, buttery French pastry shaped like a crescent", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Games",
-    puzzleNumber: 63,
-    words: [
-      { word: "RISK", hint: "Strategic board game of world domination with armies and dice", revealedIndex: 0 },
-      { word: "CHESS", hint: "Ancient strategy game with kings, queens, and checkmate", revealedIndex: 2 },
-      { word: "DOMINO", hint: "Tile game with numbered dots played by matching ends", revealedIndex: 3 },
-      { word: "YAHTZEE", hint: "Dice game where players try to score combinations and get five of a kind", revealedIndex: 0 },
-      { word: "SCRABBLE", hint: "Word-building board game where letter tiles score points on a grid", revealedIndex: 5 }
-    ]
-  },
-  {
-    category: "Game Night",
-    puzzleNumber: 64,
-    words: [
-      { word: "UNO", hint: "Popular card game where players match colors and numbers", revealedIndex: 0 },
-      { word: "CLUE", hint: "Classic murder mystery board game with suspects and weapons", revealedIndex: 2 },
-      { word: "TWISTER", hint: "Physical game with colored circles where players contort their bodies", revealedIndex: 3 },
-      { word: "CHECKERS", hint: "Strategy board game where pieces jump to capture opponents", revealedIndex: 0 },
-      { word: "MONOPOLY", hint: "Real estate trading game where players buy properties and collect rent", revealedIndex: 5 }
-    ],
-    funFact: "Monopoly has been licensed in over 113 countries and printed in more than 46 languages."
-  },
-  {
-    category: "It's a Mystery!",
-    puzzleNumber: 65,
-    words: [
-      { word: "CLUE", hint: "A piece of evidence that helps solve a puzzle or crime", revealedIndex: 0 },
-      { word: "CRIME", hint: "An illegal act that breaks the law", revealedIndex: 2 },
-      { word: "ARREST", hint: "When police take someone into custody for breaking the law", revealedIndex: 3 },
-      { word: "SUSPECT", hint: "A person believed to have committed a crime", revealedIndex: 0 },
-      { word: "SOLUTION", hint: "The answer or resolution to a mystery or problem", revealedIndex: 5 }
-    ],
-    funFact: "Mystery writers use \"red herrings,\" carefully planted false leads designed to distract or misguide readers."
-  },
-  {
-    category: "Favorite Bookshop",
-    puzzleNumber: 66,
-    words: [
-      { word: "CAFE", hint: "A cozy spot in a bookstore serving coffee and treats", revealedIndex: 0 },
-      { word: "MERCH", hint: "Merchandise like bookmarks, tote bags, and literary-themed gifts", revealedIndex: 2 },
-      { word: "AUTHOR", hint: "A writer who may visit to discuss and promote their books", revealedIndex: 3 },
-      { word: "SIGNING", hint: "An event where a writer autographs copies of their book", revealedIndex: 0 },
-      { word: "AMBIANCE", hint: "The welcoming atmosphere and character of a beloved bookshop", revealedIndex: 5 }
-    ],
-    funFact: "The world's oldest book store, in Lisbon, Portugal, has been in operation since 1732."
-  },
-  {
-    category: "Thanksgiving",
-    puzzleNumber: 67,
-    words: [
-      { word: "MEAL", hint: "A festive feast shared with family and friends", revealedIndex: 0 },
-      { word: "GOURD", hint: "A decorative squash often used as autumn decor", revealedIndex: 2 },
-      { word: "GOBBLE", hint: "The distinctive sound a turkey makes", revealedIndex: 3 },
-      { word: "HARVEST", hint: "The gathering of crops celebrated at this holiday", revealedIndex: 0 },
-      { word: "GRATEFUL", hint: "Feeling thankful and appreciative for blessings", revealedIndex: 5 }
-    ],
-    funFact: "Sarah Josepha Hale, the author of \"Mary Had a Little Lamb,\" is credited with convincing President Lincoln to declare Thanksgiving a national holiday after 17 years of writing letters."
-  },
-  {
-    category: "Music Storage",
-    puzzleNumber: 68,
-    words: [
-      { word: "DISK", hint: "A circular storage medium for music, like CDs or vinyl", revealedIndex: 0 },
-      { word: "TRACK", hint: "An individual song on an album or recording", revealedIndex: 2 },
-      { word: "RECORD", hint: "A vinyl disc that plays music when spun on a turntable", revealedIndex: 3 },
-      { word: "NAPSTER", hint: "Revolutionary file-sharing service that changed music distribution", revealedIndex: 0 },
-      { word: "CASSETTE", hint: "Magnetic tape format popular in the 1980s and 90s", revealedIndex: 5 }
-    ],
-    funFact: "The cassette was invented in 1962 for voice recording not music."
-  },
-  {
-    category: "Jim Henson's Muppets",
-    puzzleNumber: 69,
-    words: [
-      { word: "BIRD", hint: "Big yellow character who lives on Sesame Street", revealedIndex: 0 },
-      { word: "PIGGY", hint: "Miss ___, glamorous diva and Kermit's love interest", revealedIndex: 2 },
-      { word: "KERMIT", hint: "The famous green frog who sings 'Rainbow Connection'", revealedIndex: 3 },
-      { word: "SNUFFLE", hint: "___ upagus, the woolly mammoth-like creature on Sesame Street", revealedIndex: 0 },
-      { word: "PUPPETRY", hint: "The art of bringing characters to life with hand movements", revealedIndex: 5 }
-    ],
-    funFact: "Jim Henson coined the word muppet by combining the words marionette and puppet."
-  },
-  {
-    category: "Pizza, pizza!",
-    puzzleNumber: 70,
-    words: [
-      { word: "MEAT", hint: "A savory protein topping category for pizza", revealedIndex: 0 },
-      { word: "SAUCE", hint: "Tomato-based spread that goes on the dough", revealedIndex: 2 },
-      { word: "TOMATO", hint: "Red fruit used as the base for pizza sauce", revealedIndex: 3 },
-      { word: "SAUSAGE", hint: "Spiced ground meat topping, often Italian-style", revealedIndex: 0 },
-      { word: "MUSHROOM", hint: "Earthy fungus that's a popular vegetable topping", revealedIndex: 5 }
-    ],
-    funFact: "Pepperoni is the most popular pizza topping, with over 450 million pounds used annually."
-  },
-  {
-    category: "Video Games",
-    puzzleNumber: 71,
-    words: [
-      { word: "PONG", hint: "Classic table tennis video game from the 1970s", revealedIndex: 0 },
-      { word: "ATARI", hint: "Iconic gaming company that pioneered home video game consoles", revealedIndex: 2 },
-      { word: "ARCADE", hint: "Entertainment venue filled with coin-operated game machines", revealedIndex: 3 },
-      { word: "CONSOLE", hint: "Home gaming device that connects to a TV", revealedIndex: 0 },
-      { word: "JOYSTICK", hint: "Hand-held controller used to navigate games", revealedIndex: 5 }
-    ],
-    funFact: "The first video game, thought to be Pong, was created in 1958 and became popular in the 1970s."
-  },
+  // ===========================================
+  // INDEX 0 - Shows on anchor date (Nov 29, 2025 at 7 PM)
+  // ===========================================
   {
     category: "'Round the Hearth",
-    puzzleNumber: 70,
+    puzzleNumber: 79,
     words: [
       { word: "WARM", hint: "The cozy feeling you get sitting by a fire", revealedIndex: 0 },
       { word: "STORY", hint: "A tale shared aloud while gathered together", revealedIndex: 2 },
@@ -290,9 +36,10 @@ const puzzles = [
     ],
     funFact: "The word 'hearth' comes from the Latin word focus, which means 'center' or 'heart'. This is why the hearth has historically been considered the 'heart of the home' and why we still use the word 'focus' today to talk about the main point of something."
   },
+  // INDEX 1 - Shows Nov 30, 2025 at 7 PM
   {
     category: "The Price is Right",
-    puzzleNumber: 71,
+    puzzleNumber: 80,
     words: [
       { word: "CASH", hint: "Money in bills or coins, often a grand prize", revealedIndex: 0 },
       { word: "PRIZE", hint: "Something won in a game or competition", revealedIndex: 2 },
@@ -302,9 +49,10 @@ const puzzles = [
     ],
     funFact: "The Price is Right is the longest running game show in US history and has given away over $350 million in prizes since 1972."
   },
+  // INDEX 2 - Shows Dec 1, 2025 at 7 PM
   {
     category: "Moving Through the Air",
-    puzzleNumber: 72,
+    puzzleNumber: 81,
     words: [
       { word: "SOAR", hint: "To fly high without flapping wings", revealedIndex: 0 },
       { word: "GLIDE", hint: "To move smoothly through the air with little effort", revealedIndex: 2 },
@@ -314,9 +62,10 @@ const puzzles = [
     ],
     funFact: "The first animals to fly were a sheep, a duck, and a rooster in a hot air balloon in 1783."
   },
+  // INDEX 3 - Shows Dec 2, 2025 at 7 PM
   {
     category: "Animated Film Characters",
-    puzzleNumber: 73,
+    puzzleNumber: 82,
     words: [
       { word: "LILO", hint: "Hawaiian girl who adopts an unusual pet from space", revealedIndex: 0 },
       { word: "SHREK", hint: "Green ogre who lives in a swamp and rescues a princess", revealedIndex: 2 },
@@ -326,9 +75,10 @@ const puzzles = [
     ],
     funFact: "Boo in Monsters, Inc was voiced by a toddler whose playtime was recorded to get her lines."
   },
+  // INDEX 4 - Shows Dec 3, 2025 at 7 PM
   {
     category: "Air Travel",
-    puzzleNumber: 74,
+    puzzleNumber: 83,
     words: [
       { word: "PASS", hint: "A boarding document that lets you on the plane", revealedIndex: 0 },
       { word: "PILOT", hint: "The person who flies the aircraft", revealedIndex: 2 },
@@ -338,9 +88,10 @@ const puzzles = [
     ],
     funFact: "Airplanes are struck by lightning regularly; however, the electrical charge goes around the plane."
   },
+  // INDEX 5 - Shows Dec 4, 2025 at 7 PM
   {
     category: "Say \"Cheese!\"",
-    puzzleNumber: 75,
+    puzzleNumber: 84,
     words: [
       { word: "BRIE", hint: "Soft French cheese with an edible white rind", revealedIndex: 0 },
       { word: "SWISS", hint: "Cheese known for its signature holes", revealedIndex: 2 },
@@ -350,9 +101,10 @@ const puzzles = [
     ],
     funFact: "There are over 2,000 varieties of cheese, and it can take around 10 pounds of milk to make just one pound of cheese."
   },
+  // INDEX 6 - Shows Dec 5, 2025 at 7 PM
   {
     category: "Lunch",
-    puzzleNumber: 78,
+    puzzleNumber: 85,
     words: [
       { word: "SOUP", hint: "A warm liquid dish often served in a bowl with a spoon", revealedIndex: 0 },
       { word: "SALAD", hint: "A mix of leafy greens and vegetables, often with dressing", revealedIndex: 2 },
@@ -361,40 +113,341 @@ const puzzles = [
       { word: "SANDWICH", hint: "Fillings placed between two slices of bread", revealedIndex: 4 }
     ],
     funFact: "The average American will have consumed 1,500 PB&Js by the time they graduate from high school."
+  },
+  // INDEX 7 - Shows Dec 6, 2025 at 7 PM
+  {
+    category: "Candy",
+    puzzleNumber: 86,
+    words: [
+      { word: "MINT", hint: "A refreshing flavored candy often used after dinner", revealedIndex: 0 },
+      { word: "TAFFY", hint: "A chewy candy often sold at boardwalks and beaches", revealedIndex: 2 },
+      { word: "GUMMY", hint: "Soft, chewy candy often shaped like bears or worms", revealedIndex: 3 },
+      { word: "LOLLIPOP", hint: "Hard candy on a stick, a classic carnival treat", revealedIndex: 0 },
+      { word: "CHOCOLATE", hint: "Sweet treat made from cacao beans, enjoyed worldwide", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 8 - Shows Dec 7, 2025 at 7 PM
+  {
+    category: "Autumn",
+    puzzleNumber: 87,
+    words: [
+      { word: "LEAF", hint: "Tree foliage that changes color and falls in this season", revealedIndex: 0 },
+      { word: "APPLE", hint: "Round fruit often picked at orchards in fall", revealedIndex: 2 },
+      { word: "PUMPKIN", hint: "Large orange gourd carved for Halloween", revealedIndex: 3 },
+      { word: "HARVEST", hint: "The gathering of crops at the end of the growing season", revealedIndex: 0 },
+      { word: "SWEATER", hint: "Cozy knitted clothing worn when temperatures drop", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 9 - Shows Dec 8, 2025 at 7 PM
+  {
+    category: "Hiking",
+    puzzleNumber: 88,
+    words: [
+      { word: "BOOT", hint: "Sturdy footwear essential for trail walking", revealedIndex: 0 },
+      { word: "TRAIL", hint: "A marked path through nature for walking", revealedIndex: 2 },
+      { word: "SUMMIT", hint: "The highest point of a mountain", revealedIndex: 3 },
+      { word: "COMPASS", hint: "Navigation tool that points north", revealedIndex: 0 },
+      { word: "BACKPACK", hint: "Bag worn on shoulders to carry supplies", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 10 - Shows Dec 9, 2025 at 7 PM
+  {
+    category: "Dessert",
+    puzzleNumber: 89,
+    words: [
+      { word: "TART", hint: "A pastry with fruit filling and no top crust", revealedIndex: 0 },
+      { word: "FUDGE", hint: "Rich, creamy chocolate confection", revealedIndex: 2 },
+      { word: "SUNDAE", hint: "Ice cream topped with sauce, whipped cream, and a cherry", revealedIndex: 3 },
+      { word: "BROWNIE", hint: "Dense, chocolate baked square dessert", revealedIndex: 0 },
+      { word: "CHEESECAKE", hint: "Creamy dessert with a graham cracker crust", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 11 - Shows Dec 10, 2025 at 7 PM
+  {
+    category: "What's in the bag?",
+    puzzleNumber: 90,
+    words: [
+      { word: "KEYS", hint: "Metal items that unlock doors and start cars", revealedIndex: 0 },
+      { word: "PHONE", hint: "Mobile device for calls, texts, and apps", revealedIndex: 2 },
+      { word: "WALLET", hint: "Folding case for money and cards", revealedIndex: 3 },
+      { word: "LIPSTICK", hint: "Cosmetic applied to add color to lips", revealedIndex: 0 },
+      { word: "SUNGLASSES", hint: "Eyewear that protects from bright light", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 12 - Shows Dec 11, 2025 at 7 PM
+  {
+    category: "Fruits",
+    puzzleNumber: 91,
+    words: [
+      { word: "PEAR", hint: "A sweet fruit with a narrow top and rounded bottom", revealedIndex: 0 },
+      { word: "MANGO", hint: "Tropical stone fruit with orange flesh", revealedIndex: 2 },
+      { word: "ORANGE", hint: "Citrus fruit known for its vitamin C content", revealedIndex: 3 },
+      { word: "APRICOT", hint: "Small orange stone fruit related to peaches", revealedIndex: 0 },
+      { word: "PINEAPPLE", hint: "Tropical fruit with spiky skin and sweet yellow interior", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 13 - Shows Dec 12, 2025 at 7 PM
+  {
+    category: "Animals",
+    puzzleNumber: 92,
+    words: [
+      { word: "BEAR", hint: "Large mammal that hibernates in winter", revealedIndex: 0 },
+      { word: "TIGER", hint: "Large striped cat native to Asia", revealedIndex: 2 },
+      { word: "GIRAFFE", hint: "Tallest land animal with a long neck", revealedIndex: 3 },
+      { word: "ELEPHANT", hint: "Largest land mammal with a trunk", revealedIndex: 0 },
+      { word: "ALLIGATOR", hint: "Large reptile found in swamps and rivers", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 14 - Shows Dec 13, 2025 at 7 PM
+  {
+    category: "Occupations",
+    puzzleNumber: 93,
+    words: [
+      { word: "CHEF", hint: "Professional who prepares food in a restaurant", revealedIndex: 0 },
+      { word: "NURSE", hint: "Healthcare worker who cares for patients", revealedIndex: 2 },
+      { word: "TEACHER", hint: "Educator who instructs students in a classroom", revealedIndex: 3 },
+      { word: "ENGINEER", hint: "Professional who designs and builds systems", revealedIndex: 0 },
+      { word: "ARCHITECT", hint: "Designer of buildings and structures", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 15 - Shows Dec 14, 2025 at 7 PM
+  {
+    category: "Sports",
+    puzzleNumber: 94,
+    words: [
+      { word: "GOLF", hint: "Sport played with clubs and a small white ball", revealedIndex: 0 },
+      { word: "RUGBY", hint: "Contact team sport played with an oval ball", revealedIndex: 2 },
+      { word: "TENNIS", hint: "Racquet sport played on a court with a net", revealedIndex: 3 },
+      { word: "SWIMMING", hint: "Water sport involving moving through water", revealedIndex: 0 },
+      { word: "BASKETBALL", hint: "Team sport where players shoot a ball through a hoop", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 16 - Shows Dec 15, 2025 at 7 PM
+  {
+    category: "U.S. States",
+    puzzleNumber: 95,
+    words: [
+      { word: "UTAH", hint: "Western state known for its national parks", revealedIndex: 0 },
+      { word: "TEXAS", hint: "The Lone Star State, second largest by area", revealedIndex: 2 },
+      { word: "OREGON", hint: "Pacific Northwest state known for its forests", revealedIndex: 3 },
+      { word: "GEORGIA", hint: "Southern state known as the Peach State", revealedIndex: 0 },
+      { word: "CALIFORNIA", hint: "Most populous state on the West Coast", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 17 - Shows Dec 16, 2025 at 7 PM
+  {
+    category: "School Days",
+    puzzleNumber: 96,
+    words: [
+      { word: "DESK", hint: "Furniture where students sit and work", revealedIndex: 0 },
+      { word: "LUNCH", hint: "Midday meal eaten in the cafeteria", revealedIndex: 2 },
+      { word: "RECESS", hint: "Break time for outdoor play", revealedIndex: 3 },
+      { word: "SCIENCE", hint: "Subject exploring how the world works", revealedIndex: 0 },
+      { word: "TEXTBOOK", hint: "Educational book used for studying", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 18 - Shows Dec 17, 2025 at 7 PM
+  {
+    category: "Trees and Shrubs",
+    puzzleNumber: 97,
+    words: [
+      { word: "PALM", hint: "Tropical tree with large fan-shaped or feathery leaves", revealedIndex: 0 },
+      { word: "MAPLE", hint: "Deciduous tree known for its colorful fall foliage and sweet sap", revealedIndex: 2 },
+      { word: "BANYAN", hint: "Fig tree with aerial roots that grow down to form additional trunks", revealedIndex: 3 },
+      { word: "JASMINE", hint: "Fragrant flowering shrub often used in perfumes and teas", revealedIndex: 0 },
+      { word: "CINNAMON", hint: "Aromatic evergreen tree whose inner bark is used as a spice", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 19 - Shows Dec 18, 2025 at 7 PM
+  {
+    category: "Movie Titles",
+    puzzleNumber: 98,
+    words: [
+      { word: "JAWS", hint: "1975 Spielberg thriller about a great white shark terrorizing a beach town", revealedIndex: 0 },
+      { word: "ALIEN", hint: "1979 sci-fi horror classic with Sigourney Weaver fighting extraterrestrials", revealedIndex: 2 },
+      { word: "FROZEN", hint: "Disney animated film featuring Elsa, Anna, and the song 'Let It Go'", revealedIndex: 3 },
+      { word: "TITANIC", hint: "1997 epic romance about the doomed ocean liner starring DiCaprio and Winslet", revealedIndex: 0 },
+      { word: "INCEPTION", hint: "Christopher Nolan mind-bending thriller about dreams within dreams", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 20 - Shows Dec 19, 2025 at 7 PM
+  {
+    category: "Colors",
+    puzzleNumber: 99,
+    words: [
+      { word: "BLUE", hint: "The color of a clear sky on a sunny day", revealedIndex: 0 },
+      { word: "BEIGE", hint: "A neutral sandy or tan shade often used in interior design", revealedIndex: 2 },
+      { word: "INDIGO", hint: "A deep purple-blue color between blue and violet in the rainbow", revealedIndex: 3 },
+      { word: "EMERALD", hint: "A rich green color named after a precious gemstone", revealedIndex: 0 },
+      { word: "BURGUNDY", hint: "A deep reddish-purple wine color named after a French region", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 21 - Shows Dec 20, 2025 at 7 PM
+  {
+    category: "International Foods",
+    puzzleNumber: 100,
+    words: [
+      { word: "TACO", hint: "A Mexican dish with a folded tortilla and various fillings", revealedIndex: 0 },
+      { word: "SUSHI", hint: "Japanese dish of vinegared rice with raw fish or vegetables", revealedIndex: 2 },
+      { word: "PAELLA", hint: "A Spanish rice dish from Valencia with seafood and saffron", revealedIndex: 3 },
+      { word: "RAVIOLI", hint: "Italian pasta pillows filled with cheese, meat, or vegetables", revealedIndex: 0 },
+      { word: "CROISSANT", hint: "A flaky, buttery French pastry shaped like a crescent", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 22 - Shows Dec 21, 2025 at 7 PM
+  {
+    category: "Games",
+    puzzleNumber: 101,
+    words: [
+      { word: "RISK", hint: "Strategic board game of world domination with armies and dice", revealedIndex: 0 },
+      { word: "CHESS", hint: "Ancient strategy game with kings, queens, and checkmate", revealedIndex: 2 },
+      { word: "DOMINO", hint: "Tile game with numbered dots played by matching ends", revealedIndex: 3 },
+      { word: "YAHTZEE", hint: "Dice game where players try to score combinations and get five of a kind", revealedIndex: 0 },
+      { word: "SCRABBLE", hint: "Word-building board game where letter tiles score points on a grid", revealedIndex: 5 }
+    ]
+  },
+  // INDEX 23 - Shows Dec 22, 2025 at 7 PM
+  {
+    category: "Game Night",
+    puzzleNumber: 102,
+    words: [
+      { word: "UNO", hint: "Popular card game where players match colors and numbers", revealedIndex: 0 },
+      { word: "CLUE", hint: "Classic murder mystery board game with suspects and weapons", revealedIndex: 2 },
+      { word: "TWISTER", hint: "Physical game with colored circles where players contort their bodies", revealedIndex: 3 },
+      { word: "CHECKERS", hint: "Strategy board game where pieces jump to capture opponents", revealedIndex: 0 },
+      { word: "MONOPOLY", hint: "Real estate trading game where players buy properties and collect rent", revealedIndex: 5 }
+    ],
+    funFact: "Monopoly has been licensed in over 113 countries and printed in more than 46 languages."
+  },
+  // INDEX 24 - Shows Dec 23, 2025 at 7 PM
+  {
+    category: "It's a Mystery!",
+    puzzleNumber: 103,
+    words: [
+      { word: "CLUE", hint: "A piece of evidence that helps solve a puzzle or crime", revealedIndex: 0 },
+      { word: "CRIME", hint: "An illegal act that breaks the law", revealedIndex: 2 },
+      { word: "ARREST", hint: "When police take someone into custody for breaking the law", revealedIndex: 3 },
+      { word: "SUSPECT", hint: "A person believed to have committed a crime", revealedIndex: 0 },
+      { word: "SOLUTION", hint: "The answer or resolution to a mystery or problem", revealedIndex: 5 }
+    ],
+    funFact: "Mystery writers use \"red herrings,\" carefully planted false leads designed to distract or misguide readers."
+  },
+  // INDEX 25 - Shows Dec 24, 2025 at 7 PM
+  {
+    category: "Favorite Bookshop",
+    puzzleNumber: 104,
+    words: [
+      { word: "CAFE", hint: "A cozy spot in a bookstore serving coffee and treats", revealedIndex: 0 },
+      { word: "MERCH", hint: "Merchandise like bookmarks, tote bags, and literary-themed gifts", revealedIndex: 2 },
+      { word: "AUTHOR", hint: "A writer who may visit to discuss and promote their books", revealedIndex: 3 },
+      { word: "SIGNING", hint: "An event where a writer autographs copies of their book", revealedIndex: 0 },
+      { word: "AMBIANCE", hint: "The welcoming atmosphere and character of a beloved bookshop", revealedIndex: 5 }
+    ],
+    funFact: "The world's oldest book store, in Lisbon, Portugal, has been in operation since 1732."
+  },
+  // INDEX 26 - Shows Dec 25, 2025 at 7 PM
+  {
+    category: "Thanksgiving",
+    puzzleNumber: 105,
+    words: [
+      { word: "MEAL", hint: "A festive feast shared with family and friends", revealedIndex: 0 },
+      { word: "GOURD", hint: "A decorative squash often used as autumn decor", revealedIndex: 2 },
+      { word: "GOBBLE", hint: "The distinctive sound a turkey makes", revealedIndex: 3 },
+      { word: "HARVEST", hint: "The gathering of crops celebrated at this holiday", revealedIndex: 0 },
+      { word: "GRATEFUL", hint: "Feeling thankful and appreciative for blessings", revealedIndex: 5 }
+    ],
+    funFact: "Sarah Josepha Hale, the author of \"Mary Had a Little Lamb,\" is credited with convincing President Lincoln to declare Thanksgiving a national holiday after 17 years of writing letters."
+  },
+  // INDEX 27 - Shows Dec 26, 2025 at 7 PM
+  {
+    category: "Music Storage",
+    puzzleNumber: 106,
+    words: [
+      { word: "DISK", hint: "A circular storage medium for music, like CDs or vinyl", revealedIndex: 0 },
+      { word: "TRACK", hint: "An individual song on an album or recording", revealedIndex: 2 },
+      { word: "RECORD", hint: "A vinyl disc that plays music when spun on a turntable", revealedIndex: 3 },
+      { word: "NAPSTER", hint: "Revolutionary file-sharing service that changed music distribution", revealedIndex: 0 },
+      { word: "CASSETTE", hint: "Magnetic tape format popular in the 1980s and 90s", revealedIndex: 5 }
+    ],
+    funFact: "The cassette was invented in 1962 for voice recording not music."
+  },
+  // INDEX 28 - Shows Dec 27, 2025 at 7 PM
+  {
+    category: "Jim Henson's Muppets",
+    puzzleNumber: 107,
+    words: [
+      { word: "BIRD", hint: "Big yellow character who lives on Sesame Street", revealedIndex: 0 },
+      { word: "PIGGY", hint: "Miss ___, glamorous diva and Kermit's love interest", revealedIndex: 2 },
+      { word: "KERMIT", hint: "The famous green frog who sings 'Rainbow Connection'", revealedIndex: 3 },
+      { word: "SNUFFLE", hint: "___ upagus, the woolly mammoth-like creature on Sesame Street", revealedIndex: 0 },
+      { word: "PUPPETRY", hint: "The art of bringing characters to life with hand movements", revealedIndex: 5 }
+    ],
+    funFact: "Jim Henson coined the word muppet by combining the words marionette and puppet."
+  },
+  // INDEX 29 - Shows Dec 28, 2025 at 7 PM
+  {
+    category: "Pizza, pizza!",
+    puzzleNumber: 108,
+    words: [
+      { word: "MEAT", hint: "A savory protein topping category for pizza", revealedIndex: 0 },
+      { word: "SAUCE", hint: "Tomato-based spread that goes on the dough", revealedIndex: 2 },
+      { word: "TOMATO", hint: "Red fruit used as the base for pizza sauce", revealedIndex: 3 },
+      { word: "SAUSAGE", hint: "Spiced ground meat topping, often Italian-style", revealedIndex: 0 },
+      { word: "MUSHROOM", hint: "Earthy fungus that's a popular vegetable topping", revealedIndex: 5 }
+    ],
+    funFact: "Pepperoni is the most popular pizza topping, with over 450 million pounds used annually."
+  },
+  // INDEX 30 - Shows Dec 29, 2025 at 7 PM
+  {
+    category: "Video Games",
+    puzzleNumber: 109,
+    words: [
+      { word: "PONG", hint: "Classic table tennis video game from the 1970s", revealedIndex: 0 },
+      { word: "ATARI", hint: "Iconic gaming company that pioneered home video game consoles", revealedIndex: 2 },
+      { word: "ARCADE", hint: "Entertainment venue filled with coin-operated game machines", revealedIndex: 3 },
+      { word: "CONSOLE", hint: "Home gaming device that connects to a TV", revealedIndex: 0 },
+      { word: "JOYSTICK", hint: "Hand-held controller used to navigate games", revealedIndex: 5 }
+    ],
+    funFact: "The first video game, thought to be Pong, was created in 1958 and became popular in the 1970s."
   }
-  ];
+  // ===========================================
+  // ADD NEW PUZZLES HERE!
+  // They will automatically appear after Dec 29
+  // (after all 31 current puzzles have cycled)
+  // ===========================================
+];
 
-// Function to get today's puzzle based on EST time
+// ===========================================
+// ROTATION FUNCTION - Uses Anchor Date System
+// ===========================================
 export function getTodaysPuzzle() {
   // Get current time in EST
   const now = new Date();
   const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
   
-  // Puzzle changes at 7 PM EST
+  // Determine which "puzzle day" we're in
+  // Puzzle drops at 7 PM and stays live until next 7 PM
   const hour = estTime.getHours();
   const puzzleDate = new Date(estTime);
+  puzzleDate.setHours(19, 0, 0, 0); // Set to 7 PM
   
-  // Puzzle drops at 7 PM and stays live until next 7 PM
-  // If before 7 PM today, show yesterday's puzzle (which dropped at 7 PM yesterday)
-  // If after 7 PM today, show today's puzzle (which just dropped)
-  // Puzzle drops at 7 PM and stays live until next 7 PM (24 hours)
-  // If before 7 PM today, show yesterday's puzzle (which dropped at 7 PM yesterday)
-  // If after 7 PM today, show today's puzzle (which just dropped)
   if (hour < 19) {
-    // Before 7 PM - use yesterday's date (still showing yesterday's 7 PM puzzle)
+    // Before 7 PM - still showing yesterday's puzzle
     puzzleDate.setDate(puzzleDate.getDate() - 1);
-    puzzleDate.setHours(19, 0, 0, 0);
-  } 
-  // After 7 PM - puzzleDate stays as current date (today's puzzle just dropped)
-  else {
-  puzzleDate.setHours(19, 0, 0, 0);
-}
-  // Calculate days since epoch (Jan 1, 1970) to determine puzzle index
-  const epoch = new Date('1970-01-01');
-  const daysSinceEpoch = Math.floor((puzzleDate - epoch) / (1000 * 60 * 60 * 24));
+  }
+  // After 7 PM - puzzleDate is already correct (today at 7 PM)
   
-  // Rotate through puzzles (NOW 31 TOTAL PUZZLES - ACTIVE FILE!)
-  const puzzleIndex = (daysSinceEpoch) % puzzles.length;
+  // Calculate days since anchor date
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const daysSinceAnchor = Math.floor((puzzleDate - ANCHOR_DATE) / msPerDay);
+  
+  // Calculate puzzle index (wrapping around the array)
+  let puzzleIndex = daysSinceAnchor % puzzles.length;
+  
+  // Handle negative values (for dates before anchor - shouldn't happen in production)
+  if (puzzleIndex < 0) {
+    puzzleIndex += puzzles.length;
+  }
   
   return puzzles[puzzleIndex];
 }

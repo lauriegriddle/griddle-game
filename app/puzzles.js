@@ -116,273 +116,289 @@ const puzzles = [
   },
   // INDEX 7 - Shows Dec 6, 2025 at 7 PM
   {
-    category: "Candy",
+    category: "Rock On!",
     puzzleNumber: 86,
     words: [
-      { word: "MINT", hint: "A refreshing flavored candy often used after dinner", revealedIndex: 0 },
-      { word: "TAFFY", hint: "A chewy candy often sold at boardwalks and beaches", revealedIndex: 2 },
-      { word: "GUMMY", hint: "Soft, chewy candy often shaped like bears or worms", revealedIndex: 3 },
-      { word: "LOLLIPOP", hint: "Hard candy on a stick, a classic carnival treat", revealedIndex: 0 },
-      { word: "CHOCOLATE", hint: "Sweet treat made from cacao beans, enjoyed worldwide", revealedIndex: 5 }
-    ]
+      { word: "PUNK", hint: "A rebellious rock genre known for fast tempos and anti-establishment lyrics", revealedIndex: 0 },
+      { word: "METAL", hint: "Heavy rock genre featuring loud, distorted guitars and powerful drums", revealedIndex: 2 },
+      { word: "CLASSIC", hint: "Timeless rock from the 60s and 70s that never goes out of style", revealedIndex: 3 },
+      { word: "CONCERT", hint: "A live music performance where fans gather to see their favorite bands", revealedIndex: 0 },
+      { word: "SONGBIRD", hint: "A singer with a naturally beautiful, melodic voice", revealedIndex: 4 }
+    ],
+    funFact: "Metallica is the only band to have played on all seven continents."
   },
   // INDEX 8 - Shows Dec 7, 2025 at 7 PM
   {
-    category: "Autumn",
+    category: "Spices",
     puzzleNumber: 87,
     words: [
-      { word: "LEAF", hint: "Tree foliage that changes color and falls in this season", revealedIndex: 0 },
-      { word: "APPLE", hint: "Round fruit often picked at orchards in fall", revealedIndex: 2 },
-      { word: "PUMPKIN", hint: "Large orange gourd carved for Halloween", revealedIndex: 3 },
-      { word: "HARVEST", hint: "The gathering of crops at the end of the growing season", revealedIndex: 0 },
-      { word: "SWEATER", hint: "Cozy knitted clothing worn when temperatures drop", revealedIndex: 5 }
-    ]
+      { word: "SALT", hint: "Essential seasoning that enhances flavor in almost every dish", revealedIndex: 0 },
+      { word: "THYME", hint: "Fragrant herb with tiny leaves, often used in soups and roasts", revealedIndex: 2 },
+      { word: "PEPPER", hint: "Common table seasoning that adds a bit of heat and kick", revealedIndex: 3 },
+      { word: "PAPRIKA", hint: "Red powder made from dried peppers, popular in Hungarian cuisine", revealedIndex: 0 },
+      { word: "ROSEMARY", hint: "Aromatic herb with needle-like leaves, perfect with lamb and potatoes", revealedIndex: 4 }
+    ],
+    funFact: "By weight, paprika has more vitamin C than lemon juice."
   },
   // INDEX 9 - Shows Dec 8, 2025 at 7 PM
   {
-    category: "Hiking",
+    category: "Cats",
     puzzleNumber: 88,
     words: [
-      { word: "BOOT", hint: "Sturdy footwear essential for trail walking", revealedIndex: 0 },
-      { word: "TRAIL", hint: "A marked path through nature for walking", revealedIndex: 2 },
-      { word: "SUMMIT", hint: "The highest point of a mountain", revealedIndex: 3 },
-      { word: "COMPASS", hint: "Navigation tool that points north", revealedIndex: 0 },
-      { word: "BACKPACK", hint: "Bag worn on shoulders to carry supplies", revealedIndex: 5 }
-    ]
+      { word: "MEOW", hint: "The signature sound a cat makes to communicate", revealedIndex: 0 },
+      { word: "FURRY", hint: "Covered in soft, fluffy hair perfect for petting", revealedIndex: 2 },
+      { word: "KITTEN", hint: "A baby cat, playful and full of energy", revealedIndex: 3 },
+      { word: "WHISKER", hint: "Long sensory hairs on a cat's face that help them navigate", revealedIndex: 0 },
+      { word: "KNEADING", hint: "When a cat pushes its paws in and out on a soft surface, like making biscuits", revealedIndex: 5 }
+    ],
+    funFact: "Cats have 32 muscles in each ear that allow them to rotate them 180 degrees to pinpoint sounds."
   },
   // INDEX 10 - Shows Dec 9, 2025 at 7 PM
   {
-    category: "Dessert",
+    category: "Dogs",
     puzzleNumber: 89,
     words: [
-      { word: "TART", hint: "A pastry with fruit filling and no top crust", revealedIndex: 0 },
-      { word: "FUDGE", hint: "Rich, creamy chocolate confection", revealedIndex: 2 },
-      { word: "SUNDAE", hint: "Ice cream topped with sauce, whipped cream, and a cherry", revealedIndex: 3 },
-      { word: "BROWNIE", hint: "Dense, chocolate baked square dessert", revealedIndex: 0 },
-      { word: "CHEESECAKE", hint: "Creamy dessert with a graham cracker crust", revealedIndex: 5 }
-    ]
+      { word: "BONE", hint: "A favorite chew treat that dogs love to gnaw on", revealedIndex: 0 },
+      { word: "HOUND", hint: "A type of dog bred for hunting, known for its keen sense of smell", revealedIndex: 2 },
+      { word: "BEAGLE", hint: "Friendly breed with floppy ears, famous for its nose and howl", revealedIndex: 3 },
+      { word: "SERVICE", hint: "A trained dog that assists people with disabilities", revealedIndex: 0 },
+      { word: "AIREDALE", hint: "The largest terrier breed, often called the 'King of Terriers'", revealedIndex: 4 }
+    ],
+    funFact: "Dogs have the ability to make over 100 different facial expressions, which they use to communicate with people."
   },
   // INDEX 11 - Shows Dec 10, 2025 at 7 PM
   {
-    category: "What's in the bag?",
+    category: "At the Office",
     puzzleNumber: 90,
     words: [
-      { word: "KEYS", hint: "Metal items that unlock doors and start cars", revealedIndex: 0 },
-      { word: "PHONE", hint: "Mobile device for calls, texts, and apps", revealedIndex: 2 },
-      { word: "WALLET", hint: "Folding case for money and cards", revealedIndex: 3 },
-      { word: "LIPSTICK", hint: "Cosmetic applied to add color to lips", revealedIndex: 0 },
-      { word: "SUNGLASSES", hint: "Eyewear that protects from bright light", revealedIndex: 5 }
-    ]
+      { word: "TEAM", hint: "A group of coworkers who collaborate together on projects", revealedIndex: 0 },
+      { word: "STAFF", hint: "The employees who work at a company or organization", revealedIndex: 2 },
+      { word: "AGENCY", hint: "A business that provides specialized services for clients", revealedIndex: 3 },
+      { word: "MANAGER", hint: "The person who oversees a department or group of employees", revealedIndex: 0 },
+      { word: "BUSINESS", hint: "A commercial organization that sells goods or services", revealedIndex: 4 }
+    ],
+    funFact: "Companies that encourage laughter see a 30% increase in productivity, and humor is not a distraction from work."
   },
   // INDEX 12 - Shows Dec 11, 2025 at 7 PM
   {
-    category: "Fruits",
+    category: "In the Kitchen",
     puzzleNumber: 91,
     words: [
-      { word: "PEAR", hint: "A sweet fruit with a narrow top and rounded bottom", revealedIndex: 0 },
-      { word: "MANGO", hint: "Tropical stone fruit with orange flesh", revealedIndex: 2 },
-      { word: "ORANGE", hint: "Citrus fruit known for its vitamin C content", revealedIndex: 3 },
-      { word: "APRICOT", hint: "Small orange stone fruit related to peaches", revealedIndex: 0 },
-      { word: "PINEAPPLE", hint: "Tropical fruit with spiky skin and sweet yellow interior", revealedIndex: 5 }
-    ]
+      { word: "SINK", hint: "Basin with a faucet where you wash dishes and rinse food", revealedIndex: 0 },
+      { word: "STOVE", hint: "Appliance with burners used for cooking food in pots and pans", revealedIndex: 2 },
+      { word: "RECIPE", hint: "Written instructions that tell you how to prepare a dish", revealedIndex: 3 },
+      { word: "CUPBOARD", hint: "Cabinet where you store dishes, glasses, and dry goods", revealedIndex: 0 },
+      { word: "COOKWARE", hint: "Pots, pans, and other equipment used for preparing meals", revealedIndex: 4 }
+    ],
+    funFact: "The oldest known cookbook dates back to 1700 B.C."
   },
   // INDEX 13 - Shows Dec 12, 2025 at 7 PM
   {
-    category: "Animals",
+    category: "Social Media",
     puzzleNumber: 92,
     words: [
-      { word: "BEAR", hint: "Large mammal that hibernates in winter", revealedIndex: 0 },
-      { word: "TIGER", hint: "Large striped cat native to Asia", revealedIndex: 2 },
-      { word: "GIRAFFE", hint: "Tallest land animal with a long neck", revealedIndex: 3 },
-      { word: "ELEPHANT", hint: "Largest land mammal with a trunk", revealedIndex: 0 },
-      { word: "ALLIGATOR", hint: "Large reptile found in swamps and rivers", revealedIndex: 5 }
-    ]
+      { word: "LIKE", hint: "A quick tap to show you enjoy someone's post", revealedIndex: 0 },
+      { word: "VIRAL", hint: "When content spreads rapidly across the internet", revealedIndex: 2 },
+      { word: "ENGAGE", hint: "To interact with content by commenting, sharing, or reacting", revealedIndex: 3 },
+      { word: "COMMENT", hint: "A written response left beneath a post or video", revealedIndex: 0 },
+      { word: "PLATFORM", hint: "A website or app where users share content, like Instagram or TikTok", revealedIndex: 4 }
+    ],
+    funFact: "Social media users spend an average of 2 hours and 24 minutes per day on social media platforms."
   },
   // INDEX 14 - Shows Dec 13, 2025 at 7 PM
   {
-    category: "Occupations",
+    category: "Pancakes",
     puzzleNumber: 93,
     words: [
-      { word: "CHEF", hint: "Professional who prepares food in a restaurant", revealedIndex: 0 },
-      { word: "NURSE", hint: "Healthcare worker who cares for patients", revealedIndex: 2 },
-      { word: "TEACHER", hint: "Educator who instructs students in a classroom", revealedIndex: 3 },
-      { word: "ENGINEER", hint: "Professional who designs and builds systems", revealedIndex: 0 },
-      { word: "ARCHITECT", hint: "Designer of buildings and structures", revealedIndex: 5 }
-    ]
+      { word: "EGGS", hint: "Ingredient that helps bind the batter together", revealedIndex: 0 },
+      { word: "FLOUR", hint: "The main dry ingredient that gives pancakes their structure", revealedIndex: 2 },
+      { word: "SYRUP", hint: "Sweet, sticky topping poured generously over a stack", revealedIndex: 3 },
+      { word: "GRIDDLE", hint: "Flat cooking surface used to make golden-brown pancakes", revealedIndex: 0 },
+      { word: "HOMEMADE", hint: "Made from scratch in your own kitchen, not from a box", revealedIndex: 4 }
+    ],
+    funFact: "The first pancakes may have been made as far back as 12,000 years ago."
   },
   // INDEX 15 - Shows Dec 14, 2025 at 7 PM
   {
-    category: "Sports",
+    category: "Musical Instruments",
     puzzleNumber: 94,
     words: [
-      { word: "GOLF", hint: "Sport played with clubs and a small white ball", revealedIndex: 0 },
-      { word: "RUGBY", hint: "Contact team sport played with an oval ball", revealedIndex: 2 },
-      { word: "TENNIS", hint: "Racquet sport played on a court with a net", revealedIndex: 3 },
-      { word: "SWIMMING", hint: "Water sport involving moving through water", revealedIndex: 0 },
-      { word: "BASKETBALL", hint: "Team sport where players shoot a ball through a hoop", revealedIndex: 5 }
-    ]
+      { word: "LYRE", hint: "Ancient stringed instrument played by Greek poets and musicians", revealedIndex: 0 },
+      { word: "FLUTE", hint: "Woodwind instrument played by blowing air across an opening", revealedIndex: 2 },
+      { word: "GUITAR", hint: "Six-stringed instrument popular in rock, country, and folk music", revealedIndex: 3 },
+      { word: "UKULELE", hint: "Small four-stringed instrument from Hawaii with a cheerful sound", revealedIndex: 0 },
+      { word: "KEYBOARD", hint: "Electronic instrument with black and white keys like a piano", revealedIndex: 4 }
+    ],
+    funFact: "A piano has 7,500 parts, which is why it can play the range of nearly an entire orchestra and is considered the 'king of instruments.'"
   },
   // INDEX 16 - Shows Dec 15, 2025 at 7 PM
   {
-    category: "U.S. States",
+    category: "Soup",
     puzzleNumber: 95,
     words: [
-      { word: "UTAH", hint: "Western state known for its national parks", revealedIndex: 0 },
-      { word: "TEXAS", hint: "The Lone Star State, second largest by area", revealedIndex: 2 },
-      { word: "OREGON", hint: "Pacific Northwest state known for its forests", revealedIndex: 3 },
-      { word: "GEORGIA", hint: "Southern state known as the Peach State", revealedIndex: 0 },
-      { word: "CALIFORNIA", hint: "Most populous state on the West Coast", revealedIndex: 5 }
-    ]
+      { word: "TACO", hint: "Tex-Mex soup topped with tortilla strips, cheese, and avocado", revealedIndex: 0 },
+      { word: "BROTH", hint: "Clear, savory liquid made by simmering meat or vegetables", revealedIndex: 2 },
+      { word: "BISQUE", hint: "Creamy, rich soup often made with shellfish like lobster or crab", revealedIndex: 3 },
+      { word: "CHOWDER", hint: "Thick, chunky soup typically made with potatoes and clams", revealedIndex: 0 },
+      { word: "BOUILLON", hint: "Concentrated stock used as a base for soups and sauces", revealedIndex: 5 }
+    ],
+    funFact: "The earliest evidence of soup dates back to 6000 B.C. and was likely hippopotamus soup."
   },
   // INDEX 17 - Shows Dec 16, 2025 at 7 PM
   {
-    category: "School Days",
+    category: "Ways to Go",
     puzzleNumber: 96,
     words: [
-      { word: "DESK", hint: "Furniture where students sit and work", revealedIndex: 0 },
-      { word: "LUNCH", hint: "Midday meal eaten in the cafeteria", revealedIndex: 2 },
-      { word: "RECESS", hint: "Break time for outdoor play", revealedIndex: 3 },
-      { word: "SCIENCE", hint: "Subject exploring how the world works", revealedIndex: 0 },
-      { word: "TEXTBOOK", hint: "Educational book used for studying", revealedIndex: 5 }
-    ]
+      { word: "LANE", hint: "A narrow path or single division of a roadway", revealedIndex: 0 },
+      { word: "DRIVE", hint: "A private road leading to a house, or a scenic route", revealedIndex: 2 },
+      { word: "STREET", hint: "A public road in a city or town, usually lined with buildings", revealedIndex: 3 },
+      { word: "HIGHWAY", hint: "A main road for fast, long-distance travel between cities", revealedIndex: 0 },
+      { word: "TURNPIKE", hint: "A toll road where drivers pay a fee to travel", revealedIndex: 4 }
+    ],
+    funFact: "The first roads were created by animals, and the Romans built durable roads, like the Appian Way, that are still in use today."
   },
   // INDEX 18 - Shows Dec 17, 2025 at 7 PM
   {
-    category: "Trees and Shrubs",
+    category: "Pasta",
     puzzleNumber: 97,
     words: [
-      { word: "PALM", hint: "Tropical tree with large fan-shaped or feathery leaves", revealedIndex: 0 },
-      { word: "MAPLE", hint: "Deciduous tree known for its colorful fall foliage and sweet sap", revealedIndex: 2 },
-      { word: "BANYAN", hint: "Fig tree with aerial roots that grow down to form additional trunks", revealedIndex: 3 },
-      { word: "JASMINE", hint: "Fragrant flowering shrub often used in perfumes and teas", revealedIndex: 0 },
-      { word: "CINNAMON", hint: "Aromatic evergreen tree whose inner bark is used as a spice", revealedIndex: 5 }
-    ]
+      { word: "ZITI", hint: "Tube-shaped pasta often baked with cheese and marinara sauce", revealedIndex: 0 },
+      { word: "PENNE", hint: "Cylinder pasta cut at an angle, perfect for holding chunky sauces", revealedIndex: 2 },
+      { word: "SKETTY", hint: "Playful nickname for spaghetti, often used by kids", revealedIndex: 3 },
+      { word: "GNOCCHI", hint: "Soft, pillowy Italian dumplings made from potatoes", revealedIndex: 0 },
+      { word: "MACARONI", hint: "Curved elbow-shaped pasta famous in a cheesy American dish", revealedIndex: 4 }
+    ],
+    funFact: "Italy is a world leader in pasta consumption, but there are more than 600 shapes of pasta worldwide, with popular choices including spaghetti, penne, and macaroni."
   },
   // INDEX 19 - Shows Dec 18, 2025 at 7 PM
   {
-    category: "Movie Titles",
+    category: "Breakfast",
     puzzleNumber: 98,
     words: [
-      { word: "JAWS", hint: "1975 Spielberg thriller about a great white shark terrorizing a beach town", revealedIndex: 0 },
-      { word: "ALIEN", hint: "1979 sci-fi horror classic with Sigourney Weaver fighting extraterrestrials", revealedIndex: 2 },
-      { word: "FROZEN", hint: "Disney animated film featuring Elsa, Anna, and the song 'Let It Go'", revealedIndex: 3 },
-      { word: "TITANIC", hint: "1997 epic romance about the doomed ocean liner starring DiCaprio and Winslet", revealedIndex: 0 },
-      { word: "INCEPTION", hint: "Christopher Nolan mind-bending thriller about dreams within dreams", revealedIndex: 5 }
-    ]
+      { word: "MEAL", hint: "The first food you eat to start your day", revealedIndex: 0 },
+      { word: "BACON", hint: "Crispy strips of cured pork, a breakfast favorite", revealedIndex: 2 },
+      { word: "CEREAL", hint: "Crunchy grains served in a bowl with milk", revealedIndex: 3 },
+      { word: "PANCAKE", hint: "Flat, round cake cooked on a griddle and stacked high", revealedIndex: 0 },
+      { word: "PORRIDGE", hint: "Warm, creamy dish made by boiling oats or grains", revealedIndex: 4 }
+    ],
+    funFact: "The word 'breakfast' comes from two older words: 'break' (meaning to end) and 'fast' (meaning not eating for a long time). So, it means to 'break the fast' from not eating all night."
   },
   // INDEX 20 - Shows Dec 19, 2025 at 7 PM
   {
-    category: "Colors",
+    category: "Cooking",
     puzzleNumber: 99,
     words: [
-      { word: "BLUE", hint: "The color of a clear sky on a sunny day", revealedIndex: 0 },
-      { word: "BEIGE", hint: "A neutral sandy or tan shade often used in interior design", revealedIndex: 2 },
-      { word: "INDIGO", hint: "A deep purple-blue color between blue and violet in the rainbow", revealedIndex: 3 },
-      { word: "EMERALD", hint: "A rich green color named after a precious gemstone", revealedIndex: 0 },
-      { word: "BURGUNDY", hint: "A deep reddish-purple wine color named after a French region", revealedIndex: 5 }
-    ]
+      { word: "CHOP", hint: "To cut food into smaller pieces with a knife", revealedIndex: 0 },
+      { word: "WHISK", hint: "To beat ingredients quickly with a wire tool to blend or add air", revealedIndex: 2 },
+      { word: "SEARED", hint: "Cooked at high heat to create a flavorful brown crust", revealedIndex: 3 },
+      { word: "PREHEAT", hint: "To warm up the oven to the right temperature before baking", revealedIndex: 0 },
+      { word: "MEASURED", hint: "Carefully portioned out using cups or spoons for accuracy", revealedIndex: 4 }
+    ],
+    funFact: "The earliest known cookbook was written in ancient Babylon around 1700 BC."
   },
   // INDEX 21 - Shows Dec 20, 2025 at 7 PM
   {
-    category: "International Foods",
+    category: "Antlers",
     puzzleNumber: 100,
     words: [
-      { word: "TACO", hint: "A Mexican dish with a folded tortilla and various fillings", revealedIndex: 0 },
-      { word: "SUSHI", hint: "Japanese dish of vinegared rice with raw fish or vegetables", revealedIndex: 2 },
-      { word: "PAELLA", hint: "A Spanish rice dish from Valencia with seafood and saffron", revealedIndex: 3 },
-      { word: "RAVIOLI", hint: "Italian pasta pillows filled with cheese, meat, or vegetables", revealedIndex: 0 },
-      { word: "CROISSANT", hint: "A flaky, buttery French pastry shaped like a crescent", revealedIndex: 5 }
-    ]
+      { word: "ELK", hint: "Large North American deer known for its bugling call", revealedIndex: 0 },
+      { word: "DEER", hint: "Common woodland animal, often seen with white-spotted fawns", revealedIndex: 2 },
+      { word: "MOOSE", hint: "The largest member of the deer family with massive, flat antlers", revealedIndex: 3 },
+      { word: "CARIBOU", hint: "Wild reindeer of North America that migrate in large herds", revealedIndex: 0 },
+      { word: "REINDEER", hint: "Arctic deer famous for pulling Santa's sleigh", revealedIndex: 4 }
+    ],
+    funFact: "Antlers are unique to animals like deer, elk, and moose, and they are the fastest-growing animal tissue, capable of growing up to an inch a day. Antlers are shed and regrow annually, and only caribou are the exception where females also grow them."
   },
   // INDEX 22 - Shows Dec 21, 2025 at 7 PM
   {
-    category: "Games",
+    category: "Snow",
     puzzleNumber: 101,
     words: [
-      { word: "RISK", hint: "Strategic board game of world domination with armies and dice", revealedIndex: 0 },
-      { word: "CHESS", hint: "Ancient strategy game with kings, queens, and checkmate", revealedIndex: 2 },
-      { word: "DOMINO", hint: "Tile game with numbered dots played by matching ends", revealedIndex: 3 },
-      { word: "YAHTZEE", hint: "Dice game where players try to score combinations and get five of a kind", revealedIndex: 0 },
-      { word: "SCRABBLE", hint: "Word-building board game where letter tiles score points on a grid", revealedIndex: 5 }
-    ]
+      { word: "FALL", hint: "When snow gently drops from the sky to the ground", revealedIndex: 0 },
+      { word: "FLAKE", hint: "A single, delicate ice crystal with a unique shape", revealedIndex: 2 },
+      { word: "FLURRY", hint: "A brief, light snowfall with swirling winds", revealedIndex: 3 },
+      { word: "DRIZZLE", hint: "A light, misty precipitation, sometimes mixed with snow", revealedIndex: 0 },
+      { word: "DRIFTING", hint: "When wind blows snow into piles and mounds", revealedIndex: 4 }
+    ],
+    funFact: "Snow is translucent, not white, and the appearance of white is due to light scattering off the ice crystals."
   },
   // INDEX 23 - Shows Dec 22, 2025 at 7 PM
   {
-    category: "Game Night",
+    category: "A Dish to Pass",
     puzzleNumber: 102,
     words: [
-      { word: "UNO", hint: "Popular card game where players match colors and numbers", revealedIndex: 0 },
-      { word: "CLUE", hint: "Classic murder mystery board game with suspects and weapons", revealedIndex: 2 },
-      { word: "TWISTER", hint: "Physical game with colored circles where players contort their bodies", revealedIndex: 3 },
-      { word: "CHECKERS", hint: "Strategy board game where pieces jump to capture opponents", revealedIndex: 0 },
-      { word: "MONOPOLY", hint: "Real estate trading game where players buy properties and collect rent", revealedIndex: 5 }
+      { word: "FARE", hint: "Food or meals, especially the type served at an event", revealedIndex: 0 },
+      { word: "FEAST", hint: "A large, celebratory meal shared with many people", revealedIndex: 2 },
+      { word: "PICNIC", hint: "An outdoor meal where everyone brings food to share", revealedIndex: 3 },
+      { word: "POTLUCK", hint: "A gathering where each guest contributes a dish", revealedIndex: 0 },
+      { word: "FAVORITE", hint: "The dish everyone hopes someone will bring again", revealedIndex: 4 }
     ],
-    funFact: "Monopoly has been licensed in over 113 countries and printed in more than 46 languages."
+    funFact: "It's called 'potluck' because the term comes from the medieval practice of serving whatever was left in the pot to unexpected guests, and the meal's quality was left to 'the luck of the pot'."
   },
   // INDEX 24 - Shows Dec 23, 2025 at 7 PM
   {
-    category: "It's a Mystery!",
+    category: "Brunch",
     puzzleNumber: 103,
     words: [
-      { word: "CLUE", hint: "A piece of evidence that helps solve a puzzle or crime", revealedIndex: 0 },
-      { word: "CRIME", hint: "An illegal act that breaks the law", revealedIndex: 2 },
-      { word: "ARREST", hint: "When police take someone into custody for breaking the law", revealedIndex: 3 },
-      { word: "SUSPECT", hint: "A person believed to have committed a crime", revealedIndex: 0 },
-      { word: "SOLUTION", hint: "The answer or resolution to a mystery or problem", revealedIndex: 5 }
+      { word: "COZY", hint: "A warm, comfortable feeling perfect for a lazy morning meal", revealedIndex: 0 },
+      { word: "TOAST", hint: "Crispy browned bread, often topped with avocado or jam", revealedIndex: 2 },
+      { word: "QUICHE", hint: "Savory egg pie with cheese and fillings baked in a crust", revealedIndex: 3 },
+      { word: "WEEKEND", hint: "The days when brunch is most popular, Saturday and Sunday", revealedIndex: 0 },
+      { word: "PASTRIES", hint: "Flaky baked treats like croissants, danishes, and muffins", revealedIndex: 4 }
     ],
-    funFact: "Mystery writers use \"red herrings,\" carefully planted false leads designed to distract or misguide readers."
+    funFact: "The term 'brunch' was coined in 1895 by British writer Guy Beringer, who proposed it as a Sunday meal for 'Saturday-night carousers' to help with Saturday night carousing on Sunday."
   },
-  // INDEX 25 - Shows Dec 24, 2025 at 7 PM
+  // INDEX 25 - Shows Dec 24, 2025 at 7 PM (Christmas Eve!)
   {
-    category: "Favorite Bookshop",
+    category: "'Tis the Season",
     puzzleNumber: 104,
     words: [
-      { word: "CAFE", hint: "A cozy spot in a bookstore serving coffee and treats", revealedIndex: 0 },
-      { word: "MERCH", hint: "Merchandise like bookmarks, tote bags, and literary-themed gifts", revealedIndex: 2 },
-      { word: "AUTHOR", hint: "A writer who may visit to discuss and promote their books", revealedIndex: 3 },
-      { word: "SIGNING", hint: "An event where a writer autographs copies of their book", revealedIndex: 0 },
-      { word: "AMBIANCE", hint: "The welcoming atmosphere and character of a beloved bookshop", revealedIndex: 5 }
+      { word: "BELL", hint: "Ringing instrument that signals holiday cheer", revealedIndex: 0 },
+      { word: "CANDY", hint: "Sweet treats like canes and chocolates enjoyed during the holidays", revealedIndex: 2 },
+      { word: "JINGLE", hint: "The merry sound of small bells, often heard in holiday songs", revealedIndex: 3 },
+      { word: "FESTIVE", hint: "Full of celebration, decorations, and holiday spirit", revealedIndex: 0 },
+      { word: "YULETIDE", hint: "Old-fashioned word for the Christmas season", revealedIndex: 4 }
     ],
-    funFact: "The world's oldest book store, in Lisbon, Portugal, has been in operation since 1732."
+    funFact: "Jingle Bells was originally written as a Thanksgiving song."
   },
-  // INDEX 26 - Shows Dec 25, 2025 at 7 PM
+  // INDEX 26 - Shows Dec 25, 2025 at 7 PM (Christmas Day!)
   {
-    category: "Thanksgiving",
+    category: "Christmas Tree",
     puzzleNumber: 105,
     words: [
-      { word: "MEAL", hint: "A festive feast shared with family and friends", revealedIndex: 0 },
-      { word: "GOURD", hint: "A decorative squash often used as autumn decor", revealedIndex: 2 },
-      { word: "GOBBLE", hint: "The distinctive sound a turkey makes", revealedIndex: 3 },
-      { word: "HARVEST", hint: "The gathering of crops celebrated at this holiday", revealedIndex: 0 },
-      { word: "GRATEFUL", hint: "Feeling thankful and appreciative for blessings", revealedIndex: 5 }
+      { word: "STAR", hint: "Shining ornament often placed at the very top of the tree", revealedIndex: 0 },
+      { word: "ANGEL", hint: "Heavenly figure that sometimes crowns the treetop", revealedIndex: 2 },
+      { word: "TINSEL", hint: "Sparkly, shiny strands draped over branches for shimmer", revealedIndex: 3 },
+      { word: "GARLAND", hint: "A decorative string of beads, popcorn, or greenery wrapped around the tree", revealedIndex: 0 },
+      { word: "DECORATE", hint: "To adorn the tree with lights, ornaments, and trimmings", revealedIndex: 4 }
     ],
-    funFact: "Sarah Josepha Hale, the author of \"Mary Had a Little Lamb,\" is credited with convincing President Lincoln to declare Thanksgiving a national holiday after 17 years of writing letters."
+    funFact: "The modern Christmas tree tradition has its roots in Germany, with the first known decorated Christmas tree appearing in Riga, Latvia, in 1510."
   },
   // INDEX 27 - Shows Dec 26, 2025 at 7 PM
   {
-    category: "Music Storage",
+    category: "Time for Self-Care",
     puzzleNumber: 106,
     words: [
-      { word: "DISK", hint: "A circular storage medium for music, like CDs or vinyl", revealedIndex: 0 },
-      { word: "TRACK", hint: "An individual song on an album or recording", revealedIndex: 2 },
-      { word: "RECORD", hint: "A vinyl disc that plays music when spun on a turntable", revealedIndex: 3 },
-      { word: "NAPSTER", hint: "Revolutionary file-sharing service that changed music distribution", revealedIndex: 0 },
-      { word: "CASSETTE", hint: "Magnetic tape format popular in the 1980s and 90s", revealedIndex: 5 }
+      { word: "REST", hint: "Taking a break to recharge your body and mind", revealedIndex: 0 },
+      { word: "RELAX", hint: "To let go of stress and unwind", revealedIndex: 2 },
+      { word: "GROWTH", hint: "Personal development and becoming a better version of yourself", revealedIndex: 3 },
+      { word: "JOURNAL", hint: "Writing down thoughts and feelings in a notebook", revealedIndex: 0 },
+      { word: "EXERCISE", hint: "Physical activity that boosts your mood and energy", revealedIndex: 4 }
     ],
-    funFact: "The cassette was invented in 1962 for voice recording not music."
+    funFact: "Self-care looks different for everyone. It's about finding what works for you, which could be a massage, reading a book, or a quiet nap."
   },
   // INDEX 28 - Shows Dec 27, 2025 at 7 PM
   {
-    category: "Jim Henson's Muppets",
+    category: "On the Slopes",
     puzzleNumber: 107,
     words: [
-      { word: "BIRD", hint: "Big yellow character who lives on Sesame Street", revealedIndex: 0 },
-      { word: "PIGGY", hint: "Miss ___, glamorous diva and Kermit's love interest", revealedIndex: 2 },
-      { word: "KERMIT", hint: "The famous green frog who sings 'Rainbow Connection'", revealedIndex: 3 },
-      { word: "SNUFFLE", hint: "___ upagus, the woolly mammoth-like creature on Sesame Street", revealedIndex: 0 },
-      { word: "PUPPETRY", hint: "The art of bringing characters to life with hand movements", revealedIndex: 5 }
+      { word: "SNOW", hint: "Frozen precipitation that blankets the mountain for skiing", revealedIndex: 0 },
+      { word: "SKIER", hint: "A person who glides down the mountain on two long boards", revealedIndex: 2 },
+      { word: "SLALOM", hint: "A race where skiers zigzag between poles down the course", revealedIndex: 3 },
+      { word: "ATHLETE", hint: "A trained competitor who excels in winter sports", revealedIndex: 0 },
+      { word: "DOWNHILL", hint: "The fastest alpine skiing event, racing straight down the mountain", revealedIndex: 4 }
     ],
-    funFact: "Jim Henson coined the word muppet by combining the words marionette and puppet."
+    funFact: "Downhill skiing is the fastest non-motorized sport, with a world record speed over 158 mph achieved in speed skiing."
   },
   // INDEX 29 - Shows Dec 28, 2025 at 7 PM
   {
@@ -399,16 +415,16 @@ const puzzles = [
   },
   // INDEX 30 - Shows Dec 29, 2025 at 7 PM
   {
-    category: "Video Games",
+    category: "Fancy",
     puzzleNumber: 109,
     words: [
-      { word: "PONG", hint: "Classic table tennis video game from the 1970s", revealedIndex: 0 },
-      { word: "ATARI", hint: "Iconic gaming company that pioneered home video game consoles", revealedIndex: 2 },
-      { word: "ARCADE", hint: "Entertainment venue filled with coin-operated game machines", revealedIndex: 3 },
-      { word: "CONSOLE", hint: "Home gaming device that connects to a TV", revealedIndex: 0 },
-      { word: "JOYSTICK", hint: "Hand-held controller used to navigate games", revealedIndex: 5 }
+      { word: "CHIC", hint: "Stylishly elegant and fashionably sophisticated", revealedIndex: 0 },
+      { word: "FRILLY", hint: "Decorated with ruffles, lace, or elaborate trim", revealedIndex: 2 },
+      { word: "ORNATE", hint: "Highly detailed and lavishly decorated", revealedIndex: 3 },
+      { word: "ELEGANT", hint: "Gracefully refined and tastefully luxurious", revealedIndex: 0 },
+      { word: "SUPERIOR", hint: "Of the highest quality, above all the rest", revealedIndex: 4 }
     ],
-    funFact: "The first video game, thought to be Pong, was created in 1958 and became popular in the 1970s."
+    funFact: "The term 'octothorpe' is the correct name for the '#' symbol, not 'hashtag'. Very fancy!"
   }
   // ===========================================
   // ADD NEW PUZZLES HERE!

@@ -1,0 +1,70 @@
+// This file is for reference only - not used by the game
+// BENCHED PUZZLES - Saved for future use
+// These puzzles were removed from rotation on Nov 29, 2025
+// Can be added back to puzzles.js when needed
+{
+    category: "Cool Weather Clothing",
+    puzzleNumber: 72,
+    words: [
+      { word: "COAT", hint: "A long outer garment worn over other clothes for warmth", revealedIndex: 0 },
+      { word: "SCARF", hint: "A piece of fabric worn around the neck for warmth or style", revealedIndex: 2 },
+      { word: "JACKET", hint: "A shorter outer garment that covers the upper body and arms", revealedIndex: 3 },
+      { word: "SWEATER", hint: "A knitted garment worn on the upper body, often made of wool", revealedIndex: 0 },
+      { word: "CASHMERE", hint: "A luxuriously soft wool fabric from the Kashmir goat", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "Friendship",
+    puzzleNumber: 73,
+    words: [
+      { word: "ALLY", hint: "A trusted friend who supports and stands by you", revealedIndex: 0 },
+      { word: "LOYAL", hint: "Faithful and devoted through thick and thin", revealedIndex: 2 },
+      { word: "TRUSTY", hint: "Reliable and dependable, someone you can count on", revealedIndex: 3 },
+      { word: "SUPPORT", hint: "To give help, encouragement, and assistance to someone", revealedIndex: 0 },
+      { word: "KINDNESS", hint: "The quality of being friendly, generous, and considerate", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "Art Projects",
+    puzzleNumber: 74,
+    words: [
+      { word: "LINE", hint: "A mark made by a pencil, pen, or brush across a surface", revealedIndex: 0 },
+      { word: "SHADE", hint: "The use of darkness to create depth and dimension in artwork", revealedIndex: 2 },
+      { word: "CANVAS", hint: "A piece of cloth stretched over a frame for painting", revealedIndex: 3 },
+      { word: "DRAWING", hint: "The art of creating images with pencils, pens, or charcoal", revealedIndex: 0 },
+      { word: "COLLAGE", hint: "Artwork made by gluing paper, photos, and other materials together", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "Musicals",
+    puzzleNumber: 75,
+    words: [
+      { word: "RENT", hint: "Jonathan Larson's rock musical about struggling artists in New York City", revealedIndex: 0 },
+      { word: "EVITA", hint: "Andrew Lloyd Webber musical about Argentina's first lady Eva Perón", revealedIndex: 2 },
+      { word: "WICKED", hint: "Musical telling the untold story of the witches of Oz", revealedIndex: 3 },
+      { word: "COMPANY", hint: "Stephen Sondheim musical about a bachelor and his married friends in New York", revealedIndex: 0 },
+      { word: "HAMILTON", hint: "Lin-Manuel Miranda's hip-hop musical about a founding father", revealedIndex: 5 }
+    ]
+  },
+  {
+    category: "Football",
+    puzzleNumber: 76,
+    words: [
+      { word: "DOWN", hint: "A play in football; teams get four tries to advance 10 yards", revealedIndex: 0 },
+      { word: "BLITZ", hint: "A defensive play where extra players rush the quarterback", revealedIndex: 2 },
+      { word: "CENTER", hint: "The offensive lineman who snaps the ball to the quarterback", revealedIndex: 3 },
+      { word: "DEFENSE", hint: "The team trying to stop the other team from scoring", revealedIndex: 0 },
+      { word: "GRIDIRON", hint: "Another name for a football field, named for its yard lines", revealedIndex: 5 }
+    ]
+  },
+  {  
+    category: "Cities Around the World",
+    puzzleNumber: 77,
+    words: [
+      { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum", revealedIndex: 0 },
+      { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum", revealedIndex: 2 },
+      { word: "LONDON", hint: "UK capital on the Thames River with Big Ben and Buckingham Palace", revealedIndex: 3 },
+      { word: "TORONTO", hint: "Canada's largest city, known for the CN Tower and multicultural neighborhoods", revealedIndex: 0 },
+      { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudí's architecture and La Rambla", revealedIndex: 5 }
+    ]
+  },

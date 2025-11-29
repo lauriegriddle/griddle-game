@@ -279,72 +279,113 @@ const puzzles = [
     funFact: "The first video game, thought to be Pong, was created in 1958 and became popular in the 1970s."
   },
   {
-    category: "Cool Weather Clothing",
+    category: "'Round the Hearth",
+    puzzleNumber: 70,
+    words: [
+      { word: "WARM", hint: "The cozy feeling you get sitting by a fire", revealedIndex: 0 },
+      { word: "STORY", hint: "A tale shared aloud while gathered together", revealedIndex: 2 },
+      { word: "TOASTY", hint: "Comfortably hot, like bread by the fire", revealedIndex: 2 },
+      { word: "MANTLE", hint: "The shelf above a fireplace for displaying photos", revealedIndex: 3 },
+      { word: "COMFORT", hint: "A feeling of ease and contentment at home", revealedIndex: 1 }
+    ],
+    funFact: "The word 'hearth' comes from the Latin word focus, which means 'center' or 'heart'. This is why the hearth has historically been considered the 'heart of the home' and why we still use the word 'focus' today to talk about the main point of something."
+  },
+  {
+    category: "The Price is Right",
+    puzzleNumber: 71,
+    words: [
+      { word: "CASH", hint: "Money in bills or coins, often a grand prize", revealedIndex: 0 },
+      { word: "PRIZE", hint: "Something won in a game or competition", revealedIndex: 2 },
+      { word: "ANSWER", hint: "What you give when a question is asked", revealedIndex: 3 },
+      { word: "CONTEST", hint: "A competition where people try to win", revealedIndex: 3 },
+      { word: "SHOWDOWN", hint: "A final face-off to determine the winner", revealedIndex: 2 }
+    ],
+    funFact: "The Price is Right is the longest running game show in US history and has given away over $350 million in prizes since 1972."
+  },
+  {
+    category: "Moving Through the Air",
     puzzleNumber: 72,
     words: [
-      { word: "COAT", hint: "A long outer garment worn over other clothes for warmth", revealedIndex: 0 },
-      { word: "SCARF", hint: "A piece of fabric worn around the neck for warmth or style", revealedIndex: 2 },
-      { word: "JACKET", hint: "A shorter outer garment that covers the upper body and arms", revealedIndex: 3 },
-      { word: "SWEATER", hint: "A knitted garment worn on the upper body, often made of wool", revealedIndex: 0 },
-      { word: "CASHMERE", hint: "A luxuriously soft wool fabric from the Kashmir goat", revealedIndex: 5 }
-    ]
+      { word: "SOAR", hint: "To fly high without flapping wings", revealedIndex: 0 },
+      { word: "GLIDE", hint: "To move smoothly through the air with little effort", revealedIndex: 2 },
+      { word: "CRUISE", hint: "To travel at a steady, comfortable speed", revealedIndex: 2 },
+      { word: "TAKEOFF", hint: "The moment a plane leaves the ground", revealedIndex: 3 },
+      { word: "NAVIGATE", hint: "To find your way and steer a course", revealedIndex: 4 }
+    ],
+    funFact: "The first animals to fly were a sheep, a duck, and a rooster in a hot air balloon in 1783."
   },
   {
-    category: "Friendship",
+    category: "Animated Film Characters",
     puzzleNumber: 73,
     words: [
-      { word: "ALLY", hint: "A trusted friend who supports and stands by you", revealedIndex: 0 },
-      { word: "LOYAL", hint: "Faithful and devoted through thick and thin", revealedIndex: 2 },
-      { word: "TRUSTY", hint: "Reliable and dependable, someone you can count on", revealedIndex: 3 },
-      { word: "SUPPORT", hint: "To give help, encouragement, and assistance to someone", revealedIndex: 0 },
-      { word: "KINDNESS", hint: "The quality of being friendly, generous, and considerate", revealedIndex: 5 }
-    ]
+      { word: "LILO", hint: "Hawaiian girl who adopts an unusual pet from space", revealedIndex: 0 },
+      { word: "SHREK", hint: "Green ogre who lives in a swamp and rescues a princess", revealedIndex: 2 },
+      { word: "STITCH", hint: "Blue alien experiment 626 who becomes part of a family", revealedIndex: 2 },
+      { word: "NEUTRON", hint: "Boy genius Jimmy with a tall swirl of hair", revealedIndex: 3 },
+      { word: "MONSTERS", hint: "Mike and Sulley work at this Inc. company", revealedIndex: 4 }
+    ],
+    funFact: "Boo in Monsters, Inc was voiced by a toddler whose playtime was recorded to get her lines."
   },
   {
-    category: "Art Projects",
+    category: "Air Travel",
     puzzleNumber: 74,
     words: [
-      { word: "LINE", hint: "A mark made by a pencil, pen, or brush across a surface", revealedIndex: 0 },
-      { word: "SHADE", hint: "The use of darkness to create depth and dimension in artwork", revealedIndex: 2 },
-      { word: "CANVAS", hint: "A piece of cloth stretched over a frame for painting", revealedIndex: 3 },
-      { word: "DRAWING", hint: "The art of creating images with pencils, pens, or charcoal", revealedIndex: 0 },
-      { word: "COLLAGE", hint: "Artwork made by gluing paper, photos, and other materials together", revealedIndex: 5 }
-    ]
+      { word: "PASS", hint: "A boarding document that lets you on the plane", revealedIndex: 0 },
+      { word: "PILOT", hint: "The person who flies the aircraft", revealedIndex: 2 },
+      { word: "FLIGHT", hint: "A journey through the air from one place to another", revealedIndex: 2 },
+      { word: "AIRLINE", hint: "A company that operates commercial planes", revealedIndex: 3 },
+      { word: "AIRCRAFT", hint: "A vehicle designed to fly through the sky", revealedIndex: 4 }
+    ],
+    funFact: "Airplanes are struck by lightning regularly; however, the electrical charge goes around the plane."
   },
   {
-    category: "Musicals",
+    category: "Say \"Cheese!\"",
     puzzleNumber: 75,
     words: [
-      { word: "RENT", hint: "Jonathan Larson's rock musical about struggling artists in New York City", revealedIndex: 0 },
-      { word: "EVITA", hint: "Andrew Lloyd Webber musical about Argentina's first lady Eva Perón", revealedIndex: 2 },
-      { word: "WICKED", hint: "Musical telling the untold story of the witches of Oz", revealedIndex: 3 },
-      { word: "COMPANY", hint: "Stephen Sondheim musical about a bachelor and his married friends in New York", revealedIndex: 0 },
-      { word: "HAMILTON", hint: "Lin-Manuel Miranda's hip-hop musical about a founding father", revealedIndex: 5 }
-    ]
+      { word: "BRIE", hint: "Soft French cheese with an edible white rind", revealedIndex: 0 },
+      { word: "SWISS", hint: "Cheese known for its signature holes", revealedIndex: 2 },
+      { word: "ASIAGO", hint: "Italian cheese often grated over pasta and salads", revealedIndex: 2 },
+      { word: "CHEDDAR", hint: "Popular orange or white cheese originally from England", revealedIndex: 3 },
+      { word: "MUENSTER", hint: "Mild cheese with an orange rind, great for melting", revealedIndex: 4 }
+    ],
+    funFact: "There are over 2,000 varieties of cheese, and it can take around 10 pounds of milk to make just one pound of cheese."
   },
   {
-    category: "Football",
+    category: "At the Lake",
     puzzleNumber: 76,
     words: [
-      { word: "DOWN", hint: "A play in football; teams get four tries to advance 10 yards", revealedIndex: 0 },
-      { word: "BLITZ", hint: "A defensive play where extra players rush the quarterback", revealedIndex: 2 },
-      { word: "CENTER", hint: "The offensive lineman who snaps the ball to the quarterback", revealedIndex: 3 },
-      { word: "DEFENSE", hint: "The team trying to stop the other team from scoring", revealedIndex: 0 },
-      { word: "GRIDIRON", hint: "Another name for a football field, named for its yard lines", revealedIndex: 5 }
-    ]
+      { word: "FISH", hint: "To cast a line and try to catch dinner", revealedIndex: 0 },
+      { word: "CANOE", hint: "A narrow boat you paddle through the water", revealedIndex: 2 },
+      { word: "SNOOZE", hint: "To take a lazy nap in the afternoon sun", revealedIndex: 2 },
+      { word: "BONFIRE", hint: "A large outdoor fire for gathering and roasting marshmallows", revealedIndex: 3 },
+      { word: "HAMMOCK", hint: "A hanging bed made of fabric or rope, perfect for relaxing", revealedIndex: 2 }
+    ],
+    funFact: "The Great Lakes hold 21% of the world's freshwater."
   },
-  {  
-    category: "Cities Around the World",
+  {
+    category: "Vacation",
     puzzleNumber: 77,
     words: [
-      { word: "ROME", hint: "Ancient Italian city known as the Eternal City, home to the Colosseum", revealedIndex: 0 },
-      { word: "PARIS", hint: "French capital famous for the Eiffel Tower and the Louvre Museum", revealedIndex: 2 },
-      { word: "LONDON", hint: "UK capital on the Thames River with Big Ben and Buckingham Palace", revealedIndex: 3 },
-      { word: "TORONTO", hint: "Canada's largest city, known for the CN Tower and multicultural neighborhoods", revealedIndex: 0 },
-      { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudí's architecture and La Rambla", revealedIndex: 5 }
-    ]
+      { word: "REST", hint: "To take it easy and recover your energy", revealedIndex: 0 },
+      { word: "BREAK", hint: "Time away from work or school", revealedIndex: 2 },
+      { word: "LEAVE", hint: "To depart or time off granted from your job", revealedIndex: 2 },
+      { word: "HOLIDAY", hint: "A special day or period of celebration and time off", revealedIndex: 2 },
+      { word: "RELAXING", hint: "The act of unwinding and letting stress melt away", revealedIndex: 2 }
+    ],
+    funFact: "Some people are more likely to choose mountain vacations (introverts) while others prefer beaches (extroverts)."
   },
-  
+  {
+    category: "Lunch",
+    puzzleNumber: 78,
+    words: [
+      { word: "SOUP", hint: "A warm liquid dish often served in a bowl with a spoon", revealedIndex: 0 },
+      { word: "SALAD", hint: "A mix of leafy greens and vegetables, often with dressing", revealedIndex: 2 },
+      { word: "MIDDAY", hint: "The time of day when lunch is typically eaten", revealedIndex: 2 },
+      { word: "POTLUCK", hint: "A meal where everyone brings a dish to share", revealedIndex: 3 },
+      { word: "SANDWICH", hint: "Fillings placed between two slices of bread", revealedIndex: 4 }
+    ],
+    funFact: "The average American will have consumed 1,500 PB&Js by the time they graduate from high school."
+  }
   ];
 
 // Function to get today's puzzle based on EST time

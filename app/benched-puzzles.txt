@@ -68,3 +68,27 @@
       { word: "BARCELONA", hint: "Spanish coastal city famous for Gaudí's architecture and La Rambla", revealedIndex: 5 }
     ]
   },
+  {
+    category: "At the Lake",
+    puzzleNumber: 76,
+    words: [
+      { word: "FISH", hint: "To cast a line and try to catch dinner", revealedIndex: 0 },
+      { word: "CANOE", hint: "A narrow boat you paddle through the water", revealedIndex: 2 },
+      { word: "SNOOZE", hint: "To take a lazy nap in the afternoon sun", revealedIndex: 2 },
+      { word: "BONFIRE", hint: "A large outdoor fire for gathering and roasting marshmallows", revealedIndex: 3 },
+      { word: "HAMMOCK", hint: "A hanging bed made of fabric or rope, perfect for relaxing", revealedIndex: 2 }
+    ],
+    funFact: "The Great Lakes hold 21% of the world's freshwater."
+  },
+  {
+    category: "Vacation",
+    puzzleNumber: 77,
+    words: [
+      { word: "REST", hint: "To take it easy and recover your energy", revealedIndex: 0 },
+      { word: "BREAK", hint: "Time away from work or school", revealedIndex: 2 },
+      { word: "LEAVE", hint: "To depart or time off granted from your job", revealedIndex: 2 },
+      { word: "HOLIDAY", hint: "A special day or period of celebration and time off", revealedIndex: 2 },
+      { word: "RELAXING", hint: "The act of unwinding and letting stress melt away", revealedIndex: 2 }
+    ],
+    funFact: "Some people are more likely to choose mountain vacations (introverts) while others prefer beaches (extroverts)."
+  },

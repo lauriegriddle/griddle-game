@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle } from 'lucide-react';
+import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle, Instagram } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
 
 const PancakeWordGame = () => {
@@ -825,7 +825,7 @@ Play at www.lettergriddle.com`}
                 rel="noopener noreferrer"
                 className="text-amber-600 hover:text-amber-800 text-sm font-semibold inline-flex items-center gap-1"
               >
-                📸 Follow us @letter_griddle
+                <Instagram size={14} /> Follow us @letter_griddle
               </a>
             </div>
           </div>

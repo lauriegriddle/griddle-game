@@ -920,7 +920,8 @@ Play at www.lettergriddle.com`}
     {' | '}
     <a href="/terms" className="hover:text-amber-600 underline">Terms of Service</a>
     {' | '}
-    <a href="https://instagram.com/letter_griddle" target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 underline">📸 @letter_griddle</a>
+    <a href="https://instagram.com/letter_griddle" target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 underline"><Instagram size={14} className="inline" />
+<Instagram size={14} className="inline" />   @letter_griddle</a>
   </div>
 </div> 
     </div>

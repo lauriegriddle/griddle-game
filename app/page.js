@@ -724,7 +724,7 @@ const PancakeWordGame = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 gap-2 mb-4 max-h-80 overflow-y-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4 max-h-80 overflow-y-auto">
               {[
                 { day: 14, dayName: 'SUN', category: 'Musical Instruments', emoji: '🎵' },
                 { day: 15, dayName: 'MON', category: 'Soup', emoji: '🍲' },

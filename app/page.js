@@ -44,6 +44,7 @@ const PancakeWordGame = () => {
   const [showKitchenModal, setShowKitchenModal] = useState(false);
   const [showBookmarkPrompt, setShowBookmarkPrompt] = useState(false);
   const [showHowToPlayModal, setShowHowToPlayModal] = useState(false);
+  const [showChristmasModal, setShowChristmasModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [startTime] = useState(Date.now());
   const [completionTime, setCompletionTime] = useState(null);
@@ -339,6 +340,14 @@ const PancakeWordGame = () => {
           </h1>
           <div className="flex items-center gap-2">
             <div className="text-xl">🥞</div>
+            {/* 12 Days of Christmas Button */}
+            <button
+              onClick={() => setShowChristmasModal(true)}
+              className="bg-red-100 hover:bg-red-200 text-red-800 p-1.5 rounded-full transition-all shadow-md"
+              title="12 Days of Christmas"
+            >
+              <span className="text-lg">🎄</span>
+            </button>
             <button
               onClick={() => setShowHowToPlayModal(true)}
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
@@ -677,6 +686,91 @@ const PancakeWordGame = () => {
                 </h3>
                 <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
                   Freshly ground beans make for an excellent cup of coffee.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* 12 Days of Christmas Modal */}
+      {showChristmasModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto" onClick={() => setShowChristmasModal(false)}>
+          <div className="bg-gradient-to-br from-amber-100 to-yellow-100 rounded-3xl p-6 max-w-lg w-full shadow-2xl relative border-4 border-amber-300 my-4" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowChristmasModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+              aria-label="Close"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="absolute top-4 left-4 text-3xl opacity-30">🥞</div>
+            <div className="absolute top-12 right-12 text-2xl opacity-30">🧈</div>
+            
+            <div className="text-center mb-4">
+              <div className="text-5xl mb-2">🥞</div>
+              <h1 className="text-3xl font-bold text-amber-800 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
+                Letter Griddle
+              </h1>
+              
+              <div className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full px-6 py-2 inline-block shadow-lg mb-3">
+                <span className="text-lg font-bold flex items-center gap-2">
+                  🎄 12 DAYS OF CHRISTMAS 🎄
+                </span>
+              </div>
+              
+              <p className="text-amber-700 text-base font-semibold" style={{ fontFamily: 'Georgia, serif' }}>
+                December 14 - 25, 2025
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2 mb-4 max-h-80 overflow-y-auto">
+              {[
+                { day: 14, dayName: 'SUN', category: 'Musical Instruments', emoji: '🎵' },
+                { day: 15, dayName: 'MON', category: 'Soup', emoji: '🍲' },
+                { day: 16, dayName: 'TUES', category: 'Ways to Go', emoji: '🚗' },
+                { day: 17, dayName: 'WED', category: 'Pasta', emoji: '🍝' },
+                { day: 18, dayName: 'THURS', category: 'Breakfast', emoji: '🍳' },
+                { day: 19, dayName: 'FRI', category: 'Cooking', emoji: '👨‍🍳' },
+                { day: 20, dayName: 'SAT', category: 'Antlers', emoji: '🦌' },
+                { day: 21, dayName: 'SUN', category: 'Snow', emoji: '❄️' },
+                { day: 22, dayName: 'MON', category: 'A Dish to Pass', emoji: '🥧' },
+                { day: 23, dayName: 'TUES', category: 'Brunch', emoji: '🥐' },
+                { day: 24, dayName: 'WED', category: "'Tis the Season", emoji: '🎄', isChristmas: true },
+                { day: 25, dayName: 'THURS', category: 'Christmas Tree', emoji: '🎄', isChristmas: true },
+              ].map((puzzle) => (
+                <div 
+                  key={puzzle.day}
+                  className="bg-white rounded-lg p-2 shadow-sm border border-amber-200 flex items-center gap-2"
+                >
+                  <div className={`${puzzle.isChristmas ? 'bg-red-600' : 'bg-amber-500'} text-white rounded-md px-2 py-1 text-center min-w-[50px]`}>
+                    <div className="text-[10px] font-bold">{puzzle.dayName}</div>
+                    <div className="text-xl font-bold">{puzzle.day}</div>
+                  </div>
+                  
+                  <div className="flex-1 text-sm">
+                    <span className="text-amber-800 font-semibold" style={{ fontFamily: 'Georgia, serif' }}>
+                      {puzzle.category}
+                    </span>
+                  </div>
+                  
+                  <div className="text-xl">{puzzle.emoji}</div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="relative pt-2">
+              <div className="absolute left-0 bottom-0 text-2xl">🎄</div>
+              <div className="absolute right-0 bottom-0 text-2xl">🎄</div>
+              
+              <div className="border-t-2 border-dashed border-amber-400 mx-10 mb-3"></div>
+              
+              <div className="text-center">
+                <p className="text-amber-700 font-semibold text-sm mb-1" style={{ fontFamily: 'Georgia, serif' }}>
+                  🥞 New puzzle daily at 7 PM EST 🥞
+                </p>
+                <p className="text-amber-800 font-bold" style={{ fontFamily: 'Georgia, serif' }}>
+                  www.lettergriddle.com
                 </p>
               </div>
             </div>

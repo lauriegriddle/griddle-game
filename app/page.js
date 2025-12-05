@@ -699,7 +699,7 @@ const PancakeWordGame = () => {
       {/* 12 Days of Christmas Modal */}
       {showChristmasModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto" onClick={() => setShowChristmasModal(false)}>
-          <div className="bg-gradient-to-br from-amber-100 to-yellow-100 rounded-3xl p-6 max-w-lg w-full shadow-2xl relative border-4 border-amber-300 my-4" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-gradient-to-br from-amber-100 to-yellow-100 rounded-3xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border-4 border-amber-300 my-4" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowChristmasModal(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"

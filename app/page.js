@@ -206,7 +206,11 @@ const PancakeWordGame = () => {
     } else if (selectedLetter !== null) {
       setAvailableLetters(prev => {
         const newAvailable = [...prev];
-        newAvailable.splice(selectedLetterIndex, 1);
+        // FIX: Find letter by VALUE, not index (prevents bug when tray is re-sorted)
+        const indexToRemove = newAvailable.indexOf(selectedLetter);
+        if (indexToRemove !== -1) {
+          newAvailable.splice(indexToRemove, 1);
+        }
         return newAvailable;
       });
       

@@ -709,7 +709,7 @@ const PancakeWordGame = () => {
                   ☕ Coffee Tip
                 </h3>
                 <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
-                  Freshly ground beans make for an excellent cup of coffee.git commit -m "Add Breakfast Casserole recipe to Kitchen modal"
+                  Freshly ground beans make for an excellent cup of coffee.
                 </p>
               </div>
               {/* Breakfast Casserole Recipe */}

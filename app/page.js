@@ -653,6 +653,15 @@ const PancakeWordGame = () => {
                 From the Kitchen
               </h2>
             </div>
+            {/* Table of Contents */}
+              <div className="bg-amber-50 rounded-lg p-3 mb-4 border border-amber-200">
+                <p className="text-sm font-bold text-amber-800 mb-2">📋 What's Cooking:</p>
+                <ul className="text-sm text-amber-700 space-y-1 ml-4">
+                  <li>• 🥞 Favorite Pancakes</li>
+                  <li>• ☕ Coffee Tip</li>
+                  <li>• 🍳 Breakfast Casserole</li>
+                </ul>
+              </div>
             <div className="space-y-6">
               {/* Pancake Recipe */}
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">

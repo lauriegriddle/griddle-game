@@ -700,6 +700,44 @@ const PancakeWordGame = () => {
                   Freshly ground beans make for an excellent cup of coffee.
                 </p>
               </div>
+              {/* Breakfast Casserole Recipe */}
+                <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
+                  <h3 className="text-2xl font-bold text-amber-800 mb-4 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}>
+                    🍳 Breakfast Casserole
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-bold text-amber-800 mb-2">Ingredients:</h4>
+                      <ul className="text-gray-700 space-y-1 ml-4">
+                        <li>• 1 lb. mild turkey sausage</li>
+                        <li>• 6 eggs</li>
+                        <li>• 2 C. milk</li>
+                        <li>• 1 tsp. dry mustard</li>
+                        <li>• 1 tsp. salt</li>
+                        <li>• 2 C. cubed bread crusts</li>
+                        <li>• 8 oz. Cheddar cheese, shredded</li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-bold text-amber-800 mb-2">Instructions:</h4>
+                      <ol className="text-gray-700 space-y-1 ml-4">
+                        <li>1. Brown turkey sausage in a medium skillet. Drain fat and set aside to cool.</li>
+                        <li>2. Lightly beat eggs in a large mixing bowl. Add milk, mustard and salt. Blend well.</li>
+                        <li>3. Stir in bread crust, sausage and cheese, mixing well.</li>
+                        <li>4. Pour into a shallow 2-quart glass baking dish and refrigerate overnight.</li>
+                        <li>5. Preheat oven to 350° and bake for 40-45 minutes or until edges are brown.</li>
+                        <li>6. Cut into wedges and serve hot or room temperature.</li>
+                      </ol>
+                    </div>
+                  </div>
+                  
+                  <div className="text-sm text-gray-600 italic">
+                    <p>Serves 6 to 8</p>
+                    <p className="mt-1">*The secret: Mix all ingredients, refrigerate overnight, then bake in the morning!</p>
+                  </div>
+                </div>
             </div>
           </div>
         </div>

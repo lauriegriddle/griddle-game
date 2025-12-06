@@ -722,7 +722,7 @@ const PancakeWordGame = () => {
                     <div>
                       <h4 className="font-bold text-amber-800 mb-2">Ingredients:</h4>
                       <ul className="text-gray-700 space-y-1 ml-4">
-                        <li>• 1 lb. mild turkey sausage</li>
+                        <li>• 1 lb. turkey sausage</li>
                         <li>• 6 eggs</li>
                         <li>• 2 C. milk</li>
                         <li>• 1 tsp. dry mustard</li>

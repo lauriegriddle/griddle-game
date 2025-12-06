@@ -425,12 +425,70 @@ const puzzles = [
       { word: "SUPERIOR", hint: "Of the highest quality, above all the rest", revealedIndex: 4 }
     ],
     funFact: "The term 'octothorpe' is the correct name for the '#' symbol, not 'hashtag'. Very fancy!"
+  },
+  // ==================================================
+  // INDEX 31 - Shows Dec 30, 2025 at 7 PM
+  // ==================================================
+  {
+    category: "No RSVP Needed",
+    puzzleNumber: 110,
+    words: [
+      { word: "BOOK", hint: "A bound collection of pages perfect for a quiet evening in", revealedIndex: 0 },
+      { word: "MOVIE", hint: "A film to watch from the comfort of your couch", revealedIndex: 2 },
+      { word: "COCOA", hint: "A warm chocolate drink ideal for cozy nights", revealedIndex: 3 },
+      { word: "BLANKET", hint: "A soft covering to snuggle under while relaxing", revealedIndex: 0 },
+      { word: "HOMEBODY", hint: "Someone who prefers staying in over going out", revealedIndex: 4 }
+    ],
+    funFact: "Homebodies often use their time to explore new hobbies such as cooking, crafting, and gaming."
+  },
+
+  // ==================================================
+  // INDEX 32 - Shows Dec 31, 2025 at 7 PM (New Year's Eve!)
+  // ==================================================
+  {
+    category: "Ring in the New Year",
+    puzzleNumber: 111,
+    words: [
+      { word: "BALL", hint: "The glittering sphere that drops in Times Square at midnight", revealedIndex: 0 },
+      { word: "PARTY", hint: "A festive celebration with friends and family", revealedIndex: 2 },
+      { word: "CHEER", hint: "Joyful shouts and toasts at the stroke of midnight", revealedIndex: 3 },
+      { word: "CONFETTI", hint: "Colorful paper pieces thrown in celebration", revealedIndex: 0 },
+      { word: "COUNTDOWN", hint: "The final seconds before the new year begins: 10, 9, 8...", revealedIndex: 5 }
+    ],
+    funFact: "The ball drop in NYC's Times Square started because fireworks were banned, leading to the first ball in 1907 to draw crowds instead."
+  },
+
+  // ==================================================
+  // INDEX 33 - Shows Jan 1, 2026 at 7 PM (Letter Griddle Launch Day!)
+  // ==================================================
+  {
+    category: "We 🧡 Pancakes!",
+    puzzleNumber: 112,
+    words: [
+      { word: "FLIP", hint: "The mid-air turn that gives pancakes their golden sides", revealedIndex: 0 },
+      { word: "SYRUP", hint: "Sweet maple topping poured generously over a stack", revealedIndex: 2 },
+      { word: "BUTTER", hint: "A melting pat of this makes pancakes extra delicious", revealedIndex: 3 },
+      { word: "GRIDDLE", hint: "A flat cooking surface perfect for making pancakes", revealedIndex: 0 },
+      { word: "FLAPJACK", hint: "Another name for a pancake, especially in the American South", revealedIndex: 4 }
+    ],
+    funFact: "There are many different names for pancakes including flapjacks, griddlecakes and hotcakes. All of these other names for pancakes are the same basic ingredients and cooking method, they just may be called something different depending on region and the restaurant."
+  },
+
+  // ==================================================
+  // INDEX 34 - Shows Jan 2, 2026 at 7 PM
+  // ==================================================
+  {
+    category: "New Beginnings",
+    puzzleNumber: 113,
+    words: [
+      { word: "ANEW", hint: "Starting over again, fresh and renewed", revealedIndex: 0 },
+      { word: "FRESH", hint: "Clean and new, like the start of a new year", revealedIndex: 2 },
+      { word: "DREAMY", hint: "Full of hopes and imaginative visions for the future", revealedIndex: 3 },
+      { word: "JOURNEY", hint: "A long trip or path of personal growth and discovery", revealedIndex: 0 },
+      { word: "ADVENTURE", hint: "An exciting experience waiting to unfold", revealedIndex: 5 }
+    ],
+    funFact: "The modern New Year's Day on January 1st was established by Julius Caesar in 46 B.C. to honor Janus, the Roman god of doors and beginnings, who is depicted with two faces, one looking back to the past and the other looking forward to the future."
   }
-  // ===========================================
-  // ADD NEW PUZZLES HERE!
-  // They will automatically appear after Dec 29
-  // (after all 31 current puzzles have cycled)
-  // ===========================================
 ];
 
 // ===========================================

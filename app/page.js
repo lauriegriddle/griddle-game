@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle, Instagram } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
+import { track } from '@vercel/analytics';
 
 const PancakeWordGame = () => {
   const gameData = getTodaysPuzzle();
@@ -109,6 +110,13 @@ const PancakeWordGame = () => {
       const timeInSeconds = Math.floor((Date.now() - startTime) / 1000);
       setCompletionTime(timeInSeconds);
       setShowConfetti(true);
+      // Track puzzle completion in Vercel Analytics
+      track('puzzle_completed', {
+        puzzleNumber: gameData.puzzleNumber,
+        category: gameData.category,
+        completionTimeSeconds: timeInSeconds,
+        hintsUsed: hintsRevealed.filter(h => h).length
+      });
       setTimeout(() => setShowConfetti(false), 10000);
 
       const today = new Date().toDateString();

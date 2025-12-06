@@ -373,7 +373,10 @@ const PancakeWordGame = () => {
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
               title="Kitchen & Recipes"
             >
-              <ChefHat size={18} />
+              <div className="relative">
+  <ChefHat size={18} />
+  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[8px] font-bold px-1 rounded-full">NEW</span>
+</div>
             </button>
             <button
               onClick={() => setShowMissionModal(true)}
@@ -697,7 +700,7 @@ const PancakeWordGame = () => {
                   ☕ Coffee Tip
                 </h3>
                 <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
-                  Freshly ground beans make for an excellent cup of coffee.
+                  Freshly ground beans make for an excellent cup of coffee.git commit -m "Add Breakfast Casserole recipe to Kitchen modal"
                 </p>
               </div>
               {/* Breakfast Casserole Recipe */}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle, Instagram } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
 import { track } from '@vercel/analytics';
@@ -47,6 +47,9 @@ const PancakeWordGame = () => {
   const [showHowToPlayModal, setShowHowToPlayModal] = useState(false);
   const [showChristmasModal, setShowChristmasModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [musicEnabled, setMusicEnabled] = useState(false);
+  const audioRef = useRef(null);
   const [startTime] = useState(Date.now());
   const [completionTime, setCompletionTime] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -86,6 +89,27 @@ const PancakeWordGame = () => {
   });
   
   const allComplete = completedWords.every(c => c);
+
+  // Load music preference from localStorage after mount
+useEffect(() => {
+  const saved = localStorage.getItem('griddleMusicEnabled');
+  if (saved === 'true') {
+    setMusicEnabled(true);
+  }
+}, []);
+
+  // Music control effect
+  useEffect(() => {
+    if (audioRef.current) {
+      if (musicEnabled) {
+        audioRef.current.play().catch(e => console.log('Audio play failed:', e));
+        setIsMusicPlaying(true);
+      } else {
+        audioRef.current.pause();
+        setIsMusicPlaying(false);
+      }
+    }
+  }, [musicEnabled]);
 
   const checkAchievements = (newStats) => {
     const newlyUnlocked = [];
@@ -260,6 +284,12 @@ const PancakeWordGame = () => {
     }
   };
 
+  const toggleMusic = () => {
+    const newState = !musicEnabled;
+    setMusicEnabled(newState);
+    localStorage.setItem('griddleMusicEnabled', newState.toString());
+  };
+
   const toggleHint = (idx) => {
     setHintsRevealed(prev => {
       const newHints = [...prev];
@@ -352,6 +382,18 @@ const PancakeWordGame = () => {
           </h1>
           <div className="flex items-center gap-2">
             <div className="text-xl">🥞</div>
+            {/* MUSIC BUTTON */}
+            <button
+              onClick={toggleMusic}
+              className={`p-1.5 rounded-full transition-all shadow-md ${
+                musicEnabled 
+                  ? 'bg-amber-500 hover:bg-amber-600 text-white' 
+                  : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+              }`}
+              title={musicEnabled ? "Turn off music" : "Turn on music"}
+            >
+              <span className="text-sm">{musicEnabled ? '🔊' : '🎵'}</span>
+            </button>
             {/* 12 Days of Christmas Button */}
             <button
               onClick={() => setShowChristmasModal(true)}
@@ -1079,7 +1121,15 @@ Play at www.lettergriddle.com`}
     <a href="https://instagram.com/letter_griddle" target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 underline">
 <Instagram size={14} className="inline" /> @letter_griddle</a>
   </div>
-</div> 
+</div>
+
+{/* Background Music */}
+      <audio
+        ref={audioRef}
+        src="/cafe-music.mp3"
+        loop
+        preload="none"
+      /> 
     </div>
   );
 };

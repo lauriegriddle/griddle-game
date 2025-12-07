@@ -702,6 +702,7 @@ useEffect(() => {
                   <li>• 🥞 Favorite Pancakes</li>
                   <li>• ☕ Coffee Tip</li>
                   <li>• 🍳 Breakfast Casserole</li>
+                  <li>• 🍊 Honey Citrus Fruit Salad</li>
                 </ul>
               </div>
             <div className="space-y-6">
@@ -793,6 +794,64 @@ useEffect(() => {
                   </div>
                 </div>
             </div>
+            {/* Honey Citrus Fruit Salad Recipe */}
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
+                <h3 className="text-2xl font-bold text-amber-800 mb-4 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}>
+                  🍊 Honey Citrus Fruit Salad
+                </h3>
+                <p className="text-sm text-amber-600 mb-3">Prep time: 15 minutes | Serves: 4-6</p>
+                <p className="text-gray-700 mb-4 italic">This refreshing fruit salad combines sweet and tangy flavors, topped with crunchy walnuts and coconut flakes.</p>
+                
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-bold text-amber-800 mb-2">Ingredients:</h4>
+                    <ul className="text-gray-700 space-y-1 ml-4">
+                      <li>• 1 Apple, cored and chunked</li>
+                      <li>• 1 Banana, sliced</li>
+                      <li>• 1/4 cup Blueberries</li>
+                      <li>• 1 cup Grapes (white or red)</li>
+                      <li>• 1 can (approx. 8 oz) Mandarin oranges, drained</li>
+                      <li>• 1 small can (approx. 8 oz) Pineapple tidbits, drained</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-amber-800 mb-2">For the Dressing:</h4>
+                    <ul className="text-gray-700 space-y-1 ml-4">
+                      <li>• 1/4 cup Orange juice</li>
+                      <li>• 2 tbsp Honey</li>
+                      <li>• Pinch of Cinnamon</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-amber-800 mb-2">For the Garnish:</h4>
+                    <ul className="text-gray-700 space-y-1 ml-4">
+                      <li>• Shredded coconut (to taste)</li>
+                      <li>• Chopped walnuts (to taste)</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-amber-800 mb-2">Instructions:</h4>
+                    <ol className="text-gray-700 space-y-2 ml-4 list-decimal list-inside">
+                      <li><strong>Prepare the fruit:</strong> In a large mixing bowl, gently combine the chunked apple, sliced banana, blueberries, grapes, drained mandarin oranges, and drained pineapple tidbits.</li>
+                      <li><strong>Make the dressing:</strong> In a small bowl, whisk together the orange juice, honey, and pinch of cinnamon until well blended.</li>
+                      <li><strong>Combine:</strong> Pour the dressing over the fruit mixture. Toss gently to ensure all the fruit is lightly coated.</li>
+                      <li><strong>Garnish and serve:</strong> Just before serving, top the salad with shredded coconut and chopped walnuts.</li>
+                    </ol>
+                  </div>
+                  
+                  <div className="bg-amber-100 rounded-lg p-3 mt-4">
+                    <h4 className="font-bold text-amber-800 mb-2">💡 Tips for the Best Salad:</h4>
+                    <ul className="text-gray-700 space-y-1 text-sm">
+                      <li>• <strong>Prevent browning:</strong> The orange juice in the dressing helps prevent the apples and bananas from browning.</li>
+                      <li>• <strong>Chill:</strong> This salad tastes best when chilled for at least 30 minutes before serving.</li>
+                      <li>• <strong>Serve immediately after adding banana:</strong> Bananas can become mushy if left too long. Add them just before serving.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       )}

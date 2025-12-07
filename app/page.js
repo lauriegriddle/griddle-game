@@ -54,6 +54,7 @@ const PancakeWordGame = () => {
   const [completionTime, setCompletionTime] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [newAchievements, setNewAchievements] = useState([]);
+  const [timeUntilNext, setTimeUntilNext] = useState('');
 
   const [stats, setStats] = useState(() => {
     try {
@@ -89,6 +90,36 @@ const PancakeWordGame = () => {
   });
   
   const allComplete = completedWords.every(c => c);
+
+  // Calculate time until next puzzle (7 PM EST)
+  const calculateTimeUntilNext = () => {
+    const now = new Date();
+    const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    
+    const nextPuzzleTime = new Date(estTime);
+    nextPuzzleTime.setHours(19, 0, 0, 0); // 7 PM
+    
+    if (estTime.getHours() >= 19) {
+      nextPuzzleTime.setDate(nextPuzzleTime.getDate() + 1);
+    }
+    
+    const diff = nextPuzzleTime - estTime;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    
+    return hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;
+  };
+
+  // Update countdown timer every minute
+  useEffect(() => {
+    if (allComplete) {
+      setTimeUntilNext(calculateTimeUntilNext());
+      const interval = setInterval(() => {
+        setTimeUntilNext(calculateTimeUntilNext());
+      }, 60000);
+      return () => clearInterval(interval);
+    }
+  }, [allComplete]);
 
   // Load music preference from localStorage after mount
 useEffect(() => {
@@ -457,6 +488,7 @@ useEffect(() => {
             <div className="bg-gradient-to-r from-yellow-100 to-amber-100 border-2 border-amber-400 rounded-lg p-2 mb-2 text-center shadow-lg">
               <p className="text-base font-bold text-amber-800 mb-0.5">🎉 Complete! 🎉</p>
               <p className="text-xs text-amber-700 mb-1.5">☕ You savored this puzzle for {formatTime(completionTime)}</p>
+              <p className="text-xs text-amber-600 mb-1">⏰ Next puzzle in: {timeUntilNext}</p>
               {/* Did You Know */}
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-3 mb-2 border-2 border-amber-300">
                 <p className="text-sm font-bold text-amber-800 mb-1 flex items-center justify-center gap-1">

@@ -37,6 +37,8 @@ const PancakeWordGame = () => {
   const [completedWords, setCompletedWords] = useState(Array(5).fill(false));
   const [selectedLetter, setSelectedLetter] = useState(null);
   const [selectedLetterIndex, setSelectedLetterIndex] = useState(null);
+  const [selectedSlotWord, setSelectedSlotWord] = useState(null);
+  const [selectedSlotIndex, setSelectedSlotIndex] = useState(null);
   const [celebratingWord, setCelebratingWord] = useState(null);
   const [wrongPlacements, setWrongPlacements] = useState({});
   const [showShareModal, setShowShareModal] = useState(false);
@@ -228,8 +230,54 @@ useEffect(() => {
   };
 
   const handleLetterClick = (letter, letterIndex) => {
-    setSelectedLetter(letter);
-    setSelectedLetterIndex(letterIndex);
+    // If a slot is already selected, place the letter there
+    if (selectedSlotWord !== null && selectedSlotIndex !== null) {
+      const wordIdx = selectedSlotWord;
+      const slotIdx = selectedSlotIndex;
+      
+      // Clear the slot selection
+      setSelectedSlotWord(null);
+      setSelectedSlotIndex(null);
+      
+      // Place the letter
+      setAvailableLetters(prev => {
+        const newAvailable = [...prev];
+        newAvailable.splice(letterIndex, 1);
+        return newAvailable;
+      });
+      
+      const newLetters = [...selectedLetters[wordIdx]];
+      newLetters[slotIdx] = letter;
+      
+      setSelectedLetters(prev => {
+        const newSelected = [...prev];
+        newSelected[wordIdx] = newLetters;
+        return newSelected;
+      });
+      
+      // Check if correct
+      const correctLetter = gameData.words[wordIdx].word[slotIdx];
+      if (letter !== correctLetter) {
+        setWrongPlacements(prev => ({
+          ...prev,
+          [`${wordIdx}-${slotIdx}`]: true
+        }));
+        
+        setTimeout(() => {
+          setWrongPlacements(prev => {
+            const newWrong = {...prev};
+            delete newWrong[`${wordIdx}-${slotIdx}`];
+            return newWrong;
+          });
+        }, 1000);
+      }
+      
+      checkWordComplete(wordIdx, newLetters);
+    } else {
+      // Normal behavior: just select the letter
+      setSelectedLetter(letter);
+      setSelectedLetterIndex(letterIndex);
+    }
   };
 
   const shuffleLetters = () => {
@@ -266,6 +314,8 @@ useEffect(() => {
         delete newWrong[`${wordIdx}-${slotIdx}`];
         return newWrong;
       });
+      setSelectedSlotWord(null);
+      setSelectedSlotIndex(null);
     } else if (selectedLetter !== null) {
       setAvailableLetters(prev => {
         const newAvailable = [...prev];
@@ -312,6 +362,11 @@ useEffect(() => {
       }
 
       checkWordComplete(wordIdx, newLetters);
+    }
+    else {
+      // No letter selected - select this slot instead
+      setSelectedSlotWord(wordIdx);
+      setSelectedSlotIndex(slotIdx);
     }
   };
 
@@ -558,6 +613,7 @@ useEffect(() => {
                           const isRevealed = (letterIdx === wordData.revealedIndex) && !isComplete;
                           const currentLetter = revealed[letterIdx] || '';
                           const isWrong = wrongPlacements[`${wordIdx}-${letterIdx}`];
+                          const isSlotSelected = selectedSlotWord === wordIdx && selectedSlotIndex === letterIdx;
                           
                           return (
                             <div
@@ -569,6 +625,7 @@ useEffect(() => {
                                 ${!isWrong && isRevealed ? 'bg-gradient-to-br from-blue-200 to-blue-300 border-blue-400 text-blue-900' : ''}
                                 ${!isWrong && !isRevealed && isComplete ? 'bg-gradient-to-br from-yellow-200 to-amber-300 border-amber-500 text-amber-900 shadow-md' : ''}
                                 ${!isWrong && !isRevealed && !isComplete && currentLetter ? 'bg-gradient-to-br from-amber-100 to-yellow-100 border-amber-400 text-amber-900 cursor-pointer hover:scale-105' : ''}
+                                ${isSlotSelected && !currentLetter ? 'bg-gradient-to-br from-amber-200 to-yellow-200 border-amber-500 border-4 text-transparent cursor-pointer scale-105' : ''}
                                 ${!isWrong && !isRevealed && !isComplete && !currentLetter ? 'bg-white border-amber-300 text-transparent cursor-pointer hover:border-amber-400 hover:scale-105' : ''}`}
                               style={{fontFamily: 'Georgia, serif'}}
                             >

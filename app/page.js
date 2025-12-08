@@ -1097,8 +1097,8 @@ useEffect(() => {
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
                 <h3 className="font-bold text-amber-800 mb-2">🍯 How to Play</h3>
                 <ol className="text-gray-700 space-y-2 list-decimal list-inside">
-                  <li>Click a letter from the griddle (letter tray)</li>
-                  <li>Click an empty spot in a word to place it</li>
+                  <li>Click a letter, then click an empty spot to place it</li>
+                    <li>Or click an empty spot first, then choose your letter!</li>
                   <li>Blue letters are already revealed to help you!</li>
                   <li>Wrong letter? Click it to remove and try again</li>
                 </ol>

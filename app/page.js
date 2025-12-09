@@ -1065,7 +1065,7 @@ useEffect(() => {
             </p>
             <button
               onClick={() => setShowWelcomeModal(false)}
-              className="text-stone-500 hover:text-stone-700 text-lg font-medium transition-colors"
+              className="text-stone-500 hover:text-stone-700 text-lg font-medium transition-colors underline"
               style={{fontFamily: 'Georgia, serif'}}
             >
               Begin today's puzzle

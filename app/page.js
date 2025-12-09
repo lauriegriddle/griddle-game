@@ -565,7 +565,7 @@ useEffect(() => {
             <div className="bg-gradient-to-r from-yellow-100 to-amber-100 border-2 border-amber-400 rounded-lg p-2 mb-2 text-center shadow-lg">
               <p className="text-base font-bold text-amber-800 mb-0.5">🎉 Complete! 🎉</p>
               <p className="text-xs text-amber-700 mb-1.5">☕ You savored this puzzle for {formatTime(completionTime)}</p>
-              <p className="text-xs text-amber-600 mb-1">⏰ Next puzzle in: {timeUntilNext}</p>
+              <p className="text-xs text-amber-600 mb-1">🥞 Next puzzle served in: {timeUntilNext} 🍯</p>
               {/* Did You Know */}
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-3 mb-2 border-2 border-amber-300">
                 <p className="text-sm font-bold text-amber-800 mb-1 flex items-center justify-center gap-1">

@@ -1058,7 +1058,7 @@ useEffect(() => {
           <div className="bg-amber-50 rounded-2xl p-10 max-w-sm w-full shadow-xl text-center">
             <div className="text-4xl mb-4">🥞</div>
             <p className="text-sm text-stone-400 mb-2" style={{fontFamily: 'Georgia, serif'}}>
-              Letter Griddle
+              Welcome to Letter Griddle
             </p>
             <p className="text-xl text-stone-600 mb-8" style={{fontFamily: 'Georgia, serif'}}>
               {welcomeMessage}

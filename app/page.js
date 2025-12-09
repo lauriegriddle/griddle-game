@@ -48,6 +48,8 @@ const PancakeWordGame = () => {
   const [showBookmarkPrompt, setShowBookmarkPrompt] = useState(false);
   const [showHowToPlayModal, setShowHowToPlayModal] = useState(false);
   const [showChristmasModal, setShowChristmasModal] = useState(false);
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+  const [welcomeMessage, setWelcomeMessage] = useState('');
   const [shareCopied, setShareCopied] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [musicEnabled, setMusicEnabled] = useState(false);
@@ -130,6 +132,26 @@ useEffect(() => {
     setMusicEnabled(true);
   }
 }, []);
+
+// Check for first visit of the day and show welcome modal
+  useEffect(() => {
+    const today = new Date().toDateString();
+    const lastWelcome = localStorage.getItem('griddleLastWelcome');
+    
+    if (lastWelcome !== today) {
+      // Pick a message based on the day
+      const messages = [
+        "The coffee's ready.",
+        "Pull up a chair.",
+        "Your table is waiting.",
+        "We've saved you a seat."
+      ];
+      const dayIndex = new Date().getDay(); // 0-6 for Sun-Sat
+      setWelcomeMessage(messages[dayIndex % messages.length]);
+      setShowWelcomeModal(true);
+      localStorage.setItem('griddleLastWelcome', today);
+    }
+  }, []);
 
   // Music control effect
   useEffect(() => {
@@ -1026,6 +1048,28 @@ useEffect(() => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Welcome Modal */}
+      {showWelcomeModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4">
+          <div className="bg-amber-50 rounded-2xl p-10 max-w-sm w-full shadow-xl text-center">
+            <div className="text-4xl mb-4">🥞</div>
+            <p className="text-sm text-stone-400 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+              Letter Griddle
+            </p>
+            <p className="text-xl text-stone-600 mb-8" style={{fontFamily: 'Georgia, serif'}}>
+              {welcomeMessage}
+            </p>
+            <button
+              onClick={() => setShowWelcomeModal(false)}
+              className="text-stone-500 hover:text-stone-700 text-lg font-medium transition-colors"
+              style={{fontFamily: 'Georgia, serif'}}
+            >
+              Begin
+            </button>
           </div>
         </div>
       )}

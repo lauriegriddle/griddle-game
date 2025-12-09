@@ -712,7 +712,7 @@ useEffect(() => {
               
               {/* Instructions - ALL THREE LINES */}
               <div className="mt-2 text-center text-[10px] text-amber-700 bg-amber-50 rounded-lg p-1.5">
-                <p className="text-base font-semibold">✨ NEW: Click a spot then a letter, or click a letter then a spot!</p>
+                <p className="text-base font-semibold">🥞 ✨ NEW: Click a spot 🥞 then a letter, or click a letter then a spot! 🥞 ✨ 🥞</p>
                 <p className="text-sm text-amber-600 mt-0.5">💡 Hints reveal fun facts - give them a try!</p>
                 <p className="text-sm text-amber-600 mt-0.5">☕ No rush, enjoy the puzzle</p>
               </div>

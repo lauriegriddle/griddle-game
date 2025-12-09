@@ -523,10 +523,10 @@ useEffect(() => {
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
               title="Kitchen & Recipes"
             >
-              <div className="relative">
+              
   <ChefHat size={18} />
-  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[8px] font-bold px-1 rounded-full">NEW</span>
-</div>
+  
+
             </button>
             <button
               onClick={() => setShowMissionModal(true)}

@@ -1068,7 +1068,7 @@ useEffect(() => {
               className="text-stone-500 hover:text-stone-700 text-lg font-medium transition-colors"
               style={{fontFamily: 'Georgia, serif'}}
             >
-              Begin
+              Begin today's puzzle
             </button>
           </div>
         </div>

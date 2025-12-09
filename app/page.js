@@ -1068,7 +1068,7 @@ useEffect(() => {
               className="text-stone-500 hover:text-stone-700 text-lg font-medium transition-colors underline"
               style={{fontFamily: 'Georgia, serif'}}
             >
-              Today's Special awaits.
+              Today's Special
             </button>
           </div>
         </div>

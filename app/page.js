@@ -143,7 +143,6 @@ useEffect(() => {
       const messages = [
         "The coffee's ready.",
         "Pull up a chair.",
-        "Your table is waiting.",
         "We've saved you a seat."
       ];
       const dayIndex = new Date().getDay(); // 0-6 for Sun-Sat

@@ -1159,7 +1159,7 @@ useEffect(() => {
               
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
                 <h3 className="font-bold text-amber-800 mb-2">☕ Enjoy the Puzzle!</h3>
-                <p className="text-gray-700">Take your time, have fun, and enjoy your favorite daily word game with a cozy cup of coffee! ☕🥞</p>
+                <p className="text-gray-700">Have fun and enjoy your favorite daily pancake-inspired word game! ☕🥞</p>
               </div>
               
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle, Instagram } from 'lucide-react';
+import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle, Instagram, RotateCcw } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
 import { track } from '@vercel/analytics';
 
@@ -54,34 +54,21 @@ const PancakeWordGame = () => {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [musicEnabled, setMusicEnabled] = useState(false);
   const audioRef = useRef(null);
-  const [startTime] = useState(Date.now());
+  const [startTime, setStartTime] = useState(Date.now());
+  const [hasMounted, setHasMounted] = useState(false);
   const [completionTime, setCompletionTime] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [newAchievements, setNewAchievements] = useState([]);
   const [timeUntilNext, setTimeUntilNext] = useState('');
 
-  const [stats, setStats] = useState(() => {
-    try {
-      const saved = localStorage.getItem('griddleStats');
-      return saved ? JSON.parse(saved) : {
-        puzzlesCompleted: 0,
-        currentStreak: 0,
-        maxStreak: 0,
-        fastestTime: null,
-        lastPlayedDate: null,
-        unlockedAchievements: []
-      };
-    } catch {
-      return {
-        puzzlesCompleted: 0,
-        currentStreak: 0,
-        maxStreak: 0,
-        fastestTime: null,
-        lastPlayedDate: null,
-        unlockedAchievements: []
-      };
-    }
-  });
+  const [stats, setStats] = useState({
+  puzzlesCompleted: 0,
+  currentStreak: 0,
+  maxStreak: 0,
+  fastestTime: null,
+  lastPlayedDate: null,
+  unlockedAchievements: []
+});
 
   // Track bookmark prompt views
   const [bookmarkPromptCount, setBookmarkPromptCount] = useState(() => {
@@ -215,6 +202,7 @@ useEffect(() => {
       setStats(newStats);
       try {
         localStorage.setItem('griddleStats', JSON.stringify(newStats));
+        clearProgress(); // Clear saved progress on completion
       } catch (e) {
         console.error('Could not save stats', e);
       }// Show bookmark prompt (first 3 completions only)
@@ -233,6 +221,71 @@ useEffect(() => {
       }
     }
   }, [allComplete, completionTime, startTime, stats, bookmarkPromptCount]);
+  // Mark component as mounted (for hydration safety)
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // Load saved progress after mount (prevents hydration mismatch)
+  useEffect(() => {
+    if (!hasMounted) return;
+    
+    try {
+      const saved = localStorage.getItem('griddleProgress');
+      if (saved) {
+        const progress = JSON.parse(saved);
+        // Only restore if it's the same puzzle
+        if (progress.puzzleNumber === gameData.puzzleNumber) {
+          setSelectedLetters(progress.selectedLetters);
+          setAvailableLetters(progress.availableLetters);
+          setHintsRevealed(progress.hintsRevealed);
+          setCompletedWords(progress.completedWords);
+          setStartTime(progress.startTime);
+        } else {
+          // Different puzzle, clear old progress
+          localStorage.removeItem('griddleProgress');
+        }
+      }
+    } catch (e) {
+      console.error('Could not load progress', e);
+    }
+  }, [hasMounted, gameData.puzzleNumber]);
+
+  // Load stats from localStorage after mount (prevents hydration mismatch)
+useEffect(() => {
+  if (!hasMounted) return;
+  
+  try {
+    const saved = localStorage.getItem('griddleStats');
+    if (saved) {
+      setStats(JSON.parse(saved));
+    }
+  } catch (e) {
+    console.error('Could not load stats', e);
+  }
+}, [hasMounted]);
+  // Auto-save progress when game state changes
+  useEffect(() => {
+    // Don't save if puzzle is complete
+    if (allComplete) return;
+    
+    // Don't save if puzzle hasn't started (all letters still available)
+    if (availableLetters.length === allLetters.length) return;
+    
+    try {
+      const progress = {
+        puzzleNumber: gameData.puzzleNumber,
+        selectedLetters,
+        availableLetters,
+        hintsRevealed,
+        completedWords,
+        startTime
+      };
+      localStorage.setItem('griddleProgress', JSON.stringify(progress));
+    } catch (e) {
+      console.error('Could not save progress', e);
+    }
+  }, [selectedLetters, availableLetters, hintsRevealed, completedWords, startTime, allComplete, gameData.puzzleNumber]);
 
   const checkWordComplete = (wordIdx, letters) => {
     const word = gameData.words[wordIdx].word;
@@ -294,6 +347,7 @@ useEffect(() => {
       }
       
       checkWordComplete(wordIdx, newLetters);
+      
     } else {
       // Normal behavior: just select the letter
       setSelectedLetter(letter);
@@ -383,6 +437,7 @@ useEffect(() => {
       }
 
       checkWordComplete(wordIdx, newLetters);
+      
     }
     else {
       // No letter selected - select this slot instead
@@ -403,6 +458,45 @@ useEffect(() => {
       newHints[idx] = !newHints[idx];
       return newHints;
     });
+    
+  };
+  // Progress saving functions
+  const saveProgress = () => {
+    try {
+      const progress = {
+        puzzleNumber: gameData.puzzleNumber,
+        selectedLetters,
+        availableLetters,
+        hintsRevealed,
+        completedWords,
+        startTime
+      };
+      localStorage.setItem('griddleProgress', JSON.stringify(progress));
+    } catch (e) {
+      console.error('Could not save progress', e);
+    }
+  };
+
+  const clearProgress = () => {
+    try {
+      localStorage.removeItem('griddleProgress');
+    } catch (e) {
+      console.error('Could not clear progress', e);
+    }
+  };
+
+  const resetPuzzle = () => {
+    clearProgress();
+    setSelectedLetters(initializeWords());
+    setAvailableLetters([...allLetters]);
+    setHintsRevealed(Array(5).fill(false));
+    setCompletedWords(Array(5).fill(false));
+    setSelectedLetter(null);
+    setSelectedLetterIndex(null);
+    setSelectedSlotWord(null);
+    setSelectedSlotIndex(null);
+    setStartTime(Date.now());
+    setCompletionTime(null);
   };
 
   const handleShare = () => {
@@ -713,7 +807,15 @@ useEffect(() => {
               <div className="mt-2 text-center text-[10px] text-amber-700 bg-amber-50 rounded-lg p-1.5">
                 <p className="text-lg font-semibold">🥞 ✨ 🥞 ✨ NEW: Click a spot 🥞 then a letter, or click a letter then a spot! 🥞 ✨ 🥞 ✨</p>
                 <p className="text-sm text-amber-600 mt-0.5">🍯 Hints reveal fun facts! 🍯 Give them a try! 🍯</p>
-                <p className="text-sm text-amber-600 mt-0.5">☕ Enjoy the puzzle!</p>
+                <p className="text-sm text-amber-600 mt-0.5 font-semibold">
+                  ✨ NEW: Your progress saves automatically! Leave and come back anytime to complete puzzle!
+                  <button 
+                    onClick={resetPuzzle}
+                    className="ml-2 text-amber-700 hover:text-amber-900 underline inline-flex items-center gap-1"
+                  >
+                    <RotateCcw size={12} /> Reset to start fresh
+                  </button>
+                </p>
               </div>
             </div>
           </div>
@@ -1159,6 +1261,10 @@ useEffect(() => {
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
                 <h3 className="font-bold text-amber-800 mb-2">☕ Enjoy the Puzzle!</h3>
                 <p className="text-gray-700">Have fun and enjoy your favorite daily pancake-inspired word game! ☕🥞</p>
+              </div>
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
+                <h3 className="font-bold text-amber-800 mb-2">✨ New Feature!</h3>
+                <p className="text-gray-700">Your progress saves automatically! You can leave and come back anytime to finish the puzzle. Click <span className="font-bold">Reset to start fresh</span> if you want to start over.</p>
               </div>
               
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">

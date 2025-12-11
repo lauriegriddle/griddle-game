@@ -1312,6 +1312,10 @@ Play at www.lettergriddle.com`}
             >
               {shareCopied ? '✓ Copied!' : <><Share2 size={20} /> Copy to Clipboard</>}
             </button>
+            {/* Share nudge - visible only in modal, not copied */}
+            <p className="mt-4 text-center text-sm text-amber-700" style={{fontFamily: 'Georgia, serif'}}>
+              Love the game? Share it with a friend who hasn't played yet! 🥞
+            </p>
             {/* Instagram Follow */}
             <div className="mt-4 text-center">
               <a 

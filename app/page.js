@@ -162,7 +162,12 @@ useEffect(() => {
 
   // Handle track ended - play next song
   const handleTrackEnded = () => {
-    setCurrentTrackIndex((prevIndex) => (prevIndex + 1) % playlist.length);
+    const nextIndex = (currentTrackIndex + 1) % playlist.length;
+    setCurrentTrackIndex(nextIndex);
+    if (audioRef.current && musicEnabled) {
+      audioRef.current.src = playlist[nextIndex];
+      audioRef.current.play().catch(e => console.log('Audio play failed:', e));
+    }
   };
 
   const checkAchievements = (newStats) => {

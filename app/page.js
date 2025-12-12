@@ -855,7 +855,7 @@ useEffect(() => {
                       {isCelebrating && (
                         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
                           <div className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-2xl animate-bounce">
-                            {wordIdx === 0 ? '🎉 Great start! 🎉 🍯 Delicious! 🍯' : wordIdx === 1 ? '🔥 You\'re cooking! 🔥 🍯 Delicious! 🍯' : wordIdx === 2 ? '⭐ You\'re on a roll! ⭐ 🍯 Delicious! 🍯' : wordIdx === 3 ? '🍓 Almost there! 🍓 🍯 Delicious! 🍯' : '⭐ Amazing! ⭐ 🍯 Delicious! 🍯'}
+                            {wordIdx === 0 ? 'Great start! 🍯' : wordIdx === 1 ? 'You\'re cooking! 🍯' : wordIdx === 2 ? 'On a roll! 🍯' : wordIdx === 3 ? 'Almost there! 🍯' : 'Amazing! 🍯'}
                           </div>
                         </div>
                       )}

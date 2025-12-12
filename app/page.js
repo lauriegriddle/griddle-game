@@ -55,7 +55,7 @@ const PancakeWordGame = () => {
   const [musicEnabled, setMusicEnabled] = useState(false);
   const audioRef = useRef(null);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const playlist = ['/cafe-music.mp3', '/cafe-music-2.mp3', '/cafe-music-3.mp3'];
+  const playlist = ['/cafe-music.mp3', '/cafe-music-2.mp3', '/cafe-music-3.mp3', '/cafe-music-4.mp3'];
   const [startTime, setStartTime] = useState(Date.now());
   const [hasMounted, setHasMounted] = useState(false);
   const [completionTime, setCompletionTime] = useState(null);

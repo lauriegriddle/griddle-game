@@ -54,6 +54,8 @@ const PancakeWordGame = () => {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [musicEnabled, setMusicEnabled] = useState(false);
   const audioRef = useRef(null);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const playlist = ['/cafe-music.mp3', '/cafe-music-2.mp3', '/cafe-music-3.mp3'];
   const [startTime, setStartTime] = useState(Date.now());
   const [hasMounted, setHasMounted] = useState(false);
   const [completionTime, setCompletionTime] = useState(null);
@@ -147,6 +149,7 @@ useEffect(() => {
   // Music control effect
   useEffect(() => {
     if (audioRef.current) {
+      audioRef.current.src = playlist[currentTrackIndex];
       if (musicEnabled) {
         audioRef.current.play().catch(e => console.log('Audio play failed:', e));
         setIsMusicPlaying(true);
@@ -155,7 +158,12 @@ useEffect(() => {
         setIsMusicPlaying(false);
       }
     }
-  }, [musicEnabled]);
+  }, [musicEnabled, currentTrackIndex]);
+
+  // Handle track ended - play next song
+  const handleTrackEnded = () => {
+    setCurrentTrackIndex((prevIndex) => (prevIndex + 1) % playlist.length);
+  };
 
   const checkAchievements = (newStats) => {
     const newlyUnlocked = [];
@@ -1594,11 +1602,10 @@ Play at www.lettergriddle.com`}
 
 {/* Background Music */}
       <audio
-        ref={audioRef}
-        src="/cafe-music.mp3"
-        loop
-        preload="none"
-      /> 
+          ref={audioRef}
+          onEnded={handleTrackEnded}
+          preload="none"
+        /> 
     </div>
   );
 };

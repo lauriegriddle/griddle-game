@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle, Instagram, RotateCcw } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
 import { track } from '@vercel/analytics';
@@ -59,6 +59,11 @@ const PancakeWordGame = () => {
   const [completionTime, setCompletionTime] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [newAchievements, setNewAchievements] = useState([]);
+
+  // Keyboard support state
+  const [focusedWordIndex, setFocusedWordIndex] = useState(0);
+  const gameContainerRef = useRef(null);
+
   const [timeUntilNext, setTimeUntilNext] = useState('');
 
   const [stats, setStats] = useState({
@@ -287,6 +292,158 @@ useEffect(() => {
     }
   }, [selectedLetters, availableLetters, hintsRevealed, completedWords, startTime, allComplete, gameData.puzzleNumber]);
 
+  // Keyboard event handler for desktop typing
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Don't capture if typing in an input field
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      
+      // Don't capture if any modal is open
+      if (showShareModal || showStatsModal || showMissionModal || showKitchenModal || 
+          showBookmarkPrompt || showHowToPlayModal || showChristmasModal || showWelcomeModal) return;
+      
+      // Don't capture if puzzle is complete
+      if (allComplete) return;
+
+      const key = e.key.toUpperCase();
+      
+      // Arrow keys to navigate between words
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setFocusedWordIndex(prev => Math.min(prev + 1, 4));
+        return;
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setFocusedWordIndex(prev => Math.max(prev - 1, 0));
+        return;
+      }
+      
+      // Tab to go to next incomplete word
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        for (let i = 1; i <= 5; i++) {
+          const nextIdx = (focusedWordIndex + i) % 5;
+          if (!completedWords[nextIdx]) {
+            setFocusedWordIndex(nextIdx);
+            break;
+          }
+        }
+        return;
+      }
+      
+      // Backspace to remove last placed letter from focused word
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        const wordIdx = focusedWordIndex;
+        const wordData = gameData.words[wordIdx];
+        const currentWordLetters = selectedLetters[wordIdx];
+        
+        for (let i = currentWordLetters.length - 1; i >= 0; i--) {
+          if (currentWordLetters[i] && i !== wordData.revealedIndex) {
+            const letterToReturn = currentWordLetters[i];
+            
+            setAvailableLetters(prev => [...prev, letterToReturn].sort());
+            
+            setSelectedLetters(prev => {
+              const newSelected = [...prev];
+              newSelected[wordIdx] = [...newSelected[wordIdx]];
+              newSelected[wordIdx][i] = '';
+              return newSelected;
+            });
+            
+            setWrongPlacements(prev => {
+              const newWrong = {...prev};
+              delete newWrong[`${wordIdx}-${i}`];
+              return newWrong;
+            });
+            
+            break;
+          }
+        }
+        return;
+      }
+      
+      // Letter keys A-Z to place letters
+      if (/^[A-Z]$/.test(key)) {
+        const letterIndex = availableLetters.findIndex(l => l === key);
+        if (letterIndex === -1) return;
+        
+        const wordIdx = focusedWordIndex;
+        const wordData = gameData.words[wordIdx];
+        const currentWordLetters = selectedLetters[wordIdx];
+        
+        let targetSlot = -1;
+        for (let i = 0; i < currentWordLetters.length; i++) {
+          if (!currentWordLetters[i] && i !== wordData.revealedIndex) {
+            targetSlot = i;
+            break;
+          }
+        }
+        
+        if (targetSlot === -1) {
+          for (let i = 1; i <= 5; i++) {
+            const nextIdx = (focusedWordIndex + i) % 5;
+            if (!completedWords[nextIdx]) {
+              setFocusedWordIndex(nextIdx);
+              break;
+            }
+          }
+          return;
+        }
+        
+        setAvailableLetters(prev => {
+          const newAvailable = [...prev];
+          newAvailable.splice(letterIndex, 1);
+          return newAvailable;
+        });
+        
+        const newLetters = [...currentWordLetters];
+        newLetters[targetSlot] = key;
+        
+        setSelectedLetters(prev => {
+          const newSelected = [...prev];
+          newSelected[wordIdx] = newLetters;
+          return newSelected;
+        });
+        
+        const correctLetter = wordData.word[targetSlot];
+        if (key !== correctLetter) {
+          setWrongPlacements(prev => ({
+            ...prev,
+            [`${wordIdx}-${targetSlot}`]: true
+          }));
+          
+          setTimeout(() => {
+            setWrongPlacements(prev => {
+              const newWrong = {...prev};
+              delete newWrong[`${wordIdx}-${targetSlot}`];
+              return newWrong;
+            });
+          }, 1000);
+        }
+        
+        checkWordComplete(wordIdx, newLetters);
+        
+        const isNowFull = newLetters.every((l, i) => l || i === wordData.revealedIndex);
+        if (isNowFull) {
+          for (let i = 1; i <= 5; i++) {
+            const nextIdx = (focusedWordIndex + i) % 5;
+            if (!completedWords[nextIdx]) {
+              setFocusedWordIndex(nextIdx);
+              break;
+            }
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [availableLetters, selectedLetters, focusedWordIndex, completedWords, allComplete, 
+      showShareModal, showStatsModal, showMissionModal, showKitchenModal, 
+      showBookmarkPrompt, showHowToPlayModal, showChristmasModal, showWelcomeModal, gameData.words]);
+
   const checkWordComplete = (wordIdx, letters) => {
     const word = gameData.words[wordIdx].word;
     const filledWord = letters.join('');
@@ -368,6 +525,7 @@ useEffect(() => {
 
   const handleSlotClick = (wordIdx, slotIdx) => {
     const wordData = gameData.words[wordIdx];
+    setFocusedWordIndex(wordIdx);
     
     if (slotIdx === wordData.revealedIndex) {
       return;
@@ -497,6 +655,7 @@ useEffect(() => {
     setSelectedSlotIndex(null);
     setStartTime(Date.now());
     setCompletionTime(null);
+    setFocusedWordIndex(0);
   };
 
   const handleShare = () => {
@@ -523,7 +682,7 @@ useEffect(() => {
   const unlockedList = stats.unlockedAchievements || [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-2 relative overflow-hidden">
+    <div ref={gameContainerRef} tabIndex={0} className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-2 relative overflow-hidden outline-none">
       <div className="fixed top-2 left-2 text-3xl opacity-20">🧈</div>
       <div className="fixed top-2 right-2 text-3xl opacity-20">🥞</div>
       <div className="fixed bottom-2 left-2 text-3xl opacity-20">🍯</div>
@@ -692,7 +851,7 @@ useEffect(() => {
                 
                 return (
                   <div key={wordIdx} className="relative">
-                    <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-lg p-1.5 border border-amber-200 shadow-sm">
+                   <div className={`bg-gradient-to-br from-amber-50 to-yellow-50 rounded-lg p-1.5 border shadow-sm ${focusedWordIndex === wordIdx && !isComplete ? 'border-amber-500 ring-2 ring-amber-300' : 'border-amber-200'}`}>
                       {isCelebrating && (
                         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
                           <div className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-2xl animate-bounce">
@@ -805,10 +964,10 @@ useEffect(() => {
               
               {/* Instructions - ALL THREE LINES */}
               <div className="mt-2 text-center text-[10px] text-amber-700 bg-amber-50 rounded-lg p-1.5">
-                <p className="text-lg font-semibold">🥞 ✨ 🥞 ✨ NEW: Click a spot 🥞 then a letter, or click a letter then a spot! 🥞 ✨ 🥞 ✨</p>
-                <p className="text-sm text-amber-600 mt-0.5">🍯 Hints reveal fun facts! 🍯 Give them a try! 🍯</p>
+                <p className="text-sm text-amber-700">• Click a spot then a letter, or click a letter then a spot!</p>
+                <p className="text-sm text-amber-700 mt-0.5">• Desktop? Type letters directly! See ❓ for shortcuts.</p>
                 <p className="text-sm text-amber-600 mt-0.5 font-semibold">
-                  ✨ NEW: Your progress saves automatically! Leave and come back anytime to complete puzzle!
+                  ✨ Your progress saves automatically! Leave and come back anytime to complete puzzle!
                   <button 
                     onClick={resetPuzzle}
                     className="ml-2 text-amber-700 hover:text-amber-900 underline inline-flex items-center gap-1"
@@ -1255,6 +1414,15 @@ useEffect(() => {
                   <li>• Use the <strong>Shuffle</strong> button to rearrange letters</li>
                   <li>• Click <strong>Hint</strong> for clues about each word</li>
                   <li>• New puzzle every day at 7 PM EST!</li>
+                </ul>
+              </div>
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
+                <h3 className="font-bold text-amber-800 mb-2">⌨️ Keyboard Shortcuts</h3>
+                <ul className="text-gray-700 space-y-2">
+                  <li>• Type <strong>A-Z</strong> to place letters</li>
+                  <li>• <strong>Arrow Up/Down</strong> to switch words</li>
+                  <li>• <strong>Tab</strong> to jump to next word</li>
+                  <li>• <strong>Backspace</strong> to remove a letter</li>
                 </ul>
               </div>
               

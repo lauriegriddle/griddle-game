@@ -49,6 +49,7 @@ const PancakeWordGame = () => {
   const [showHowToPlayModal, setShowHowToPlayModal] = useState(false);
   const [showChristmasModal, setShowChristmasModal] = useState(false);
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+  const [showStoryModal, setShowStoryModal] = useState(false);
   const [welcomeMessage, setWelcomeMessage] = useState('');
   const [shareCopied, setShareCopied] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
@@ -793,6 +794,17 @@ useEffect(() => {
   
 
             </button>
+            {/* Story Button - NEW! */}
+            <button
+              onClick={() => setShowStoryModal(true)}
+              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md relative"
+              title="Weekly Story"
+            >
+              <span className="text-sm">💌</span>
+              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[8px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
+                !
+              </div>
+            </button>
             <button
               onClick={() => setShowMissionModal(true)}
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
@@ -1343,6 +1355,41 @@ useEffect(() => {
             >
               Today's Special
             </button>
+          </div>
+        </div>
+      )}
+      {/* Story Modal */}
+      {showStoryModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowStoryModal(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowStoryModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+              aria-label="Close"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="text-center mb-6">
+              <div className="text-6xl mb-3">💌</div>
+              <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+                The Letter Griddle Cafe
+              </h2>
+              <p className="text-sm text-amber-600 italic">Come for the trivia, pancakes, and coffee; stay for the tea.</p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200 text-center">
+              <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
+                New story arriving Sunday at 7 PM.
+              </p>
+              <p className="text-base text-amber-700 mt-3 font-medium">
+                Come back for your first visit to Griddlehoney Falls. 🥞
+              </p>
+            </div>
+            
+            <div className="flex justify-center gap-3 mt-6 text-4xl">
+              🍯 🧈 ☕ 🥞
+            </div>
           </div>
         </div>
       )}

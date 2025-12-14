@@ -1361,7 +1361,7 @@ useEffect(() => {
       {/* Story Modal */}
       {showStoryModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowStoryModal(false)}>
-          <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative max-h-[85vh] overflow-y-auto" style={{WebkitOverflowScrolling: 'touch'}} onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowStoryModal(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
@@ -1378,7 +1378,7 @@ useEffect(() => {
               <p className="text-sm text-amber-600 italic">Come for the trivia, pancakes, and coffee. Stay for the tea.</p>
             </div>
             
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200 text-left max-h-96 overflow-y-auto">
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200 text-left">
   <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
     Jukebox, as it's affectionately referred to by the Sunday night trivia crew, plays the final notes of its ambient instrumental. Silence signals the end of the night when the cafe needs Laurel's attention.
   </p>
@@ -1602,8 +1602,8 @@ Play at www.lettergriddle.com`}
 
       {/* Stats Modal */}
       {showStatsModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4 overflow-y-auto" onClick={() => setShowStatsModal(false)}>
-          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative my-8" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4" onClick={() => setShowStatsModal(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative my-8 max-h-[85vh] overflow-y-auto" style={{WebkitOverflowScrolling: 'touch'}} onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowStatsModal(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
@@ -1644,7 +1644,7 @@ Play at www.lettergriddle.com`}
                 Achievements
               </h3>
               
-              <div className="space-y-3 max-h-64 overflow-y-auto">
+              <div className="space-y-3">
                 {achievements.map(achievement => {
                   const isUnlocked = unlockedList.includes(achievement.id);
                   return (

@@ -1375,17 +1375,58 @@ useEffect(() => {
               <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
                 The Letter Griddle Cafe
               </h2>
-              <p className="text-sm text-amber-600 italic">Come for the trivia, pancakes, and coffee; stay for the tea.</p>
+              <p className="text-sm text-amber-600 italic">Come for the trivia, pancakes, and coffee. Stay for the tea.</p>
             </div>
             
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200 text-center">
-              <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
-                New story arriving Sunday at 7 PM.
-              </p>
-              <p className="text-base text-amber-700 mt-3 font-medium">
-                Come back for your first visit to Griddlehoney Falls. 🥞
-              </p>
-            </div>
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200 text-left max-h-96 overflow-y-auto">
+  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+    Jukebox, as it's affectionately referred to by the Sunday night trivia crew, plays the final notes of its ambient instrumental. Silence signals the end of the night when the cafe needs Laurel's attention.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+    "Sizzle-drip-sizzle…" the coffee pot reminds Laurel to turn it off and of Sarah deferring her second cup of coffee to Mrs. Lindsay, who needed a bit of a jolt to answer that last trivia question.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+    "This final question is for all the dog lovers out there," Laurel teased her crowd of trivia enthusiasts knowing the group shares a love of animals.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+    "What dog breed is the king of the terriers?" Laurel asked.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
+    "They are all kings!" Mr. and Mrs. Lindsay chimed in unison.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
+    "It's not...Chihuahua?!" Jennie responded, as she gently covered Isaac's ears.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
+    "Dogs, kings? Let's talk about cats!" Josie whispered to her mother.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+    Holding back laughter as the group revealed their opinions rather than answer the question, Laurel read, "The king of terriers is the Airedale."
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
+    "Ugh!" Josephine reacted, patting Josie's hand.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
+    "Oh, I might have heard that on an episode of Animal Planet," Taylor B. admitted.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
+    "Who's to say who's a king?" Jennie demanded, then whispered something inaudible into Isaac's ears as she offered him a tasty morsel from her plate.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
+    "So many dogs, so much cuteness and love!" Mr. Lindsay gushed, attempting to soothe himself, Jennie, and her furry companion.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+    Mrs. Lindsay concurred with her husband's adoration and Laurel's answer but promised to do her own research.
+  </p>
+  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+    The other players were having their sidebar conversations that lasted anywhere from "a sip of coffee to I need another cinnamon bun."
+  </p>
+  <div className="border-t-2 border-amber-300 mt-6 pt-4">
+    <p className="text-base text-amber-700 font-medium text-center" style={{fontFamily: 'Georgia, serif'}}>
+      Friends, return next Sunday at 7pm for another serving.
+    </p>
+  </div>
+</div>
             
             <div className="flex justify-center gap-3 mt-6 text-4xl">
               🍯 🧈 ☕ 🥞

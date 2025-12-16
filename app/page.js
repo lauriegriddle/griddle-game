@@ -1690,6 +1690,10 @@ Play at www.lettergriddle.com`}
     {' | '}
     <a href="https://instagram.com/letter_griddle" target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 underline">
 <Instagram size={14} className="inline" /> @letter_griddle</a>
+{' | '}
+            <a href="https://www.littlelettergriddle.com" target="_blank" rel="noopener noreferrer" className="hover:text-amber-600 underline">
+              🌙 Little Letter Griddle
+            </a>
   </div>
 </div>
 

@@ -56,7 +56,23 @@ const PancakeWordGame = () => {
   const [musicEnabled, setMusicEnabled] = useState(false);
   const audioRef = useRef(null);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const playlist = ['/cafe-music.mp3', '/cafe-music-2.mp3', '/cafe-music-3.mp3', '/cafe-music-4.mp3'];
+  // Named tracks for jukebox
+  const tracks = [
+    { name: 'Cafe Chill', file: '/cafe-music.mp3' },
+    { name: 'Cafe Vibe', file: '/cafe-music-2.mp3' },
+    { name: 'Cafe Time', file: '/cafe-music-3.mp3' },
+    { name: 'Cafe Paris', file: '/cafe-music-4.mp3' }
+  ];
+  
+  // Jukebox modal state and volume
+  const [showJukeboxModal, setShowJukeboxModal] = useState(false);
+  const [volume, setVolume] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('griddleVolume');
+      return saved ? parseFloat(saved) : 0.5;
+    }
+    return 0.5;
+  });
   const [startTime, setStartTime] = useState(Date.now());
   const [hasMounted, setHasMounted] = useState(false);
   const [completionTime, setCompletionTime] = useState(null);
@@ -126,6 +142,16 @@ useEffect(() => {
   if (saved === 'true') {
     setMusicEnabled(true);
   }
+  // Load saved volume
+  const savedVolume = localStorage.getItem('griddleVolume');
+  if (savedVolume) {
+    setVolume(parseFloat(savedVolume));
+  }
+  // Load saved track
+  const savedTrack = localStorage.getItem('griddleCurrentTrack');
+  if (savedTrack) {
+    setCurrentTrackIndex(parseInt(savedTrack));
+  }
 }, []);
 
 // Check for first visit of the day and show welcome modal
@@ -147,10 +173,11 @@ useEffect(() => {
     }
   }, []);
 
-  // Music control effect
+  // Music control effect with volume
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.src = playlist[currentTrackIndex];
+      audioRef.current.src = tracks[currentTrackIndex].file;
+      audioRef.current.volume = volume;
       if (musicEnabled) {
         audioRef.current.play().catch(e => console.log('Audio play failed:', e));
         setIsMusicPlaying(true);
@@ -161,14 +188,48 @@ useEffect(() => {
     }
   }, [musicEnabled, currentTrackIndex]);
 
+  // Update volume when changed
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
   // Handle track ended - play next song
   const handleTrackEnded = () => {
-    const nextIndex = (currentTrackIndex + 1) % playlist.length;
+    const nextIndex = (currentTrackIndex + 1) % tracks.length;
     setCurrentTrackIndex(nextIndex);
+    localStorage.setItem('griddleCurrentTrack', nextIndex.toString());
     if (audioRef.current && musicEnabled) {
-      audioRef.current.src = playlist[nextIndex];
+      audioRef.current.src = tracks[nextIndex].file;
       audioRef.current.play().catch(e => console.log('Audio play failed:', e));
     }
+  };
+
+  // Select specific track from jukebox
+  const selectTrack = (index) => {
+    setCurrentTrackIndex(index);
+    localStorage.setItem('griddleCurrentTrack', index.toString());
+    if (audioRef.current) {
+      audioRef.current.src = tracks[index].file;
+      if (musicEnabled) {
+        audioRef.current.play().catch(e => console.log('Audio play failed:', e));
+      }
+    }
+  };
+
+  // Handle volume change
+  const handleVolumeChange = (e) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    localStorage.setItem('griddleVolume', newVolume.toString());
+  };
+
+  // Toggle play/pause from jukebox
+  const togglePlayPause = () => {
+    const newState = !musicEnabled;
+    setMusicEnabled(newState);
+    localStorage.setItem('griddleMusicEnabled', newState.toString());
   };
 
   const checkAchievements = (newStats) => {
@@ -314,7 +375,7 @@ useEffect(() => {
       
       // Don't capture if any modal is open
       if (showShareModal || showStatsModal || showMissionModal || showKitchenModal || 
-          showBookmarkPrompt || showHowToPlayModal || showChristmasModal || showWelcomeModal) return;
+          showBookmarkPrompt || showHowToPlayModal || showChristmasModal || showWelcomeModal || showJukeboxModal) return;
       
       // Don't capture if puzzle is complete
       if (allComplete) return;
@@ -456,7 +517,7 @@ useEffect(() => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [availableLetters, selectedLetters, focusedWordIndex, completedWords, allComplete, 
       showShareModal, showStatsModal, showMissionModal, showKitchenModal, 
-      showBookmarkPrompt, showHowToPlayModal, showChristmasModal, showWelcomeModal, gameData.words]);
+      showBookmarkPrompt, showHowToPlayModal, showChristmasModal, showWelcomeModal, showJukeboxModal, gameData.words]);
 
   const checkWordComplete = (wordIdx, letters) => {
     const word = gameData.words[wordIdx].word;
@@ -619,9 +680,7 @@ useEffect(() => {
   };
 
   const toggleMusic = () => {
-    const newState = !musicEnabled;
-    setMusicEnabled(newState);
-    localStorage.setItem('griddleMusicEnabled', newState.toString());
+    setShowJukeboxModal(true);
   };
 
   const toggleHint = (idx) => {
@@ -1705,6 +1764,95 @@ Play at www.lettergriddle.com`}
             </a>
   </div>
 </div>
+
+{/* Jukebox Modal */}
+      {showJukeboxModal && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4" 
+          onClick={() => setShowJukeboxModal(false)}
+        >
+          <div 
+            className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-6 max-w-sm w-full shadow-2xl relative border-2 border-amber-200" 
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowJukeboxModal(false)}
+              className="absolute top-4 right-4 text-amber-600 hover:text-amber-800 z-10 bg-amber-100 rounded-full p-1 hover:bg-amber-200"
+              aria-label="Close jukebox"
+            >
+              <X size={20} />
+            </button>
+            
+            {/* Jukebox Header */}
+            <div className="text-center mb-5">
+              <div className="text-4xl mb-2">🎵</div>
+              <h2 className="text-2xl font-bold text-amber-800 italic" style={{fontFamily: 'Georgia, serif'}}>
+                Jukebox
+              </h2>
+            </div>
+
+            {/* Now Playing */}
+            {musicEnabled && (
+              <div className="bg-amber-100 rounded-xl p-3 mb-4 text-center">
+                <p className="text-xs text-amber-600 mb-1">Now Playing</p>
+                <p className="font-bold text-amber-800">{tracks[currentTrackIndex].name}</p>
+              </div>
+            )}
+
+            {/* Track List */}
+            <div className="space-y-2 mb-4">
+              {tracks.map((track, index) => (
+                <button
+                  key={index}
+                  onClick={() => selectTrack(index)}
+                  className={`w-full p-3 rounded-xl flex items-center gap-3 transition-all ${
+                    currentTrackIndex === index
+                      ? 'bg-amber-500 text-white shadow-lg'
+                      : 'bg-white hover:bg-amber-100 text-amber-800 border border-amber-200'
+                  }`}
+                >
+                  <span className="text-xl">
+                    {currentTrackIndex === index && musicEnabled ? '🔊' : '🎵'}
+                  </span>
+                  <span className="font-semibold flex-1 text-left">{track.name}</span>
+                  {currentTrackIndex === index && musicEnabled && (
+                    <span className="text-xs opacity-75">Playing</span>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Play/Pause Button */}
+            <button
+              onClick={togglePlayPause}
+              className={`w-full py-3 rounded-xl font-bold text-lg transition-all mb-4 text-white shadow-lg ${
+                musicEnabled
+                  ? 'bg-red-500 hover:bg-red-600'
+                  : 'bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800'
+              }`}
+            >
+              {musicEnabled ? '⏸ Pause Music' : '▶ Play Music'}
+            </button>
+
+            {/* Volume Control */}
+            <div className="bg-white rounded-xl p-4 border border-amber-200">
+              <div className="flex items-center gap-3">
+                <span className="text-lg">🔈</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value={volume}
+                  onChange={handleVolumeChange}
+                  className="flex-1 h-2 bg-amber-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                />
+                <span className="text-lg">🔊</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
 {/* Background Music */}
       <audio

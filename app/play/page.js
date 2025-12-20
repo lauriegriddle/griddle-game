@@ -697,15 +697,7 @@ useEffect(() => {
 
   return (
     <div ref={gameContainerRef} tabIndex={0} className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-2 relative overflow-hidden outline-none">
-    {/* Little Letter Griddle Promo Banner */}
-        <a 
-          href="https://www.littlelettergriddle.com" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="block w-full bg-indigo-900 text-white text-center py-2 text-sm hover:bg-indigo-800 transition-colors"
-        >
-          🌙 Our newest puzzle Little Letter Griddle drops daily at 7:30 PM EST → www.littlelettergriddle.com
-        </a>
+    
       <div className="fixed top-2 left-2 text-3xl opacity-20">🧈</div>
       <div className="fixed top-2 right-2 text-3xl opacity-20">🥞</div>
       <div className="fixed bottom-2 left-2 text-3xl opacity-20">🍯</div>

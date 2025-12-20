@@ -828,10 +828,6 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* Tagline */}
-        <p className="text-sm text-amber-700 italic text-center mb-2" style={{fontFamily: 'Georgia, serif'}}>
-          Letter Griddle is a cozy word game that sometimes teaches but it's always fun!
-        </p>
 
         <div className="bg-white rounded-xl shadow-2xl p-2 border-2 border-amber-200">
           {/* Thin Category */}

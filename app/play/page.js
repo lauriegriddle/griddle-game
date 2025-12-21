@@ -1377,52 +1377,40 @@ useEffect(() => {
             
             <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200 text-left">
   <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-    Jukebox, as it's affectionately referred to by the Sunday night trivia crew, plays the final notes of its ambient instrumental. Silence signals the end of the night when the cafe needs Laurel's attention.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-    "Sizzle-drip-sizzle…" the coffee pot reminds Laurel to turn it off and of Sarah deferring her second cup of coffee to Mrs. Lindsay, who needed a bit of a jolt to answer that last trivia question.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-    "This final question is for all the dog lovers out there," Laurel teased her crowd of trivia enthusiasts knowing the group shares a love of animals.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-    "What dog breed is the king of the terriers?" Laurel asked.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
-    "They are all kings!" Mr. and Mrs. Lindsay chimed in unison.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
-    "It's not...Chihuahua?!" Jennie responded, as she gently covered Isaac's ears.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
-    "Dogs, kings? Let's talk about cats!" Josie whispered to her mother.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-    Holding back laughter as the group revealed their opinions rather than answer the question, Laurel read, "The king of terriers is the Airedale."
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
-    "Ugh!" Josephine reacted, patting Josie's hand.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
-    "Oh, I might have heard that on an episode of Animal Planet," Taylor B. admitted.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
-    "Who's to say who's a king?" Jennie demanded, then whispered something inaudible into Isaac's ears as she offered him a tasty morsel from her plate.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-2" style={{fontFamily: 'Georgia, serif'}}>
-    "So many dogs, so much cuteness and love!" Mr. Lindsay gushed, attempting to soothe himself, Jennie, and her furry companion.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-    Mrs. Lindsay concurred with her husband's adoration and Laurel's answer but promised to do her own research.
-  </p>
-  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-    The other players were having their sidebar conversations that lasted anywhere from "a sip of coffee to I need another cinnamon bun."
-  </p>
-  <div className="border-t-2 border-amber-300 mt-6 pt-4">
-    <p className="text-base text-amber-700 font-medium text-center" style={{fontFamily: 'Georgia, serif'}}>
-      Friends, return next Sunday at 7pm for another serving.
-    </p>
-  </div>
+                  "Mrs. Lindsay, I know you like your coffee with one-third cream and two sugar packets, like I do. Have this one," Sarah offered, "I haven't sipped from it yet."
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+                  "Sarah, you know me so well!" Mrs. Lindsay gladly accepted amid the buzz in the room about terriers, cinnamon buns, and the current temperature of their coffee.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+                  "Coffee, coffee, coffee," Laurel muses as she prepares the machine for the next day.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+                  Coffee is a major ingredient of the Letter Griddle Cafe's recipe for magic, but an even more important ingredient is just being around others.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+                  Just close enough that you can feel like you are part of something bigger than yourself yet far enough apart that your personal space is your own.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+                  The Letter Griddle Cafe menu is a permission slip to slow down, surrender, and stop trying to fix the world.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+                  Laurel looks at the plaque hanging on the wall over the cafe door. The embroidered stitching in various shades of pancake- and coffee-colored threads reveals the Letter Griddle mission statement.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+                  Nourishing friends of Griddle Falls, one meal at a time.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+                  Morning will be here along with hungry regulars Chuck and Gladys Barnes, Mrs. Winslow, and the rest of the morning regulars, affectionately known as "The A.M. Cafe Crew."
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
+                  Turning out the lights, leaving the cafe to head for home, Laurel pauses, "Thanks for another fun trivia night. See you sooner than later, LG."
+                </p>
+                <div className="border-t-2 border-amber-300 mt-6 pt-4">
+                  <p className="text-base text-amber-700 font-medium text-center" style={{fontFamily: 'Georgia, serif'}}>
+                    Friends, we will meet at our new website <a href="https://lettergriddlecafe.com" className="text-amber-600 underline hover:text-amber-800">lettergriddlecafe.com</a>. Enjoy our new Letter Griddle Cookbook found at <a href="https://lettergriddlecookbook.com" className="text-amber-600 underline hover:text-amber-800">lettergriddlecookbook.com</a>. Both sites are found at <a href="https://lettergriddle.com" className="text-amber-600 underline hover:text-amber-800">lettergriddle.com</a>
+                  </p>
+                </div>
 </div>
             
             <div className="flex justify-center gap-3 mt-6 text-4xl">

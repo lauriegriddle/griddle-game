@@ -75,6 +75,34 @@ export default function Home() {
       hoverBg: "bg-pink-500/80"
     },
     {
+    name: "Cookbook",
+    tagline: "Recipes paired with word puzzles",
+    emoji: "🍊",
+    href: "https://lettergriddlecookbook.com",
+    image: "/cookbook-thumbnail.svg",
+    color: "orange",
+    borderColor: "border-orange-200",
+    bgColor: "from-orange-100 to-amber-100",
+    textColor: "text-orange-800",
+    subTextColor: "text-orange-700",
+    timeColor: "text-orange-600",
+    hoverBg: "bg-orange-500/80"
+  },
+  {
+    name: "The Letter Griddle Cafe",
+    tagline: "Stories and Puzzles from the Letter Griddle Cafe",
+    emoji: "🧡",
+    href: "https://lettergriddlecafe.com",
+    image: "/cafe-thumbnail.svg",
+    color: "orange",
+    borderColor: "border-orange-200",
+    bgColor: "from-orange-100 to-amber-100",
+    textColor: "text-orange-800",
+    subTextColor: "text-orange-700",
+    timeColor: "text-orange-600",
+    hoverBg: "bg-orange-500/80"
+  },
+    {
       name: "Letter Griddle Cottage",
       tagline: "A seasonal retreat",
       emoji: "🏔️",

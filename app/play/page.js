@@ -1085,7 +1085,7 @@ useEffect(() => {
             <div className="text-center mb-6">
               
               <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
-                From the Kitchen
+                Visit lettergriddlecookbook.com for recipes and puzzles.
               </h2>
             </div>
             {/* Table of Contents */}

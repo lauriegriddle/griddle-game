@@ -539,6 +539,11 @@ useEffect(() => {
 
   const handleSlotClick = (wordIdx, slotIdx) => {
     const wordData = gameData.words[wordIdx];
+
+    // Don't allow changes to completed words
+    if (completedWords[wordIdx]) {
+      return;
+    }
     setFocusedWordIndex(wordIdx);
     
     if (slotIdx === wordData.revealedIndex) {

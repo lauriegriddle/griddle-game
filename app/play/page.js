@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChefHat, Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle, Instagram, RotateCcw } from 'lucide-react';
+import { Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle, Instagram, RotateCcw, ChefHat } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
 import { track } from '@vercel/analytics';
 
@@ -44,12 +44,10 @@ const PancakeWordGame = () => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
   const [showMissionModal, setShowMissionModal] = useState(false);
-  const [showKitchenModal, setShowKitchenModal] = useState(false);
+  const [showLaunchModal, setShowLaunchModal] = useState(false);
   const [showBookmarkPrompt, setShowBookmarkPrompt] = useState(false);
   const [showHowToPlayModal, setShowHowToPlayModal] = useState(false);
-  const [showChristmasModal, setShowChristmasModal] = useState(false);
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
-  const [showStoryModal, setShowStoryModal] = useState(false);
   const [welcomeMessage, setWelcomeMessage] = useState('');
   const [shareCopied, setShareCopied] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
@@ -313,8 +311,8 @@ useEffect(() => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
       
       // Don't capture if any modal is open
-      if (showShareModal || showStatsModal || showMissionModal || showKitchenModal || 
-          showBookmarkPrompt || showHowToPlayModal || showChristmasModal || showWelcomeModal) return;
+      if (showShareModal || showStatsModal || showMissionModal || showLaunchModal || 
+          showBookmarkPrompt || showHowToPlayModal || showWelcomeModal) return;
       
       // Don't capture if puzzle is complete
       if (allComplete) return;
@@ -455,8 +453,8 @@ useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [availableLetters, selectedLetters, focusedWordIndex, completedWords, allComplete, 
-      showShareModal, showStatsModal, showMissionModal, showKitchenModal, 
-      showBookmarkPrompt, showHowToPlayModal, showChristmasModal, showWelcomeModal, gameData.words]);
+      showShareModal, showStatsModal, showMissionModal, showLaunchModal, 
+      showBookmarkPrompt, showHowToPlayModal, showWelcomeModal, gameData.words]);
 
   const checkWordComplete = (wordIdx, letters) => {
     const word = gameData.words[wordIdx].word;
@@ -774,13 +772,13 @@ useEffect(() => {
             >
               <span className="text-sm">{musicEnabled ? '🔊' : '🎵'}</span>
             </button>
-            {/* 12 Days of Christmas Button */}
+            {/* LAUNCH BUTTON - NEW! */}
             <button
-              onClick={() => setShowChristmasModal(true)}
-              className="bg-red-100 hover:bg-red-200 text-red-800 p-1.5 rounded-full transition-all shadow-md"
-              title="12 Days of Christmas"
+              onClick={() => setShowLaunchModal(true)}
+              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
+              title="We're Live!"
             >
-              <span className="text-lg">🎄</span>
+              <span className="text-lg">🎉</span>
             </button>
             <button
               onClick={() => setShowHowToPlayModal(true)}
@@ -788,28 +786,6 @@ useEffect(() => {
               title="How to Play"
             >
               <HelpCircle size={18} />
-            </button>
-
-            <button
-              onClick={() => setShowKitchenModal(true)}
-              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
-              title="Kitchen & Recipes"
-            >
-              
-  <ChefHat size={18} />
-  
-
-            </button>
-            {/* Story Button - NEW! */}
-            <button
-              onClick={() => setShowStoryModal(true)}
-              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md relative"
-              title="Weekly Story"
-            >
-              <span className="text-sm">💌</span>
-              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[8px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
-                !
-              </div>
             </button>
             <button
               onClick={() => setShowMissionModal(true)}
@@ -1075,270 +1051,6 @@ useEffect(() => {
         }
       `}</style>
 
-      {/* Kitchen Modal */}
-      {showKitchenModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowKitchenModal(false)}>
-          <div className="bg-white rounded-3xl p-8 max-w-2xl w-full shadow-2xl relative max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={() => setShowKitchenModal(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
-              aria-label="Close"
-            >
-              <X size={24} />
-            </button>
-            
-            <div className="text-center mb-6">
-              
-              <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
-                Visit lettergriddlecookbook.com for recipes and puzzles.
-              </h2>
-            </div>
-            {/* Table of Contents */}
-              <div className="bg-amber-50 rounded-lg p-3 mb-4 border border-amber-200">
-                <p className="text-sm font-bold text-amber-800 mb-2">📋 What's Cooking:</p>
-                <ul className="text-sm text-amber-700 space-y-1 ml-4">
-                  <li>• 🥞 Favorite Pancakes</li>
-                  <li>• ☕ Coffee Tip</li>
-                  <li>• 🍳 Breakfast Casserole</li>
-                  <li>• 🍊 Honey Citrus Fruit Salad</li>
-                </ul>
-              </div>
-            <div className="space-y-6">
-              {/* Pancake Recipe */}
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
-                <h3 className="text-2xl font-bold text-amber-800 mb-4 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}>
-                  🥞 Favorite Pancakes
-                </h3>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-bold text-amber-800 mb-2">Ingredients:</h4>
-                    <ul className="text-gray-700 space-y-1 ml-4">
-                      <li>• 1¼ cups sifted all-purpose flour</li>
-                      <li>• 3 teaspoons baking powder</li>
-                      <li>• 1 tablespoon sugar</li>
-                      <li>• ½ teaspoon salt</li>
-                      <li>• 1 beaten egg</li>
-                      <li>• 1 cup milk*</li>
-                      <li>• 2 tablespoons salad oil</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-bold text-amber-800 mb-2">Instructions:</h4>
-                    <ol className="text-gray-700 space-y-1 ml-4">
-                      <li>1. Sift together dry ingredients</li>
-                      <li>2. Combine egg, milk, and salad oil</li>
-                      <li>3. Add to dry ingredients, stirring just till moistened</li>
-                      <li>4. Bake on hot griddle</li>
-                    </ol>
-                  </div>
-                  
-                  <div className="text-sm text-gray-600 italic">
-                    <p>Makes about 12 dollar-size, or eight 4-inch pancakes</p>
-                    <p className="mt-1">*For thinner pancakes, add 2 tablespoons milk to batter</p>
-                  </div>
-                  
-                  <div className="text-xs text-gray-500 mt-4 pt-4 border-t border-amber-200">
-                    Recipe from Better Homes and Gardens New Cookbook
-                  </div>
-                </div>
-              </div>
-              {/* Coffee Tip */}
-              <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-6 border-2 border-amber-200">
-                <h3 className="text-2xl font-bold text-amber-800 mb-3 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}>
-                  ☕ Coffee Tip
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
-                  Freshly ground beans make for an excellent cup of coffee.
-                </p>
-              </div>
-              {/* Breakfast Casserole Recipe */}
-                <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
-                  <h3 className="text-2xl font-bold text-amber-800 mb-4 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}>
-                    🍳 Breakfast Casserole
-                  </h3>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-bold text-amber-800 mb-2">Ingredients:</h4>
-                      <ul className="text-gray-700 space-y-1 ml-4">
-                        <li>• 1 lb. turkey sausage</li>
-                        <li>• 6 eggs</li>
-                        <li>• 2 C. milk</li>
-                        <li>• 1 tsp. dry mustard</li>
-                        <li>• 1 tsp. salt</li>
-                        <li>• 2 C. cubed bread crusts</li>
-                        <li>• 8 oz. Cheddar cheese, shredded</li>
-                      </ul>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-bold text-amber-800 mb-2">Instructions:</h4>
-                      <ol className="text-gray-700 space-y-1 ml-4">
-                        <li>1. Brown turkey sausage in a medium skillet. Drain fat and set aside to cool.</li>
-                        <li>2. Lightly beat eggs in a large mixing bowl. Add milk, mustard and salt. Blend well.</li>
-                        <li>3. Stir in bread crust, sausage and cheese, mixing well.</li>
-                        <li>4. Pour into a shallow 2-quart glass baking dish and refrigerate overnight.</li>
-                        <li>5. Preheat oven to 350° and bake for 40-45 minutes or until edges are brown.</li>
-                        <li>6. Cut into wedges and serve hot or room temperature.</li>
-                      </ol>
-                    </div>
-                  </div>
-                  
-                  <div className="text-sm text-gray-600 italic">
-                    <p>Serves 6 to 8</p>
-                    <p className="mt-1">*The secret: Mix all ingredients, refrigerate overnight, then bake in the morning!</p>
-                  </div>
-                </div>
-            </div>
-            {/* Honey Citrus Fruit Salad Recipe */}
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
-                <h3 className="text-2xl font-bold text-amber-800 mb-4 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}>
-                  🍊 Honey Citrus Fruit Salad
-                </h3>
-                <p className="text-sm text-amber-600 mb-3">Prep time: 15 minutes | Serves: 4-6</p>
-                <p className="text-gray-700 mb-4 italic">This refreshing fruit salad combines sweet and tangy flavors, topped with crunchy walnuts and coconut flakes.</p>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-bold text-amber-800 mb-2">Ingredients:</h4>
-                    <ul className="text-gray-700 space-y-1 ml-4">
-                      <li>• 1 Apple, cored and chunked</li>
-                      <li>• 1 Banana, sliced</li>
-                      <li>• 1/4 cup Blueberries</li>
-                      <li>• 1 cup Grapes (white or red)</li>
-                      <li>• 1 can (approx. 8 oz) Mandarin oranges, drained</li>
-                      <li>• 1 small can (approx. 8 oz) Pineapple tidbits, drained</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-bold text-amber-800 mb-2">For the Dressing:</h4>
-                    <ul className="text-gray-700 space-y-1 ml-4">
-                      <li>• 1/4 cup Orange juice</li>
-                      <li>• 2 tbsp Honey</li>
-                      <li>• Pinch of Cinnamon</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-bold text-amber-800 mb-2">For the Garnish:</h4>
-                    <ul className="text-gray-700 space-y-1 ml-4">
-                      <li>• Shredded coconut (to taste)</li>
-                      <li>• Chopped walnuts (to taste)</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-bold text-amber-800 mb-2">Instructions:</h4>
-                    <ol className="text-gray-700 space-y-2 ml-4 list-decimal list-inside">
-                      <li><strong>Prepare the fruit:</strong> In a large mixing bowl, gently combine the chunked apple, sliced banana, blueberries, grapes, drained mandarin oranges, and drained pineapple tidbits.</li>
-                      <li><strong>Make the dressing:</strong> In a small bowl, whisk together the orange juice, honey, and pinch of cinnamon until well blended.</li>
-                      <li><strong>Combine:</strong> Pour the dressing over the fruit mixture. Toss gently to ensure all the fruit is lightly coated.</li>
-                      <li><strong>Garnish and serve:</strong> Just before serving, top the salad with shredded coconut and chopped walnuts.</li>
-                    </ol>
-                  </div>
-                  
-                  <div className="bg-amber-100 rounded-lg p-3 mt-4">
-                    <h4 className="font-bold text-amber-800 mb-2">💡 Tips for the Best Salad:</h4>
-                    <ul className="text-gray-700 space-y-1 text-sm">
-                      <li>• <strong>Prevent browning:</strong> The orange juice in the dressing helps prevent the apples and bananas from browning.</li>
-                      <li>• <strong>Chill:</strong> This salad tastes best when chilled for at least 30 minutes before serving.</li>
-                      <li>• <strong>Serve immediately after adding banana:</strong> Bananas can become mushy if left too long. Add them just before serving.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      )}
-      {/* 12 Days of Christmas Modal */}
-      {showChristmasModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto" onClick={() => setShowChristmasModal(false)}>
-          <div className="bg-gradient-to-br from-amber-100 to-yellow-100 rounded-3xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border-4 border-amber-300 my-4" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={() => setShowChristmasModal(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
-              aria-label="Close"
-            >
-              <X size={24} />
-            </button>
-            
-            <div className="absolute top-4 left-4 text-3xl opacity-30">🥞</div>
-            <div className="absolute top-12 right-12 text-2xl opacity-30">🧈</div>
-            
-            <div className="text-center mb-4">
-              <div className="text-5xl mb-2">🥞</div>
-              <h1 className="text-3xl font-bold text-amber-800 mb-3" style={{ fontFamily: 'Georgia, serif' }}>
-                Letter Griddle
-              </h1>
-              
-              <div className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full px-6 py-2 inline-block shadow-lg mb-3">
-                <span className="text-lg font-bold flex items-center gap-2">
-                  🎄 12 DAYS OF CHRISTMAS
-                </span>
-              </div>
-              
-              <p className="text-amber-700 text-base font-semibold" style={{ fontFamily: 'Georgia, serif' }}>
-                December 14 - 25, 2025
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-              {[
-                { day: 14, dayName: 'SUN', category: 'Musical Instruments', emoji: '🎵' },
-                { day: 15, dayName: 'MON', category: 'Soup', emoji: '🍲' },
-                { day: 16, dayName: 'TUES', category: 'Ways to Go', emoji: '🚗' },
-                { day: 17, dayName: 'WED', category: 'Pasta', emoji: '🍝' },
-                { day: 18, dayName: 'THURS', category: 'Breakfast', emoji: '🍳' },
-                { day: 19, dayName: 'FRI', category: 'Cooking', emoji: '👨‍🍳' },
-                { day: 20, dayName: 'SAT', category: 'Antlers', emoji: '🦌' },
-                { day: 21, dayName: 'SUN', category: 'Snow', emoji: '❄️' },
-                { day: 22, dayName: 'MON', category: 'A Dish to Pass', emoji: '🥧' },
-                { day: 23, dayName: 'TUES', category: 'Brunch', emoji: '🥐' },
-                { day: 24, dayName: 'WED', category: "'Tis the Season", emoji: '🎄', isChristmas: true },
-                { day: 25, dayName: 'THURS', category: 'Christmas Tree', emoji: '🎄', isChristmas: true },
-              ].map((puzzle) => (
-                <div 
-                  key={puzzle.day}
-                  className="bg-white rounded-lg p-2 shadow-sm border border-amber-200 flex items-center gap-2"
-                >
-                  <div className={`${puzzle.isChristmas ? 'bg-red-600' : 'bg-amber-500'} text-white rounded-md px-2 py-1 text-center min-w-[50px]`}>
-                    <div className="text-[10px] font-bold">{puzzle.dayName}</div>
-                    <div className="text-xl font-bold">{puzzle.day}</div>
-                  </div>
-                  
-                  <div className="flex-1 text-sm">
-                    <span className="text-amber-800 font-semibold" style={{ fontFamily: 'Georgia, serif' }}>
-                      {puzzle.category}
-                    </span>
-                  </div>
-                  
-                  <div className="text-xl">{puzzle.emoji}</div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="relative pt-2">
-              <div className="absolute left-0 bottom-0 text-2xl">🎄</div>
-              <div className="absolute right-0 bottom-0 text-2xl">🎄</div>
-              
-              <div className="border-t-2 border-dashed border-amber-400 mx-10 mb-3"></div>
-              
-              <div className="text-center">
-                <p className="text-amber-700 font-semibold text-sm mb-1" style={{ fontFamily: 'Georgia, serif' }}>
-                  🥞 New puzzle daily at 7 PM EST 🥞
-                </p>
-                <p className="text-amber-800 font-bold" style={{ fontFamily: 'Georgia, serif' }}>
-                  www.lettergriddle.com
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Welcome Modal */}
       {showWelcomeModal && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4">
@@ -1360,12 +1072,13 @@ useEffect(() => {
           </div>
         </div>
       )}
-      {/* Story Modal */}
-      {showStoryModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowStoryModal(false)}>
-          <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative max-h-[85vh] overflow-y-auto" style={{WebkitOverflowScrolling: 'touch'}} onClick={(e) => e.stopPropagation()}>
+
+      {/* LAUNCH MODAL - NEW! */}
+      {showLaunchModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowLaunchModal(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
             <button
-              onClick={() => setShowStoryModal(false)}
+              onClick={() => setShowLaunchModal(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
               aria-label="Close"
             >
@@ -1373,57 +1086,48 @@ useEffect(() => {
             </button>
             
             <div className="text-center mb-6">
-              <div className="text-6xl mb-3">💌</div>
+              <div className="text-6xl mb-3">🥞</div>
               <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
-                The Letter Griddle Cafe
+                Letter Griddle
               </h2>
-              <p className="text-sm text-amber-600 italic">Come for the trivia, pancakes, and coffee. Stay for the tea.</p>
+              <div className="inline-block bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-4 py-2 rounded-full font-bold text-lg shadow-lg">
+                🎉 We're Officially Live! 🎉
+              </div>
+              <p className="text-amber-600 font-semibold mt-2">January 1, 2026</p>
             </div>
             
-            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200 text-left">
-  <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  "Mrs. Lindsay, I know you like your coffee with one-third cream and two sugar packets, like I do. Have this one," Sarah offered, "I haven't sipped from it yet."
+            <div className="space-y-4 text-center">
+              {/* No Longer Beta */}
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-5 border-2 border-amber-200">
+                <h3 className="text-lg font-bold text-amber-800 mb-2 flex items-center justify-center gap-2">
+                  🥞 No Longer Beta!
+                </h3>
+                <p className="text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
+                  What started as a cozy little word game is now officially live!
                 </p>
-                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  "Sarah, you know me so well!" Mrs. Lindsay gladly accepted amid the buzz in the room about terriers, cinnamon buns, and the current temperature of their coffee.
+              </div>
+              
+              {/* Thank You Beta Crew */}
+              <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-5 border-2 border-amber-200">
+                <h3 className="text-lg font-bold text-amber-800 mb-2 flex items-center justify-center gap-2">
+                  💛 Thank You, Beta Crew!
+                </h3>
+                <p className="text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
+                  You were here from the beginning, showing up daily through November and December to solve puzzles, share feedback, and spread the word.
                 </p>
-                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  "Coffee, coffee, coffee," Laurel muses as she prepares the machine for the next day.
+                <p className="text-amber-700 font-semibold mt-3 text-lg">
+                  👉 You're the butter and honey of Letter Griddle! 🍯
                 </p>
-                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  Coffee is a major ingredient of the Letter Griddle Cafe's recipe for magic, but an even more important ingredient is just being around others.
-                </p>
-                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  Just close enough that you can feel like you are part of something bigger than yourself yet far enough apart that your personal space is your own.
-                </p>
-                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  The Letter Griddle Cafe menu is a permission slip to slow down, surrender, and stop trying to fix the world.
-                </p>
-                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  Laurel looks at the plaque hanging on the wall over the cafe door. The embroidered stitching in various shades of pancake- and coffee-colored threads reveals the Letter Griddle mission statement.
-                </p>
-                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  Nourishing friends of Griddle Falls, one meal at a time.
-                </p>
-                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  Morning will be here along with hungry regulars Chuck and Gladys Barnes, Mrs. Winslow, and the rest of the morning regulars, affectionately known as "The A.M. Cafe Crew."
-                </p>
-                <p className="text-base text-gray-700 leading-relaxed mb-4" style={{fontFamily: 'Georgia, serif'}}>
-                  Turning out the lights, leaving the cafe to head for home, Laurel pauses, "Thanks for another fun trivia night. See you sooner than later, LG."
-                </p>
-                <div className="border-t-2 border-amber-300 mt-6 pt-4">
-                  <p className="text-base text-amber-700 font-medium text-center" style={{fontFamily: 'Georgia, serif'}}>
-                    Friends, we will meet at our new website <a href="https://lettergriddlecafe.com" className="text-amber-600 underline hover:text-amber-800">lettergriddlecafe.com</a>. Enjoy our new Letter Griddle Cookbook found at <a href="https://lettergriddlecookbook.com" className="text-amber-600 underline hover:text-amber-800">lettergriddlecookbook.com</a>. Both sites are found at <a href="https://lettergriddle.com" className="text-amber-600 underline hover:text-amber-800">lettergriddle.com</a>
-                  </p>
-                </div>
-</div>
-            
-            <div className="flex justify-center gap-3 mt-6 text-4xl">
-              🍯 🧈 ☕ 🥞
+              </div>
+              
+              <div className="flex justify-center gap-3 mt-6 text-4xl">
+                🥞 🍯 🧈 ✨
+              </div>
             </div>
           </div>
         </div>
       )}
+
       {/* Mission Modal */}
       {showMissionModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowMissionModal(false)}>

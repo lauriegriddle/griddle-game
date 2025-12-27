@@ -1163,7 +1163,7 @@ useEffect(() => {
       <div className="space-y-2">
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">THURS</div>
+            <div className="text-[10px] font-bold">FRI</div>
             <div className="text-lg font-bold">26</div>
           </div>
           <div className="flex-1 font-semibold text-amber-800">Time for Self-Care</div>
@@ -1172,7 +1172,7 @@ useEffect(() => {
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">FRI</div>
+            <div className="text-[10px] font-bold">SAT</div>
             <div className="text-lg font-bold">27</div>
           </div>
           <div className="flex-1 font-semibold text-amber-800">On the Slopes</div>
@@ -1181,7 +1181,7 @@ useEffect(() => {
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">SAT</div>
+            <div className="text-[10px] font-bold">SUN</div>
             <div className="text-lg font-bold">28</div>
           </div>
           <div className="flex-1 font-semibold text-amber-800">Pizza, pizza!</div>
@@ -1190,7 +1190,7 @@ useEffect(() => {
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">SUN</div>
+            <div className="text-[10px] font-bold">MON</div>
             <div className="text-lg font-bold">29</div>
           </div>
           <div className="flex-1 font-semibold text-amber-800">Fancy</div>
@@ -1199,7 +1199,7 @@ useEffect(() => {
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">MON</div>
+            <div className="text-[10px] font-bold">TUES</div>
             <div className="text-lg font-bold">30</div>
           </div>
           <div className="flex-1 font-semibold text-amber-800">No RSVP Needed</div>
@@ -1208,7 +1208,7 @@ useEffect(() => {
         
         <div className="bg-purple-50 rounded-xl p-3 flex items-center gap-3 border-2 border-purple-400">
           <div className="bg-gradient-to-b from-purple-500 to-violet-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">TUES</div>
+            <div className="text-[10px] font-bold">WEDS</div>
             <div className="text-lg font-bold">31</div>
           </div>
           <div className="flex-1 font-semibold text-purple-800">Ring in the New Year</div>
@@ -1220,7 +1220,7 @@ useEffect(() => {
             🚀 LAUNCH DAY!
           </div>
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">WED</div>
+            <div className="text-[10px] font-bold">THURS</div>
             <div className="text-lg font-bold">1</div>
           </div>
           <div className="flex-1 font-semibold text-amber-800">We 🧡 Pancakes!</div>

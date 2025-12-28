@@ -19,6 +19,21 @@ export default function Home() {
       hoverBg: "bg-amber-500/80"
     },
     {
+    name: "Letter Griddle Mini",
+    tagline: "A bite-sized word puzzle",
+    dropTime: "7:15 PM EST",
+    emoji: "🍯",
+    href: "/mini",
+    image: null,
+    color: "yellow",
+    borderColor: "border-yellow-300",
+    bgColor: "from-yellow-100 to-amber-100",
+    textColor: "text-yellow-800",
+    subTextColor: "text-yellow-700",
+    timeColor: "text-yellow-600",
+    hoverBg: "bg-yellow-500/80"
+  },
+    {
       name: "Little Letter Griddle",
       tagline: "Moonlit word puzzle",
       dropTime: "7:30 PM EST",

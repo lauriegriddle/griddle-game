@@ -461,7 +461,7 @@ Play at lettergriddle.com/mini`;
               <div className="flex items-center justify-center gap-2 mb-3">
                 <span className="text-xl">🍳</span>
                 <h3 className="text-amber-200 font-bold" style={{ fontFamily: 'Georgia, serif' }}>
-                  Letter Pool
+                  Letter Griddle
                 </h3>
                 <span className="text-xl">🍳</span>
               </div>
@@ -498,7 +498,7 @@ Play at lettergriddle.com/mini`;
                 </button>
               </div>
               <p className="text-amber-300 text-xs text-center mt-2">
-                💡 You can also type on your keyboard!
+                You can also type on your keyboard!
               </p>
             </div>
           )}
@@ -541,7 +541,7 @@ Play at lettergriddle.com/mini`;
         <div className="mt-4 text-center text-amber-700 text-sm bg-amber-50 rounded-xl p-3 border border-amber-200">
           <p className="font-semibold mb-1">🍯 How to Play</p>
           <p>The yellow letter IS in the word, but NOT in that position.</p>
-          <p>Use the letter pool to guess the 5-letter word!</p>
+          <p>Use the letter griddle to guess the 5-letter word!</p>
           <p className="mt-2 text-xs text-amber-600">
             🟩 Correct spot • 🟨 Wrong spot • ⬜ Not in word
           </p>

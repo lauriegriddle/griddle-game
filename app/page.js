@@ -24,7 +24,7 @@ export default function Home() {
     dropTime: "7:15 PM EST",
     emoji: "🍯",
     href: "/mini",
-    image: null,
+    image: "/letter-griddle-mini-thumbnail-512.png",
     color: "yellow",
     borderColor: "border-yellow-300",
     bgColor: "from-yellow-100 to-amber-100",
@@ -155,13 +155,19 @@ export default function Home() {
               href={game.href}
               className={`group block bg-white rounded-2xl shadow-lg overflow-hidden border-2 ${game.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${game.comingSoon ? 'grayscale opacity-70 pointer-events-none' : ''}`}
             >
-              <div className="relative h-48">
+                          <div className="relative h-48">
+              {game.image ? (
                 <Image
                   src={game.image}
                   alt={game.name}
                   fill
                   className="object-cover"
                 />
+              ) : (
+                <div className={`w-full h-full bg-gradient-to-br ${game.bgColor} flex items-center justify-center`}>
+                  <span className="text-8xl">{game.emoji}</span>
+                </div>
+              )}
                 {game.comingSoon ? (
                   <div className="absolute inset-0 bg-gray-800/60 flex items-center justify-center">
                     <div className="text-center text-white">

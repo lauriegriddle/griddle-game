@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { Lightbulb, Share2, RotateCcw, Coffee } from 'lucide-react';
+import React, { useState } from 'react';
+import { Share2 } from 'lucide-react';
 
 // Daily trivia questions - tied to Letter Griddle themes
 const triviaQuestions = [
@@ -43,7 +43,7 @@ const triviaQuestions = [
   {
     id: 5,
     theme: "Movies 🎬",
-    question: "Which 1974 film featured a great white shark terrorizing a beach town?",
+    question: "Which film featured a great white shark terrorizing a beach town?",
     options: ["The Deep", "Jaws", "Piranha", "Orca"],
     correctAnswer: "Jaws",
     hint: "You're gonna need a bigger boat...",
@@ -116,7 +116,7 @@ const getTodaysQuestion = () => {
 };
 
 const FlipsGame = () => {
-  const [question, setQuestion] = useState(getTodaysQuestion());
+  const [question] = useState(getTodaysQuestion());
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showHint, setShowHint] = useState(false);
   const [hasAnswered, setHasAnswered] = useState(false);
@@ -129,7 +129,6 @@ const FlipsGame = () => {
     setIsFlipping(true);
     setSelectedAnswer(option);
     
-    // Delay to show flip animation
     setTimeout(() => {
       setHasAnswered(true);
       setIsFlipping(false);
@@ -140,8 +139,9 @@ const FlipsGame = () => {
 
   const handleShare = () => {
     const resultEmoji = isCorrect ? "✅" : "🤔";
+    const resultText = isCorrect ? "Got it!" : "Learned something new!";
     const hintText = showHint ? " (with hint)" : "";
-    const shareText = `Letter Griddle Flips ☕\n${question.theme}\n${resultEmoji} ${isCorrect ? "Got it!" : "Learned something new!"}${hintText}\n\nFlip a card, learn something new!\nlettergriddle.com/flips`;
+    const shareText = `Letter Griddle Flips 🥞\n${question.theme}\n${resultEmoji} ${resultText}${hintText}\nNew flip daily at 7:45 PM EST\nlettergriddle.com/flips`;
     
     navigator.clipboard.writeText(shareText).then(() => {
       setShareCopied(true);
@@ -170,8 +170,8 @@ const FlipsGame = () => {
       {/* Decorative elements */}
       <div className="fixed top-4 left-4 text-4xl opacity-20">☕</div>
       <div className="fixed top-4 right-4 text-4xl opacity-20">🥞</div>
-      <div className="fixed bottom-4 left-4 text-4xl opacity-20">📜</div>
-      <div className="fixed bottom-4 right-4 text-4xl opacity-20">☕</div>
+      <div className="fixed bottom-20 left-4 text-4xl opacity-20">📜</div>
+      <div className="fixed bottom-20 right-4 text-4xl opacity-20">☕</div>
 
       <div className="max-w-lg mx-auto relative">
         {/* Header */}
@@ -180,7 +180,6 @@ const FlipsGame = () => {
           <h1 className="text-3xl font-bold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>
             Letter Griddle Flips
           </h1>
-          <p className="text-amber-200 text-sm mt-1">Flip a card. Learn something new.</p>
         </div>
 
         {/* Main Card */}
@@ -207,7 +206,7 @@ const FlipsGame = () => {
                 onClick={() => setShowHint(!showHint)}
                 className="flex items-center gap-2 mx-auto text-amber-700 hover:text-amber-800 transition-all"
               >
-                <Lightbulb size={18} className={showHint ? "fill-amber-400" : ""} />
+                <span className={`text-lg ${showHint ? "opacity-100" : "opacity-70"}`}>💡</span>
                 <span className="text-sm font-medium">
                   {showHint ? "Hide hint" : "Need a hint?"}
                 </span>
@@ -272,8 +271,7 @@ const FlipsGame = () => {
               {/* Fun Fact */}
               <div className="bg-gradient-to-br from-amber-700 to-amber-800 rounded-xl p-4 text-amber-100">
                 <p className="text-sm font-semibold mb-2 flex items-center gap-2">
-                  <Coffee size={16} />
-                  Did You Know?
+                  ☕ Did You Know?
                 </p>
                 <p className="text-sm leading-relaxed">
                   {question.funFact}
@@ -310,16 +308,51 @@ const FlipsGame = () => {
           )}
         </div>
 
-        {/* Footer */}
+        {/* New Flip Time */}
         <div className="text-center mt-6">
           <p className="text-amber-300 text-xs">
-            New question daily at 7:45 PM EST
-          </p>
-          <p className="text-amber-400 text-xs mt-1">
-            From the Letter Griddle Cafe archives 📜
+            New flip daily at 7:45 PM EST
           </p>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="mt-12 pb-6">
+        <div className="max-w-lg mx-auto text-center">
+          {/* Letter Griddle Games Link */}
+          <a 
+            href="https://lettergriddle.com" 
+            className="inline-flex items-center gap-2 text-amber-200 hover:text-amber-100 transition-colors mb-4"
+          >
+            <span className="text-xl">🥞</span>
+            <span className="font-semibold">Letter Griddle Games</span>
+          </a>
+          
+          {/* Instagram */}
+          <div className="mb-4">
+            <a 
+              href="https://instagram.com/letter_griddle" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-amber-300 hover:text-amber-100 text-sm transition-colors"
+            >
+              📸 @letter_griddle
+            </a>
+          </div>
+          
+          {/* Legal Links */}
+          <div className="flex justify-center gap-4 text-xs text-amber-400 mb-3">
+            <a href="/privacy" className="hover:text-amber-200 transition-colors">Privacy</a>
+            <span>•</span>
+            <a href="/terms" className="hover:text-amber-200 transition-colors">Terms</a>
+          </div>
+          
+          {/* Copyright */}
+          <p className="text-amber-500 text-xs">
+            © {new Date().getFullYear()} Letter Griddle. All rights reserved.
+          </p>
+        </div>
+      </footer>
 
       {/* Custom animation styles */}
       <style jsx>{`

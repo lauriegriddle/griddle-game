@@ -236,13 +236,33 @@ ${resultText}
 Play at lettergriddle.com/mini`;
   };
 
-  const handleShare = () => {
-    const shareText = generateShareText();
-    navigator.clipboard.writeText(shareText).then(() => {
-      setShareCopied(true);
-      setTimeout(() => setShareCopied(false), 2000);
-    });
-  };
+  const handleShare = async () => {
+  const shareText = generateShareText();
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        text: shareText
+      });
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        copyToClipboard(shareText);
+      }
+    }
+  } else {
+    copyToClipboard(shareText);
+  }
+};
+
+const copyToClipboard = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    setShareCopied(true);
+    setTimeout(() => setShareCopied(false), 2000);
+  } catch (err) {
+    console.error('Failed to copy:', err);
+  }
+};
 
   const getTileStyle = (result) => {
     switch (result) {

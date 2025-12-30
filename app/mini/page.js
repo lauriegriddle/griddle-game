@@ -326,11 +326,23 @@ const copyToClipboard = async (text) => {
       `}</style>
 
       <div className="max-w-md mx-auto">
-        <div className="text-center mb-4">
-          <div className="text-5xl mb-2">🍯</div>
-          <h1 className="text-3xl font-bold text-amber-800" style={{ fontFamily: 'Georgia, serif' }}>
-            Letter Griddle Mini
-          </h1>
+  {/* Header with home link */}
+  <div className="flex justify-start mb-2">
+    <a 
+      href="https://lettergriddle.com" 
+      className="flex items-center gap-1 text-amber-700 hover:text-amber-900 transition-colors"
+      title="Back to Letter Griddle Games"
+    >
+      <span className="text-xl">🥞</span>
+      <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>Letter Griddle Games</span>
+    </a>
+  </div>
+  
+  <div className="text-center mb-4">
+    <div className="text-5xl mb-2">🍯</div>
+    <h1 className="text-3xl font-bold text-amber-800" style={{ fontFamily: 'Georgia, serif' }}>
+      Letter Griddle Mini
+    </h1>
           <p className="text-amber-600 text-sm mt-1">A bite-sized word puzzle • #{puzzleNumber}</p>
         </div>
 

@@ -193,13 +193,25 @@ const copyToClipboard = async (text) => {
       <div className="fixed bottom-20 right-4 text-4xl opacity-20">☕</div>
 
       <div className="max-w-lg mx-auto relative">
-        {/* Header */}
-        <div className="text-center mb-6">
-          <div className="text-5xl mb-2">☕</div>
-          <h1 className="text-3xl font-bold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>
-            Letter Griddle Flips
-          </h1>
-        </div>
+  {/* Home link */}
+  <div className="flex justify-start mb-2">
+    <a 
+      href="https://lettergriddle.com" 
+      className="flex items-center gap-1 text-amber-200 hover:text-amber-100 transition-colors"
+      title="Back to Letter Griddle Games"
+    >
+      <span className="text-xl">🥞</span>
+      <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>Letter Griddle Games</span>
+    </a>
+  </div>
+
+  {/* Header */}
+  <div className="text-center mb-6">
+    <div className="text-5xl mb-2">☕</div>
+    <h1 className="text-3xl font-bold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>
+      Letter Griddle Flips
+    </h1>
+  </div>
 
         {/* Main Card */}
         <div className="bg-gradient-to-br from-amber-100 to-amber-50 rounded-2xl shadow-2xl p-6 border-4 border-amber-300">

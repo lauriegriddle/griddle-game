@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Share2 } from 'lucide-react';
+import { Share2, Instagram } from 'lucide-react';
 
 // Daily trivia questions - tied to Letter Griddle themes
 const triviaQuestions = [
@@ -302,7 +302,7 @@ const FlipsGame = () => {
           {!hasAnswered && (
             <div className="text-center">
               <p className="text-amber-600 text-sm">
-                ☕ Tap a card to flip it
+                Tap a card to flip it
               </p>
             </div>
           )}
@@ -336,7 +336,7 @@ const FlipsGame = () => {
               rel="noopener noreferrer"
               className="text-amber-300 hover:text-amber-100 text-sm transition-colors"
             >
-              📸 @letter_griddle
+              <Instagram size={16} className="inline mr-1" /> @letter_griddle
             </a>
           </div>
           

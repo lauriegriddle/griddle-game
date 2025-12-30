@@ -771,7 +771,14 @@ const copyToClipboard = async (text) => {
       <div className="max-w-5xl mx-auto relative">
         {/* Compact Header */}
         <div className="flex justify-between items-center mb-1.5 px-1">
-          <div className="text-xl invisible">🥞🥞</div>
+          <a 
+  href="https://lettergriddle.com" 
+  className="flex items-center gap-1 text-amber-700 hover:text-amber-900 transition-colors"
+  title="Back to Letter Griddle Games"
+>
+  <span className="text-xl">🥞</span>
+  <span className="text-sm font-semibold hidden sm:inline" style={{fontFamily: 'Georgia, serif'}}>Letter Griddle Games</span>
+</a>
           <h1 className="text-lg md:text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
             Welcome back for Today's Special
           </h1>

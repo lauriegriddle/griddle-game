@@ -57,11 +57,11 @@ export default function Home() {
     image: "/letter-griddle-flips-thumbnail-512.png",
     color: "amber",
     borderColor: "border-amber-700",
-    bgColor: "from-amber-700 to-amber-900",
+    bgColor: "from-amber-600 to-amber-700",
     textColor: "text-amber-800",
     subTextColor: "text-amber-700",
     timeColor: "text-amber-600",
-    hoverBg: "bg-amber-800/80"
+    hoverBg: "bg-amber-600/80"
   },
     {
       name: "Letter Griddle Buffet",

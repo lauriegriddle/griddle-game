@@ -137,17 +137,36 @@ const FlipsGame = () => {
 
   const isCorrect = selectedAnswer === question.correctAnswer;
 
-  const handleShare = () => {
-    const resultEmoji = isCorrect ? "✅" : "🤔";
-    const resultText = isCorrect ? "Got it!" : "Learned something new!";
-    const hintText = showHint ? " (with hint)" : "";
-    const shareText = `Letter Griddle Flips 🥞\n${question.theme}\n${resultEmoji} ${resultText}${hintText}\nNew flip daily at 7:45 PM EST\nlettergriddle.com/flips`;
-    
-    navigator.clipboard.writeText(shareText).then(() => {
-      setShareCopied(true);
-      setTimeout(() => setShareCopied(false), 2000);
-    });
-  };
+  const handleShare = async () => {
+  const resultEmoji = isCorrect ? "✅" : "🤔";
+  const resultText = isCorrect ? "Got it!" : "Learned something new!";
+  const hintText = showHint ? " (with hint)" : "";
+  const shareText = `Letter Griddle Flips 🥞\n${question.theme}\n${resultEmoji} ${resultText}${hintText}\nlettergriddle.com/flips`;
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        text: shareText
+      });
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        copyToClipboard(shareText);
+      }
+    }
+  } else {
+    copyToClipboard(shareText);
+  }
+};
+
+const copyToClipboard = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    setShareCopied(true);
+    setTimeout(() => setShareCopied(false), 2000);
+  } catch (err) {
+    console.error('Failed to copy:', err);
+  }
+};
 
   const getCardStyle = (option) => {
     if (!hasAnswered) {

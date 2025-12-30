@@ -49,6 +49,21 @@ export default function Home() {
       hoverBg: "bg-indigo-500/80"
     },
     {
+    name: "Letter Griddle Flips",
+    tagline: "Daily trivia flip",
+    dropTime: "7:45 PM EST",
+    emoji: "☕",
+    href: "/flips",
+    image: "/letter-griddle-flips-thumbnail-512.png",
+    color: "amber",
+    borderColor: "border-amber-700",
+    bgColor: "from-amber-700 to-amber-900",
+    textColor: "text-amber-800",
+    subTextColor: "text-amber-700",
+    timeColor: "text-amber-600",
+    hoverBg: "bg-amber-800/80"
+  },
+    {
       name: "Letter Griddle Buffet",
       tagline: "All-you-can-play fine-dining word feast",
       dropTime: "8:00 PM EST",

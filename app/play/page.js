@@ -676,19 +676,35 @@ useEffect(() => {
     setFocusedWordIndex(0);
   };
 
-  const handleShare = () => {
-    const honeyEmojis = '🍯'.repeat(completedWords.filter(c => c).length);
-    const minutes = Math.floor(completionTime / 60);
-    const seconds = completionTime % 60;
-    const timeStr = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+  const handleShare = async () => {
+  const honeyEmojis = '🍯'.repeat(completedWords.filter(c => c).length);
 
-    const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\n⏰ New puzzle daily at 7 PM EST\n💬 Share with friends to play together daily!\nPlay at www.lettergriddle.com`;
+  const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at www.lettergriddle.com`;
 
-    navigator.clipboard.writeText(shareText).then(() => {
-      setShareCopied(true);
-      setTimeout(() => setShareCopied(false), 2000);
-    });
-  };
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        text: shareText
+      });
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        copyToClipboard(shareText);
+      }
+    }
+  } else {
+    copyToClipboard(shareText);
+  }
+};
+
+const copyToClipboard = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    setShareCopied(true);
+    setTimeout(() => setShareCopied(false), 2000);
+  } catch (err) {
+    console.error('Failed to copy:', err);
+  }
+};
 
   const formatTime = (seconds) => {
     if (!seconds) return 'N/A';

@@ -56,9 +56,9 @@ export default function Home() {
     href: "/flips",
     image: "/letter-griddle-flips-thumbnail-512.png",
     color: "amber",
-    borderColor: "border-amber-700",
-    bgColor: "from-amber-600 to-amber-700",
-    textColor: "text-amber-800",
+    borderColor: "border-amber-300",
+    bgColor: "from-amber-100 to-yellow-100",
+    textColor: "text-amber-900",
     subTextColor: "text-amber-700",
     timeColor: "text-amber-600",
     hoverBg: "bg-amber-600/80"

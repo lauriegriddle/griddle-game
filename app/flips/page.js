@@ -103,7 +103,7 @@ const getTodaysQuestion = () => {
   const hour = estTime.getHours();
   
   let questionDate = new Date(estTime);
-  if (hour < 19) {
+  if (hour < 19 || (hour === 19 && estTime.getMinutes() < 45)) {
     questionDate.setDate(questionDate.getDate() - 1);
   }
   questionDate.setHours(19, 45, 0, 0);

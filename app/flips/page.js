@@ -38,7 +38,7 @@ const triviaQuestions = [
     options: ["Bars", "Sticks", "Fingers", "Strips"],
     correctAnswer: "Fingers",
     hint: "Count them on your hand...",
-    funFact: "The original 1935 design was meant for a 'break' - snap off a finger! The name comes from an 18th-century London club."
+    funFact: "The original 1935 design was meant for a 'break'! The name comes from an 18th-century London club."
   },
   {
     id: 5,
@@ -237,7 +237,7 @@ const copyToClipboard = async (text) => {
                 onClick={() => setShowHint(!showHint)}
                 className="flex items-center gap-2 mx-auto text-amber-700 hover:text-amber-800 transition-all"
               >
-                <span className={`text-lg ${showHint ? "opacity-100" : "opacity-70"}`}>💡</span>
+                
                 <span className="text-sm font-medium">
                   {showHint ? "Hide hint" : "Need a hint?"}
                 </span>
@@ -245,7 +245,7 @@ const copyToClipboard = async (text) => {
               
               {showHint && (
                 <div className="mt-2 bg-amber-200 rounded-lg px-4 py-2 inline-block">
-                  <p className="text-amber-800 text-sm italic">💡 {question.hint}</p>
+                  <p className="text-amber-800 text-sm italic">{question.hint}</p>
                 </div>
               )}
             </div>

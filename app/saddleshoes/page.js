@@ -194,7 +194,7 @@ const SaddleShoesGame = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const handleShare = () => {
+  const handleShare = async () => {
     const timeLabel = selectedTime === 60 ? '1 minute' : selectedTime === 120 ? '2 minutes' : '3 minutes';
     const rating = totalPuzzlesCompleted >= 5 ? '🏆' : totalPuzzlesCompleted >= 3 ? '⭐⭐⭐' : totalPuzzlesCompleted >= 1 ? '⭐' : '👟';
     
@@ -210,10 +210,34 @@ Free & ad-free!
 Part of the Letter Griddle Games 🥞
 Play at lettergriddle.com/saddleshoes`;
 
-    navigator.clipboard.writeText(shareText).then(() => {
+    // Try native sharing first (works on mobile)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Saddle Shoes - Memory Matching Game',
+          text: shareText,
+          url: 'https://lettergriddle.com/saddleshoes'
+        });
+      } catch (err) {
+        // User cancelled or share failed, fall back to clipboard
+        if (err.name !== 'AbortError') {
+          copyToClipboard(shareText);
+        }
+      }
+    } else {
+      // Fallback to clipboard for desktop
+      copyToClipboard(shareText);
+    }
+  };
+
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
       setShareCopied(true);
       setTimeout(() => setShareCopied(false), 2000);
-    });
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
   };
 
   const currentPuzzle = puzzleSets[currentPuzzleIndex % puzzleSets.length];

@@ -1163,7 +1163,7 @@ const copyToClipboard = async (text) => {
       {/* SCHEDULE MODAL */}
 {showScheduleModal && (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowScheduleModal(false)}>
-    <div className="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+    <div className="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
       <button
         onClick={() => setShowScheduleModal(false)}
         className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
@@ -1178,81 +1178,35 @@ const copyToClipboard = async (text) => {
           Letter Griddle
         </h2>
         <div className="inline-block bg-gradient-to-r from-purple-500 to-violet-500 text-white px-4 py-2 rounded-full text-sm font-bold mt-2">
-          ✨ NEW YEAR'S WEEK ✨
+          ✨ HAPPY NEW YEAR! ✨
         </div>
-        <p className="text-purple-600 text-sm mt-2 font-semibold">December 26 - January 1</p>
       </div>
       
-      <div className="space-y-2">
-        <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
-          <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">FRI</div>
-            <div className="text-lg font-bold">26</div>
-          </div>
-          <div className="flex-1 font-semibold text-amber-800">Time for Self-Care</div>
-          <div className="text-xl">🕯️</div>
-        </div>
-        
-        <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
-          <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">SAT</div>
-            <div className="text-lg font-bold">27</div>
-          </div>
-          <div className="flex-1 font-semibold text-amber-800">On the Slopes</div>
-          <div className="text-xl">⛷️</div>
-        </div>
-        
-        <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
-          <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">SUN</div>
-            <div className="text-lg font-bold">28</div>
-          </div>
-          <div className="flex-1 font-semibold text-amber-800">Pizza, pizza!</div>
-          <div className="text-xl">🍕</div>
-        </div>
-        
-        <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
-          <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">MON</div>
-            <div className="text-lg font-bold">29</div>
-          </div>
-          <div className="flex-1 font-semibold text-amber-800">Fancy</div>
-          <div className="text-xl">✨</div>
-        </div>
-        
-        <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
-          <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
-            <div className="text-[10px] font-bold">TUES</div>
-            <div className="text-lg font-bold">30</div>
-          </div>
-          <div className="flex-1 font-semibold text-amber-800">No RSVP Needed</div>
-          <div className="text-xl">🏠</div>
-        </div>
-        
-        <div className="bg-purple-50 rounded-xl p-3 flex items-center gap-3 border-2 border-purple-400">
-          <div className="bg-gradient-to-b from-purple-500 to-violet-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
+      <div className="space-y-3">
+        <div className="bg-purple-50 rounded-xl p-4 flex items-center gap-3 border-2 border-purple-400">
+          <div className="bg-gradient-to-b from-purple-500 to-violet-600 text-white rounded-lg px-3 py-2 text-center min-w-[60px]">
             <div className="text-[10px] font-bold">WEDS</div>
-            <div className="text-lg font-bold">31</div>
+            <div className="text-xl font-bold">31</div>
           </div>
-          <div className="flex-1 font-semibold text-purple-800">Ring in the New Year</div>
-          <div className="text-xl">🎉</div>
+          <div className="flex-1 font-semibold text-purple-800 text-lg">Ring in the New Year</div>
+          <div className="text-2xl">🎉</div>
         </div>
         
-        <div className="bg-amber-100 rounded-xl p-3 flex items-center gap-3 border-2 border-amber-500 relative">
-          <div className="absolute -top-2 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+        <div className="bg-amber-100 rounded-xl p-4 flex items-center gap-3 border-2 border-amber-500 relative">
+          <div className="absolute -top-3 right-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
             🚀 LAUNCH DAY!
           </div>
-          <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
+          <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-3 py-2 text-center min-w-[60px]">
             <div className="text-[10px] font-bold">THURS</div>
-            <div className="text-lg font-bold">1</div>
+            <div className="text-xl font-bold">1</div>
           </div>
-          <div className="flex-1 font-semibold text-amber-800">We 🧡 Pancakes!</div>
-          <div className="text-xl">🥞</div>
+          <div className="flex-1 font-semibold text-amber-800 text-lg">We 🧡 Pancakes!</div>
+          <div className="text-2xl">🥞</div>
         </div>
       </div>
       
-      <div className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 mt-4 text-center border-2 border-amber-400">
-        <p className="text-amber-800 font-bold text-sm">🎉 Letter Griddle officially launches January 1, 2026! 🎉</p>
+      <div className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-4 mt-4 text-center border-2 border-amber-400">
+        <p className="text-amber-800 font-bold">🎉 Letter Griddle officially launches January 1, 2026! 🎉</p>
       </div>
       
       <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">

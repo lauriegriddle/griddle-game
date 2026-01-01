@@ -488,7 +488,167 @@ const puzzles = [
       { word: "ADVENTURE", hint: "An exciting experience waiting to unfold", revealedIndex: 5 }
     ],
     funFact: "The modern New Year's Day on January 1st was established by Julius Caesar in 46 B.C. to honor Janus, the Roman god of doors and beginnings, who is depicted with two faces, one looking back to the past and the other looking forward to the future."
-  }
+  },
+
+  // ================================================
+  // INDEX 35 - Shows Jan 3, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Buffet",
+    puzzleNumber: 114,
+    words: [
+      { word: "DINE", hint: "To eat a meal, especially in a formal or elegant setting", revealedIndex: 0 },
+      { word: "FEAST", hint: "A large, elaborate meal celebrating a special occasion", revealedIndex: 2 },
+      { word: "SUPPER", hint: "An evening meal, often lighter or more casual than dinner", revealedIndex: 3 },
+      { word: "DESSERT", hint: "The sweet course served at the end of a meal", revealedIndex: 0 },
+      { word: "BEVERAGE", hint: "Any drink, from water to wine to coffee", revealedIndex: 4 }
+    ],
+    funFact: "In the US, only about 29% of people sit down for dinner at a table every day, while roughly 70% of meals are eaten outside the home."
+  },
+
+  // ================================================
+  // INDEX 36 - Shows Jan 4, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Deserts",
+    puzzleNumber: 115,
+    words: [
+      { word: "ARID", hint: "Extremely dry, with little or no rainfall", revealedIndex: 0 },
+      { word: "OASIS", hint: "A fertile green spot in a desert where water is found", revealedIndex: 2 },
+      { word: "CACTUS", hint: "A spiny plant that thrives in dry, hot environments", revealedIndex: 3 },
+      { word: "DROUGHT", hint: "A prolonged period of abnormally low rainfall", revealedIndex: 0 },
+      { word: "DESOLATE", hint: "Barren, empty, and lifeless landscape", revealedIndex: 4 }
+    ],
+    funFact: "Antarctica is the world's largest desert, which is classified as such because of its extremely low precipitation, not its temperature."
+  },
+
+  // ================================================
+  // INDEX 37 - Shows Jan 5, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Cereal",
+    puzzleNumber: 116,
+    words: [
+      { word: "OATS", hint: "A hearty grain often eaten as oatmeal or in granola", revealedIndex: 0 },
+      { word: "WHEAT", hint: "A golden grain used to make bread and pasta", revealedIndex: 2 },
+      { word: "BARLEY", hint: "An ancient grain used in soups, stews, and brewing beer", revealedIndex: 3 },
+      { word: "FROSTED", hint: "Coated with a sweet, sugary glaze on breakfast flakes", revealedIndex: 0 },
+      { word: "CINNAMON", hint: "A warm, sweet spice that flavors many breakfast cereals", revealedIndex: 4 }
+    ],
+    funFact: "The word \"cereal\" comes from \"Cerealia,\" a major festival in ancient Rome that honored Ceres, the goddess of agriculture."
+  },
+
+  // ================================================
+  // INDEX 38 - Shows Jan 6, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Ensemble",
+    puzzleNumber: 117,
+    words: [
+      { word: "GARB", hint: "Clothing or dress, especially of a distinctive style", revealedIndex: 0 },
+      { word: "COVER", hint: "Something worn to protect or conceal the body", revealedIndex: 2 },
+      { word: "OUTFIT", hint: "A coordinated set of clothes worn together", revealedIndex: 3 },
+      { word: "GARMENT", hint: "Any article of clothing, from shirts to pants", revealedIndex: 0 },
+      { word: "COSTUME", hint: "Special attire worn for performances or occasions", revealedIndex: 4 }
+    ],
+    funFact: "Buttons were invented around 3,500 years before buttonholes existed. People used loops to fasten items until the buttonhole was created."
+  },
+
+  // ================================================
+  // INDEX 39 - Shows Jan 7, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Backpack",
+    puzzleNumber: 118,
+    words: [
+      { word: "TOTE", hint: "A large bag for carrying items, often open at the top", revealedIndex: 0 },
+      { word: "STRAP", hint: "A strip of material used to secure or carry something", revealedIndex: 2 },
+      { word: "POCKET", hint: "A small pouch sewn into a bag for storing items", revealedIndex: 3 },
+      { word: "CAMPING", hint: "An outdoor activity where backpacks are essential gear", revealedIndex: 0 },
+      { word: "CARRYALL", hint: "A large bag or container for holding many things", revealedIndex: 4 }
+    ],
+    funFact: "The term \"backpack\" became common around 1910, and while early versions were for military and outdoor use, they were introduced to students more recently."
+  },
+
+  // ================================================
+  // INDEX 40 - Shows Jan 8, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Water💦",
+    puzzleNumber: 119,
+    words: [
+      { word: "FLOW", hint: "To move steadily and continuously in a current", revealedIndex: 0 },
+      { word: "VAPOR", hint: "Water in its gaseous form, like steam or mist", revealedIndex: 2 },
+      { word: "STREAM", hint: "A small, narrow river flowing through the land", revealedIndex: 3 },
+      { word: "TRICKLE", hint: "A thin, slow flow of liquid", revealedIndex: 0 },
+      { word: "DOWNPOUR", hint: "A heavy, sudden rainfall", revealedIndex: 4 }
+    ],
+    funFact: "Water is the only substance on Earth found naturally in three forms: liquid, gas, and solid."
+  },
+
+  // ================================================
+  // INDEX 41 - Shows Jan 9, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Road Trip",
+    puzzleNumber: 120,
+    words: [
+      { word: "ROAM", hint: "To travel aimlessly from place to place", revealedIndex: 0 },
+      { word: "JAUNT", hint: "A short journey taken for pleasure", revealedIndex: 2 },
+      { word: "WANDER", hint: "To walk or travel without a fixed destination", revealedIndex: 3 },
+      { word: "MIGRATE", hint: "To move from one region to another, often seasonally", revealedIndex: 0 },
+      { word: "NAVIGATE", hint: "To plan and direct the route of a journey", revealedIndex: 4 }
+    ],
+    funFact: "The Pan-American Highway network stretches nearly 19,000 miles from Alaska to Argentina."
+  },
+
+  // ================================================
+  // INDEX 42 - Shows Jan 10, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Weather",
+    puzzleNumber: 121,
+    words: [
+      { word: "WIND", hint: "Moving air caused by differences in atmospheric pressure", revealedIndex: 0 },
+      { word: "CLOUD", hint: "A visible mass of water droplets floating in the sky", revealedIndex: 2 },
+      { word: "REPORT", hint: "A forecast telling you what conditions to expect", revealedIndex: 3 },
+      { word: "CLIMATE", hint: "The long-term pattern of weather in a region", revealedIndex: 0 },
+      { word: "SUNSHINE", hint: "Bright, warm light from the sun on a clear day", revealedIndex: 4 }
+    ],
+    funFact: "Fluffy clouds are full of tiny water droplets, or ice crystals. Fog is just a cloud touching the ground."
+  },
+
+  // ================================================
+  // INDEX 43 - Shows Jan 11, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Mountains",
+    puzzleNumber: 122,
+    words: [
+      { word: "HILL", hint: "A small, rounded elevation of land, lower than a mountain", revealedIndex: 0 },
+      { word: "RANGE", hint: "A chain of mountains connected in a line", revealedIndex: 2 },
+      { word: "RIDGED", hint: "Having a long, narrow elevated crest or edge", revealedIndex: 3 },
+      { word: "VOLCANO", hint: "A mountain that can erupt with lava and ash", revealedIndex: 0 },
+      { word: "HILLSIDE", hint: "The sloping side of a hill or mountain", revealedIndex: 4 }
+    ],
+    funFact: "More than half of the world's fresh water originates in mountain sources, making mountains the planet's \"water towers.\""
+  },
+
+  // ================================================
+  // INDEX 44 - Shows Jan 12, 2026 at 7 PM
+  // ================================================
+  {
+    category: "Now you see me, now you don't",
+    puzzleNumber: 123,
+    words: [
+      { word: "MASK", hint: "A covering worn to hide or protect the face", revealedIndex: 0 },
+      { word: "MIMIC", hint: "To imitate or copy the appearance of something else", revealedIndex: 2 },
+      { word: "COVERT", hint: "Hidden or secret, not openly displayed", revealedIndex: 3 },
+      { word: "CONCEAL", hint: "To keep something from being seen or discovered", revealedIndex: 0 },
+      { word: "DISGUISE", hint: "An altered appearance to hide one's true identity", revealedIndex: 4 }
+    ],
+    funFact: "Animals use sand, smells, and even dazzle patterns to confuse enemies, while stick insects sway like twigs."
+  },
 ];
 
 // ===========================================

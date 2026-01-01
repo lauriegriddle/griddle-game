@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const SaddleShoesGame = () => {
   // Puzzle sets - each set has 6 pairs of items
@@ -100,6 +100,8 @@ const SaddleShoesGame = () => {
   const [showJukebox, setShowJukebox] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [musicPlaying, setMusicPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.5);
+  const audioRef = useRef(null);
 
   // Dynamic year for copyright
   const currentYear = new Date().getFullYear();
@@ -188,6 +190,18 @@ const SaddleShoesGame = () => {
     return () => clearInterval(timer);
   }, [gameState, timeLeft]);
 
+  // Audio control for jukebox
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+      if (musicPlaying) {
+        audioRef.current.play().catch(e => console.log('Audio play failed:', e));
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [musicPlaying, currentTrack, volume]);
+
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -214,9 +228,7 @@ Play at lettergriddle.com/saddleshoes`;
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Saddle Shoes - Memory Matching Game',
-          text: shareText,
-          url: 'https://lettergriddle.com/saddleshoes'
+          text: shareText
         });
       } catch (err) {
         // User cancelled or share failed, fall back to clipboard
@@ -607,6 +619,23 @@ Play at lettergriddle.com/saddleshoes`;
                 🔇 Stop
               </button>
             </div>
+
+            {/* Volume slider */}
+            <div className="mt-3">
+              <label className={`text-xs ${colors.textMuted} flex items-center justify-between`}>
+                <span>🔊 Volume</span>
+                <span>{Math.round(volume * 100)}%</span>
+              </label>
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                value={volume}
+                onChange={(e) => setVolume(parseFloat(e.target.value))}
+                className="w-full mt-1 accent-amber-500"
+              />
+            </div>
             
             {musicPlaying && (
               <p className={`text-center text-xs ${colors.textMuted} mt-3`}>
@@ -657,6 +686,14 @@ Play at lettergriddle.com/saddleshoes`}
           </div>
         </div>
       )}
+
+      {/* Audio element for jukebox */}
+      <audio
+        ref={audioRef}
+        src={`/${jukeboxTracks[currentTrack].file}`}
+        loop
+        preload="none"
+      />
     </div>
   );
 };

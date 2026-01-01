@@ -111,6 +111,49 @@ export default function Home() {
       hoverBg: "bg-orange-500/80"
     },
     {
+      name: "Saddle Shoes",
+      tagline: "A retro memory matching game",
+      dropTime: null,
+      emoji: "👟",
+      href: "/saddleshoes",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #78350f 0%, #44403c 50%, #451a03 100%)",
+        icon: "",
+        iconSize: "text-4xl",
+        title: ["Saddle", "Shoes"],
+        subtitle: "Memory",
+        subtitleColor: "text-amber-100"
+      },
+      borderColor: "border-amber-800",
+      bgColor: "from-amber-100 to-stone-100",
+      textColor: "text-amber-900",
+subTextColor: "text-amber-700",
+      timeColor: "text-amber-300",
+      hoverBg: "bg-amber-800/80"
+    },
+    {
+      name: "Jukebox",
+      tagline: "A word chain puzzle",
+      dropTime: null,
+      emoji: "🎵",
+      href: "https://lettergriddlecafe.com/jukebox",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #581c87 0%, #5b21b6 50%, #3b0764 100%)",
+        icon: "",
+        iconSize: "text-4xl",
+        title: ["Jukebox"],
+        subtitle: "Word Chain",
+        subtitleColor: "text-purple-200"
+      },
+      borderColor: "border-purple-700",
+      bgColor: "from-purple-100 to-violet-100",
+      textColor: "text-purple-900",
+subTextColor: "text-purple-700",
+      timeColor: "text-purple-300",
+      hoverBg: "bg-purple-800/80"
+    },
+    {
       name: "Griddle Falls",
       tagline: "Trivia with the Letter Griddle Cafe Crew",
       emoji: "☕",

@@ -32,9 +32,6 @@ export default function Home() {
       href: "/mini",
       thumbnail: {
         gradient: "linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #D97706 100%)",
-        tiles: "MINI",
-        tileBg: "bg-white",
-        tileText: "#D97706",
         title: ["Letter Griddle", "Mini"],
         subtitle: "Bite-Sized Puzzle",
         subtitleColor: "text-yellow-100"
@@ -386,7 +383,7 @@ export default function Home() {
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
           </div>
           <div className="text-2xl mb-2">🧡</div>
-          <p className="text-sm">© 2025 Letter Griddle. All rights reserved.</p>
+          <p className="text-sm">© {new Date().getFullYear()} Letter Griddle. All rights reserved.</p>
         </div>
       </footer>
     </div>

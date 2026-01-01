@@ -462,7 +462,7 @@ const puzzles = [
   // INDEX 33 - Shows Jan 1, 2026 at 7 PM (Letter Griddle Launch Day!)
   // ==================================================
   {
-    category: "We 🧡 Pancakes!",
+    category: "We 🧡 Pancakes! - Official Launch 🎉",
     puzzleNumber: 112,
     words: [
       { word: "FLIP", hint: "The mid-air turn that gives pancakes their golden sides", revealedIndex: 0 },

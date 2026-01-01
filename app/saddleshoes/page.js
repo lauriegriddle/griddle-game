@@ -195,6 +195,8 @@ const SaddleShoesGame = () => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
       if (musicPlaying) {
+        // Load and play - needed when track changes
+        audioRef.current.load();
         audioRef.current.play().catch(e => console.log('Audio play failed:', e));
       } else {
         audioRef.current.pause();
@@ -212,7 +214,7 @@ const SaddleShoesGame = () => {
     const timeLabel = selectedTime === 60 ? '1 minute' : selectedTime === 120 ? '2 minutes' : '3 minutes';
     const rating = totalPuzzlesCompleted >= 5 ? '🏆' : totalPuzzlesCompleted >= 3 ? '⭐⭐⭐' : totalPuzzlesCompleted >= 1 ? '⭐' : '👟';
     
-    const shareText = `👟 Saddle Shoes 👟
+    const shareText = `👟 Saddle Shoes
 A Memory Matching Game
 
 🍨 ${totalPuzzlesCompleted} ${totalPuzzlesCompleted === 1 ? 'puzzle' : 'puzzles'} completed!

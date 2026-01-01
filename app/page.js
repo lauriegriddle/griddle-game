@@ -121,7 +121,7 @@ export default function Home() {
         icon: "",
         iconSize: "text-4xl",
         title: ["Saddle", "Shoes"],
-        subtitle: "Memory",
+        subtitle: "Memory Match Game",
         subtitleColor: "text-amber-100"
       },
       borderColor: "border-amber-800",

@@ -139,19 +139,19 @@ subTextColor: "text-amber-700",
       href: "https://lettergriddlecafe.com/jukebox",
       external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #581c87 0%, #5b21b6 50%, #3b0764 100%)",
+        gradient: "linear-gradient(135deg, #115e59 0%, #0f4c4c 50%, #0a3939 100%)",
         icon: "",
         iconSize: "text-4xl",
         title: ["Jukebox"],
         subtitle: "Word Chain",
-        subtitleColor: "text-purple-200"
+        subtitleColor: "text-teal-200"
       },
-      borderColor: "border-purple-700",
-      bgColor: "from-purple-100 to-violet-100",
-      textColor: "text-purple-900",
-subTextColor: "text-purple-700",
-      timeColor: "text-purple-300",
-      hoverBg: "bg-purple-800/80"
+      borderColor: "border-teal-700",
+      bgColor: "from-teal-100 to-cyan-100",
+      textColor: "text-teal-900",
+subTextColor: "text-teal-700",
+      timeColor: "text-teal-300",
+      hoverBg: "bg-teal-800/80"
     },
     {
       name: "Griddle Falls",
@@ -160,18 +160,18 @@ subTextColor: "text-purple-700",
       href: "https://griddlefalls.com",
       external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #14B8A6 0%, #0D9488 50%, #0F766E 100%)",
+        gradient: "linear-gradient(135deg, #f4a574 0%, #e8956a 50%, #d4825a 100%)",
         icon: "☕",
         iconSize: "text-4xl",
         title: ["Griddle", "Falls"],
         subtitle: "Cafe Crew Trivia",
-        subtitleColor: "text-teal-100"
+        subtitleColor: "text-orange-100"
       },
-      borderColor: "border-teal-200",
-      bgColor: "from-teal-100 to-cyan-100",
-      textColor: "text-teal-800",
-      subTextColor: "text-teal-700",
-      hoverBg: "bg-teal-500/80"
+      borderColor: "border-orange-300",
+      bgColor: "from-orange-100 to-amber-100",
+      textColor: "text-orange-800",
+      subTextColor: "text-orange-700",
+      hoverBg: "bg-orange-500/80"
     },
     {
       name: "Kerflufflegrid",
@@ -180,18 +180,18 @@ subTextColor: "text-purple-700",
       href: "https://kerflufflegrid.com",
       external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #EC4899 0%, #DB2777 50%, #BE185D 100%)",
+        gradient: "linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%)",
         icon: "⏳",
         iconSize: "text-4xl",
         title: ["Kerfluffle", "grid"],
         subtitle: "Beat the Clock",
-        subtitleColor: "text-pink-100"
+        subtitleColor: "text-amber-100"
       },
-      borderColor: "border-pink-200",
-      bgColor: "from-pink-100 to-rose-100",
-      textColor: "text-pink-800",
-      subTextColor: "text-pink-700",
-      hoverBg: "bg-pink-500/80"
+      borderColor: "text-orange-100",
+      bgColor: "from-amber-100 to-yellow-100",
+      textColor: "text-amber-800",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-600/80"
     },
     {
       name: "Cookbook",
@@ -333,7 +333,7 @@ subTextColor: "text-purple-700",
 
   // Wrapper component that handles internal vs external links
   const GameCard = ({ game, children }) => {
-    const baseClasses = `group block bg-white rounded-2xl shadow-lg overflow-hidden border-2 ${game.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${game.comingSoon ? 'grayscale opacity-70 pointer-events-none' : ''}`;
+    const baseClasses = `group block bg-white rounded-2xl shadow-lg overflow-hidden border-2 ${game.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${game.comingSoon ? 'opacity-70 pointer-events-none' : ''}`;
     
     if (game.external) {
       return (

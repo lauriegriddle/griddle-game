@@ -593,7 +593,7 @@ const copyToClipboard = async (text) => {
 
         <div className="text-center py-4 text-xs text-amber-500 mt-4">
           <div>
-            © 2025 Letter Griddle. All rights reserved.
+            © {new Date().getFullYear()} Letter Griddle. All rights reserved.
             {' | '}
             <a href="/privacy" className="hover:text-amber-600 underline">Privacy Policy</a>
             {' | '}

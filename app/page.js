@@ -174,6 +174,25 @@ subTextColor: "text-teal-700",
       hoverBg: "bg-orange-500/80"
     },
     {
+      name: "Tile Griddle",
+      tagline: "A domino-style matching game with the Trivia Crew",
+      emoji: "🥞🧁🍿",
+      href: "/tilegriddle",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #f6ad55 0%, #ed8936 50%, #dd6b20 100%)",
+        icon: "🥞",
+        iconSize: "text-3xl",
+        title: ["Tile", "Griddle"],
+        subtitle: "MATCH GAME",
+        subtitleColor: "text-orange-100"
+      },
+      borderColor: "border-orange-300",
+      bgColor: "from-orange-50 to-amber-50",
+      textColor: "text-orange-800",
+      subTextColor: "text-orange-700",
+      hoverBg: "bg-orange-500/80"
+    },
+    {
       name: "Kerflufflegrid",
       tagline: "Reveal the theme before Kerflufflegrid",
       emoji: "⏳",

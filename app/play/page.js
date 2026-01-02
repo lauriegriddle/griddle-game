@@ -716,7 +716,7 @@ const copyToClipboard = async (text) => {
   const unlockedList = stats.unlockedAchievements || [];
 
   return (
-    <div ref={gameContainerRef} tabIndex={0} className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-2 relative overflow-hidden outline-none">
+    <div ref={gameContainerRef} tabIndex={0} className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-2 relative overflow-hidden outline-none" style={{ touchAction: 'manipulation', overscrollBehavior: 'none' }}>
     
       <div className="fixed top-2 left-2 text-3xl opacity-20">🧈</div>
       <div className="fixed top-2 right-2 text-3xl opacity-20">🥞</div>
@@ -936,7 +936,7 @@ const copyToClipboard = async (text) => {
                                 ${!isWrong && !isRevealed && !isComplete && currentLetter ? 'bg-gradient-to-br from-amber-100 to-yellow-100 border-amber-400 text-amber-900 cursor-pointer hover:scale-105' : ''}
                                 ${isSlotSelected && !currentLetter ? 'bg-gradient-to-br from-amber-200 to-yellow-200 border-amber-500 border-4 text-transparent cursor-pointer scale-105' : ''}
                                 ${!isWrong && !isRevealed && !isComplete && !currentLetter ? 'bg-white border-amber-300 text-transparent cursor-pointer hover:border-amber-400 hover:scale-105' : ''}`}
-                              style={{fontFamily: 'Georgia, serif'}}
+                              style={{fontFamily: 'Georgia, serif', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent', userSelect: 'none'}}
                             >
                               {currentLetter}
                             </div>
@@ -974,7 +974,7 @@ const copyToClipboard = async (text) => {
                         ${selectedLetter === letter && selectedLetterIndex === idx
                           ? 'bg-gradient-to-br from-yellow-300 to-amber-400 border-2 border-amber-600 text-amber-900 scale-110 shadow-lg'
                           : 'bg-gradient-to-br from-yellow-200 to-amber-300 border border-amber-400 text-amber-900 hover:scale-105'}`}
-                      style={{fontFamily: 'Georgia, serif'}}
+                      style={{fontFamily: 'Georgia, serif', touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent', userSelect: 'none'}}
                     >
                       {letter}
                     </button>

@@ -133,7 +133,7 @@ subTextColor: "text-amber-700",
     },
     {
       name: "Jukebox",
-      tagline: "A word chain puzzle",
+      tagline: "One word leads to the next",
       dropTime: null,
       emoji: "🎵",
       href: "https://lettergriddlecafe.com/jukebox",

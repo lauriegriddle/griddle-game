@@ -784,7 +784,11 @@ Play at lettergriddle.com/tilegriddle
             : 'linear-gradient(135deg, #fff8e7 0%, #f5e6d3 100%)',
           border: '2px solid #8b5a2b',
           padding: '6px 10px',
-          minWidth: '80px'
+          minWidth: '80px',
+          touchAction: 'manipulation',
+          userSelect: 'none',
+          WebkitUserSelect: 'none',
+          WebkitTapHighlightColor: 'transparent'
         }}
       >
         <span style={{ fontSize: '24px' }}>{tile.displayLeft ?? tile.left}</span>
@@ -841,7 +845,10 @@ Play at lettergriddle.com/tilegriddle
     return (
       <div className="min-h-screen p-4 flex items-center justify-center"
         style={{
-          background: 'linear-gradient(180deg, #C2632A 0%, #D4833A 25%, #E8A866 50%, #F5DEB3 80%, #FFFDF5 100%)'
+          background: 'linear-gradient(180deg, #C2632A 0%, #D4833A 25%, #E8A866 50%, #F5DEB3 80%, #FFFDF5 100%)',
+          touchAction: 'manipulation',
+          overscrollBehavior: 'none',
+          WebkitOverflowScrolling: 'touch'
         }}
       >
         <AvatarSVGs />
@@ -1055,7 +1062,10 @@ Play at lettergriddle.com/tilegriddle
   return (
     <div className="min-h-screen p-4"
       style={{
-        background: 'linear-gradient(180deg, #C2632A 0%, #D4833A 25%, #E8A866 50%, #F5DEB3 80%, #FFFDF5 100%)'
+        background: 'linear-gradient(180deg, #C2632A 0%, #D4833A 25%, #E8A866 50%, #F5DEB3 80%, #FFFDF5 100%)',
+        touchAction: 'manipulation',
+        overscrollBehavior: 'none',
+        WebkitOverflowScrolling: 'touch'
       }}
     >
       <AvatarSVGs />
@@ -1207,7 +1217,9 @@ Play at lettergriddle.com/tilegriddle
                         height: '36px',
                         background: 'rgba(212, 165, 116, 0.3)',
                         border: '3px dashed #fbbf24',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        touchAction: 'manipulation',
+                        WebkitTapHighlightColor: 'transparent'
                       }}
                     >
                       <span style={{ color: '#fbbf24', fontSize: '16px' }}>← +</span>
@@ -1236,7 +1248,9 @@ Play at lettergriddle.com/tilegriddle
                         height: '36px',
                         background: 'rgba(212, 165, 116, 0.3)',
                         border: '3px dashed #fbbf24',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        touchAction: 'manipulation',
+                        WebkitTapHighlightColor: 'transparent'
                       }}
                     >
                       <span style={{ color: '#fbbf24', fontSize: '16px' }}>+ →</span>

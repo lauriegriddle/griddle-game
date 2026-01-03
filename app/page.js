@@ -74,7 +74,7 @@ export default function Home() {
       href: "/flips",
       thumbnail: {
         gradient: "linear-gradient(135deg, #B45309 0%, #92400E 50%, #78350F 100%)",
-        icon: "☕",
+        icon: "☕📱",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Flips"],
         titleStyle: ["text-xl", "text-3xl italic"],

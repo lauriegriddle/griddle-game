@@ -140,7 +140,7 @@ subTextColor: "text-amber-700",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #115e59 0%, #0f4c4c 50%, #0a3939 100%)",
-        icon: "",
+        icon: "💿",
         iconSize: "text-4xl",
         title: ["Jukebox"],
         subtitle: "Word Chain",

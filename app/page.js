@@ -180,7 +180,7 @@ subTextColor: "text-teal-700",
       href: "/tilegriddle",
       thumbnail: {
         gradient: "linear-gradient(135deg, #f6ad55 0%, #ed8936 50%, #dd6b20 100%)",
-        icon: "🥞",
+        icon: "🥞|🥞",
         iconSize: "text-3xl",
         title: ["Tile", "Griddle"],
         subtitle: "MATCH GAME",

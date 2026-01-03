@@ -936,21 +936,29 @@ Play at lettergriddle.com/tilegriddle
                     <button
                       key={key}
                       onClick={() => startGame(key)}
-                      className="w-full p-4 rounded-xl transition-all hover:scale-102 flex items-center gap-4"
+                      className="w-full p-4 rounded-xl transition-all hover:scale-102"
                       style={{
                         background: 'linear-gradient(135deg, #d4a574 0%, #b8956a 100%)',
                         border: 'none',
                         boxShadow: '0 4px 15px rgba(212, 165, 116, 0.3)'
                       }}
                     >
-                      <div className="flex gap-1">
-                        {theme.emojis.slice(0, 3).map((emoji, i) => (
-                          <span key={i} style={{ fontSize: '24px' }}>{emoji}</span>
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="flex gap-1">
+                          {theme.emojis.slice(0, 3).map((emoji, i) => (
+                            <span key={i} style={{ fontSize: '20px' }}>{emoji}</span>
+                          ))}
+                        </div>
+                        <span className="font-bold text-white" style={{ fontFamily: 'Georgia, serif' }}>
+                          {theme.name}
+                        </span>
+                      </div>
+                      {/* Show all theme emojis */}
+                      <div className="flex justify-center gap-1 pt-2 border-t border-white/20">
+                        {theme.emojis.map((emoji, i) => (
+                          <span key={i} style={{ fontSize: '16px' }}>{emoji}</span>
                         ))}
                       </div>
-                      <span className="font-bold text-white" style={{ fontFamily: 'Georgia, serif' }}>
-                        {theme.name}
-                      </span>
                     </button>
                   ))}
                 </div>
@@ -1127,6 +1135,21 @@ Play at lettergriddle.com/tilegriddle
           >
             ?
           </button>
+        </div>
+
+        {/* Theme Emojis Legend */}
+        <div className="mb-3 py-2 px-3 rounded-xl text-center" style={{
+          background: 'rgba(255,255,255,0.15)',
+          backdropFilter: 'blur(4px)'
+        }}>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-xs" style={{ color: '#FFFDF5', opacity: 0.8 }}>This game's tiles:</span>
+            <div className="flex gap-1">
+              {theme.emojis.map((emoji, i) => (
+                <span key={i} style={{ fontSize: '16px' }}>{emoji}</span>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Opponent's hand (face down) - compact */}

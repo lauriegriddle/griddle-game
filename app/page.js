@@ -118,7 +118,7 @@ export default function Home() {
       href: "/saddleshoes",
       thumbnail: {
         gradient: "linear-gradient(135deg, #78350f 0%, #44403c 50%, #451a03 100%)",
-        icon: "",
+        icon: "🍨",
         iconSize: "text-4xl",
         title: ["Saddle", "Shoes"],
         subtitle: "Memory Match Game",

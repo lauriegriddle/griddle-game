@@ -224,7 +224,8 @@ ${rating}
 
 Free & ad-free!
 Part of the Letter Griddle Games 🥞
-Play at lettergriddle.com/saddleshoes`;
+Play Saddle Shoes: lettergriddle.com/saddleshoes
+More games: lettergriddle.com`;
 
     // Try native sharing first (works on mobile)
     if (navigator.share) {

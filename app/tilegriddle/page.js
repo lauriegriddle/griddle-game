@@ -783,17 +783,17 @@ Play at lettergriddle.com/tilegriddle
             ? 'linear-gradient(135deg, #ffd700 0%, #ffb347 100%)'
             : 'linear-gradient(135deg, #fff8e7 0%, #f5e6d3 100%)',
           border: '2px solid #8b5a2b',
-          padding: '6px 10px',
-          minWidth: '80px',
+          padding: '8px 12px',
+          minWidth: '90px',
           touchAction: 'manipulation',
           userSelect: 'none',
           WebkitUserSelect: 'none',
           WebkitTapHighlightColor: 'transparent'
         }}
       >
-        <span style={{ fontSize: '24px' }}>{tile.displayLeft ?? tile.left}</span>
-        <span style={{ margin: '0 5px', color: '#8b5a2b', fontWeight: 'bold', fontSize: '16px' }}>|</span>
-        <span style={{ fontSize: '24px' }}>{tile.displayRight ?? tile.right}</span>
+        <span style={{ fontSize: '30px' }}>{tile.displayLeft ?? tile.left}</span>
+        <span style={{ margin: '0 6px', color: '#8b5a2b', fontWeight: 'bold', fontSize: '18px' }}>|</span>
+        <span style={{ fontSize: '30px' }}>{tile.displayRight ?? tile.right}</span>
       </div>
     );
   };
@@ -1178,11 +1178,15 @@ Play at lettergriddle.com/tilegriddle
         </div>
 
         {/* Message - right under opponent so you see their actions */}
-        <div className="text-center p-2 rounded-xl mb-2" style={{
+        <div className="text-center p-3 rounded-xl mb-2" style={{
           background: 'rgba(45, 36, 28, 0.8)',
           border: '1px solid rgba(212, 165, 116, 0.3)'
         }}>
-          <p className="text-sm" style={{ color: '#f5e6d3' }}>{message}</p>
+          <p style={{ 
+            color: '#f5e6d3', 
+            fontSize: '18px',
+            lineHeight: '1.4'
+          }}>{message}</p>
         </div>
 
         {/* Game chain */}
@@ -1201,9 +1205,9 @@ Play at lettergriddle.com/tilegriddle
                 border: '1px solid rgba(255, 255, 255, 0.2)'
               }}>
                 <span className="text-xs" style={{ color: '#f5e6d3' }}>Match:</span>
-                <span style={{ fontSize: '22px' }}>{chainEnds.leftEnd}</span>
+                <span style={{ fontSize: '26px' }}>{chainEnds.leftEnd}</span>
                 <span style={{ color: '#f5e6d3', fontSize: '11px' }}>← →</span>
-                <span style={{ fontSize: '22px' }}>{chainEnds.rightEnd}</span>
+                <span style={{ fontSize: '26px' }}>{chainEnds.rightEnd}</span>
               </div>
             )}
           </div>

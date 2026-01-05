@@ -272,7 +272,7 @@ subTextColor: "text-teal-700",
       textColor: "text-amber-900",
       subTextColor: "text-amber-700",
       hoverBg: "bg-amber-800/80",
-      dailyTime: "7:00 AM"
+      dropTime: "7:00 AM EST"
     },
     {
       name: "Letter Griddle Cottage",

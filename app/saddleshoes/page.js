@@ -257,29 +257,33 @@ More games: lettergriddle.com`;
 
   const currentPuzzle = puzzleSets[currentPuzzleIndex % puzzleSets.length];
 
-  // Color schemes - Dark mode is now the "saddle shoe" theme
+  // Color schemes - Classic saddle shoe color combinations
+  // Dark mode: Midnight blue & burnished orange (50s diner at night)
+  // Light mode: Tan/cream & burgundy (preppy vintage saddle shoes)
   const colors = darkMode ? {
-    bg: 'from-amber-950 via-amber-900 to-stone-900',
-    card: 'bg-amber-900/80 border-amber-700',
-    cardBack: 'from-amber-800 to-stone-800 border-amber-600',
-    text: 'text-amber-100',
-    textMuted: 'text-amber-200/70',
+    bg: 'from-blue-950 via-indigo-950 to-slate-950',
+    card: 'bg-slate-900/80 border-blue-900',
+    cardBack: 'from-amber-700 to-orange-800 border-amber-500',
+    text: 'text-blue-100',
+    textMuted: 'text-blue-200/70',
     accent: 'from-amber-600 to-orange-600',
-    button: 'bg-amber-800 hover:bg-amber-700 text-amber-100',
+    button: 'bg-blue-950 hover:bg-blue-900 text-amber-100',
     matched: 'from-emerald-800 to-emerald-900 border-emerald-500',
     flipped: 'from-amber-200 to-orange-200 border-amber-400',
-    footerBg: 'bg-amber-950/50',
+    footerBg: 'bg-slate-950/50',
+    headerAccent: 'text-amber-400',
   } : {
-    bg: 'from-amber-50 via-orange-50 to-amber-100',
-    card: 'bg-white border-amber-200',
-    cardBack: 'from-amber-700 to-orange-800 border-amber-900',
-    text: 'text-amber-900',
-    textMuted: 'text-amber-700',
-    accent: 'from-amber-600 to-orange-600',
-    button: 'bg-amber-100 hover:bg-amber-200 text-amber-700',
+    bg: 'from-amber-100 via-orange-100 to-stone-200',
+    card: 'bg-white border-stone-300',
+    cardBack: 'from-rose-900 to-red-950 border-rose-800',
+    text: 'text-stone-800',
+    textMuted: 'text-stone-600',
+    accent: 'from-rose-800 to-red-900',
+    button: 'bg-stone-100 hover:bg-stone-200 text-rose-900',
     matched: 'from-green-200 to-green-300 border-green-400',
-    flipped: 'from-amber-100 to-orange-100 border-amber-400',
-    footerBg: 'bg-amber-100/50',
+    flipped: 'from-amber-100 to-orange-100 border-rose-300',
+    footerBg: 'bg-stone-100/50',
+    headerAccent: 'text-rose-800',
   };
 
   return (

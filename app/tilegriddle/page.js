@@ -496,6 +496,45 @@ const TileGriddle = () => {
     setCurrentPlayer('opponent');
   };
 
+  // Handle when player must pass with empty boneyard - check for blocked game
+  const handleForcedPass = () => {
+    if (currentPlayer !== 'player' || winner || gameOverRef.current) return;
+    
+    const opponentName = getOpponentName();
+    
+    // Check if opponent can play
+    const chainEnds = getChainEnds();
+    const opponentCanPlay = opponentHand.some(t => 
+      t.left === chainEnds.leftEnd || t.right === chainEnds.leftEnd ||
+      t.left === chainEnds.rightEnd || t.right === chainEnds.rightEnd
+    );
+    
+    if (!opponentCanPlay) {
+      // Both players stuck - game is blocked!
+      gameOverRef.current = true;
+      const opponentData = opponents[selectedOpponent];
+      
+      if (playerHand.length < opponentHand.length) {
+        setWinner('player');
+        triggerConfetti();
+        setMessage(`Game blocked! You win with fewer tiles! ${opponentData.loseMessage}`);
+        showGameOverWithDelay(1500, true);
+      } else if (opponentHand.length < playerHand.length) {
+        setWinner('opponent');
+        setMessage(`Game blocked! ${opponentName} wins with fewer tiles! ${opponentData.winMessage}`);
+        showGameOverWithDelay(1500);
+      } else {
+        setWinner('tie');
+        setMessage("Game blocked! It's a tie!");
+        showGameOverWithDelay(1500);
+      }
+    } else {
+      // Opponent can still play, pass turn to them
+      setMessage(`You can't play. ${opponentName}'s turn.`);
+      setCurrentPlayer('opponent');
+    }
+  };
+
   // Trigger confetti
   const triggerConfetti = () => {
     setShowConfetti(true);
@@ -1321,6 +1360,19 @@ Play at lettergriddle.com/tilegriddle
                   }}
                 >
                   Pass
+                </button>
+              )}
+              {/* NEW: Button when player can't play and boneyard is empty */}
+              {currentPlayer === 'player' && !winner && !hasPlayableTile(playerHand) && boneyard.length === 0 && !canPass && (
+                <button
+                  onClick={handleForcedPass}
+                  className="px-4 py-2 rounded-lg font-bold text-sm transition-all hover:scale-105 animate-pulse"
+                  style={{
+                    background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)',
+                    color: 'white'
+                  }}
+                >
+                  Can't Play - Pass
                 </button>
               )}
             </div>

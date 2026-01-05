@@ -254,6 +254,27 @@ subTextColor: "text-teal-700",
       hoverBg: "bg-amber-600/80"
     },
     {
+      name: "Letter Griddle Cafe Game",
+      tagline: "A Cafe Special",
+      emoji: "👑",
+      href: "https://lettergriddlecafe.com/game",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
+        icon: "👑",
+        iconSize: "text-4xl",
+        title: ["Cafe", "Game"],
+        subtitle: "A CAFE SPECIAL",
+        subtitleColor: "text-amber-200"
+      },
+      borderColor: "border-amber-700",
+      bgColor: "from-amber-100 to-orange-100",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-800/80",
+      dailyTime: "7:00 AM"
+    },
+    {
       name: "Letter Griddle Cottage",
       tagline: "A seasonal retreat",
       emoji: "🏔️",

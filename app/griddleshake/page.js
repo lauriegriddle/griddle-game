@@ -741,7 +741,7 @@ const GriddleShake = () => {
       <div className="absolute inset-0 bg-gradient-to-bl from-amber-200/20 via-transparent to-purple-200/20 pointer-events-none"></div>
       
       <div className="text-center mb-6 md:mb-8 relative z-10">
-        <div className="text-6xl md:text-7xl mb-3 md:mb-4">🍳</div>
+        <div className="text-6xl md:text-7xl mb-3 md:mb-4">🔍</div>
         <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-500 to-rose-500 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
           Griddle Shake!
         </h1>
@@ -856,10 +856,10 @@ const GriddleShake = () => {
               {countdownValue > 0 ? countdownValue : 'GO!'}
             </div>
             <div className="text-2xl text-white font-bold animate-pulse">
-              {countdownValue > 0 ? 'Get Ready!' : '🍳'}
+              {countdownValue > 0 ? 'Get Ready!' : '🔍'}
             </div>
             <div className="flex justify-center gap-4 mt-8">
-              {(theme?.confettiEmojis || ['🍳']).slice(0, 5).map((emoji, i) => (
+              {(theme?.confettiEmojis || ['🔍']).slice(0, 5).map((emoji, i) => (
                 <div key={i} className="text-5xl" style={{ animation: 'shake 0.3s infinite' }}>
                   {emoji}
                 </div>
@@ -1126,7 +1126,7 @@ const GriddleShake = () => {
                 <button onClick={() => setShowShareModal(false)} className="text-gray-400 hover:text-gray-600"><X size={24} /></button>
               </div>
               <div className="bg-white/80 rounded-xl p-4 mb-4 font-mono text-sm whitespace-pre-wrap border border-amber-200">
-{`Griddle Shake! 🍳
+{`Griddle Shake! 🔍
 Theme: ${theme?.name} ${theme?.icon}
 ⏱️ ${selectedTime} min${selectedTime > 1 ? 's' : ''}
 📺 ${screensCleared} screens
@@ -1144,7 +1144,7 @@ More games: lettergriddle.com`}
                       try {
                         await navigator.share({
                           title: 'Griddle Shake!',
-                          text: `Griddle Shake! 🍳\nTheme: ${theme?.name} ${theme?.icon}\n⏱️ ${selectedTime} min${selectedTime > 1 ? 's' : ''}\n📺 ${screensCleared} screens\n🔤 ${totalWordsFound} words\n\nPlay at lettergriddle.com/griddleshake\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`
+                          text: `Griddle Shake! 🔍\nTheme: ${theme?.name} ${theme?.icon}\n⏱️ ${selectedTime} min${selectedTime > 1 ? 's' : ''}\n📺 ${screensCleared} screens\n🔤 ${totalWordsFound} words\n\nPlay at lettergriddle.com/griddleshake\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`
                         });
                       } catch (err) {
                         console.log('Share cancelled');
@@ -1157,7 +1157,7 @@ More games: lettergriddle.com`}
                 )}
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText(`Griddle Shake! 🍳\nTheme: ${theme?.name} ${theme?.icon}\n⏱️ ${selectedTime} min${selectedTime > 1 ? 's' : ''}\n📺 ${screensCleared} screens\n🔤 ${totalWordsFound} words\n\nPlay at lettergriddle.com/griddleshake\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`);
+                    navigator.clipboard.writeText(`Griddle Shake! 🔍\nTheme: ${theme?.name} ${theme?.icon}\n⏱️ ${selectedTime} min${selectedTime > 1 ? 's' : ''}\n📺 ${screensCleared} screens\n🔤 ${totalWordsFound} words\n\nPlay at lettergriddle.com/griddleshake\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`);
                     setShareCopied(true);
                     setTimeout(() => setShareCopied(false), 2000);
                   }}

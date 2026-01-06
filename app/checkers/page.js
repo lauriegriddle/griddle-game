@@ -906,9 +906,10 @@ Part of the Letter Griddle Family 🥞`;
 
             {/* Choose Opponent Preview */}
             <div className="mb-6">
-              <h3 className="text-lg font-bold text-amber-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
+              <h3 className="text-lg font-bold text-amber-800 mb-1 text-center" style={{fontFamily: 'Georgia, serif'}}>
                 🎭 Play Against the Trivia Crew
               </h3>
+              <p className="text-center text-amber-500 text-xs mb-3">Choose your opponent during the game!</p>
               <div className="flex justify-center gap-3 flex-wrap">
                 {TRIVIA_CREW.slice(0, 4).map(char => (
                   <div key={char.id} className="text-center">
@@ -922,9 +923,10 @@ Part of the Letter Griddle Family 🥞`;
 
             {/* Theme Preview */}
             <div className="mb-6">
-              <h3 className="text-lg font-bold text-amber-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
+              <h3 className="text-lg font-bold text-amber-800 mb-1 text-center" style={{fontFamily: 'Georgia, serif'}}>
                 🎨 Fun Themed Pieces
               </h3>
+              <p className="text-center text-amber-500 text-xs mb-3">Pick your favorite theme during the game!</p>
               <div className="flex justify-center gap-4">
                 {Object.values(THEMES).slice(0, 3).map((t, i) => (
                   <div key={i} className="text-center bg-amber-50 rounded-xl p-2 px-3">
@@ -932,6 +934,25 @@ Part of the Letter Griddle Family 🥞`;
                     <p className="text-xs text-amber-600">{t.name}</p>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Game Modes */}
+            <div className="mb-6">
+              <h3 className="text-lg font-bold text-amber-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
+                🎯 Two Ways to Play
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-amber-50 rounded-xl p-3 text-center">
+                  <div className="text-2xl mb-1">⚡</div>
+                  <p className="font-semibold text-amber-800 text-sm">Quick Game</p>
+                  <p className="text-xs text-amber-600">Single round - jump right in!</p>
+                </div>
+                <div className="bg-amber-50 rounded-xl p-3 text-center">
+                  <div className="text-2xl mb-1">🏆</div>
+                  <p className="font-semibold text-amber-800 text-sm">Best of 3</p>
+                  <p className="text-xs text-amber-600">Win 2 rounds to claim victory!</p>
+                </div>
               </div>
             </div>
 
@@ -1027,19 +1048,21 @@ Part of the Letter Griddle Family 🥞`;
         </div>
 
         {/* Game controls */}
-        <div className="flex justify-center gap-2 mb-4 flex-wrap">
+        <div className="flex justify-center gap-2 mb-2 flex-wrap">
           <button
             onClick={() => setShowThemeModal(true)}
-            className="bg-amber-100 hover:bg-amber-200 text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm"
+            className="bg-amber-100 hover:bg-amber-200 text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow-md border-2 border-transparent hover:border-amber-300 flex items-center gap-1"
           >
             {currentTheme.name}
+            <span className="text-xs opacity-60">▼</span>
           </button>
           <button
             onClick={() => setShowOpponentModal(true)}
-            className="bg-amber-100 hover:bg-amber-200 text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm flex items-center gap-2"
+            className="bg-amber-100 hover:bg-amber-200 text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow-md border-2 border-transparent hover:border-amber-300 flex items-center gap-2"
           >
             <CharacterAvatar character={opponent} size="sm" />
             <span>vs {opponent.name}</span>
+            <span className="text-xs opacity-60">▼</span>
           </button>
           <button
             onClick={() => setShowHints(!showHints)}
@@ -1050,6 +1073,11 @@ Part of the Letter Griddle Family 🥞`;
             💡 Hints {showHints ? 'On' : 'Off'}
           </button>
         </div>
+        
+        {/* Hint text for customization */}
+        <p className="text-center text-xs text-amber-500 mb-4">
+          Tap buttons above to change theme or opponent!
+        </p>
 
         {/* Score and turn indicator */}
         <div className="bg-white rounded-2xl shadow-lg p-4 mb-4 border-2 border-amber-200">

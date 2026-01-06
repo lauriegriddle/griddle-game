@@ -436,7 +436,7 @@ const copyToClipboard = async (text) => {
                     onClick={() => handleSlotClick(index)}
                     className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center text-xl font-bold cursor-pointer transition-all shadow-sm ${
                       selectedSlot === index
-                        ? 'border-amber-500 bg-amber-100 scale-110'
+                        ? 'border-amber-500 bg-amber-100 ring-2 ring-amber-400'
                         : letter
                         ? 'border-amber-400 bg-gradient-to-br from-amber-100 to-yellow-100 text-amber-900'
                         : 'border-amber-300 bg-white hover:border-amber-400 hover:bg-amber-50'
@@ -502,7 +502,7 @@ const copyToClipboard = async (text) => {
                   <button
                     key={index}
                     onClick={() => handleLetterClick(letter)}
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-300 to-amber-400 border-2 border-amber-500 text-amber-900 font-bold text-lg shadow-md hover:scale-110 hover:shadow-lg transition-all"
+                    className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-300 to-amber-400 border-2 border-amber-500 text-amber-900 font-bold text-lg shadow-md hover:shadow-lg transition-all"
                     style={{ fontFamily: 'Georgia, serif' }}
                   >
                     {letter}

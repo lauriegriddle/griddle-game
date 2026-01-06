@@ -721,7 +721,7 @@ const CheckersGame = () => {
     const emoji = matchWinner === 'player' ? '🏆' : '🎮';
     const pieceEmoji = currentTheme.player.emoji;
     
-    const shareText = `☕️ Checkers at the Cafe ${emoji}
+    const shareText = `Checkers at the Cafe ${emoji}
 ${result} vs ${opponent.name}
 ${pieceEmoji} Theme: ${currentTheme.name}
 Captures: ${capturesThisGame.player}
@@ -843,7 +843,7 @@ Part of the Letter Griddle Family 🥞`;
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 p-4 relative overflow-hidden">
         {/* Decorative elements */}
-        <div className="fixed top-10 left-10 text-6xl opacity-10 animate-pulse">♟️</div>
+        <div className="fixed top-10 left-10 text-6xl opacity-10 animate-pulse">🥞</div>
         <div className="fixed top-20 right-20 text-5xl opacity-10">🥞</div>
         <div className="fixed bottom-20 left-20 text-5xl opacity-10">☕</div>
         <div className="fixed bottom-10 right-10 text-6xl opacity-10 animate-pulse">🧇</div>
@@ -907,7 +907,7 @@ Part of the Letter Griddle Family 🥞`;
             {/* Choose Opponent Preview */}
             <div className="mb-6">
               <h3 className="text-lg font-bold text-amber-800 mb-1 text-center" style={{fontFamily: 'Georgia, serif'}}>
-                🎭 Play Against the Trivia Crew
+                 Play Against the Trivia Crew
               </h3>
               <p className="text-center text-amber-500 text-xs mb-3">Choose your opponent during the game!</p>
               <div className="flex justify-center gap-3 flex-wrap">
@@ -924,7 +924,7 @@ Part of the Letter Griddle Family 🥞`;
             {/* Theme Preview */}
             <div className="mb-6">
               <h3 className="text-lg font-bold text-amber-800 mb-1 text-center" style={{fontFamily: 'Georgia, serif'}}>
-                🎨 Fun Themed Pieces
+                 Fun Themed Pieces
               </h3>
               <p className="text-center text-amber-500 text-xs mb-3">Pick your favorite theme during the game!</p>
               <div className="flex justify-center gap-4">
@@ -961,7 +961,7 @@ Part of the Letter Griddle Family 🥞`;
               onClick={() => setGameStarted(true)}
               className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-105 active:scale-95"
             >
-              🎮 Start Playing!
+               Start Playing!
             </button>
           </div>
 
@@ -990,7 +990,7 @@ Part of the Letter Griddle Family 🥞`;
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-4 relative overflow-hidden">
       {/* Decorative background emojis */}
-      <div className="fixed top-4 left-4 text-4xl opacity-20">♟️</div>
+      <div className="fixed top-4 left-4 text-4xl opacity-20">☕️</div>
       <div className="fixed top-4 right-4 text-4xl opacity-20">🥞</div>
       <div className="fixed bottom-4 left-4 text-4xl opacity-20">☕</div>
       <div className="fixed bottom-4 right-4 text-4xl opacity-20">🎲</div>
@@ -1042,9 +1042,9 @@ Part of the Letter Griddle Family 🥞`;
         {/* Header */}
         <div className="text-center mb-4">
           <h1 className="text-2xl md:text-3xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-             ☕️ Checkers at the Cafe
+             Checkers at the Cafe
           </h1>
-          <p className="text-amber-600 text-sm">A Letter Griddle Game 🥞</p>
+          <p className="text-amber-600 text-sm">A Letter Griddle Game</p>
         </div>
 
         {/* Game controls */}
@@ -1200,7 +1200,7 @@ Part of the Letter Griddle Family 🥞`;
 
         {/* Instructions */}
         <div className="mt-4 text-center text-sm text-amber-700 bg-amber-50 rounded-xl p-3">
-          <p className="font-semibold">♟️ Click your piece, then click where to move!</p>
+          <p className="font-semibold"> Click your piece, then click where to move!</p>
           {showHints && (
             <p className="text-xs mt-1 text-amber-600">
               🟢 Green = valid move | 🔴 Red = capture (required!)

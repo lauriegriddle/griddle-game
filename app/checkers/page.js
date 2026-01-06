@@ -1042,7 +1042,7 @@ Part of the Letter Griddle Family 🥞`;
         {/* Header */}
         <div className="text-center mb-4">
           <h1 className="text-2xl md:text-3xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-             Checkers at the Cafe
+             ☕️ Checkers at the Cafe
           </h1>
           <p className="text-amber-600 text-sm">A Letter Griddle Game 🥞</p>
         </div>
@@ -1398,7 +1398,7 @@ Part of the Letter Griddle Family 🥞`;
             </h2>
             
             <div className="bg-amber-50 rounded-xl p-4 mb-4 font-mono text-sm whitespace-pre-wrap">
-{` Checkers at the Cafe ${matchWinner === 'player' ? '🏆' : '🎮'}
+{`🏆 Checkers at the Cafe ${matchWinner === 'player' ? '🏆' : '🎮'}
 ${matchWinner === 'player' ? 'Won' : 'Lost'} vs ${opponent.name}
 ${currentTheme.player.emoji} Theme: ${currentTheme.name}
 Captures: ${capturesThisGame.player}

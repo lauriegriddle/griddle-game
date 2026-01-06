@@ -603,17 +603,16 @@ const GriddleShake = () => {
   const [initialSetupDone, setInitialSetupDone] = useState(false);
   
   useEffect(() => {
-    if (gamePhase === 'playing') {
-      if (initialSetupDone) {
-        // Only call setupPuzzle for screen advances, not initial setup
-        setupPuzzle();
-      } else {
-        setInitialSetupDone(true);
-      }
+    if (gamePhase === 'playing' && initialSetupDone) {
+      // Only call setupPuzzle for screen advances, not initial setup
+      // Pass the current puzzleIndex directly to avoid stale closure
+      setupPuzzle(puzzleIndex);
+    } else if (gamePhase === 'playing' && !initialSetupDone) {
+      setInitialSetupDone(true);
     } else if (gamePhase === 'countdown') {
       setInitialSetupDone(false);
     }
-  }, [puzzleIndex]);
+  }, [puzzleIndex, gamePhase, initialSetupDone, setupPuzzle]);
 
   const startCountdown = (minutes) => {
     setSelectedTime(minutes);
@@ -1133,6 +1132,7 @@ Theme: ${theme?.name} ${theme?.icon}
 📺 ${screensCleared} screens
 🔤 ${totalWordsFound} words
 
+Play at lettergriddle.com/griddleshake
 Free & ad-free!
 Part of the Letter Griddle Games 🥞
 More games: lettergriddle.com`}
@@ -1144,7 +1144,7 @@ More games: lettergriddle.com`}
                       try {
                         await navigator.share({
                           title: 'Griddle Shake!',
-                          text: `Griddle Shake! 🍳\nTheme: ${theme?.name} ${theme?.icon}\n⏱️ ${selectedTime} min${selectedTime > 1 ? 's' : ''}\n📺 ${screensCleared} screens\n🔤 ${totalWordsFound} words\n\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`
+                          text: `Griddle Shake! 🍳\nTheme: ${theme?.name} ${theme?.icon}\n⏱️ ${selectedTime} min${selectedTime > 1 ? 's' : ''}\n📺 ${screensCleared} screens\n🔤 ${totalWordsFound} words\n\nPlay at lettergriddle.com/griddleshake\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`
                         });
                       } catch (err) {
                         console.log('Share cancelled');
@@ -1157,7 +1157,7 @@ More games: lettergriddle.com`}
                 )}
                 <button
                   onClick={() => {
-                    navigator.clipboard.writeText(`Griddle Shake! 🍳\nTheme: ${theme?.name} ${theme?.icon}\n⏱️ ${selectedTime} min${selectedTime > 1 ? 's' : ''}\n📺 ${screensCleared} screens\n🔤 ${totalWordsFound} words\n\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`);
+                    navigator.clipboard.writeText(`Griddle Shake! 🍳\nTheme: ${theme?.name} ${theme?.icon}\n⏱️ ${selectedTime} min${selectedTime > 1 ? 's' : ''}\n📺 ${screensCleared} screens\n🔤 ${totalWordsFound} words\n\nPlay at lettergriddle.com/griddleshake\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`);
                     setShareCopied(true);
                     setTimeout(() => setShareCopied(false), 2000);
                   }}

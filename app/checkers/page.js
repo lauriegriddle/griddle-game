@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 // Character Avatar Component - SVG illustrations matching Letter Griddle style

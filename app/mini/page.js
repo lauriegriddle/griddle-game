@@ -324,18 +324,16 @@ const copyToClipboard = async (text) => {
     }
   }
   
-  * {
+  button {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
-  }
-  
-  button {
     touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
   }
   
-   html, body {
-    overscroll-behavior: none;
-    -webkit-overflow-scrolling: auto;
+  div {
+    -webkit-tap-highlight-color: transparent;
   }
 `}</style>
 

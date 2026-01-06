@@ -851,7 +851,7 @@ Part of the Letter Griddle Family 🥞`;
         <div className="max-w-lg mx-auto pt-8">
           {/* Logo and Title */}
           <div className="text-center mb-8">
-            <div className="text-7xl mb-4">♟️</div>
+            <div className="text-7xl mb-4">☕️</div>
             <h1 className="text-4xl md:text-5xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
               Checkers
             </h1>
@@ -1394,7 +1394,7 @@ Part of the Letter Griddle Family 🥞`;
             </button>
             
             <h2 className="text-2xl font-bold text-amber-800 mb-4 text-center" style={{fontFamily: 'Georgia, serif'}}>
-              Share Your Results! ♟️
+              Share Your Results! 
             </h2>
             
             <div className="bg-amber-50 rounded-xl p-4 mb-4 font-mono text-sm whitespace-pre-wrap">

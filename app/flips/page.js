@@ -141,7 +141,7 @@ const FlipsGame = () => {
   const resultEmoji = isCorrect ? "✅" : "🤔";
   const resultText = isCorrect ? "Got it!" : "Learned something new!";
   const hintText = showHint ? " (with hint)" : "";
-  const shareText = `Letter Griddle Flips 🥞\n${question.theme}\n${resultEmoji} ${resultText}${hintText}\nlettergriddle.com/flips`;
+  const shareText = `Letter Griddle Flips 🥞\n${question.theme}\n${resultEmoji} ${resultText}${hintText}\nlettergriddle.com/flips\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`;
 
   if (navigator.share) {
     try {

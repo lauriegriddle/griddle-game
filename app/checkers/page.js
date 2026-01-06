@@ -721,7 +721,7 @@ const CheckersGame = () => {
     const emoji = matchWinner === 'player' ? '🏆' : '🎮';
     const pieceEmoji = currentTheme.player.emoji;
     
-    const shareText = `♟️ Checkers at the Cafe ${emoji}
+    const shareText = ` Checkers at the Cafe ${emoji}
 ${result} vs ${opponent.name}
 ${pieceEmoji} Theme: ${currentTheme.name}
 Captures: ${capturesThisGame.player}

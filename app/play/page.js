@@ -679,7 +679,7 @@ useEffect(() => {
   const handleShare = async () => {
   const honeyEmojis = '🍯'.repeat(completedWords.filter(c => c).length);
 
-  const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at www.lettergriddle.com`;
+  const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at lettergriddle.com/play\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`;
 
   if (navigator.share) {
     try {
@@ -1396,7 +1396,10 @@ const copyToClipboard = async (text) => {
 ${gameData.category}
 ${'🍯'.repeat(completedWords.filter(c => c).length)}
 ${completedWords.filter(c => c).length}/5 words
-Play at www.lettergriddle.com`}
+Play at lettergriddle.com/play
+Free & ad-free!
+Part of the Letter Griddle Games 🥞
+More games: lettergriddle.com`}
               </div>
             </div>
 

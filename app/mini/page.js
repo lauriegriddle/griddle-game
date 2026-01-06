@@ -317,13 +317,23 @@ const copyToClipboard = async (text) => {
       )}
 
       <style>{`
-        @keyframes fall {
-          to {
-            transform: translateY(100vh) rotate(360deg);
-            opacity: 0;
-          }
-        }
-      `}</style>
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  button {
+    touch-action: manipulation;
+  }
+`}</style>
+
 
       <div className="max-w-md mx-auto">
   {/* Header with home link */}

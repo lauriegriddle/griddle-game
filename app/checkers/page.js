@@ -858,7 +858,7 @@ Part of the Letter Griddle Family 🥞`;
             <p className="text-xl text-amber-600 mb-1" style={{fontFamily: 'Georgia, serif'}}>
               at the Letter Griddle Cafe
             </p>
-            <p className="text-amber-500 text-sm">A checkers game like no other! ☕</p>
+            <p className="text-amber-500 text-sm">A checkers game like no other!</p>
           </div>
 
           {/* Main Card */}

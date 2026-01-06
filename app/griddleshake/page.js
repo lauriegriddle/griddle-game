@@ -974,7 +974,7 @@ const GriddleShake = () => {
                 className={`w-12 h-12 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-xl md:text-3xl transition-all ${
                   isFound ? 'bg-green-500 shadow-lg cursor-default' :
                   isCurrent ? 'bg-white shadow-lg ring-2 md:ring-4 ring-amber-400 scale-105 md:scale-110' :
-                  'bg-white/70 active:scale-95 cursor-pointer'
+                  'bg-white/70 cursor-pointer hover:bg-white/90'
                 }`}
               >
                 {isFound ? '✓' : wordInfo.emoji}
@@ -1017,7 +1017,7 @@ const GriddleShake = () => {
                     className={`w-11 h-11 md:w-14 md:h-14 rounded-lg text-lg md:text-2xl font-bold transition-all relative
                       ${isUsed ? 'bg-green-500 text-white opacity-60 cursor-default' :
                         isSelected ? 'bg-gradient-to-br from-amber-400 to-yellow-500 text-white scale-105 shadow-lg' :
-                        'bg-gradient-to-br from-amber-100 to-yellow-100 text-gray-800 active:scale-95'}
+                        'bg-gradient-to-br from-amber-100 to-yellow-100 text-gray-800 hover:from-amber-200 hover:to-yellow-200'}
                       ${showCorrect && isSelected ? 'from-green-400 to-green-500' : ''}
                       ${showWrong && isSelected ? 'from-red-400 to-red-500' : ''}`}
                     style={{ fontFamily: 'Georgia, serif' }}

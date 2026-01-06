@@ -497,12 +497,12 @@ const copyToClipboard = async (text) => {
                 </h3>
                 <span className="text-xl">🍳</span>
               </div>
-              <div className="flex flex-wrap gap-2 justify-center mb-3">
+              <div className="flex flex-wrap gap-2 justify-center mb-3 min-h-[88px]">
                 {shuffledPool.map((letter, index) => (
                   <button
                     key={index}
                     onClick={() => handleLetterClick(letter)}
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-300 to-amber-400 border-2 border-amber-500 text-amber-900 font-bold text-lg shadow-md hover:shadow-lg transition-all"
+                    className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-300 to-amber-400 border-2 border-amber-500 text-amber-900 font-bold text-lg shadow-md hover:shadow-lg"
                     style={{ fontFamily: 'Georgia, serif' }}
                   >
                     {letter}
@@ -512,13 +512,13 @@ const copyToClipboard = async (text) => {
               <div className="flex justify-center gap-2">
                 <button
                   onClick={handleShuffle}
-                  className="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold transition-all"
+                  className="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold"
                 >
                   🔀 Shuffle
                 </button>
                 <button
                   onClick={handleBackspace}
-                  className="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold transition-all"
+                  className="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold"
                 >
                   ⌫ Back
                 </button>
@@ -539,7 +539,7 @@ const copyToClipboard = async (text) => {
             <button
               onClick={handleSubmit}
               disabled={currentGuess.some(l => l === '')}
-              className={`w-full mt-4 py-3 rounded-full font-bold text-lg shadow-lg transition-all ${
+              className={`w-full mt-4 py-3 rounded-full font-bold text-lg shadow-lg ${
                 currentGuess.some(l => l === '')
                   ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   : 'bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white'

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 // ============================================
 // GRIDDLE STACKS - A Letter Griddle Word Game
-// Improved Version with Better AI & Trivia Crew!
+// Fixed Version - AI validates ALL words formed!
 // ============================================
 
 // Character Avatar Component
@@ -61,26 +61,29 @@ const LETTER_DISTRIBUTION = {
 };
 
 // AI word list - common valid words
-const AI_WORDS = ['AT','BE','DO','GO','HE','IF','IN','IS','IT','ME','MY','NO','OF','ON','OR','SO','TO','UP','US','WE','ACE','ACT','ADD','AGE','AGO','AID','AIM','AIR','ALL','AND','ANT','ANY','APE','ARC','ARE','ARK','ARM','ART','ASK','ATE','BAD','BAG','BAT','BED','BET','BIG','BIT','BOW','BOX','BOY','BUD','BUG','BUS','BUT','BUY','CAB','CAN','CAP','CAR','CAT','COP','COT','COW','CRY','CUB','CUD','CUP','CUT','DAD','DAM','DAY','DEN','DEW','DID','DIG','DIM','DIP','DOC','DOE','DOG','DOT','DRY','DUB','DUD','DUE','DUG','EAR','EAT','EEL','EGG','ELF','ELK','ELM','END','ERA','EVE','EWE','EYE','FAN','FAR','FAT','FAX','FED','FEE','FEW','FIG','FIN','FIT','FIX','FLY','FOB','FOE','FOG','FOR','FOX','FRY','FUN','FUR','GAP','GAS','GAY','GEL','GEM','GET','GIG','GIN','GNU','GOB','GOD','GOT','GUM','GUN','GUT','GUY','GYM','HAD','HAM','HAS','HAT','HAY','HEM','HEN','HER','HEW','HID','HIM','HIP','HIS','HIT','HOB','HOG','HOP','HOT','HOW','HUB','HUE','HUG','HUM','HUT','ICE','ICY','ILL','IMP','INK','INN','ION','IRE','IRK','ITS','IVY','JAB','JAG','JAM','JAR','JAW','JAY','JET','JIG','JOB','JOG','JOT','JOY','JUG','JUT','KEG','KEN','KEY','KID','KIN','KIT','LAB','LAC','LAD','LAG','LAP','LAW','LAY','LEA','LED','LEG','LET','LID','LIE','LIP','LIT','LOG','LOT','LOW','LUG','MAD','MAN','MAP','MAR','MAT','MAW','MAY','MEN','MET','MID','MIX','MOB','MOM','MOP','MOW','MUD','MUG','MUM','NAB','NAG','NAP','NAY','NET','NEW','NIL','NIP','NIT','NOD','NOR','NOT','NOW','NUB','NUN','NUT','OAK','OAR','OAT','ODD','ODE','OFF','OFT','OHM','OIL','OLD','ONE','OPT','ORB','ORE','OUR','OUT','OWE','OWL','OWN','PAD','PAL','PAN','PAT','PAW','PAY','PEA','PEG','PEN','PEP','PER','PET','PEW','PIE','PIG','PIN','PIT','PLY','POD','POP','POT','POW','PRY','PUB','PUN','PUP','PUS','PUT','RAG','RAM','RAN','RAP','RAT','RAW','RAY','RED','REF','RIB','RID','RIG','RIM','RIP','ROB','ROD','ROT','ROW','RUB','RUG','RUM','RUN','RUT','RYE','SAC','SAD','SAG','SAP','SAT','SAW','SAY','SEA','SET','SEW','SHE','SHY','SIN','SIP','SIR','SIS','SIT','SIX','SKI','SKY','SLY','SOB','SOD','SON','SOP','SOT','SOW','SOY','SPA','SPY','STY','SUB','SUM','SUN','SUP','TAB','TAD','TAG','TAN','TAP','TAR','TAT','TAX','TEA','TEN','THE','THY','TIC','TIE','TIN','TIP','TOE','TON','TOO','TOP','TOT','TOW','TOY','TRY','TUB','TUG','TWO','URN','USE','VAN','VAT','VET','VIA','VIE','VOW','WAD','WAG','WAR','WAS','WAX','WAY','WEB','WED','WET','WHO','WHY','WIG','WIN','WIT','WOE','WOK','WON','WOO','WOW','YAK','YAM','YAP','YAW','YEA','YES','YET','YEW','YOU','ZAP','ZED','ZEN','ZIP','ZIT','ZOO','ABLE','ACHE','AGED','ALSO','AREA','ARMY','AWAY','BABY','BACK','BAKE','BALL','BAND','BANK','BASE','BATH','BEAN','BEAR','BEAT','BEEN','BEER','BELL','BELT','BEST','BIRD','BITE','BLOW','BLUE','BOAT','BODY','BOIL','BOLD','BONE','BOOK','BOOT','BORN','BOSS','BOTH','BOWL','BURN','BUSY','CAFE','CAGE','CAKE','CALL','CALM','CAME','CAMP','CARD','CARE','CASE','CASH','CAST','CAVE','CHAT','CHIP','CITY','CLAP','CLAY','CLUB','COAL','COAT','CODE','COIN','COLD','COME','COOK','COOL','COPE','COPY','CORE','CORN','COST','CREW','CROP','CURE','CUTE','DALE','DAME','DAMP','DARE','DARK','DATA','DATE','DAWN','DAYS','DEAD','DEAL','DEAN','DEAR','DEBT','DECK','DEEP','DEER','DESK','DIAL','DIET','DIRT','DISH','DISK','DOES','DONE','DOOR','DOWN','DRAW','DREW','DROP','DRUG','DRUM','DUAL','DUCK','DULL','DUMP','DUST','DUTY','EACH','EARN','EASE','EAST','EASY','EDGE','ELSE','EVEN','EVER','EVIL','EXAM','EXIT','FACE','FACT','FADE','FAIL','FAIR','FAKE','FALL','FAME','FARM','FAST','FATE','FEAR','FEED','FEEL','FEET','FELL','FELT','FILE','FILL','FILM','FIND','FINE','FIRE','FIRM','FISH','FLAG','FLAT','FLEW','FLIP','FLOW','FOLK','FOOD','FOOL','FOOT','FORD','FORE','FORK','FORM','FORT','FOUL','FOUR','FREE','FROM','FUEL','FULL','FUND','GAIN','GAME','GATE','GAVE','GEAR','GENE','GIFT','GIRL','GIVE','GLAD','GLOW','GLUE','GOAL','GOAT','GOES','GOLD','GOLF','GONE','GOOD','GRAB','GRAY','GREW','GRIP','GROW','GULF','HAIR','HALF','HALL','HAND','HANG','HARD','HARM','HATE','HAVE','HEAD','HEAL','HEAR','HEAT','HEEL','HELD','HELL','HELP','HERE','HERO','HIDE','HIGH','HIKE','HILL','HINT','HIRE','HOLD','HOLE','HOME','HOPE','HOST','HOUR','HUNT','HURT','IDEA','INCH','INTO','IRON','ITEM','JACK','JAIL','JANE','JAZZ','JEAN','JOBS','JOHN','JOIN','JOKE','JUMP','JUNE','JURY','JUST','KEEN','KEEP','KEPT','KICK','KIDS','KILL','KIND','KING','KNEE','KNEW','KNOW','LACK','LADY','LAID','LAKE','LAMP','LAND','LANE','LAST','LATE','LAWN','LEAD','LEAF','LEAN','LEFT','LEND','LENS','LESS','LIED','LIFE','LIFT','LIKE','LINE','LINK','LIST','LIVE','LOAD','LOAN','LOCK','LOGO','LONG','LOOK','LORD','LOSE','LOSS','LOST','LOTS','LOUD','LOVE','LUCK','MADE','MAIL','MAIN','MAKE','MALE','MALL','MANY','MARK','MASS','MATE','MEAL','MEAN','MEAT','MEET','MENU','MERE','MESS','MICE','MIKE','MILD','MILE','MILK','MILL','MIND','MINE','MISS','MODE','MOOD','MOON','MORE','MOST','MOVE','MUCH','MUST','NAME','NAVY','NEAR','NEAT','NECK','NEED','NEWS','NEXT','NICE','NINE','NODE','NONE','NOON','NORM','NOSE','NOTE','OKAY','ONCE','ONLY','ONTO','OPEN','ORAL','OVEN','OVER','PACE','PACK','PAGE','PAID','PAIN','PAIR','PALE','PALM','PARK','PART','PASS','PAST','PATH','PEAK','PICK','PILE','PINE','PINK','PIPE','PLAN','PLAY','PLOT','PLUG','PLUS','POET','POLL','POND','POOL','POOR','POPE','PORT','POSE','POST','POUR','PRAY','PULL','PUMP','PURE','PUSH','QUIT','RACE','RAIL','RAIN','RANK','RARE','RATE','READ','REAL','REAR','RELY','RENT','REST','RICE','RICH','RIDE','RING','RISE','RISK','ROAD','ROCK','RODE','ROLE','ROLL','ROOF','ROOM','ROOT','ROPE','ROSE','RULE','RUSH','SAFE','SAID','SAKE','SALE','SALT','SAME','SAND','SANG','SAVE','SEAL','SEAT','SEED','SEEK','SEEM','SEEN','SELF','SELL','SEND','SENT','SEPT','SHED','SHIP','SHOP','SHOT','SHOW','SHUT','SICK','SIDE','SIGN','SILK','SITE','SIZE','SKIN','SLIP','SLOW','SNAP','SNOW','SOFT','SOIL','SOLD','SOLE','SOME','SONG','SOON','SORT','SOUL','SOUP','SPOT','STAR','STAY','STEM','STEP','STOP','SUCH','SUIT','SURE','SWIM','TAIL','TAKE','TALE','TALK','TALL','TANK','TAPE','TASK','TEAM','TEAR','TECH','TELL','TEND','TENT','TERM','TEST','TEXT','THAN','THAT','THEM','THEN','THEY','THIN','THIS','THUS','TIDE','TIED','TIER','TILE','TIME','TINY','TIRE','TOLD','TOLL','TONE','TOOK','TOOL','TOPS','TORE','TORN','TOUR','TOWN','TRAP','TRAY','TREE','TRIM','TRIP','TRUE','TUBE','TUNE','TURN','TWIN','TYPE','UNIT','UPON','USED','USER','VARY','VAST','VERY','VIEW','VINE','VOTE','WAGE','WAIT','WAKE','WALK','WALL','WANT','WARM','WARN','WASH','WAVE','WAYS','WEAK','WEAR','WEEK','WELL','WENT','WERE','WEST','WHAT','WHEN','WHOM','WIDE','WIFE','WILD','WILL','WIND','WINE','WING','WIRE','WISE','WISH','WITH','WOKE','WOLF','WOOD','WORD','WORE','WORK','WORM','WORN','WRAP','YARD','YEAH','YEAR','YOUR','ZERO','ZONE'];
+const AI_WORDS = ['AT','BE','DO','GO','HE','IF','IN','IS','IT','ME','MY','NO','OF','ON','OR','SO','TO','UP','US','WE','ACE','ACT','ADD','AGE','AGO','AID','AIM','AIR','ALL','AND','ANT','ANY','APE','ARC','ARE','ARK','ARM','ART','ASK','ATE','BAD','BAG','BAT','BED','BET','BIG','BIT','BOW','BOX','BOY','BUD','BUG','BUS','BUT','BUY','CAB','CAN','CAP','CAR','CAT','COP','COT','COW','CRY','CUB','CUD','CUP','CUT','DAD','DAM','DAY','DEN','DEW','DID','DIG','DIM','DIP','DOC','DOE','DOG','DOT','DRY','DUB','DUD','DUE','DUG','EAR','EAT','EEL','EGG','ELF','ELK','ELM','END','ERA','EVE','EWE','EYE','FAN','FAR','FAT','FAX','FED','FEE','FEW','FIG','FIN','FIT','FIX','FLY','FOB','FOE','FOG','FOR','FOX','FRY','FUN','FUR','GAP','GAS','GAY','GEL','GEM','GET','GIG','GIN','GNU','GOB','GOD','GOT','GUM','GUN','GUT','GUY','GYM','HAD','HAM','HAS','HAT','HAY','HEM','HEN','HER','HEW','HID','HIM','HIP','HIS','HIT','HOB','HOG','HOP','HOT','HOW','HUB','HUE','HUG','HUM','HUT','ICE','ICY','ILL','IMP','INK','INN','ION','IRE','IRK','ITS','IVY','JAB','JAG','JAM','JAR','JAW','JAY','JET','JIG','JOB','JOG','JOT','JOY','JUG','JUT','KEG','KEN','KEY','KID','KIN','KIT','LAB','LAC','LAD','LAG','LAP','LAW','LAY','LEA','LED','LEG','LET','LID','LIE','LIP','LIT','LOG','LOT','LOW','LUG','MAD','MAN','MAP','MAR','MAT','MAW','MAY','MEN','MET','MID','MIX','MOB','MOM','MOP','MOW','MUD','MUG','MUM','NAB','NAG','NAP','NAY','NET','NEW','NIL','NIP','NIT','NOD','NOR','NOT','NOW','NUB','NUN','NUT','OAK','OAR','OAT','ODD','ODE','OFF','OFT','OHM','OIL','OLD','ONE','OPT','ORB','ORE','OUR','OUT','OWE','OWL','OWN','PAD','PAL','PAN','PAT','PAW','PAY','PEA','PEG','PEN','PEP','PER','PET','PEW','PIE','PIG','PIN','PIT','PLY','POD','POP','POT','POW','PRY','PUB','PUN','PUP','PUS','PUT','RAG','RAM','RAN','RAP','RAT','RAW','RAY','RED','REF','RIB','RID','RIG','RIM','RIP','ROB','ROD','ROT','ROW','RUB','RUG','RUM','RUN','RUT','RYE','SAC','SAD','SAG','SAP','SAT','SAW','SAY','SEA','SET','SEW','SHE','SHY','SIN','SIP','SIR','SIS','SIT','SIX','SKI','SKY','SLY','SOB','SOD','SON','SOP','SOT','SOW','SOY','SPA','SPY','STY','SUB','SUM','SUN','SUP','TAB','TAD','TAG','TAN','TAP','TAR','TAT','TAX','TEA','TEN','THE','THY','TIC','TIE','TIN','TIP','TOE','TON','TOO','TOP','TOT','TOW','TOY','TRY','TUB','TUG','TWO','URN','USE','VAN','VAT','VET','VIA','VIE','VOW','WAD','WAG','WAR','WAS','WAX','WAY','WEB','WED','WET','WHO','WHY','WIG','WIN','WIT','WOE','WOK','WON','WOO','WOW','YAK','YAM','YAP','YAW','YEA','YES','YET','YEW','YOU','ZAP','ZED','ZEN','ZIP','ZIT','ZOO','ABLE','ACHE','AGED','ALSO','AREA','ARMY','AWAY','BABY','BACK','BAKE','BALL','BAND','BANK','BASE','BATH','BEAN','BEAR','BEAT','BEEN','BEER','BELL','BELT','BEST','BIRD','BITE','BLOW','BLUE','BOAT','BODY','BOIL','BOLD','BONE','BOOK','BOOT','BORN','BOSS','BOTH','BOWL','BURN','BUSY','CAFE','CAGE','CAKE','CALL','CALM','CAME','CAMP','CARD','CARE','CASE','CASH','CAST','CAVE','CHAT','CHIP','CITY','CLAP','CLAY','CLUB','COAL','COAT','CODE','COIN','COLD','COME','COOK','COOL','COPE','COPY','CORE','CORN','COST','CREW','CROP','CURE','CUTE','DALE','DAME','DAMP','DARE','DARK','DATA','DATE','DAWN','DAYS','DEAD','DEAL','DEAN','DEAR','DEBT','DECK','DEEP','DEER','DESK','DIAL','DIET','DIRT','DISH','DISK','DOES','DONE','DOOR','DOWN','DRAW','DREW','DROP','DRUG','DRUM','DUAL','DUCK','DULL','DUMP','DUST','DUTY','EACH','EARN','EASE','EAST','EASY','EDGE','ELSE','EVEN','EVER','EVIL','EXAM','EXIT','FACE','FACT','FADE','FAIL','FAIR','FAKE','FALL','FAME','FARM','FAST','FATE','FEAR','FEED','FEEL','FEET','FELL','FELT','FILE','FILL','FILM','FIND','FINE','FIRE','FIRM','FISH','FLAG','FLAT','FLEW','FLIP','FLOW','FOLK','FOOD','FOOL','FOOT','FORD','FORE','FORK','FORM','FORT','FOUL','FOUR','FREE','FROM','FUEL','FULL','FUND','GAIN','GAME','GATE','GAVE','GEAR','GENE','GIFT','GIRL','GIVE','GLAD','GLOW','GLUE','GOAL','GOAT','GOES','GOLD','GOLF','GONE','GOOD','GRAB','GRAY','GREW','GRIP','GROW','GULF','HAIR','HALF','HALL','HAND','HANG','HARD','HARM','HATE','HAVE','HEAD','HEAL','HEAR','HEAT','HEEL','HELD','HELL','HELP','HERE','HERO','HIDE','HIGH','HIKE','HILL','HINT','HIRE','HOLD','HOLE','HOME','HOPE','HOST','HOUR','HUNT','HURT','IDEA','INCH','INTO','IRON','ITEM','JACK','JAIL','JANE','JAZZ','JEAN','JOBS','JOHN','JOIN','JOKE','JUMP','JUNE','JURY','JUST','KEEN','KEEP','KEPT','KICK','KIDS','KILL','KIND','KING','KNEE','KNEW','KNOW','LACK','LADY','LAID','LAKE','LAMP','LAND','LANE','LAST','LATE','LAWN','LEAD','LEAF','LEAN','LEFT','LEND','LENS','LESS','LIED','LIFE','LIFT','LIKE','LINE','LINK','LIST','LIVE','LOAD','LOAN','LOCK','LOGO','LONG','LOOK','LORD','LOSE','LOSS','LOST','LOTS','LOUD','LOVE','LUCK','MADE','MAIL','MAIN','MAKE','MALE','MALL','MANY','MARK','MASS','MATE','MEAL','MEAN','MEAT','MEET','MENU','MERE','MESS','MICE','MIKE','MILD','MILE','MILK','MILL','MIND','MINE','MISS','MODE','MOOD','MOON','MORE','MOST','MOVE','MUCH','MUST','NAME','NAVY','NEAR','NEAT','NECK','NEED','NEWS','NEXT','NICE','NINE','NODE','NONE','NOON','NORM','NOSE','NOTE','OATH','OKAY','ONCE','ONLY','ONTO','OPEN','ORAL','OVEN','OVER','PACE','PACK','PAGE','PAID','PAIN','PAIR','PALE','PALM','PARK','PART','PASS','PAST','PATH','PEAK','PICK','PILE','PINE','PINK','PIPE','PLAN','PLAY','PLOT','PLUG','PLUS','POET','POLL','POND','POOL','POOR','POPE','PORT','POSE','POST','POUR','PRAY','PULL','PUMP','PURE','PUSH','QUIT','RACE','RAIL','RAIN','RANK','RARE','RATE','READ','REAL','REAR','RELY','RENT','REST','RICE','RICH','RIDE','RING','RISE','RISK','ROAD','ROCK','RODE','ROLE','ROLL','ROOF','ROOM','ROOT','ROPE','ROSE','RULE','RUSH','SAFE','SAID','SAKE','SALE','SALT','SAME','SAND','SANG','SAVE','SEAL','SEAT','SEED','SEEK','SEEM','SEEN','SELF','SELL','SEND','SENT','SEPT','SHED','SHIP','SHOP','SHOT','SHOW','SHUT','SICK','SIDE','SIGN','SILK','SITE','SIZE','SKIN','SLIP','SLOW','SNAP','SNOW','SOFT','SOIL','SOLD','SOLE','SOME','SONG','SOON','SORT','SOUL','SOUP','SPOT','STAR','STAY','STEM','STEP','STOP','SUCH','SUIT','SURE','SWIM','TAIL','TAKE','TALE','TALK','TALL','TANK','TAPE','TASK','TEAM','TEAR','TECH','TELL','TEND','TENT','TERM','TEST','TEXT','THAN','THAT','THEM','THEN','THEY','THIN','THIS','THUS','TIDE','TIED','TIER','TILE','TIME','TINY','TIRE','TOLD','TOLL','TONE','TOOK','TOOL','TOPS','TORE','TORN','TOUR','TOWN','TRAP','TRAY','TREE','TRIM','TRIP','TRUE','TUBE','TUNE','TURN','TWIN','TYPE','UNIT','UPON','USED','USER','VARY','VAST','VERY','VIEW','VINE','VOTE','WAGE','WAIT','WAKE','WALK','WALL','WANT','WARM','WARN','WASH','WAVE','WAYS','WEAK','WEAR','WEEK','WELL','WENT','WERE','WEST','WHAT','WHEN','WHOM','WIDE','WIFE','WILD','WILL','WIND','WINE','WING','WIRE','WISE','WISH','WITH','WOKE','WOLF','WOOD','WORD','WORE','WORK','WORM','WORN','WRAP','YARD','YEAH','YEAR','YOUR','ZERO','ZONE'];
 
 // Official 2-letter Scrabble words
 const TWO_LETTER_WORDS = new Set(['AA','AB','AD','AE','AG','AH','AI','AL','AM','AN','AR','AS','AT','AW','AX','AY','BA','BE','BI','BO','BY','DA','DE','DO','ED','EF','EH','EL','EM','EN','ER','ES','ET','EX','FA','FE','GI','GO','HA','HE','HI','HM','HO','ID','IF','IN','IS','IT','JO','KA','KI','LA','LI','LO','MA','ME','MI','MM','MO','MU','MY','NA','NE','NO','NU','OD','OE','OF','OH','OI','OK','OM','ON','OP','OR','OS','OU','OW','OX','OY','PA','PE','PI','PO','QI','RE','SH','SI','SO','TA','TI','TO','UH','UM','UN','UP','US','UT','WE','WO','XI','XU','YA','YE','YO','ZA']);
 
+// Valid words set for quick lookup (includes 2, 3, and 4 letter words)
+const VALID_WORDS = new Set([...TWO_LETTER_WORDS, ...AI_WORDS]);
+
 // Word validation cache
 const wordCache = new Map();
 
-// Validate word using Dictionary API
+// Validate word - check local list first, then API for longer words
 const validateWord = async (word) => {
   const upper = word.toUpperCase();
   if (wordCache.has(upper)) return wordCache.get(upper);
   
-  // 2-letter words use official Scrabble list
-  if (word.length === 2) {
-    const isValid = TWO_LETTER_WORDS.has(upper);
-    wordCache.set(upper, isValid);
-    return isValid;
+  // Check our local valid words list first
+  if (VALID_WORDS.has(upper)) {
+    wordCache.set(upper, true);
+    return true;
   }
   
+  // For words not in our list, use API
   try {
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word.toLowerCase()}`);
     const isValid = response.ok;
@@ -90,6 +93,11 @@ const validateWord = async (word) => {
     wordCache.set(upper, false);
     return false;
   }
+};
+
+// SYNCHRONOUS word check for AI (uses only local list)
+const isValidWordSync = (word) => {
+  return VALID_WORDS.has(word.toUpperCase());
 };
 
 // Pancake Tile Component
@@ -359,7 +367,7 @@ const GriddleStacks = () => {
   }, [playerScore, opponentScore]);
 
   // ============================================
-  // AI MOVE LOGIC - IMPROVED!
+  // AI MOVE LOGIC - NOW VALIDATES ALL WORDS!
   // ============================================
   const makeAIMove = useCallback(() => {
     setIsThinking(true);
@@ -375,6 +383,42 @@ const GriddleStacks = () => {
         const letterCounts = {};
         word.split('').forEach(l => { letterCounts[l] = (letterCounts[l] || 0) + 1; });
         return Object.entries(letterCounts).every(([l, c]) => (handCounts[l] || 0) >= c);
+      };
+      
+      // Helper: Get horizontal word at position on a test board
+      const getHWordAt = (testBoard, row, col) => {
+        let startCol = col;
+        while (startCol > 0 && testBoard[row][startCol - 1].letter) startCol--;
+        let word = '', c = startCol;
+        while (c < BOARD_SIZE && testBoard[row][c].letter) { word += testBoard[row][c].letter; c++; }
+        return word;
+      };
+      
+      // Helper: Get vertical word at position on a test board
+      const getVWordAt = (testBoard, row, col) => {
+        let startRow = row;
+        while (startRow > 0 && testBoard[startRow - 1][col].letter) startRow--;
+        let word = '', r = startRow;
+        while (r < BOARD_SIZE && testBoard[r][col].letter) { word += testBoard[r][col].letter; r++; }
+        return word;
+      };
+      
+      // Helper: Check if placing a letter creates only valid words
+      const checkAllWordsValid = (testBoard, row, col) => {
+        const hWord = getHWordAt(testBoard, row, col);
+        const vWord = getVWordAt(testBoard, row, col);
+        
+        // Check horizontal word (if more than 1 letter)
+        if (hWord.length >= 2 && !isValidWordSync(hWord)) {
+          return false;
+        }
+        
+        // Check vertical word (if more than 1 letter)
+        if (vWord.length >= 2 && !isValidWordSync(vWord)) {
+          return false;
+        }
+        
+        return true;
       };
       
       // FIRST MOVE: Play a word through the center
@@ -413,47 +457,57 @@ const GriddleStacks = () => {
           for (let c = 0; c < BOARD_SIZE; c++) {
             if (board[r][c].letter) {
               const adjacents = [
-                { row: r - 1, col: c, dir: 'vertical' },
-                { row: r + 1, col: c, dir: 'vertical' },
-                { row: r, col: c - 1, dir: 'horizontal' },
-                { row: r, col: c + 1, dir: 'horizontal' }
+                { row: r - 1, col: c },
+                { row: r + 1, col: c },
+                { row: r, col: c - 1 },
+                { row: r, col: c + 1 }
               ];
-              adjacents.forEach(({ row, col, dir }) => {
+              adjacents.forEach(({ row, col }) => {
                 if (row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE && !board[row][col].letter) {
-                  playableSpots.push({ row, col, dir, existingLetter: board[r][c].letter, existingRow: r, existingCol: c });
+                  playableSpots.push({ row, col });
                 }
               });
             }
           }
         }
         
-        // Shuffle spots for variety
-        const shuffledSpots = [...playableSpots].sort(() => Math.random() - 0.5);
+        // Remove duplicates
+        const uniqueSpots = playableSpots.filter((spot, index, self) =>
+          index === self.findIndex(s => s.row === spot.row && s.col === spot.col)
+        );
         
-        // Try to play a 2-letter word extending from existing letters
+        // Shuffle spots for variety
+        const shuffledSpots = [...uniqueSpots].sort(() => Math.random() - 0.5);
+        
+        // Try each letter in hand at each spot
         for (const spot of shuffledSpots) {
           for (let i = 0; i < opponentHand.length; i++) {
             const letter = opponentHand[i];
-            let wordToCheck = '';
-            if (spot.dir === 'horizontal') {
-              wordToCheck = spot.col < spot.existingCol ? letter + spot.existingLetter : spot.existingLetter + letter;
-            } else {
-              wordToCheck = spot.row < spot.existingRow ? letter + spot.existingLetter : spot.existingLetter + letter;
-            }
             
-            // Check if it's a valid 2-letter word
-            if (TWO_LETTER_WORDS.has(wordToCheck)) {
-              const newBoard = board.map(r => r.map(c => ({...c})));
-              newBoard[spot.row][spot.col] = { letter, stackHeight: 1 };
-              setBoard(newBoard);
-              setOpponentScore(prev => prev + 2);
-              setLastPlayedWord(wordToCheck);
+            // Create a test board with this letter placed
+            const testBoard = board.map(r => r.map(c => ({...c})));
+            testBoard[spot.row][spot.col] = { letter, stackHeight: 1 };
+            
+            // Check if ALL words formed are valid
+            if (checkAllWordsValid(testBoard, spot.row, spot.col)) {
+              // Get the words for display
+              const hWord = getHWordAt(testBoard, spot.row, spot.col);
+              const vWord = getVWordAt(testBoard, spot.row, spot.col);
+              const displayWord = hWord.length >= vWord.length ? hWord : vWord;
+              const score = Math.max(hWord.length, vWord.length);
+              
+              // Make the move!
+              setBoard(testBoard);
+              setOpponentScore(prev => prev + score);
+              setLastPlayedWord(displayWord);
+              
               const newHand = [...opponentHand];
               newHand.splice(i, 1);
               const { drawn, remaining } = drawTiles(letterPool, 1);
               setOpponentHand([...newHand, ...drawn]);
               setLetterPool(remaining);
-              setOpponentMessage(`${wordToCheck}! ${opponent.playQuotes[Math.floor(Math.random() * opponent.playQuotes.length)]}`);
+              
+              setOpponentMessage(`${displayWord}! ${opponent.playQuotes[Math.floor(Math.random() * opponent.playQuotes.length)]}`);
               madePlay = true;
               break;
             }

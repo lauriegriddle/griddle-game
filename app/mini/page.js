@@ -286,7 +286,7 @@ const copyToClipboard = async (text) => {
   }
 
   return (
-    <div className="h-screen overflow-hidden bg-gradient-to-br from-amber-100 via-yellow-100 to-orange-100 p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-amber-100 via-yellow-100 to-orange-100 p-4 relative overflow-hidden">
       <div className="fixed top-4 left-4 text-4xl opacity-20">🍯</div>
       <div className="fixed top-4 right-4 text-4xl opacity-20">🥞</div>
       <div className="fixed bottom-4 left-4 text-4xl opacity-20">🧈</div>
@@ -333,9 +333,9 @@ const copyToClipboard = async (text) => {
     touch-action: manipulation;
   }
   
-  html, body {
+   html, body {
     overscroll-behavior: none;
-    overflow-x: hidden;
+    -webkit-overflow-scrolling: auto;
   }
 `}</style>
 

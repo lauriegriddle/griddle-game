@@ -275,6 +275,25 @@ subTextColor: "text-teal-700",
       dropTime: "7:00 AM EST"
     },
     {
+      name: "Griddle Shake",
+      tagline: "A Letter Griddle Word Hunt Game",
+      emoji: "🔍",
+      href: "/griddleshake",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 25%, #f5d0fe 50%, #a5f3fc 75%, #c4b5fd 100%)",
+        icon: "🔍",
+        iconSize: "text-4xl",
+        title: ["Griddle", "Shake"],
+        subtitle: "WORD HUNT",
+        subtitleColor: "text-purple-100"
+      },
+      borderColor: "border-purple-300",
+      bgColor: "from-purple-50 to-pink-50",
+      textColor: "text-purple-800",
+      subTextColor: "text-purple-600",
+      hoverBg: "bg-purple-400/80"
+    },
+    {
       name: "Letter Griddle Cottage",
       tagline: "A seasonal retreat",
       emoji: "🏔️",

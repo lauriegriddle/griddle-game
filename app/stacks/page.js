@@ -132,6 +132,34 @@ const BoardCell = ({ onClick, isCenter, isHighlighted, hasLetter, children }) =>
 // ============================================
 // MAIN GAME COMPONENT
 // ============================================
+const HowToPlayContent = () => (
+  <div className="space-y-3 text-amber-700">
+    <div className="flex items-start gap-3 bg-amber-50 rounded-xl p-3">
+      <span className="text-2xl">🥞</span>
+      <div><p className="font-semibold">Spell Words</p><p className="text-sm text-amber-600">Place letters to form valid English words (2+ letters)</p></div>
+    </div>
+    <div className="flex items-start gap-3 bg-amber-50 rounded-xl p-3">
+      <span className="text-2xl">➕</span>
+      <div><p className="font-semibold">Build Crosswords</p><p className="text-sm text-amber-600">Connect new words to existing ones on the board</p></div>
+    </div>
+    <div className="flex items-start gap-3 bg-amber-50 rounded-xl p-3">
+      <span className="text-2xl">📚</span>
+      <div><p className="font-semibold">Stack for Bonus!</p><p className="text-sm text-amber-600">Place on existing letters - stacked tiles score their stack height!</p></div>
+    </div>
+    <div className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-4 border-2 border-amber-300">
+      <h4 className="font-bold text-amber-800 mb-2 flex items-center gap-2"><span>🏆</span> Scoring</h4>
+      <ul className="text-sm text-amber-700 space-y-1">
+        <li>• <strong>Each tile = 1 point</strong> (base score)</li>
+        <li>• <strong>Stacked tiles = stack height</strong> (e.g., 3-high = 3 pts)</li>
+        <li>• <strong>All words formed count!</strong> (crossword bonus)</li>
+      </ul>
+    </div>
+    <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-4 border-2 border-red-200">
+      <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2"><span>⚠️</span> Invalid Word?</h4>
+      <p className="text-sm text-red-600">If your word is rejected, tap <strong>↩️ Undo</strong> to return your tiles and try a different word. If you cannot make a valid word, tap <strong>⏭️ Pass</strong> to skip your turn.</p>
+    </div>
+  </div>
+);
 const GriddleStacks = () => {
   const BOARD_SIZE = 11;
   const HAND_SIZE = 7;
@@ -158,6 +186,9 @@ const GriddleStacks = () => {
   const [lastPlayedWord, setLastPlayedWord] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [passCount, setPassCount] = useState(0);
+  const [showHelpModal, setShowHelpModal] = useState(false);
+const [showMenuConfirm, setShowMenuConfirm] = useState(false);
+const currentYear = new Date().getFullYear();
 
   // Initialize letter pool
   const initializeLetterPool = useCallback(() => {
@@ -179,6 +210,12 @@ const GriddleStacks = () => {
     });
     setSelectedTileIndex(null);
   }, []);
+
+
+const returnToMenu = () => {
+  setGameStarted(false);
+  setShowMenuConfirm(false);
+};
 
   // Start game
   const startGame = useCallback(() => {
@@ -570,6 +607,16 @@ const GriddleStacks = () => {
               <h3 className="font-bold text-green-800 mb-2 text-center">📖 Real Dictionary!</h3>
               <p className="text-sm text-green-700 text-center">Uses a real English dictionary API - any valid word works!</p>
             </div>
+            <div className="mb-4">
+  <h3 className="text-lg font-bold text-amber-800 mb-2 text-center">📖 How to Play</h3>
+  <div className="bg-amber-50 rounded-xl p-3 text-sm space-y-2 border border-amber-200">
+    <p><span className="font-bold text-amber-700">🥞 Spell Words:</span> Place letters to form valid English words (2+ letters)</p>
+    <p><span className="font-bold text-amber-700">➕ Build Crosswords:</span> Connect new words to existing ones</p>
+    <p><span className="font-bold text-amber-700">📚 Stack for Bonus:</span> Place on existing letters - stacked tiles score their stack height!</p>
+    <p><span className="font-bold text-amber-700">🏆 Scoring:</span> Each tile = 1 pt, stacked tiles = stack height, all words formed count!</p>
+    <p className="text-amber-600 text-xs mt-2">⚠️ Invalid word? Tap <strong>Undo</strong> to try again or <strong>Pass</strong> to skip your turn.</p>
+  </div>
+</div>
             <div className="mb-6">
               <h3 className="text-lg font-bold text-amber-800 mb-3 text-center">🎭 Choose Opponent</h3>
               <div className="flex justify-center gap-3 flex-wrap">
@@ -587,6 +634,11 @@ const GriddleStacks = () => {
               🥞 Start Stacking!
             </button>
           </div>
+          <div className="text-center text-xs text-amber-600 mt-6">
+  <p>Part of the Letter Griddle Family 🥞</p>
+  <p className="mt-1"><a href="/" className="underline hover:text-amber-800">← Back to Letter Griddle</a></p>
+  <p className="mt-2">© {currentYear} Letter Griddle. All rights reserved. | <a href="/privacy" className="underline hover:text-amber-800">Privacy</a> | <a href="/terms" className="underline hover:text-amber-800">Terms</a></p>
+</div>
           <div className="text-center text-xs text-amber-600">
             <p>Part of the Letter Griddle Family 🥞</p>
             <p className="mt-1"><a href="/" className="underline hover:text-amber-800">← Back to Letter Griddle</a></p>
@@ -602,9 +654,11 @@ const GriddleStacks = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-2 md:p-4">
       <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-2">
-          <h1 className="text-xl md:text-2xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>🥞 Griddle Stacks</h1>
-        </div>
+        <div className="flex justify-between items-center mb-2">
+  <button onClick={() => setShowMenuConfirm(true)} className="bg-amber-200 hover:bg-amber-300 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">☰ Menu</button>
+  <h1 className="text-xl md:text-2xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>🥞 Griddle Stacks</h1>
+  <button onClick={() => setShowHelpModal(true)} className="bg-amber-200 hover:bg-amber-300 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">📚 How to Play</button>
+</div>
 
         {/* Scoreboard */}
         <div className="bg-white rounded-xl shadow-lg p-3 mb-3 border-2 border-amber-200">
@@ -690,6 +744,12 @@ const GriddleStacks = () => {
             className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-4 py-2 rounded-full font-medium text-sm">🔄 New</button>
         </div>
 
+        <div className="text-center py-4 text-xs text-amber-600">
+  <p>Part of the Letter Griddle Family 🥞</p>
+  <p className="mt-1"><a href="/" className="underline hover:text-amber-800">← Back to Letter Griddle</a></p>
+  <p className="mt-2">© {currentYear} Letter Griddle. All rights reserved. | <a href="/privacy" className="underline hover:text-amber-800">Privacy</a> | <a href="/terms" className="underline hover:text-amber-800">Terms</a></p>
+</div>
+
         {/* Game Over Modal */}
         {gameOver && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -710,6 +770,32 @@ const GriddleStacks = () => {
           </div>
         )}
 
+{showHelpModal && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>📖 How to Play</h2>
+        <button onClick={() => setShowHelpModal(false)} className="text-gray-400 hover:text-gray-600 text-2xl">✕</button>
+      </div>
+      <HowToPlayContent />
+      <button onClick={() => setShowHelpModal(false)} className="w-full mt-4 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white py-3 rounded-xl font-bold">Got it! 🥞</button>
+    </div>
+  </div>
+)}
+
+{showMenuConfirm && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl text-center">
+      <div className="text-4xl mb-4">🥞</div>
+      <h2 className="text-xl font-bold text-amber-800 mb-2">Return to Menu?</h2>
+      <p className="text-amber-600 mb-4">Your current game progress will be lost.</p>
+      <div className="flex gap-3 justify-center">
+        <button onClick={() => setShowMenuConfirm(false)} className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-2 rounded-full font-medium">Cancel</button>
+        <button onClick={returnToMenu} className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-6 py-2 rounded-full font-bold">Yes, Exit</button>
+      </div>
+    </div>
+  </div>
+)}
         {/* Footer */}
         <div className="text-center py-4 text-xs text-amber-600">
           <p>Part of the Letter Griddle Family 🥞</p>

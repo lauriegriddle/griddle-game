@@ -1109,12 +1109,16 @@ Part of the Letter Griddle Family 🥞`;
             </div>
           </div>
           
-          {opponentMessage && (
-            <div className="mt-3 text-center bg-amber-50 rounded-xl p-2 animate-fade-in">
-              <CharacterAvatar character={opponent} size="sm" />
-              <span className="text-amber-700 ml-2 italic">"{opponentMessage}"</span>
-            </div>
-          )}
+          <div className="mt-3 text-center bg-amber-50 rounded-xl p-2 h-12 flex items-center justify-center">
+  {opponentMessage ? (
+    <>
+      <CharacterAvatar character={opponent} size="sm" />
+      <span className="text-amber-700 ml-2 italic">"{opponentMessage}"</span>
+    </>
+  ) : (
+    <span className="text-amber-300 italic text-sm">...</span>
+  )}
+</div>
         </div>
 
         {/* Checkerboard */}

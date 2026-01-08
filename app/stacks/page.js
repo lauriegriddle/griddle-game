@@ -3,42 +3,19 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 // ============================================
 // GRIDDLE STACKS - A Letter Griddle Word Game
-// Final Version with Full Brand Consistency
+// Premium Café au Lait Edition
+// Warm, cozy glassmorphism for long game sessions
 // ============================================
 
-// Character Avatar Component - Simple clean style matching Letter Griddle
+// Character Avatar Component
 const CharacterAvatar = ({ character, size = 'md' }) => {
   const sizeClasses = { sm: 'w-10 h-10', md: 'w-14 h-14', lg: 'w-16 h-16' };
   
   const characters = {
-    laurel: { 
-      skinTone: '#E8C4A0',
-      hairColor: '#5D4037',
-      hairStyle: 'long', 
-      shirtColor: '#D4A574',
-      bgColor: '#C9A882'
-    },
-    mr_lindsay: { 
-      skinTone: '#F0DCC0', 
-      hairColor: '#B8B8B8',
-      hairStyle: 'balding', 
-      shirtColor: '#4A7C6F',
-      bgColor: '#A8B5A0'
-    },
-    sarah: { 
-      skinTone: '#E8C4A0', 
-      hairColor: '#6B4423',
-      hairStyle: 'wavy', 
-      shirtColor: '#4A7C59',
-      bgColor: '#C9A882'
-    },
-    taylor: { 
-      skinTone: '#C68642', 
-      hairColor: '#1C1108',
-      hairStyle: 'short', 
-      shirtColor: '#4A6FA5',
-      bgColor: '#A89080'
-    },
+    laurel: { skinTone: '#E8C4A0', hairColor: '#5D4037', hairStyle: 'long', shirtColor: '#D4A574', bgColor: '#C9A882' },
+    mr_lindsay: { skinTone: '#F0DCC0', hairColor: '#B8B8B8', hairStyle: 'balding', shirtColor: '#4A7C6F', bgColor: '#A8B5A0' },
+    sarah: { skinTone: '#E8C4A0', hairColor: '#6B4423', hairStyle: 'wavy', shirtColor: '#4A7C59', bgColor: '#C9A882' },
+    taylor: { skinTone: '#C68642', hairColor: '#1C1108', hairStyle: 'short', shirtColor: '#4A6FA5', bgColor: '#A89080' },
   };
   
   const char = characters[character?.id] || characters.laurel;
@@ -46,55 +23,35 @@ const CharacterAvatar = ({ character, size = 'md' }) => {
   return (
     <div className={`${sizeClasses[size]} rounded-full overflow-hidden shadow-md`}>
       <svg viewBox="0 0 100 100" className="w-full h-full">
-        {/* Background circle */}
         <circle cx="50" cy="50" r="50" fill={char.bgColor} />
-        
-        {/* Hair behind head for long/wavy styles */}
         {(char.hairStyle === 'long' || char.hairStyle === 'wavy') && (
           <ellipse cx="50" cy="50" rx="28" ry="32" fill={char.hairColor} />
         )}
-        
-        {/* Shirt/body at bottom */}
         <ellipse cx="50" cy="88" rx="24" ry="18" fill={char.shirtColor} />
-        
-        {/* Head/Face - simple oval */}
         <ellipse cx="50" cy="48" rx="20" ry="22" fill={char.skinTone} />
-        
-        {/* Hair on top based on style */}
         {char.hairStyle === 'long' && (
           <>
-            {/* Side hair */}
             <rect x="22" y="35" width="12" height="35" rx="6" fill={char.hairColor} />
             <rect x="66" y="35" width="12" height="35" rx="6" fill={char.hairColor} />
-            {/* Top hair */}
             <ellipse cx="50" cy="32" rx="22" ry="12" fill={char.hairColor} />
           </>
         )}
-        {char.hairStyle === 'short' && (
-          <ellipse cx="50" cy="32" rx="18" ry="10" fill={char.hairColor} />
-        )}
+        {char.hairStyle === 'short' && <ellipse cx="50" cy="32" rx="18" ry="10" fill={char.hairColor} />}
         {char.hairStyle === 'balding' && (
           <>
-            {/* Gray side hair tufts */}
             <ellipse cx="28" cy="38" rx="8" ry="6" fill={char.hairColor} />
             <ellipse cx="72" cy="38" rx="8" ry="6" fill={char.hairColor} />
           </>
         )}
         {char.hairStyle === 'wavy' && (
           <>
-            {/* Top hair */}
             <ellipse cx="50" cy="30" rx="20" ry="10" fill={char.hairColor} />
-            {/* Side hair - shorter than long */}
             <rect x="24" y="32" width="10" height="25" rx="5" fill={char.hairColor} />
             <rect x="66" y="32" width="10" height="25" rx="5" fill={char.hairColor} />
           </>
         )}
-        
-        {/* Simple dot eyes */}
         <circle cx="42" cy="48" r="2.5" fill="#4A3728" />
         <circle cx="58" cy="48" r="2.5" fill="#4A3728" />
-        
-        {/* Simple smile */}
         <path d="M 42 58 Q 50 64 58 58" stroke="#4A3728" strokeWidth="2" fill="none" strokeLinecap="round" />
       </svg>
     </div>
@@ -147,61 +104,61 @@ const validateWord = async (word) => {
 
 const isValidWordSync = (word) => VALID_WORDS.has(word.toUpperCase());
 
-// Pancake Tile Component
+// Pancake Tile Component - Warm coffee tones
 const PancakeTile = ({ letter, stackHeight = 1, size = 'md', selected = false, onClick, disabled = false, isNew = false }) => {
   const sizeClasses = { sm: 'w-7 h-7 text-xs', md: 'w-10 h-10 text-sm', lg: 'w-12 h-12 text-base' };
   const stackLayers = Math.min(stackHeight, 5);
   return (
     <div className={`relative ${disabled ? 'opacity-50' : 'cursor-pointer'}`} onClick={disabled ? undefined : onClick}>
       {stackHeight > 1 && Array.from({ length: stackLayers - 1 }).map((_, i) => (
-        <div key={i} className="absolute rounded-full bg-amber-600 border border-amber-700"
+        <div key={i} className="absolute rounded-full bg-amber-700 border border-amber-800"
           style={{ width: size === 'sm' ? '28px' : size === 'md' ? '40px' : '48px', height: size === 'sm' ? '28px' : size === 'md' ? '40px' : '48px', top: `${(stackLayers - 1 - i) * 3}px`, left: '0px', zIndex: i }} />
       ))}
       <div className={`${sizeClasses[size]} rounded-full flex items-center justify-center font-bold relative transition-all duration-200
-        ${selected ? 'bg-gradient-to-br from-yellow-300 to-amber-400 ring-4 ring-amber-500 scale-110 shadow-xl z-30' : 'bg-gradient-to-br from-amber-200 to-amber-400 hover:from-amber-300 hover:to-amber-500 hover:shadow-lg'}
-        ${isNew ? 'ring-2 ring-green-500' : ''} border-2 border-amber-500 shadow-md`}
-        style={{ zIndex: 20, marginTop: stackHeight > 1 ? `${(stackLayers - 1) * 3}px` : '0' }}>
+        ${selected ? 'bg-gradient-to-br from-amber-200 to-amber-400 ring-4 ring-amber-500 scale-110 shadow-xl z-30' : 'bg-gradient-to-br from-amber-100 to-amber-300 hover:from-amber-200 hover:to-amber-400 hover:shadow-lg'}
+        ${isNew ? 'ring-2 ring-emerald-500' : ''} border-2 border-amber-500 shadow-md`}
+        style={{ zIndex: 20, marginTop: stackHeight > 1 ? `${(stackLayers - 1) * 3}px` : '0', fontFamily: 'Georgia, serif' }}>
         <span className="text-amber-900">{letter}</span>
       </div>
-      {stackHeight > 1 && (<div className="absolute bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold" style={{ top: '-4px', right: '-4px', zIndex: 25 }}>{stackHeight}</div>)}
+      {stackHeight > 1 && (<div className="absolute bg-amber-700 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold" style={{ top: '-4px', right: '-4px', zIndex: 25 }}>{stackHeight}</div>)}
     </div>
   );
 };
 
-// Board Cell Component
+// Board Cell Component - Warm cream tones
 const BoardCell = ({ onClick, isCenter, isHighlighted, hasLetter, children }) => (
-  <div onClick={onClick} className={`w-8 h-8 md:w-9 md:h-9 border border-amber-400 flex items-center justify-center cursor-pointer transition-all ${isCenter && !hasLetter ? 'bg-amber-300' : 'bg-amber-100'} ${isHighlighted ? 'bg-green-200 ring-2 ring-green-500' : ''} ${!hasLetter && !isCenter ? 'hover:bg-amber-200' : ''}`}>
+  <div onClick={onClick} className={`w-8 h-8 md:w-9 md:h-9 border border-amber-300/50 flex items-center justify-center cursor-pointer transition-all ${isCenter && !hasLetter ? 'bg-amber-200/80' : 'bg-amber-50/60'} ${isHighlighted ? 'bg-amber-300/80 ring-2 ring-amber-500' : ''} ${!hasLetter && !isCenter ? 'hover:bg-amber-100/80' : ''}`}>
     {children}
     {isCenter && !hasLetter && <span className="text-amber-600 text-lg">⭐</span>}
   </div>
 );
 
-// How to Play Content - Premium dark charcoal styling
+// How to Play Content - Café au lait styling
 const HowToPlayContent = () => (
   <div className="space-y-3">
-    <div className="flex items-start gap-3 bg-gray-600/50 rounded-xl p-3">
+    <div className="flex items-start gap-3 bg-stone-600/50 backdrop-blur-sm rounded-xl p-3">
       <span className="text-2xl">🥞</span>
-      <div><p className="font-semibold text-amber-200">Spell Words</p><p className="text-sm text-amber-100/80">Place letters to form valid English words (2+ letters)</p></div>
+      <div><p className="font-semibold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>Spell Words</p><p className="text-sm text-stone-300">Place letters to form valid English words (2+ letters)</p></div>
     </div>
-    <div className="flex items-start gap-3 bg-gray-600/50 rounded-xl p-3">
+    <div className="flex items-start gap-3 bg-stone-600/50 backdrop-blur-sm rounded-xl p-3">
       <span className="text-2xl">➕</span>
-      <div><p className="font-semibold text-amber-200">Build Crosswords</p><p className="text-sm text-amber-100/80">Connect new words to existing ones on the board</p></div>
+      <div><p className="font-semibold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>Build Crosswords</p><p className="text-sm text-stone-300">Connect new words to existing ones on the board</p></div>
     </div>
-    <div className="flex items-start gap-3 bg-gray-600/50 rounded-xl p-3">
+    <div className="flex items-start gap-3 bg-stone-600/50 backdrop-blur-sm rounded-xl p-3">
       <span className="text-2xl">📚</span>
-      <div><p className="font-semibold text-amber-200">Stack for Bonus!</p><p className="text-sm text-amber-100/80">Place on existing letters. Stacked tiles score their stack height!</p></div>
+      <div><p className="font-semibold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>Stack for Bonus!</p><p className="text-sm text-stone-300">Place on existing letters. Stacked tiles score their stack height!</p></div>
     </div>
-    <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-xl p-4 border border-amber-500/50">
-      <h4 className="font-bold text-amber-200 mb-2 flex items-center gap-2"><span>🏆</span> Scoring</h4>
-      <ul className="text-sm text-amber-100/80 space-y-1">
+    <div className="bg-amber-900/30 backdrop-blur-sm rounded-xl p-4 border border-amber-600/30">
+      <h4 className="font-bold text-amber-100 mb-2 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}><span>🏆</span> Scoring</h4>
+      <ul className="text-sm text-stone-300 space-y-1">
         <li>• <strong className="text-amber-200">Each tile = 1 point</strong> (base score)</li>
         <li>• <strong className="text-amber-200">Stacked tiles = stack height</strong> (e.g., 3-high = 3 pts)</li>
         <li>• <strong className="text-amber-200">All words formed count!</strong> (crossword bonus)</li>
       </ul>
     </div>
-    <div className="bg-gray-600/50 rounded-xl p-4 border border-gray-500">
-      <h4 className="font-bold text-amber-200 mb-2 flex items-center gap-2"><span>💡</span> Tip</h4>
-      <p className="text-sm text-amber-100/80">If your word isn't recognized, tap <strong className="text-amber-200">Undo</strong> to get your tiles back and try another word. Stuck? Tap <strong className="text-amber-200">Pass</strong> to skip your turn.</p>
+    <div className="bg-stone-600/50 backdrop-blur-sm rounded-xl p-4 border border-stone-500/50">
+      <h4 className="font-bold text-amber-100 mb-2 flex items-center gap-2" style={{fontFamily: 'Georgia, serif'}}><span>💡</span> Tip</h4>
+      <p className="text-sm text-stone-300">If your word isn't recognized, tap <strong className="text-amber-200">Undo</strong> to get your tiles back and try another word. Stuck? Tap <strong className="text-amber-200">Pass</strong> to skip your turn.</p>
     </div>
   </div>
 );
@@ -313,7 +270,7 @@ const GriddleStacks = () => {
   // Share results
   const handleShare = useCallback(() => {
     const resultText = winner === 'player' ? '🏆 Won!' : winner === 'tie' ? '🤝 Tie!' : '🥈 Lost';
-    const shareText = `🥞 Griddle Stacks ${resultText}\n\nMe: ${playerScore} pts\n${opponent.name}: ${opponentScore} pts\n\nPlay at griddlestacks.com\nPart of the Letter Griddle Family 🥞`;
+    const shareText = `☕ Griddle Stacks ${resultText}\n\nMe: ${playerScore} pts\n${opponent.name}: ${opponentScore} pts\n\nPlay at griddlestacks.com\nPart of the Letter Griddle Cafe ☕`;
     
     if (navigator.share) {
       navigator.share({ title: 'Griddle Stacks Results', text: shareText }).catch(() => {});
@@ -603,86 +560,100 @@ const GriddleStacks = () => {
   }, [currentTurn, gameOver, gameStarted, makeAIMove]);
 
   // ============================================
-  // RENDER - Start Screen
+  // RENDER - Start Screen with Café au Lait styling
   // ============================================
   if (!gameStarted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 p-4">
-        <div className="max-w-lg mx-auto pt-8">
+      <div className="min-h-screen p-4 relative overflow-hidden" style={{
+        background: 'linear-gradient(180deg, #3E2723 0%, #4E342E 15%, #5D4037 30%, #6D4C41 45%, #8D6E63 60%, #A1887F 75%, #BCAAA4 85%, #D7CCC8 95%, #EFEBE9 100%)'
+      }}>
+        {/* Subtle decorative elements */}
+        <div className="fixed top-4 left-4 text-4xl opacity-10">☕</div>
+        <div className="fixed top-4 right-4 text-4xl opacity-10">📚</div>
+        <div className="fixed bottom-4 left-4 text-4xl opacity-10">🥞</div>
+        <div className="fixed bottom-4 right-4 text-4xl opacity-10">☕</div>
+        
+        <div className="max-w-lg mx-auto pt-8 relative z-10">
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">🥞📚</div>
-            <h1 className="text-4xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>Griddle Stacks</h1>
-            <p className="text-xl text-amber-600">A Letter Griddle Word Game</p>
-            <p className="text-amber-500 text-sm mt-1">Stack pancakes, spell words, score big!</p>
+            <h1 className="text-4xl font-bold text-amber-100 mb-2" style={{fontFamily: 'Georgia, serif'}}>Griddle Stacks</h1>
+            <p className="text-xl text-amber-200/90" style={{fontFamily: 'Georgia, serif'}}>A Letter Griddle Word Game</p>
+            <p className="text-amber-300/70 text-sm mt-1">Stack pancakes, spell words, score big!</p>
           </div>
           
-          {/* Main content card with dark charcoal styling */}
-          <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-3xl shadow-2xl p-6 border-2 border-gray-600 mb-6">
-            <h2 className="text-2xl font-bold text-amber-200 mb-4 text-center" style={{fontFamily: 'Georgia, serif'}}>📖 How to Play</h2>
-            <div className="space-y-3 text-amber-100 mb-6">
-              <div className="flex items-start gap-3 bg-gray-600/50 rounded-xl p-3">
+          {/* Main content card with glassmorphism */}
+          <div className="bg-stone-800/70 backdrop-blur-md rounded-3xl shadow-2xl p-6 border border-stone-600/50 mb-6">
+            <h2 className="text-2xl font-bold text-amber-100 mb-4 text-center" style={{fontFamily: 'Georgia, serif'}}>📖 How to Play</h2>
+            <div className="space-y-3 mb-6">
+              <div className="flex items-start gap-3 bg-stone-700/50 backdrop-blur-sm rounded-xl p-3 border border-stone-600/30">
                 <span className="text-2xl">🥞</span>
-                <div><p className="font-semibold text-amber-200">Spell Words</p><p className="text-sm text-amber-100/80">Place letters to form valid English words</p></div>
+                <div><p className="font-semibold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>Spell Words</p><p className="text-sm text-stone-300">Place letters to form valid English words</p></div>
               </div>
-              <div className="flex items-start gap-3 bg-gray-600/50 rounded-xl p-3">
+              <div className="flex items-start gap-3 bg-stone-700/50 backdrop-blur-sm rounded-xl p-3 border border-stone-600/30">
                 <span className="text-2xl">➕</span>
-                <div><p className="font-semibold text-amber-200">Build Crosswords</p><p className="text-sm text-amber-100/80">Connect new words to existing ones</p></div>
+                <div><p className="font-semibold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>Build Crosswords</p><p className="text-sm text-stone-300">Connect new words to existing ones</p></div>
               </div>
-              <div className="flex items-start gap-3 bg-gray-600/50 rounded-xl p-3">
+              <div className="flex items-start gap-3 bg-stone-700/50 backdrop-blur-sm rounded-xl p-3 border border-stone-600/30">
                 <span className="text-2xl">📚</span>
-                <div><p className="font-semibold text-amber-200">Stack for Bonus!</p><p className="text-sm text-amber-100/80">Place on existing letters for extra points</p></div>
+                <div><p className="font-semibold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>Stack for Bonus!</p><p className="text-sm text-stone-300">Place on existing letters for extra points</p></div>
               </div>
             </div>
             
-            {/* Real Dictionary - ON-BRAND amber colors */}
-            <div className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-xl p-4 mb-6 border border-amber-500/50">
-              <h3 className="font-bold text-amber-200 mb-2 text-center">📖 Real Dictionary!</h3>
-              <p className="text-sm text-amber-100/80 text-center">Uses a real English dictionary API. Any valid word works!</p>
+            {/* Real Dictionary */}
+            <div className="bg-amber-900/30 backdrop-blur-sm rounded-xl p-4 mb-6 border border-amber-700/30">
+              <h3 className="font-bold text-amber-100 mb-2 text-center" style={{fontFamily: 'Georgia, serif'}}>📖 Real Dictionary!</h3>
+              <p className="text-sm text-stone-300 text-center">Uses a real English dictionary API. Any valid word works!</p>
             </div>
             
             <div className="mb-4">
-              <h3 className="text-lg font-bold text-amber-200 mb-2 text-center">📖 Quick Reference</h3>
-              <div className="bg-gray-600/50 rounded-xl p-3 text-sm space-y-2 border border-gray-500">
-                <p className="text-amber-100"><span className="font-bold text-amber-200">🥞 Spell Words:</span> Place letters to form valid English words (2+ letters)</p>
-                <p className="text-amber-100"><span className="font-bold text-amber-200">➕ Build Crosswords:</span> Connect new words to existing ones</p>
-                <p className="text-amber-100"><span className="font-bold text-amber-200">📚 Stack for Bonus:</span> Place on existing letters. Stacked tiles score their stack height!</p>
-                <p className="text-amber-100"><span className="font-bold text-amber-200">🏆 Scoring:</span> Each tile = 1 pt, stacked tiles = stack height, all words formed count!</p>
-                <p className="text-amber-100/60 text-xs mt-2">⚠️ Invalid word? Tap <strong>Undo</strong> to try again or <strong>Pass</strong> to skip your turn.</p>
+              <h3 className="text-lg font-bold text-amber-100 mb-2 text-center" style={{fontFamily: 'Georgia, serif'}}>📖 Quick Reference</h3>
+              <div className="bg-stone-700/50 backdrop-blur-sm rounded-xl p-3 text-sm space-y-2 border border-stone-600/30">
+                <p className="text-stone-300"><span className="font-bold text-amber-200">🥞 Spell Words:</span> Place letters to form valid English words (2+ letters)</p>
+                <p className="text-stone-300"><span className="font-bold text-amber-200">➕ Build Crosswords:</span> Connect new words to existing ones</p>
+                <p className="text-stone-300"><span className="font-bold text-amber-200">📚 Stack for Bonus:</span> Place on existing letters. Stacked tiles score their stack height!</p>
+                <p className="text-stone-300"><span className="font-bold text-amber-200">🏆 Scoring:</span> Each tile = 1 pt, stacked tiles = stack height, all words formed count!</p>
+                <p className="text-stone-400 text-xs mt-2">⚠️ Invalid word? Tap <strong className="text-amber-200">Undo</strong> to try again or <strong className="text-amber-200">Pass</strong> to skip your turn.</p>
               </div>
             </div>
             
             <div className="mb-6">
-              <h3 className="text-lg font-bold text-amber-200 mb-3 text-center">🎭 Choose Opponent</h3>
+              <h3 className="text-lg font-bold text-amber-100 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>🎭 Choose Opponent</h3>
               <div className="flex justify-center gap-3 flex-wrap">
                 {TRIVIA_CREW.map(char => (
                   <button key={char.id} onClick={() => setOpponent(char)}
-                    className={`text-center p-2 rounded-xl transition-all ${opponent.id === char.id ? 'bg-amber-500/30 ring-2 ring-amber-400 shadow-lg' : 'bg-gray-600/50 hover:bg-gray-600'}`}>
+                    className={`text-center p-2 rounded-xl transition-all ${opponent.id === char.id ? 'bg-amber-700/50 ring-2 ring-amber-400 shadow-lg backdrop-blur-sm' : 'bg-stone-700/50 hover:bg-stone-600/50 backdrop-blur-sm'} border border-stone-600/30`}>
                     <CharacterAvatar character={char} size="md" />
-                    <p className="text-xs text-amber-200 mt-1 font-medium">{char.name}</p>
+                    <p className="text-xs text-amber-100 mt-1 font-medium" style={{fontFamily: 'Georgia, serif'}}>{char.name}</p>
                   </button>
                 ))}
               </div>
             </div>
             
-            {/* Continue Game Button - ON-BRAND amber/orange */}
+            {/* Continue Game Button */}
             {hasSavedGame && (
               <button onClick={loadSavedGame}
-                className="w-full mb-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] border-2 border-amber-400">
+                className="w-full mb-3 bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] border border-amber-500/50"
+                style={{fontFamily: 'Georgia, serif'}}>
                 ▶️ Continue Game
               </button>
             )}
             
             <button onClick={() => startGame(true)}
-              className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] border-2 border-amber-400">
+              className="w-full bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] border border-amber-500/50"
+              style={{fontFamily: 'Georgia, serif'}}>
               🥞 Start Stacking!
             </button>
           </div>
           
-          {/* Footer */}
-          <div className="text-center text-xs text-amber-600 mt-6">
-            <p>Part of the Letter Griddle Family 🥞</p>
-            <p className="mt-1"><a href="/" className="underline hover:text-amber-800">← Back to Letter Griddle</a></p>
-            <p className="mt-2">© {currentYear} Letter Griddle. All rights reserved. | <a href="/privacy" className="underline hover:text-amber-800">Privacy</a> | <a href="/terms" className="underline hover:text-amber-800">Terms</a></p>
+          {/* Footer - white text on dark gradient */}
+          <div className="text-center text-xs mt-6">
+            <p className="text-white/80">Part of <a href="/" className="underline hover:text-white">The Letter Griddle Cafe</a> ☕</p>
+            <p className="mt-2 text-white/60">
+              <a href="/privacy" className="hover:text-white/80">Privacy</a>
+              <span className="mx-2">•</span>
+              <a href="/terms" className="hover:text-white/80">Terms</a>
+            </p>
+            <p className="mt-1 text-white/50">© {currentYear} Letter Griddle Cafe</p>
           </div>
         </div>
       </div>
@@ -690,61 +661,71 @@ const GriddleStacks = () => {
   }
 
   // ============================================
-  // RENDER - Game Screen
+  // RENDER - Game Screen with Café au Lait styling
   // ============================================
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-2 md:p-4">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen p-2 md:p-4 relative overflow-hidden" style={{
+      background: 'linear-gradient(180deg, #3E2723 0%, #4E342E 15%, #5D4037 30%, #6D4C41 45%, #8D6E63 60%, #A1887F 75%, #BCAAA4 85%, #D7CCC8 95%, #EFEBE9 100%)'
+    }}>
+      {/* Subtle decorative elements */}
+      <div className="fixed top-2 left-2 text-2xl opacity-10">☕</div>
+      <div className="fixed top-2 right-2 text-2xl opacity-10">📚</div>
+      <div className="fixed bottom-2 left-2 text-2xl opacity-10">🥞</div>
+      <div className="fixed bottom-2 right-2 text-2xl opacity-10">☕</div>
+      
+      <div className="max-w-2xl mx-auto relative z-10">
         {/* Header */}
         <div className="flex justify-between items-center mb-2">
           <button onClick={() => setShowMenuConfirm(true)}
-            className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md transition-all">
+            className="bg-stone-700/70 backdrop-blur-sm hover:bg-stone-600/70 text-amber-100 px-4 py-2 rounded-full text-sm font-semibold shadow-md transition-all border border-stone-600/50"
+            style={{fontFamily: 'Georgia, serif'}}>
             ☰ Menu
           </button>
-          <h1 className="text-xl md:text-2xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>🥞 Griddle Stacks</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>🥞 Griddle Stacks</h1>
           <button onClick={() => setShowHelpModal(true)}
-            className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md transition-all">
+            className="bg-stone-700/70 backdrop-blur-sm hover:bg-stone-600/70 text-amber-100 px-4 py-2 rounded-full text-sm font-semibold shadow-md transition-all border border-stone-600/50"
+            style={{fontFamily: 'Georgia, serif'}}>
             ❓ Help
           </button>
         </div>
 
-        {/* Scoreboard - ON-BRAND amber background */}
-        <div className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl shadow-lg p-3 mb-3 border-2 border-amber-300">
+        {/* Scoreboard - Glassmorphism */}
+        <div className="bg-stone-800/60 backdrop-blur-md rounded-xl shadow-lg p-3 mb-3 border border-stone-600/50">
           <div className="flex justify-between items-center">
-            <div className={`text-center p-2 rounded-lg ${currentTurn === 'player' ? 'bg-amber-200 ring-2 ring-amber-500' : 'bg-amber-50'}`}>
+            <div className={`text-center p-2 rounded-lg transition-all ${currentTurn === 'player' ? 'bg-amber-700/50 ring-2 ring-amber-400 backdrop-blur-sm' : 'bg-stone-700/50 backdrop-blur-sm'}`}>
               <div className="text-2xl">🥞</div>
-              <div className="text-xs font-bold text-amber-800">You</div>
-              <div className="text-xl font-bold text-amber-600">{playerScore}</div>
+              <div className="text-xs font-bold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>You</div>
+              <div className="text-xl font-bold text-amber-200">{playerScore}</div>
             </div>
             <div className="text-center flex-1 px-2">
-              <div className="text-sm text-amber-700 font-medium">
+              <div className="text-sm text-amber-100 font-medium" style={{fontFamily: 'Georgia, serif'}}>
                 {isValidating ? 'Checking...' : isThinking ? `${opponent.name} thinking...` : `${currentTurn === 'player' ? 'Your' : opponent.name + "'s"} Turn`}
               </div>
-              <div className="text-xs text-amber-500">{letterPool.length} tiles left</div>
-              {lastPlayedWord && <div className="text-sm text-amber-700 font-bold">Last: {lastPlayedWord}</div>}
+              <div className="text-xs text-stone-400">{letterPool.length} tiles left</div>
+              {lastPlayedWord && <div className="text-sm text-amber-200 font-bold" style={{fontFamily: 'Georgia, serif'}}>Last: {lastPlayedWord}</div>}
             </div>
-            <div className={`text-center p-2 rounded-lg ${currentTurn === 'opponent' ? 'bg-amber-200 ring-2 ring-amber-500' : 'bg-amber-50'}`}>
+            <div className={`text-center p-2 rounded-lg transition-all ${currentTurn === 'opponent' ? 'bg-amber-700/50 ring-2 ring-amber-400 backdrop-blur-sm' : 'bg-stone-700/50 backdrop-blur-sm'}`}>
               <CharacterAvatar character={opponent} size="sm" />
-              <div className="text-xs font-bold text-amber-800">{opponent.name}</div>
-              <div className="text-xl font-bold text-amber-600">{opponentScore}</div>
+              <div className="text-xs font-bold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>{opponent.name}</div>
+              <div className="text-xl font-bold text-amber-200">{opponentScore}</div>
             </div>
           </div>
           {opponentMessage && (
-            <div className="mt-2 text-center bg-amber-50 rounded-lg p-2 border border-amber-200">
-              <span className="text-amber-700 text-sm italic">"{opponentMessage}"</span>
+            <div className="mt-2 text-center bg-stone-700/50 backdrop-blur-sm rounded-lg p-2 border border-stone-600/30">
+              <span className="text-amber-100 text-sm italic" style={{fontFamily: 'Georgia, serif'}}>"{opponentMessage}"</span>
             </div>
           )}
         </div>
 
         {/* Error/Status Message */}
         {errorMessage && (
-          <div className={`${errorMessage === 'Checking words...' ? 'bg-blue-100 border-blue-300' : 'bg-red-100 border-red-300'} border-2 rounded-lg p-2 mb-3 text-center`}>
-            <span className={`${errorMessage === 'Checking words...' ? 'text-blue-700' : 'text-red-700'} text-sm font-medium`}>{errorMessage}</span>
+          <div className={`${errorMessage === 'Checking words...' ? 'bg-stone-700/70 border-stone-500/50' : 'bg-red-900/50 border-red-700/50'} backdrop-blur-sm border rounded-lg p-2 mb-3 text-center`}>
+            <span className={`${errorMessage === 'Checking words...' ? 'text-amber-100' : 'text-red-200'} text-sm font-medium`} style={{fontFamily: 'Georgia, serif'}}>{errorMessage}</span>
           </div>
         )}
 
-        {/* Game Board */}
-        <div className="bg-gradient-to-br from-amber-600 to-amber-700 p-2 rounded-xl shadow-xl mb-3 overflow-x-auto">
+        {/* Game Board - Warm tones */}
+        <div className="bg-gradient-to-br from-amber-800 to-amber-900 p-2 rounded-xl shadow-xl mb-3 overflow-x-auto border border-amber-700/50">
           <div className="grid gap-0.5 mx-auto" style={{ gridTemplateColumns: `repeat(${BOARD_SIZE}, minmax(2rem, 2.25rem))`, width: 'fit-content' }}>
             {board.map((row, rowIdx) => (
               row.map((cell, colIdx) => (
@@ -760,12 +741,13 @@ const GriddleStacks = () => {
           </div>
         </div>
 
-        {/* Player Hand - Dark charcoal styling */}
-        <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl shadow-lg p-3 mb-3 border-2 border-gray-600">
+        {/* Player Hand - Glassmorphism */}
+        <div className="bg-stone-800/60 backdrop-blur-md rounded-xl shadow-lg p-3 mb-3 border border-stone-600/50">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-amber-200 font-medium">Your Pancakes</span>
+            <span className="text-sm text-amber-100 font-medium" style={{fontFamily: 'Georgia, serif'}}>Your Pancakes</span>
             <button onClick={shuffleHand} disabled={currentTurn !== 'player' || isValidating}
-              className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 disabled:opacity-50 text-white px-3 py-1 rounded-full text-xs font-semibold shadow transition-all">
+              className="bg-stone-700/70 backdrop-blur-sm hover:bg-stone-600/70 disabled:opacity-50 text-amber-100 px-3 py-1 rounded-full text-xs font-semibold shadow transition-all border border-stone-600/50"
+              style={{fontFamily: 'Georgia, serif'}}>
               🔀 Shuffle
             </button>
           </div>
@@ -775,61 +757,70 @@ const GriddleStacks = () => {
                 onClick={() => handleHandTileClick(idx)} disabled={currentTurn !== 'player' || isValidating} />
             ))}
           </div>
-          <p className="text-xs text-amber-200 text-center mt-2">Tap a pancake, then tap the board</p>
+          <p className="text-xs text-stone-400 text-center mt-2">Tap a pancake, then tap the board</p>
         </div>
 
         {/* Action Buttons */}
         <div className="flex justify-center gap-2 flex-wrap mb-3">
           <button onClick={undoPlacement} disabled={placedTiles.length === 0 || currentTurn !== 'player' || isValidating}
-            className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 disabled:opacity-50 text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-md transition-all">
+            className="bg-stone-700/70 backdrop-blur-sm hover:bg-stone-600/70 disabled:opacity-50 text-amber-100 px-5 py-2.5 rounded-full font-semibold text-sm shadow-md transition-all border border-stone-600/50"
+            style={{fontFamily: 'Georgia, serif'}}>
             ↩ Undo
           </button>
           <button onClick={submitPlay} disabled={placedTiles.length === 0 || currentTurn !== 'player' || isValidating}
-            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 disabled:opacity-50 text-white px-8 py-2.5 rounded-full font-bold text-sm shadow-lg transition-all transform hover:scale-[1.02]">
+            className="bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 disabled:opacity-50 text-white px-8 py-2.5 rounded-full font-bold text-sm shadow-lg transition-all transform hover:scale-[1.02] border border-amber-500/50"
+            style={{fontFamily: 'Georgia, serif'}}>
             {isValidating ? '⏳ Checking...' : '✓ Submit'}
           </button>
           <button onClick={passTurn} disabled={currentTurn !== 'player' || placedTiles.length > 0 || isValidating}
-            className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 disabled:opacity-50 text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-md transition-all">
+            className="bg-stone-700/70 backdrop-blur-sm hover:bg-stone-600/70 disabled:opacity-50 text-amber-100 px-5 py-2.5 rounded-full font-semibold text-sm shadow-md transition-all border border-stone-600/50"
+            style={{fontFamily: 'Georgia, serif'}}>
             ⏭ Pass
           </button>
         </div>
 
-        {/* Progress saves message + Reset link */}
-        <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-xl p-3 mb-3 text-center border border-amber-300">
-          <p className="text-amber-700 text-sm">
+        {/* Progress saves message */}
+        <div className="bg-stone-800/50 backdrop-blur-sm rounded-xl p-3 mb-3 text-center border border-stone-600/30">
+          <p className="text-stone-300 text-sm" style={{fontFamily: 'Georgia, serif'}}>
             ✨ Your progress saves automatically! Leave and come back anytime to complete puzzle! ○{' '}
-            <button onClick={() => setShowResetConfirm(true)} className="text-amber-600 hover:text-amber-800 underline font-medium">
+            <button onClick={() => setShowResetConfirm(true)} className="text-amber-300 hover:text-amber-200 underline font-medium">
               Reset to start fresh
             </button>
           </p>
         </div>
 
-        {/* Footer */}
-        <div className="text-center py-4 text-xs text-amber-600">
-          <p>Part of the Letter Griddle Family 🥞</p>
-          <p className="mt-1"><a href="/" className="underline hover:text-amber-800">← Back to Letter Griddle</a></p>
-          <p className="mt-2">© {currentYear} Letter Griddle. All rights reserved. | <a href="/privacy" className="underline hover:text-amber-800">Privacy</a> | <a href="/terms" className="underline hover:text-amber-800">Terms</a></p>
+        {/* Footer - white text on dark gradient */}
+        <div className="text-center py-4 text-xs">
+          <p className="text-white/80">Part of <a href="/" className="underline hover:text-white">The Letter Griddle Cafe</a> ☕</p>
+          <p className="mt-2 text-white/60">
+            <a href="/privacy" className="hover:text-white/80">Privacy</a>
+            <span className="mx-2">•</span>
+            <a href="/terms" className="hover:text-white/80">Terms</a>
+          </p>
+          <p className="mt-1 text-white/50">© {currentYear} Letter Griddle Cafe</p>
         </div>
 
-        {/* Game Over Modal with Share */}
+        {/* Game Over Modal */}
         {gameOver && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl text-center">
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-stone-800/95 backdrop-blur-md rounded-3xl p-8 max-w-sm w-full shadow-2xl text-center border border-stone-600/50">
               <div className="text-6xl mb-4">{winner === 'player' ? '🎉' : winner === 'tie' ? '🤝' : '🥞'}</div>
-              <h2 className="text-3xl font-bold text-amber-800 mb-2">
+              <h2 className="text-3xl font-bold text-amber-100 mb-2" style={{fontFamily: 'Georgia, serif'}}>
                 {winner === 'player' ? 'You Won!' : winner === 'tie' ? "It's a Tie!" : `${opponent.name} Wins!`}
               </h2>
-              <div className="text-xl text-amber-700 mb-4">
+              <div className="text-xl text-stone-300 mb-4" style={{fontFamily: 'Georgia, serif'}}>
                 <p>You: {playerScore} pts</p>
                 <p>{opponent.name}: {opponentScore} pts</p>
               </div>
               <div className="flex flex-col gap-3">
                 <button onClick={handleShare}
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg transition-all">
+                  className="bg-gradient-to-r from-stone-600 to-stone-500 hover:from-stone-500 hover:to-stone-400 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg transition-all border border-stone-400/50"
+                  style={{fontFamily: 'Georgia, serif'}}>
                   {shareCopied ? '✓ Copied!' : '📤 Share Results'}
                 </button>
                 <button onClick={() => startGame(true)}
-                  className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg transition-all">
+                  className="bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg transition-all border border-amber-500/50"
+                  style={{fontFamily: 'Georgia, serif'}}>
                   🥞 Play Again
                 </button>
               </div>
@@ -839,15 +830,16 @@ const GriddleStacks = () => {
 
         {/* Help Modal */}
         {showHelpModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-gradient-to-br from-gray-700 to-gray-800 rounded-3xl p-6 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto border-2 border-gray-600">
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-stone-800/95 backdrop-blur-md rounded-3xl p-6 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto border border-stone-600/50">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-amber-200" style={{fontFamily: 'Georgia, serif'}}>📖 How to Play</h2>
-                <button onClick={() => setShowHelpModal(false)} className="text-amber-200/60 hover:text-amber-200 text-2xl">✕</button>
+                <h2 className="text-2xl font-bold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>📖 How to Play</h2>
+                <button onClick={() => setShowHelpModal(false)} className="text-stone-400 hover:text-amber-100 text-2xl">✕</button>
               </div>
               <HowToPlayContent />
               <button onClick={() => setShowHelpModal(false)}
-                className="w-full mt-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all border border-amber-400">
+                className="w-full mt-4 bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-white py-3 rounded-xl font-bold shadow-lg transition-all border border-amber-500/50"
+                style={{fontFamily: 'Georgia, serif'}}>
                 Got it! 🥞
               </button>
             </div>
@@ -856,18 +848,20 @@ const GriddleStacks = () => {
 
         {/* Menu Confirm Modal */}
         {showMenuConfirm && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl text-center">
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-stone-800/95 backdrop-blur-md rounded-3xl p-6 max-w-sm w-full shadow-2xl text-center border border-stone-600/50">
               <div className="text-4xl mb-4">🥞</div>
-              <h2 className="text-xl font-bold text-amber-800 mb-2">Return to Menu?</h2>
-              <p className="text-amber-600 mb-4">Your progress will be saved automatically.</p>
+              <h2 className="text-xl font-bold text-amber-100 mb-2" style={{fontFamily: 'Georgia, serif'}}>Return to Menu?</h2>
+              <p className="text-stone-300 mb-4">Your progress will be saved automatically.</p>
               <div className="flex gap-3 justify-center">
                 <button onClick={() => setShowMenuConfirm(false)}
-                  className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white px-6 py-2 rounded-full font-semibold shadow-md transition-all">
+                  className="bg-stone-700/70 backdrop-blur-sm hover:bg-stone-600/70 text-amber-100 px-6 py-2 rounded-full font-semibold shadow-md transition-all border border-stone-600/50"
+                  style={{fontFamily: 'Georgia, serif'}}>
                   Cancel
                 </button>
                 <button onClick={returnToMenu}
-                  className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all">
+                  className="bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all border border-amber-500/50"
+                  style={{fontFamily: 'Georgia, serif'}}>
                   Yes, Exit
                 </button>
               </div>
@@ -877,18 +871,20 @@ const GriddleStacks = () => {
 
         {/* Reset Confirm Modal */}
         {showResetConfirm && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl text-center">
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-stone-800/95 backdrop-blur-md rounded-3xl p-6 max-w-sm w-full shadow-2xl text-center border border-stone-600/50">
               <div className="text-4xl mb-4">🔄</div>
-              <h2 className="text-xl font-bold text-amber-800 mb-2">Start Fresh?</h2>
-              <p className="text-amber-600 mb-4">This will reset your current game and start a new one with new letters.</p>
+              <h2 className="text-xl font-bold text-amber-100 mb-2" style={{fontFamily: 'Georgia, serif'}}>Start Fresh?</h2>
+              <p className="text-stone-300 mb-4">This will reset your current game and start a new one with new letters.</p>
               <div className="flex gap-3 justify-center">
                 <button onClick={() => setShowResetConfirm(false)}
-                  className="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white px-6 py-2 rounded-full font-semibold shadow-md transition-all">
+                  className="bg-stone-700/70 backdrop-blur-sm hover:bg-stone-600/70 text-amber-100 px-6 py-2 rounded-full font-semibold shadow-md transition-all border border-stone-600/50"
+                  style={{fontFamily: 'Georgia, serif'}}>
                   Cancel
                 </button>
                 <button onClick={resetGame}
-                  className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all">
+                  className="bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-white px-6 py-2 rounded-full font-bold shadow-lg transition-all border border-amber-500/50"
+                  style={{fontFamily: 'Georgia, serif'}}>
                   Yes, Reset
                 </button>
               </div>

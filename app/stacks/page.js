@@ -270,7 +270,7 @@ const GriddleStacks = () => {
   // Share results
   const handleShare = useCallback(() => {
     const resultText = winner === 'player' ? '🏆 Won!' : winner === 'tie' ? '🤝 Tie!' : '🥈 Lost';
-    const shareText = `☕ Griddle Stacks ${resultText}\n\nMe: ${playerScore} pts\n${opponent.name}: ${opponentScore} pts\n\nPlay at griddlestacks.com\nPart of the Letter Griddle Cafe ☕`;
+    const shareText = `☕ Griddle Stacks ${resultText}\n\nMe: ${playerScore} pts\n${opponent.name}: ${opponentScore} pts\n\nPlay at lettergriddle.com/stacks\nPart of the Letter Griddle Cafe ☕`;
     
     if (navigator.share) {
       navigator.share({ title: 'Griddle Stacks Results', text: shareText }).catch(() => {});

@@ -303,17 +303,33 @@ const GriddleStacks = () => {
   };
 
   // Handle clicking cell on board
-  const handleCellClick = (row, col) => {
-    if (currentTurn !== 'player' || gameOver || selectedTileIndex === null || isValidating) return;
-    const letter = playerHand[selectedTileIndex];
-    const currentCell = board[row][col];
+const handleCellClick = (row, col) => {
+  if (currentTurn !== 'player' || gameOver || isValidating) return;
+  
+  // Check if clicking on a tile placed this turn - remove it
+  const placedTileIndex = placedTiles.findIndex(t => t.row === row && t.col === col);
+  if (placedTileIndex !== -1) {
+    const tileToRemove = placedTiles[placedTileIndex];
     const newBoard = board.map(r => r.map(c => ({...c})));
-    newBoard[row][col] = { letter, stackHeight: currentCell.stackHeight + 1 };
+    newBoard[row][col] = { letter: tileToRemove.previousLetter, stackHeight: tileToRemove.previousHeight };
     setBoard(newBoard);
-    setPlacedTiles(prev => [...prev, { row, col, letter, previousLetter: currentCell.letter, previousHeight: currentCell.stackHeight }]);
-    const newHand = [...playerHand]; newHand.splice(selectedTileIndex, 1); setPlayerHand(newHand);
-    setSelectedTileIndex(null); setErrorMessage('');
-  };
+    setPlayerHand(prev => [...prev, tileToRemove.letter]);
+    setPlacedTiles(prev => prev.filter((_, idx) => idx !== placedTileIndex));
+    setErrorMessage('');
+    return;
+  }
+  
+  // Place a tile if one is selected
+  if (selectedTileIndex === null) return;
+  const letter = playerHand[selectedTileIndex];
+  const currentCell = board[row][col];
+  const newBoard = board.map(r => r.map(c => ({...c})));
+  newBoard[row][col] = { letter, stackHeight: currentCell.stackHeight + 1 };
+  setBoard(newBoard);
+  setPlacedTiles(prev => [...prev, { row, col, letter, previousLetter: currentCell.letter, previousHeight: currentCell.stackHeight }]);
+  const newHand = [...playerHand]; newHand.splice(selectedTileIndex, 1); setPlayerHand(newHand);
+  setSelectedTileIndex(null); setErrorMessage('');
+};
 
   // Get words at position
   const getHorizontalWord = useCallback((boardState, row, col) => {
@@ -685,7 +701,7 @@ const GriddleStacks = () => {
           <button onClick={() => setShowHelpModal(true)}
             className="bg-stone-700/70 backdrop-blur-sm hover:bg-stone-600/70 text-amber-100 px-4 py-2 rounded-full text-sm font-semibold shadow-md transition-all border border-stone-600/50"
             style={{fontFamily: 'Georgia, serif'}}>
-            ❓ Help
+            Help
           </button>
         </div>
 
@@ -757,7 +773,7 @@ const GriddleStacks = () => {
                 onClick={() => handleHandTileClick(idx)} disabled={currentTurn !== 'player' || isValidating} />
             ))}
           </div>
-          <p className="text-xs text-stone-400 text-center mt-2">Tap a pancake, then tap the board</p>
+          <p className="text-xs text-stone-400 text-center mt-2">Tap a pancake, then tap the board • Tap placed tiles to remove</p>
         </div>
 
         {/* Action Buttons */}
@@ -816,7 +832,7 @@ const GriddleStacks = () => {
                 <button onClick={handleShare}
                   className="bg-gradient-to-r from-stone-600 to-stone-500 hover:from-stone-500 hover:to-stone-400 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg transition-all border border-stone-400/50"
                   style={{fontFamily: 'Georgia, serif'}}>
-                  {shareCopied ? '✓ Copied!' : '📤 Share Results'}
+                  {shareCopied ? '✓ Copied!' : 'Share Results'}
                 </button>
                 <button onClick={() => startGame(true)}
                   className="bg-gradient-to-r from-amber-700 to-amber-600 hover:from-amber-600 hover:to-amber-500 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg transition-all border border-amber-500/50"

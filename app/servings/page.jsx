@@ -669,7 +669,7 @@ Play at lettergriddle.com/servings`;
               </div>
 
               <p className="text-center text-amber-600 text-xs mt-6">
-                🥞 Get four in a row to win! • Beat all crew members for an achievement 🏆
+                Get four in a row to win! • Beat all crew members for an achievement
               </p>
             </div>
           )}

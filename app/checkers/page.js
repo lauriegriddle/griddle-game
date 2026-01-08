@@ -352,10 +352,10 @@ const TRIVIA_CREW = [
   }
 ];
 
-// Theme configurations
+// Theme configurations - Updated with warm amber tones
 const THEMES = {
   breakfast: {
-    name: '🍳 Breakfast',
+    name: 'Breakfast',
     player: { emoji: '🥞', name: 'Pancakes' },
     opponent: { emoji: '🧇', name: 'Waffles' },
     confetti: ['🥞', '🧇', '🍳', '🧈', '🍯', '☕'],
@@ -363,15 +363,15 @@ const THEMES = {
     boardDark: 'bg-amber-700'
   },
   treats: {
-    name: '🍬 Treats',
+    name: 'Treats',
     player: { emoji: '🍪', name: 'Cookies' },
     opponent: { emoji: '🧁', name: 'Cupcakes' },
     confetti: ['🍪', '🧁', '🍬', '🍭', '🎂', '🍫'],
-    boardLight: 'bg-pink-100',
-    boardDark: 'bg-pink-700'
+    boardLight: 'bg-amber-100',
+    boardDark: 'bg-amber-800'
   },
   cafe: {
-    name: '☕ Cafe',
+    name: 'Cafe',
     player: { emoji: '☕', name: 'Coffee' },
     opponent: { emoji: '🍵', name: 'Tea' },
     confetti: ['☕', '🍵', '🥐', '🧋', '🍩', '🥯'],
@@ -379,20 +379,20 @@ const THEMES = {
     boardDark: 'bg-orange-800'
   },
   movies: {
-    name: '🎬 Movies',
+    name: 'Movies',
     player: { emoji: '🎬', name: 'Action' },
     opponent: { emoji: '🍿', name: 'Popcorn' },
     confetti: ['🎬', '🍿', '🎥', '🎞️', '⭐', '🎭'],
-    boardLight: 'bg-red-100',
-    boardDark: 'bg-red-800'
+    boardLight: 'bg-amber-100',
+    boardDark: 'bg-amber-900'
   },
   games: {
-    name: '🎮 Games',
+    name: 'Games',
     player: { emoji: '🎲', name: 'Dice' },
     opponent: { emoji: '🃏', name: 'Cards' },
     confetti: ['🎲', '🃏', '🎮', '🕹️', '🏆', '🎯'],
-    boardLight: 'bg-purple-100',
-    boardDark: 'bg-purple-800'
+    boardLight: 'bg-orange-100',
+    boardDark: 'bg-amber-800'
   }
 };
 
@@ -445,6 +445,8 @@ const CheckersGame = () => {
   const [poofEffects, setPoofEffects] = useState([]);
   const [animatingPiece, setAnimatingPiece] = useState(null);
   const [capturesThisGame, setCapturesThisGame] = useState({ player: 0, opponent: 0 });
+  const [showStatsModal, setShowStatsModal] = useState(false);
+  const [showHelpModal, setShowHelpModal] = useState(false);
   const boardRef = useRef(null);
   
   const [stats, setStats] = useState(() => {
@@ -592,7 +594,7 @@ const CheckersGame = () => {
       const moves = getValidMoves(row, col, board);
       
       if (mustCapture && !moves.some(m => m.isCapture)) {
-        setOpponentMessage("You must capture if possible! 🎯");
+        setOpponentMessage("You must capture if possible!");
         setTimeout(() => setOpponentMessage(''), 2000);
         return;
       }
@@ -721,12 +723,12 @@ const CheckersGame = () => {
     const emoji = matchWinner === 'player' ? '🏆' : '🎮';
     const pieceEmoji = currentTheme.player.emoji;
     
-    const shareText = `Checkers at the Cafe ${emoji}
+    const shareText = `☕ Checkers at the Cafe ${emoji}
 ${result} vs ${opponent.name}
 ${pieceEmoji} Theme: ${currentTheme.name}
 Captures: ${capturesThisGame.player}
 ${gameMode === 'bestOf3' ? `Match: ${roundsWon.player}-${roundsWon.opponent}\n` : ''}Play at lettergriddle.com/checkers
-Part of the Letter Griddle Family 🥞`;
+Part of the Letter Griddle Cafe 🥞`;
 
     navigator.clipboard.writeText(shareText).then(() => {
       setShareCopied(true);
@@ -837,68 +839,73 @@ Part of the Letter Griddle Family 🥞`;
   };
 
   // ============================================
-  // WELCOME SCREEN
+  // WELCOME SCREEN - GLASSMORPHISM VERSION
   // ============================================
   if (!gameStarted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 p-4 relative overflow-hidden">
+      <div 
+        className="min-h-screen p-4 relative overflow-hidden"
+        style={{
+          background: 'linear-gradient(180deg, #78350F 0%, #92400E 10%, #B45309 25%, #D97706 40%, #F59E0B 55%, #FBBF24 70%, #F59E0B 85%, #D97706 95%, #92400E 100%)'
+        }}
+      >
         {/* Decorative elements */}
-        <div className="fixed top-10 left-10 text-6xl opacity-10 animate-pulse">🥞</div>
+        <div className="fixed top-10 left-10 text-6xl opacity-20">☕</div>
         <div className="fixed top-20 right-20 text-5xl opacity-10">🥞</div>
         <div className="fixed bottom-20 left-20 text-5xl opacity-10">☕</div>
-        <div className="fixed bottom-10 right-10 text-6xl opacity-10 animate-pulse">🧇</div>
+        <div className="fixed bottom-10 right-10 text-6xl opacity-20">🧇</div>
         
         <div className="max-w-lg mx-auto pt-8">
           {/* Logo and Title */}
           <div className="text-center mb-8">
-            <div className="text-7xl mb-4">☕️</div>
-            <h1 className="text-4xl md:text-5xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+            <div className="text-7xl mb-4">☕</div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2" style={{fontFamily: 'Georgia, serif'}}>
               Checkers
             </h1>
-            <p className="text-xl text-amber-600 mb-1" style={{fontFamily: 'Georgia, serif'}}>
+            <p className="text-xl text-amber-100 mb-1" style={{fontFamily: 'Georgia, serif'}}>
               at the Letter Griddle Cafe
             </p>
-            <p className="text-amber-500 text-sm">A checkers game like no other!</p>
+            <p className="text-amber-200/80 text-sm">A checkers game like no other!</p>
           </div>
 
-          {/* Main Card */}
-          <div className="bg-white/90 backdrop-blur rounded-3xl shadow-2xl p-6 border-2 border-amber-200 mb-6">
+          {/* Main Card - Glassmorphism */}
+          <div className="bg-white/70 backdrop-blur-md rounded-3xl shadow-2xl p-6 border-2 border-amber-200/50 mb-6">
             {/* How to Play */}
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-amber-800 mb-4 text-center" style={{fontFamily: 'Georgia, serif'}}>
-                📖 How to Play
+                How to Play
               </h2>
               
-              <div className="space-y-3 text-amber-700">
-                <div className="flex items-start gap-3 bg-amber-50 rounded-xl p-3">
+              <div className="space-y-3 text-amber-800">
+                <div className="flex items-start gap-3 bg-amber-100/50 backdrop-blur-sm rounded-xl p-3 border border-amber-200/50">
                   <span className="text-2xl">👆</span>
                   <div>
-                    <p className="font-semibold">Tap to Move</p>
-                    <p className="text-sm text-amber-600">Select your piece, then tap where to go</p>
+                    <p className="font-semibold" style={{fontFamily: 'Georgia, serif'}}>Tap to Move</p>
+                    <p className="text-sm text-amber-700">Select your piece, then tap where to go</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3 bg-amber-50 rounded-xl p-3">
+                <div className="flex items-start gap-3 bg-amber-100/50 backdrop-blur-sm rounded-xl p-3 border border-amber-200/50">
                   <span className="text-2xl">⚡</span>
                   <div>
-                    <p className="font-semibold">Jump to Capture</p>
-                    <p className="text-sm text-amber-600">Jump over opponent pieces to capture them</p>
+                    <p className="font-semibold" style={{fontFamily: 'Georgia, serif'}}>Jump to Capture</p>
+                    <p className="text-sm text-amber-700">Jump over opponent pieces to capture them</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3 bg-amber-50 rounded-xl p-3">
+                <div className="flex items-start gap-3 bg-amber-100/50 backdrop-blur-sm rounded-xl p-3 border border-amber-200/50">
                   <span className="text-2xl">👑</span>
                   <div>
-                    <p className="font-semibold">King Me!</p>
-                    <p className="text-sm text-amber-600">Reach the far side to become a King - move any direction!</p>
+                    <p className="font-semibold" style={{fontFamily: 'Georgia, serif'}}>King Me!</p>
+                    <p className="text-sm text-amber-700">Reach the far side to become a King - move any direction!</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3 bg-amber-50 rounded-xl p-3">
+                <div className="flex items-start gap-3 bg-amber-100/50 backdrop-blur-sm rounded-xl p-3 border border-amber-200/50">
                   <span className="text-2xl">🏆</span>
                   <div>
-                    <p className="font-semibold">Win the Game</p>
-                    <p className="text-sm text-amber-600">Capture all opponent pieces or block their moves</p>
+                    <p className="font-semibold" style={{fontFamily: 'Georgia, serif'}}>Win the Game</p>
+                    <p className="text-sm text-amber-700">Capture all opponent pieces or block their moves</p>
                   </div>
                 </div>
               </div>
@@ -909,16 +916,16 @@ Part of the Letter Griddle Family 🥞`;
               <h3 className="text-lg font-bold text-amber-800 mb-1 text-center" style={{fontFamily: 'Georgia, serif'}}>
                  Play Against the Trivia Crew
               </h3>
-              <p className="text-center text-amber-500 text-xs mb-3">Choose your opponent during the game!</p>
+              <p className="text-center text-amber-600 text-xs mb-3">Choose your opponent during the game!</p>
               <div className="flex justify-center gap-3 flex-wrap">
                 {TRIVIA_CREW.slice(0, 4).map(char => (
                   <div key={char.id} className="text-center">
                     <CharacterAvatar character={char} size="md" />
-                    <p className="text-xs text-amber-700 mt-1 font-medium">{char.name}</p>
+                    <p className="text-xs text-amber-700 mt-1 font-medium" style={{fontFamily: 'Georgia, serif'}}>{char.name}</p>
                   </div>
                 ))}
               </div>
-              <p className="text-center text-amber-500 text-xs mt-2">+ {TRIVIA_CREW.length - 4} more friends!</p>
+              <p className="text-center text-amber-600 text-xs mt-2">+ {TRIVIA_CREW.length - 4} more friends!</p>
             </div>
 
             {/* Theme Preview */}
@@ -926,12 +933,12 @@ Part of the Letter Griddle Family 🥞`;
               <h3 className="text-lg font-bold text-amber-800 mb-1 text-center" style={{fontFamily: 'Georgia, serif'}}>
                  Fun Themed Pieces
               </h3>
-              <p className="text-center text-amber-500 text-xs mb-3">Pick your favorite theme during the game!</p>
+              <p className="text-center text-amber-600 text-xs mb-3">Pick your favorite theme during the game!</p>
               <div className="flex justify-center gap-4">
                 {Object.values(THEMES).slice(0, 3).map((t, i) => (
-                  <div key={i} className="text-center bg-amber-50 rounded-xl p-2 px-3">
+                  <div key={i} className="text-center bg-amber-100/50 backdrop-blur-sm rounded-xl p-2 px-3 border border-amber-200/50">
                     <div className="text-2xl">{t.player.emoji} vs {t.opponent.emoji}</div>
-                    <p className="text-xs text-amber-600">{t.name}</p>
+                    <p className="text-xs text-amber-700" style={{fontFamily: 'Georgia, serif'}}>{t.name}</p>
                   </div>
                 ))}
               </div>
@@ -940,18 +947,18 @@ Part of the Letter Griddle Family 🥞`;
             {/* Game Modes */}
             <div className="mb-6">
               <h3 className="text-lg font-bold text-amber-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
-                🎯 Two Ways to Play
+                Two Ways to Play
               </h3>
               <div className="grid grid-cols-2 gap-3">
-                <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="bg-amber-100/50 backdrop-blur-sm rounded-xl p-3 text-center border border-amber-200/50">
                   <div className="text-2xl mb-1">⚡</div>
-                  <p className="font-semibold text-amber-800 text-sm">Quick Game</p>
-                  <p className="text-xs text-amber-600">Single round - jump right in!</p>
+                  <p className="font-semibold text-amber-800 text-sm" style={{fontFamily: 'Georgia, serif'}}>Quick Game</p>
+                  <p className="text-xs text-amber-700">Single round - jump right in!</p>
                 </div>
-                <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="bg-amber-100/50 backdrop-blur-sm rounded-xl p-3 text-center border border-amber-200/50">
                   <div className="text-2xl mb-1">🏆</div>
-                  <p className="font-semibold text-amber-800 text-sm">Best of 3</p>
-                  <p className="text-xs text-amber-600">Win 2 rounds to claim victory!</p>
+                  <p className="font-semibold text-amber-800 text-sm" style={{fontFamily: 'Georgia, serif'}}>Best of 3</p>
+                  <p className="text-xs text-amber-700">Win 2 rounds to claim victory!</p>
                 </div>
               </div>
             </div>
@@ -959,25 +966,33 @@ Part of the Letter Griddle Family 🥞`;
             {/* Start Button */}
             <button
               onClick={() => setGameStarted(true)}
-              className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-105 active:scale-95"
+              className="w-full bg-gradient-to-r from-amber-600 to-orange-500 hover:from-amber-700 hover:to-orange-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-105 active:scale-95"
+              style={{fontFamily: 'Georgia, serif'}}
             >
                Start Playing!
             </button>
           </div>
 
-          {/* Stats Preview */}
+          {/* Stats Preview - Glassmorphism */}
           {stats.gamesPlayed > 0 && (
-            <div className="bg-white/70 rounded-2xl p-4 text-center">
-              <p className="text-amber-700 font-medium">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 text-center border border-amber-200/50">
+              <p className="text-amber-800 font-medium" style={{fontFamily: 'Georgia, serif'}}>
                 Welcome back! You've played {stats.gamesPlayed} games with {stats.wins} wins 🏆
               </p>
             </div>
           )}
 
           {/* Footer */}
-          <div className="text-center py-4 text-xs text-amber-600">
-            <p>Part of the Letter Griddle Family 🥞</p>
-            <p className="mt-1">Free & ad-free!</p>
+          <div className="text-center py-6 text-sm">
+            <a href="/" className="text-white/90 hover:text-white underline" style={{fontFamily: 'Georgia, serif'}}>
+              Part of The Letter Griddle Cafe
+            </a>
+            <div className="mt-2 text-white/70 text-xs">
+              <a href="/privacy" className="hover:text-white/90">Privacy</a>
+              <span className="mx-2">•</span>
+              <a href="/terms" className="hover:text-white/90">Terms</a>
+            </div>
+            <p className="mt-2 text-white/60 text-xs">© 2026 Letter Griddle Cafe</p>
           </div>
         </div>
       </div>
@@ -985,14 +1000,19 @@ Part of the Letter Griddle Family 🥞`;
   }
 
   // ============================================
-  // MAIN GAME SCREEN
+  // MAIN GAME SCREEN - GLASSMORPHISM VERSION
   // ============================================
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-4 relative overflow-hidden">
+    <div 
+      className="min-h-screen p-4 relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #78350F 0%, #92400E 10%, #B45309 25%, #D97706 40%, #F59E0B 55%, #FBBF24 70%, #F59E0B 85%, #D97706 95%, #92400E 100%)'
+      }}
+    >
       {/* Decorative background emojis */}
-      <div className="fixed top-4 left-4 text-4xl opacity-20">☕️</div>
-      <div className="fixed top-4 right-4 text-4xl opacity-20">🥞</div>
-      <div className="fixed bottom-4 left-4 text-4xl opacity-20">☕</div>
+      <div className="fixed top-4 left-4 text-4xl opacity-20">☕</div>
+      <div className="fixed top-4 right-4 text-4xl opacity-10">🥞</div>
+      <div className="fixed bottom-4 left-4 text-4xl opacity-10">☕</div>
       <div className="fixed bottom-4 right-4 text-4xl opacity-20">🎲</div>
 
       {/* Themed Confetti */}
@@ -1041,24 +1061,26 @@ Part of the Letter Griddle Family 🥞`;
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-4">
-          <h1 className="text-2xl md:text-3xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-             Checkers at the Cafe
+          <h1 className="text-2xl md:text-3xl font-bold text-white" style={{fontFamily: 'Georgia, serif'}}>
+            ☕ Checkers at the Cafe
           </h1>
-          <p className="text-amber-600 text-sm">A Letter Griddle Game</p>
+          <p className="text-amber-200/80 text-sm" style={{fontFamily: 'Georgia, serif'}}>A Letter Griddle Game</p>
         </div>
 
-        {/* Game controls */}
+        {/* Game controls - Glassmorphism */}
         <div className="flex justify-center gap-2 mb-2 flex-wrap">
           <button
             onClick={() => setShowThemeModal(true)}
-            className="bg-amber-100 hover:bg-amber-200 text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow-md border-2 border-transparent hover:border-amber-300 flex items-center gap-1"
+            className="bg-white/60 backdrop-blur-sm hover:bg-white/80 text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow-md border border-amber-200/50 flex items-center gap-1"
+            style={{fontFamily: 'Georgia, serif'}}
           >
-            {currentTheme.name}
+            {currentTheme.player.emoji} {currentTheme.name}
             <span className="text-xs opacity-60">▼</span>
           </button>
           <button
             onClick={() => setShowOpponentModal(true)}
-            className="bg-amber-100 hover:bg-amber-200 text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow-md border-2 border-transparent hover:border-amber-300 flex items-center gap-2"
+            className="bg-white/60 backdrop-blur-sm hover:bg-white/80 text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow-md border border-amber-200/50 flex items-center gap-2"
+            style={{fontFamily: 'Georgia, serif'}}
           >
             <CharacterAvatar character={opponent} size="sm" />
             <span>vs {opponent.name}</span>
@@ -1066,35 +1088,38 @@ Part of the Letter Griddle Family 🥞`;
           </button>
           <button
             onClick={() => setShowHints(!showHints)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm ${
-              showHints ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all shadow-sm backdrop-blur-sm border ${
+              showHints 
+                ? 'bg-amber-200/70 text-amber-800 border-amber-300/70' 
+                : 'bg-white/40 text-amber-700 border-amber-200/50'
             }`}
+            style={{fontFamily: 'Georgia, serif'}}
           >
             💡 Hints {showHints ? 'On' : 'Off'}
           </button>
         </div>
         
         {/* Hint text for customization */}
-        <p className="text-center text-xs text-amber-500 mb-4">
+        <p className="text-center text-xs text-amber-100/80 mb-4" style={{fontFamily: 'Georgia, serif'}}>
           Tap buttons above to change theme or opponent!
         </p>
 
-        {/* Score and turn indicator */}
-        <div className="bg-white rounded-2xl shadow-lg p-4 mb-4 border-2 border-amber-200">
+        {/* Score and turn indicator - Glassmorphism */}
+        <div className="bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-4 mb-4 border border-amber-200/50">
           <div className="flex justify-between items-center">
-            <div className={`text-center p-2 rounded-xl transition-all ${currentTurn === 'player' ? 'bg-amber-100 ring-2 ring-amber-400' : ''}`}>
+            <div className={`text-center p-2 rounded-xl transition-all ${currentTurn === 'player' ? 'bg-amber-200/70 ring-2 ring-amber-400' : 'bg-white/50'}`}>
               <div className="text-2xl">{currentTheme.player.emoji}</div>
-              <div className="text-sm font-bold text-amber-800">You</div>
-              <div className="text-lg font-bold text-amber-600">{pieces.player} left</div>
+              <div className="text-sm font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>You</div>
+              <div className="text-lg font-bold text-amber-700">{pieces.player} left</div>
             </div>
             
             <div className="text-center">
               {gameMode === 'bestOf3' && (
-                <div className="text-sm text-amber-700 mb-1">
+                <div className="text-sm text-amber-700 mb-1" style={{fontFamily: 'Georgia, serif'}}>
                   Best of 3: {roundsWon.player} - {roundsWon.opponent}
                 </div>
               )}
-              <div className="text-xl font-bold text-amber-800">
+              <div className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
                 {currentTurn === 'player' ? 'Your Turn!' : `${opponent.name}'s Turn`}
               </div>
               {isThinking && (
@@ -1102,23 +1127,23 @@ Part of the Letter Griddle Family 🥞`;
               )}
             </div>
             
-            <div className={`text-center p-2 rounded-xl transition-all ${currentTurn === 'opponent' ? 'bg-amber-100 ring-2 ring-amber-400' : ''}`}>
+            <div className={`text-center p-2 rounded-xl transition-all ${currentTurn === 'opponent' ? 'bg-orange-200/70 ring-2 ring-orange-400' : 'bg-white/50'}`}>
               <CharacterAvatar character={opponent} size="sm" />
-              <div className="text-sm font-bold text-amber-800">{opponent.name}</div>
-              <div className="text-lg font-bold text-amber-600">{pieces.opponent} left</div>
+              <div className="text-sm font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>{opponent.name}</div>
+              <div className="text-lg font-bold text-amber-700">{pieces.opponent} left</div>
             </div>
           </div>
           
-          <div className="mt-3 text-center bg-amber-50 rounded-xl p-2 h-12 flex items-center justify-center">
-  {opponentMessage ? (
-    <>
-      <CharacterAvatar character={opponent} size="sm" />
-      <span className="text-amber-700 ml-2 italic">"{opponentMessage}"</span>
-    </>
-  ) : (
-    <span className="text-amber-300 italic text-sm">...</span>
-  )}
-</div>
+          <div className="mt-3 text-center bg-amber-100/60 backdrop-blur-sm rounded-xl p-2 h-12 flex items-center justify-center border border-amber-200/50">
+            {opponentMessage ? (
+              <>
+                <CharacterAvatar character={opponent} size="sm" />
+                <span className="text-amber-800 ml-2 italic" style={{fontFamily: 'Georgia, serif'}}>"{opponentMessage}"</span>
+              </>
+            ) : (
+              <span className="text-amber-400 italic text-sm">...</span>
+            )}
+          </div>
         </div>
 
         {/* Checkerboard */}
@@ -1156,7 +1181,7 @@ Part of the Letter Griddle Family 🥞`;
                       <div className={`absolute inset-2 rounded-full ${
                         isCapture 
                           ? 'bg-red-400 opacity-60 animate-pulse' 
-                          : 'bg-green-400 opacity-40'
+                          : 'bg-amber-300 opacity-50'
                       }`} />
                     )}
                     
@@ -1202,84 +1227,87 @@ Part of the Letter Griddle Family 🥞`;
           </div>
         </div>
 
-        {/* Instructions */}
-        <div className="mt-4 text-center text-sm text-amber-700 bg-amber-50 rounded-xl p-3">
-          <p className="font-semibold"> Click your piece, then click where to move!</p>
+        {/* Instructions - Glassmorphism */}
+        <div className="mt-4 text-center text-sm text-amber-800 bg-white/60 backdrop-blur-sm rounded-xl p-3 border border-amber-200/50">
+          <p className="font-semibold" style={{fontFamily: 'Georgia, serif'}}>Click your piece, then click where to move!</p>
           {showHints && (
-            <p className="text-xs mt-1 text-amber-600">
-              🟢 Green = valid move | 🔴 Red = capture (required!)
+            <p className="text-xs mt-1 text-amber-700">
+              🟡 Yellow = valid move | 🔴 Red = capture (required!)
             </p>
           )}
         </div>
 
-        {/* Game buttons */}
+        {/* Game buttons - Premium styling */}
         <div className="flex justify-center gap-3 mt-4 flex-wrap">
           <button
             onClick={startNewMatch}
-            className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-4 py-2 rounded-full font-bold shadow-lg transition-all"
+            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-4 py-2 rounded-full font-bold shadow-lg transition-all hover:scale-105"
+            style={{fontFamily: 'Georgia, serif'}}
           >
-            🔄 New Game
+            New Game
           </button>
           <button
             onClick={() => {
               setGameMode(gameMode === 'single' ? 'bestOf3' : 'single');
               startNewMatch();
             }}
-            className="bg-white border-2 border-amber-400 text-amber-700 px-4 py-2 rounded-full font-bold shadow-lg transition-all hover:bg-amber-50"
+            className="bg-white/70 backdrop-blur-sm border-2 border-amber-400/70 text-amber-800 px-4 py-2 rounded-full font-bold shadow-lg transition-all hover:bg-white/90 hover:scale-105"
+            style={{fontFamily: 'Georgia, serif'}}
           >
-            {gameMode === 'single' ? '🏆 Best of 3' : '⚡ Quick Game'}
+            {gameMode === 'single' ? 'Best of 3' : 'Quick Game'}
           </button>
           <button
-            onClick={() => setGameStarted(false)}
-            className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-4 py-2 rounded-full font-bold shadow-lg transition-all"
+            onClick={() => setShowHelpModal(true)}
+            className="bg-white/60 backdrop-blur-sm hover:bg-white/80 text-amber-800 px-4 py-2 rounded-full font-bold shadow-lg transition-all border border-amber-200/50 hover:scale-105"
+            style={{fontFamily: 'Georgia, serif'}}
           >
-            📖 How to Play
+            How to Play
           </button>
         </div>
 
-        {/* Stats */}
-        <div className="mt-4 bg-white rounded-xl p-4 shadow-lg border-2 border-amber-200">
+        {/* Stats - Glassmorphism */}
+        <div className="mt-4 bg-white/70 backdrop-blur-md rounded-xl p-4 shadow-lg border border-amber-200/50">
           <h3 className="text-lg font-bold text-amber-800 text-center mb-2" style={{fontFamily: 'Georgia, serif'}}>
-            📊 Your Stats
+            Your Stats
           </h3>
           <div className="grid grid-cols-4 gap-2 text-center text-sm">
-            <div className="bg-amber-50 rounded-lg p-2">
+            <div className="bg-amber-100/60 backdrop-blur-sm rounded-lg p-2 border border-amber-200/50">
               <div className="font-bold text-amber-800">{stats.gamesPlayed}</div>
-              <div className="text-amber-600 text-xs">Played</div>
+              <div className="text-amber-700 text-xs">Played</div>
             </div>
-            <div className="bg-green-50 rounded-lg p-2">
-              <div className="font-bold text-green-800">{stats.wins}</div>
-              <div className="text-green-600 text-xs">Wins</div>
+            <div className="bg-amber-100/60 backdrop-blur-sm rounded-lg p-2 border border-amber-200/50">
+              <div className="font-bold text-amber-800">{stats.wins}</div>
+              <div className="text-amber-700 text-xs">Wins</div>
             </div>
-            <div className="bg-red-50 rounded-lg p-2">
-              <div className="font-bold text-red-800">{stats.losses}</div>
-              <div className="text-red-600 text-xs">Losses</div>
+            <div className="bg-amber-100/60 backdrop-blur-sm rounded-lg p-2 border border-amber-200/50">
+              <div className="font-bold text-amber-800">{stats.losses}</div>
+              <div className="text-amber-700 text-xs">Losses</div>
             </div>
-            <div className="bg-yellow-50 rounded-lg p-2">
-              <div className="font-bold text-yellow-800">{stats.maxStreak}🔥</div>
-              <div className="text-yellow-600 text-xs">Best Streak</div>
+            <div className="bg-amber-100/60 backdrop-blur-sm rounded-lg p-2 border border-amber-200/50">
+              <div className="font-bold text-amber-800">{stats.maxStreak}🔥</div>
+              <div className="text-amber-700 text-xs">Best Streak</div>
             </div>
           </div>
         </div>
 
-        {/* Copyright Footer */}
-        <div className="text-center py-6 text-xs text-amber-700 mt-4">
-          <div>
-            © 2026 Letter Griddle Games. Free & ad-free!
-            {' | '}
-            <a href="/privacy" className="hover:text-amber-600 underline">Privacy</a>
-            {' | '}
-            <a href="/terms" className="hover:text-amber-600 underline">Terms</a>
-            {' | '}
-            <a href="/" className="hover:text-amber-600 underline">More Games 🥞</a>
+        {/* Footer */}
+        <div className="text-center py-6 text-sm">
+          <a href="/" className="text-white/90 hover:text-white underline" style={{fontFamily: 'Georgia, serif'}}>
+            Part of The Letter Griddle Cafe
+          </a>
+          <div className="mt-2 text-white/70 text-xs">
+            <a href="/privacy" className="hover:text-white/90">Privacy</a>
+            <span className="mx-2">•</span>
+            <a href="/terms" className="hover:text-white/90">Terms</a>
           </div>
+          <p className="mt-2 text-white/60 text-xs">© 2026 Letter Griddle Cafe</p>
         </div>
       </div>
 
-      {/* Theme Modal */}
+      {/* Theme Modal - Glassmorphism */}
       {showThemeModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowThemeModal(false)}>
-          <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setShowThemeModal(false)}>
+          <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-amber-200/50" onClick={e => e.stopPropagation()}>
             <h2 className="text-2xl font-bold text-amber-800 mb-4 text-center" style={{fontFamily: 'Georgia, serif'}}>
               Choose Your Pieces
             </h2>
@@ -1290,9 +1318,10 @@ Part of the Letter Griddle Family 🥞`;
                   onClick={() => { setTheme(key); setShowThemeModal(false); }}
                   className={`w-full p-3 rounded-xl flex items-center justify-between transition-all ${
                     theme === key 
-                      ? 'bg-amber-200 border-2 border-amber-500' 
-                      : 'bg-amber-50 hover:bg-amber-100 border-2 border-transparent'
+                      ? 'bg-amber-200/70 border-2 border-amber-500' 
+                      : 'bg-amber-100/50 hover:bg-amber-100/70 border-2 border-transparent'
                   }`}
+                  style={{fontFamily: 'Georgia, serif'}}
                 >
                   <span className="font-medium text-amber-800">{t.name}</span>
                   <span className="text-2xl">{t.player.emoji} vs {t.opponent.emoji}</span>
@@ -1303,10 +1332,10 @@ Part of the Letter Griddle Family 🥞`;
         </div>
       )}
 
-      {/* Opponent Modal */}
+      {/* Opponent Modal - Glassmorphism */}
       {showOpponentModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowOpponentModal(false)}>
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-6 max-w-md w-full shadow-2xl max-h-[85vh] overflow-y-auto border-4 border-amber-300" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setShowOpponentModal(false)}>
+          <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 max-w-md w-full shadow-2xl max-h-[85vh] overflow-y-auto border border-amber-200/50" onClick={e => e.stopPropagation()}>
             <h2 className="text-2xl font-bold text-amber-800 mb-2 text-center" style={{fontFamily: 'Georgia, serif'}}>
               Choose Your Opponent
             </h2>
@@ -1319,13 +1348,13 @@ Part of the Letter Griddle Family 🥞`;
                   onClick={() => { setOpponent(o); setShowOpponentModal(false); startNewMatch(); }}
                   className={`p-4 rounded-2xl flex flex-col items-center gap-2 transition-all ${
                     opponent.id === o.id 
-                      ? 'bg-amber-200 border-3 border-amber-500 shadow-lg' 
-                      : 'bg-amber-100/80 hover:bg-amber-100 border-2 border-amber-200 hover:border-amber-400'
+                      ? 'bg-amber-200/70 border-3 border-amber-500 shadow-lg' 
+                      : 'bg-amber-100/50 hover:bg-amber-100/70 border-2 border-amber-200/50 hover:border-amber-400'
                   }`}
                 >
                   <CharacterAvatar character={o} size="lg" />
                   <div className="text-center">
-                    <div className="font-bold text-amber-800">{o.name}</div>
+                    <div className="font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>{o.name}</div>
                     <div className="text-xs text-amber-600">{o.description}</div>
                     <div className="text-xs text-amber-500 mt-1">
                       {o.difficulty === 'easy' && '⭐ Easy'}
@@ -1340,10 +1369,57 @@ Part of the Letter Griddle Family 🥞`;
         </div>
       )}
 
-      {/* Win Modal */}
+      {/* Help Modal - Glassmorphism */}
+      {showHelpModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setShowHelpModal(false)}>
+          <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 max-w-md w-full shadow-2xl border border-amber-200/50" onClick={e => e.stopPropagation()}>
+            <button
+              onClick={() => setShowHelpModal(false)}
+              className="absolute top-4 right-4 text-amber-400 hover:text-amber-600 text-2xl"
+            >
+              ×
+            </button>
+            <h2 className="text-2xl font-bold text-amber-800 mb-4 text-center" style={{fontFamily: 'Georgia, serif'}}>
+              How to Play
+            </h2>
+            <div className="space-y-3 text-amber-800">
+              <div className="flex items-start gap-3 bg-amber-100/50 rounded-xl p-3">
+                <span className="text-2xl">👆</span>
+                <div>
+                  <p className="font-semibold" style={{fontFamily: 'Georgia, serif'}}>Tap to Move</p>
+                  <p className="text-sm text-amber-700">Select your piece, then tap where to go</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 bg-amber-100/50 rounded-xl p-3">
+                <span className="text-2xl">⚡</span>
+                <div>
+                  <p className="font-semibold" style={{fontFamily: 'Georgia, serif'}}>Jump to Capture</p>
+                  <p className="text-sm text-amber-700">Jump over opponent pieces to capture them</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 bg-amber-100/50 rounded-xl p-3">
+                <span className="text-2xl">👑</span>
+                <div>
+                  <p className="font-semibold" style={{fontFamily: 'Georgia, serif'}}>King Me!</p>
+                  <p className="text-sm text-amber-700">Reach the far side to become a King</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 bg-amber-100/50 rounded-xl p-3">
+                <span className="text-2xl">🏆</span>
+                <div>
+                  <p className="font-semibold" style={{fontFamily: 'Georgia, serif'}}>Win the Game</p>
+                  <p className="text-sm text-amber-700">Capture all opponent pieces or block their moves</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Win Modal - Glassmorphism */}
       {showWinModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl text-center">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 max-w-sm w-full shadow-2xl text-center border border-amber-200/50">
             <div className="mb-4">
               {matchWinner === 'player' ? (
                 <div className="text-6xl">🎉</div>
@@ -1354,7 +1430,7 @@ Part of the Letter Griddle Family 🥞`;
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
               {matchWinner === 'player' ? 'You Won!' : `${opponent.name} Wins!`}
             </h2>
-            <p className="text-amber-600 mb-2">
+            <p className="text-amber-600 mb-2" style={{fontFamily: 'Georgia, serif'}}>
               {matchWinner === 'player' 
                 ? "Great game! You're a checkers champion! 🏆" 
                 : `${opponent.name} says: "${opponentMessage}"`
@@ -1371,50 +1447,53 @@ Part of the Letter Griddle Family 🥞`;
             <div className="flex gap-3 justify-center flex-wrap">
               <button
                 onClick={() => setShowShareModal(true)}
-                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-5 py-2.5 rounded-full font-bold shadow-lg transition-all"
+                className="bg-gradient-to-r from-amber-600 to-orange-500 hover:from-amber-700 hover:to-orange-600 text-white px-5 py-2.5 rounded-full font-bold shadow-lg transition-all hover:scale-105"
+                style={{fontFamily: 'Georgia, serif'}}
               >
-                📤 Share
+                Share
               </button>
               <button
                 onClick={startNewMatch}
-                className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-5 py-2.5 rounded-full font-bold shadow-lg transition-all"
+                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-5 py-2.5 rounded-full font-bold shadow-lg transition-all hover:scale-105"
+                style={{fontFamily: 'Georgia, serif'}}
               >
-                🔄 Play Again
+                Play Again
               </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Share Modal */}
+      {/* Share Modal - Glassmorphism */}
       {showShareModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowShareModal(false)}>
-          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setShowShareModal(false)}>
+          <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 max-w-md w-full shadow-2xl relative border border-amber-200/50" onClick={e => e.stopPropagation()}>
             <button
               onClick={() => setShowShareModal(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl"
+              className="absolute top-4 right-4 text-amber-400 hover:text-amber-600 text-2xl"
             >
               ×
             </button>
             
             <h2 className="text-2xl font-bold text-amber-800 mb-4 text-center" style={{fontFamily: 'Georgia, serif'}}>
-              Share Your Results! 
+              Share Your Results!
             </h2>
             
-            <div className="bg-amber-50 rounded-xl p-4 mb-4 font-mono text-sm whitespace-pre-wrap">
-{`🏆 Checkers at the Cafe ${matchWinner === 'player' ? '🏆' : '🎮'}
+            <div className="bg-amber-100/50 backdrop-blur-sm rounded-xl p-4 mb-4 font-mono text-sm whitespace-pre-wrap border border-amber-200/50">
+{`☕ Checkers at the Cafe ${matchWinner === 'player' ? '🏆' : '🎮'}
 ${matchWinner === 'player' ? 'Won' : 'Lost'} vs ${opponent.name}
 ${currentTheme.player.emoji} Theme: ${currentTheme.name}
 Captures: ${capturesThisGame.player}
 ${gameMode === 'bestOf3' ? `Match: ${roundsWon.player}-${roundsWon.opponent}\n` : ''}Play at lettergriddle.com/checkers
-Part of the Letter Griddle Family 🥞`}
+Part of the Letter Griddle Cafe 🥞`}
             </div>
 
             <button
               onClick={handleShare}
-              className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-amber-600 to-orange-500 hover:from-amber-700 hover:to-orange-600 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2 hover:scale-105"
+              style={{fontFamily: 'Georgia, serif'}}
             >
-              {shareCopied ? '✓ Copied!' : '📋 Copy to Clipboard'}
+              {shareCopied ? '✓ Copied!' : 'Copy to Clipboard'}
             </button>
           </div>
         </div>

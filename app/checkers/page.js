@@ -931,7 +931,7 @@ Part of the Letter Griddle Cafe 🥞`;
             {/* Theme Preview */}
             <div className="mb-6">
               <h3 className="text-lg font-bold text-amber-800 mb-1 text-center" style={{fontFamily: 'Georgia, serif'}}>
-                 Fun Themed Pieces
+                Themed Pieces
               </h3>
               <p className="text-center text-amber-600 text-xs mb-3">Pick your favorite theme during the game!</p>
               <div className="flex justify-center gap-4">

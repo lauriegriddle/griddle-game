@@ -1153,7 +1153,7 @@ Play at lettergriddle.com/scoops
             <div className="bg-amber-50 rounded-xl p-4 mb-4 font-mono text-sm border-2 border-amber-200">
               <div className="whitespace-pre-wrap text-amber-900">{getShareText()}</div>
             </div>
-            <button onClick={handleShare} className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg transition-all">{shareCopied ? '✓ Copied!' : '📤 Share Results'}</button>
+            <button onClick={handleShare} className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg transition-all">{shareCopied ? '✓ Copied!' : 'Share Results'}</button>
           </div>
         </div>
       )}

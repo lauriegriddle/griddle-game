@@ -421,8 +421,11 @@ const ScoopsGame = () => {
     { 
       id: 'breakfast', 
       name: 'Breakfast', 
-      icon: '🥞', 
-      bgGradient: 'from-amber-100 to-orange-100',
+      icon: '🥞',
+      styledIcon: true,
+      iconColor: 'from-amber-600 to-orange-500',
+      bgGradient: 'from-amber-50 to-amber-100',
+      borderColor: 'border-amber-300',
       component: PancakeStack,
       puzzles: [
         { phrase: 'BUTTERMILK PANCAKES', hint: 'A fluffy breakfast classic' },
@@ -438,8 +441,11 @@ const ScoopsGame = () => {
     { 
       id: 'coffee', 
       name: 'Coffee Shop', 
-      icon: '☕', 
-      bgGradient: 'from-amber-100 to-yellow-100',
+      icon: '☕',
+      styledIcon: true,
+      iconColor: 'from-amber-700 to-amber-900',
+      bgGradient: 'from-amber-50 to-yellow-50',
+      borderColor: 'border-amber-300',
       component: CoffeeCup,
       puzzles: [
         { phrase: 'MAPLE SYRUP LATTE', hint: 'Sweet Canadian-inspired drink' },
@@ -455,8 +461,11 @@ const ScoopsGame = () => {
     { 
       id: 'sweets', 
       name: 'Sweet Treats', 
-      icon: '🍰', 
-      bgGradient: 'from-pink-100 to-rose-100',
+      icon: '🍰',
+      styledIcon: true,
+      iconColor: 'from-orange-500 to-amber-600',
+      bgGradient: 'from-orange-50 to-amber-50',
+      borderColor: 'border-orange-300',
       component: CakeSlices,
       puzzles: [
         { phrase: 'BIRTHDAY CAKE', hint: 'Celebration dessert' },
@@ -472,8 +481,11 @@ const ScoopsGame = () => {
     { 
       id: 'brunch', 
       name: 'Brunch', 
-      icon: '🍳', 
-      bgGradient: 'from-orange-100 to-yellow-100',
+      icon: '🍳',
+      styledIcon: true,
+      iconColor: 'from-yellow-500 to-amber-500',
+      bgGradient: 'from-yellow-50 to-amber-50',
+      borderColor: 'border-yellow-300',
       component: EggsOnPlate,
       puzzles: [
         { phrase: 'SUNDAY MORNING BRUNCH', hint: 'Weekend late breakfast' },
@@ -489,8 +501,11 @@ const ScoopsGame = () => {
     { 
       id: 'games', 
       name: 'Games', 
-      icon: '🎮', 
-      bgGradient: 'from-purple-100 to-indigo-100',
+      icon: '🎮',
+      styledIcon: true,
+      iconColor: 'from-amber-600 to-yellow-600',
+      bgGradient: 'from-amber-50 to-yellow-50',
+      borderColor: 'border-amber-300',
       component: GameTokens,
       puzzles: [
         { phrase: 'GAME NIGHT', hint: 'Evening of friendly competition' },
@@ -506,8 +521,11 @@ const ScoopsGame = () => {
     { 
       id: 'vacation', 
       name: 'Vacation', 
-      icon: '✈️', 
-      bgGradient: 'from-sky-100 to-cyan-100',
+      icon: '✈️',
+      styledIcon: true,
+      iconColor: 'from-amber-500 to-orange-500',
+      bgGradient: 'from-amber-50 to-orange-50',
+      borderColor: 'border-amber-300',
       component: SuitcaseItems,
       puzzles: [
         { phrase: 'BEACH VACATION', hint: 'Sandy toes and ocean views' },
@@ -523,8 +541,11 @@ const ScoopsGame = () => {
     { 
       id: 'shopping', 
       name: 'Shopping', 
-      icon: '🛒', 
-      bgGradient: 'from-emerald-100 to-teal-100',
+      icon: '🛒',
+      styledIcon: true,
+      iconColor: 'from-yellow-600 to-amber-600',
+      bgGradient: 'from-yellow-50 to-amber-50',
+      borderColor: 'border-yellow-300',
       component: ShoppingBags,
       puzzles: [
         { phrase: 'RETAIL THERAPY', hint: 'Shopping to feel better' },
@@ -540,8 +561,11 @@ const ScoopsGame = () => {
     { 
       id: 'cooking', 
       name: 'Cooking', 
-      icon: '👨‍🍳', 
-      bgGradient: 'from-red-100 to-orange-100',
+      icon: '👨‍🍳',
+      styledIcon: true,
+      iconColor: 'from-orange-600 to-red-500',
+      bgGradient: 'from-orange-50 to-amber-50',
+      borderColor: 'border-orange-300',
       component: CookingPot,
       puzzles: [
         { phrase: 'SECRET INGREDIENT', hint: 'The special something' },
@@ -759,7 +783,7 @@ const ScoopsGame = () => {
   const getShareText = () => {
     const result = gamePhase === 'won' ? '🏆 Got the Scoop!' : '😅 Close but no scoop!';
     return `☕ Scoops at the Letter Griddle
-${selectedTheme.icon} ${selectedTheme.name}
+${selectedTheme.name}
 ${result}
 
 Play at lettergriddle.com/scoops
@@ -845,7 +869,7 @@ Play at lettergriddle.com/scoops
                   disabled={isGuessed || gamePhase !== 'playing'}
                   className={`w-8 h-10 rounded-lg font-bold text-sm transition-all duration-200 ${
                     isCorrect
-                      ? 'bg-green-500 text-white border-2 border-green-600'
+                      ? 'bg-gradient-to-b from-amber-400 to-amber-500 text-white border-2 border-amber-600 shadow-md'
                       : isWrong
                         ? 'bg-gray-300 text-gray-500 border-2 border-gray-400'
                         : isGuessed
@@ -875,7 +899,7 @@ Play at lettergriddle.com/scoops
   const ThemeVisual = selectedTheme?.component || PancakeStack;
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #92400E 0%, #B45309 15%, #D97706 30%, #F59E0B 50%, #FBBF24 70%, #FCD34D 85%, #FDE68A 100%)' }}>
+    <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #92400E 0%, #B45309 10%, #D97706 25%, #F59E0B 40%, #FBBF24 55%, #F59E0B 70%, #D97706 85%, #B45309 100%)' }}>
       {/* Decorative elements */}
       <div className="fixed top-4 left-4 text-5xl opacity-25">☕</div>
       <div className="fixed top-4 right-4 text-5xl opacity-25">🥞</div>
@@ -949,8 +973,8 @@ Play at lettergriddle.com/scoops
           <button onClick={() => setShowHowToPlay(true)} className="bg-white/90 hover:bg-white text-amber-800 px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-lg border-2 border-amber-300 hover:scale-105">How to Play</button>
         </div>
 
-        {/* Main Card */}
-        <div className="bg-gradient-to-b from-white to-amber-50 rounded-3xl shadow-2xl border-4 border-amber-300 overflow-hidden" style={{ boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}>
+        {/* Main Card - Glassmorphism */}
+        <div className="bg-white/70 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-amber-200/50 overflow-hidden" style={{ boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)' }}>
           
           {/* Theme Selection */}
           {gamePhase === 'selectTheme' && (
@@ -958,18 +982,36 @@ Play at lettergriddle.com/scoops
               <h2 className="text-2xl font-bold text-amber-900 text-center mb-2" style={{ fontFamily: 'Georgia, serif' }}>Choose Your Theme</h2>
               <p className="text-amber-700 text-center mb-6 text-sm">Pick a category and get the inside scoop!</p>
               <div className="grid grid-cols-2 gap-4">
-                {themes.map(theme => (
-                  <button
-                    key={theme.id}
-                    onClick={() => startGame(theme)}
-                    className={`bg-gradient-to-br ${theme.bgGradient} rounded-2xl p-4 border-2 border-amber-200 hover:border-amber-400 hover:shadow-lg transition-all text-center group`}
-                  >
-                    <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">{theme.icon}</div>
-                    <div className="font-bold text-amber-900" style={{ fontFamily: 'Georgia, serif' }}>{theme.name}</div>
-                  </button>
-                ))}
+                {themes.map(theme => {
+                  // Each theme gets its own font personality
+                  const fontStyles = {
+                    breakfast: { fontFamily: 'Georgia, serif', fontWeight: '700', letterSpacing: '0.02em' },
+                    coffee: { fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: '600', letterSpacing: '0.03em' },
+                    sweets: { fontFamily: 'system-ui, sans-serif', fontWeight: '800', letterSpacing: '0.01em' },
+                    brunch: { fontFamily: 'Georgia, serif', fontWeight: '500', letterSpacing: '0.05em' },
+                    games: { fontFamily: 'system-ui, sans-serif', fontWeight: '900', letterSpacing: '-0.01em', textTransform: 'uppercase', fontSize: '1.25rem' },
+                    vacation: { fontFamily: 'Georgia, serif', fontWeight: '600', fontStyle: 'italic', letterSpacing: '0.02em' },
+                    shopping: { fontFamily: 'system-ui, sans-serif', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: '1.1rem' },
+                    cooking: { fontFamily: 'Georgia, serif', fontWeight: '700', fontStyle: 'normal', letterSpacing: '0.01em' }
+                  };
+                  
+                  return (
+                    <button
+                      key={theme.id}
+                      onClick={() => startGame(theme)}
+                      className="bg-white/60 backdrop-blur-sm rounded-2xl p-5 border-2 border-amber-300/70 hover:border-amber-400 hover:bg-white/80 hover:shadow-lg transition-all text-center group hover:scale-[1.02]"
+                    >
+                      <div 
+                        className="text-2xl text-amber-800 group-hover:text-amber-900 transition-colors"
+                        style={fontStyles[theme.id]}
+                      >
+                        {theme.name}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
-              <p className="text-center text-amber-600 text-xs mt-6">☕ Guess the hidden phrase before running out of guesses! 🥞</p>
+              <p className="text-center text-amber-700 text-sm mt-6" style={{ fontFamily: 'Georgia, serif' }}>Guess the hidden phrase before running out of guesses!</p>
             </div>
           )}
 
@@ -980,7 +1022,7 @@ Play at lettergriddle.com/scoops
               <div className="flex items-center justify-between mb-4">
                 <button onClick={resetGame} className="text-amber-600 hover:text-amber-800 text-sm font-semibold">← Themes</button>
                 <div className="text-center">
-                  <div className="font-bold text-amber-900" style={{ fontFamily: 'Georgia, serif' }}>{selectedTheme.icon} {selectedTheme.name}</div>
+                  <div className="font-bold text-amber-900" style={{ fontFamily: 'Georgia, serif' }}>{selectedTheme.name}</div>
                 </div>
                 <div className="w-16"></div>
               </div>
@@ -988,11 +1030,11 @@ Play at lettergriddle.com/scoops
               {/* Teams Display */}
               <div className="flex justify-between mb-4">
                 {/* Your Team */}
-                <div className="bg-green-50 rounded-xl p-3 border-2 border-green-200 flex-1 mr-2">
-                  <div className="text-xs font-bold text-green-800 text-center mb-2">Your Team</div>
+                <div className="bg-amber-100/60 backdrop-blur-sm rounded-xl p-3 border-2 border-amber-300/70 flex-1 mr-2 shadow-sm">
+                  <div className="text-xs font-bold text-amber-800 text-center mb-2">Your Team</div>
                   <div className="flex justify-center gap-2">
                     <div className="text-center">
-                      <div className="w-8 h-8 bg-green-200 rounded-full flex items-center justify-center text-sm font-bold text-green-800">You</div>
+                      <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-amber-500 rounded-full flex items-center justify-center text-sm font-bold text-white shadow-sm">You</div>
                     </div>
                     {playerTeam.map(member => (
                       <div key={member.id} className="text-center">
@@ -1002,8 +1044,8 @@ Play at lettergriddle.com/scoops
                   </div>
                 </div>
                 {/* Opponent Team */}
-                <div className="bg-amber-50 rounded-xl p-3 border-2 border-amber-200 flex-1 ml-2">
-                  <div className="text-xs font-bold text-amber-800 text-center mb-2">Opponents</div>
+                <div className="bg-orange-100/60 backdrop-blur-sm rounded-xl p-3 border-2 border-orange-300/70 flex-1 ml-2 shadow-sm">
+                  <div className="text-xs font-bold text-orange-800 text-center mb-2">Opponents</div>
                   <div className="flex justify-center gap-2">
                     {opponentTeam.map(member => (
                       <div key={member.id} className="text-center">
@@ -1016,27 +1058,27 @@ Play at lettergriddle.com/scoops
 
               {/* Team Messages */}
               {teamMessage && (
-                <div className="bg-green-100 rounded-xl p-3 mb-3 border-2 border-green-200">
+                <div className="bg-amber-100/50 backdrop-blur-sm rounded-xl p-3 mb-3 border-2 border-amber-300/70 shadow-sm">
                   <div className="flex items-center gap-2">
                     <div className="flex -space-x-2">
                       {playerTeam.slice(0, 2).map(member => (
                         <Avatar key={member.id} character={member.id} size="sm" />
                       ))}
                     </div>
-                    <p className="text-green-800 text-sm font-medium italic">"{teamMessage}"</p>
+                    <p className="text-amber-800 text-sm font-medium italic">"{teamMessage}"</p>
                   </div>
                 </div>
               )}
 
               {opponentMessage && (
-                <div className="bg-amber-100 rounded-xl p-3 mb-4 border-2 border-amber-200">
+                <div className="bg-orange-100/50 backdrop-blur-sm rounded-xl p-3 mb-4 border-2 border-orange-300/70 shadow-sm">
                   <div className="flex items-center gap-2">
                     <div className="flex -space-x-2">
                       {opponentTeam.slice(0, 2).map(member => (
                         <Avatar key={member.id} character={member.id} size="sm" />
                       ))}
                     </div>
-                    <p className="text-amber-800 text-sm font-medium italic">"{opponentMessage}"</p>
+                    <p className="text-orange-800 text-sm font-medium italic">"{opponentMessage}"</p>
                   </div>
                 </div>
               )}
@@ -1052,7 +1094,7 @@ Play at lettergriddle.com/scoops
               {/* Hint */}
               <div className="text-center mb-4">
                 <span className="bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium border-2 border-amber-300">
-                  💡 Hint: {currentPuzzle?.hint}
+                  Hint: {currentPuzzle?.hint}
                 </span>
               </div>
 
@@ -1061,9 +1103,9 @@ Play at lettergriddle.com/scoops
 
               {/* Win/Lose Message */}
               {gamePhase === 'won' && (
-                <div className="bg-gradient-to-r from-green-100 to-emerald-100 rounded-2xl p-4 mb-4 text-center border-2 border-green-400">
-                  <p className="text-2xl font-bold text-green-800 mb-1">🏆 You Got the Scoop! 🏆</p>
-                  <p className="text-green-700">"{currentPuzzle?.phrase}"</p>
+                <div className="bg-gradient-to-r from-amber-100 via-yellow-100 to-amber-100 rounded-2xl p-4 mb-4 text-center border-2 border-amber-400 shadow-md">
+                  <p className="text-2xl font-bold text-amber-800 mb-1">🏆 You Got the Scoop! 🏆</p>
+                  <p className="text-amber-700">"{currentPuzzle?.phrase}"</p>
                 </div>
               )}
 
@@ -1080,8 +1122,8 @@ Play at lettergriddle.com/scoops
               {/* Game Over Buttons */}
               {(gamePhase === 'won' || gamePhase === 'lost') && (
                 <div className="flex gap-3 justify-center mt-4">
-                  <button onClick={playAgain} className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-6 py-3 rounded-full font-bold shadow-lg transition-all">🔄 Play Again</button>
-                  <button onClick={() => setShowShareModal(true)} className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-6 py-3 rounded-full font-bold shadow-lg transition-all">📤 Share</button>
+                  <button onClick={playAgain} className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-6 py-3 rounded-full font-bold shadow-lg transition-all hover:scale-105" style={{ fontFamily: 'Georgia, serif' }}>Play Again</button>
+                  <button onClick={() => setShowShareModal(true)} className="bg-gradient-to-r from-amber-600 to-orange-500 hover:from-amber-700 hover:to-orange-600 text-white px-6 py-3 rounded-full font-bold shadow-lg transition-all hover:scale-105" style={{ fontFamily: 'Georgia, serif' }}>Share</button>
                 </div>
               )}
             </div>
@@ -1089,18 +1131,16 @@ Play at lettergriddle.com/scoops
         </div>
 
         {/* Footer */}
-        <div className="text-center py-6 text-sm">
-          <p className="text-amber-100 font-medium" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.2)' }}>Part of the Letter Griddle Family</p>
-          <p className="mt-1">
-            <Link href="/" className="text-amber-200 hover:text-white transition-colors">🥞 lettergriddle.com</Link>
+        <div className="text-center py-6 mt-4">
+          <p className="text-white/90 text-sm">
+            Part of <Link href="/" className="underline hover:text-white transition-colors">The Letter Griddle Cafe</Link>
           </p>
-          <div className="mt-3 text-xs text-amber-200/80">
-            <span>© {new Date().getFullYear()} Letter Griddle. All rights reserved.</span>
-            <span className="mx-2">|</span>
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <span className="mx-2">|</span>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-          </div>
+          <p className="text-white/70 text-xs mt-1">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <span className="mx-1">•</span>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+          </p>
+          <p className="text-white/60 text-xs mt-1">© {new Date().getFullYear()} Letter Griddle Cafe</p>
         </div>
       </div>
 

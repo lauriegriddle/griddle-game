@@ -3,26 +3,32 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { X } from 'lucide-react';
 
 // Mini puzzles drawn from existing Letter Griddle 5-letter words
+// NEW Mini puzzles - 22 words from Letter Griddle puzzles #79-99
+// Replace the existing miniPuzzles array with this one
+
 const miniPuzzles = [
-  { word: "TAFFY", category: "Candy", hint: "A chewy candy often sold at boardwalks and beaches" },
-  { word: "GUMMY", category: "Candy", hint: "Soft, chewy candy often shaped like bears or worms" },
-  { word: "APPLE", category: "Autumn", hint: "Round fruit often picked at orchards in fall" },
-  { word: "TRAIL", category: "Hiking", hint: "A marked path through nature for walking" },
-  { word: "FUDGE", category: "Dessert", hint: "Rich, creamy chocolate confection" },
-  { word: "PHONE", category: "What's in the bag?", hint: "Mobile device for calls, texts, and apps" },
-  { word: "MANGO", category: "Fruits", hint: "Tropical stone fruit with orange flesh" },
-  { word: "TIGER", category: "Animals", hint: "Large striped cat native to Asia" },
-  { word: "NURSE", category: "Occupations", hint: "Healthcare worker who cares for patients" },
-  { word: "RUGBY", category: "Sports", hint: "Contact team sport played with an oval ball" },
-  { word: "TEXAS", category: "U.S. States", hint: "The Lone Star State, second largest by area" },
-  { word: "LUNCH", category: "School Days", hint: "Midday meal eaten in the cafeteria" },
-  { word: "MAPLE", category: "Trees and Shrubs", hint: "Deciduous tree known for its colorful fall foliage" },
-  { word: "ALIEN", category: "Movie Titles", hint: "1979 sci-fi horror classic with Sigourney Weaver" },
-  { word: "BEIGE", category: "Colors", hint: "A neutral sandy or tan shade" },
-  { word: "SUSHI", category: "International Foods", hint: "Japanese dish of vinegared rice with raw fish" },
-  { word: "CHESS", category: "Games", hint: "Ancient strategy game with kings, queens, and checkmate" },
-  { word: "PARIS", category: "Cities", hint: "French capital famous for the Eiffel Tower" },
-  { word: "SCARF", category: "Cool Weather Clothing", hint: "Fabric worn around the neck for warmth or style" },
+  { word: "STORY", category: "'Round the Hearth", hint: "A tale shared aloud while gathered together" },
+  { word: "PRIZE", category: "The Price is Right", hint: "Something won in a game or competition" },
+  { word: "GLIDE", category: "Moving Through the Air", hint: "To move smoothly through the air with little effort" },
+  { word: "SHREK", category: "Animated Film Characters", hint: "Green ogre who lives in a swamp and rescues a princess" },
+  { word: "PILOT", category: "Air Travel", hint: "The person who flies the aircraft" },
+  { word: "SWISS", category: "Say Cheese!", hint: "Cheese known for its signature holes" },
+  { word: "SALAD", category: "Lunch", hint: "A mix of leafy greens and vegetables, often with dressing" },
+  { word: "METAL", category: "Rock On!", hint: "Heavy rock genre featuring loud, distorted guitars and powerful drums" },
+  { word: "THYME", category: "Spices", hint: "Fragrant herb with tiny leaves, often used in soups and roasts" },
+  { word: "FURRY", category: "Cats", hint: "Covered in soft, fluffy hair perfect for petting" },
+  { word: "HOUND", category: "Dogs", hint: "A type of dog bred for hunting, known for its keen sense of smell" },
+  { word: "STAFF", category: "At the Office", hint: "The employees who work at a company or organization" },
+  { word: "STOVE", category: "In the Kitchen", hint: "Appliance with burners used for cooking food in pots and pans" },
+  { word: "VIRAL", category: "Social Media", hint: "When content spreads rapidly across the internet" },
+  { word: "FLOUR", category: "Pancakes", hint: "The main dry ingredient that gives pancakes their structure" },
+  { word: "SYRUP", category: "Pancakes", hint: "Sweet, sticky topping poured generously over a stack" },
+  { word: "FLUTE", category: "Musical Instruments", hint: "Woodwind instrument played by blowing air across an opening" },
+  { word: "BROTH", category: "Soup", hint: "Clear, savory liquid made by simmering meat or vegetables" },
+  { word: "DRIVE", category: "Ways to Go", hint: "A private road leading to a house, or a scenic route" },
+  { word: "PENNE", category: "Pasta", hint: "Cylinder pasta cut at an angle, perfect for holding chunky sauces" },
+  { word: "BACON", category: "Breakfast", hint: "Crispy strips of cured pork, a breakfast favorite" },
+  { word: "WHISK", category: "Cooking", hint: "To beat ingredients quickly with a wire tool to blend or add air" },
 ];
 
 // Generate decoy letters that aren't in the word

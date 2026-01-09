@@ -179,7 +179,7 @@ const AmbiancePage = () => {
                 textShadow: '0 1px 10px rgba(0,0,0,0.5)',
               }}
             >
-              CAFÉ & WORD GAMES
+              DAILY PUZZLES
             </p>
           </div>
 

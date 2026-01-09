@@ -80,25 +80,38 @@ const AmbiancePage = () => {
       backgroundPosition: 'center',
     }}
   />
-  {/* Warm overlay */}
+  {/* Warm overlay - day only */}
+<div
+  className={`absolute inset-0 transition-opacity duration-1000 ${
+    isEvening ? 'opacity-0' : 'opacity-100'
+  }`}
+  style={{
+    backgroundColor: 'rgba(255, 180, 100, 0.15)',
+  }}
+/>
+</div>
+      
+      <div
+  className={`absolute inset-0 transition-opacity duration-1000 ${
+    isEvening ? 'opacity-100' : 'opacity-0'
+  }`}
+>
+  <div
+    className="absolute inset-0"
+    style={{
+      backgroundImage: 'url(/ambiance/evening-cafe.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  />
+  {/* Brighten overlay */}
   <div 
     className="absolute inset-0"
     style={{
-      backgroundColor: 'rgba(255, 180, 100, 0.15)',
+      backgroundColor: 'rgba(255, 255, 255, 0.15)',
     }}
   />
 </div>
-      
-      <div 
-        className={`absolute inset-0 transition-opacity duration-1000 ${
-          isEvening ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{
-          backgroundImage: 'url(/ambiance/evening-cafe.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
 
       <div 
         className={`absolute inset-0 transition-all duration-1000 ${

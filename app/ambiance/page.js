@@ -181,8 +181,8 @@ const AmbiancePage = () => {
             }}
           >
             {isEvening 
-              ? '"The best conversations happen in the cafe."' 
-              : '"Pull up a chair. Stay a while."'}
+              ? '"Puzzle hour."' 
+              : '"A good day begins with a puzzle."'}
           </p>
 
           <div 

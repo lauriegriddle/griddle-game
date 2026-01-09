@@ -649,6 +649,54 @@ const puzzles = [
     ],
     funFact: "Animals use sand, smells, and even dazzle patterns to confuse enemies, while stick insects sway like twigs."
   },
+
+  // =============================================
+  // INDEX 45 - Shows Jan 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Map It!",
+    puzzleNumber: 124,
+    words: [
+      { word: "PLOT", hint: "To mark or plan a course on a map", revealedIndex: 0 },
+      { word: "GUIDE", hint: "A reference that helps you find your way", revealedIndex: 2 },
+      { word: "SKETCH", hint: "To draw a rough outline or representation quickly", revealedIndex: 3 },
+      { word: "DIAGRAM", hint: "A simplified drawing showing layout or relationships", revealedIndex: 0 },
+      { word: "POSITION", hint: "The specific place where something is located", revealedIndex: 4 },
+    ],
+    funFact: "Maps are full of secrets! From fake towns designed to catch copycats to ancient cave drawings of stars, cartographers have hidden surprises in their work for centuries. 🗺️",
+  },
+
+  // =============================================
+  // INDEX 46 - Shows Jan 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Shoes",
+    puzzleNumber: 125,
+    words: [
+      { word: "MULE", hint: "A backless slip-on shoe or slipper", revealedIndex: 0 },
+      { word: "FLATS", hint: "Shoes with little to no heel", revealedIndex: 2 },
+      { word: "SADDLE", hint: "A two-toned oxford shoe popular in the 1950s", revealedIndex: 3 },
+      { word: "HIKING", hint: "Sturdy boots designed for trails and outdoor terrain", revealedIndex: 0 },
+      { word: "MOCCASIN", hint: "Soft leather shoe originally made by Native Americans", revealedIndex: 4 },
+    ],
+    funFact: "Step back in time! Ancient Romans were the first to make distinct left and right shoes, a major comfort improvement that we still enjoy today. 👟",
+  },
+
+  // =============================================
+  // INDEX 47 - Shows Jan 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Beverage",
+    puzzleNumber: 126,
+    words: [
+      { word: "SODA", hint: "A carbonated sweet drink, also called pop", revealedIndex: 0 },
+      { word: "FIZZY", hint: "Bubbly and effervescent, full of tiny bubbles", revealedIndex: 2 },
+      { word: "COFFEE", hint: "A caffeinated drink brewed from roasted beans", revealedIndex: 3 },
+      { word: "REFRESH", hint: "To restore energy or make something feel new again", revealedIndex: 0 },
+      { word: "MILKSHAKE", hint: "A thick, creamy drink blended with ice cream", revealedIndex: 4 },
+    ],
+    funFact: "Coffee was discovered in Ethiopia by a goat herder who noticed his goats becoming energetic after eating coffee cherries, which are technically a fruit!",
+  },
 ];
 
 // ===========================================

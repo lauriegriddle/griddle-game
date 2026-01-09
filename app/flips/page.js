@@ -6,93 +6,273 @@ import { Share2, Instagram } from 'lucide-react';
 const triviaQuestions = [
   {
     id: 1,
-    theme: "Candy 🍬",
-    question: "Reese's Pieces gained fame from which movie?",
-    options: ["Gremlins", "E.T.", "Ghostbusters", "The Goonies"],
-    correctAnswer: "E.T.",
-    hint: "Phone home...",
-    funFact: "Mars turned down the product placement for M&M's, so Reese's got the starring role. Sales jumped 65% after the film!"
+    theme: "Pancakes 🥞",
+    question: "What country celebrates National Pancake Day on Shrove Tuesday?",
+    options: ["United States", "Canada", "United Kingdom", "Australia"],
+    correctAnswer: "United Kingdom",
+    hint: "Across the pond...",
+    funFact: "In the UK, Shrove Tuesday is called 'Pancake Day' and dates back to 1100 AD. It was a way to use up rich foods before Lent!"
   },
   {
     id: 2,
-    theme: "Candy 🍬",
-    question: "Tootsie Rolls were military rations during which event?",
-    options: ["World War I", "World War II", "Korean War", "Vietnam War"],
-    correctAnswer: "World War II",
-    hint: "The 1940s were tough times...",
-    funFact: "Tootsie Rolls didn't melt and provided quick energy for soldiers. They were included in rations throughout WWII!"
+    theme: "Pancakes 🥞",
+    question: "What is the main leavening agent in traditional pancakes?",
+    options: ["Yeast", "Baking powder", "Egg whites", "Cream of tartar"],
+    correctAnswer: "Baking powder",
+    hint: "It makes them fluffy without waiting...",
+    funFact: "Baking powder was invented in 1843 and revolutionized pancake making. Before that, cooks used yeast, which required hours of rising time!"
   },
   {
     id: 3,
-    theme: "Candy 🍬",
-    question: "Snickers is named as a tribute to which animal?",
-    options: ["Dog", "Cat", "Horse", "Cow"],
-    correctAnswer: "Horse",
-    hint: "The Mars family loved this farm animal...",
-    funFact: "The Mars family named the candy bar after their favorite horse, Snickers, when it launched in 1930!"
+    theme: "Pancakes 🥞",
+    question: "Which U.S. state produces the most maple syrup?",
+    options: ["Maine", "New York", "Vermont", "New Hampshire"],
+    correctAnswer: "Vermont",
+    hint: "Think green mountains...",
+    funFact: "Vermont produces about 2 million gallons of maple syrup each year. It takes 40 gallons of sap to make just 1 gallon of syrup!"
   },
   {
     id: 4,
-    theme: "Candy 🍬",
-    question: "What are Kit Kat's individual sections called?",
-    options: ["Bars", "Sticks", "Fingers", "Strips"],
-    correctAnswer: "Fingers",
-    hint: "Count them on your hand...",
-    funFact: "The original 1935 design was meant for a 'break'! The name comes from an 18th-century London club."
+    theme: "Breakfast 🍳",
+    question: "Which meal's name literally means 'to break the fast'?",
+    options: ["Lunch", "Dinner", "Breakfast", "Brunch"],
+    correctAnswer: "Breakfast",
+    hint: "Think about what you haven't done all night...",
+    funFact: "The word 'breakfast' first appeared in English in the 15th century. It refers to breaking the fasting period of the night!"
   },
   {
     id: 5,
-    theme: "Movies 🎬",
-    question: "Which film featured a great white shark terrorizing a beach town?",
-    options: ["The Deep", "Jaws", "Piranha", "Orca"],
-    correctAnswer: "Jaws",
-    hint: "You're gonna need a bigger boat...",
-    funFact: "Jaws was released in 1975 and became the first summer blockbuster, earning over $470 million worldwide!"
+    theme: "Breakfast 🍳",
+    question: "In which country did croissants originate?",
+    options: ["France", "Austria", "Belgium", "Switzerland"],
+    correctAnswer: "Austria",
+    hint: "Not where you might think...",
+    funFact: "The croissant originated in Vienna, Austria as the 'kipferl.' It didn't become popular in France until the 1830s!"
   },
   {
     id: 6,
-    theme: "Food 🍕",
-    question: "Which country invented pizza as we know it today?",
-    options: ["Greece", "United States", "Italy", "France"],
-    correctAnswer: "Italy",
-    hint: "Think Naples...",
-    funFact: "Modern pizza originated in Naples, Italy in the 18th century. The Margherita pizza was created in 1889 to honor Queen Margherita!"
+    theme: "Breakfast 🍳",
+    question: "What gives orange juice its cloudy appearance?",
+    options: ["Sugar", "Pulp and pectin", "Vitamin C", "Citric acid"],
+    correctAnswer: "Pulp and pectin",
+    hint: "The natural stuff inside...",
+    funFact: "Fresh-squeezed orange juice is cloudy because of pectin and pulp. Clear juice has been filtered and processed to remove these!"
   },
   {
     id: 7,
-    theme: "Music 🎵",
-    question: "The Walkman portable cassette player was introduced by which company?",
-    options: ["Panasonic", "Sony", "Philips", "Samsung"],
-    correctAnswer: "Sony",
-    hint: "A Japanese electronics giant...",
-    funFact: "Sony released the Walkman in 1979 for $150. It revolutionized how people listened to music and sold over 400 million units!"
+    theme: "Coffee ☕",
+    question: "Which country is the largest producer of coffee in the world?",
+    options: ["Colombia", "Vietnam", "Ethiopia", "Brazil"],
+    correctAnswer: "Brazil",
+    hint: "The largest country in South America...",
+    funFact: "Brazil produces about one-third of the world's coffee. Coffee was first planted there in 1727 and transformed the country's economy!"
   },
   {
     id: 8,
-    theme: "Sports ⚽",
-    question: "How many players are on a standard soccer team on the field?",
-    options: ["9", "10", "11", "12"],
-    correctAnswer: "11",
-    hint: "Same as American football...",
-    funFact: "The 11-player rule was standardized in 1870. Early soccer games had anywhere from 15 to 20 players per side!"
+    theme: "Coffee ☕",
+    question: "What does 'espresso' mean in Italian?",
+    options: ["Strong", "Pressed out", "Quick", "Dark"],
+    correctAnswer: "Pressed out",
+    hint: "Think about how it's made...",
+    funFact: "Espresso means 'pressed out' in Italian, referring to how hot water is pressed through finely ground coffee. It was invented in Italy in 1884!"
   },
   {
     id: 9,
-    theme: "Animals 🦁",
-    question: "What is a group of flamingos called?",
-    options: ["Flock", "Flamboyance", "Flutter", "Flame"],
-    correctAnswer: "Flamboyance",
-    hint: "Think about their colorful personality...",
-    funFact: "A group of flamingos is called a 'flamboyance' - fitting for these bright pink, show-stopping birds!"
+    theme: "Coffee ☕",
+    question: "According to legend, who discovered coffee?",
+    options: ["A farmer", "A goat herder", "A monk", "A king"],
+    correctAnswer: "A goat herder",
+    hint: "His animals acted strangely...",
+    funFact: "Legend says an Ethiopian goat herder named Kaldi noticed his goats became energetic after eating coffee berries around 800 AD!"
   },
   {
     id: 10,
-    theme: "History 📜",
-    question: "The first email was sent in what decade?",
-    options: ["1960s", "1970s", "1980s", "1990s"],
-    correctAnswer: "1970s",
-    hint: "Earlier than most people think...",
-    funFact: "Ray Tomlinson sent the first email in 1971. He also chose the @ symbol to separate usernames from computer names!"
+    theme: "Movies 🎬",
+    question: "What was the first fully computer-animated feature film?",
+    options: ["Shrek", "Toy Story", "A Bug's Life", "Finding Nemo"],
+    correctAnswer: "Toy Story",
+    hint: "To infinity and beyond...",
+    funFact: "Toy Story was released by Pixar in 1995 and took four years to make. It was the first feature film made entirely with CGI!"
+  },
+  {
+    id: 11,
+    theme: "Movies 🎬",
+    question: "Which movie features the quote 'Here's looking at you, kid'?",
+    options: ["Gone with the Wind", "The Maltese Falcon", "Casablanca", "Citizen Kane"],
+    correctAnswer: "Casablanca",
+    hint: "A classic romance set during WWII...",
+    funFact: "Casablanca was released in 1942 and won Best Picture. Humphrey Bogart improvised 'Here's looking at you, kid' during filming!"
+  },
+  {
+    id: 12,
+    theme: "Movies 🎬",
+    question: "How many Oscars did 'Titanic' win in 1998?",
+    options: ["9", "10", "11", "12"],
+    correctAnswer: "11",
+    hint: "It tied for the all-time record...",
+    funFact: "Titanic won 11 Oscars, tying with Ben-Hur and later Lord of the Rings: Return of the King for the most wins ever!"
+  },
+  {
+    id: 13,
+    theme: "Music 🎵",
+    question: "Which instrument has 88 keys?",
+    options: ["Organ", "Harpsichord", "Piano", "Accordion"],
+    correctAnswer: "Piano",
+    hint: "A popular instrument for beginners and masters alike...",
+    funFact: "The standard piano has 88 keys: 52 white and 36 black. This range covers over 7 octaves of musical notes!"
+  },
+  {
+    id: 14,
+    theme: "Music 🎵",
+    question: "The Beatles were from which English city?",
+    options: ["London", "Manchester", "Liverpool", "Birmingham"],
+    correctAnswer: "Liverpool",
+    hint: "A famous port city in the northwest...",
+    funFact: "The Beatles formed in Liverpool in 1960. The city now has a Beatles museum, statues, and themed tours honoring the Fab Four!"
+  },
+  {
+    id: 15,
+    theme: "Music 🎵",
+    question: "What does 'MTV' stand for?",
+    options: ["Music TV", "Music Television", "Musical Television", "Media Television"],
+    correctAnswer: "Music Television",
+    hint: "It launched in 1981...",
+    funFact: "MTV launched on August 1, 1981. The first music video played was 'Video Killed the Radio Star' by The Buggles!"
+  },
+  {
+    id: 16,
+    theme: "Books 📚",
+    question: "Who wrote 'Pride and Prejudice'?",
+    options: ["Charlotte Bronte", "Jane Austen", "Mary Shelley", "Emily Bronte"],
+    correctAnswer: "Jane Austen",
+    hint: "A beloved English author from the early 1800s...",
+    funFact: "Jane Austen published Pride and Prejudice in 1813. She originally titled it 'First Impressions' when she wrote it at age 21!"
+  },
+  {
+    id: 17,
+    theme: "Books 📚",
+    question: "In what year was the first Harry Potter book published?",
+    options: ["1995", "1997", "1999", "2001"],
+    correctAnswer: "1997",
+    hint: "The late 1990s...",
+    funFact: "Harry Potter and the Philosopher's Stone was published in 1997 with just 500 copies. The series has now sold over 500 million books!"
+  },
+  {
+    id: 18,
+    theme: "Books 📚",
+    question: "What is the best-selling book of all time (excluding religious texts)?",
+    options: ["Harry Potter", "Don Quixote", "A Tale of Two Cities", "The Lord of the Rings"],
+    correctAnswer: "Don Quixote",
+    hint: "A Spanish classic about a knight...",
+    funFact: "Don Quixote by Miguel de Cervantes has sold over 500 million copies since 1605. It's considered the first modern novel!"
+  },
+  {
+    id: 19,
+    theme: "Geography 🌍",
+    question: "What is the smallest country in the world?",
+    options: ["Monaco", "San Marino", "Vatican City", "Liechtenstein"],
+    correctAnswer: "Vatican City",
+    hint: "It's completely surrounded by Rome...",
+    funFact: "Vatican City is only 0.17 square miles and has about 800 residents. It became an independent state in 1929!"
+  },
+  {
+    id: 20,
+    theme: "Geography 🌍",
+    question: "Which river flows through the most countries?",
+    options: ["Nile", "Amazon", "Danube", "Rhine"],
+    correctAnswer: "Danube",
+    hint: "A famous European river...",
+    funFact: "The Danube flows through 10 countries: Germany, Austria, Slovakia, Hungary, Croatia, Serbia, Romania, Bulgaria, Moldova, and Ukraine!"
+  },
+  {
+    id: 21,
+    theme: "Geography 🌍",
+    question: "What is the capital of Australia?",
+    options: ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+    correctAnswer: "Canberra",
+    hint: "It's not the largest city...",
+    funFact: "Canberra was purpose-built as the capital in 1913. Sydney and Melbourne both wanted to be capital, so a new city was created!"
+  },
+  {
+    id: 22,
+    theme: "Animals 🐾",
+    question: "How many hearts does an octopus have?",
+    options: ["1", "2", "3", "4"],
+    correctAnswer: "3",
+    hint: "More than you might expect...",
+    funFact: "Octopuses have 3 hearts! Two pump blood to the gills, and one pumps blood to the rest of the body. They also have blue blood!"
+  },
+  {
+    id: 23,
+    theme: "Animals 🐾",
+    question: "What is the only mammal that can truly fly?",
+    options: ["Flying squirrel", "Sugar glider", "Bat", "Colugo"],
+    correctAnswer: "Bat",
+    hint: "Other 'flying' mammals only glide...",
+    funFact: "Bats are the only mammals capable of sustained flight. Flying squirrels and sugar gliders can only glide short distances!"
+  },
+  {
+    id: 24,
+    theme: "Animals 🐾",
+    question: "What animal's fingerprints are nearly identical to humans?",
+    options: ["Chimpanzee", "Gorilla", "Koala", "Orangutan"],
+    correctAnswer: "Koala",
+    hint: "An Australian marsupial...",
+    funFact: "Koala fingerprints are so similar to human prints that they could theoretically confuse crime scene investigators!"
+  },
+  {
+    id: 25,
+    theme: "Science 🔬",
+    question: "What is the hardest natural substance on Earth?",
+    options: ["Gold", "Iron", "Diamond", "Titanium"],
+    correctAnswer: "Diamond",
+    hint: "It's also a gemstone...",
+    funFact: "Diamonds are made of carbon atoms arranged in a crystal structure. They form about 100 miles below Earth's surface!"
+  },
+  {
+    id: 26,
+    theme: "Science 🔬",
+    question: "What planet is known as the 'Red Planet'?",
+    options: ["Venus", "Mars", "Jupiter", "Mercury"],
+    correctAnswer: "Mars",
+    hint: "Named after the Roman god of war...",
+    funFact: "Mars appears red because of iron oxide (rust) on its surface. A day on Mars is only 37 minutes longer than an Earth day!"
+  },
+  {
+    id: 27,
+    theme: "Science 🔬",
+    question: "What gas do plants absorb from the air?",
+    options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
+    correctAnswer: "Carbon dioxide",
+    hint: "We breathe this out...",
+    funFact: "Plants absorb carbon dioxide and release oxygen through photosynthesis. A single tree can absorb about 48 pounds of CO2 per year!"
+  },
+  {
+    id: 28,
+    theme: "TV Shows 📺",
+    question: "What was the name of the coffee shop in 'Friends'?",
+    options: ["Central Park", "Central Perk", "Coffee Central", "The Coffee House"],
+    correctAnswer: "Central Perk",
+    hint: "A play on words with a famous park...",
+    funFact: "Central Perk's orange couch was found in a Warner Bros. storage basement. The set designers kept it because it fit perfectly!"
+  },
+  {
+    id: 29,
+    theme: "TV Shows 📺",
+    question: "How many seasons did 'The Office' (US) run?",
+    options: ["7", "8", "9", "10"],
+    correctAnswer: "9",
+    hint: "It started in 2005 and ended in 2013...",
+    funFact: "The Office ran for 9 seasons with 201 episodes. Steve Carell left after season 7, but the show continued for two more seasons!"
+  },
+  {
+    id: 30,
+    theme: "TV Shows 📺",
+    question: "What year did 'Seinfeld' first air?",
+    options: ["1987", "1989", "1991", "1993"],
+    correctAnswer: "1989",
+    hint: "The end of the 1980s...",
+    funFact: "Seinfeld debuted in 1989 as 'The Seinfeld Chronicles.' It was almost cancelled after the pilot but went on to become one of TV's biggest hits!"
   }
 ];
 

@@ -57,15 +57,15 @@ const AmbiancePage = () => {
     <div className="min-h-screen relative overflow-hidden">
       
       <audio
-        ref={audioRef}
-        src={tracks[currentTrack]?.file}
-        loop={true}
-        preload="auto"
-        onEnded={(e) => {
-          e.target.currentTime = 0;
-          e.target.play();
-        }}
-      />
+  ref={audioRef}
+  src={tracks[currentTrack]?.file}
+  loop={true}
+  preload="auto"
+  onEnded={(e) => {
+    e.target.currentTime = 0;
+    e.target.play();
+  }}
+/>
 
       <div 
         className={`absolute inset-0 transition-opacity duration-1000 ${

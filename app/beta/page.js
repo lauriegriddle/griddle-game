@@ -28,7 +28,7 @@ export default function BetaGames() {
   name: "Ambiance",
   href: "/ambiance",
   emoji: "☕",
-  description: "Cozy cafe vibes while you play"
+  description: "Ambient cafe vibes while you play"
 }
   ];
 

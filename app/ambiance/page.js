@@ -181,7 +181,7 @@ const AmbiancePage = () => {
             }}
           >
             {isEvening 
-              ? '"Puzzle hour."' 
+              ? '"Puzzle hour. New games drop 7-8pm"' 
               : '"A good day begins with a puzzle."'}
           </p>
 

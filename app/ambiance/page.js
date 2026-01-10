@@ -118,7 +118,7 @@ useEffect(() => {
   <div
     className="absolute inset-0"
     style={{
-    background: 'linear-gradient(160deg, #A67B5B 0%, #BC8A5F 20%, #D4A373 40%, #E8C4A0 60%, #FFE4C9 80%, #FFF8F0 100%)',
+    background: 'linear-gradient(135deg, #EA580C 0%, #F97316 30%, #FB923C 60%, #FDBA74 100%)',
     }}
   />
   {/* Warm overlay - day only */}
@@ -140,7 +140,7 @@ useEffect(() => {
   <div
     className="absolute inset-0"
     style={{
-      background: 'linear-gradient(160deg, #A04000 0%, #D35400 20%, #E67E22 40%, #F5B041 60%, #FFE0A3 80%, #FFF7E6 100%)',
+      background: 'linear-gradient(135deg, #92400E 0%, #B45309 30%, #D97706 60%, #F59E0B 100%)',
     }}
   />
   {/* Brighten overlay */}

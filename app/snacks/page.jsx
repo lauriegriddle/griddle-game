@@ -71,8 +71,26 @@ const chunkHint = (hint) => {
   return { original: chunks, scrambled };
 };
 
+// Get today's puzzle index based on EST midnight rotation
+const getTodaysPuzzleIndex = () => {
+  const now = new Date();
+  const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  
+  // Anchor date: January 10, 2026 at midnight EST (first puzzle after launch)
+  const anchorDate = new Date('2026-01-10T00:00:00');
+  const anchorEST = new Date(anchorDate.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  
+  // Calculate days since anchor
+  const msPerDay = 24 * 60 * 60 * 1000;
+  const daysSinceAnchor = Math.floor((estTime - anchorEST) / msPerDay);
+  
+  // Rotate through puzzles (19 total)
+  const index = ((daysSinceAnchor % 19) + 19) % 19; // Handle negative values
+  return index;
+};
+
 const SnacksGame = () => {
-  const [puzzleIndex] = useState(0);
+  const [puzzleIndex] = useState(() => getTodaysPuzzleIndex());
   const puzzle = puzzles[puzzleIndex];
   
   // Word unscramble state
@@ -142,6 +160,31 @@ const SnacksGame = () => {
       unlockedAchievements: []
     };
   });
+  
+  // Shuffle functions
+  const shuffleWordLetters = () => {
+    setAvailableWordLetters(prev => {
+      const shuffled = [...prev];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    });
+    setSelectedWordLetter(null);
+  };
+  
+  const shuffleCategoryLetters = () => {
+    setAvailableCategoryLetters(prev => {
+      const shuffled = [...prev];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    });
+    setSelectedCategoryLetter(null);
+  };
   
   // Check completions
   useEffect(() => {
@@ -669,6 +712,18 @@ Play at lettergriddle.com/snacks`;
               ))}
             </div>
           )}
+          
+          {/* Shuffle button for Candy Jar */}
+          {!wordComplete && availableWordLetters.length > 1 && (
+            <div className="flex justify-center mt-3">
+              <button
+                onClick={shuffleWordLetters}
+                className="px-4 py-1.5 bg-gradient-to-r from-amber-700/80 to-orange-800/80 hover:from-amber-600/80 hover:to-orange-700/80 text-amber-200 text-xs font-semibold rounded-full transition-all flex items-center gap-1.5 shadow-md border border-amber-600/30"
+              >
+                <span>✨</span> Shuffle
+              </button>
+            </div>
+          )}
         </div>
         
         {/* COUNTERTOP - CATEGORY (Cookie tiles) */}
@@ -725,6 +780,18 @@ Play at lettergriddle.com/snacks`;
                   {letter}
                 </button>
               ))}
+            </div>
+          )}
+          
+          {/* Shuffle button for Cookie Jar */}
+          {!categoryComplete && availableCategoryLetters.length > 1 && (
+            <div className="flex justify-center mt-3">
+              <button
+                onClick={shuffleCategoryLetters}
+                className="px-4 py-1.5 bg-gradient-to-r from-stone-600/80 to-stone-700/80 hover:from-stone-500/80 hover:to-stone-600/80 text-amber-200 text-xs font-semibold rounded-full transition-all flex items-center gap-1.5 shadow-md border border-stone-500/30"
+              >
+                <span>✨</span> Shuffle
+              </button>
             </div>
           )}
         </div>

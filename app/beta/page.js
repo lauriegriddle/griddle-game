@@ -29,7 +29,13 @@ export default function BetaGames() {
   href: "/ambiance",
   emoji: "☕",
   description: "Ambient cafe vibes while you play"
-}
+},
+{
+    name: "Snacks",
+    href: "/snacks",
+    emoji: "🍪",
+    description: "Beta testing in progress"
+  },
   ];
 
   return (

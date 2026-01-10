@@ -118,9 +118,7 @@ useEffect(() => {
   <div
     className="absolute inset-0"
     style={{
-      backgroundImage: 'url(/ambiance/day-cafe.jpg)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
+    background: 'linear-gradient(160deg, #A67B5B 0%, #BC8A5F 20%, #D4A373 40%, #E8C4A0 60%, #FFE4C9 80%, #FFF8F0 100%)',
     }}
   />
   {/* Warm overlay - day only */}
@@ -142,9 +140,7 @@ useEffect(() => {
   <div
     className="absolute inset-0"
     style={{
-      backgroundImage: 'url(/ambiance/evening-cafe.jpg)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
+      background: 'linear-gradient(160deg, #A04000 0%, #D35400 20%, #E67E22 40%, #F5B041 60%, #FFE0A3 80%, #FFF7E6 100%)',
     }}
   />
   {/* Brighten overlay */}
@@ -201,7 +197,7 @@ useEffect(() => {
           
           <div className="mb-8 text-center">
             <h1 
-              className={`text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.2em] transition-all duration-1000 ${
+              className={`text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.15em] transition-all duration-1000 ${
                 isEvening ? 'text-amber-100/90' : 'text-white/95'
               }`}
               style={{ 
@@ -214,7 +210,7 @@ useEffect(() => {
               LETTER GRIDDLE
             </h1>
             <p 
-              className={`mt-3 text-sm md:text-base tracking-[0.3em] transition-all duration-1000 ${
+              className={`mt-3 text-sm md:text-base tracking-[0.15em] transition-all duration-1000 ${
                 isEvening ? 'text-amber-200/60' : 'text-white/70'
               }`}
               style={{ 

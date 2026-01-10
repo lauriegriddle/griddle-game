@@ -36,6 +36,12 @@ export default function BetaGames() {
     emoji: "🍪",
     description: "Beta testing in progress"
   },
+  {
+  name: "Travels",
+  href: "/travels",
+  emoji: "🌍",
+  description: "Geography word puzzle - Beta tesing NEW!"
+},
   ];
 
   return (

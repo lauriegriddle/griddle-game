@@ -140,7 +140,7 @@ useEffect(() => {
   <div
     className="absolute inset-0"
     style={{
-      background: 'linear-gradient(135deg, #92400E 0%, #B45309 30%, #D97706 60%, #F59E0B 100%)',
+      background: 'linear-gradient(135deg, #3D2314 0%, #5D3A1A 30%, #7D4E2A 60%, #8B5A2B 100%)',
     }}
   />
   {/* Brighten overlay */}
@@ -198,7 +198,7 @@ useEffect(() => {
           <div className="mb-8 text-center">
             <h1 
               className={`text-4xl md:text-6xl lg:text-7xl font-light tracking-[0.15em] transition-all duration-1000 ${
-                isEvening ? 'text-amber-100/90' : 'text-white/95'
+                isEvening ? 'text-amber-200' : 'text-amber-100'
               }`}
               style={{ 
                 fontFamily: 'Georgia, serif',
@@ -211,7 +211,7 @@ useEffect(() => {
             </h1>
             <p 
               className={`mt-3 text-sm md:text-base tracking-[0.15em] transition-all duration-1000 ${
-                isEvening ? 'text-amber-200/60' : 'text-white/70'
+                isEvening ? 'text-amber-300/80' : 'text-amber-200/80'
               }`}
               style={{ 
                 fontFamily: 'Georgia, serif',

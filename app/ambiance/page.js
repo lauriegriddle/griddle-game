@@ -233,8 +233,8 @@ useEffect(() => {
             }}
           >
             {isEvening 
-              ? '"Puzzle hour. New games drop 7-8pm"' 
-              : '"Start your day. Letter Griddle Cafe Special drops at 7am."'}
+              ? '"New games drop 7-8pm"' 
+              : '"Letter Griddle Cafe Special drops at 7am."'}
           </p>
 
           <div 

@@ -9,6 +9,7 @@ const AmbiancePage = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [showTrackMenu, setShowTrackMenu] = useState(false);
+  const [isGlowing, setIsGlowing] = useState(false);
   const audioRef = useRef(null);
 
   const dayTracks = [
@@ -28,6 +29,33 @@ const AmbiancePage = () => {
   useEffect(() => {
     setCurrentTrack(0);
   }, [isEvening]);
+
+  // Check for puzzle drop times and trigger glow
+useEffect(() => {
+  const checkGlowTime = () => {
+    const now = new Date();
+    const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+    const hours = estTime.getHours();
+    const minutes = estTime.getMinutes();
+
+    // Morning glow: 7:00 AM - 7:05 AM EST
+    const isMorningGlow = hours === 7 && minutes < 5;
+
+    // Evening glow: 7:00, 7:15, 7:30, 7:45, 8:00 PM (first 5 min of each)
+    const isEveningGlow = 
+      (hours === 19 && minutes < 5) ||
+      (hours === 19 && minutes >= 15 && minutes < 20) ||
+      (hours === 19 && minutes >= 30 && minutes < 35) ||
+      (hours === 19 && minutes >= 45 && minutes < 50) ||
+      (hours === 20 && minutes < 5);
+
+    setIsGlowing(isMorningGlow || isEveningGlow);
+  };
+
+  checkGlowTime();
+  const interval = setInterval(checkGlowTime, 30000);
+  return () => clearInterval(interval);
+}, []);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -55,6 +83,21 @@ const AmbiancePage = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
+      {/* Glow animation styles */}
+      <style>{`
+        @keyframes gentleGlow {
+          0%, 100% { 
+            text-shadow: 0 0 20px #fbbf24, 0 0 40px #fbbf24, 0 0 60px #fbbf24;
+          }
+          50% { 
+            text-shadow: 0 0 40px #fbbf24, 0 0 80px #fbbf24, 0 0 100px #fbbf24;
+          }
+        }
+        .tagline-glow {
+          animation: gentleGlow 1s ease-in-out infinite !important;
+          text-shadow: 0 0 20px #fbbf24 !important;
+        }
+      `}</style>
       
       <audio
   ref={audioRef}
@@ -184,18 +227,18 @@ const AmbiancePage = () => {
           </div>
 
           <p 
-            className={`text-center text-base md:text-lg mb-10 max-w-md transition-all duration-1000 ${
+            className={`text-center text-base md:text-lg ${isGlowing ? 'tagline-glow' : ''}max-w-md transition-all duration-1000 ${
               isEvening ? 'text-white/60' : 'text-white/80'
             }`}
             style={{ 
               fontFamily: 'Georgia, serif', 
               fontStyle: 'italic',
-              textShadow: '0 1px 10px rgba(0,0,0,0.5)',
+              textShadow: isGlowing ? '0 0 20px #fbbf24, 0 0 40px #fbbf24, 0 0 60px #f59e0b' : '0 1px 10px rgba(0,0,0,0.5)',
             }}
           >
             {isEvening 
               ? '"Puzzle hour. New games drop 7-8pm"' 
-              : '"A good day begins with a puzzle."'}
+              : '"Start your day. Letter Griddle Cafe Special drops at 7am."'}
           </p>
 
           <div 

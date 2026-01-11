@@ -635,7 +635,7 @@ Play at www.lettergriddle.com/travels
         {/* Stamps/Achievements Section */}
         <div className="mb-4">
           <h4 className="text-lg font-bold text-amber-100 mb-3 text-center flex items-center justify-center gap-2">
-            📬 Passport Stamps
+            Passport Stamps
           </h4>
           <div className="space-y-2">
             {passportAchievements.map(achievement => {

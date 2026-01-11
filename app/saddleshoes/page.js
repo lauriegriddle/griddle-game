@@ -524,14 +524,14 @@ More games: lettergriddle.com`;
                   onClick={() => setShowShareModal(true)}
                   className={`w-full bg-gradient-to-r ${colors.accent} hover:opacity-90 text-white py-3 rounded-full font-bold shadow-lg transition-all flex items-center justify-center gap-2`}
                 >
-                  ✉️ Share Results
+                  Share Results
                 </button>
                 
                 <button
                   onClick={() => startGame(selectedTime)}
                   className={`w-full ${colors.button} py-2 rounded-full font-semibold transition-all`}
                 >
-                  ▶️ Play Again
+                  Play Again
                 </button>
                 
                 <button

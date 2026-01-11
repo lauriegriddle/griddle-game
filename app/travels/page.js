@@ -269,7 +269,29 @@ const LetterGriddleTravels = () => {
   const [showCountrySelect, setShowCountrySelect] = useState(true);
   const [shareCopied, setShareCopied] = useState(false);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const [showPassport, setShowPassport] = useState(false);
   const [confettiKey, setConfettiKey] = useState(0);
+
+  // Passport Achievements
+  const passportAchievements = [
+    { id: 'first_stamp', name: 'First Stamp', icon: '🛂', description: 'Visit your first country', requirement: (visited) => visited.length >= 1 },
+    { id: 'frequent_flyer', name: 'Frequent Flyer', icon: '✈️', description: 'Visit 5 countries', requirement: (visited) => visited.length >= 5 },
+    { id: 'world_traveler', name: 'World Traveler', icon: '🌍', description: 'Visit 10 countries', requirement: (visited) => visited.length >= 10 },
+    { id: 'globetrotter', name: 'Globetrotter', icon: '🧳', description: 'Visit 15 countries', requirement: (visited) => visited.length >= 15 },
+    { id: 'world_tour', name: 'World Tour Complete', icon: '🏆', description: 'Visit all 20 countries', requirement: (visited) => visited.length >= 20 },
+    { id: 'easy_explorer', name: 'Easy Explorer', icon: '⭐', description: 'Complete all easy countries', requirement: (visited) => {
+      const easyCountries = allPuzzles.filter(p => p.difficulty === 1).map((_, i) => i);
+      return easyCountries.every(i => visited.includes(i));
+    }},
+    { id: 'medium_voyager', name: 'Medium Voyager', icon: '⭐⭐', description: 'Complete all medium countries', requirement: (visited) => {
+      const mediumIndices = allPuzzles.map((p, i) => p.difficulty === 2 ? i : -1).filter(i => i !== -1);
+      return mediumIndices.every(i => visited.includes(i));
+    }},
+    { id: 'hard_adventurer', name: 'Hard Adventurer', icon: '⭐⭐⭐', description: 'Complete all hard countries', requirement: (visited) => {
+      const hardIndices = allPuzzles.map((p, i) => p.difficulty === 3 ? i : -1).filter(i => i !== -1);
+      return hardIndices.every(i => visited.includes(i));
+    }},
+  ];
 
   const currentPuzzle = allPuzzles[currentPuzzleIndex];
   const hintsRevealedCount = Object.values(revealedHints).filter(Boolean).length;
@@ -557,6 +579,116 @@ Play at www.lettergriddle.com/travels
     </div>
   );
 
+  // Passport Modal
+  const PassportModal = () => (
+    <div 
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      onClick={() => setShowPassport(false)}
+    >
+      <div 
+        className="bg-gradient-to-br from-amber-900 to-yellow-900 rounded-2xl p-6 max-w-md w-full shadow-2xl border-4 border-amber-700 max-h-[90vh] overflow-y-auto relative"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={() => setShowPassport(false)}
+          className="absolute top-3 right-3 text-amber-200 hover:text-white bg-amber-800 hover:bg-amber-700 rounded-full p-1"
+        >
+          <X size={20} />
+        </button>
+        
+        {/* Passport Header */}
+        <div className="text-center mb-5">
+          <div className="text-5xl mb-2">🛂</div>
+          <h3 className="text-2xl font-bold text-amber-100" style={{ fontFamily: 'Georgia, serif' }}>
+            Travel Passport
+          </h3>
+          <p className="text-amber-300 text-sm italic">Your journey around the world</p>
+        </div>
+        
+        {/* Stats Section */}
+        <div className="bg-amber-50 rounded-xl p-4 mb-4 border-2 border-amber-400">
+          <div className="grid grid-cols-2 gap-4 text-center">
+            <div>
+              <div className="text-3xl font-bold text-amber-900">{countriesVisited.length}</div>
+              <div className="text-sm text-amber-700">Countries Visited</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-amber-900">{allPuzzles.length - countriesVisited.length}</div>
+              <div className="text-sm text-amber-700">Still to Explore</div>
+            </div>
+          </div>
+          
+          {/* Progress bar */}
+          <div className="mt-3">
+            <div className="w-full bg-amber-200 rounded-full h-3">
+              <div 
+                className="bg-gradient-to-r from-amber-500 to-yellow-500 h-3 rounded-full transition-all"
+                style={{ width: `${(countriesVisited.length / allPuzzles.length) * 100}%` }}
+              />
+            </div>
+            <p className="text-center text-xs text-amber-600 mt-1">
+              {Math.round((countriesVisited.length / allPuzzles.length) * 100)}% Complete
+            </p>
+          </div>
+        </div>
+
+        {/* Stamps/Achievements Section */}
+        <div className="mb-4">
+          <h4 className="text-lg font-bold text-amber-100 mb-3 text-center flex items-center justify-center gap-2">
+            📬 Passport Stamps
+          </h4>
+          <div className="space-y-2">
+            {passportAchievements.map(achievement => {
+              const isUnlocked = achievement.requirement(countriesVisited);
+              return (
+                <div
+                  key={achievement.id}
+                  className={`rounded-xl p-3 flex items-center gap-3 ${
+                    isUnlocked 
+                      ? 'bg-gradient-to-r from-amber-200 to-yellow-200 border-2 border-amber-400' 
+                      : 'bg-amber-800/50 border-2 border-amber-700 opacity-60'
+                  }`}
+                >
+                  <div className="text-2xl">{achievement.icon}</div>
+                  <div className="flex-1">
+                    <div className={`font-bold text-sm ${isUnlocked ? 'text-amber-900' : 'text-amber-300'}`}>
+                      {achievement.name}
+                    </div>
+                    <div className={`text-xs ${isUnlocked ? 'text-amber-700' : 'text-amber-400'}`}>
+                      {achievement.description}
+                    </div>
+                  </div>
+                  {isUnlocked && <div className="text-green-600 text-xl">✓</div>}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Countries visited list */}
+        {countriesVisited.length > 0 && (
+          <div className="bg-amber-800/30 rounded-xl p-4 border border-amber-700">
+            <h4 className="text-sm font-bold text-amber-200 mb-2 text-center">🍯 Countries Visited</h4>
+            <div className="flex flex-wrap gap-2 justify-center">
+              {countriesVisited.map(index => (
+                <span key={index} className="bg-amber-100 text-amber-900 px-2 py-1 rounded-full text-xs font-medium">
+                  {allPuzzles[index].country}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        <button
+          onClick={() => setShowPassport(false)}
+          className="w-full mt-5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-3 rounded-full font-semibold shadow-lg"
+        >
+          Keep Traveling! ✈️
+        </button>
+      </div>
+    </div>
+  );
+
   // COUNTRY SELECT SCREEN - Letter Griddle Evening Palette
   if (showCountrySelect) {
     return (
@@ -580,13 +712,21 @@ Play at www.lettergriddle.com/travels
             <p className="text-amber-700 italic mb-3">Evening at the Cafe</p>
             
             {/* How to Play Button - centered under subheading */}
-            <button
-              onClick={() => setShowHowToPlay(true)}
-              className="inline-flex items-center gap-1.5 text-amber-800 hover:text-amber-950 text-sm font-medium bg-white/70 hover:bg-white px-4 py-2 rounded-full transition-all border border-amber-400 shadow-sm"
-            >
-              <HelpCircle size={16} />
-              How to Play
-            </button>
+            <div className="flex justify-center gap-2">
+              <button
+                onClick={() => setShowHowToPlay(true)}
+                className="inline-flex items-center gap-1.5 text-amber-800 hover:text-amber-950 text-sm font-medium bg-white/70 hover:bg-white px-4 py-2 rounded-full transition-all border border-amber-400 shadow-sm"
+              >
+                <HelpCircle size={16} />
+                How to Play
+              </button>
+              <button
+                onClick={() => setShowPassport(true)}
+                className="inline-flex items-center gap-1.5 text-amber-800 hover:text-amber-950 text-sm font-medium bg-white/70 hover:bg-white px-4 py-2 rounded-full transition-all border border-amber-400 shadow-sm"
+              >
+                🛂 Passport
+              </button>
+            </div>
           </div>
 
           {/* Progress Card - Dark brown like other games */}
@@ -645,6 +785,7 @@ Play at www.lettergriddle.com/travels
         </div>
 
         {showHowToPlay && <HowToPlayModal />}
+        {showPassport && <PassportModal />}
       </div>
     );
   }
@@ -666,25 +807,37 @@ Play at www.lettergriddle.com/travels
         <div key={confettiKey} className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
           <style>{`
             @keyframes confettiFall {
-              0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-              100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-            }
-            .confetti-piece {
-              animation: confettiFall 4s ease-out forwards;
+              0% { 
+                transform: translateY(0) rotate(0deg) scale(1); 
+                opacity: 1; 
+              }
+              75% {
+                opacity: 1;
+              }
+              100% { 
+                transform: translateY(100vh) rotate(360deg) scale(1); 
+                opacity: 0; 
+              }
             }
           `}</style>
-          {Array.from({ length: 30 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-3xl confetti-piece"
-              style={{
-                left: `${(i * 3.3) % 100}%`,
-                animationDelay: `${(i % 10) * 0.1}s`
-              }}
-            >
-              {currentPuzzle.confettiItems[i % currentPuzzle.confettiItems.length]}
-            </div>
-          ))}
+          {Array.from({ length: 50 }).map((_, i) => {
+            // Use a seeded random based on confettiKey to get consistent but random positions
+            const randomLeft = ((i * 17 + confettiKey * 7) * 2654435761 % 100);
+            return (
+              <div
+                key={i}
+                className="absolute"
+                style={{
+                  left: `${randomLeft}%`,
+                  top: '-60px',
+                  fontSize: '2.5rem',
+                  animation: `confettiFall 3.5s ease-out ${(i % 12) * 0.12}s forwards`
+                }}
+              >
+                {currentPuzzle.confettiItems[i % currentPuzzle.confettiItems.length]}
+              </div>
+            );
+          })}
         </div>
       )}
 
@@ -903,6 +1056,7 @@ Play at www.lettergriddle.com/travels
       )}
 
       {showHowToPlay && <HowToPlayModal />}
+      {showPassport && <PassportModal />}
     </div>
   );
 };

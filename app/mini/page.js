@@ -533,7 +533,7 @@ const copyToClipboard = async (text) => {
                   onClick={handleShuffle}
                   className="bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold"
                 >
-                  🔀 Shuffle
+                  Shuffle
                 </button>
                 <button
                   onClick={handleBackspace}

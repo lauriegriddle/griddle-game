@@ -7,6 +7,12 @@ export default function BetaGames() {
       description: "Beta testing in progress"
     },
     {
+      name: "Has the Goods",
+      href: "/goods",
+      emoji: "🧲",
+      description: "Help Laurel sort cafe inventory!"
+    },
+    {
       name: "Scoops",
       href: "/scoops",
       emoji: "🍨",

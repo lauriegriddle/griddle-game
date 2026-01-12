@@ -264,13 +264,24 @@ const LetterGriddleTravels = () => {
   const [selectedSlotIndex, setSelectedSlotIndex] = useState(null);
   const [isComplete, setIsComplete] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [countriesVisited, setCountriesVisited] = useState([]);
+  const [countriesVisited, setCountriesVisited] = useState(() => {
+  if (typeof window !== 'undefined') {
+    try {
+      const saved = localStorage.getItem('griddleTravelsProgress');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  }
+  return [];
+});
   const [showHintModal, setShowHintModal] = useState(null);
   const [showCountrySelect, setShowCountrySelect] = useState(true);
   const [shareCopied, setShareCopied] = useState(false);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
   const [showPassport, setShowPassport] = useState(false);
   const [confettiKey, setConfettiKey] = useState(0);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   // Passport Achievements
   const passportAchievements = [
@@ -339,6 +350,29 @@ const LetterGriddleTravels = () => {
   }, [playerAnswer]);
 
   useEffect(() => {
+if (playerAnswer.join('') === currentPuzzle.country && !isComplete) {
+setIsComplete(true);
+setShowConfetti(true);
+setConfettiKey(prev => prev + 1);
+if (!countriesVisited.includes(currentPuzzleIndex)) {
+setCountriesVisited([...countriesVisited, currentPuzzleIndex]);
+      }
+setTimeout(() => setShowConfetti(false), 4000);
+    }
+  }, [playerAnswer]);
+
+// Save progress to localStorage whenever countriesVisited changes
+useEffect(() => {
+  if (typeof window !== 'undefined' && countriesVisited.length > 0) {
+    try {
+      localStorage.setItem('griddleTravelsProgress', JSON.stringify(countriesVisited));
+    } catch (e) {
+      console.error('Could not save progress', e);
+    }
+  }
+}, [countriesVisited]);
+
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (showCountrySelect || isComplete || showHintModal || showHowToPlay) return;
       
@@ -377,6 +411,26 @@ const LetterGriddleTravels = () => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [availableLetters, playerAnswer, showCountrySelect, isComplete, showHintModal, showHowToPlay]);
+
+  // Reset all progress
+const resetAllProgress = () => {
+  if (window.confirm('Reset all progress? This will clear all visited countries and cannot be undone!')) {
+    setCountriesVisited([]);
+    localStorage.removeItem('griddleTravelsProgress');
+    setShowPassport(false);
+  }
+};
+
+const confirmReset = () => {
+  setCountriesVisited([]);
+  localStorage.removeItem('griddleTravelsProgress');
+  setShowResetConfirm(false);
+  setShowPassport(false);
+};
+
+const cancelReset = () => {
+  setShowResetConfirm(false);
+};
 
   const revealHint = (hintType) => {
     if (!revealedHints[hintType]) {
@@ -685,9 +739,22 @@ Play at www.lettergriddle.com/travels
         >
           Keep Traveling! ✈️
         </button>
+        <button
+  type="button"
+  onClick={(e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    resetAllProgress();
+  }}
+  className="w-full mt-2 py-2 bg-amber-200 hover:bg-amber-300 text-amber-800 rounded-full text-sm font-semibold"
+>
+  🔄 Reset All Progress
+</button>
       </div>
     </div>
   );
+
+  
 
   // COUNTRY SELECT SCREEN - Letter Griddle Evening Palette
   if (showCountrySelect) {
@@ -709,7 +776,7 @@ Play at www.lettergriddle.com/travels
             <h1 className="text-3xl font-bold text-amber-900" style={{ fontFamily: 'Georgia, serif' }}>
               Letter Griddle Travels
             </h1>
-            <p className="text-amber-700 italic mb-3">At the Cafe</p>
+            <p className="text-amber-700 italic mb-3">Evening at the Cafe</p>
             
             {/* How to Play Button - centered under subheading */}
             <div className="flex justify-center gap-2">
@@ -1057,6 +1124,37 @@ Play at www.lettergriddle.com/travels
 
       {showHowToPlay && <HowToPlayModal />}
       {showPassport && <PassportModal />}
+
+      {/* Reset Confirmation Modal */}
+    {showResetConfirm && (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4">
+        <div className="bg-gradient-to-b from-amber-50 to-orange-100 rounded-2xl p-6 max-w-sm w-full shadow-2xl border-4 border-amber-400">
+          <div className="text-center">
+            <div className="text-5xl mb-3">🧳</div>
+            <h3 className="text-xl font-bold text-amber-900 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+              Reset All Progress?
+            </h3>
+            <p className="text-amber-700 text-sm mb-4">
+              This will clear all visited countries and passport stamps. This cannot be undone!
+            </p>
+            <div className="flex gap-3 justify-center">
+              <button
+                onClick={cancelReset}
+                className="px-5 py-2 bg-amber-200 hover:bg-amber-300 text-amber-800 rounded-full font-semibold"
+              >
+                Keep Exploring
+              </button>
+              <button
+                onClick={confirmReset}
+                className="px-5 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full font-semibold"
+              >
+                Reset Everything
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
     </div>
   );
 };

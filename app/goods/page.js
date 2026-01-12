@@ -627,15 +627,12 @@ const HasTheGoods = () => {
     
     const shareText = `🧲 Letter Griddle Has the Goods!
 ${currentPuzzle.categoryEmojis[0]} ${currentPuzzle.categories[0]} vs ${currentPuzzle.categoryEmojis[1]} ${currentPuzzle.categories[1]}
-✅ Sorted in ${timeStr}!
-${mistakesMade === 0 ? '✨ Perfect Sort!' : ''}
+✅ Sorted in ${timeStr}!${mistakesMade === 0 ? '\n✨ Perfect Sort!' : ''}
 Play at lettergriddle.com/goods`;
 
     if (navigator.share) {
       navigator.share({
-        title: 'Letter Griddle Has the Goods!',
-        text: shareText,
-        url: 'https://lettergriddle.com/goods'
+        text: shareText
       }).catch(() => {
         // Fallback to clipboard
         copyToClipboard(shareText);

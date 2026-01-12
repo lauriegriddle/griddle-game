@@ -40,7 +40,7 @@ export default function BetaGames() {
   name: "Travels",
   href: "/travels",
   emoji: "🌍",
-  description: "Geography word puzzle - Beta tesing NEW!"
+  description: "Geography word puzzle in Beta tesing"
 },
   ];
 

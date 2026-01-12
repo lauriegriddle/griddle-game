@@ -556,8 +556,12 @@ Play at www.lettergriddle.com/travels
   };
 
   const getDifficultyStars = (level) => {
-    const stars = ['⭐', '⭐⭐', '⭐⭐⭐'][level - 1];
-    return <span className="text-sm">{stars}</span>;
+    const stars = ['★', '★★', '★★★'][level - 1];
+    return (
+      <span className="text-sm font-bold text-amber-500 drop-shadow-sm">
+        {stars}
+      </span>
+    );
   };
 
   const currentYear = new Date().getFullYear();
@@ -612,9 +616,9 @@ Play at www.lettergriddle.com/travels
           <div className="bg-white/80 rounded-xl p-4 border border-amber-300">
             <h4 className="font-bold text-amber-900 mb-1">Difficulty Levels</h4>
             <p className="text-amber-800 text-sm">
-              ⭐ Easy (5-6 letters)<br/>
-              ⭐⭐ Medium (6-8 letters)<br/>
-              ⭐⭐⭐ Hard (8+ letters)
+              ★ Easy (5-6 letters)<br/>
+              ★★ Medium (6-8 letters)<br/>
+              ★★★ Hard (8+ letters)
             </p>
           </div>
 

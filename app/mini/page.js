@@ -285,14 +285,14 @@ const copyToClipboard = async (text) => {
 
   if (!hasMounted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-100 via-yellow-100 to-orange-100 p-4 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-200 via-amber-300 to-yellow-700 p-4 flex items-center justify-center">
         <div className="text-amber-600 text-lg">Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-100 via-yellow-100 to-orange-100 p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-amber-200 via-amber-300 to-yellow-700 p-4 relative overflow-hidden">
       <div className="fixed top-4 left-4 text-4xl opacity-20">🍯</div>
       <div className="fixed top-4 right-4 text-4xl opacity-20">🥞</div>
       <div className="fixed bottom-4 left-4 text-4xl opacity-20">🧈</div>
@@ -388,7 +388,7 @@ const copyToClipboard = async (text) => {
               🍯 With Syrup
             </button>
           </div>
-          <p className="text-amber-500 text-xs mt-1">
+          <p className="text-amber-700 text-sm mt-1">
             {mode === 'plain' ? 'No hints — pure word deduction!' : 'Theme revealed for a little help'}
           </p>
         </div>
@@ -560,7 +560,7 @@ const copyToClipboard = async (text) => {
               disabled={currentGuess.some(l => l === '')}
               className={`w-full mt-4 py-3 rounded-full font-bold text-lg shadow-lg ${
                 currentGuess.some(l => l === '')
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  ? 'bg-amber-200 text-amber-600 cursor-not-allowed'
                   : 'bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white'
               }`}
             >
@@ -601,25 +601,16 @@ const copyToClipboard = async (text) => {
           </p>
         </div>
 
-        <div className="text-center mt-4 text-xs text-amber-600">
+        <div className="text-center mt-4 text-sm text-amber-800 font-semibold">
           <p>Part of The Letter Griddle Games 🥞</p>
           <p className="mt-1">
-            <a href="https://lettergriddle.com" className="underline hover:text-amber-800">lettergriddle.com</a>
-            {' • '}
-            <a href="https://instagram.com/letter_griddle" className="underline hover:text-amber-800">@letter_griddle</a>
+            <a href="/privacy" className="hover:text-amber-900 underline">Privacy Policy</a>
+{' | '}
+<a href="/terms" className="hover:text-amber-900 underline">Terms of Service</a>
           </p>
         </div>
-
-        <div className="text-center py-4 text-xs text-amber-500 mt-4">
-          <div>
-            © {new Date().getFullYear()} Letter Griddle. All rights reserved.
-            {' | '}
-            <a href="/privacy" className="hover:text-amber-600 underline">Privacy Policy</a>
-            {' | '}
-            <a href="/terms" className="hover:text-amber-600 underline">Terms of Service</a>
-          </div>
-        </div>
       </div>
+    
 
       {showShareModal && (
         <div 

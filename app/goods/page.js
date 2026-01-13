@@ -770,8 +770,8 @@ const officePuzzles = [
       { text: "Electra", category: 1 },
     ],
     emojis: [
-      { text: "💀", category: 0 },
-      { text: "🎪", category: 1 },
+      { text: "👑", category: 0 },
+      { text: "🏛️", category: 1 },
     ]
   },
   {

@@ -1,56 +1,55 @@
 export default function BetaGames() {
   const betaGames = [
     {
-      name: "Checkers",
-      href: "/checkers",
-      emoji: "🔴",
-      description: "Beta testing in progress"
+        name: "Ambiance",
+        href: "/ambiance",
+        emoji: "☕",
+        description: "Ambient cafe vibes while you play"
     },
     {
-      name: "Has the Goods",
-      href: "/goods",
-      emoji: "🧲",
-      description: "Help Laurel sort cafe inventory!"
+        name: "Checkers",
+        href: "/checkers",
+        emoji: "🔴",
+        description: "Beta testing in progress"
     },
     {
-      name: "Scoops",
-      href: "/scoops",
-      emoji: "🍨",
-      description: "Beta testing in progress"
+        name: "Has the Goods",
+        href: "/goods",
+        emoji: "🧲",
+        description: "Kitchen and Office Modes!"
     },
     {
-      name: "Servings",
-      href: "/servings",
-      emoji: "🍽️",
-      description: "Beta testing in progress"
+        name: "Scoops",
+        href: "/scoops",
+        emoji: "🍨",
+        description: "Beta testing in progress"
     },
     {
-      name: "Stacks",
-      href: "/stacks",
-      emoji: "🥞",
-      description: "Beta testing in progress"
+        name: "Servings",
+        href: "/servings",
+        emoji: "🍽️",
+        description: "Beta testing in progress"
     },
-{
-  name: "Ambiance",
-  href: "/ambiance",
-  emoji: "☕",
-  description: "Ambient cafe vibes while you play"
-},
-{
-    name: "Snacks",
-    href: "/snacks",
-    emoji: "🍪",
-    description: "Beta testing in progress"
-  },
-  {
-  name: "Travels",
-  href: "/travels",
-  emoji: "🌍",
-  description: "Geography word puzzle in Beta tesing"
-},
-  ];
-
-  return (
+    {
+        name: "Snacks",
+        href: "/snacks",
+        emoji: "🍪",
+        description: "Beta testing in progress"
+    },
+    {
+        name: "Stacks",
+        href: "/stacks",
+        emoji: "🥞",
+        description: "Beta testing in progress"
+    },
+    {
+        name: "Travels",
+        href: "/travels",
+        emoji: "🌍",
+        description: "Now with Passport and Destinations Itinerary"
+    },
+];
+return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-8">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">

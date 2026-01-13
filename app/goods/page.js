@@ -818,6 +818,10 @@ const HasTheGoods = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [mistakesMade, setMistakesMade] = useState(0);
   
+  // Touch scroll tracking - prevents accidental puzzle selection while scrolling
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = React.useRef(null);
+  
   // Stats and modals
   const [showStatsModal, setShowStatsModal] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
@@ -1070,8 +1074,28 @@ const HasTheGoods = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // Start game
+  // Handle scroll events - track when user is scrolling to prevent accidental clicks
+  const handleScrollStart = () => {
+    setIsScrolling(true);
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+  };
+
+  const handleScrollEnd = () => {
+    // Small delay before allowing clicks again
+    scrollTimeoutRef.current = setTimeout(() => {
+      setIsScrolling(false);
+    }, 150);
+  };
+
+  // Start game - with scroll protection
   const startGame = (puzzle) => {
+    // Prevent starting game if user was just scrolling
+    if (isScrolling) {
+      return;
+    }
+    
     const allItems = [
       ...puzzle.words.map((w, i) => ({ ...w, id: `word-${i}`, type: 'word' })),
       ...puzzle.emojis.map((e, i) => ({ ...e, id: `emoji-${i}`, type: 'emoji' }))
@@ -1360,7 +1384,13 @@ Play at lettergriddle.com/goods`;
               Select a Puzzle
             </h3>
 
-            <div className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto pr-2 mb-4">
+            <div 
+              className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto pr-2 mb-4"
+              onScroll={handleScrollStart}
+              onTouchMove={handleScrollStart}
+              onTouchEnd={handleScrollEnd}
+              onMouseUp={handleScrollEnd}
+            >
               {currentPuzzles.filter(p => !p.difficulty).map((puzzle) => (
                 <button
                   key={puzzle.id}
@@ -1399,7 +1429,13 @@ Play at lettergriddle.com/goods`;
                   : 'For the trivia buffs! Test your knowledge across topics.'}
               </p>
               
-              <div className="grid grid-cols-2 gap-3 max-h-48 overflow-y-auto pr-2">
+              <div 
+                className="grid grid-cols-2 gap-3 max-h-48 overflow-y-auto pr-2"
+                onScroll={handleScrollStart}
+                onTouchMove={handleScrollStart}
+                onTouchEnd={handleScrollEnd}
+                onMouseUp={handleScrollEnd}
+              >
                 {currentPuzzles.filter(p => p.difficulty === 'challenge').map((puzzle) => (
                   <button
                     key={puzzle.id}

@@ -155,7 +155,7 @@ const LetterGriddleTravels = () => {
       country: "GERMANY",
       hints: {
         geography: "This Central European country is the EU's largest economy and borders nine different nations.",
-        language: "German is spoken here, known for its long compound words like 'Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz'!",
+        language: "German is spoken here, known for long compound words like 'Donaudampfschifffahrt' (Danube steamship company)!",
         flag: "Three horizontal stripes of black, red, and gold represent unity and freedom.",
         pancake: "Thin 'pfannkuchen' are enjoyed sweet or savory, while Berliners call their jelly doughnuts by this name too!"
       },
@@ -412,25 +412,21 @@ useEffect(() => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [availableLetters, playerAnswer, showCountrySelect, isComplete, showHintModal, showHowToPlay]);
 
-  // Reset all progress
-const resetAllProgress = () => {
-  if (window.confirm('Reset all progress? This will clear all visited countries and cannot be undone!')) {
+  // Reset all progress - NOW SHOWS BRANDED MODAL instead of window.confirm
+  const resetAllProgress = () => {
+    setShowResetConfirm(true);
+  };
+
+  const confirmReset = () => {
     setCountriesVisited([]);
     localStorage.removeItem('griddleTravelsProgress');
+    setShowResetConfirm(false);
     setShowPassport(false);
-  }
-};
+  };
 
-const confirmReset = () => {
-  setCountriesVisited([]);
-  localStorage.removeItem('griddleTravelsProgress');
-  setShowResetConfirm(false);
-  setShowPassport(false);
-};
-
-const cancelReset = () => {
-  setShowResetConfirm(false);
-};
+  const cancelReset = () => {
+    setShowResetConfirm(false);
+  };
 
   const revealHint = (hintType) => {
     if (!revealedHints[hintType]) {
@@ -760,8 +756,42 @@ Play at www.lettergriddle.com/travels
 
   
 
+  // State for difficulty filter
+  const [difficultyFilter, setDifficultyFilter] = useState('1');
+
+  // Get filtered puzzles based on difficulty
+  const getFilteredPuzzles = () => {
+    if (difficultyFilter === 'all') return allPuzzles.map((p, i) => ({ ...p, originalIndex: i }));
+    const level = parseInt(difficultyFilter);
+    return allPuzzles
+      .map((p, i) => ({ ...p, originalIndex: i }))
+      .filter(p => p.difficulty === level);
+  };
+
+  // Get counts for each difficulty
+  const getDifficultyCounts = () => {
+    return {
+      easy: { 
+        total: allPuzzles.filter(p => p.difficulty === 1).length, 
+        visited: countriesVisited.filter(i => allPuzzles[i]?.difficulty === 1).length 
+      },
+      medium: { 
+        total: allPuzzles.filter(p => p.difficulty === 2).length, 
+        visited: countriesVisited.filter(i => allPuzzles[i]?.difficulty === 2).length 
+      },
+      hard: { 
+        total: allPuzzles.filter(p => p.difficulty === 3).length, 
+        visited: countriesVisited.filter(i => allPuzzles[i]?.difficulty === 3).length 
+      }
+    };
+  };
+
+  const difficultyCounts = getDifficultyCounts();
+
   // COUNTRY SELECT SCREEN - Letter Griddle Evening Palette
   if (showCountrySelect) {
+    const filteredPuzzles = getFilteredPuzzles();
+    
     return (
       <div className="min-h-screen bg-gradient-to-b from-orange-200 via-orange-100 to-amber-100 p-4 relative overflow-hidden">
         {/* Home Link */}
@@ -819,13 +849,58 @@ Play at www.lettergriddle.com/travels
             <h2 className="text-xl font-bold text-amber-100 mb-4 text-center" style={{ fontFamily: 'Georgia, serif' }}>
               Choose Your Destination
             </h2>
+            
+            {/* Difficulty Filter Tabs */}
+            <div className="flex gap-2 mb-4 justify-center flex-wrap">
+              <button
+                onClick={() => setDifficultyFilter('all')}
+                className={`px-3 py-2 rounded-full font-semibold text-sm transition-all ${
+                  difficultyFilter === 'all'
+                    ? 'bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-900 shadow-lg'
+                    : 'bg-amber-800 text-amber-200 hover:bg-amber-700'
+                }`}
+              >
+                🌍 All ({countriesVisited.length}/{allPuzzles.length})
+              </button>
+              <button
+                onClick={() => setDifficultyFilter('1')}
+                className={`px-3 py-2 rounded-full font-semibold text-sm transition-all ${
+                  difficultyFilter === '1'
+                    ? 'bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-900 shadow-lg'
+                    : 'bg-amber-800 text-amber-200 hover:bg-amber-700'
+                }`}
+              >
+                ★ Easy ({difficultyCounts.easy.visited}/{difficultyCounts.easy.total})
+              </button>
+              <button
+                onClick={() => setDifficultyFilter('2')}
+                className={`px-3 py-2 rounded-full font-semibold text-sm transition-all ${
+                  difficultyFilter === '2'
+                    ? 'bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-900 shadow-lg'
+                    : 'bg-amber-800 text-amber-200 hover:bg-amber-700'
+                }`}
+              >
+                ★★ Medium ({difficultyCounts.medium.visited}/{difficultyCounts.medium.total})
+              </button>
+              <button
+                onClick={() => setDifficultyFilter('3')}
+                className={`px-3 py-2 rounded-full font-semibold text-sm transition-all ${
+                  difficultyFilter === '3'
+                    ? 'bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-900 shadow-lg'
+                    : 'bg-amber-800 text-amber-200 hover:bg-amber-700'
+                }`}
+              >
+                ★★★ Hard ({difficultyCounts.hard.visited}/{difficultyCounts.hard.total})
+              </button>
+            </div>
+            
             <div className="grid grid-cols-2 gap-3">
-              {allPuzzles.map((puzzle, index) => {
-                const visited = countriesVisited.includes(index);
+              {filteredPuzzles.map((puzzle) => {
+                const visited = countriesVisited.includes(puzzle.originalIndex);
                 return (
                   <button
-                    key={index}
-                    onClick={() => selectCountry(index)}
+                    key={puzzle.originalIndex}
+                    onClick={() => selectCountry(puzzle.originalIndex)}
                     className={`p-4 rounded-xl border-2 transition-all ${
                       visited 
                         ? 'bg-gradient-to-br from-amber-200 to-yellow-200 border-amber-400 hover:border-amber-500' 
@@ -857,6 +932,37 @@ Play at www.lettergriddle.com/travels
 
         {showHowToPlay && <HowToPlayModal />}
         {showPassport && <PassportModal />}
+        
+        {/* Reset Confirmation Modal - ALSO NEEDED HERE on country select screen */}
+        {showResetConfirm && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4">
+            <div className="bg-gradient-to-b from-amber-50 to-orange-100 rounded-2xl p-6 max-w-sm w-full shadow-2xl border-4 border-amber-400">
+              <div className="text-center">
+                <div className="text-5xl mb-3">🧳</div>
+                <h3 className="text-xl font-bold text-amber-900 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+                  Reset All Progress?
+                </h3>
+                <p className="text-amber-700 text-sm mb-4">
+                  This will clear all visited countries and passport stamps. This cannot be undone!
+                </p>
+                <div className="flex gap-3 justify-center">
+                  <button
+                    onClick={cancelReset}
+                    className="px-5 py-2 bg-amber-200 hover:bg-amber-300 text-amber-800 rounded-full font-semibold"
+                  >
+                    Keep Exploring
+                  </button>
+                  <button
+                    onClick={confirmReset}
+                    className="px-5 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full font-semibold"
+                  >
+                    Reset Everything
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -1129,36 +1235,36 @@ Play at www.lettergriddle.com/travels
       {showHowToPlay && <HowToPlayModal />}
       {showPassport && <PassportModal />}
 
-      {/* Reset Confirmation Modal */}
-    {showResetConfirm && (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4">
-        <div className="bg-gradient-to-b from-amber-50 to-orange-100 rounded-2xl p-6 max-w-sm w-full shadow-2xl border-4 border-amber-400">
-          <div className="text-center">
-            <div className="text-5xl mb-3">🧳</div>
-            <h3 className="text-xl font-bold text-amber-900 mb-2" style={{fontFamily: 'Georgia, serif'}}>
-              Reset All Progress?
-            </h3>
-            <p className="text-amber-700 text-sm mb-4">
-              This will clear all visited countries and passport stamps. This cannot be undone!
-            </p>
-            <div className="flex gap-3 justify-center">
-              <button
-                onClick={cancelReset}
-                className="px-5 py-2 bg-amber-200 hover:bg-amber-300 text-amber-800 rounded-full font-semibold"
-              >
-                Keep Exploring
-              </button>
-              <button
-                onClick={confirmReset}
-                className="px-5 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full font-semibold"
-              >
-                Reset Everything
-              </button>
+      {/* Reset Confirmation Modal - BRANDED VERSION */}
+      {showResetConfirm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4">
+          <div className="bg-gradient-to-b from-amber-50 to-orange-100 rounded-2xl p-6 max-w-sm w-full shadow-2xl border-4 border-amber-400">
+            <div className="text-center">
+              <div className="text-5xl mb-3">🧳</div>
+              <h3 className="text-xl font-bold text-amber-900 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+                Reset All Progress?
+              </h3>
+              <p className="text-amber-700 text-sm mb-4">
+                This will clear all visited countries and passport stamps. This cannot be undone!
+              </p>
+              <div className="flex gap-3 justify-center">
+                <button
+                  onClick={cancelReset}
+                  className="px-5 py-2 bg-amber-200 hover:bg-amber-300 text-amber-800 rounded-full font-semibold"
+                >
+                  Keep Exploring
+                </button>
+                <button
+                  onClick={confirmReset}
+                  className="px-5 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full font-semibold"
+                >
+                  Reset Everything
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
     </div>
   );
 };

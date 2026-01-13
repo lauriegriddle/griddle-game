@@ -805,8 +805,9 @@ const HasTheGoods = () => {
   // Mode state - kitchen or office
   const [gameMode, setGameMode] = useState('kitchen'); // 'kitchen' or 'office'
   
-  // Game state
-  const [gameState, setGameState] = useState('menu'); // 'menu', 'playing', 'won', 'lost'
+  // Game state - now includes 'selectType' for choosing regular vs challenge
+  const [gameState, setGameState] = useState('menu'); // 'menu', 'selectType', 'selectPuzzle', 'playing', 'won', 'lost'
+  const [puzzleType, setPuzzleType] = useState('regular'); // 'regular' or 'challenge'
   const [currentPuzzle, setCurrentPuzzle] = useState(null);
   const [selectedTime, setSelectedTime] = useState(120); // Default 2 minutes
   const [timeLeft, setTimeLeft] = useState(0);
@@ -817,10 +818,6 @@ const HasTheGoods = () => {
   const [wrongPlacements, setWrongPlacements] = useState({});
   const [showConfetti, setShowConfetti] = useState(false);
   const [mistakesMade, setMistakesMade] = useState(0);
-  
-  // Touch scroll tracking - prevents accidental puzzle selection while scrolling
-  const [isScrolling, setIsScrolling] = useState(false);
-  const scrollTimeoutRef = React.useRef(null);
   
   // Stats and modals
   const [showStatsModal, setShowStatsModal] = useState(false);
@@ -1074,28 +1071,8 @@ const HasTheGoods = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // Handle scroll events - track when user is scrolling to prevent accidental clicks
-  const handleScrollStart = () => {
-    setIsScrolling(true);
-    if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current);
-    }
-  };
-
-  const handleScrollEnd = () => {
-    // Small delay before allowing clicks again
-    scrollTimeoutRef.current = setTimeout(() => {
-      setIsScrolling(false);
-    }, 150);
-  };
-
-  // Start game - with scroll protection
+  // Start game
   const startGame = (puzzle) => {
-    // Prevent starting game if user was just scrolling
-    if (isScrolling) {
-      return;
-    }
-    
     const allItems = [
       ...puzzle.words.map((w, i) => ({ ...w, id: `word-${i}`, type: 'word' })),
       ...puzzle.emojis.map((e, i) => ({ ...e, id: `emoji-${i}`, type: 'emoji' }))
@@ -1103,6 +1080,9 @@ const HasTheGoods = () => {
     
     // Shuffle items
     const shuffled = [...allItems].sort(() => Math.random() - 0.5);
+    
+    // Track puzzle type for "More Puzzles" navigation
+    setPuzzleType(puzzle.difficulty === 'challenge' ? 'challenge' : 'regular');
     
     setCurrentPuzzle(puzzle);
     setFridgeItems(shuffled);
@@ -1355,14 +1335,14 @@ Play at lettergriddle.com/goods`;
           </button>
         </div>
 
-        {/* Menu State */}
+        {/* Menu State - Choose Time and Puzzle Type */}
         {gameState === 'menu' && (
           <div className="bg-slate-800/90 rounded-2xl p-6 shadow-2xl backdrop-blur">
             {/* Time Selection */}
             <h3 className={`text-xl font-bold ${gameMode === 'kitchen' ? 'text-amber-300' : 'text-blue-300'} text-center mb-3`} style={{ fontFamily: 'Georgia, serif' }}>
               Choose Your Time
             </h3>
-            <div className="flex justify-center gap-3 mb-6">
+            <div className="flex justify-center gap-3 mb-8">
               {[60, 120, 180].map((time) => (
                 <button
                   key={time}
@@ -1381,88 +1361,147 @@ Play at lettergriddle.com/goods`;
             </div>
 
             <h3 className={`text-xl font-bold ${gameMode === 'kitchen' ? 'text-amber-300' : 'text-blue-300'} text-center mb-4`} style={{ fontFamily: 'Georgia, serif' }}>
-              Select a Puzzle
+              Choose Your Challenge
             </h3>
 
-            <div 
-              className="grid grid-cols-2 gap-3 max-h-64 overflow-y-auto pr-2 mb-4"
-              onScroll={handleScrollStart}
-              onTouchMove={handleScrollStart}
-              onTouchEnd={handleScrollEnd}
-              onMouseUp={handleScrollEnd}
+            {/* Two Big Buttons for Regular vs Challenge */}
+            <div className="space-y-4">
+              {/* Regular Puzzles Button */}
+              <button
+                onClick={() => { setPuzzleType('regular'); setGameState('selectPuzzle'); }}
+                className={`w-full p-6 rounded-2xl text-left transition-all hover:scale-[1.02] ${
+                  gameMode === 'kitchen'
+                    ? 'bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 border-2 border-amber-400'
+                    : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 border-2 border-blue-400'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-3xl">{gameMode === 'kitchen' ? '🍳' : '🏢'}</span>
+                      <span className="text-2xl font-bold text-white" style={{ fontFamily: 'Georgia, serif' }}>
+                        {gameMode === 'kitchen' ? 'Kitchen Puzzles' : 'Office Puzzles'}
+                      </span>
+                    </div>
+                    <p className="text-white/80 text-sm ml-12">
+                      {gameMode === 'kitchen' 
+                        ? 'Sort cafe inventory into the right categories'
+                        : 'Organize office items and pop culture'}
+                    </p>
+                    <div className="ml-12 mt-2">
+                      <span className={`text-xs ${gameMode === 'kitchen' ? 'text-amber-200' : 'text-blue-200'}`}>
+                        {currentPuzzles.filter(p => !p.difficulty).filter(p => currentModeStats.completedPuzzleIds.includes(p.id)).length} / {currentPuzzles.filter(p => !p.difficulty).length} completed
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-4xl text-white/50">→</span>
+                </div>
+              </button>
+
+              {/* Challenge Puzzles Button */}
+              <button
+                onClick={() => { setPuzzleType('challenge'); setGameState('selectPuzzle'); }}
+                className={`w-full p-6 rounded-2xl text-left transition-all hover:scale-[1.02] border-2 ${
+                  gameMode === 'kitchen'
+                    ? 'bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 border-amber-500'
+                    : 'bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 border-blue-500'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-3xl">{gameMode === 'kitchen' ? '👨‍🍳' : '🧠'}</span>
+                      <span className="text-2xl font-bold text-white" style={{ fontFamily: 'Georgia, serif' }}>
+                        {gameMode === 'kitchen' ? 'Culinary Challenges' : 'Trivia Challenges'}
+                      </span>
+                      <span className="text-xs bg-red-500 text-white px-2 py-0.5 rounded-full">Advanced</span>
+                    </div>
+                    <p className="text-white/80 text-sm ml-12">
+                      {gameMode === 'kitchen' 
+                        ? 'For the food-savvy! Test your culinary knowledge'
+                        : 'For the trivia buffs! Test your knowledge across topics'}
+                    </p>
+                    <div className="ml-12 mt-2">
+                      <span className={`text-xs ${gameMode === 'kitchen' ? 'text-amber-200' : 'text-blue-200'}`}>
+                        {currentPuzzles.filter(p => p.difficulty === 'challenge').filter(p => currentModeStats.completedPuzzleIds.includes(p.id)).length} / {currentPuzzles.filter(p => p.difficulty === 'challenge').length} completed
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-4xl text-white/50">→</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Select Puzzle State - Shows puzzles for chosen type */}
+        {gameState === 'selectPuzzle' && (
+          <div className="bg-slate-800/90 rounded-2xl p-6 shadow-2xl backdrop-blur">
+            {/* Back Button */}
+            <button
+              onClick={() => setGameState('menu')}
+              className="flex items-center gap-2 text-white/70 hover:text-white mb-4 transition-all"
             >
-              {currentPuzzles.filter(p => !p.difficulty).map((puzzle) => (
-                <button
-                  key={puzzle.id}
-                  onClick={() => startGame(puzzle)}
-                  className={`p-4 rounded-xl text-left transition-all hover:scale-105 ${
-                    currentModeStats.completedPuzzleIds.includes(puzzle.id)
-                      ? 'bg-green-700 border-2 border-green-500'
-                      : 'bg-slate-600 hover:bg-slate-500 border-2 border-slate-500'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xl">{puzzle.categoryEmojis[0]}</span>
-                    <span className={`${gameMode === 'kitchen' ? 'text-amber-200' : 'text-blue-200'} font-semibold`}>{puzzle.categories[0]}</span>
-                  </div>
-                  <div className={`${gameMode === 'kitchen' ? 'text-amber-400' : 'text-blue-400'} text-sm`}>vs</div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xl">{puzzle.categoryEmojis[1]}</span>
-                    <span className={`${gameMode === 'kitchen' ? 'text-amber-200' : 'text-blue-200'} font-semibold`}>{puzzle.categories[1]}</span>
-                  </div>
-                  {currentModeStats.completedPuzzleIds.includes(puzzle.id) && (
-                    <div className="text-green-400 text-xs mt-1">✓ Completed</div>
-                  )}
-                </button>
-              ))}
+              <span className="text-xl">←</span>
+              <span className="font-semibold">Back</span>
+            </button>
+
+            {/* Header */}
+            <div className="text-center mb-6">
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <span className="text-3xl">
+                  {puzzleType === 'regular' 
+                    ? (gameMode === 'kitchen' ? '🍳' : '🏢')
+                    : (gameMode === 'kitchen' ? '👨‍🍳' : '🧠')
+                  }
+                </span>
+                <h3 className={`text-2xl font-bold ${gameMode === 'kitchen' ? 'text-amber-300' : 'text-blue-300'}`} style={{ fontFamily: 'Georgia, serif' }}>
+                  {puzzleType === 'regular'
+                    ? (gameMode === 'kitchen' ? 'Kitchen Puzzles' : 'Office Puzzles')
+                    : (gameMode === 'kitchen' ? 'Culinary Challenges' : 'Trivia Challenges')
+                  }
+                </h3>
+                {puzzleType === 'challenge' && (
+                  <span className="text-xs bg-red-500 text-white px-2 py-0.5 rounded-full">Advanced</span>
+                )}
+              </div>
+              <p className="text-white/60 text-sm">
+                {selectedTime / 60} minute mode • Tap a puzzle to start
+              </p>
             </div>
 
-            {/* Challenge Section */}
-            <div className="border-t-2 border-slate-600 pt-4">
-              <h3 className={`text-lg font-bold ${gameMode === 'kitchen' ? 'text-amber-300' : 'text-blue-300'} text-center mb-3 flex items-center justify-center gap-2`} style={{ fontFamily: 'Georgia, serif' }}>
-                {gameMode === 'kitchen' ? '👨‍🍳 Culinary Challenge' : '🧠 Trivia Challenge'}
-                <span className="text-xs bg-red-500 text-white px-2 py-0.5 rounded-full">Advanced</span>
-              </h3>
-              <p className={`${gameMode === 'kitchen' ? 'text-amber-200/70' : 'text-blue-200/70'} text-xs text-center mb-3`}>
-                {gameMode === 'kitchen' 
-                  ? 'For the food-savvy! Test your culinary knowledge.'
-                  : 'For the trivia buffs! Test your knowledge across topics.'}
-              </p>
-              
-              <div 
-                className="grid grid-cols-2 gap-3 max-h-48 overflow-y-auto pr-2"
-                onScroll={handleScrollStart}
-                onTouchMove={handleScrollStart}
-                onTouchEnd={handleScrollEnd}
-                onMouseUp={handleScrollEnd}
-              >
-                {currentPuzzles.filter(p => p.difficulty === 'challenge').map((puzzle) => (
+            {/* Puzzle Grid */}
+            <div className="grid grid-cols-2 gap-3">
+              {currentPuzzles
+                .filter(p => puzzleType === 'challenge' ? p.difficulty === 'challenge' : !p.difficulty)
+                .map((puzzle) => (
                   <button
                     key={puzzle.id}
                     onClick={() => startGame(puzzle)}
-                    className={`p-3 rounded-xl text-left transition-all hover:scale-105 ${
+                    className={`p-4 rounded-xl text-left transition-all hover:scale-105 ${
                       currentModeStats.completedPuzzleIds.includes(puzzle.id)
                         ? 'bg-green-700 border-2 border-green-500'
-                        : gameMode === 'kitchen'
-                          ? 'bg-slate-700 hover:bg-slate-600 border-2 border-amber-600'
-                          : 'bg-slate-700 hover:bg-slate-600 border-2 border-blue-600'
+                        : puzzleType === 'challenge'
+                          ? gameMode === 'kitchen'
+                            ? 'bg-slate-700 hover:bg-slate-600 border-2 border-amber-600'
+                            : 'bg-slate-700 hover:bg-slate-600 border-2 border-blue-600'
+                          : 'bg-slate-600 hover:bg-slate-500 border-2 border-slate-500'
                     }`}
                   >
-                    <div className="flex items-center gap-1 mb-1">
-                      <span className="text-lg">{puzzle.categoryEmojis[0]}</span>
-                      <span className={`${gameMode === 'kitchen' ? 'text-amber-200' : 'text-blue-200'} font-semibold text-sm`}>{puzzle.categories[0]}</span>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xl">{puzzle.categoryEmojis[0]}</span>
+                      <span className={`${gameMode === 'kitchen' ? 'text-amber-200' : 'text-blue-200'} font-semibold`}>{puzzle.categories[0]}</span>
                     </div>
-                    <div className={`${gameMode === 'kitchen' ? 'text-amber-400' : 'text-blue-400'} text-xs`}>vs</div>
-                    <div className="flex items-center gap-1">
-                      <span className="text-lg">{puzzle.categoryEmojis[1]}</span>
-                      <span className={`${gameMode === 'kitchen' ? 'text-amber-200' : 'text-blue-200'} font-semibold text-sm`}>{puzzle.categories[1]}</span>
+                    <div className={`${gameMode === 'kitchen' ? 'text-amber-400' : 'text-blue-400'} text-sm`}>vs</div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl">{puzzle.categoryEmojis[1]}</span>
+                      <span className={`${gameMode === 'kitchen' ? 'text-amber-200' : 'text-blue-200'} font-semibold`}>{puzzle.categories[1]}</span>
                     </div>
                     {currentModeStats.completedPuzzleIds.includes(puzzle.id) && (
                       <div className="text-green-400 text-xs mt-1">✓ Completed</div>
                     )}
                   </button>
                 ))}
-              </div>
             </div>
           </div>
         )}
@@ -1597,7 +1636,7 @@ Play at lettergriddle.com/goods`;
             {/* Back button */}
             <div className="text-center mt-4">
               <button
-                onClick={() => setGameState('menu')}
+                onClick={() => setGameState('selectPuzzle')}
                 className="text-white/70 hover:text-white text-sm underline"
               >
                 ← Back to puzzles
@@ -1664,10 +1703,10 @@ Play at lettergriddle.com/goods`;
                   🔄 Play Again
                 </button>
                 <button
-                  onClick={() => setGameState('menu')}
+                  onClick={() => setGameState('selectPuzzle')}
                   className="bg-slate-600 hover:bg-slate-500 text-white px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2"
                 >
-                  🧲 More
+                  🧲 More Puzzles
                 </button>
               </div>
             </div>
@@ -1731,10 +1770,10 @@ Play at lettergriddle.com/goods`;
                   💪 Try Again
                 </button>
                 <button
-                  onClick={() => setGameState('menu')}
+                  onClick={() => setGameState('selectPuzzle')}
                   className="bg-slate-600 hover:bg-slate-500 text-white px-6 py-3 rounded-full font-bold transition-all"
                 >
-                  🧲 Other Puzzles
+                  🧲 More Puzzles
                 </button>
               </div>
             </div>

@@ -73,7 +73,7 @@ export default function Terms() {
             <p>
               Questions? Contact us at{' '}
               <a href="mailto:lettergriddle.gmail.com" className="text-amber-600 hover:text-amber-700 underline">
-                lettergriddle@gmailcom
+                lettergriddle@gmail.com
               </a>
             </p>
           </section>

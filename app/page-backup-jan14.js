@@ -1,9 +1,7 @@
-"use client";
 import Link from 'next/link';
 
 export default function Home() {
-  // SECTION 1: Daily Games (scheduled drop times)
-  const dailyGames = [
+  const games = [
     {
       name: "Letter Griddle",
       tagline: "The original daily word puzzle",
@@ -113,31 +111,48 @@ export default function Home() {
       hoverBg: "bg-orange-500/80"
     },
     {
-      name: "Letter Griddle Cafe Game",
-      tagline: "A Cafe Special",
-      dropTime: "7:00 AM EST",
-      emoji: "👑",
-      href: "https://lettergriddlecafe.com/game",
+      name: "Saddle Shoes",
+      tagline: "A retro memory matching game",
+      dropTime: null,
+      emoji: "👟",
+      href: "/saddleshoes",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #78350f 0%, #44403c 50%, #451a03 100%)",
+        icon: "🍨",
+        iconSize: "text-4xl",
+        title: ["Saddle", "Shoes"],
+        subtitle: "Memory Match Game",
+        subtitleColor: "text-amber-100"
+      },
+      borderColor: "border-amber-800",
+      bgColor: "from-amber-100 to-stone-100",
+      textColor: "text-amber-900",
+subTextColor: "text-amber-700",
+      timeColor: "text-amber-300",
+      hoverBg: "bg-amber-800/80"
+    },
+    {
+      name: "Jukebox",
+      tagline: "One word leads to the next",
+      dropTime: null,
+      emoji: "🎵",
+      href: "https://lettergriddlecafe.com/jukebox",
       external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
-        icon: "👑",
+        gradient: "linear-gradient(135deg, #115e59 0%, #0f4c4c 50%, #0a3939 100%)",
+        icon: "💿",
         iconSize: "text-4xl",
-        title: ["Cafe", "Game"],
-        subtitle: "A CAFE SPECIAL",
-        subtitleColor: "text-amber-200"
+        title: ["Jukebox"],
+        subtitle: "Word Chain",
+        subtitleColor: "text-teal-200"
       },
-      borderColor: "border-amber-700",
-      bgColor: "from-amber-100 to-orange-100",
-      textColor: "text-amber-900",
-      subTextColor: "text-amber-700",
-      timeColor: "text-amber-600",
-      hoverBg: "bg-amber-800/80"
-    }
-  ];
-
-  // SECTION 2: Letter Griddle Games (Trivia Crew / anytime games)
-  const letterGriddleGames = [
+      borderColor: "border-teal-700",
+      bgColor: "from-teal-100 to-cyan-100",
+      textColor: "text-teal-900",
+subTextColor: "text-teal-700",
+      timeColor: "text-teal-300",
+      hoverBg: "bg-teal-800/80"
+    },
     {
       name: "Griddle Falls",
       tagline: "Trivia with the Letter Griddle Cafe Crew",
@@ -159,84 +174,6 @@ export default function Home() {
       hoverBg: "bg-orange-500/80"
     },
     {
-      name: "Jukebox",
-      tagline: "One word leads to the next",
-      emoji: "🎵",
-      href: "https://lettergriddlecafe.com/jukebox",
-      external: true,
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #115e59 0%, #0f4c4c 50%, #0a3939 100%)",
-        icon: "💿",
-        iconSize: "text-4xl",
-        title: ["Jukebox"],
-        subtitle: "Word Chain",
-        subtitleColor: "text-teal-200"
-      },
-      borderColor: "border-teal-700",
-      bgColor: "from-teal-100 to-cyan-100",
-      textColor: "text-teal-900",
-      subTextColor: "text-teal-700",
-      hoverBg: "bg-teal-800/80"
-    },
-    {
-      name: "Griddle Shake",
-      tagline: "A Letter Griddle Word Hunt Game",
-      emoji: "🔍",
-      href: "/griddleshake",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 25%, #f5d0fe 50%, #a5f3fc 75%, #c4b5fd 100%)",
-        icon: "🔍",
-        iconSize: "text-4xl",
-        title: ["Griddle", "Shake"],
-        subtitle: "WORD HUNT",
-        subtitleColor: "text-purple-100"
-      },
-      borderColor: "border-purple-300",
-      bgColor: "from-purple-50 to-pink-50",
-      textColor: "text-purple-800",
-      subTextColor: "text-purple-600",
-      hoverBg: "bg-purple-400/80"
-    },
-    {
-      name: "Kerflufflegrid",
-      tagline: "Reveal the theme before Kerflufflegrid",
-      emoji: "⏳",
-      href: "https://kerflufflegrid.com",
-      external: true,
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%)",
-        icon: "⏳",
-        iconSize: "text-4xl",
-        title: ["Kerfluffle", "grid"],
-        subtitle: "Beat the Clock",
-        subtitleColor: "text-amber-100"
-      },
-      borderColor: "border-amber-300",
-      bgColor: "from-amber-100 to-yellow-100",
-      textColor: "text-amber-800",
-      subTextColor: "text-amber-700",
-      hoverBg: "bg-amber-600/80"
-    },
-    {
-      name: "Saddle Shoes",
-      tagline: "A retro memory matching game",
-      emoji: "👟",
-      href: "/saddleshoes",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #78350f 0%, #44403c 50%, #451a03 100%)",
-        icon: "🍨",
-        iconSize: "text-4xl",
-        title: ["Saddle", "Shoes"],
-        subtitle: "Memory Match Game",
-        subtitleColor: "text-amber-100"
-      },
-      borderColor: "border-amber-800",
-      bgColor: "from-amber-100 to-stone-100",
-      textColor: "text-amber-900",
-      subTextColor: "text-amber-700",
-      hoverBg: "bg-amber-800/80"
-    },
-    {
       name: "Tile Griddle",
       tagline: "A domino-style matching game with the Trivia Crew",
       emoji: "🥞🧁🍿",
@@ -254,11 +191,27 @@ export default function Home() {
       textColor: "text-orange-800",
       subTextColor: "text-orange-700",
       hoverBg: "bg-orange-500/80"
-    }
-  ];
-
-  // SECTION 3: Stories, Recipes & More
-  const storiesAndMore = [
+    },
+    {
+      name: "Kerflufflegrid",
+      tagline: "Reveal the theme before Kerflufflegrid",
+      emoji: "⏳",
+      href: "https://kerflufflegrid.com",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%)",
+        icon: "⏳",
+        iconSize: "text-4xl",
+        title: ["Kerfluffle", "grid"],
+        subtitle: "Beat the Clock",
+        subtitleColor: "text-amber-100"
+      },
+      borderColor: "text-orange-100",
+      bgColor: "from-amber-100 to-yellow-100",
+      textColor: "text-amber-800",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-600/80"
+    },
     {
       name: "Cookbook",
       tagline: "Recipes paired with word puzzles",
@@ -299,6 +252,46 @@ export default function Home() {
       textColor: "text-orange-800",
       subTextColor: "text-orange-700",
       hoverBg: "bg-amber-600/80"
+    },
+    {
+      name: "Letter Griddle Cafe Game",
+      tagline: "A Cafe Special",
+      emoji: "👑",
+      href: "https://lettergriddlecafe.com/game",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
+        icon: "👑",
+        iconSize: "text-4xl",
+        title: ["Cafe", "Game"],
+        subtitle: "A CAFE SPECIAL",
+        subtitleColor: "text-amber-200"
+      },
+      borderColor: "border-amber-700",
+      bgColor: "from-amber-100 to-orange-100",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-800/80",
+      dropTime: "7:00 AM EST"
+    },
+    {
+      name: "Griddle Shake",
+      tagline: "A Letter Griddle Word Hunt Game",
+      emoji: "🔍",
+      href: "/griddleshake",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 25%, #f5d0fe 50%, #a5f3fc 75%, #c4b5fd 100%)",
+        icon: "🔍",
+        iconSize: "text-4xl",
+        title: ["Griddle", "Shake"],
+        subtitle: "WORD HUNT",
+        subtitleColor: "text-purple-100"
+      },
+      borderColor: "border-purple-300",
+      bgColor: "from-purple-50 to-pink-50",
+      textColor: "text-purple-800",
+      subTextColor: "text-purple-600",
+      hoverBg: "bg-purple-400/80"
     },
     {
       name: "Letter Griddle Cottage",
@@ -416,58 +409,6 @@ export default function Home() {
     );
   };
 
-  // Reusable game grid component
-  const GameGrid = ({ games }) => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {games.map((game) => (
-        <GameCard key={game.name} game={game}>
-          {/* Thumbnail */}
-          <div className="relative h-48">
-            {renderThumbnail(game)}
-            
-            {/* Coming Soon Overlay */}
-            {game.comingSoon ? (
-              <div className="absolute inset-0 bg-gray-800/60 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <p className="text-2xl mb-1">❄️</p>
-                  <p className="font-bold text-lg" style={{ fontFamily: 'Georgia, serif' }}>Coming February 2026</p>
-                </div>
-              </div>
-            ) : (
-              /* Hover Overlay */
-              <div className={`absolute inset-0 ${game.hoverBg} flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity`}>
-                <span className="text-white font-bold text-lg">
-                  {game.href.includes('cafe') || game.href.includes('cookbook') || game.href.includes('cottage') ? 'Visit →' : 'Play Now →'}
-                </span>
-              </div>
-            )}
-          </div>
-          
-          {/* Card Footer */}
-          <div className={`p-5 bg-gradient-to-br ${game.bgColor}`}>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-2xl">{game.emoji}</span>
-              <h2 className={`text-xl font-bold ${game.textColor}`} style={{ fontFamily: 'Georgia, serif' }}>
-                {game.name}
-              </h2>
-            </div>
-            <p className={`${game.subTextColor} text-sm mb-2`}>{game.tagline}</p>
-            {game.dropTime && (
-              <p className={`${game.timeColor} text-xs font-semibold`}>
-                🕖 New puzzle daily at {game.dropTime}
-              </p>
-            )}
-          </div>
-        </GameCard>
-      ))}
-    </div>
-  );
-
-  // Smooth scroll to section
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
       {/* Header */}
@@ -476,101 +417,56 @@ export default function Home() {
         <h1 className="text-4xl md:text-5xl font-bold text-amber-800 mb-4" style={{ fontFamily: 'Georgia, serif' }}>
           The Letter Griddle Games
         </h1>
-        <p className="text-sm text-amber-600 font-medium mb-6">
+        <p className="text-sm text-amber-600 font-medium">
           ✨ Ad-free • Play free • No downloads ✨
         </p>
-        
-        {/* Section Navigation */}
-        <nav className="flex flex-wrap justify-center gap-3 max-w-xl mx-auto">
-          <button 
-            onClick={() => scrollToSection('daily-games')}
-            className="px-4 py-2 bg-amber-600 text-white rounded-full text-sm font-semibold hover:bg-amber-700 transition-colors shadow-md"
-          >
-            Daily Games
-          </button>
-          <button 
-            onClick={() => scrollToSection('more-games')}
-            className="px-4 py-2 bg-orange-500 text-white rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors shadow-md"
-          >
-            More Games
-          </button>
-          <button 
-            onClick={() => scrollToSection('stories-more')}
-            className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
-          >
-            Stories & More
-          </button>
-        </nav>
       </header>
 
+      {/* Games Grid */}
       <main className="max-w-6xl mx-auto px-4 pb-12">
-        
-        {/* SECTION 1: Daily Games */}
-        <section id="daily-games" className="mb-16 scroll-mt-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-              Daily Games
-            </h2>
-          </div>
-          
-          <GameGrid games={dailyGames} />
-          
-          {/* Next Section Button */}
-          <div className="text-center mt-10">
-            <button 
-              onClick={() => scrollToSection('more-games')}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-full font-semibold hover:from-orange-500 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl"
-            >
-              Explore More Games
-              <span className="text-xl">→</span>
-            </button>
-          </div>
-        </section>
-
-        {/* SECTION 2: Letter Griddle Games */}
-        <section id="more-games" className="mb-16 scroll-mt-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-              Letter Griddle Games
-            </h2>
-          </div>
-          
-          <GameGrid games={letterGriddleGames} />
-          
-          {/* Next Section Button */}
-          <div className="text-center mt-10">
-            <button 
-              onClick={() => scrollToSection('stories-more')}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 text-white rounded-full font-semibold hover:from-amber-700 hover:to-amber-800 transition-all shadow-lg hover:shadow-xl"
-            >
-              Recipes, Stories, Puzzles & More
-              <span className="text-xl">→</span>
-            </button>
-          </div>
-        </section>
-
-        {/* SECTION 3: Stories & More */}
-        <section id="stories-more" className="mb-8 scroll-mt-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-              Recipes, Stories, Puzzles & More
-            </h2>
-          </div>
-          
-          <GameGrid games={storiesAndMore} />
-          
-          {/* Back to Top Button */}
-          <div className="text-center mt-10">
-            <button 
-              onClick={() => scrollToSection('daily-games')}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-full font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all shadow-lg hover:shadow-xl"
-            >
-              <span className="text-xl">↑</span>
-              Back to Daily Games
-            </button>
-          </div>
-        </section>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {games.map((game) => (
+            <GameCard key={game.name} game={game}>
+              {/* Thumbnail */}
+              <div className="relative h-48">
+                {renderThumbnail(game)}
+                
+                {/* Coming Soon Overlay */}
+                {game.comingSoon ? (
+                  <div className="absolute inset-0 bg-gray-800/60 flex items-center justify-center">
+                    <div className="text-center text-white">
+                      <p className="text-2xl mb-1">❄️</p>
+                      <p className="font-bold text-lg" style={{ fontFamily: 'Georgia, serif' }}>Coming February 2026</p>
+                    </div>
+                  </div>
+                ) : (
+                  /* Hover Overlay */
+                  <div className={`absolute inset-0 ${game.hoverBg} flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity`}>
+                    <span className="text-white font-bold text-lg">
+                      {game.href.includes('cafe') || game.href.includes('cookbook') ? 'Visit →' : 'Play Now →'}
+                    </span>
+                  </div>
+                )}
+              </div>
+              
+              {/* Card Footer */}
+              <div className={`p-5 bg-gradient-to-br ${game.bgColor}`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-2xl">{game.emoji}</span>
+                  <h2 className={`text-xl font-bold ${game.textColor}`} style={{ fontFamily: 'Georgia, serif' }}>
+                    {game.name}
+                  </h2>
+                </div>
+                <p className={`${game.subTextColor} text-sm mb-2`}>{game.tagline}</p>
+                {game.dropTime && (
+                  <p className={`${game.timeColor} text-xs font-semibold`}>
+                    🕖 New puzzle daily at {game.dropTime}
+                  </p>
+                )}
+              </div>
+            </GameCard>
+          ))}
+        </div>
       </main>
 
       {/* Footer */}

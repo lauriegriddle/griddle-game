@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 // Letter Griddle Pancakes - A cozy word-finding game
 
 const PancakesGame = () => {
-  // 10 Puzzles for beta testers!
+  // 20 Puzzles for beta testers!
   const allPuzzles = [
     {
       category: "Breakfast Favorites",
@@ -94,6 +94,96 @@ const PancakesGame = () => {
       funFact: {
         title: "Scottish Pancakes",
         text: "Scottish pancakes (also called Scotch pancakes or drop scones) are small, thick, and fluffy, perfect for afternoon tea! Queen Elizabeth II reportedly shared her personal recipe with President Eisenhower in 1960. They're traditionally served warm with butter and jam, or cold as a teatime treat."
+      }
+    },
+    {
+      category: "Garden Flowers",
+      puzzleNumber: 11,
+      words: ["ROSE", "TULIP", "DAISY", "VIOLET", "ORCHID"],
+      funFact: {
+        title: "Dutch Pannenkoeken",
+        text: "Dutch pannenkoeken are large, thin pancakes the size of a dinner plate! They can be sweet or savory, often topped with bacon, cheese, apples, or stroop (syrup). In the Netherlands, pancake houses called 'pannenkoekenhuis' are a beloved family tradition."
+      }
+    },
+    {
+      category: "Ocean Life",
+      puzzleNumber: 12,
+      words: ["WHALE", "DOLPHIN", "SHARK", "CORAL", "TIDE"],
+      funFact: {
+        title: "Venezuelan Cachapas",
+        text: "Cachapas are sweet corn pancakes from Venezuela, made with fresh ground corn instead of flour. They're folded around soft white cheese called 'queso de mano' that melts from the warmth. Street vendors serve them fresh off the griddle, and the natural sweetness of the corn makes them irresistible!"
+      }
+    },
+    {
+      category: "Camping Trip",
+      puzzleNumber: 13,
+      words: ["TENT", "CAMPFIRE", "HIKE", "STARS", "MARSH"],
+      funFact: {
+        title: "Welsh Crempog",
+        text: "Welsh crempog are traditional griddle cakes made with buttermilk and sometimes flavored with vinegar, giving them a unique tangy taste. They're stacked in layers with butter between each pancake, creating a beautiful tower. Historically made for Shrove Tuesday celebrations!"
+      }
+    },
+    {
+      category: "Music Types",
+      puzzleNumber: 14,
+      words: ["JAZZ", "ROCK", "BLUES", "FOLK", "COUNTRY"],
+      funFact: {
+        title: "Chinese Jianbing",
+        text: "Jianbing is China's most popular street breakfast, a savory crepe spread with egg, sweet bean sauce, and chili, then topped with crispy wonton crackers and green onions. Over 2.5 billion are sold every year! The skilled vendors cook them on large round griddles in just 2-3 minutes."
+      }
+    },
+    {
+      category: "Pet Friends",
+      puzzleNumber: 15,
+      words: ["PUPPY", "KITTEN", "BUNNY", "HAMSTER", "BIRD"],
+      funFact: {
+        title: "Moroccan Msemen",
+        text: "Msemen are square-shaped Moroccan pancakes with many flaky layers, similar to puff pastry. The dough is stretched thin, folded repeatedly, then cooked on a griddle. They're served for breakfast with honey and butter, or stuffed with spiced meat for a savory snack!"
+      }
+    },
+    {
+      category: "Rainy Day",
+      puzzleNumber: 16,
+      words: ["UMBRELLA", "PUDDLE", "STORM", "CLOUD", "DROP"],
+      funFact: {
+        title: "Austrian Kaiserschmarrn",
+        text: "Kaiserschmarrn means 'Emperor's Mess,' a fluffy shredded pancake created for Emperor Franz Joseph I! The thick batter is cooked, then torn into pieces while still in the pan and caramelized with sugar. Served dusted with powdered sugar alongside apple compote or plum jam."
+      }
+    },
+    {
+      category: "Board Games",
+      puzzleNumber: 17,
+      words: ["CHESS", "CLUE", "RISK", "SORRY", "JENGA"],
+      funFact: {
+        title: "Hong Kong Egg Waffles",
+        text: "Also called 'gai daan jai' (little egg puffs), these iconic street snacks have a distinctive bubble pattern. Each crispy ball has a soft, eggy center. Invented in the 1950s by resourceful vendors using broken eggs, they've become one of Hong Kong's most beloved street foods!"
+      }
+    },
+    {
+      category: "Autumn Days",
+      puzzleNumber: 18,
+      words: ["PUMPKIN", "APPLE", "LEAF", "HARVEST", "CIDER"],
+      funFact: {
+        title: "Polish Naleśniki",
+        text: "Polish naleśniki are thin crepes rolled around sweet or savory fillings. The most popular version is filled with sweetened farmer's cheese (twaróg) and raisins. They're often baked briefly after filling, then topped with sour cream. A beloved comfort food for Polish families!"
+      }
+    },
+    {
+      category: "Space Adventure",
+      puzzleNumber: 19,
+      words: ["ROCKET", "PLANET", "STAR", "MOON", "ORBIT"],
+      funFact: {
+        title: "Finnish Pannukakku",
+        text: "Unlike most pancakes, Finnish pannukakku is baked in the oven! The egg-rich batter puffs up dramatically while baking, then deflates into a custardy texture. Traditionally served straight from the pan with strawberry jam and whipped cream. It's so popular that Thursday is 'pancake day' in Finnish schools!"
+      }
+    },
+    {
+      category: "Tropical Paradise",
+      puzzleNumber: 20,
+      words: ["PALM", "BEACH", "ISLAND", "COCONUT", "WAVE"],
+      funFact: {
+        title: "Thai Khanom Buang",
+        text: "These crispy Thai crepes are an ancient street dessert dating back centuries! Ultra-thin and crispy shells are filled with sweet or savory toppings, the sweet version has meringue and shredded coconut, while savory ones have dried shrimp and cilantro. The batter contains rice flour, creating that signature crunch!"
       }
     }
   ];
@@ -1378,7 +1468,7 @@ Play at lettergriddle.com/pancakes`;
                   <h4 className="font-bold text-amber-900 text-sm mb-2">💡 Tips</h4>
                   <ul className="text-xs text-amber-800 space-y-1">
                     <li>• Words are placed in straight lines (→ ↓ ↘)</li>
-                    <li>• Golden-ringed letters are hints so start there!</li>
+                    <li>• Golden-ringed letters are hints — start there!</li>
                     <li>• Tap a selected letter again to deselect it</li>
                     <li>• Try to complete puzzles in the fewest flips!</li>
                     <li>• Your progress is saved automatically 💾</li>

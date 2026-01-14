@@ -11,7 +11,7 @@ export default function Terms() {
 
         <div className="space-y-6 text-gray-700">
           <p className="text-sm text-gray-500">
-            <strong>Last Updated:</strong> November 5, 2025
+            <strong>Last Updated:</strong> January 14, 2026
           </p>
 
           <section>

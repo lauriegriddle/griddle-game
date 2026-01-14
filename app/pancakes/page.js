@@ -114,6 +114,10 @@ const PancakesGame = () => {
     { id: 'breakfast_regular', name: 'Breakfast Regular', icon: '☕', description: 'Play 15 games', requirement: (stats) => stats.gamesPlayed >= 15 },
   ];
 
+  // Landing screen state
+  const [showLanding, setShowLanding] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
+
   const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(0);
   const puzzleData = allPuzzles[currentPuzzleIndex];
 
@@ -132,6 +136,9 @@ const PancakesGame = () => {
     { name: 'Dinner Hour', file: '/audio/dinner-hour.mp3' },
     { name: 'Pancakes at Sunset', file: '/audio/pancakes-at-sunset.mp3' }
   ];
+
+  // Confetti emojis for celebration
+  const confettiEmojis = ['🥞', '🧈', '🍯', '🍓', '🫐', '☕', '🧇', '🍳', '🥓', '🍌'];
 
   const GRID_SIZE = 8;
 
@@ -245,6 +252,8 @@ const PancakesGame = () => {
   const [flipCount, setFlipCount] = useState(0);
   const [newAchievement, setNewAchievement] = useState(null);
   const [shareCopied, setShareCopied] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [ambientMode, setAmbientMode] = useState(false);
 
   // Music state
   const [currentTrack, setCurrentTrack] = useState(null);
@@ -271,6 +280,66 @@ const PancakesGame = () => {
     }
     return { gamesPlayed: 0, gamesWon: 0, totalWordsFound: 0, fewestFlips: null, currentStreak: 0, maxStreak: 0, unlockedAchievements: [] };
   });
+
+  // Mark as mounted
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  // Load saved progress on mount
+  useEffect(() => {
+    if (hasMounted && typeof window !== 'undefined') {
+      try {
+        const savedProgress = localStorage.getItem('pancakesProgress');
+        if (savedProgress) {
+          const progress = JSON.parse(savedProgress);
+          if (progress.puzzleIndex !== undefined) {
+            setCurrentPuzzleIndex(progress.puzzleIndex);
+          }
+          if (progress.tiles) {
+            setTiles(progress.tiles);
+          }
+          if (progress.foundWords) {
+            setFoundWords(progress.foundWords);
+            setEarnedToppings(progress.foundWords.map((_, i) => toppings[i]));
+          }
+          if (progress.flipCount !== undefined) {
+            setFlipCount(progress.flipCount);
+          }
+          // If there's saved progress, skip landing screen
+          if (progress.foundWords && progress.foundWords.length > 0) {
+            setShowLanding(false);
+          }
+        }
+      } catch (e) {
+        console.error('Could not load progress', e);
+      }
+    }
+  }, [hasMounted]);
+
+  // Save progress whenever game state changes
+  useEffect(() => {
+    if (hasMounted && typeof window !== 'undefined' && !showCompletion) {
+      try {
+        const progress = {
+          puzzleIndex: currentPuzzleIndex,
+          tiles: tiles,
+          foundWords: foundWords,
+          flipCount: flipCount
+        };
+        localStorage.setItem('pancakesProgress', JSON.stringify(progress));
+      } catch (e) {
+        console.error('Could not save progress', e);
+      }
+    }
+  }, [hasMounted, currentPuzzleIndex, tiles, foundWords, flipCount, showCompletion]);
+
+  // Clear progress when puzzle is completed
+  const clearProgress = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('pancakesProgress');
+    }
+  };
 
   // Save stats
   useEffect(() => {
@@ -343,8 +412,9 @@ const PancakesGame = () => {
   // Handle tile click
   const handleTileClick = (tileId) => {
     const tile = tiles.find(t => t.id === tileId);
-    if (!tile || tile.isFound) return;
+    if (!tile) return;
 
+    // If tile is not flipped yet, flip it (but found tiles are already flipped)
     if (!tile.isFlipped) {
       setTiles(prev => prev.map(t => 
         t.id === tileId ? { ...t, isFlipped: true } : t
@@ -400,6 +470,10 @@ const PancakesGame = () => {
       setCurrentWord('');
 
       if (newFoundWords.length === puzzleData.words.length) {
+        // Show confetti!
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 4000);
+        
         const newStats = {
           ...stats,
           gamesPlayed: stats.gamesPlayed + 1,
@@ -412,6 +486,7 @@ const PancakesGame = () => {
         };
         newStats.unlockedAchievements = checkAchievements(newStats);
         setStats(newStats);
+        clearProgress(); // Clear saved progress on completion
         setTimeout(() => setShowCompletion(true), 800);
       }
     } else if (foundWords.includes(currentWord)) {
@@ -439,7 +514,6 @@ Completed in ${flipCount} flips!
 ${stats.fewestFlips && flipCount <= stats.fewestFlips ? '🏆 New personal best!' : ''}
 Play at lettergriddle.com/pancakes`;
 
-    // Try native share first
     if (navigator.share) {
       try {
         await navigator.share({
@@ -454,7 +528,6 @@ Play at lettergriddle.com/pancakes`;
       }
     }
     
-    // Fallback to clipboard
     try {
       await navigator.clipboard.writeText(shareText);
       setShareCopied(true);
@@ -474,6 +547,7 @@ Play at lettergriddle.com/pancakes`;
     setShowCompletion(false);
     setMessage('');
     setFlipCount(0);
+    clearProgress();
   };
 
   // Next puzzle
@@ -488,6 +562,12 @@ Play at lettergriddle.com/pancakes`;
     setShowCompletion(false);
     setMessage('');
     setFlipCount(0);
+    clearProgress();
+  };
+
+  // Start game from landing
+  const startGame = () => {
+    setShowLanding(false);
   };
 
   // Reset stats
@@ -496,6 +576,7 @@ Play at lettergriddle.com/pancakes`;
     setStats(emptyStats);
     if (typeof window !== 'undefined') {
       localStorage.removeItem('pancakesStats');
+      localStorage.removeItem('pancakesProgress');
     }
     setShowResetConfirm(false);
     setShowStats(false);
@@ -504,15 +585,158 @@ Play at lettergriddle.com/pancakes`;
   const currentYear = new Date().getFullYear();
   const unlockedList = stats.unlockedAchievements || [];
 
+  // Landing Screen
+  if (showLanding) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 relative overflow-hidden flex items-center justify-center p-4">
+        {/* Background decoration */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-10 left-10 text-6xl opacity-10">🥞</div>
+          <div className="absolute top-20 right-20 text-5xl opacity-10">☕</div>
+          <div className="absolute bottom-20 left-20 text-5xl opacity-10">🧇</div>
+          <div className="absolute bottom-10 right-10 text-6xl opacity-10">🍳</div>
+        </div>
+
+        {/* Chalkboard Menu */}
+        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 md:p-12 max-w-lg w-full shadow-2xl border-8 border-amber-700 relative">
+          {/* Chalk dust effect */}
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <div className="w-full h-full" style={{ background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)' }}></div>
+          </div>
+          
+          {/* Menu Header */}
+          <div className="text-center mb-8 relative">
+            <div className="text-6xl mb-4">🥞</div>
+            <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+              Pancakes
+            </h1>
+            <p className="text-amber-300 text-lg italic">A Letter Griddle Game</p>
+            <div className="mt-4 border-t-2 border-amber-600 pt-4">
+              <p className="text-white text-sm">~ Find the words, earn the toppings! ~</p>
+            </div>
+          </div>
+
+          {/* Today's Special */}
+          <div className="bg-amber-900/50 rounded-xl p-4 mb-6 border-2 border-amber-600">
+            <p className="text-amber-300 text-xs uppercase tracking-widest mb-1">Today's Special</p>
+            <p className="text-white text-2xl font-bold" style={{ fontFamily: 'Georgia, serif' }}>
+              {puzzleData.category}
+            </p>
+            <p className="text-amber-400 text-sm mt-1">Puzzle #{puzzleData.puzzleNumber} of {allPuzzles.length}</p>
+          </div>
+
+          {/* Menu Items */}
+          <div className="space-y-3 mb-8">
+            <div className="flex justify-between text-amber-100 text-sm">
+              <span>🧈 Butter</span>
+              <span className="text-amber-500 flex-1 mx-2 border-b border-dotted border-amber-600"></span>
+              <span>1st word</span>
+            </div>
+            <div className="flex justify-between text-amber-100 text-sm">
+              <span>🍯 Syrup</span>
+              <span className="text-amber-500 flex-1 mx-2 border-b border-dotted border-amber-600"></span>
+              <span>2nd word</span>
+            </div>
+            <div className="flex justify-between text-amber-100 text-sm">
+              <span>🍓 Strawberries</span>
+              <span className="text-amber-500 flex-1 mx-2 border-b border-dotted border-amber-600"></span>
+              <span>3rd word</span>
+            </div>
+            <div className="flex justify-between text-amber-100 text-sm">
+              <span>🫐 Blueberries</span>
+              <span className="text-amber-500 flex-1 mx-2 border-b border-dotted border-amber-600"></span>
+              <span>4th word</span>
+            </div>
+            <div className="flex justify-between text-amber-100 text-sm">
+              <span>🍯 Honey Drizzle</span>
+              <span className="text-amber-500 flex-1 mx-2 border-b border-dotted border-amber-600"></span>
+              <span>5th word</span>
+            </div>
+          </div>
+
+          {/* Start Button */}
+          <button
+            onClick={startGame}
+            className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white py-4 rounded-full font-bold text-xl shadow-lg transition-all transform hover:scale-105"
+          >
+            🥞 Play Pancakes!
+          </button>
+
+          {/* Footer links */}
+          <div className="mt-6 flex justify-center gap-4">
+            <button
+              onClick={() => { setShowLanding(false); setShowHowToPlay(true); }}
+              className="text-amber-400 hover:text-amber-300 text-sm underline"
+            >
+              How to Play
+            </button>
+            <span className="text-amber-600">•</span>
+            <a 
+              href="https://lettergriddle.com" 
+              className="text-amber-400 hover:text-amber-300 text-sm underline"
+            >
+              Back to Letter Griddle
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 relative overflow-hidden">
+    <div className={`min-h-screen relative overflow-hidden transition-all duration-500 ${
+      ambientMode 
+        ? 'bg-gradient-to-br from-slate-800 via-slate-900 to-gray-900' 
+        : 'bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100'
+    }`}>
       {/* Background decoration */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-10 left-10 text-6xl opacity-10">🥞</div>
-        <div className="absolute top-20 right-20 text-5xl opacity-10">☕</div>
-        <div className="absolute bottom-20 left-20 text-5xl opacity-10">🧇</div>
-        <div className="absolute bottom-10 right-10 text-6xl opacity-10">🍳</div>
+        <div className={`absolute top-10 left-10 text-6xl ${ambientMode ? 'opacity-5' : 'opacity-10'}`}>🥞</div>
+        <div className={`absolute top-20 right-20 text-5xl ${ambientMode ? 'opacity-5' : 'opacity-10'}`}>☕</div>
+        <div className={`absolute bottom-20 left-20 text-5xl ${ambientMode ? 'opacity-5' : 'opacity-10'}`}>🧇</div>
+        <div className={`absolute bottom-10 right-10 text-6xl ${ambientMode ? 'opacity-5' : 'opacity-10'}`}>🍳</div>
+        {ambientMode && (
+          <>
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl"></div>
+          </>
+        )}
       </div>
+
+      {/* Themed Confetti */}
+      {showConfetti && (
+        <div className="fixed inset-0 pointer-events-none z-50">
+          {Array.from({ length: 50 }).map((_, i) => {
+            const emoji = confettiEmojis[i % confettiEmojis.length];
+            const left = (i * 7) % 100;
+            const delay = (i % 10) * 0.1;
+            
+            return (
+              <div
+                key={i}
+                className="absolute text-3xl md:text-4xl"
+                style={{
+                  left: `${left}%`,
+                  top: '-50px',
+                  animation: `fall 3s ease-in ${delay}s forwards`
+                }}
+              >
+                {emoji}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Confetti animation styles */}
+      <style>{`
+        @keyframes fall {
+          to {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+      `}</style>
 
       {/* Audio element */}
       <audio ref={audioRef} loop />
@@ -532,21 +756,114 @@ Play at lettergriddle.com/pancakes`;
 
       <div className="max-w-2xl mx-auto p-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-2">
           <a 
             href="https://lettergriddle.com" 
-            className="text-amber-600 hover:text-amber-800 text-sm font-medium inline-flex items-center gap-1 mb-2 transition-colors"
+            className={`text-sm font-medium inline-flex items-center gap-1 mb-2 transition-colors ${
+              ambientMode 
+                ? 'text-amber-400 hover:text-amber-300' 
+                : 'text-amber-600 hover:text-amber-800'
+            }`}
           >
             ← Back to Letter Griddle
           </a>
-          <h1 className="text-3xl md:text-4xl font-bold text-amber-900 mb-1" style={{ fontFamily: 'Georgia, serif' }}>
+          <h1 className={`text-2xl md:text-3xl font-bold mb-1 transition-colors duration-500 ${
+            ambientMode ? 'text-amber-200' : 'text-amber-900'
+          }`} style={{ fontFamily: 'Georgia, serif' }}>
             🥞 Letter Griddle Pancakes
           </h1>
-          <p className="text-amber-700 text-sm">Find the words, earn the toppings!</p>
+        </div>
+
+        {/* Control Buttons - NOW AT TOP */}
+        <div className="flex justify-center gap-2 mb-3">
+          <button
+            onClick={() => setShowHowToPlay(true)}
+            className={`p-2 rounded-full transition-all shadow-md ${
+              ambientMode 
+                ? 'bg-slate-700 hover:bg-slate-600 text-amber-300' 
+                : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+            }`}
+            title="How to Play"
+          >
+            ❓
+          </button>
+          <button
+            onClick={() => setShowStats(true)}
+            className={`p-2 rounded-full transition-all shadow-md ${
+              ambientMode 
+                ? 'bg-slate-700 hover:bg-slate-600 text-amber-300' 
+                : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+            }`}
+            title="Stats"
+          >
+            📊
+          </button>
+          <button
+            onClick={() => setShowAchievements(true)}
+            className={`p-2 rounded-full transition-all shadow-md relative ${
+              ambientMode 
+                ? 'bg-slate-700 hover:bg-slate-600 text-amber-300' 
+                : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+            }`}
+            title="Achievements"
+          >
+            🏆
+            {unlockedList.length > 0 && (
+              <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-bold text-[10px]">
+                {unlockedList.length}
+              </span>
+            )}
+          </button>
+          <button
+            onClick={resetGame}
+            className={`p-2 rounded-full transition-all shadow-md ${
+              ambientMode 
+                ? 'bg-slate-700 hover:bg-slate-600 text-amber-300' 
+                : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+            }`}
+            title="Restart Puzzle"
+          >
+            🔄
+          </button>
+          <button
+            onClick={nextPuzzle}
+            className={`p-2 rounded-full transition-all shadow-md ${
+              ambientMode 
+                ? 'bg-slate-700 hover:bg-slate-600 text-amber-300' 
+                : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+            }`}
+            title="Next Puzzle"
+          >
+            ⏭️
+          </button>
+          <button
+            onClick={() => setShowJukebox(true)}
+            className={`p-2 rounded-full transition-all shadow-md ${
+              isPlaying 
+                ? 'bg-amber-500 text-white' 
+                : ambientMode 
+                  ? 'bg-slate-700 hover:bg-slate-600 text-amber-300' 
+                  : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+            }`}
+            title="Jukebox"
+          >
+            🎵
+          </button>
+          <button
+            onClick={() => setAmbientMode(!ambientMode)}
+            className={`p-2 rounded-full transition-all shadow-md ${
+              ambientMode 
+                ? 'bg-amber-500 text-white' 
+                : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+            }`}
+            title={ambientMode ? "Day Mode" : "Dinner Hour Mode"}
+          >
+            {ambientMode ? '☀️' : '🌙'}
+          </button>
         </div>
 
         {/* Category Chalkboard */}
-        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-3 mb-4 shadow-xl border-4 border-amber-700 relative">
+        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-3 mb-3 shadow-xl border-4 border-amber-700 relative">
           <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-amber-600 px-4 py-1 rounded-full text-white text-xs font-bold shadow-lg">
             TODAY'S MENU
           </div>
@@ -557,10 +874,14 @@ Play at lettergriddle.com/pancakes`;
         </div>
 
         {/* Toppings Progress */}
-        <div className="bg-white/80 backdrop-blur rounded-xl p-3 mb-4 shadow-lg border-2 border-amber-200">
+        <div className={`backdrop-blur rounded-xl p-3 mb-3 shadow-lg border-2 transition-all duration-500 ${
+          ambientMode 
+            ? 'bg-slate-800/80 border-slate-600' 
+            : 'bg-white/80 border-amber-200'
+        }`}>
           <div className="flex justify-between items-center mb-2">
-            <span className="text-xs font-bold text-amber-800">Toppings Earned:</span>
-            <span className="text-xs text-amber-600">{foundWords.length}/5 words • {flipCount} flips</span>
+            <span className={`text-xs font-bold ${ambientMode ? 'text-amber-300' : 'text-amber-800'}`}>Toppings Earned:</span>
+            <span className={`text-xs ${ambientMode ? 'text-amber-400' : 'text-amber-600'}`}>{foundWords.length}/5 words • {flipCount} flips</span>
           </div>
           <div className="flex justify-center gap-3 md:gap-4">
             {toppings.map((topping, idx) => (
@@ -573,21 +894,70 @@ Play at lettergriddle.com/pancakes`;
                 }`}
               >
                 <span className="text-2xl md:text-3xl">{topping.emoji}</span>
-                <span className="text-[10px] md:text-xs text-amber-700 mt-1">{topping.name}</span>
+                <span className={`text-[10px] md:text-xs mt-1 ${ambientMode ? 'text-amber-400' : 'text-amber-700'}`}>{topping.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Words to Find - MOVED HERE */}
+        <div className={`backdrop-blur rounded-xl p-3 mb-3 shadow-lg border-2 transition-all duration-500 ${
+          ambientMode 
+            ? 'bg-slate-800/80 border-slate-600' 
+            : 'bg-white/80 border-amber-200'
+        }`}>
+          <h3 className={`text-xs font-bold mb-2 text-center ${ambientMode ? 'text-amber-300' : 'text-amber-800'}`}>🔍 Words to Find:</h3>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {puzzleData.words.map((word) => (
+              <div
+                key={word}
+                className={`flex flex-col items-center px-3 py-1.5 rounded-lg transition-all ${
+                  foundWords.includes(word)
+                    ? 'bg-gradient-to-r from-amber-500 to-yellow-500'
+                    : ambientMode 
+                      ? 'bg-slate-700 border border-slate-500' 
+                      : 'bg-gray-100 border border-gray-200'
+                }`}
+              >
+                <span className={`text-sm font-bold tracking-wider ${
+                  foundWords.includes(word) 
+                    ? 'text-white' 
+                    : ambientMode ? 'text-amber-300' : 'text-amber-800'
+                }`} style={{ fontFamily: 'monospace' }}>
+                  {foundWords.includes(word) 
+                    ? word 
+                    : word.split('').map(() => '_').join(' ')
+                  }
+                </span>
+                <span className={`text-[10px] mt-0.5 ${
+                  foundWords.includes(word) 
+                    ? 'text-amber-100' 
+                    : ambientMode ? 'text-slate-400' : 'text-gray-400'
+                }`}>
+                  {foundWords.includes(word) ? '✓ Found!' : `${word.length} letters`}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Current Word Display */}
-        <div className="bg-gradient-to-r from-amber-600 to-amber-700 rounded-xl p-3 mb-4 shadow-lg">
-          <div className="bg-white/90 rounded-lg p-2 min-h-[44px] flex items-center justify-center mb-2">
+        <div className={`rounded-xl p-3 mb-3 shadow-lg transition-all duration-500 ${
+          ambientMode 
+            ? 'bg-gradient-to-r from-slate-700 to-slate-800' 
+            : 'bg-gradient-to-r from-amber-600 to-amber-700'
+        }`}>
+          <div className={`rounded-lg p-2 min-h-[44px] flex items-center justify-center mb-2 ${
+            ambientMode ? 'bg-slate-900/90' : 'bg-white/90'
+          }`}>
             {currentWord ? (
-              <span className="text-xl md:text-2xl font-bold text-amber-900 tracking-widest" style={{ fontFamily: 'Georgia, serif' }}>
+              <span className={`text-xl md:text-2xl font-bold tracking-widest ${
+                ambientMode ? 'text-amber-300' : 'text-amber-900'
+              }`} style={{ fontFamily: 'Georgia, serif' }}>
                 {currentWord}
               </span>
             ) : (
-              <span className="text-amber-400 italic text-sm">Tap pancakes to spell a word...</span>
+              <span className={`italic text-sm ${ambientMode ? 'text-slate-500' : 'text-amber-400'}`}>Tap pancakes to spell a word...</span>
             )}
           </div>
           
@@ -628,12 +998,8 @@ Play at lettergriddle.com/pancakes`;
                 >
                   <button
                     onClick={() => handleTileClick(tile.id)}
-                    disabled={tile.isFound}
                     className={`w-full h-full rounded flex items-center justify-center transition-all duration-200
-                      ${tile.isFound 
-                        ? 'opacity-40 cursor-default' 
-                        : 'hover:scale-105 cursor-pointer active:scale-95'
-                      }
+                      hover:scale-105 cursor-pointer active:scale-95
                       ${tile.isSelected 
                         ? 'ring-2 ring-green-500 ring-offset-1 scale-105' 
                         : ''
@@ -670,96 +1036,28 @@ Play at lettergriddle.com/pancakes`;
         </div>
 
         {/* Tip */}
-        <div className="mt-3 text-center text-xs text-amber-700 bg-amber-50 rounded-lg p-2">
+        <div className={`mt-3 text-center text-xs rounded-lg p-2 transition-all duration-500 ${
+          ambientMode 
+            ? 'text-amber-400 bg-slate-800/50' 
+            : 'text-amber-700 bg-amber-50'
+        }`}>
           <p>💡 <strong>Tip:</strong> Words are placed in a line (→ ↓ ↘). Follow the revealed letters!</p>
         </div>
 
-        {/* Words to Find */}
-        <div className="mt-4 bg-white/80 backdrop-blur rounded-xl p-3 shadow-lg border-2 border-amber-200">
-          <h3 className="text-xs font-bold text-amber-800 mb-2">Words to Find:</h3>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {puzzleData.words.map((word) => (
-              <span
-                key={word}
-                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-                  foundWords.includes(word)
-                    ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-white'
-                    : 'bg-gray-200 text-gray-400'
-                }`}
-              >
-                {foundWords.includes(word) ? word : '?' + '•'.repeat(word.length - 2) + '?'}
-              </span>
-            ))}
+        {/* Progress saved indicator */}
+        {foundWords.length > 0 && !showCompletion && (
+          <div className={`mt-2 text-center text-xs ${ambientMode ? 'text-amber-400' : 'text-amber-600'}`}>
+            <p>💾 Progress saved automatically</p>
           </div>
-        </div>
-
-        {/* Footer Controls */}
-        <div className="mt-4 flex justify-center gap-4">
-          <button
-            onClick={() => setShowHowToPlay(true)}
-            className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-3 rounded-full transition-all shadow-md"
-            title="How to Play"
-          >
-            ❓
-          </button>
-          <button
-            onClick={() => setShowStats(true)}
-            className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-3 rounded-full transition-all shadow-md"
-            title="Stats"
-          >
-            📊
-          </button>
-          <button
-            onClick={() => setShowAchievements(true)}
-            className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-3 rounded-full transition-all shadow-md relative"
-            title="Achievements"
-          >
-            🏆
-            {unlockedList.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                {unlockedList.length}
-              </span>
-            )}
-          </button>
-          <button
-            onClick={resetGame}
-            className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-3 rounded-full transition-all shadow-md"
-            title="Restart Puzzle"
-          >
-            🔄
-          </button>
-          <button
-            onClick={nextPuzzle}
-            className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-3 rounded-full transition-all shadow-md"
-            title="Next Puzzle"
-          >
-            ⏭️
-          </button>
-          <button
-            onClick={() => setShowJukebox(true)}
-            className={`p-3 rounded-full transition-all shadow-md ${
-              isPlaying 
-                ? 'bg-amber-500 text-white' 
-                : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
-            }`}
-            title="Jukebox"
-          >
-            🎵
-          </button>
-        </div>
-
-        {/* Instructions */}
-        <div className="mt-3 text-center text-xs text-amber-600">
-          <p>🥞 Tap pancakes to flip • Trace adjacent letters • Find all 5 words!</p>
-        </div>
+        )}
 
         {/* Footer */}
-        <div className="mt-6 text-center text-xs text-amber-600">
+        <div className={`mt-6 text-center text-xs ${ambientMode ? 'text-amber-400' : 'text-amber-600'}`}>
           <p>© {currentYear} Letter Griddle. All rights reserved.</p>
           <div className="mt-1 flex justify-center gap-2">
-            <a href="/privacy" className="hover:text-amber-800 underline">Privacy Policy</a>
+            <a href="/privacy" className={`underline ${ambientMode ? 'hover:text-amber-300' : 'hover:text-amber-800'}`}>Privacy Policy</a>
             <span>•</span>
-            <a href="/terms" className="hover:text-amber-800 underline">Terms of Service</a>
+            <a href="/terms" className={`underline ${ambientMode ? 'hover:text-amber-300' : 'hover:text-amber-800'}`}>Terms of Service</a>
           </div>
           <p className="mt-1 text-amber-500">lettergriddle.com/pancakes</p>
         </div>
@@ -1083,6 +1381,7 @@ Play at lettergriddle.com/pancakes`;
                     <li>• Golden-ringed letters are hints — start there!</li>
                     <li>• Tap a selected letter again to deselect it</li>
                     <li>• Try to complete puzzles in the fewest flips!</li>
+                    <li>• Your progress is saved automatically 💾</li>
                   </ul>
                 </div>
 

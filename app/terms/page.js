@@ -48,6 +48,17 @@ export default function Terms() {
           </section>
 
           <section>
+  <h2 className="text-2xl font-bold text-amber-800 mt-6">Fictional Content</h2>
+  <p>
+    Letter Griddle, including the Letter Griddle Cafe, the town of Griddle Falls, 
+    the Trivia Crew characters, and all related stories, vignettes, and recipes, 
+    is a work of fiction. All characters, locations, and events are products of 
+    the creator's imagination. Any resemblance to actual persons, living or dead, 
+    businesses, events, or locales is entirely coincidental.
+  </p>
+</section>
+
+          <section>
             <h2 className="text-2xl font-bold text-amber-800 mb-3">Sharing Results</h2>
             <p>
               When you share your puzzle results, you may post them on social media. The shared results do not contain personal information.

@@ -39,7 +39,7 @@ const PancakesGame = () => {
       words: ["CREPE", "BAGEL", "OMELET", "MUFFIN", "HASH"],
       funFact: {
         title: "Ethiopian Injera",
-        text: "Injera is a sourdough flatbread with a unique, spongy texture made from teff flour. It serves as both plate and utensil in Ethiopian cuisine - diners tear off pieces to scoop up stews and salads placed on top!"
+        text: "Injera is a sourdough flatbread with a unique, spongy texture made from teff flour. It serves as both plate and utensil in Ethiopian cuisine so diners tear off pieces to scoop up stews and salads placed on top!"
       }
     },
     {
@@ -75,7 +75,7 @@ const PancakesGame = () => {
       words: ["FRESH", "LOCAL", "ORGANIC", "FRUIT", "VENDOR"],
       funFact: {
         title: "German Pfannkuchen",
-        text: "German pancakes vary by region - in Berlin, 'Pfannkuchen' actually refers to jelly doughnuts! The flat pancakes are called 'Eierkuchen' (egg cakes) there. Traditionally served rolled up with sugar or jam, they're thinner than American pancakes but thicker than French crêpes."
+        text: "German pancakes vary by region.  In Berlin, 'Pfannkuchen' actually refers to jelly doughnuts! The flat pancakes are called 'Eierkuchen' (egg cakes) there. Traditionally served rolled up with sugar or jam, they're thinner than American pancakes but thicker than French crêpes."
       }
     },
     {
@@ -93,7 +93,7 @@ const PancakesGame = () => {
       words: ["RELAX", "BRUNCH", "LAZY", "SLEEP", "CHILL"],
       funFact: {
         title: "Scottish Pancakes",
-        text: "Scottish pancakes (also called Scotch pancakes or drop scones) are small, thick, and fluffy - perfect for afternoon tea! Queen Elizabeth II reportedly shared her personal recipe with President Eisenhower in 1960. They're traditionally served warm with butter and jam, or cold as a teatime treat."
+        text: "Scottish pancakes (also called Scotch pancakes or drop scones) are small, thick, and fluffy, perfect for afternoon tea! Queen Elizabeth II reportedly shared her personal recipe with President Eisenhower in 1960. They're traditionally served warm with butter and jam, or cold as a teatime treat."
       }
     }
   ];
@@ -1378,7 +1378,7 @@ Play at lettergriddle.com/pancakes`;
                   <h4 className="font-bold text-amber-900 text-sm mb-2">💡 Tips</h4>
                   <ul className="text-xs text-amber-800 space-y-1">
                     <li>• Words are placed in straight lines (→ ↓ ↘)</li>
-                    <li>• Golden-ringed letters are hints — start there!</li>
+                    <li>• Golden-ringed letters are hints so start there!</li>
                     <li>• Tap a selected letter again to deselect it</li>
                     <li>• Try to complete puzzles in the fewest flips!</li>
                     <li>• Your progress is saved automatically 💾</li>

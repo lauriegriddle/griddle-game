@@ -39,7 +39,7 @@ const PancakesGame = () => {
       words: ["CREPE", "BAGEL", "OMELET", "MUFFIN", "HASH"],
       funFact: {
         title: "Ethiopian Injera",
-        text: "Injera is a sourdough flatbread with a unique, spongy texture made from teff flour. It serves as both plate and utensil in Ethiopian cuisine so diners tear off pieces to scoop up stews and salads placed on top!"
+        text: "Injera is a sourdough flatbread with a unique, spongy texture made from teff flour. It serves as both plate and utensil in Ethiopian cuisine - diners tear off pieces to scoop up stews and salads placed on top!"
       }
     },
     {
@@ -75,7 +75,7 @@ const PancakesGame = () => {
       words: ["FRESH", "LOCAL", "ORGANIC", "FRUIT", "VENDOR"],
       funFact: {
         title: "German Pfannkuchen",
-        text: "German pancakes vary by region.  In Berlin, 'Pfannkuchen' actually refers to jelly doughnuts! The flat pancakes are called 'Eierkuchen' (egg cakes) there. Traditionally served rolled up with sugar or jam, they're thinner than American pancakes but thicker than French crêpes."
+        text: "German pancakes vary by region - in Berlin, 'Pfannkuchen' actually refers to jelly doughnuts! The flat pancakes are called 'Eierkuchen' (egg cakes) there. Traditionally served rolled up with sugar or jam, they're thinner than American pancakes but thicker than French crêpes."
       }
     },
     {
@@ -93,7 +93,7 @@ const PancakesGame = () => {
       words: ["RELAX", "BRUNCH", "LAZY", "SLEEP", "CHILL"],
       funFact: {
         title: "Scottish Pancakes",
-        text: "Scottish pancakes (also called Scotch pancakes or drop scones) are small, thick, and fluffy, perfect for afternoon tea! Queen Elizabeth II reportedly shared her personal recipe with President Eisenhower in 1960. They're traditionally served warm with butter and jam, or cold as a teatime treat."
+        text: "Scottish pancakes (also called Scotch pancakes or drop scones) are small, thick, and fluffy - perfect for afternoon tea! Queen Elizabeth II reportedly shared her personal recipe with President Eisenhower in 1960. They're traditionally served warm with butter and jam, or cold as a teatime treat."
       }
     },
     {
@@ -129,7 +129,7 @@ const PancakesGame = () => {
       words: ["JAZZ", "ROCK", "BLUES", "FOLK", "COUNTRY"],
       funFact: {
         title: "Chinese Jianbing",
-        text: "Jianbing is China's most popular street breakfast, a savory crepe spread with egg, sweet bean sauce, and chili, then topped with crispy wonton crackers and green onions. Over 2.5 billion are sold every year! The skilled vendors cook them on large round griddles in just 2-3 minutes."
+        text: "Jianbing is China's most popular street breakfast - a savory crepe spread with egg, sweet bean sauce, and chili, then topped with crispy wonton crackers and green onions. Over 2.5 billion are sold every year! The skilled vendors cook them on large round griddles in just 2-3 minutes."
       }
     },
     {
@@ -147,7 +147,7 @@ const PancakesGame = () => {
       words: ["RAIN", "PUDDLE", "STORM", "CLOUD", "DROP"],
       funFact: {
         title: "Austrian Kaiserschmarrn",
-        text: "Kaiserschmarrn means 'Emperor's Mess,' a fluffy shredded pancake created for Emperor Franz Joseph I! The thick batter is cooked, then torn into pieces while still in the pan and caramelized with sugar. Served dusted with powdered sugar alongside apple compote or plum jam."
+        text: "Kaiserschmarrn means 'Emperor's Mess' - a fluffy shredded pancake created for Emperor Franz Joseph I! The thick batter is cooked, then torn into pieces while still in the pan and caramelized with sugar. Served dusted with powdered sugar alongside apple compote or plum jam."
       }
     },
     {
@@ -183,7 +183,7 @@ const PancakesGame = () => {
       words: ["PALM", "BEACH", "ISLAND", "COCONUT", "WAVE"],
       funFact: {
         title: "Thai Khanom Buang",
-        text: "These crispy Thai crepes are an ancient street dessert dating back centuries! Ultra-thin and crispy shells are filled with sweet or savory toppings.  The sweet version has meringue and shredded coconut, while savory ones have dried shrimp and cilantro. The batter contains rice flour, creating that signature crunch!"
+        text: "These crispy Thai crepes are an ancient street dessert dating back centuries! Ultra-thin and crispy shells are filled with sweet or savory toppings - the sweet version has meringue and shredded coconut, while savory ones have dried shrimp and cilantro. The batter contains rice flour, creating that signature crunch!"
       }
     },
     {
@@ -192,7 +192,7 @@ const PancakesGame = () => {
       words: ["SNOW", "SLED", "MITTEN", "FROST", "COCOA"],
       funFact: {
         title: "Norwegian Svele",
-        text: "Svele are thick, fluffy Norwegian pancakes similar to American ones but with a hint of cardamom! They're a beloved ferry snack so practically every Norwegian ferry serves them fresh with butter and sugar. The slightly sweet batter makes them perfect for an afternoon treat with coffee."
+        text: "Svele are thick, fluffy Norwegian pancakes similar to American ones but with a hint of cardamom! They're a beloved ferry snack - practically every Norwegian ferry serves them fresh with butter and sugar. The slightly sweet batter makes them perfect for an afternoon treat with coffee."
       }
     },
     {
@@ -228,7 +228,7 @@ const PancakesGame = () => {
       words: ["BREAD", "COOKIE", "PASTRY", "DONUT", "ROLL"],
       funFact: {
         title: "Irish Boxty",
-        text: "Boxty is a traditional Irish potato pancake with a unique texture of half mashed potato, half grated raw potato! An old Irish rhyme says 'Boxty on the griddle, boxty on the pan, if you can't make boxty, you'll never get a man.' They're making a comeback in modern Irish restaurants!"
+        text: "Boxty is a traditional Irish potato pancake with a unique texture - half mashed potato, half grated raw potato! An old Irish rhyme says 'Boxty on the griddle, boxty on the pan, if you can't make boxty, you'll never get a man.' They're making a comeback in modern Irish restaurants!"
       }
     },
     {
@@ -246,7 +246,7 @@ const PancakesGame = () => {
       words: ["PAINT", "BRUSH", "CANVAS", "COLOR", "DRAW"],
       funFact: {
         title: "Japanese Okonomiyaki",
-        text: "Okonomiyaki means 'grilled as you like it,' a savory Japanese pancake loaded with cabbage, meat, and toppings! Diners often cook them at their own table griddles. The name reflects unlimited customization possibilities. Osaka and Hiroshima each claim their style is superior!"
+        text: "Okonomiyaki means 'grilled as you like it' - a savory Japanese pancake loaded with cabbage, meat, and toppings! Diners often cook them at their own table griddles. The name reflects unlimited customization possibilities. Osaka and Hiroshima each claim their style is superior!"
       }
     },
     {
@@ -264,7 +264,7 @@ const PancakesGame = () => {
       words: ["TOMATO", "CARROT", "PEPPER", "ONION", "BEAN"],
       funFact: {
         title: "Vietnamese Bánh Xèo",
-        text: "Bánh xèo means 'sizzling cake' named for the sound the batter makes hitting the hot pan! These crispy yellow crepes get their color from turmeric and are filled with pork, shrimp, and bean sprouts. They're wrapped in lettuce and herbs before being dipped in nuoc cham sauce."
+        text: "Bánh xèo means 'sizzling cake' - named for the sound the batter makes hitting the hot pan! These crispy yellow crepes get their color from turmeric and are filled with pork, shrimp, and bean sprouts. They're wrapped in lettuce and herbs before being dipped in nuoc cham sauce."
       }
     },
     {
@@ -323,97 +323,140 @@ const PancakesGame = () => {
   const GRID_SIZE = 8;
 
   const directions = [
-    { dr: 0, dc: 1 },  // horizontal
-    { dr: 1, dc: 0 },  // vertical
-    { dr: 1, dc: 1 }   // diagonal
+    { dr: 0, dc: 1, name: 'horizontal' },  // horizontal →
+    { dr: 1, dc: 0, name: 'vertical' },    // vertical ↓
+    { dr: 1, dc: 1, name: 'diagonal' }     // diagonal ↘
   ];
 
   // Audio ref
   const audioRef = useRef(null);
 
-  // Generate grid
+  // Generate grid with guaranteed word placement
   const generateGrid = useCallback((words) => {
-    const grid = [];
-    for (let r = 0; r < GRID_SIZE; r++) {
-      for (let c = 0; c < GRID_SIZE; c++) {
-        grid.push({
-          id: r * GRID_SIZE + c,
-          row: r,
-          col: c,
-          letter: '',
-          isHint: false,
-          isFlipped: false,
-          isSelected: false,
-          isFound: false
-        });
+    // Sort words by length (longest first) for better placement
+    const sortedWords = [...words].sort((a, b) => b.length - a.length);
+    
+    let bestGrid = null;
+    let bestPlacedCount = 0;
+    
+    // Try multiple times to get all words placed
+    for (let gridAttempt = 0; gridAttempt < 50; gridAttempt++) {
+      const grid = [];
+      for (let r = 0; r < GRID_SIZE; r++) {
+        for (let c = 0; c < GRID_SIZE; c++) {
+          grid.push({
+            id: r * GRID_SIZE + c,
+            row: r,
+            col: c,
+            letter: '',
+            isHint: false,
+            isFlipped: false,
+            isSelected: false,
+            isFound: false
+          });
+        }
       }
-    }
 
-    const getCell = (r, c) => grid[r * GRID_SIZE + c];
-    const setCell = (r, c, data) => {
-      const idx = r * GRID_SIZE + c;
-      grid[idx] = { ...grid[idx], ...data };
-    };
+      const getCell = (r, c) => grid[r * GRID_SIZE + c];
+      const setCell = (r, c, data) => {
+        const idx = r * GRID_SIZE + c;
+        grid[idx] = { ...grid[idx], ...data };
+      };
 
-    for (const word of words) {
-      let placed = false;
-      let attempts = 0;
+      let placedCount = 0;
+      const wordPlacements = [];
 
-      while (!placed && attempts < 200) {
-        attempts++;
+      for (const word of sortedWords) {
+        let placed = false;
         
-        const dir = directions[Math.floor(Math.random() * directions.length)];
-        const maxRow = GRID_SIZE - (dir.dr * word.length);
-        const maxCol = GRID_SIZE - (dir.dc * word.length);
+        // Shuffle directions for variety
+        const shuffledDirs = [...directions].sort(() => Math.random() - 0.5);
         
-        if (maxRow <= 0 || maxCol <= 0) continue;
-        
-        const startRow = Math.floor(Math.random() * maxRow);
-        const startCol = Math.floor(Math.random() * maxCol);
-
-        let canPlace = true;
-        for (let i = 0; i < word.length; i++) {
-          const r = startRow + (dir.dr * i);
-          const c = startCol + (dir.dc * i);
-          const cell = getCell(r, c);
+        // Try each direction
+        for (const dir of shuffledDirs) {
+          if (placed) break;
           
-          if (cell.letter !== '' && cell.letter !== word[i]) {
-            canPlace = false;
-            break;
+          // Calculate valid starting positions for this direction
+          const maxRow = dir.dr === 0 ? GRID_SIZE : GRID_SIZE - word.length + 1;
+          const maxCol = dir.dc === 0 ? GRID_SIZE : GRID_SIZE - word.length + 1;
+          
+          if (maxRow <= 0 || maxCol <= 0) continue;
+          
+          // Create list of all valid starting positions
+          const positions = [];
+          for (let r = 0; r < maxRow; r++) {
+            for (let c = 0; c < maxCol; c++) {
+              positions.push({ r, c });
+            }
+          }
+          
+          // Shuffle positions for randomness
+          positions.sort(() => Math.random() - 0.5);
+          
+          // Try each position
+          for (const pos of positions) {
+            if (placed) break;
+            
+            let canPlace = true;
+            for (let i = 0; i < word.length; i++) {
+              const r = pos.r + (dir.dr * i);
+              const c = pos.c + (dir.dc * i);
+              const cell = getCell(r, c);
+              
+              if (cell.letter !== '' && cell.letter !== word[i]) {
+                canPlace = false;
+                break;
+              }
+            }
+
+            if (canPlace) {
+              // Place the word
+              for (let i = 0; i < word.length; i++) {
+                const r = pos.r + (dir.dr * i);
+                const c = pos.c + (dir.dc * i);
+                setCell(r, c, { letter: word[i] });
+              }
+
+              // Set first letter as hint
+              setCell(pos.r, pos.c, { isHint: true, isFlipped: true });
+
+              // Set middle letter as hint for longer words
+              if (word.length >= 5) {
+                const midIdx = Math.floor(word.length / 2);
+                const midR = pos.r + (dir.dr * midIdx);
+                const midC = pos.c + (dir.dc * midIdx);
+                setCell(midR, midC, { isHint: true, isFlipped: true });
+              }
+
+              wordPlacements.push({ word, pos, dir: dir.name });
+              placed = true;
+              placedCount++;
+            }
           }
         }
+      }
 
-        if (canPlace) {
-          for (let i = 0; i < word.length; i++) {
-            const r = startRow + (dir.dr * i);
-            const c = startCol + (dir.dc * i);
-            setCell(r, c, { letter: word[i] });
-          }
-
-          const firstR = startRow;
-          const firstC = startCol;
-          setCell(firstR, firstC, { isHint: true, isFlipped: true });
-
-          if (word.length >= 5) {
-            const midIdx = Math.floor(word.length / 2);
-            const midR = startRow + (dir.dr * midIdx);
-            const midC = startCol + (dir.dc * midIdx);
-            setCell(midR, midC, { isHint: true, isFlipped: true });
-          }
-
-          placed = true;
-        }
+      // Keep track of best attempt
+      if (placedCount > bestPlacedCount) {
+        bestPlacedCount = placedCount;
+        bestGrid = grid;
+      }
+      
+      // If all words placed, we're done!
+      if (placedCount === sortedWords.length) {
+        break;
       }
     }
 
+    // Fill empty cells with random letters
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    for (let i = 0; i < grid.length; i++) {
-      if (grid[i].letter === '') {
-        grid[i].letter = alphabet[Math.floor(Math.random() * alphabet.length)];
+    for (let i = 0; i < bestGrid.length; i++) {
+      if (bestGrid[i].letter === '') {
+        bestGrid[i].letter = alphabet[Math.floor(Math.random() * alphabet.length)];
       }
     }
 
-    return grid;
+    return bestGrid;
   }, []);
 
   // Initialize game state

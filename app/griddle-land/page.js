@@ -1234,7 +1234,7 @@ Play at lettergriddle.com/land`}
                 className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 rounded-xl font-bold shadow-lg transition-all flex items-center justify-center gap-2"
                 style={{fontFamily: 'Georgia, serif'}}
               >
-                {shareCopied ? '✓ Copied!' : '📤 Share Results'}
+                {shareCopied ? '✓ Copied!' : 'Share Results'}
               </button>
               
               <button
@@ -1342,7 +1342,7 @@ The Cinnamon Festival
 ✅ All 7 friends arrived at Market Square!
 🥞 The whole Trivia Crew is celebrating!
 
-Play at lettergriddle.com/land`}
+Play at lettergriddle.com/griddle-land`}
               </div>
             </div>
             

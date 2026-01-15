@@ -1580,7 +1580,7 @@ Play at lettergriddle.com/pancakes`;
                     <span className="bg-amber-500 text-white rounded-full w-7 h-7 flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
                     <div>
                       <h4 className="font-bold text-amber-900 text-sm">Trace Adjacent Letters</h4>
-                      <p className="text-xs text-amber-700 mt-1">Tap revealed letters in order to spell a word. Each letter must be <strong>adjacent</strong> (next to) the previous one — horizontally, vertically, or diagonally.</p>
+                      <p className="text-xs text-amber-700 mt-1">Tap revealed letters in order to spell a word. Each letter must be <strong>adjacent</strong> (next to) the previous one:  horizontally, vertically, or diagonally.</p>
                     </div>
                   </div>
                 </div>
@@ -1601,7 +1601,7 @@ Play at lettergriddle.com/pancakes`;
                   <h4 className="font-bold text-amber-900 text-sm mb-2">💡 Tips</h4>
                   <ul className="text-xs text-amber-800 space-y-1">
                     <li>• Words are placed in straight lines (→ ↓ ↘)</li>
-                    <li>• Golden-ringed letters are hints — start there!</li>
+                    <li>• Golden-ringed letters are hints so start there!</li>
                     <li>• Tap a selected letter again to deselect it</li>
                     <li>• Try to complete puzzles in the fewest flips!</li>
                     <li>• Your progress is saved automatically 💾</li>

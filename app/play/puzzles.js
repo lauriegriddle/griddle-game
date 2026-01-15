@@ -697,6 +697,262 @@ const puzzles = [
     ],
     funFact: "Coffee was discovered in Ethiopia by a goat herder who noticed his goats becoming energetic after eating coffee cherries, which are technically a fruit!",
   },
+
+  // =============================================
+  // INDEX 48 - Shows Jan 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Weekend",
+    puzzleNumber: 127,
+    words: [
+      { word: "HIKE", hint: "A long walk outdoors, often on trails or in nature", revealedIndex: 0 },
+      { word: "MOVIE", hint: "A film you watch at the theater or at home", revealedIndex: 2 },
+      { word: "SPORTS", hint: "Athletic activities like basketball, soccer, or tennis", revealedIndex: 3 },
+      { word: "EXPLORE", hint: "To travel and discover new places or things", revealedIndex: 0 },
+      { word: "RECREATION", hint: "Activities done for enjoyment during free time", revealedIndex: 4 },
+    ],
+    funFact: "The word 'weekend' first popped up in the late 1600s, when it literally meant the end of the week. But by the late 1800s, people started using it to mean Saturday and Sunday!",
+  },
+
+  // =============================================
+  // INDEX 49 - Shows Jan 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Bookstore",
+    puzzleNumber: 128,
+    words: [
+      { word: "PAGE", hint: "A single sheet in a book", revealedIndex: 0 },
+      { word: "NOVEL", hint: "A long fictional story in book form", revealedIndex: 2 },
+      { word: "POETRY", hint: "Written verses expressing emotions and ideas", revealedIndex: 3 },
+      { word: "JOURNAL", hint: "A book for writing personal thoughts or records", revealedIndex: 0 },
+      { word: "TEXTBOOK", hint: "An educational book used for studying a subject", revealedIndex: 4 },
+    ],
+    funFact: "Visiting bookstores can inspire creativity and spark new ideas. You never know what story might change your life! 📚",
+  },
+
+  // =============================================
+  // INDEX 50 - Shows Jan 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Martin Luther King Jr.",
+    puzzleNumber: 129,
+    words: [
+      { word: "FREE", hint: "Not held captive or restricted", revealedIndex: 0 },
+      { word: "MARCH", hint: "To walk together in protest or celebration", revealedIndex: 2 },
+      { word: "PEACE", hint: "Freedom from conflict or disturbance", revealedIndex: 3 },
+      { word: "FREEDOM", hint: "The state of being free from oppression", revealedIndex: 0 },
+      { word: "SPEAKER", hint: "Someone who delivers speeches to an audience", revealedIndex: 4 },
+    ],
+    funFact: "Martin Luther King Jr. was a brilliant student who entered college at 15. He won the Nobel Peace Prize at age 35, the youngest recipient at the time. ✊",
+  },
+
+  // =============================================
+  // INDEX 51 - Shows Jan 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Collegiate",
+    puzzleNumber: 130,
+    words: [
+      { word: "DORM", hint: "A residence hall where students live on campus", revealedIndex: 0 },
+      { word: "STUDY", hint: "To learn and review material for classes", revealedIndex: 2 },
+      { word: "CAMPUS", hint: "The grounds and buildings of a college", revealedIndex: 3 },
+      { word: "LECTURE", hint: "A talk given by a professor to students", revealedIndex: 0 },
+      { word: "GRADUATE", hint: "To complete a degree and receive a diploma", revealedIndex: 4 },
+    ],
+    funFact: "Southampton College had Kermit the Frog as a commencement speaker in 1996! Oberlin College students can rent original paintings by masters like Picasso for just $5 a semester. 🎓",
+  },
+
+  // =============================================
+  // INDEX 52 - Shows Jan 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Bread",
+    puzzleNumber: 131,
+    words: [
+      { word: "RISE", hint: "What dough does when yeast activates", revealedIndex: 0 },
+      { word: "CRUST", hint: "The golden outer layer of a baked loaf", revealedIndex: 2 },
+      { word: "CRUMBY", hint: "Full of small dry pieces that break off", revealedIndex: 3 },
+      { word: "BUTTERY", hint: "Rich and smooth like melted spread", revealedIndex: 0 },
+      { word: "SANDWICH", hint: "Two slices with fillings in between", revealedIndex: 4 },
+    ],
+    funFact: "Ancient Egyptians used bread as money! A rolled-up piece of white bread served as a rudimentary eraser for graphite pencils before the invention of rubber erasers. 🍞",
+  },
+
+  // =============================================
+  // INDEX 53 - Shows Jan 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Detective",
+    puzzleNumber: 132,
+    words: [
+      { word: "PIPE", hint: "A smoking accessory associated with Sherlock Holmes", revealedIndex: 0 },
+      { word: "SOLVE", hint: "To find the answer to a mystery or problem", revealedIndex: 2 },
+      { word: "DETAIL", hint: "A small but important piece of information", revealedIndex: 3 },
+      { word: "MYSTERY", hint: "Something unknown that needs to be figured out", revealedIndex: 0 },
+      { word: "SHERLOCK", hint: "Famous fictional detective created by Arthur Conan Doyle", revealedIndex: 4 },
+    ],
+    funFact: "The term 'detective' was not in common use until a crime writer invented it less than two centuries ago. 🔍",
+  },
+
+  // =============================================
+  // INDEX 54 - Shows Jan 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Skygazing",
+    puzzleNumber: 133,
+    words: [
+      { word: "STAR", hint: "A bright point of light in the night sky", revealedIndex: 0 },
+      { word: "CLOUD", hint: "A white or gray mass floating in the sky", revealedIndex: 2 },
+      { word: "SUNSET", hint: "When the sun dips below the horizon in the evening", revealedIndex: 3 },
+      { word: "MOONLIT", hint: "Illuminated by the glow of the moon", revealedIndex: 0 },
+      { word: "DARKNESS", hint: "The absence of light in the night sky", revealedIndex: 4 },
+    ],
+    funFact: "On a clear day, the sky appears blue because air molecules scatter sunlight in an effect known as Rayleigh Scattering. Blue light scatters more efficiently than red light! 🌌",
+  },
+
+  // =============================================
+  // INDEX 55 - Shows Jan 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Lakehouse",
+    puzzleNumber: 134,
+    words: [
+      { word: "FISH", hint: "Aquatic creatures you might catch from the dock", revealedIndex: 0 },
+      { word: "CANOE", hint: "A narrow boat you paddle through the water", revealedIndex: 2 },
+      { word: "SNOOZE", hint: "To take a lazy afternoon nap", revealedIndex: 3 },
+      { word: "BONFIRE", hint: "An outdoor fire for warmth and gathering", revealedIndex: 0 },
+      { word: "HAMMOCK", hint: "A swinging bed hung between two trees", revealedIndex: 4 },
+    ],
+    funFact: "The Great Lakes hold 21% of the world's freshwater! 🏡",
+  },
+
+  // =============================================
+  // INDEX 56 - Shows Jan 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Housekeeping",
+    puzzleNumber: 135,
+    words: [
+      { word: "DUST", hint: "Tiny particles that settle on furniture", revealedIndex: 0 },
+      { word: "SHINE", hint: "To polish until something gleams", revealedIndex: 2 },
+      { word: "VACUUM", hint: "A machine that sucks up dirt from floors", revealedIndex: 3 },
+      { word: "LAUNDRY", hint: "Clothes that need washing or have been washed", revealedIndex: 0 },
+      { word: "CLEANING", hint: "The act of making something tidy and spotless", revealedIndex: 4 },
+    ],
+    funFact: "The golden rule of housekeeping is: Clean as you go! 🧹",
+  },
+
+  // =============================================
+  // INDEX 57 - Shows Jan 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Snacking",
+    puzzleNumber: 136,
+    words: [
+      { word: "NOSH", hint: "To eat snacks or light bites between meals", revealedIndex: 0 },
+      { word: "GRAZE", hint: "To eat small amounts throughout the day", revealedIndex: 2 },
+      { word: "MORSEL", hint: "A small piece or bite of food", revealedIndex: 3 },
+      { word: "MUNCHIE", hint: "A craving for something to snack on", revealedIndex: 0 },
+      { word: "NIBBLING", hint: "Eating in small, delicate bites", revealedIndex: 4 },
+    ],
+    funFact: "Potato chips were invented in 1853 by Chef George Crum in Saratoga Springs, NY, after a customer complained fries were too thick. Crum sliced potatoes paper-thin and fried them crispy! 🍿",
+  },
+
+  // =============================================
+  // INDEX 58 - Shows Jan 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Makeover",
+    puzzleNumber: 137,
+    words: [
+      { word: "HAIR", hint: "Strands on your head that can be styled", revealedIndex: 0 },
+      { word: "STYLE", hint: "A distinctive look or fashion", revealedIndex: 2 },
+      { word: "UPDATE", hint: "To refresh or make more current", revealedIndex: 3 },
+      { word: "PERSONAL", hint: "Relating to an individual's own preferences", revealedIndex: 0 },
+      { word: "WARDROBE", hint: "A collection of clothes or a closet for storing them", revealedIndex: 4 },
+    ],
+    funFact: "In the 1920s, foundation shades were originally created based on zodiac signs! 💄",
+  },
+
+  // =============================================
+  // INDEX 59 - Shows Jan 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Tablet",
+    puzzleNumber: 138,
+    words: [
+      { word: "SURF", hint: "To browse the internet casually", revealedIndex: 0 },
+      { word: "GAMES", hint: "Digital entertainment apps you play", revealedIndex: 2 },
+      { word: "STYLUS", hint: "A pen-like tool for touchscreen writing", revealedIndex: 3 },
+      { word: "CHARGER", hint: "A device that replenishes battery power", revealedIndex: 0 },
+      { word: "SHOPPING", hint: "Buying things online with a tap", revealedIndex: 4 },
+    ],
+    funFact: "The GridPad, released in 1989 by Grid Systems, is considered the first commercially successful tablet computer, though it weighed 4.5 pounds and used a stylus! 📱",
+  },
+
+  // =============================================
+  // INDEX 60 - Shows Jan 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Artwork",
+    puzzleNumber: 139,
+    words: [
+      { word: "FILM", hint: "A motion picture or the material used in old cameras", revealedIndex: 0 },
+      { word: "PRINT", hint: "A reproduction of an image on paper", revealedIndex: 2 },
+      { word: "CANVAS", hint: "A fabric surface for painting", revealedIndex: 3 },
+      { word: "TINTYPE", hint: "An old photographic technique on metal plates", revealedIndex: 0 },
+      { word: "PAINTING", hint: "A picture created with brushes and pigments", revealedIndex: 4 },
+    ],
+    funFact: "Vincent van Gogh only sold one painting during his lifetime. 🎨",
+  },
+
+  // =============================================
+  // INDEX 61 - Shows Jan 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Run",
+    puzzleNumber: 140,
+    words: [
+      { word: "DASH", hint: "A quick, short burst of speed", revealedIndex: 0 },
+      { word: "TRAIN", hint: "To practice and prepare for a race", revealedIndex: 2 },
+      { word: "SPRINT", hint: "Running at top speed for a short distance", revealedIndex: 3 },
+      { word: "HYDRATE", hint: "To drink water and replenish fluids", revealedIndex: 0 },
+      { word: "MARATHON", hint: "A long-distance race of 26.2 miles", revealedIndex: 4 },
+    ],
+    funFact: "In the Victorian era, some runners would drink champagne as an energy drink, a practice now known to be counterproductive! 🏃",
+  },
+
+  // =============================================
+  // INDEX 62 - Shows Jan 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Furnishings",
+    puzzleNumber: 141,
+    words: [
+      { word: "SOFA", hint: "A long upholstered seat for multiple people", revealedIndex: 0 },
+      { word: "CHAIR", hint: "A seat with a back for one person", revealedIndex: 2 },
+      { word: "CANOPY", hint: "A fabric covering over a bed frame", revealedIndex: 3 },
+      { word: "OTTOMAN", hint: "A cushioned footstool or storage seat", revealedIndex: 0 },
+      { word: "LOVESEAT", hint: "A small sofa designed for two people", revealedIndex: 4 },
+    ],
+    funFact: "Winged-back chairs were originally designed with 'wings' to keep people warm by blocking drafts! 🛋️",
+  },
+
+  // =============================================
+  // INDEX 63 - Shows Jan 31, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Swimming",
+    puzzleNumber: 142,
+    words: [
+      { word: "POOL", hint: "A man-made body of water for swimming", revealedIndex: 0 },
+      { word: "DIVER", hint: "Someone who plunges headfirst into water", revealedIndex: 2 },
+      { word: "STROKE", hint: "A style of arm and leg movement in water", revealedIndex: 3 },
+      { word: "SWIMMER", hint: "A person who moves through water", revealedIndex: 0 },
+      { word: "PADDLING", hint: "Moving hands and feet gently in water", revealedIndex: 4 },
+    ],
+    funFact: "The oldest known evidence of swimming dates back to 2500 BC, with drawings from ancient Egypt! 🏊",
+  },
 ];
 
 // ===========================================

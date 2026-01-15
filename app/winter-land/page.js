@@ -79,7 +79,7 @@ const CharacterAvatar = ({ character, size = 'md' }) => {
     return (
       <div className={`${sizeClasses[size]} rounded-full overflow-hidden`}>
         <svg viewBox="0 0 100 100" className="w-full h-full">
-          <circle cx="50" cy="50" r="48" fill="#C9B896" />
+          <circle cx="50" cy="50" r="48" fill="#B8D4E8" />
           <ellipse cx="42" cy="85" rx="22" ry="18" fill="#4A7C59" />
           <ellipse cx="42" cy="45" rx="18" ry="20" fill="#F5DEB3" />
           <path d="M 24 38 Q 24 18 42 18 Q 60 18 60 38 Q 52 32 42 32 Q 32 32 24 38" fill="#A0522D" />
@@ -102,7 +102,7 @@ const CharacterAvatar = ({ character, size = 'md' }) => {
   return (
     <div className={`${sizeClasses[size]} rounded-full overflow-hidden`}>
       <svg viewBox="0 0 100 100" className="w-full h-full">
-        <circle cx="50" cy="50" r="48" fill="#C9B896" />
+        <circle cx="50" cy="50" r="48" fill="#B8D4E8" />
         
         {(char.hairStyle === 'long' || char.hairStyle === 'wavy' || char.hairStyle === 'medium') && (
           <ellipse cx="50" cy="40" rx="28" ry="35" fill={char.hairColor} />
@@ -206,56 +206,56 @@ const CHARACTERS = {
     name: 'Josie',
     description: "Josephine's daughter",
     startPosition: { row: 0, col: 0 },
-    route: ['flower_shop', 'clock_tower', 'market_square'],
-    personality: 'Excited, bouncy, loves cute things'
+    route: ['ski_rental', 'warming_hut', 'festival_grounds'],
+    personality: 'Excited about her first ski lesson!'
   },
   jennie_isaac: {
     id: 'jennie_isaac',
     name: 'Jennie & Isaac',
     description: 'Inseparable duo',
     startPosition: { row: 6, col: 5 },
-    route: ['fountain', 'duck_pond', 'park', 'market_square'],
-    personality: 'Isaac gets distracted by everything!'
+    route: ['frozen_pond', 'sledding_hill', 'festival_grounds'],
+    personality: 'Isaac loves playing in the snow!'
   },
   taylor: {
     id: 'taylor',
     name: 'Taylor B.',
     description: 'Smart and efficient',
     startPosition: { row: 2, col: 7 },
-    route: ['main_street', 'market_square'],
-    personality: 'Takes shortcuts, always on phone'
+    route: ['main_lodge', 'festival_grounds'],
+    personality: 'Already checked the schedule twice'
   },
   josephine: {
     id: 'josephine',
     name: 'Josephine',
     description: 'Sweet & supportive',
     startPosition: { row: 2, col: 0 },
-    route: ['bakery', 'clock_tower', 'market_square'],
-    personality: 'Stops to chat with everyone'
+    route: ['hot_cocoa_stand', 'warming_hut', 'festival_grounds'],
+    personality: 'Bringing homemade treats for everyone'
   },
   sarah: {
     id: 'sarah',
     name: 'Sarah',
     description: 'Encouraging and wise',
     startPosition: { row: 5, col: 7 },
-    route: ['park', 'main_street', 'market_square'],
-    personality: 'Knows hidden paths'
+    route: ['ice_sculpture', 'main_lodge', 'festival_grounds'],
+    personality: 'Loves the artistic side of winter'
   },
   mr_mrs_lindsay: {
     id: 'mr_lindsay',
     name: 'The Lindsays',
     description: 'Mr. & Mrs. Lindsay',
     startPosition: { row: 5, col: 0 },
-    route: ['bakery', 'main_street', 'clock_tower', 'market_square'],
-    personality: 'He tells stories, she keeps him moving'
+    route: ['hot_cocoa_stand', 'main_lodge', 'warming_hut', 'festival_grounds'],
+    personality: 'He tells stories about winters past'
   },
   hank: {
     id: 'hank',
     name: 'Hank',
     description: 'Dependable regular',
     startPosition: { row: 0, col: 7 },
-    route: ['park', 'clock_tower', 'market_square'],
-    personality: 'Knows the old paths'
+    route: ['ice_sculpture', 'warming_hut', 'festival_grounds'],
+    personality: 'Remembers every Winter Festival since 1982'
   },
   laurel: {
     id: 'laurel',
@@ -267,213 +267,221 @@ const CHARACTERS = {
 
 // Map tile types
 const TILE_TYPES = {
-  path: { emoji: '', name: 'Path', walkable: true, color: 'bg-amber-200' },
-  home_josie: { emoji: '🏠', name: "Josie's Home", walkable: true, color: 'bg-amber-100', isStart: 'josie' },
-  home_josephine: { emoji: '🏠', name: "Josephine's Home", walkable: true, color: 'bg-amber-100', isStart: 'josephine' },
-  home_taylor: { emoji: '🏠', name: "Taylor's Home", walkable: true, color: 'bg-amber-100', isStart: 'taylor' },
-  home_sarah: { emoji: '🏠', name: "Sarah's Home", walkable: true, color: 'bg-amber-100', isStart: 'sarah' },
-  home_lindsays: { emoji: '🏠', name: "Lindsays' Home", walkable: true, color: 'bg-amber-100', isStart: 'mr_mrs_lindsay' },
-  home_jennie: { emoji: '🏠', name: "Jennie's Home", walkable: true, color: 'bg-amber-100', isStart: 'jennie_isaac' },
-  home_hank: { emoji: '🏡', name: "Hank's Home", walkable: true, color: 'bg-amber-100', isStart: 'hank' },
-  flower_shop: { emoji: '💐', name: 'Flower Shop', walkable: true, color: 'bg-pink-100', landmark: true },
-  bakery: { emoji: '🥐', name: 'Bakery', walkable: true, color: 'bg-orange-100', landmark: true },
-  park: { emoji: '🌳', name: 'Park', walkable: true, color: 'bg-green-100', landmark: true },
-  duck_pond: { emoji: '🦆', name: 'Duck Pond', walkable: true, color: 'bg-blue-100', landmark: true },
-  clock_tower: { emoji: '🕐', name: 'Clock Tower', walkable: true, color: 'bg-gray-100', landmark: true },
-  main_street: { emoji: '🛍️', name: 'Main Street', walkable: true, color: 'bg-purple-100', landmark: true },
-  fountain: { emoji: '⛲', name: 'Fountain', walkable: true, color: 'bg-cyan-100', landmark: true },
-  market_square: { emoji: '🎪', name: 'Market Square', walkable: true, color: 'bg-yellow-200', isDestination: true },
-  blocked: { emoji: '🚧', name: 'Blocked', walkable: false, color: 'bg-gray-300' },
-  tree: { emoji: '🌲', name: 'Trees', walkable: false, color: 'bg-green-200' }
+  path: { emoji: '', name: 'Snowy Path', walkable: true, color: 'bg-blue-100' },
+  home_josie: { emoji: '🏠', name: "Josie's Home", walkable: true, color: 'bg-blue-50', isStart: 'josie' },
+  home_josephine: { emoji: '🏠', name: "Josephine's Home", walkable: true, color: 'bg-blue-50', isStart: 'josephine' },
+  home_taylor: { emoji: '🏠', name: "Taylor's Home", walkable: true, color: 'bg-blue-50', isStart: 'taylor' },
+  home_sarah: { emoji: '🏠', name: "Sarah's Home", walkable: true, color: 'bg-blue-50', isStart: 'sarah' },
+  home_lindsays: { emoji: '🏠', name: "Lindsays' Home", walkable: true, color: 'bg-blue-50', isStart: 'mr_mrs_lindsay' },
+  home_jennie: { emoji: '🏠', name: "Jennie's Home", walkable: true, color: 'bg-blue-50', isStart: 'jennie_isaac' },
+  home_hank: { emoji: '🏡', name: "Hank's Home", walkable: true, color: 'bg-blue-50', isStart: 'hank' },
+  ski_rental: { emoji: '🎿', name: 'Ski Rental', walkable: true, color: 'bg-cyan-100', landmark: true },
+  hot_cocoa_stand: { emoji: '☕', name: 'Hot Cocoa Stand', walkable: true, color: 'bg-amber-100', landmark: true },
+  ice_sculpture: { emoji: '🧊', name: 'Ice Sculptures', walkable: true, color: 'bg-cyan-200', landmark: true },
+  frozen_pond: { emoji: '⛸️', name: 'Frozen Pond', walkable: true, color: 'bg-sky-200', landmark: true },
+  warming_hut: { emoji: '🛖', name: 'Warming Hut', walkable: true, color: 'bg-orange-100', landmark: true },
+  main_lodge: { emoji: '🏔️', name: 'Main Lodge', walkable: true, color: 'bg-stone-100', landmark: true },
+  sledding_hill: { emoji: '🛷', name: 'Sledding Hill', walkable: true, color: 'bg-indigo-100', landmark: true },
+  festival_grounds: { emoji: '🎪', name: 'Festival Grounds', walkable: true, color: 'bg-purple-200', isDestination: true },
+  snowbank: { emoji: '❄️', name: 'Snowbank', walkable: false, color: 'bg-white' },
+  trees: { emoji: '🌲', name: 'Pine Trees', walkable: false, color: 'bg-emerald-200' }
 };
 
-// Create the Griddle Falls map
+// Create the Winter Sports Festival map
 const createMap = () => {
   const map = [
-    ['home_josie', 'path', 'flower_shop', 'path', 'park', 'park', 'path', 'home_hank'],
-    ['path', 'path', 'path', 'path', 'duck_pond', 'path', 'path', 'path'],
-    ['home_josephine', 'path', 'clock_tower', 'path', 'path', 'path', 'path', 'home_taylor'],
-    ['path', 'path', 'path', 'market_square', 'market_square', 'path', 'path', 'path'],
-    ['path', 'main_street', 'main_street', 'main_street', 'main_street', 'main_street', 'path', 'path'],
-    ['home_lindsays', 'path', 'bakery', 'path', 'path', 'path', 'path', 'home_sarah'],
+    ['home_josie', 'path', 'ski_rental', 'path', 'ice_sculpture', 'path', 'path', 'home_hank'],
+    ['path', 'path', 'path', 'path', 'path', 'path', 'path', 'path'],
+    ['home_josephine', 'path', 'warming_hut', 'path', 'path', 'path', 'path', 'home_taylor'],
+    ['path', 'path', 'path', 'festival_grounds', 'festival_grounds', 'path', 'path', 'path'],
+    ['path', 'main_lodge', 'main_lodge', 'main_lodge', 'main_lodge', 'path', 'path', 'path'],
+    ['home_lindsays', 'path', 'hot_cocoa_stand', 'path', 'path', 'path', 'path', 'home_sarah'],
     ['path', 'path', 'path', 'path', 'path', 'home_jennie', 'path', 'path'],
-    ['path', 'path', 'fountain', 'path', 'path', 'path', 'path', 'path']
+    ['path', 'path', 'sledding_hill', 'path', 'frozen_pond', 'path', 'path', 'path']
   ];
   return map;
 };
 
-// Puzzle data for encounters
+// Puzzle data for encounters with winter sports trivia
 const PUZZLES = {
-  flower_shop: {
-    npc: 'Rosa',
-    npcEmoji: '👩‍🌾',
-    greeting: "Josie! Here's a flower crown for the festival! 🌸",
+  ski_rental: {
+    npc: 'Coach Erik',
+    npcEmoji: '🎿',
+    greeting: "Ready for your first lesson, Josie? Here are your skis!",
     puzzle: {
       type: 'unscramble',
-      prompt: "Can you help me? Unscramble this word to find your next stop:",
-      scrambled: "KOLCC ROWET",
-      answer: "CLOCK TOWER",
-      hint: "It tells time and you can see it from anywhere in town!"
+      prompt: "Did you know? Skiing originated in this Scandinavian country over 5,000 years ago:",
+      scrambled: "YAWNOR",
+      answer: "NORWAY",
+      hint: "Land of the fjords and Vikings!"
     },
-    success: "That's right! Head to the Clock Tower, then follow the music to Market Square!"
+    funFact: "Ancient rock carvings in Norway show people on skis hunting reindeer! Skiing was essential for winter survival and transportation.",
+    success: "Perfect! Norway is where skiing began. Now head to the Warming Hut to warm up!"
   },
-  clock_tower: {
-    npc: 'Old Tom',
-    npcEmoji: '👴',
-    greeting: "Ah, young one! On your way to the festival?",
+  warming_hut: {
+    npc: 'Ranger Pines',
+    npcEmoji: '🛖',
+    greeting: "Come in, come in! Warm yourself by the fire!",
     puzzle: {
       type: 'unscramble',
-      prompt: "The clock says it's time to go to the...",
-      scrambled: "TEKARM QUARES",
-      answer: "MARKET SQUARE",
-      hint: "Where the Cinnamon Festival is happening!"
+      prompt: "The Winter Olympics first included this sliding sport in 1924:",
+      scrambled: "EDBOLBS",
+      answer: "BOBSLED",
+      hint: "A team sport where athletes race down an icy track in a sled!"
     },
-    success: "You've got it! The festival is just ahead. I can smell the cinnamon from here!"
+    funFact: "The first bobsleds were made by connecting two sleds together! The sport got its name because early riders would 'bob' their heads to go faster.",
+    success: "That's right! Bobsled has been thrilling audiences for 100 years! The Festival Grounds are just ahead!"
   },
-  bakery: {
-    npc: 'Baker Ben',
-    npcEmoji: '👨‍🍳',
-    greeting: "Hello there! Want a cinnamon roll sample?",
+  hot_cocoa_stand: {
+    npc: 'Mrs. Maple',
+    npcEmoji: '☕',
+    greeting: "Hot cocoa to warm your mittens? On the house today!",
     puzzle: {
       type: 'unscramble',
-      prompt: "Take these treats to Laurel! Head down...",
-      scrambled: "NIMA TEERTS",
-      answer: "MAIN STREET",
-      hint: "The busiest shopping area in town!"
+      prompt: "This winter sport combines cross-country skiing and rifle shooting:",
+      scrambled: "TLONIBHA",
+      answer: "BIATHLON",
+      hint: "Athletes ski fast, then must calm down to hit targets!"
     },
-    success: "Perfect! Follow Main Street and you'll find the Market Square!"
+    funFact: "Biathlon began as training for Scandinavian military ski patrols. Athletes must control their breathing after skiing hard to shoot accurately!",
+    success: "Wonderful! Biathlon is one of the most demanding winter sports. Take this cocoa to the Warming Hut!"
   },
-  duck_pond: {
-    npc: 'Isaac',
-    npcEmoji: '🐕',
-    greeting: "*Isaac spots the ducks* DUCKS!! 🦆🦆🦆",
+  frozen_pond: {
+    npc: 'Skater Sam',
+    npcEmoji: '⛸️',
+    greeting: "The ice is perfect today! Want to try some spins?",
     puzzle: {
       type: 'unscramble',
-      prompt: "Help Isaac count! There are this many ducks:",
-      scrambled: "EVIF",
-      answer: "FIVE",
-      hint: "One more than four!"
+      prompt: "Figure skaters perform jumps, spins, and this graceful movement:",
+      scrambled: "RILPS",
+      answer: "SPIRL",
+      hint: "Oops, try again! It's actually...",
+      altAnswer: "SPIRAL"
     },
-    success: "Good counting! Now let's get Isaac moving to the park! *woof woof*"
+    funFact: "A spiral in figure skating is when the skater glides on one foot with the free leg extended high behind them. It requires incredible balance and flexibility!",
+    success: "Beautiful! Spirals showcase a skater's grace. Now check out the Sledding Hill!"
   },
-  fountain: {
-    npc: 'Fountain Kids',
-    npcEmoji: '👧👦',
-    greeting: "Hi! Are you going to the festival too?!",
+  sledding_hill: {
+    npc: 'Kids Playing',
+    npcEmoji: '🛷',
+    greeting: "WHEEEE! This hill is so fast today!",
     puzzle: {
       type: 'unscramble',
-      prompt: "We're throwing coins! Unscramble our favorite bird:",
-      scrambled: "CKUD",
-      answer: "DUCK",
-      hint: "Quack quack!"
+      prompt: "The luge is a sliding sport where athletes go feet-first on a small:",
+      scrambled: "LDES",
+      answer: "SLED",
+      hint: "What you ride down a snowy hill!"
     },
-    success: "Yay! The Duck Pond is that way! Then head to the festival!"
+    funFact: "Luge athletes can reach speeds over 90 miles per hour! They steer using only their calf muscles and subtle shoulder movements.",
+    success: "That's it! Luge sleds are tiny but super fast! Head to the Festival Grounds!"
   },
-  park: {
-    npc: 'Park Ranger',
-    npcEmoji: '🧑‍🌾',
-    greeting: "Beautiful day for the festival!",
+  ice_sculpture: {
+    npc: 'Artist Yuki',
+    npcEmoji: '🧊',
+    greeting: "Welcome to my winter gallery! Each sculpture tells a story.",
     puzzle: {
       type: 'unscramble',
-      prompt: "Follow the path through the...",
-      scrambled: "SEERT",
-      answer: "TREES",
-      hint: "They're tall, green, and give shade!"
+      prompt: "Ice sculptors use special tools including chainsaws and this sharp instrument:",
+      scrambled: "LIHECS",
+      answer: "CHISEL",
+      hint: "A pointed tool for carving fine details!"
     },
-    success: "Wonderful! The path leads right to Market Square!"
+    funFact: "Professional ice sculptors work with blocks weighing 300 pounds or more! The ice must be very clear, so it is often specially frozen.",
+    success: "Exactly! Chisels create the delicate details. The Main Lodge has more art to see!"
   },
-  main_street: {
-    npc: 'Officer Maple',
-    npcEmoji: '👮',
-    greeting: "Heading to the Cinnamon Festival?",
+  main_lodge: {
+    npc: 'Lodge Host',
+    npcEmoji: '🏔️',
+    greeting: "Welcome to Pine Peak Lodge! The festival is almost ready!",
     puzzle: {
       type: 'unscramble',
-      prompt: "Keep going straight to reach the...",
-      scrambled: "VITALFES",
-      answer: "FESTIVAL",
-      hint: "A celebration with food and fun!"
+      prompt: "Curling players slide heavy stones toward a target called the:",
+      scrambled: "OESUH",
+      answer: "HOUSE",
+      hint: "Not where you live, but where you score points in curling!"
     },
-    success: "That's the spirit! Market Square is just ahead!"
+    funFact: "Curling is called 'chess on ice' because of its strategy! The sweeping helps control the stone's speed and direction by slightly melting the ice.",
+    success: "Perfect! The house is the bullseye in curling. The Festival Grounds await!"
   }
 };
 
-// Text messages for the game
+// Updated text messages for winter theme
 const TEXT_MESSAGES = {
   josie: {
     start: [
-      { from: 'josephine', text: "Josie, head to the Flower Shop first! Rosa has a surprise for you! 💐" }
+      { from: 'josephine', text: "Josie honey, stop at the Ski Rental first! Coach Erik has your skis ready!" }
     ],
-    flower_shop: [
-      { from: 'laurel', text: "Can't wait to see you! The cinnamon pancakes are almost ready! 🥞" }
+    ski_rental: [
+      { from: 'laurel', text: "Can not wait to see you at the festival! Hot cocoa is waiting!" }
     ],
-    clock_tower: [
-      { from: 'sarah', text: "You're doing great! Almost there! ⏰" }
+    warming_hut: [
+      { from: 'sarah', text: "You are doing great! Almost there!" }
     ],
     finish: [
-      { from: 'laurel', text: "Josie! You made it! Come try a cinnamon pancake! 🎉" }
+      { from: 'laurel', text: "Josie! You made it! Ready to try some winter treats?" }
     ]
   },
   jennie_isaac: {
     start: [
-      { from: 'taylor', text: "Jennie! Head toward the fountain, then cut through the park!" }
+      { from: 'taylor', text: "Jennie! The frozen pond is clear for skating, then hit the sledding hill!" }
     ],
-    duck_pond: [
-      { from: 'sarah', text: "Let Isaac say hi to the ducks, then keep moving! 🦆" }
+    frozen_pond: [
+      { from: 'sarah', text: "Let Isaac run on the ice a bit, then keep moving!" }
     ],
     finish: [
-      { from: 'laurel', text: "Jennie! Isaac! Over here! I saved you both a treat! 🐕" }
+      { from: 'laurel', text: "Jennie! Isaac! Over here! I have treats for both of you!" }
     ]
   },
   taylor: {
     start: [
-      { from: 'sarah', text: "Taylor, just head straight down Main Street, the quickest route! 🛍️" }
+      { from: 'sarah', text: "Taylor, the main lodge has the schedule posted. Quickest route!" }
     ],
     finish: [
-      { from: 'laurel', text: "Taylor! Perfect timing! Grab a seat! ☕" }
+      { from: 'laurel', text: "Taylor! Perfect timing as always! Your seat is ready!" }
     ]
   },
   josephine: {
     start: [
-      { from: 'josie', text: "Mom! Don't forget to stop at the bakery for cinnamon rolls! 🥐" }
+      { from: 'josie', text: "Mom! Get some cocoa for everyone on your way!" }
     ],
-    bakery: [
-      { from: 'laurel', text: "Josephine, Ben has a special batch for the booth! 🥞" }
+    hot_cocoa_stand: [
+      { from: 'laurel', text: "Josephine, Mrs. Maple makes the best cocoa in town!" }
     ],
     finish: [
-      { from: 'laurel', text: "Josephine! Those rolls smell amazing! Come sit by Josie! 💜" }
+      { from: 'laurel', text: "Josephine! Those treats smell amazing! Come sit by Josie!" }
     ]
   },
   sarah: {
     start: [
-      { from: 'taylor', text: "Sarah, I found a shortcut through the park! 🌳" }
+      { from: 'taylor', text: "Sarah, check out the ice sculptures! They are stunning this year!" }
     ],
     finish: [
-      { from: 'laurel', text: "Sarah! I saved your favorite table! 🌿" }
+      { from: 'laurel', text: "Sarah! I saved your favorite spot by the fire!" }
     ]
   },
   mr_mrs_lindsay: {
     start: [
-      { from: 'sarah', text: "Mr. Lindsay and Mrs. Lindsay, take your time! The festival isn't going anywhere! 😊" }
+      { from: 'sarah', text: "Mr. and Mrs. Lindsay, take your time! The festival will be here all day!" }
     ],
-    bakery: [
-      { from: 'laurel', text: "Tell Ben to save me some of his sourdough! 🥖" }
+    hot_cocoa_stand: [
+      { from: 'laurel', text: "Tell Mrs. Maple I said hello!" }
     ],
     finish: [
-      { from: 'laurel', text: "Mr. and Mrs. Lindsay! Your usual booth is ready! 💕" }
+      { from: 'laurel', text: "Mr. and Mrs. Lindsay! Your booth is all set up and cozy!" }
     ]
   },
   hank: {
     start: [
-      { from: 'mr_lindsay', text: "Hank! Remember the old path through the park? Still the best way! 🧢" }
+      { from: 'mr_lindsay', text: "Hank! Remember the shortcut through the sculpture garden?" }
     ],
     finish: [
-      { from: 'laurel', text: "Hank! Black coffee's already brewing! ☕" }
+      { from: 'laurel', text: "Hank! Your coffee is already brewing, extra strong!" }
     ]
   }
 };
 
 // Main Game Component
-const LetterGriddleLand = () => {
+const WinterLand = () => {
   // Game state
   const [screen, setScreen] = useState('welcome');
   const [currentChapter, setCurrentChapter] = useState(null);
@@ -484,6 +492,8 @@ const LetterGriddleLand = () => {
   const [currentPuzzle, setCurrentPuzzle] = useState(null);
   const [puzzleInput, setPuzzleInput] = useState('');
   const [puzzleError, setPuzzleError] = useState(false);
+  const [showFunFact, setShowFunFact] = useState(false);
+  const [currentFunFact, setCurrentFunFact] = useState('');
   const [messages, setMessages] = useState([]);
   const [showMessages, setShowMessages] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -536,7 +546,7 @@ const LetterGriddleLand = () => {
   
   // Handle tile click
   const handleTileClick = (row, col) => {
-    if (currentPuzzle) return;
+    if (currentPuzzle || showFunFact) return;
     
     if (isAdjacent(row, col) && isValidMove(row, col)) {
       setPlayerPosition({ row, col });
@@ -560,22 +570,34 @@ const LetterGriddleLand = () => {
   // Handle puzzle submission
   const handlePuzzleSubmit = () => {
     const answer = puzzleInput.toUpperCase().trim();
-    if (answer === currentPuzzle.puzzle.answer) {
+    const correctAnswer = currentPuzzle.puzzle.answer;
+    const altAnswer = currentPuzzle.puzzle.altAnswer;
+    
+    if (answer === correctAnswer || (altAnswer && answer === altAnswer)) {
       setVisitedLandmarks([...visitedLandmarks, currentPuzzle.type]);
+      
+      // Show fun fact
+      setCurrentFunFact(currentPuzzle.funFact);
+      setShowFunFact(true);
       
       const newMessages = TEXT_MESSAGES[currentChapter]?.[currentPuzzle.type] || [];
       if (newMessages.length > 0) {
         setMessages(prev => [...prev, ...newMessages]);
-        setShowMessages(true);
       }
       
-      setCurrentPuzzle(null);
       setPuzzleInput('');
       setPuzzleError(false);
     } else {
       setPuzzleError(true);
       setTimeout(() => setPuzzleError(false), 1000);
     }
+  };
+  
+  // Close fun fact and puzzle
+  const closeFunFact = () => {
+    setShowFunFact(false);
+    setCurrentFunFact('');
+    setCurrentPuzzle(null);
   };
   
   // Handle arrival at destination
@@ -598,13 +620,13 @@ const LetterGriddleLand = () => {
     const character = CHARACTERS[currentChapter];
     const chapterNum = chapters.findIndex(c => c.id === currentChapter) + 1;
     
-    const shareText = `🍂 Letter Griddle Land 🍂
-The Cinnamon Festival
+    const shareText = `Winter Sports Festival
+Griddle Falls
 
-✅ Chapter ${chapterNum}: ${character.name} arrived!
-🎪 ${completedChapters.length}/${chapters.length} friends at the festival
+Chapter ${chapterNum}: ${character.name} arrived!
+${completedChapters.length}/${chapters.length} friends at the festival
 
-Play at lettergriddle.com/griddle-land
+Play at lettergriddle.com/winter-land
 More games at lettergriddle.com`;
 
     navigator.clipboard.writeText(shareText).then(() => {
@@ -615,14 +637,14 @@ More games at lettergriddle.com`;
   
   // Share final completion
   const handleShareFinal = () => {
-    const shareText = `🍂 Letter Griddle Land 🍂
-The Cinnamon Festival
+    const shareText = `Winter Sports Festival
+Griddle Falls
 
-🎉 COMPLETE! 🎉
-✅ All 7 friends arrived at Market Square!
-🥞 The whole Trivia Crew is celebrating!
+COMPLETE!
+All 7 friends arrived at the Festival Grounds!
+The whole Trivia Crew is celebrating!
 
-Play at lettergriddle.com/griddle-land
+Play at lettergriddle.com/winter-land
 More games at lettergriddle.com`;
 
     navigator.clipboard.writeText(shareText).then(() => {
@@ -632,7 +654,7 @@ More games at lettergriddle.com`;
   };
   
   const allChaptersComplete = completedChapters.length >= chapters.length;
-  const confettiEmojis = ['🍂', '🍁', '🎉', '✨', '🥞', '☕', '🧡'];
+  const confettiEmojis = ['❄️', '⛷️', '🎿', '✨', '🥞', '☕', '💙'];
   
   // ============================================
   // WELCOME SCREEN
@@ -642,22 +664,22 @@ More games at lettergriddle.com`;
       <div 
         className="min-h-screen p-4 relative overflow-hidden"
         style={{
-          background: 'linear-gradient(180deg, #78350F 0%, #92400E 15%, #B45309 30%, #D97706 50%, #F59E0B 70%, #FBBF24 85%, #FDE68A 100%)'
+          background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
-        {/* Falling leaves animation */}
+        {/* Falling snowflakes animation */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 20 }).map((_, i) => (
+          {Array.from({ length: 25 }).map((_, i) => (
             <div
               key={i}
-              className="absolute text-2xl md:text-3xl"
+              className="absolute text-xl md:text-2xl"
               style={{
-                left: `${(i * 13) % 100}%`,
+                left: `${(i * 11) % 100}%`,
                 top: '-50px',
-                animation: `leafFall ${8 + (i % 5)}s ease-in-out ${i * 0.5}s infinite`
+                animation: `snowFall ${8 + (i % 6)}s ease-in-out ${i * 0.4}s infinite`
               }}
             >
-              {['🍂', '🍁', '🧡'][i % 3]}
+              {['❄️', '✨', '🌨️'][i % 3]}
             </div>
           ))}
         </div>
@@ -665,56 +687,56 @@ More games at lettergriddle.com`;
         <div className="max-w-lg mx-auto pt-8 relative z-10">
           {/* Title */}
           <div className="text-center mb-8">
-            <div className="text-6xl mb-4">🍂</div>
+            <div className="text-6xl mb-4">⛷️</div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg" style={{fontFamily: 'Georgia, serif'}}>
-              Letter Griddle Land
+              Winter Land
             </h1>
-            <p className="text-xl text-amber-100 mb-2" style={{fontFamily: 'Georgia, serif'}}>
-              The Cinnamon Festival
+            <p className="text-xl text-blue-100 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+              Winter Sports Festival
             </p>
-            <p className="text-amber-200/90 text-sm">Guide the Trivia Crew to Market Square!</p>
+            <p className="text-blue-200/90 text-sm">Guide the Trivia Crew to the Festival Grounds!</p>
           </div>
           
           {/* Main Card */}
-          <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl p-6 border-2 border-amber-300/50 mb-6">
+          <div className="bg-white/85 backdrop-blur-md rounded-3xl shadow-2xl p-6 border-2 border-blue-200/50 mb-6">
             {/* Story intro */}
-            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl p-4 mb-6 border border-amber-200">
-              <p className="text-amber-900 text-center leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
-                It's the annual <strong>Cinnamon Festival</strong> in Griddle Falls! 🎪
+            <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-4 mb-6 border border-blue-200">
+              <p className="text-blue-900 text-center leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
+                It is the annual <strong>Winter Sports Festival</strong> in Griddle Falls! ⛷️
                 <br /><br />
-                Laurel is at Market Square setting up the Letter Griddle Cafe booth. 
-                Help guide each member of the Trivia Crew through town to join the celebration!
+                Laurel is at the Festival Grounds setting up the Letter Griddle Cafe booth. 
+                Help guide each member of the Trivia Crew through the snowy town while learning fun facts about winter sports!
               </p>
             </div>
             
             {/* How to play */}
             <div className="mb-6">
-              <h2 className="text-xl font-bold text-amber-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
+              <h2 className="text-xl font-bold text-blue-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
                 How to Play
               </h2>
               <div className="space-y-2">
-                <div className="flex items-center gap-3 bg-amber-50 rounded-xl p-3">
+                <div className="flex items-center gap-3 bg-blue-50 rounded-xl p-3">
                   <span className="text-2xl">👆</span>
-                  <p className="text-amber-800 text-sm">Tap adjacent tiles to move through town</p>
+                  <p className="text-blue-800 text-sm">Tap adjacent tiles to move through snowy Griddle Falls</p>
                 </div>
-                <div className="flex items-center gap-3 bg-amber-50 rounded-xl p-3">
-                  <span className="text-2xl">💐</span>
-                  <p className="text-amber-800 text-sm">Visit landmarks and solve word puzzles</p>
+                <div className="flex items-center gap-3 bg-blue-50 rounded-xl p-3">
+                  <span className="text-2xl">🎿</span>
+                  <p className="text-blue-800 text-sm">Visit landmarks and solve winter sports word puzzles</p>
                 </div>
-                <div className="flex items-center gap-3 bg-amber-50 rounded-xl p-3">
-                  <span className="text-2xl">📱</span>
-                  <p className="text-amber-800 text-sm">Get hints from your friends via text messages</p>
+                <div className="flex items-center gap-3 bg-blue-50 rounded-xl p-3">
+                  <span className="text-2xl">💡</span>
+                  <p className="text-blue-800 text-sm">Learn fun facts about winter sporting traditions!</p>
                 </div>
-                <div className="flex items-center gap-3 bg-amber-50 rounded-xl p-3">
+                <div className="flex items-center gap-3 bg-blue-50 rounded-xl p-3">
                   <span className="text-2xl">🎪</span>
-                  <p className="text-amber-800 text-sm">Reach Market Square for the festival!</p>
+                  <p className="text-blue-800 text-sm">Reach the Festival Grounds for winter fun!</p>
                 </div>
               </div>
             </div>
             
             {/* Characters preview */}
             <div className="mb-6">
-              <h3 className="text-lg font-bold text-amber-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
+              <h3 className="text-lg font-bold text-blue-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
                 The Trivia Crew Needs Your Help!
               </h3>
               <div className="flex justify-center gap-2 flex-wrap">
@@ -727,10 +749,10 @@ More games at lettergriddle.com`;
             {/* Start button */}
             <button
               onClick={() => setScreen('chapter_select')}
-              className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-105 active:scale-95"
+              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-105 active:scale-95"
               style={{fontFamily: 'Georgia, serif'}}
             >
-              🍂 Start Adventure!
+              ❄️ Start Adventure!
             </button>
           </div>
           
@@ -749,7 +771,7 @@ More games at lettergriddle.com`;
         </div>
         
         <style>{`
-          @keyframes leafFall {
+          @keyframes snowFall {
             0% {
               transform: translateY(-50px) rotate(0deg);
               opacity: 1;
@@ -774,10 +796,10 @@ More games at lettergriddle.com`;
       <div 
         className="min-h-screen p-4 relative overflow-hidden"
         style={{
-          background: 'linear-gradient(180deg, #78350F 0%, #92400E 15%, #B45309 30%, #D97706 50%, #F59E0B 70%, #FBBF24 85%, #FDE68A 100%)'
+          background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
-        {/* Falling leaves */}
+        {/* Falling snowflakes */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
           {Array.from({ length: 15 }).map((_, i) => (
             <div
@@ -786,10 +808,10 @@ More games at lettergriddle.com`;
               style={{
                 left: `${(i * 17) % 100}%`,
                 top: '-30px',
-                animation: `leafFall ${10 + (i % 4)}s ease-in-out ${i * 0.7}s infinite`
+                animation: `snowFall ${10 + (i % 4)}s ease-in-out ${i * 0.7}s infinite`
               }}
             >
-              {['🍂', '🍁'][i % 2]}
+              {['❄️', '✨'][i % 2]}
             </div>
           ))}
         </div>
@@ -798,20 +820,20 @@ More games at lettergriddle.com`;
           {/* Header */}
           <div className="text-center mb-6">
             <h1 className="text-2xl md:text-3xl font-bold text-white mb-1" style={{fontFamily: 'Georgia, serif'}}>
-              🍂 Cinnamon Festival 🍂
+              ❄️ Winter Sports Festival ❄️
             </h1>
-            <p className="text-amber-200 text-sm">Choose who to guide to Market Square!</p>
+            <p className="text-blue-200 text-sm">Choose who to guide to the Festival Grounds!</p>
           </div>
           
           {/* Progress */}
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 mb-4 border border-amber-200/50">
+          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 mb-4 border border-blue-200/50">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-amber-800 font-medium" style={{fontFamily: 'Georgia, serif'}}>Progress</span>
-              <span className="text-amber-600 text-sm">{completedChapters.length} / {chapters.length} arrived</span>
+              <span className="text-blue-800 font-medium" style={{fontFamily: 'Georgia, serif'}}>Progress</span>
+              <span className="text-blue-600 text-sm">{completedChapters.length} / {chapters.length} arrived</span>
             </div>
-            <div className="w-full bg-amber-200 rounded-full h-3">
+            <div className="w-full bg-blue-200 rounded-full h-3">
               <div 
-                className="bg-gradient-to-r from-orange-500 to-amber-500 h-3 rounded-full transition-all duration-500"
+                className="bg-gradient-to-r from-blue-500 to-cyan-500 h-3 rounded-full transition-all duration-500"
                 style={{ width: `${(completedChapters.length / chapters.length) * 100}%` }}
               />
             </div>
@@ -833,7 +855,7 @@ More games at lettergriddle.com`;
                       ? 'bg-green-100/80 border-2 border-green-400'
                       : isLocked
                         ? 'bg-gray-200/60 border-2 border-gray-300 opacity-60'
-                        : 'bg-white/80 border-2 border-amber-300 hover:border-amber-500 hover:scale-102 active:scale-98'
+                        : 'bg-white/80 border-2 border-blue-300 hover:border-blue-500 hover:scale-102 active:scale-98'
                   }`}
                 >
                   <div className="relative">
@@ -850,10 +872,10 @@ More games at lettergriddle.com`;
                     )}
                   </div>
                   <div className="flex-1 text-left">
-                    <div className="font-bold text-amber-900" style={{fontFamily: 'Georgia, serif'}}>
+                    <div className="font-bold text-blue-900" style={{fontFamily: 'Georgia, serif'}}>
                       Chapter {index + 1}: {chapter.character.name}
                     </div>
-                    <div className="text-sm text-amber-700">{chapter.character.description}</div>
+                    <div className="text-sm text-blue-700">{chapter.character.description}</div>
                     {isComplete && (
                       <div className="text-xs text-green-600 mt-1">✨ Arrived at the festival!</div>
                     )}
@@ -873,17 +895,17 @@ More games at lettergriddle.com`;
           {allChaptersComplete && (
             <button
               onClick={() => setScreen('finale')}
-              className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-105 mb-4"
+              className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-105 mb-4"
               style={{fontFamily: 'Georgia, serif'}}
             >
-              🎉 Everyone's Here! View Celebration!
+              ❄️ Everyone is Here! View Celebration!
             </button>
           )}
           
           {/* Back button */}
           <button
             onClick={() => setScreen('welcome')}
-            className="w-full bg-white/60 backdrop-blur-sm text-amber-800 py-3 rounded-xl font-medium transition-all hover:bg-white/80"
+            className="w-full bg-white/60 backdrop-blur-sm text-blue-800 py-3 rounded-xl font-medium transition-all hover:bg-white/80"
             style={{fontFamily: 'Georgia, serif'}}
           >
             ← Back to Title
@@ -900,7 +922,7 @@ More games at lettergriddle.com`;
         </div>
         
         <style>{`
-          @keyframes leafFall {
+          @keyframes snowFall {
             0% { transform: translateY(-30px) rotate(0deg); opacity: 1; }
             100% { transform: translateY(100vh) rotate(360deg); opacity: 0.3; }
           }
@@ -919,7 +941,7 @@ More games at lettergriddle.com`;
       <div 
         className="min-h-screen p-2 md:p-4 relative overflow-hidden"
         style={{
-          background: 'linear-gradient(180deg, #78350F 0%, #92400E 15%, #B45309 30%, #D97706 50%, #F59E0B 70%, #FBBF24 85%, #FDE68A 100%)'
+          background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
         {/* Confetti */}
@@ -946,7 +968,7 @@ More games at lettergriddle.com`;
           <div className="flex justify-between items-center mb-2">
             <button
               onClick={() => setScreen('chapter_select')}
-              className="bg-white/60 backdrop-blur-sm text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-white/80 transition-all"
+              className="bg-white/60 backdrop-blur-sm text-blue-800 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-white/80 transition-all"
             >
               ← Back
             </button>
@@ -954,13 +976,13 @@ More games at lettergriddle.com`;
               <h2 className="text-lg md:text-xl font-bold text-white" style={{fontFamily: 'Georgia, serif'}}>
                 Guide {character.name}
               </h2>
-              <p className="text-amber-200 text-xs">to Market Square 🎪</p>
+              <p className="text-blue-200 text-xs">to Festival Grounds 🎪</p>
             </div>
             <button
               onClick={() => setShowMessages(true)}
-              className="bg-white/60 backdrop-blur-sm text-amber-800 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-white/80 transition-all relative"
+              className="bg-white/60 backdrop-blur-sm text-blue-800 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-white/80 transition-all relative"
             >
-              📱
+              💬
               {messages.length > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                   {messages.length}
@@ -970,20 +992,20 @@ More games at lettergriddle.com`;
           </div>
           
           {/* Character info */}
-          <div className="bg-white/70 backdrop-blur-md rounded-xl p-3 mb-3 flex items-center gap-3 border border-amber-200/50">
+          <div className="bg-white/70 backdrop-blur-md rounded-xl p-3 mb-3 flex items-center gap-3 border border-blue-200/50">
             <CharacterAvatar character={character} size="md" />
             <div className="flex-1">
-              <div className="font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>{character.name}</div>
-              <div className="text-xs text-amber-600">{character.personality}</div>
+              <div className="font-bold text-blue-800" style={{fontFamily: 'Georgia, serif'}}>{character.name}</div>
+              <div className="text-xs text-blue-600">{character.personality}</div>
             </div>
             <div className="text-right">
-              <div className="text-xs text-amber-600">Landmarks visited</div>
-              <div className="font-bold text-amber-800">{visitedLandmarks.length}</div>
+              <div className="text-xs text-blue-600">Landmarks visited</div>
+              <div className="font-bold text-blue-800">{visitedLandmarks.length}</div>
             </div>
           </div>
           
           {/* Map grid */}
-          <div className="bg-gradient-to-br from-amber-800 to-amber-900 p-2 rounded-2xl shadow-2xl mb-3">
+          <div className="bg-gradient-to-br from-blue-800 to-blue-900 p-2 rounded-2xl shadow-2xl mb-3">
             <div className="grid grid-cols-8 gap-0.5">
               {map.map((row, rowIdx) => (
                 row.map((tileType, colIdx) => {
@@ -1027,40 +1049,40 @@ More games at lettergriddle.com`;
           </div>
           
           {/* Legend */}
-          <div className="bg-white/60 backdrop-blur-sm rounded-xl p-2 text-xs text-amber-800">
+          <div className="bg-white/60 backdrop-blur-sm rounded-xl p-2 text-xs text-blue-800">
             <div className="flex flex-wrap justify-center gap-2">
               <span>🎪 Festival</span>
-              <span>💐 Flower Shop</span>
-              <span>🥐 Bakery</span>
-              <span>🕐 Clock Tower</span>
-              <span>🌳 Park</span>
-              <span>🛍️ Shops</span>
+              <span>🎿 Ski Rental</span>
+              <span>☕ Hot Cocoa</span>
+              <span>🛖 Warming Hut</span>
+              <span>⛸️ Pond</span>
+              <span>🛷 Sledding</span>
             </div>
           </div>
         </div>
         
         {/* Puzzle Modal */}
-        {currentPuzzle && (
+        {currentPuzzle && !showFunFact && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-            <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-amber-200">
+            <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-blue-200">
               {/* NPC */}
               <div className="text-center mb-4">
                 <div className="text-5xl mb-2">{currentPuzzle.npcEmoji}</div>
-                <div className="font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>{currentPuzzle.npc}</div>
+                <div className="font-bold text-blue-800" style={{fontFamily: 'Georgia, serif'}}>{currentPuzzle.npc}</div>
               </div>
               
               {/* Greeting */}
-              <div className="bg-amber-100 rounded-xl p-3 mb-4">
-                <p className="text-amber-800 text-center" style={{fontFamily: 'Georgia, serif'}}>
+              <div className="bg-blue-100 rounded-xl p-3 mb-4">
+                <p className="text-blue-800 text-center" style={{fontFamily: 'Georgia, serif'}}>
                   "{currentPuzzle.greeting}"
                 </p>
               </div>
               
               {/* Puzzle */}
               <div className="mb-4">
-                <p className="text-amber-700 text-sm mb-2 text-center">{currentPuzzle.puzzle.prompt}</p>
-                <div className="bg-amber-50 rounded-xl p-4 text-center mb-3">
-                  <span className="text-2xl font-bold text-amber-900 tracking-widest">
+                <p className="text-blue-700 text-sm mb-2 text-center">{currentPuzzle.puzzle.prompt}</p>
+                <div className="bg-blue-50 rounded-xl p-4 text-center mb-3">
+                  <span className="text-2xl font-bold text-blue-900 tracking-widest">
                     {currentPuzzle.puzzle.scrambled}
                   </span>
                 </div>
@@ -1073,23 +1095,55 @@ More games at lettergriddle.com`;
                   className={`w-full p-3 rounded-xl border-2 text-center font-bold uppercase ${
                     puzzleError 
                       ? 'border-red-400 bg-red-50 animate-shake' 
-                      : 'border-amber-300 focus:border-amber-500'
+                      : 'border-blue-300 focus:border-blue-500'
                   } outline-none transition-all`}
                   style={{fontFamily: 'Georgia, serif'}}
                   autoFocus
                 />
-                <p className="text-xs text-amber-600 text-center mt-2">
-                  💡 Hint: {currentPuzzle.puzzle.hint}
+                <p className="text-xs text-blue-600 text-center mt-2">
+                  ❄️ Hint: {currentPuzzle.puzzle.hint}
                 </p>
               </div>
               
               {/* Submit button */}
               <button
                 onClick={handlePuzzleSubmit}
-                className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
+                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
                 style={{fontFamily: 'Georgia, serif'}}
               >
                 Submit Answer
+              </button>
+            </div>
+          </div>
+        )}
+        
+        {/* Fun Fact Modal */}
+        {showFunFact && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-blue-200">
+              <div className="text-center mb-4">
+                <div className="text-5xl mb-2">❄️</div>
+                <div className="font-bold text-blue-800 text-xl" style={{fontFamily: 'Georgia, serif'}}>Did You Know?</div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 mb-4 border border-blue-200">
+                <p className="text-blue-800 text-center leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
+                  {currentFunFact}
+                </p>
+              </div>
+              
+              <div className="bg-green-100 rounded-xl p-3 mb-4">
+                <p className="text-green-800 text-center text-sm" style={{fontFamily: 'Georgia, serif'}}>
+                  ✨ {currentPuzzle?.success}
+                </p>
+              </div>
+              
+              <button
+                onClick={closeFunFact}
+                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
+                style={{fontFamily: 'Georgia, serif'}}
+              >
+                Continue Journey ❄️
               </button>
             </div>
           </div>
@@ -1102,27 +1156,27 @@ More games at lettergriddle.com`;
             onClick={() => setShowMessages(false)}
           >
             <div 
-              className="bg-white/95 backdrop-blur-md rounded-t-3xl p-4 max-w-sm w-full shadow-2xl border border-amber-200 max-h-[60vh] overflow-y-auto"
+              className="bg-white/95 backdrop-blur-md rounded-t-3xl p-4 max-w-sm w-full shadow-2xl border border-blue-200 max-h-[60vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-3">
-                <h3 className="font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>📱 Messages</h3>
-                <button onClick={() => setShowMessages(false)} className="text-amber-400 hover:text-amber-600 text-xl">×</button>
+                <h3 className="font-bold text-blue-800" style={{fontFamily: 'Georgia, serif'}}>💬 Messages</h3>
+                <button onClick={() => setShowMessages(false)} className="text-blue-400 hover:text-blue-600 text-xl">×</button>
               </div>
               <div className="space-y-2">
                 {messages.map((msg, i) => (
-                  <div key={i} className="bg-amber-50 rounded-xl p-3 flex gap-3 items-start">
+                  <div key={i} className="bg-blue-50 rounded-xl p-3 flex gap-3 items-start">
                     <CharacterAvatar character={CHARACTERS[msg.from]} size="sm" />
                     <div className="flex-1">
-                      <div className="text-xs font-bold text-amber-800 capitalize">{CHARACTERS[msg.from]?.name || msg.from}</div>
-                      <div className="text-sm text-amber-700">{msg.text}</div>
+                      <div className="text-xs font-bold text-blue-800 capitalize">{CHARACTERS[msg.from]?.name || msg.from}</div>
+                      <div className="text-sm text-blue-700">{msg.text}</div>
                     </div>
                   </div>
                 ))}
               </div>
               <button
                 onClick={() => setShowMessages(false)}
-                className="w-full mt-3 bg-amber-100 text-amber-800 py-2 rounded-xl font-medium hover:bg-amber-200 transition-all"
+                className="w-full mt-3 bg-blue-100 text-blue-800 py-2 rounded-xl font-medium hover:bg-blue-200 transition-all"
               >
                 Close
               </button>
@@ -1157,7 +1211,7 @@ More games at lettergriddle.com`;
       <div 
         className="min-h-screen p-4 relative overflow-hidden flex items-center justify-center"
         style={{
-          background: 'linear-gradient(180deg, #78350F 0%, #92400E 15%, #B45309 30%, #D97706 50%, #F59E0B 70%, #FBBF24 85%, #FDE68A 100%)'
+          background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
         {/* Celebration confetti */}
@@ -1172,58 +1226,58 @@ More games at lettergriddle.com`;
                 animation: `celebrateFall ${3 + (i % 3)}s ease-in ${(i % 15) * 0.2}s infinite`
               }}
             >
-              {['🎉', '✨', '🍂', '🥞', '☕', '🧡'][i % 6]}
+              {['🎉', '✨', '❄️', '🥞', '☕', '💙'][i % 6]}
             </div>
           ))}
         </div>
         
         <div className="max-w-md mx-auto relative z-10">
-          <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-amber-300 text-center">
+          <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-blue-300 text-center">
             {/* Character arrived */}
             <div className="mb-4">
               <CharacterAvatar character={character} size="xl" />
             </div>
             
-            <div className="text-5xl mb-4">🎉</div>
+            <div className="text-5xl mb-4">❄️</div>
             
-            <h2 className="text-2xl md:text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
               {character.name} Arrived!
             </h2>
             
-            <p className="text-amber-700 mb-4" style={{fontFamily: 'Georgia, serif'}}>
-              Welcome to the Cinnamon Festival! 🎪
+            <p className="text-blue-700 mb-4" style={{fontFamily: 'Georgia, serif'}}>
+              Welcome to the Winter Sports Festival! ⛷️
             </p>
             
             {/* Laurel greeting */}
-            <div className="bg-amber-100 rounded-xl p-4 mb-4 flex items-center gap-3">
+            <div className="bg-blue-100 rounded-xl p-4 mb-4 flex items-center gap-3">
               <CharacterAvatar character={CHARACTERS.laurel} size="md" />
               <div className="text-left">
-                <div className="font-bold text-amber-800 text-sm">Laurel</div>
-                <div className="text-amber-700 text-sm italic">
-                  "Welcome, {character.name}! Try a cinnamon pancake!" 🥞
+                <div className="font-bold text-blue-800 text-sm">Laurel</div>
+                <div className="text-blue-700 text-sm italic">
+                  "Welcome, {character.name}! Warm up with some hot cocoa!" ☕
                 </div>
               </div>
             </div>
             
             {/* Progress */}
-            <div className="bg-amber-50 rounded-xl p-3 mb-4">
-              <div className="text-sm text-amber-700 mb-1">Festival Arrivals</div>
-              <div className="font-bold text-amber-800 text-lg">
+            <div className="bg-blue-50 rounded-xl p-3 mb-4">
+              <div className="text-sm text-blue-700 mb-1">Festival Arrivals</div>
+              <div className="font-bold text-blue-800 text-lg">
                 {completedChapters.length} / {chapters.length} friends arrived
               </div>
             </div>
             
             {/* Share Preview */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 mb-4 border border-amber-200">
-              <p className="text-xs text-amber-600 mb-2">Share your progress:</p>
-              <div className="text-left text-sm text-amber-800 font-mono whitespace-pre-line bg-white/50 rounded-lg p-3">
-{`🍂 Letter Griddle Land 🍂
-The Cinnamon Festival
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 mb-4 border border-blue-200">
+              <p className="text-xs text-blue-600 mb-2">Share your progress:</p>
+              <div className="text-left text-sm text-blue-800 font-mono whitespace-pre-line bg-white/50 rounded-lg p-3">
+{`❄️Winter Sports Festival
+Griddle Falls
 
-✅ Chapter ${chapterNum}: ${character.name} arrived!
-🎪 ${completedChapters.length}/${chapters.length} friends at the festival
+Chapter ${chapterNum}: ${character.name} arrived!
+${completedChapters.length}/${chapters.length} friends at the festival
 
-Play at lettergriddle.com/griddle-land`}
+Play at lettergriddle.com/winter-land`}
               </div>
             </div>
             
@@ -1231,7 +1285,7 @@ Play at lettergriddle.com/griddle-land`}
             <div className="space-y-2">
               <button
                 onClick={handleShareChapter}
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 rounded-xl font-bold shadow-lg transition-all flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 text-white py-3 rounded-xl font-bold shadow-lg transition-all flex items-center justify-center gap-2"
                 style={{fontFamily: 'Georgia, serif'}}
               >
                 {shareCopied ? '✓ Copied!' : 'Share Results'}
@@ -1239,18 +1293,18 @@ Play at lettergriddle.com/griddle-land`}
               
               <button
                 onClick={() => setScreen('chapter_select')}
-                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
+                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
                 style={{fontFamily: 'Georgia, serif'}}
               >
-                {completedChapters.length < chapters.length ? '🍂 Guide Next Friend!' : '🎉 View Celebration!'}
+                {completedChapters.length < chapters.length ? '❄️ Guide Next Friend!' : '❄️  View Celebration!'}
               </button>
             </div>
             
             {/* Footer links */}
-            <div className="mt-4 pt-4 border-t border-amber-200 flex justify-center gap-4 text-xs">
-              <a href="/privacy" className="text-amber-600 hover:text-amber-800 underline">Privacy</a>
-              <span className="text-amber-300">|</span>
-              <a href="/terms" className="text-amber-600 hover:text-amber-800 underline">Terms</a>
+            <div className="mt-4 pt-4 border-t border-blue-200 flex justify-center gap-4 text-xs">
+              <a href="/privacy" className="text-blue-600 hover:text-blue-800 underline">Privacy</a>
+              <span className="text-blue-300">|</span>
+              <a href="/terms" className="text-blue-600 hover:text-blue-800 underline">Terms</a>
             </div>
           </div>
         </div>
@@ -1273,7 +1327,7 @@ Play at lettergriddle.com/griddle-land`}
       <div 
         className="min-h-screen p-4 relative overflow-hidden"
         style={{
-          background: 'linear-gradient(180deg, #78350F 0%, #92400E 15%, #B45309 30%, #D97706 50%, #F59E0B 70%, #FBBF24 85%, #FDE68A 100%)'
+          background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
         {/* Lots of celebration */}
@@ -1288,73 +1342,73 @@ Play at lettergriddle.com/griddle-land`}
                 animation: `grandCelebrate ${4 + (i % 4)}s ease-in ${(i % 20) * 0.15}s infinite`
               }}
             >
-              {['🎉', '✨', '🍂', '🥞', '☕', '🧡', '🎪', '🍁'][i % 8]}
+              {['🎉', '✨', '❄️', '🥞', '☕', '💙', '⛷️', '🎿'][i % 8]}
             </div>
           ))}
         </div>
         
         <div className="max-w-lg mx-auto pt-6 relative z-10">
-          <div className="bg-white/90 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-2xl border-2 border-amber-300 text-center">
-            <div className="text-6xl mb-4">🎪</div>
+          <div className="bg-white/90 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-2xl border-2 border-blue-300 text-center">
+            <div className="text-6xl mb-4">⛷️</div>
             
-            <h1 className="text-3xl md:text-4xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
-              The Cinnamon Festival!
+            <h1 className="text-3xl md:text-4xl font-bold text-blue-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+              Winter Sports Festival!
             </h1>
             
-            <p className="text-amber-700 mb-6" style={{fontFamily: 'Georgia, serif'}}>
-              Everyone made it to Market Square!
+            <p className="text-blue-700 mb-6" style={{fontFamily: 'Georgia, serif'}}>
+              Everyone made it to the Festival Grounds!
             </p>
             
             {/* All characters together */}
-            <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl p-4 mb-6">
+            <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-4 mb-6">
               <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {Object.values(CHARACTERS).filter(c => c.id).map(char => (
                   <CharacterAvatar key={char.id} character={char} size="md" />
                 ))}
               </div>
-              <p className="text-amber-800 font-medium" style={{fontFamily: 'Georgia, serif'}}>
-                The whole Trivia Crew is here! 🧡
+              <p className="text-blue-800 font-medium" style={{fontFamily: 'Georgia, serif'}}>
+                The whole Trivia Crew is here! 💙
               </p>
             </div>
             
             {/* Laurel's message */}
-            <div className="bg-amber-50 rounded-xl p-4 mb-6">
+            <div className="bg-blue-50 rounded-xl p-4 mb-6">
               <div className="flex items-center gap-3 mb-2">
                 <CharacterAvatar character={CHARACTERS.laurel} size="lg" />
                 <div className="text-left">
-                  <div className="font-bold text-amber-800">Laurel</div>
-                  <div className="text-xs text-amber-600">Cafe Owner & Festival Host</div>
+                  <div className="font-bold text-blue-800">Laurel</div>
+                  <div className="text-xs text-blue-600">Cafe Owner & Festival Host</div>
                 </div>
               </div>
-              <p className="text-amber-800 italic" style={{fontFamily: 'Georgia, serif'}}>
-                "Thank you for helping everyone get here! The Cinnamon Festival wouldn't be the same without our whole crew together. Now, who wants cinnamon pancakes?" 🥞✨
+              <p className="text-blue-800 italic" style={{fontFamily: 'Georgia, serif'}}>
+                "Thank you for helping everyone get here! The Winter Sports Festival would not be the same without our whole crew together. Now, who wants hot cocoa and pancakes?" 🥞✨
               </p>
             </div>
             
             {/* Share Preview */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 mb-4 border border-amber-200">
-              <p className="text-xs text-amber-600 mb-2">Share your achievement:</p>
-              <div className="text-left text-sm text-amber-800 font-mono whitespace-pre-line bg-white/50 rounded-lg p-3">
-{`🍂 Letter Griddle Land 🍂
-The Cinnamon Festival
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 mb-4 border border-blue-200">
+              <p className="text-xs text-blue-600 mb-2">Share your achievement:</p>
+              <div className="text-left text-sm text-blue-800 font-mono whitespace-pre-line bg-white/50 rounded-lg p-3">
+{`Winter Sports Festival
+Griddle Falls
 
-🎉 COMPLETE! 🎉
-✅ All 7 friends arrived at Market Square!
-🥞 The whole Trivia Crew is celebrating!
+COMPLETE!
+All 7 friends arrived at the Festival Grounds!
+The whole Trivia Crew is celebrating!
 
-Play at lettergriddle.com/griddle-land`}
+Play at lettergriddle.com/winter-land`}
               </div>
             </div>
             
             {/* Stats */}
             <div className="grid grid-cols-2 gap-3 mb-6">
-              <div className="bg-amber-100 rounded-xl p-3">
-                <div className="text-2xl font-bold text-amber-800">{chapters.length}</div>
-                <div className="text-xs text-amber-600">Friends Guided</div>
+              <div className="bg-blue-100 rounded-xl p-3">
+                <div className="text-2xl font-bold text-blue-800">{chapters.length}</div>
+                <div className="text-xs text-blue-600">Friends Guided</div>
               </div>
-              <div className="bg-amber-100 rounded-xl p-3">
-                <div className="text-2xl font-bold text-amber-800">🎉</div>
-                <div className="text-xs text-amber-600">Festival Complete!</div>
+              <div className="bg-blue-100 rounded-xl p-3">
+                <div className="text-2xl font-bold text-blue-800">❄️</div>
+                <div className="text-xs text-blue-600">Festival Complete!</div>
               </div>
             </div>
             
@@ -1362,7 +1416,7 @@ Play at lettergriddle.com/griddle-land`}
             <div className="space-y-2">
               <button
                 onClick={handleShareFinal}
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 rounded-xl font-bold shadow-lg transition-all flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 text-white py-3 rounded-xl font-bold shadow-lg transition-all flex items-center justify-center gap-2"
                 style={{fontFamily: 'Georgia, serif'}}
               >
                 {shareCopied ? '✓ Copied!' : 'Share Results'}
@@ -1373,15 +1427,15 @@ Play at lettergriddle.com/griddle-land`}
                   setCompletedChapters([]);
                   setScreen('welcome');
                 }}
-                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
+                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
                 style={{fontFamily: 'Georgia, serif'}}
               >
-                🍂 Play Again
+                ❄️ Play Again
               </button>
               
               <a
                 href="/"
-                className="block w-full bg-white/60 text-amber-800 py-3 rounded-xl font-medium hover:bg-white/80 transition-all"
+                className="block w-full bg-white/60 text-blue-800 py-3 rounded-xl font-medium hover:bg-white/80 transition-all"
                 style={{fontFamily: 'Georgia, serif'}}
               >
                 Back to Letter Griddle
@@ -1389,27 +1443,27 @@ Play at lettergriddle.com/griddle-land`}
             </div>
             
             {/* More games link */}
-            <div className="mt-4 pt-4 border-t border-amber-200">
-              <p className="text-sm text-amber-700 mb-2">More from Letter Griddle:</p>
+            <div className="mt-4 pt-4 border-t border-blue-200">
+              <p className="text-sm text-blue-700 mb-2">More from Letter Griddle:</p>
               <div className="flex flex-wrap justify-center gap-2 text-xs">
-                <a href="https://lettergriddle.com" className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full hover:bg-amber-200">🥞 Letter Griddle</a>
-                <a href="https://griddlefalls.com" className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full hover:bg-amber-200">☕ Griddle Falls</a>
-                <a href="https://lettergriddlebuffet.com" className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full hover:bg-amber-200">🍽️ Buffet</a>
+                <a href="https://lettergriddle.com" className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200">🥞 Letter Griddle</a>
+                <a href="https://griddlefalls.com" className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200">☕ Griddle Falls</a>
+                <a href="https://lettergriddlebuffet.com" className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200">🍽️ Buffet</a>
               </div>
             </div>
             
             {/* Footer links */}
-            <div className="mt-4 pt-4 border-t border-amber-200 flex justify-center gap-4 text-xs">
-              <a href="/privacy" className="text-amber-600 hover:text-amber-800 underline">Privacy Policy</a>
-              <span className="text-amber-300">|</span>
-              <a href="/terms" className="text-amber-600 hover:text-amber-800 underline">Terms of Service</a>
+            <div className="mt-4 pt-4 border-t border-blue-200 flex justify-center gap-4 text-xs">
+              <a href="/privacy" className="text-blue-600 hover:text-blue-800 underline">Privacy Policy</a>
+              <span className="text-blue-300">|</span>
+              <a href="/terms" className="text-blue-600 hover:text-blue-800 underline">Terms of Service</a>
             </div>
           </div>
           
           {/* Footer */}
           <div className="text-center py-6 text-sm">
             <p className="text-white/80" style={{fontFamily: 'Georgia, serif'}}>
-              Thank you for visiting Griddle Falls! 🍂
+              Thank you for visiting Griddle Falls! ❄️
             </p>
             <p className="text-white/60 text-xs mt-2">© 2026 Letter Griddle Cafe</p>
           </div>
@@ -1428,4 +1482,4 @@ Play at lettergriddle.com/griddle-land`}
   return null;
 };
 
-export default LetterGriddleLand;
+export default WinterLand;

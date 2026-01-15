@@ -1223,7 +1223,7 @@ The Cinnamon Festival
 ✅ Chapter ${chapterNum}: ${character.name} arrived!
 🎪 ${completedChapters.length}/${chapters.length} friends at the festival
 
-Play at lettergriddle.com/land`}
+Play at lettergriddle.com/griddle-land`}
               </div>
             </div>
             

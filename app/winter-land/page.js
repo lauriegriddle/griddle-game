@@ -724,7 +724,7 @@ More games at lettergriddle.com`;
                   <p className="text-blue-800 text-sm">Visit landmarks and solve winter sports word puzzles</p>
                 </div>
                 <div className="flex items-center gap-3 bg-blue-50 rounded-xl p-3">
-                  <span className="text-2xl">💡</span>
+                  <span className="text-2xl">❄️</span>
                   <p className="text-blue-800 text-sm">Learn fun facts about winter sporting traditions!</p>
                 </div>
                 <div className="flex items-center gap-3 bg-blue-50 rounded-xl p-3">

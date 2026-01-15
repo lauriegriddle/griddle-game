@@ -55,6 +55,12 @@ export default function BetaGames() {
         description: "Beta testing in progress"
     },
     {
+      name: "To Go!",
+      href: "/togo",
+      emoji: "🥡",
+      description: "Quick-play fill-in-the-blank orders!"
+    },
+    {
         name: "Travels",
         href: "/travels",
         emoji: "🌍",

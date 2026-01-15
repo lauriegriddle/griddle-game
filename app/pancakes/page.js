@@ -39,7 +39,7 @@ const PancakesGame = () => {
       words: ["CREPE", "BAGEL", "OMELET", "MUFFIN", "HASH"],
       funFact: {
         title: "Ethiopian Injera",
-        text: "Injera is a sourdough flatbread with a unique, spongy texture made from teff flour. It serves as both plate and utensil in Ethiopian cuisine - diners tear off pieces to scoop up stews and salads placed on top!"
+        text: "Injera is a sourdough flatbread with a unique, spongy texture made from teff flour. It serves as both plate and utensil in Ethiopian cuisine so diners tear off pieces to scoop up stews and salads placed on top!"
       }
     },
     {
@@ -75,7 +75,7 @@ const PancakesGame = () => {
       words: ["FRESH", "LOCAL", "ORGANIC", "FRUIT", "VENDOR"],
       funFact: {
         title: "German Pfannkuchen",
-        text: "German pancakes vary by region - in Berlin, 'Pfannkuchen' actually refers to jelly doughnuts! The flat pancakes are called 'Eierkuchen' (egg cakes) there. Traditionally served rolled up with sugar or jam, they're thinner than American pancakes but thicker than French crêpes."
+        text: "German pancakes vary by region.  In Berlin, 'Pfannkuchen' actually refers to jelly doughnuts! The flat pancakes are called 'Eierkuchen' (egg cakes) there. Traditionally served rolled up with sugar or jam, they're thinner than American pancakes but thicker than French crêpes."
       }
     },
     {
@@ -93,7 +93,7 @@ const PancakesGame = () => {
       words: ["RELAX", "BRUNCH", "LAZY", "SLEEP", "CHILL"],
       funFact: {
         title: "Scottish Pancakes",
-        text: "Scottish pancakes (also called Scotch pancakes or drop scones) are small, thick, and fluffy - perfect for afternoon tea! Queen Elizabeth II reportedly shared her personal recipe with President Eisenhower in 1960. They're traditionally served warm with butter and jam, or cold as a teatime treat."
+        text: "Scottish pancakes (also called Scotch pancakes or drop scones) are small, thick, and fluffy, perfect for afternoon tea! Queen Elizabeth II reportedly shared her personal recipe with President Eisenhower in 1960. They're traditionally served warm with butter and jam, or cold as a teatime treat."
       }
     },
     {
@@ -129,7 +129,7 @@ const PancakesGame = () => {
       words: ["JAZZ", "ROCK", "BLUES", "FOLK", "COUNTRY"],
       funFact: {
         title: "Chinese Jianbing",
-        text: "Jianbing is China's most popular street breakfast - a savory crepe spread with egg, sweet bean sauce, and chili, then topped with crispy wonton crackers and green onions. Over 2.5 billion are sold every year! The skilled vendors cook them on large round griddles in just 2-3 minutes."
+        text: "Jianbing is China's most popular street breakfast, a savory crepe spread with egg, sweet bean sauce, and chili, then topped with crispy wonton crackers and green onions. Over 2.5 billion are sold every year! The skilled vendors cook them on large round griddles in just 2-3 minutes."
       }
     },
     {
@@ -147,7 +147,7 @@ const PancakesGame = () => {
       words: ["RAIN", "PUDDLE", "STORM", "CLOUD", "DROP"],
       funFact: {
         title: "Austrian Kaiserschmarrn",
-        text: "Kaiserschmarrn means 'Emperor's Mess' - a fluffy shredded pancake created for Emperor Franz Joseph I! The thick batter is cooked, then torn into pieces while still in the pan and caramelized with sugar. Served dusted with powdered sugar alongside apple compote or plum jam."
+        text: "Kaiserschmarrn means 'Emperor's Mess', a fluffy shredded pancake created for Emperor Franz Joseph I! The thick batter is cooked, then torn into pieces while still in the pan and caramelized with sugar. Served dusted with powdered sugar alongside apple compote or plum jam."
       }
     },
     {
@@ -192,7 +192,7 @@ const PancakesGame = () => {
       words: ["SNOW", "SLED", "MITTEN", "FROST", "COCOA"],
       funFact: {
         title: "Norwegian Svele",
-        text: "Svele are thick, fluffy Norwegian pancakes similar to American ones but with a hint of cardamom! They're a beloved ferry snack - practically every Norwegian ferry serves them fresh with butter and sugar. The slightly sweet batter makes them perfect for an afternoon treat with coffee."
+        text: "Svele are thick, fluffy Norwegian pancakes similar to American ones but with a hint of cardamom! They're a beloved ferry snack.  Practically every Norwegian ferry serves them fresh with butter and sugar. The slightly sweet batter makes them perfect for an afternoon treat with coffee."
       }
     },
     {
@@ -228,7 +228,7 @@ const PancakesGame = () => {
       words: ["BREAD", "COOKIE", "PASTRY", "DONUT", "ROLL"],
       funFact: {
         title: "Irish Boxty",
-        text: "Boxty is a traditional Irish potato pancake with a unique texture - half mashed potato, half grated raw potato! An old Irish rhyme says 'Boxty on the griddle, boxty on the pan, if you can't make boxty, you'll never get a man.' They're making a comeback in modern Irish restaurants!"
+        text: "Boxty is a traditional Irish potato pancake with a unique texture, half mashed potato, half grated raw potato! An old Irish rhyme says 'Boxty on the griddle, boxty on the pan, if you can't make boxty, you'll never get a man.' They're making a comeback in modern Irish restaurants!"
       }
     },
     {
@@ -246,7 +246,7 @@ const PancakesGame = () => {
       words: ["PAINT", "BRUSH", "CANVAS", "COLOR", "DRAW"],
       funFact: {
         title: "Japanese Okonomiyaki",
-        text: "Okonomiyaki means 'grilled as you like it' - a savory Japanese pancake loaded with cabbage, meat, and toppings! Diners often cook them at their own table griddles. The name reflects unlimited customization possibilities. Osaka and Hiroshima each claim their style is superior!"
+        text: "Okonomiyaki means 'grilled as you like it,' a savory Japanese pancake loaded with cabbage, meat, and toppings! Diners often cook them at their own table griddles. The name reflects unlimited customization possibilities. Osaka and Hiroshima each claim their style is superior!"
       }
     },
     {
@@ -264,7 +264,7 @@ const PancakesGame = () => {
       words: ["TOMATO", "CARROT", "PEPPER", "ONION", "BEAN"],
       funFact: {
         title: "Vietnamese Bánh Xèo",
-        text: "Bánh xèo means 'sizzling cake' - named for the sound the batter makes hitting the hot pan! These crispy yellow crepes get their color from turmeric and are filled with pork, shrimp, and bean sprouts. They're wrapped in lettuce and herbs before being dipped in nuoc cham sauce."
+        text: "Bánh xèo means 'sizzling cake' named for the sound the batter makes hitting the hot pan! These crispy yellow crepes get their color from turmeric and are filled with pork, shrimp, and bean sprouts. They're wrapped in lettuce and herbs before being dipped in nuoc cham sauce."
       }
     },
     {

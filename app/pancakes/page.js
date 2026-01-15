@@ -63,7 +63,7 @@ const PancakesGame = () => {
     {
       category: "Coffee Shop",
       puzzleNumber: 7,
-      words: ["ESPRESSO", "BEANS", "ROAST", "BREW", "CUP"],
+      words: ["LATTE", "BEANS", "ROAST", "BREW", "CUP"],
       funFact: {
         title: "French Crêpes",
         text: "Crêpes originated in Brittany, France, in the 13th century. The word comes from the Latin 'crispa' meaning curled. In France, February 2nd is 'La Chandeleur' (Crêpe Day), where tradition says if you can flip a crêpe while holding a coin in your other hand, you'll have prosperity all year!"
@@ -81,7 +81,7 @@ const PancakesGame = () => {
     {
       category: "Sweet Treats",
       puzzleNumber: 9,
-      words: ["CARAMEL", "CHOCOLATE", "VANILLA", "SUGAR", "CANDY"],
+      words: ["CARAMEL", "FUDGE", "VANILLA", "SUGAR", "CANDY"],
       funFact: {
         title: "Indian Dosa",
         text: "Dosa is a thin, crispy South Indian pancake made from fermented rice and lentil batter. Dating back over 2,000 years, it's naturally gluten-free and probiotic-rich from fermentation. The batter ferments overnight, creating that signature tangy flavor and helping the dosa achieve its famous crispiness!"
@@ -117,7 +117,7 @@ const PancakesGame = () => {
     {
       category: "Camping Trip",
       puzzleNumber: 13,
-      words: ["TENT", "CAMPFIRE", "HIKE", "STARS", "MARSH"],
+      words: ["TENT", "FIRE", "HIKE", "STARS", "MARSH"],
       funFact: {
         title: "Welsh Crempog",
         text: "Welsh crempog are traditional griddle cakes made with buttermilk and sometimes flavored with vinegar, giving them a unique tangy taste. They're stacked in layers with butter between each pancake, creating a beautiful tower. Historically made for Shrove Tuesday celebrations!"
@@ -144,7 +144,7 @@ const PancakesGame = () => {
     {
       category: "Rainy Day",
       puzzleNumber: 16,
-      words: ["UMBRELLA", "PUDDLE", "STORM", "CLOUD", "DROP"],
+      words: ["RAIN", "PUDDLE", "STORM", "CLOUD", "DROP"],
       funFact: {
         title: "Austrian Kaiserschmarrn",
         text: "Kaiserschmarrn means 'Emperor's Mess,' a fluffy shredded pancake created for Emperor Franz Joseph I! The thick batter is cooked, then torn into pieces while still in the pan and caramelized with sugar. Served dusted with powdered sugar alongside apple compote or plum jam."
@@ -183,7 +183,97 @@ const PancakesGame = () => {
       words: ["PALM", "BEACH", "ISLAND", "COCONUT", "WAVE"],
       funFact: {
         title: "Thai Khanom Buang",
-        text: "These crispy Thai crepes are an ancient street dessert dating back centuries! Ultra-thin and crispy shells are filled with sweet or savory toppings, the sweet version has meringue and shredded coconut, while savory ones have dried shrimp and cilantro. The batter contains rice flour, creating that signature crunch!"
+        text: "These crispy Thai crepes are an ancient street dessert dating back centuries! Ultra-thin and crispy shells are filled with sweet or savory toppings.  The sweet version has meringue and shredded coconut, while savory ones have dried shrimp and cilantro. The batter contains rice flour, creating that signature crunch!"
+      }
+    },
+    {
+      category: "Winter Wonderland",
+      puzzleNumber: 21,
+      words: ["SNOW", "SLED", "MITTEN", "FROST", "COCOA"],
+      funFact: {
+        title: "Norwegian Svele",
+        text: "Svele are thick, fluffy Norwegian pancakes similar to American ones but with a hint of cardamom! They're a beloved ferry snack so practically every Norwegian ferry serves them fresh with butter and sugar. The slightly sweet batter makes them perfect for an afternoon treat with coffee."
+      }
+    },
+    {
+      category: "At the Zoo",
+      puzzleNumber: 22,
+      words: ["LION", "ZEBRA", "GIRAFFE", "MONKEY", "BEAR"],
+      funFact: {
+        title: "South African Pannekoek",
+        text: "South African pannekoek are thin, crepe-like pancakes traditionally spread with cinnamon sugar and rolled up tight. They're a beloved comfort food dating back to Dutch colonial times. Some families add a squeeze of lemon juice for a perfect sweet-tart combination!"
+      }
+    },
+    {
+      category: "Birthday Party",
+      puzzleNumber: 23,
+      words: ["CAKE", "BALLOON", "GIFT", "CANDLE", "PARTY"],
+      funFact: {
+        title: "Brazilian Tapioca Crepes",
+        text: "Brazilian tapioca crepes are naturally gluten-free, made from hydrated tapioca flour! The starch magically binds together on a hot griddle without any eggs or liquid. Filled with cheese, coconut, or chocolate, they're a popular beach snack and breakfast throughout Brazil."
+      }
+    },
+    {
+      category: "Movie Night",
+      puzzleNumber: 24,
+      words: ["POPCORN", "FILM", "SCREEN", "TICKET", "SEAT"],
+      funFact: {
+        title: "Greek Tiganites",
+        text: "Ancient Greeks were eating tiganites over 2,500 years ago, making them one of the oldest known pancakes! The poet Cratinus wrote about them being drizzled with honey. Modern versions are fluffy and often flavored with orange zest or served with Greek yogurt and honey."
+      }
+    },
+    {
+      category: "Bakery Fresh",
+      puzzleNumber: 25,
+      words: ["BREAD", "COOKIE", "PASTRY", "DONUT", "ROLL"],
+      funFact: {
+        title: "Irish Boxty",
+        text: "Boxty is a traditional Irish potato pancake with a unique texture of half mashed potato, half grated raw potato! An old Irish rhyme says 'Boxty on the griddle, boxty on the pan, if you can't make boxty, you'll never get a man.' They're making a comeback in modern Irish restaurants!"
+      }
+    },
+    {
+      category: "Sports Day",
+      puzzleNumber: 26,
+      words: ["SOCCER", "TENNIS", "GOAL", "TEAM", "COACH"],
+      funFact: {
+        title: "Colombian Arepas",
+        text: "While technically a corn cake, arepas are cooked on a griddle just like pancakes and are the national breakfast of Colombia and Venezuela! Made from pre-cooked corn flour, they can be split open like a pita and stuffed with cheese, beans, or shredded meat. Every region has its own style!"
+      }
+    },
+    {
+      category: "Art Studio",
+      puzzleNumber: 27,
+      words: ["PAINT", "BRUSH", "CANVAS", "COLOR", "DRAW"],
+      funFact: {
+        title: "Japanese Okonomiyaki",
+        text: "Okonomiyaki means 'grilled as you like it,' a savory Japanese pancake loaded with cabbage, meat, and toppings! Diners often cook them at their own table griddles. The name reflects unlimited customization possibilities. Osaka and Hiroshima each claim their style is superior!"
+      }
+    },
+    {
+      category: "Book Lovers",
+      puzzleNumber: 28,
+      words: ["NOVEL", "STORY", "CHAPTER", "READ", "PAGE"],
+      funFact: {
+        title: "Danish Æbleskiver",
+        text: "These spherical Danish pancakes are cooked in a special pan with half-sphere molds! The name means 'apple slices' from when they traditionally contained apple pieces. Now typically plain, they're served dusted with powdered sugar and accompanied by raspberry jam for dipping."
+      }
+    },
+    {
+      category: "Garden Harvest",
+      puzzleNumber: 29,
+      words: ["TOMATO", "CARROT", "PEPPER", "ONION", "BEAN"],
+      funFact: {
+        title: "Vietnamese Bánh Xèo",
+        text: "Bánh xèo means 'sizzling cake' named for the sound the batter makes hitting the hot pan! These crispy yellow crepes get their color from turmeric and are filled with pork, shrimp, and bean sprouts. They're wrapped in lettuce and herbs before being dipped in nuoc cham sauce."
+      }
+    },
+    {
+      category: "Fairy Tales",
+      puzzleNumber: 30,
+      words: ["CASTLE", "DRAGON", "PRINCE", "MAGIC", "CROWN"],
+      funFact: {
+        title: "Icelandic Pönnukökur",
+        text: "Icelandic pancakes are thin, delicate crepes traditionally rolled up with whipped cream and jam or sugar. They're so beloved that Icelanders eat them year-round, not just on special occasions. Many families have recipes passed down for generations, each with their own secret touch!"
       }
     }
   ];

@@ -19,6 +19,12 @@ export default function BetaGames() {
         description: "Kitchen and Office Modes!"
     },
     {
+      name: "Order Up!",
+      href: "/order",
+      emoji: "🍳",
+      description: "Assemble café orders before time runs out!"
+    },
+    {
       name: "Pancakes",
       href: "/pancakes",
       emoji: "🥞",

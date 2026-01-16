@@ -810,7 +810,7 @@ const copyToClipboard = async (text) => {
   className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
   title="New Year's Week Schedule"
 >
-  <span className="text-lg">⭐</span>
+  <span className="text-lg">🍯</span>
 </button>
             <button
               onClick={() => setShowHowToPlayModal(true)}
@@ -1178,73 +1178,73 @@ const copyToClipboard = async (text) => {
           Letter Griddle
         </h2>
         <div className="inline-block bg-gradient-to-r from-purple-500 to-violet-500 text-white px-4 py-2 rounded-full text-sm font-bold mt-2">
-          ✨ THIS WEEK'S SCHEDULE ✨
+          🍯 THIS WEEK'S SCHEDULE 🍯
         </div>
-        <p className="text-purple-600 text-sm mt-2 font-semibold">January 9 - 15</p>
+        <p className="text-purple-600 text-sm mt-2 font-semibold">January 16 - 22</p>
       </div>
       
       <div className="space-y-2">
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
             <div className="text-[10px] font-bold">FRI</div>
-            <div className="text-lg font-bold">9</div>
+            <div className="text-lg font-bold">16</div>
           </div>
-          <div className="flex-1 font-semibold text-amber-800">Road Trip</div>
-          <div className="text-xl">🚗</div>
+          <div className="flex-1 font-semibold text-amber-800">Weekend</div>
+          <div className="text-xl">🛋️</div>
         </div>
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-purple-500 to-violet-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
             <div className="text-[10px] font-bold">SAT</div>
-            <div className="text-lg font-bold">10</div>
+            <div className="text-lg font-bold">17</div>
           </div>
-          <div className="flex-1 font-semibold text-amber-800">Weather</div>
-          <div className="text-xl">⛅</div>
+          <div className="flex-1 font-semibold text-amber-800">Bookstore</div>
+          <div className="text-xl">📚</div>
         </div>
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
             <div className="text-[10px] font-bold">SUN</div>
-            <div className="text-lg font-bold">11</div>
+            <div className="text-lg font-bold">18</div>
           </div>
-          <div className="flex-1 font-semibold text-amber-800">Mountains</div>
-          <div className="text-xl">⛰️</div>
+          <div className="flex-1 font-semibold text-amber-800 text-sm">Martin Luther King Jr.</div>
+          <div className="text-xl">🎓</div>
         </div>
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-purple-500 to-violet-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
             <div className="text-[10px] font-bold">MON</div>
-            <div className="text-lg font-bold">12</div>
+            <div className="text-lg font-bold">19</div>
           </div>
-          <div className="flex-1 font-semibold text-amber-800 text-sm">Now you see me...</div>
-          <div className="text-xl">🎭</div>
+          <div className="flex-1 font-semibold text-amber-800">Collegiate</div>
+          <div className="text-xl">📖</div>
         </div>
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
             <div className="text-[10px] font-bold">TUES</div>
-            <div className="text-lg font-bold">13</div>
+            <div className="text-lg font-bold">20</div>
           </div>
-          <div className="flex-1 font-semibold text-amber-800">Map It!</div>
-          <div className="text-xl">🗺️</div>
+          <div className="flex-1 font-semibold text-amber-800">Bread</div>
+          <div className="text-xl">🍞</div>
         </div>
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-purple-500 to-violet-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
             <div className="text-[10px] font-bold">WED</div>
-            <div className="text-lg font-bold">14</div>
+            <div className="text-lg font-bold">21</div>
           </div>
-          <div className="flex-1 font-semibold text-amber-800">Shoes</div>
-          <div className="text-xl">👟</div>
+          <div className="flex-1 font-semibold text-amber-800">Detective</div>
+          <div className="text-xl">🔍</div>
         </div>
         
         <div className="bg-amber-50 rounded-xl p-3 flex items-center gap-3 border border-amber-200">
           <div className="bg-gradient-to-b from-amber-500 to-amber-600 text-white rounded-lg px-2 py-1 text-center min-w-[50px]">
             <div className="text-[10px] font-bold">THURS</div>
-            <div className="text-lg font-bold">15</div>
+            <div className="text-lg font-bold">22</div>
           </div>
-          <div className="flex-1 font-semibold text-amber-800">Beverage</div>
-          <div className="text-xl">☕</div>
+          <div className="flex-1 font-semibold text-amber-800">Skygazing</div>
+          <div className="text-xl">🌌</div>
         </div>
       </div>
       

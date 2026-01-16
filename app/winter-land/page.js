@@ -499,6 +499,7 @@ const WinterLand = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
   
   // Chapter definitions
   const chapters = [
@@ -612,7 +613,7 @@ const WinterLand = () => {
     setTimeout(() => {
       setScreen('arrived');
       setShowConfetti(false);
-    }, 2000);
+    }, 4000);
   };
   
   // Share chapter completion
@@ -1423,10 +1424,7 @@ Play at lettergriddle.com/winter-land`}
               </button>
               
               <button
-                onClick={() => {
-                  setCompletedChapters([]);
-                  setScreen('welcome');
-                }}
+                onClick={() => setShowResetConfirm(true)}
                 className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
                 style={{fontFamily: 'Georgia, serif'}}
               >
@@ -1468,7 +1466,44 @@ Play at lettergriddle.com/winter-land`}
             <p className="text-white/60 text-xs mt-2">© 2026 Letter Griddle Cafe</p>
           </div>
         </div>
-        
+        {/* Reset Confirmation Modal */}
+        {showResetConfirm && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-6 max-w-sm w-full shadow-2xl border-2 border-blue-300">
+              <div className="text-center mb-4">
+                <div className="text-5xl mb-3">❄️</div>
+                <h3 className="text-xl font-bold text-blue-800" style={{fontFamily: 'Georgia, serif'}}>
+                  Reset All Progress?
+                </h3>
+              </div>
+              
+              <p className="text-blue-700 text-center text-sm mb-6" style={{fontFamily: 'Georgia, serif'}}>
+                This will clear all your chapter progress. This cannot be undone!
+              </p>
+              
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowResetConfirm(false)}
+                  className="flex-1 bg-white border-2 border-blue-300 text-blue-800 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all"
+                  style={{fontFamily: 'Georgia, serif'}}
+                >
+                  Keep Progress
+                </button>
+                <button
+                  onClick={() => {
+                    setCompletedChapters([]);
+                    setShowResetConfirm(false);
+                    setScreen('welcome');
+                  }}
+                  className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
+                  style={{fontFamily: 'Georgia, serif'}}
+                >
+                  Reset Everything
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         <style>{`
           @keyframes grandCelebrate {
             0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }

@@ -318,7 +318,7 @@ const PUZZLES = {
     success: "That's right! Head to the Clock Tower, then follow the music to Market Square!"
   },
   clock_tower: {
-    npc: 'Old Tom',
+    npc: 'Old Tim',
     npcEmoji: '👴',
     greeting: "Ah, young one! On your way to the festival?",
     puzzle: {
@@ -346,7 +346,7 @@ const PUZZLES = {
   duck_pond: {
     npc: 'Isaac',
     npcEmoji: '🐕',
-    greeting: "*Isaac spots the ducks* DUCKS!! 🦆🦆🦆",
+    greeting: "*Isaac spots the ducks* DUCKS!! 🦆🦆🦆🦆🦆",
     puzzle: {
       type: 'unscramble',
       prompt: "Help Isaac count! There are this many ducks:",

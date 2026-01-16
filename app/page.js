@@ -1,7 +1,10 @@
 "use client";
+import { useState } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
+  const [showMoreGames, setShowMoreGames] = useState(false);
+  
   // SECTION 1: Daily Games (scheduled drop times)
   const dailyGames = [
     {
@@ -489,17 +492,23 @@ export default function Home() {
             Daily Games
           </button>
           <button 
-            onClick={() => scrollToSection('more-games')}
-            className="px-4 py-2 bg-orange-500 text-white rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors shadow-md"
-          >
-            More Games
-          </button>
+  onClick={() => {
+    if (!showMoreGames) setShowMoreGames(true);
+    setTimeout(() => scrollToSection('more-games'), 100);
+  }}
+  className="px-4 py-2 bg-orange-500 text-white rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors shadow-md"
+>
+  More Games
+</button>
           <button 
-            onClick={() => scrollToSection('stories-more')}
-            className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
-          >
-            Stories & More
-          </button>
+  onClick={() => {
+    if (!showMoreGames) setShowMoreGames(true);
+    setTimeout(() => scrollToSection('stories-more'), 100);
+  }}
+  className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
+>
+  Stories & More
+</button>
         </nav>
       </header>
 
@@ -518,15 +527,22 @@ export default function Home() {
           {/* Next Section Button */}
           <div className="text-center mt-10">
             <button 
-              onClick={() => scrollToSection('more-games')}
+              onClick={() => {
+                setShowMoreGames(!showMoreGames);
+                if (!showMoreGames) {
+                  setTimeout(() => scrollToSection('more-games'), 100);
+                }
+              }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-full font-semibold hover:from-orange-500 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl"
             >
-              Explore More Games
-              <span className="text-xl">→</span>
+              {showMoreGames ? 'Hide More Games' : 'Explore More Games'}
+              <span className="text-xl">{showMoreGames ? '↑' : '→'}</span>
             </button>
           </div>
         </section>
 
+        {showMoreGames && (
+        <>
         {/* SECTION 2: Letter Griddle Games */}
         <section id="more-games" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
@@ -570,6 +586,8 @@ export default function Home() {
             </button>
           </div>
         </section>
+        </>
+        )}
 
       </main>
 

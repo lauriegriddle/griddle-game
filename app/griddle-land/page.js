@@ -472,6 +472,9 @@ const TEXT_MESSAGES = {
   }
 };
 
+// localStorage key for saving progress
+const STORAGE_KEY = 'griddleLandProgress';
+
 // Main Game Component
 const LetterGriddleLand = () => {
   // Game state
@@ -490,6 +493,7 @@ const LetterGriddleLand = () => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
   
   // Chapter definitions
   const chapters = [
@@ -501,6 +505,48 @@ const LetterGriddleLand = () => {
     { id: 'mr_mrs_lindsay', character: CHARACTERS.mr_mrs_lindsay, unlocked: false },
     { id: 'hank', character: CHARACTERS.hank, unlocked: false }
   ];
+  
+  // Load saved progress on mount
+  useEffect(() => {
+    setHasMounted(true);
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.completedChapters && Array.isArray(parsed.completedChapters)) {
+          setCompletedChapters(parsed.completedChapters);
+        }
+      }
+    } catch (e) {
+      console.error('Could not load saved progress', e);
+    }
+  }, []);
+  
+  // Save progress whenever completedChapters changes
+  useEffect(() => {
+    if (hasMounted && completedChapters.length > 0) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          completedChapters: completedChapters,
+          lastSaved: new Date().toISOString()
+        }));
+      } catch (e) {
+        console.error('Could not save progress', e);
+      }
+    }
+  }, [completedChapters, hasMounted]);
+  
+  // Reset all progress
+  const resetProgress = () => {
+    setCompletedChapters([]);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (e) {
+      console.error('Could not clear saved progress', e);
+    }
+    setShowResetConfirm(false);
+    setScreen('welcome');
+  };
   
   // Get unlocked chapters based on completion
   const getUnlockedChapters = () => {
@@ -890,6 +936,19 @@ More games at lettergriddle.com`;
             ← Back to Title
           </button>
           
+          {/* Progress saves automatically message */}
+          <div className="mt-4 text-center text-sm text-amber-100">
+            <p>
+              ✨ Your progress saves automatically! Leave and come back anytime to complete your adventure!{' '}
+              <button
+                onClick={() => setShowResetConfirm(true)}
+                className="text-amber-200 hover:text-white underline font-medium"
+              >
+                🍂 Reset to start fresh
+              </button>
+            </p>
+          </div>
+          
           {/* Footer */}
           <div className="text-center mt-6 text-xs">
             <div className="flex justify-center gap-4">
@@ -899,6 +958,41 @@ More games at lettergriddle.com`;
             </div>
           </div>
         </div>
+        
+        {/* Reset Confirmation Modal */}
+        {showResetConfirm && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-6 max-w-sm w-full shadow-2xl border-2 border-amber-300">
+              <div className="text-center mb-4">
+                <div className="text-5xl mb-3">🥞</div>
+                <h3 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
+                  Reset All Progress?
+                </h3>
+              </div>
+              
+              <p className="text-amber-700 text-center text-sm mb-6" style={{fontFamily: 'Georgia, serif'}}>
+                This will clear all your chapter progress. This cannot be undone!
+              </p>
+              
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowResetConfirm(false)}
+                  className="flex-1 bg-white border-2 border-amber-300 text-amber-800 py-3 rounded-xl font-bold hover:bg-amber-50 transition-all"
+                  style={{fontFamily: 'Georgia, serif'}}
+                >
+                  Keep Progress
+                </button>
+                <button
+                  onClick={resetProgress}
+                  className="flex-1 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
+                  style={{fontFamily: 'Georgia, serif'}}
+                >
+                  Reset Everything
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         
         <style>{`
           @keyframes leafFall {
@@ -1412,6 +1506,7 @@ Play at lettergriddle.com/griddle-land`}
             <p className="text-white/60 text-xs mt-2">© 2026 Letter Griddle Cafe</p>
           </div>
         </div>
+        
         {/* Reset Confirmation Modal */}
         {showResetConfirm && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -1436,11 +1531,7 @@ Play at lettergriddle.com/griddle-land`}
                   Keep Progress
                 </button>
                 <button
-                  onClick={() => {
-                    setCompletedChapters([]);
-                    setShowResetConfirm(false);
-                    setScreen('welcome');
-                  }}
+                  onClick={resetProgress}
                   className="flex-1 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
                   style={{fontFamily: 'Georgia, serif'}}
                 >

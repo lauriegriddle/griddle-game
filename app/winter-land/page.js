@@ -303,7 +303,7 @@ const createMap = () => {
 };
 
 // Puzzle data for encounters with winter sports trivia
-const PUZZLES = {
+const PUZZULAR = {
   ski_rental: {
     npc: 'Coach Erik',
     npcEmoji: '🎿',
@@ -353,10 +353,9 @@ const PUZZLES = {
     puzzle: {
       type: 'unscramble',
       prompt: "Figure skaters perform jumps, spins, and this graceful movement:",
-      scrambled: "RILPS",
-      answer: "SPIRL",
-      hint: "Oops, try again! It's actually...",
-      altAnswer: "SPIRAL"
+      scrambled: "RILSPA",
+      answer: "SPIRAL",
+      hint: "A one-legged glide with the free leg extended high behind!"
     },
     funFact: "A spiral in figure skating is when the skater glides on one foot with the free leg extended high behind them. It requires incredible balance and flexibility!",
     success: "Beautiful! Spirals showcase a skater's grace. Now check out the Sledding Hill!"
@@ -500,6 +499,7 @@ const WinterLand = () => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
   
   // Chapter definitions
   const chapters = [
@@ -511,6 +511,96 @@ const WinterLand = () => {
     { id: 'mr_mrs_lindsay', character: CHARACTERS.mr_mrs_lindsay, unlocked: false },
     { id: 'hank', character: CHARACTERS.hank, unlocked: false }
   ];
+  
+  // ============================================
+  // PROGRESS SAVE/LOAD FUNCTIONS
+  // ============================================
+  
+  // Save progress to localStorage
+  const saveProgress = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    
+    const progress = {
+      completedChapters,
+      currentChapter,
+      playerPosition,
+      visitedLandmarks,
+      screen: screen === 'playing' ? 'playing' : null,
+      savedAt: new Date().toISOString()
+    };
+    
+    try {
+      localStorage.setItem('winterLandProgress', JSON.stringify(progress));
+    } catch (e) {
+      console.error('Could not save progress', e);
+    }
+  }, [completedChapters, currentChapter, playerPosition, visitedLandmarks, screen]);
+  
+  // Load progress from localStorage
+  const loadProgress = useCallback(() => {
+    if (typeof window === 'undefined') return null;
+    
+    try {
+      const saved = localStorage.getItem('winterLandProgress');
+      if (saved) {
+        return JSON.parse(saved);
+      }
+    } catch (e) {
+      console.error('Could not load progress', e);
+    }
+    return null;
+  }, []);
+  
+  // Clear progress from localStorage
+  const clearProgress = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    
+    try {
+      localStorage.removeItem('winterLandProgress');
+    } catch (e) {
+      console.error('Could not clear progress', e);
+    }
+  }, []);
+  
+  // Reset all progress
+  const resetAllProgress = useCallback(() => {
+    setCompletedChapters([]);
+    setCurrentChapter(null);
+    setPlayerPosition({ row: 0, col: 0 });
+    setVisitedLandmarks([]);
+    setMessages([]);
+    clearProgress();
+    setShowResetConfirm(false);
+    setScreen('welcome');
+  }, [clearProgress]);
+  
+  // ============================================
+  // LOAD PROGRESS ON MOUNT
+  // ============================================
+  useEffect(() => {
+    setHasMounted(true);
+    
+    const savedProgress = loadProgress();
+    if (savedProgress) {
+      if (savedProgress.completedChapters) {
+        setCompletedChapters(savedProgress.completedChapters);
+      }
+      
+      if (savedProgress.screen === 'playing' && savedProgress.currentChapter) {
+        setCurrentChapter(savedProgress.currentChapter);
+        setPlayerPosition(savedProgress.playerPosition || { row: 0, col: 0 });
+        setVisitedLandmarks(savedProgress.visitedLandmarks || []);
+      }
+    }
+  }, [loadProgress]);
+  
+  // ============================================
+  // AUTO-SAVE PROGRESS
+  // ============================================
+  useEffect(() => {
+    if (!hasMounted) return;
+    saveProgress();
+  }, [completedChapters, currentChapter, playerPosition, visitedLandmarks, screen, hasMounted, saveProgress]);
   
   // Get unlocked chapters based on completion
   const getUnlockedChapters = () => {
@@ -560,9 +650,9 @@ const WinterLand = () => {
         return;
       }
       
-      if (tile.landmark && PUZZLES[tileType] && !visitedLandmarks.includes(tileType)) {
+      if (tile.landmark && PUZZULAR[tileType] && !visitedLandmarks.includes(tileType)) {
         setTimeout(() => {
-          setCurrentPuzzle({ type: tileType, ...PUZZLES[tileType] });
+          setCurrentPuzzle({ type: tileType, ...PUZZULAR[tileType] });
         }, 300);
       }
     }
@@ -577,7 +667,6 @@ const WinterLand = () => {
     if (answer === correctAnswer || (altAnswer && answer === altAnswer)) {
       setVisitedLandmarks([...visitedLandmarks, currentPuzzle.type]);
       
-      // Show fun fact
       setCurrentFunFact(currentPuzzle.funFact);
       setShowFunFact(true);
       
@@ -668,7 +757,6 @@ More games at lettergriddle.com`;
           background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
-        {/* Falling snowflakes animation */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
           {Array.from({ length: 25 }).map((_, i) => (
             <div
@@ -686,7 +774,6 @@ More games at lettergriddle.com`;
         </div>
         
         <div className="max-w-lg mx-auto pt-8 relative z-10">
-          {/* Title */}
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">⛷️</div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg" style={{fontFamily: 'Georgia, serif'}}>
@@ -698,9 +785,7 @@ More games at lettergriddle.com`;
             <p className="text-blue-200/90 text-sm">Guide the Trivia Crew to the Festival Grounds!</p>
           </div>
           
-          {/* Main Card */}
           <div className="bg-white/85 backdrop-blur-md rounded-3xl shadow-2xl p-6 border-2 border-blue-200/50 mb-6">
-            {/* Story intro */}
             <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-4 mb-6 border border-blue-200">
               <p className="text-blue-900 text-center leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
                 It is the annual <strong>Winter Sports Festival</strong> in Griddle Falls! ⛷️
@@ -710,7 +795,6 @@ More games at lettergriddle.com`;
               </p>
             </div>
             
-            {/* How to play */}
             <div className="mb-6">
               <h2 className="text-xl font-bold text-blue-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
                 How to Play
@@ -735,7 +819,6 @@ More games at lettergriddle.com`;
               </div>
             </div>
             
-            {/* Characters preview */}
             <div className="mb-6">
               <h3 className="text-lg font-bold text-blue-800 mb-3 text-center" style={{fontFamily: 'Georgia, serif'}}>
                 The Trivia Crew Needs Your Help!
@@ -747,7 +830,6 @@ More games at lettergriddle.com`;
               </div>
             </div>
             
-            {/* Start button */}
             <button
               onClick={() => setScreen('chapter_select')}
               className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-4 rounded-2xl font-bold text-xl shadow-lg transition-all transform hover:scale-105 active:scale-95"
@@ -757,7 +839,6 @@ More games at lettergriddle.com`;
             </button>
           </div>
           
-          {/* Footer with Privacy & Terms */}
           <div className="text-center text-sm">
             <a href="/" className="text-white/90 hover:text-white underline" style={{fontFamily: 'Georgia, serif'}}>
               Part of The Letter Griddle Cafe
@@ -800,7 +881,6 @@ More games at lettergriddle.com`;
           background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
-        {/* Falling snowflakes */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
           {Array.from({ length: 15 }).map((_, i) => (
             <div
@@ -818,7 +898,6 @@ More games at lettergriddle.com`;
         </div>
         
         <div className="max-w-lg mx-auto pt-6 relative z-10">
-          {/* Header */}
           <div className="text-center mb-6">
             <h1 className="text-2xl md:text-3xl font-bold text-white mb-1" style={{fontFamily: 'Georgia, serif'}}>
               ❄️ Winter Sports Festival ❄️
@@ -826,7 +905,6 @@ More games at lettergriddle.com`;
             <p className="text-blue-200 text-sm">Choose who to guide to the Festival Grounds!</p>
           </div>
           
-          {/* Progress */}
           <div className="bg-white/70 backdrop-blur-md rounded-2xl p-4 mb-4 border border-blue-200/50">
             <div className="flex justify-between items-center mb-2">
               <span className="text-blue-800 font-medium" style={{fontFamily: 'Georgia, serif'}}>Progress</span>
@@ -838,9 +916,20 @@ More games at lettergriddle.com`;
                 style={{ width: `${(completedChapters.length / chapters.length) * 100}%` }}
               />
             </div>
+            
+            <div className="mt-3 text-center">
+              <p className="text-blue-700 text-xs" style={{fontFamily: 'Georgia, serif'}}>
+                ✨ Your progress saves automatically! Leave and come back anytime to complete your adventure! ❄️{' '}
+                <button 
+                  onClick={() => setShowResetConfirm(true)}
+                  className="text-blue-500 hover:text-blue-700 underline"
+                >
+                  Reset to start fresh
+                </button>
+              </p>
+            </div>
           </div>
           
-          {/* Chapter list */}
           <div className="space-y-3 mb-6">
             {unlockedChapters.map((chapter, index) => {
               const isComplete = completedChapters.includes(chapter.id);
@@ -892,7 +981,6 @@ More games at lettergriddle.com`;
             })}
           </div>
           
-          {/* All complete button */}
           {allChaptersComplete && (
             <button
               onClick={() => setScreen('finale')}
@@ -903,7 +991,6 @@ More games at lettergriddle.com`;
             </button>
           )}
           
-          {/* Back button */}
           <button
             onClick={() => setScreen('welcome')}
             className="w-full bg-white/60 backdrop-blur-sm text-blue-800 py-3 rounded-xl font-medium transition-all hover:bg-white/80"
@@ -912,7 +999,6 @@ More games at lettergriddle.com`;
             ← Back to Title
           </button>
           
-          {/* Footer */}
           <div className="text-center mt-6 text-xs">
             <div className="flex justify-center gap-4">
               <a href="/privacy" className="text-white/70 hover:text-white underline">Privacy</a>
@@ -921,6 +1007,40 @@ More games at lettergriddle.com`;
             </div>
           </div>
         </div>
+        
+        {showResetConfirm && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-6 max-w-sm w-full shadow-2xl border-2 border-blue-300">
+              <div className="text-center mb-4">
+                <div className="text-5xl mb-3">❄️</div>
+                <h3 className="text-xl font-bold text-blue-800" style={{fontFamily: 'Georgia, serif'}}>
+                  Reset All Progress?
+                </h3>
+              </div>
+              
+              <p className="text-blue-700 text-center text-sm mb-6" style={{fontFamily: 'Georgia, serif'}}>
+                This will clear all your chapter progress. This cannot be undone!
+              </p>
+              
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowResetConfirm(false)}
+                  className="flex-1 bg-white border-2 border-blue-300 text-blue-800 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all"
+                  style={{fontFamily: 'Georgia, serif'}}
+                >
+                  Keep Progress
+                </button>
+                <button
+                  onClick={resetAllProgress}
+                  className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
+                  style={{fontFamily: 'Georgia, serif'}}
+                >
+                  Reset Everything
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         
         <style>{`
           @keyframes snowFall {
@@ -945,7 +1065,6 @@ More games at lettergriddle.com`;
           background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
-        {/* Confetti */}
         {showConfetti && (
           <div className="fixed inset-0 pointer-events-none z-50">
             {Array.from({ length: 40 }).map((_, i) => (
@@ -965,7 +1084,6 @@ More games at lettergriddle.com`;
         )}
         
         <div className="max-w-2xl mx-auto relative z-10">
-          {/* Header */}
           <div className="flex justify-between items-center mb-2">
             <button
               onClick={() => setScreen('chapter_select')}
@@ -992,7 +1110,6 @@ More games at lettergriddle.com`;
             </button>
           </div>
           
-          {/* Character info */}
           <div className="bg-white/70 backdrop-blur-md rounded-xl p-3 mb-3 flex items-center gap-3 border border-blue-200/50">
             <CharacterAvatar character={character} size="md" />
             <div className="flex-1">
@@ -1005,7 +1122,6 @@ More games at lettergriddle.com`;
             </div>
           </div>
           
-          {/* Map grid */}
           <div className="bg-gradient-to-br from-blue-800 to-blue-900 p-2 rounded-2xl shadow-2xl mb-3">
             <div className="grid grid-cols-8 gap-0.5">
               {map.map((row, rowIdx) => (
@@ -1049,7 +1165,6 @@ More games at lettergriddle.com`;
             </div>
           </div>
           
-          {/* Legend */}
           <div className="bg-white/60 backdrop-blur-sm rounded-xl p-2 text-xs text-blue-800">
             <div className="flex flex-wrap justify-center gap-2">
               <span>🎪 Festival</span>
@@ -1062,24 +1177,20 @@ More games at lettergriddle.com`;
           </div>
         </div>
         
-        {/* Puzzle Modal */}
         {currentPuzzle && !showFunFact && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
             <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-blue-200">
-              {/* NPC */}
               <div className="text-center mb-4">
                 <div className="text-5xl mb-2">{currentPuzzle.npcEmoji}</div>
                 <div className="font-bold text-blue-800" style={{fontFamily: 'Georgia, serif'}}>{currentPuzzle.npc}</div>
               </div>
               
-              {/* Greeting */}
               <div className="bg-blue-100 rounded-xl p-3 mb-4">
                 <p className="text-blue-800 text-center" style={{fontFamily: 'Georgia, serif'}}>
                   "{currentPuzzle.greeting}"
                 </p>
               </div>
               
-              {/* Puzzle */}
               <div className="mb-4">
                 <p className="text-blue-700 text-sm mb-2 text-center">{currentPuzzle.puzzle.prompt}</p>
                 <div className="bg-blue-50 rounded-xl p-4 text-center mb-3">
@@ -1106,7 +1217,6 @@ More games at lettergriddle.com`;
                 </p>
               </div>
               
-              {/* Submit button */}
               <button
                 onClick={handlePuzzleSubmit}
                 className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
@@ -1118,7 +1228,6 @@ More games at lettergriddle.com`;
           </div>
         )}
         
-        {/* Fun Fact Modal */}
         {showFunFact && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
             <div className="bg-white/95 backdrop-blur-md rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-blue-200">
@@ -1150,7 +1259,6 @@ More games at lettergriddle.com`;
           </div>
         )}
         
-        {/* Messages Modal */}
         {showMessages && messages.length > 0 && (
           <div 
             className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-end justify-center z-40 p-4"
@@ -1202,7 +1310,7 @@ More games at lettergriddle.com`;
   }
   
   // ============================================
-  // ARRIVED SCREEN (with Share)
+  // ARRIVED SCREEN
   // ============================================
   if (screen === 'arrived') {
     const character = CHARACTERS[currentChapter];
@@ -1215,7 +1323,6 @@ More games at lettergriddle.com`;
           background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
-        {/* Celebration confetti */}
         <div className="fixed inset-0 pointer-events-none">
           {Array.from({ length: 30 }).map((_, i) => (
             <div
@@ -1234,7 +1341,6 @@ More games at lettergriddle.com`;
         
         <div className="max-w-md mx-auto relative z-10">
           <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-2xl border-2 border-blue-300 text-center">
-            {/* Character arrived */}
             <div className="mb-4">
               <CharacterAvatar character={character} size="xl" />
             </div>
@@ -1249,7 +1355,6 @@ More games at lettergriddle.com`;
               Welcome to the Winter Sports Festival! ⛷️
             </p>
             
-            {/* Laurel greeting */}
             <div className="bg-blue-100 rounded-xl p-4 mb-4 flex items-center gap-3">
               <CharacterAvatar character={CHARACTERS.laurel} size="md" />
               <div className="text-left">
@@ -1260,7 +1365,6 @@ More games at lettergriddle.com`;
               </div>
             </div>
             
-            {/* Progress */}
             <div className="bg-blue-50 rounded-xl p-3 mb-4">
               <div className="text-sm text-blue-700 mb-1">Festival Arrivals</div>
               <div className="font-bold text-blue-800 text-lg">
@@ -1268,7 +1372,6 @@ More games at lettergriddle.com`;
               </div>
             </div>
             
-            {/* Share Preview */}
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 mb-4 border border-blue-200">
               <p className="text-xs text-blue-600 mb-2">Share your progress:</p>
               <div className="text-left text-sm text-blue-800 font-mono whitespace-pre-line bg-white/50 rounded-lg p-3">
@@ -1282,7 +1385,6 @@ Play at lettergriddle.com/winter-land`}
               </div>
             </div>
             
-            {/* Buttons */}
             <div className="space-y-2">
               <button
                 onClick={handleShareChapter}
@@ -1297,11 +1399,10 @@ Play at lettergriddle.com/winter-land`}
                 className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
                 style={{fontFamily: 'Georgia, serif'}}
               >
-                {completedChapters.length < chapters.length ? '❄️ Guide Next Friend!' : '❄️  View Celebration!'}
+                {completedChapters.length < chapters.length ? '❄️ Guide Next Friend!' : '❄️ View Celebration!'}
               </button>
             </div>
             
-            {/* Footer links */}
             <div className="mt-4 pt-4 border-t border-blue-200 flex justify-center gap-4 text-xs">
               <a href="/privacy" className="text-blue-600 hover:text-blue-800 underline">Privacy</a>
               <span className="text-blue-300">|</span>
@@ -1321,7 +1422,7 @@ Play at lettergriddle.com/winter-land`}
   }
   
   // ============================================
-  // FINALE SCREEN (with Share)
+  // FINALE SCREEN
   // ============================================
   if (screen === 'finale') {
     return (
@@ -1331,7 +1432,6 @@ Play at lettergriddle.com/winter-land`}
           background: 'linear-gradient(180deg, #1E3A5F 0%, #2D5A87 15%, #4A90B8 30%, #7BB8D9 50%, #A8D4EA 70%, #D4EAF5 85%, #E8F4FA 100%)'
         }}
       >
-        {/* Lots of celebration */}
         <div className="fixed inset-0 pointer-events-none">
           {Array.from({ length: 50 }).map((_, i) => (
             <div
@@ -1360,7 +1460,6 @@ Play at lettergriddle.com/winter-land`}
               Everyone made it to the Festival Grounds!
             </p>
             
-            {/* All characters together */}
             <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-4 mb-6">
               <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {Object.values(CHARACTERS).filter(c => c.id).map(char => (
@@ -1372,7 +1471,6 @@ Play at lettergriddle.com/winter-land`}
               </p>
             </div>
             
-            {/* Laurel's message */}
             <div className="bg-blue-50 rounded-xl p-4 mb-6">
               <div className="flex items-center gap-3 mb-2">
                 <CharacterAvatar character={CHARACTERS.laurel} size="lg" />
@@ -1386,11 +1484,10 @@ Play at lettergriddle.com/winter-land`}
               </p>
             </div>
             
-            {/* Share Preview */}
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 mb-4 border border-blue-200">
               <p className="text-xs text-blue-600 mb-2">Share your achievement:</p>
               <div className="text-left text-sm text-blue-800 font-mono whitespace-pre-line bg-white/50 rounded-lg p-3">
-{`Winter Sports Festival
+{`❄️ Winter Sports Festival
 Griddle Falls
 
 COMPLETE!
@@ -1401,7 +1498,6 @@ Play at lettergriddle.com/winter-land`}
               </div>
             </div>
             
-            {/* Stats */}
             <div className="grid grid-cols-2 gap-3 mb-6">
               <div className="bg-blue-100 rounded-xl p-3">
                 <div className="text-2xl font-bold text-blue-800">{chapters.length}</div>
@@ -1413,7 +1509,6 @@ Play at lettergriddle.com/winter-land`}
               </div>
             </div>
             
-            {/* Buttons */}
             <div className="space-y-2">
               <button
                 onClick={handleShareFinal}
@@ -1440,7 +1535,6 @@ Play at lettergriddle.com/winter-land`}
               </a>
             </div>
             
-            {/* More games link */}
             <div className="mt-4 pt-4 border-t border-blue-200">
               <p className="text-sm text-blue-700 mb-2">More from Letter Griddle:</p>
               <div className="flex flex-wrap justify-center gap-2 text-xs">
@@ -1450,7 +1544,6 @@ Play at lettergriddle.com/winter-land`}
               </div>
             </div>
             
-            {/* Footer links */}
             <div className="mt-4 pt-4 border-t border-blue-200 flex justify-center gap-4 text-xs">
               <a href="/privacy" className="text-blue-600 hover:text-blue-800 underline">Privacy Policy</a>
               <span className="text-blue-300">|</span>
@@ -1458,7 +1551,6 @@ Play at lettergriddle.com/winter-land`}
             </div>
           </div>
           
-          {/* Footer */}
           <div className="text-center py-6 text-sm">
             <p className="text-white/80" style={{fontFamily: 'Georgia, serif'}}>
               Thank you for visiting Griddle Falls! ❄️
@@ -1466,7 +1558,7 @@ Play at lettergriddle.com/winter-land`}
             <p className="text-white/60 text-xs mt-2">© 2026 Letter Griddle Cafe</p>
           </div>
         </div>
-        {/* Reset Confirmation Modal */}
+        
         {showResetConfirm && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-6 max-w-sm w-full shadow-2xl border-2 border-blue-300">
@@ -1490,11 +1582,7 @@ Play at lettergriddle.com/winter-land`}
                   Keep Progress
                 </button>
                 <button
-                  onClick={() => {
-                    setCompletedChapters([]);
-                    setShowResetConfirm(false);
-                    setScreen('welcome');
-                  }}
+                  onClick={resetAllProgress}
                   className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-3 rounded-xl font-bold shadow-lg transition-all"
                   style={{fontFamily: 'Georgia, serif'}}
                 >
@@ -1504,6 +1592,7 @@ Play at lettergriddle.com/winter-land`}
             </div>
           </div>
         )}
+        
         <style>{`
           @keyframes grandCelebrate {
             0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }

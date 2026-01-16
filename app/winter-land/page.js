@@ -710,7 +710,7 @@ const WinterLand = () => {
     const character = CHARACTERS[currentChapter];
     const chapterNum = chapters.findIndex(c => c.id === currentChapter) + 1;
     
-    const shareText = `Winter Sports Festival
+    const shareText = `❄️ Winter Sports Festival
 Griddle Falls
 
 Chapter ${chapterNum}: ${character.name} arrived!

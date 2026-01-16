@@ -864,6 +864,19 @@ More games at lettergriddle.com`;
             </div>
           </div>
           
+          {/* Progress saves automatically message - NOW ABOVE CHAPTER LIST */}
+          <div className="bg-white/60 backdrop-blur-sm rounded-xl p-3 mb-4 text-center text-sm text-amber-800">
+            <p>
+              ✨ Your progress saves automatically! Leave and come back anytime to complete your adventure!{' '}
+              <button
+                onClick={() => setShowResetConfirm(true)}
+                className="text-amber-600 hover:text-amber-800 underline font-medium"
+              >
+                🍂 Reset to start fresh
+              </button>
+            </p>
+          </div>
+          
           {/* Chapter list */}
           <div className="space-y-3 mb-6">
             {unlockedChapters.map((chapter, index) => {
@@ -935,19 +948,6 @@ More games at lettergriddle.com`;
           >
             ← Back to Title
           </button>
-          
-          {/* Progress saves automatically message */}
-          <div className="mt-4 text-center text-sm text-amber-100">
-            <p>
-              ✨ Your progress saves automatically! Leave and come back anytime to complete your adventure!{' '}
-              <button
-                onClick={() => setShowResetConfirm(true)}
-                className="text-amber-200 hover:text-white underline font-medium"
-              >
-                🍂 Reset to start fresh
-              </button>
-            </p>
-          </div>
           
           {/* Footer */}
           <div className="text-center mt-6 text-xs">

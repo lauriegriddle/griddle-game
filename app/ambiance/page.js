@@ -85,19 +85,40 @@ useEffect(() => {
     <div className="min-h-screen relative overflow-hidden">
       {/* Glow animation styles */}
       <style>{`
-        @keyframes gentleGlow {
-          0%, 100% { 
-            text-shadow: 0 0 20px #fbbf24, 0 0 40px #fbbf24, 0 0 60px #fbbf24;
-          }
-          50% { 
-            text-shadow: 0 0 40px #fbbf24, 0 0 80px #fbbf24, 0 0 100px #fbbf24;
-          }
-        }
-        .tagline-glow {
-          animation: gentleGlow 1s ease-in-out infinite !important;
-          text-shadow: 0 0 20px #fbbf24 !important;
-        }
-      `}</style>
+  @keyframes gentleGlow {
+    0%, 100% { 
+      text-shadow: 0 0 20px #fbbf24, 0 0 40px #fbbf24, 0 0 60px #fbbf24;
+    }
+    50% { 
+      text-shadow: 0 0 40px #fbbf24, 0 0 80px #fbbf24, 0 0 100px #fbbf24;
+    }
+  }
+  .tagline-glow {
+    animation: gentleGlow 1s ease-in-out infinite !important;
+    text-shadow: 0 0 20px #fbbf24 !important;
+  }
+  
+  /* iPad Safari fix - prevents cursor/focus artifacts */
+  input[type="range"] {
+    -webkit-appearance: none;
+    outline: none;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+`}</style>
       
       <audio
   ref={audioRef}
@@ -223,7 +244,7 @@ useEffect(() => {
           </div>
 
           <p 
-            className={`text-center text-base md:text-lg ${isGlowing ? 'tagline-glow' : ''}max-w-md transition-all duration-1000 ${
+            className={`text-center text-base md:text-lg ${isGlowing ? 'tagline-glow' : ''} max-w-md transition-all duration-1000 ${
               isEvening ? 'text-white/60' : 'text-white/80'
             }`}
             style={{ 

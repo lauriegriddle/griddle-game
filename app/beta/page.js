@@ -13,6 +13,12 @@ export default function BetaGames() {
         description: "Beta testing in progress"
     },
     {
+  name: "Letter Griddle Land",
+  href: "/griddle-land",
+  emoji: "🍂",
+  description: "Guide the Trivia Crew to the Cinnamon Festival!"
+},
+    {
         name: "Has the Goods",
         href: "/goods",
         emoji: "🧲",
@@ -66,6 +72,12 @@ export default function BetaGames() {
         emoji: "🌍",
         description: "Now with Passport and Destinations Itinerary"
     },
+    {
+  name: "Winter Land",
+  href: "/winter-land",
+  emoji: "⛷️",
+  description: "Guide the Trivia Crew to the Winter Sports Festival!"
+},
 ];
 return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-8">

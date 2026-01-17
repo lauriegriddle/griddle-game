@@ -389,7 +389,7 @@ const copyToClipboard = async (text) => {
             </button>
           </div>
           <p className="text-amber-700 text-sm mt-1">
-            {mode === 'plain' ? 'No hints, pure word deduction!' : 'Theme revealed for a little help'}
+            {mode === 'plain' ? 'Plain Stack is pure word deduction!' : 'Theme revealed along with an available hint'}
           </p>
         </div>
 

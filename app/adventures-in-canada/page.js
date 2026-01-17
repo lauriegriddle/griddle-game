@@ -1434,7 +1434,7 @@ More games at lettergriddle.com`;
               <div className="text-left">
                 <div className="font-bold text-red-800 text-sm">Laurel</div>
                 <div className="text-red-700 text-sm italic">
-                  "Beauty, {character.name}! Grab a double-double - trivia starts soon!" ☕🍁
+                  "Beauty, {character.name}! Grab a double-double! Trivia starts soon!" ☕🍁
                 </div>
               </div>
             </div>

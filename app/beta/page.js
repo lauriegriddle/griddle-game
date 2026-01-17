@@ -4,7 +4,7 @@ export default function BetaGames() {
         name: "Ambiance",
         href: "/ambiance",
         emoji: "☕",
-        description: "Ambient cafe vibes while you play"
+        description: "Beta testing in progress.  Ambient cafe vibes while you play"
     },
     {
         name: "Checkers",
@@ -16,19 +16,19 @@ export default function BetaGames() {
   name: "Letter Griddle Land",
   href: "/griddle-land",
   emoji: "🍂",
-  description: "Guide the Trivia Crew to the Cinnamon Festival!"
+  description: "Beta testing.  Guide the Trivia Crew to the Cinnamon Festival!"
 },
     {
         name: "Has the Goods",
         href: "/goods",
         emoji: "🧲",
-        description: "Kitchen and Office Modes!"
+        description: "Beta testing in progress.  Kitchen and Office Modes!"
     },
     {
       name: "Order Up!",
       href: "/order",
       emoji: "🍳",
-      description: "Assemble café orders before time runs out!"
+      description: "Beta testing in progress.  Assemble café orders before time runs out!"
     },
     {
       name: "Pancakes",
@@ -64,19 +64,19 @@ export default function BetaGames() {
       name: "To Go!",
       href: "/togo",
       emoji: "🥡",
-      description: "Quick-play fill-in-the-blank orders!"
+      description: "Beta testing in progress.  Quick-play fill-in-the-blank orders!"
     },
     {
         name: "Travels",
         href: "/travels",
         emoji: "🌍",
-        description: "Now with Passport and Destinations Itinerary"
+        description: "Beta testing in progress."
     },
     {
   name: "Winter Land",
   href: "/winter-land",
   emoji: "⛷️",
-  description: "Guide the Trivia Crew to the Winter Sports Festival!"
+  description: "Beta testing.  Guide the Trivia Crew to the Winter Sports Festival!"
 },
 ];
 return (

@@ -840,7 +840,7 @@ More games at lettergriddle.com`;
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg" style={{fontFamily: 'Georgia, serif'}}>
               Adventures in Canada
             </h1>
-            <p className="text-xl text-red-100 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+            <p className="text-xl text-red-40 mb-2" style={{fontFamily: 'Georgia, serif'}}>
               at the Letter Griddle Cafe
             </p>
             <p className="text-red-200/90 text-sm">Canada Trivia Night in Griddle Falls, eh!</p>

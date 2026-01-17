@@ -226,7 +226,7 @@ const CHARACTERS = {
     startPosition: { row: 0, col: 7 },
     route: ['laurels_office', 'breakfast_counter', 'trivia_station'],
     task: "Review Canada trivia!",
-    textToLaurel: "Hey Laurel! These Canada questions are amazing - did you know about the maple leaf? 📋🍁"
+    textToLaurel: "Hey Laurel! These Canada questions are amazing!  Did you know about the maple leaf? 📋🍁"
   },
   josephine: {
     id: 'josephine',
@@ -328,7 +328,7 @@ const PUZZLES = {
   cake_safe: {
     npc: 'The Cake Safe',
     npcEmoji: '🍰',
-    greeting: "Butter tarts, Nanaimo bars, and BeaverTails - oh my!",
+    greeting: "Butter tarts, Nanaimo bars, and BeaverTails, oh my!",
     puzzle: {
       type: 'unscramble',
       prompt: "This Canadian dessert bar is named after a city in British Columbia:",
@@ -350,7 +350,7 @@ const PUZZLES = {
       answer: "OTTAWA",
       hint: "Not Toronto! This city is in Ontario on the border with Quebec."
     },
-    funFact: "Ottawa was chosen as Canada's capital by Queen Victoria in 1857. The city sits on the Ottawa River and hosts the world's largest naturally frozen skating rink - the Rideau Canal Skateway!",
+    funFact: "Ottawa was chosen as Canada's capital by Queen Victoria in 1857. The city sits on the Ottawa River and hosts the world's largest naturally frozen skating rink, the Rideau Canal Skateway!",
     success: "Welcome to Canada Night! Check on the Corner Booth!"
   },
   corner_booth: {
@@ -374,10 +374,10 @@ const PUZZLES = {
     puzzle: {
       type: 'unscramble',
       prompt: "Famous Canadian coffee chain started by a hockey player:",
-      scrambled: "MITOSR",
+      scrambled: "MITOHR",
       answer: "TIMHOR",
-      altAnswer: "TIMS",
-      hint: "Tim ______'s - named after a Toronto Maple Leafs defenseman!"
+      altAnswer: "TIM",
+      hint: "Tim ______'s is named after a Toronto Maple Leafs defenseman!"
     },
     funFact: "Tim Hortons was founded in 1964 by hockey player Tim Horton. There are over 5,600 Tim Hortons locations worldwide! The 'double-double' (2 cream, 2 sugar) is so iconic it's in the Canadian Oxford Dictionary.",
     success: "Double-double ready! Check the Front Table next!"
@@ -413,7 +413,7 @@ const PUZZLES = {
   breakfast_counter: {
     npc: 'The Counter',
     npcEmoji: '🍳',
-    greeting: "Pancakes with real maple syrup - the Canadian way!",
+    greeting: "Pancakes with real maple syrup, the Canadian way!",
     puzzle: {
       type: 'unscramble',
       prompt: "A Canadian dish of fries, cheese curds, and gravy:",
@@ -426,15 +426,15 @@ const PUZZLES = {
   },
   kitchen_oven: {
     npc: 'The Warm Oven',
-    npcEmoji: '🔥',
+    npcEmoji: '🍪',
     greeting: "Maple butter tarts are baking! The cafe smells incredible.",
     puzzle: {
       type: 'unscramble',
       prompt: "Sweet Canadian pastry with a butter, sugar, and egg filling:",
-      scrambled: "TARUBTET",
-      answer: "BUTTTART",
+      scrambled: "BTTERU TTRA",
+      answer: "BUTTER TART",
       altAnswer: "TART",
-      hint: "Butter _____ - a gooey Canadian dessert in a flaky shell!"
+      hint: "Butter _____ is a gooey Canadian dessert in a flaky shell!"
     },
     funFact: "Butter tarts are considered one of Canada's quintessential desserts! The earliest known recipe dates back to 1900. There's even a Butter Tart Festival held annually in Midland, Ontario!",
     success: "Golden and gooey! Check the Cake Safe next!"
@@ -777,7 +777,7 @@ Chapter ${chapterNum}: ${character.name} is ready, eh!
 "${character.textToLaurel}"
 ${completedChapters.length}/${chapters.length} crew ready for trivia
 
-Play at lettergriddle.com/adventures-canada
+Play at lettergriddle.com/adventures-in-canada
 More games at lettergriddle.com`;
 
     navigator.clipboard.writeText(shareText).then(() => {
@@ -795,7 +795,7 @@ Letter Griddle Cafe
 All 7 crew members are at the Trivia Station!
 The Letter Griddle Cafe is celebrating Canada, eh!
 
-Play at lettergriddle.com/adventures-canada
+Play at lettergriddle.com/adventures-in-canada
 More games at lettergriddle.com`;
 
     navigator.clipboard.writeText(shareText).then(() => {
@@ -1242,7 +1242,7 @@ More games at lettergriddle.com`;
               <span>☕ Coffee</span>
               <span>🍳 Counter</span>
               <span>🎵 Jukebox</span>
-              <span>🔥 Oven</span>
+              <span>🍪 Oven</span>
               <span>🍰 Treats</span>
             </div>
           </div>
@@ -1455,7 +1455,7 @@ Letter Griddle Cafe
 Chapter ${chapterNum}: ${character.name} is ready, eh!
 ${completedChapters.length}/${chapters.length} crew ready for trivia
 
-Play at lettergriddle.com/adventures-canada`}
+Play at lettergriddle.com/adventures-in-canada`}
               </div>
             </div>
             
@@ -1568,7 +1568,7 @@ Letter Griddle Cafe
 All 7 crew members are here!
 The cafe is celebrating Canada, eh!
 
-Play at lettergriddle.com/adventures-canada`}
+Play at lettergriddle.com/adventures-in-canada`}
               </div>
             </div>
             

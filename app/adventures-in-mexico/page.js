@@ -361,7 +361,7 @@ const PUZZLES = {
     puzzle: {
       type: 'unscramble',
       prompt: "Ancient Mayan pyramid in Mexico, one of the New Seven Wonders:",
-      scrambled: "HCENIC AZIT",
+      scrambled: "HCENIHC AZIT",
       answer: "CHICHEN ITZA",
       altAnswer: "CHICHENITZA",
       hint: "This pyramid is famous for its serpent shadow during equinox!"

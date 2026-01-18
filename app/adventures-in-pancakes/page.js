@@ -287,7 +287,7 @@ const TILE_TYPES = {
   corner_booth: { emoji: '🛋️', name: 'Corner Booth', walkable: true, color: 'bg-orange-100', landmark: true },
   front_table: { emoji: '🪑', name: 'Front Table', walkable: true, color: 'bg-amber-100', landmark: true },
   cake_safe: { emoji: '🍰', name: 'Cake Safe', walkable: true, color: 'bg-pink-100', landmark: true },
-  kitchen_oven: { emoji: '🔥', name: 'Kitchen Oven', walkable: true, color: 'bg-red-100', landmark: true },
+  kitchen_oven: { emoji: '🍪', name: 'Kitchen Oven', walkable: true, color: 'bg-red-100', landmark: true },
   cafe_door: { emoji: '🚪', name: 'Cafe Door', walkable: true, color: 'bg-amber-300', landmark: true },
   laurels_office: { emoji: '📋', name: "Laurel's Office", walkable: true, color: 'bg-amber-200', landmark: true },
   jukebox: { emoji: '🎵', name: 'Jukebox', walkable: true, color: 'bg-purple-100', landmark: true },
@@ -426,7 +426,7 @@ const PUZZLES = {
   },
   kitchen_oven: {
     npc: 'The Warm Oven',
-    npcEmoji: '🔥',
+    npcEmoji: '🍪',
     greeting: "Keeping pancakes warm until everyone arrives! The oven glows softly.",
     puzzle: {
       type: 'unscramble',
@@ -1241,7 +1241,7 @@ More games at lettergriddle.com`;
               <span>☕ Coffee</span>
               <span>🍳 Counter</span>
               <span>🎵 Jukebox</span>
-              <span>🔥 Oven</span>
+              <span>🍪 Oven</span>
               <span>🍰 Cake</span>
             </div>
           </div>

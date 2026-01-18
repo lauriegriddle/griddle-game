@@ -287,7 +287,7 @@ const TILE_TYPES = {
   corner_booth: { emoji: '🛋️', name: 'Corner Booth', walkable: true, color: 'bg-red-200', landmark: true },
   front_table: { emoji: '🪑', name: 'Front Table', walkable: true, color: 'bg-red-100', landmark: true },
   cake_safe: { emoji: '🍰', name: 'Cake Safe', walkable: true, color: 'bg-pink-100', landmark: true },
-  kitchen_oven: { emoji: '🔥', name: 'Kitchen Oven', walkable: true, color: 'bg-orange-100', landmark: true },
+  kitchen_oven: { emoji: '🍪', name: 'Kitchen Oven', walkable: true, color: 'bg-orange-100', landmark: true },
   cafe_door: { emoji: '🚪', name: 'Cafe Door', walkable: true, color: 'bg-red-300', landmark: true },
   laurels_office: { emoji: '📋', name: "Laurel's Office", walkable: true, color: 'bg-red-200', landmark: true },
   jukebox: { emoji: '🎵', name: 'Jukebox', walkable: true, color: 'bg-purple-100', landmark: true },

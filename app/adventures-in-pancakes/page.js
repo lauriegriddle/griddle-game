@@ -514,7 +514,7 @@ const TEXT_MESSAGES = {
   },
   mr_mrs_lindsay: {
     start: [
-      { from: 'sarah', text: "Mr. and Mrs. Lindsay! Your corner booth awaits - I'll bring coffee!" }
+      { from: 'sarah', text: "Mr. and Mrs. Lindsay! Your corner booth awaits.  I'll bring coffee!" }
     ],
     corner_booth: [
       { from: 'laurel', text: "The coziest spot for our most loyal customers! 💛" }

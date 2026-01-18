@@ -1421,7 +1421,7 @@ More games at lettergriddle.com`;
             <div className="text-5xl mb-4">🎤</div>
             
             <h2 className="text-2xl md:text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
-              {character.name} is Ready!
+              {character.name} - Ready!
             </h2>
             
             <p className="text-amber-700 mb-4" style={{fontFamily: 'Georgia, serif'}}>

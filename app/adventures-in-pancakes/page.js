@@ -1433,7 +1433,7 @@ More games at lettergriddle.com`;
               <div className="text-left">
                 <div className="font-bold text-amber-800 text-sm">Laurel</div>
                 <div className="text-amber-700 text-sm italic">
-                  "Thanks, {character.name}! Grab a seat - trivia starts soon!" ☕
+                  "Thanks, {character.name}! Grab a seat! Trivia starts soon!" ☕
                 </div>
               </div>
             </div>

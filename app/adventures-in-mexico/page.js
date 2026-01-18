@@ -963,7 +963,7 @@ More games at lettergriddle.com`;
         
         <div className="max-w-lg mx-auto pt-6 relative z-10">
           <div className="text-center mb-6">
-            <h1 className="text-2xl md:text-3xl font-bold text-white mb-1" style={{fontFamily: 'Georgia, serif'}}>
+            <h1 className="text-2xl md:text-3xl font-bold text-green mb-1" style={{fontFamily: 'Georgia, serif'}}>
               🇲🇽 Adventures in Mexico 🇲🇽
             </h1>
             <p className="text-green-100 text-sm">Choose who to guide to the Trivia Station!</p>
@@ -1156,7 +1156,7 @@ More games at lettergriddle.com`;
               ← Back
             </button>
             <div className="text-center">
-              <h2 className="text-lg md:text-xl font-bold text-white" style={{fontFamily: 'Georgia, serif'}}>
+              <h2 className="text-lg md:text-xl font-bold text-green" style={{fontFamily: 'Georgia, serif'}}>
                 Guide {character.name}
               </h2>
               <p className="text-green-100 text-xs">to Trivia Station 🇲🇽</p>

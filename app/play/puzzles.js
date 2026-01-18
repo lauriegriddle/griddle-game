@@ -727,7 +727,7 @@ const puzzles = [
       { word: "JOURNAL", hint: "A book for writing personal thoughts or records", revealedIndex: 0 },
       { word: "TEXTBOOK", hint: "An educational book used for studying a subject", revealedIndex: 4 },
     ],
-    funFact: "Visiting bookstores can inspire creativity and spark new ideas. You never know what story might change your life! 📚",
+    funFact: "Visiting bookstores can inspire creativity and spark new ideas! 📚",
   },
 
   // =============================================

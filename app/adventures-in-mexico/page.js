@@ -844,7 +844,7 @@ More games at lettergriddle.com`;
             <p className="text-xl text-green-40 mb-2" style={{fontFamily: 'Georgia, serif'}}>
               at the Letter Griddle Cafe
             </p>
-            <p className="text-green-200/90 text-sm">Mexico Trivia Night in Griddle Falls!</p>
+            <p className="text-green-40/90 text-sm">Mexico Trivia Night in Griddle Falls!</p>
           </div>
           
           <div className="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-6 border-2 border-green-300/50 mb-6">
@@ -966,7 +966,7 @@ More games at lettergriddle.com`;
             <h1 className="text-2xl md:text-3xl font-bold text-green mb-1" style={{fontFamily: 'Georgia, serif'}}>
               🇲🇽 Adventures in Mexico 🇲🇽
             </h1>
-            <p className="text-green-100 text-sm">Choose who to guide to the Trivia Station!</p>
+            <p className="text-green-40 text-sm">Choose who to guide to the Trivia Station!</p>
           </div>
           
           <div className="bg-white/80 backdrop-blur-md rounded-2xl p-4 mb-4 border border-green-200/50">
@@ -1423,7 +1423,7 @@ More games at lettergriddle.com`;
             <div className="text-5xl mb-4">🇲🇽</div>
             
             <h2 className="text-2xl md:text-3xl font-bold text-green-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
-              {character.name} - Ready!
+              {character.name}  Ready!
             </h2>
             
             <p className="text-green-700 mb-4" style={{fontFamily: 'Georgia, serif'}}>

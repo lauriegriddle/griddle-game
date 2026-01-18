@@ -530,7 +530,7 @@ const TEXT_MESSAGES = {
   },
   hank: {
     start: [
-      { from: 'mr_lindsay', text: "Hank! Can you set up the fiesta decorations? You've got great taste!" }
+      { from: 'mr_mrs_lindsay', text: "Hank! Can you set up the fiesta decorations? You've got great taste!" }
     ],
     breakfast_counter: [
       { from: 'taylor', text: "Hank, the papel picado looks amazing on the walls!" }

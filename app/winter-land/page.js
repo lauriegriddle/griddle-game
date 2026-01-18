@@ -471,7 +471,7 @@ const TEXT_MESSAGES = {
   },
   hank: {
     start: [
-      { from: 'mr_lindsay', text: "Hank! Remember the shortcut through the sculpture garden?" }
+      { from: 'mr_mrs_lindsay', text: "Hank! Remember the shortcut through the sculpture garden?" }
     ],
     finish: [
       { from: 'laurel', text: "Hank! Your coffee is already brewing, extra strong!" }

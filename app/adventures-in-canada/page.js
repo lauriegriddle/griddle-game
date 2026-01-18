@@ -529,7 +529,7 @@ const TEXT_MESSAGES = {
   },
   hank: {
     start: [
-      { from: 'mr_lindsay', text: "Hank! Can you set up the hockey decorations? You know more about it than anyone!" }
+      { from: 'mr_mrs_lindsay', text: "Hank! Can you set up the hockey decorations? You know more about it than anyone!"  }
     ],
     breakfast_counter: [
       { from: 'taylor', text: "Hank, the hockey jerseys look great on the wall!" }

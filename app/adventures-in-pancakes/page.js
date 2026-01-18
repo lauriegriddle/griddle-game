@@ -528,7 +528,7 @@ const TEXT_MESSAGES = {
   },
   hank: {
     start: [
-      { from: 'mr_lindsay', text: "Hank! Can you test the microphone at the counter? You've got the voice for it!" }
+      { from: 'mr_mrs_lindsay', text: "Hank! Can you test the microphone at the counter? You've got the voice for it!" }
     ],
     breakfast_counter: [
       { from: 'taylor', text: "Hank, can you hear me in the back? Testing, testing!" }

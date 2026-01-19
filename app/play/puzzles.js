@@ -759,7 +759,7 @@ const puzzles = [
       { word: "LECTURE", hint: "A talk given by a professor to students", revealedIndex: 0 },
       { word: "GRADUATE", hint: "To complete a degree and receive a diploma", revealedIndex: 4 },
     ],
-    funFact: "Southampton College had Kermit the Frog as a commencement speaker in 1996! Oberlin College students can rent original paintings by masters like Picasso for just $5 a semester. 🎓",
+    funFact: "Southampton College had Kermit the Frog as a commencement speaker in 1996! Oberlin College students can rent original paintings by masters like Picasso for just $5 a semester.",
   },
 
   // =============================================
@@ -775,7 +775,7 @@ const puzzles = [
       { word: "BUTTERY", hint: "Rich and smooth like melted spread", revealedIndex: 0 },
       { word: "SANDWICH", hint: "Two slices with fillings in between", revealedIndex: 4 },
     ],
-    funFact: "Ancient Egyptians used bread as money! A rolled-up piece of white bread served as a rudimentary eraser for graphite pencils before the invention of rubber erasers. 🍞",
+    funFact: "Ancient Egyptians used bread as money! A rolled-up piece of white bread served as a rudimentary eraser for graphite pencils before the invention of rubber erasers.",
   },
 
   // =============================================
@@ -791,7 +791,7 @@ const puzzles = [
       { word: "MYSTERY", hint: "Something unknown that needs to be figured out", revealedIndex: 0 },
       { word: "SHERLOCK", hint: "Famous fictional detective created by Arthur Conan Doyle", revealedIndex: 4 },
     ],
-    funFact: "The term 'detective' was not in common use until a crime writer invented it less than two centuries ago. 🔍",
+    funFact: "The term 'detective' was not in common use until a crime writer invented it less than two centuries ago.",
   },
 
   // =============================================
@@ -807,7 +807,7 @@ const puzzles = [
       { word: "MOONLIT", hint: "Illuminated by the glow of the moon", revealedIndex: 0 },
       { word: "DARKNESS", hint: "The absence of light in the night sky", revealedIndex: 4 },
     ],
-    funFact: "On a clear day, the sky appears blue because air molecules scatter sunlight in an effect known as Rayleigh Scattering. Blue light scatters more efficiently than red light! 🌌",
+    funFact: "On a clear day, the sky appears blue because air molecules scatter sunlight in an effect known as Rayleigh Scattering. Blue light scatters more efficiently than red light!",
   },
 
   // =============================================
@@ -839,7 +839,7 @@ const puzzles = [
       { word: "LAUNDRY", hint: "Clothes that need washing or have been washed", revealedIndex: 0 },
       { word: "CLEANING", hint: "The act of making something tidy and spotless", revealedIndex: 4 },
     ],
-    funFact: "The golden rule of housekeeping is: Clean as you go! 🧹",
+    funFact: "The golden rule of housekeeping is: Clean as you go!",
   },
 
   // =============================================
@@ -871,7 +871,7 @@ const puzzles = [
       { word: "PERSONAL", hint: "Relating to an individual's own preferences", revealedIndex: 0 },
       { word: "WARDROBE", hint: "A collection of clothes or a closet for storing them", revealedIndex: 4 },
     ],
-    funFact: "In the 1920s, foundation shades were originally created based on zodiac signs! 💄",
+    funFact: "In the 1920s, foundation shades were originally created based on zodiac signs!",
   },
 
   // =============================================
@@ -887,7 +887,7 @@ const puzzles = [
       { word: "CHARGER", hint: "A device that replenishes battery power", revealedIndex: 0 },
       { word: "SHOPPING", hint: "Buying things online with a tap", revealedIndex: 4 },
     ],
-    funFact: "The GridPad, released in 1989 by Grid Systems, is considered the first commercially successful tablet computer, though it weighed 4.5 pounds and used a stylus! 📱",
+    funFact: "The GridPad, released in 1989 by Grid Systems, is considered the first commercially successful tablet computer, though it weighed 4.5 pounds and used a stylus!",
   },
 
   // =============================================
@@ -919,7 +919,7 @@ const puzzles = [
       { word: "HYDRATE", hint: "To drink water and replenish fluids", revealedIndex: 0 },
       { word: "MARATHON", hint: "A long-distance race of 26.2 miles", revealedIndex: 4 },
     ],
-    funFact: "In the Victorian era, some runners would drink champagne as an energy drink, a practice now known to be counterproductive! 🏃",
+    funFact: "In the Victorian era, some runners would drink champagne as an energy drink, a practice now known to be counterproductive!",
   },
 
   // =============================================
@@ -935,7 +935,7 @@ const puzzles = [
       { word: "OTTOMAN", hint: "A cushioned footstool or storage seat", revealedIndex: 0 },
       { word: "LOVESEAT", hint: "A small sofa designed for two people", revealedIndex: 4 },
     ],
-    funFact: "Winged-back chairs were originally designed with 'wings' to keep people warm by blocking drafts! 🛋️",
+    funFact: "Winged-back chairs were originally designed with 'wings' to keep people warm by blocking drafts!",
   },
 
   // =============================================
@@ -951,7 +951,7 @@ const puzzles = [
       { word: "SWIMMER", hint: "A person who moves through water", revealedIndex: 0 },
       { word: "PADDLING", hint: "Moving hands and feet gently in water", revealedIndex: 4 },
     ],
-    funFact: "The oldest known evidence of swimming dates back to 2500 BC, with drawings from ancient Egypt! 🏊",
+    funFact: "The oldest known evidence of swimming dates back to 2500 BC, with drawings from ancient Egypt!",
   },
 ];
 

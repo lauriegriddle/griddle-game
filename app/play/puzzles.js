@@ -743,7 +743,7 @@ const puzzles = [
       { word: "FREEDOM", hint: "The state of being free from oppression", revealedIndex: 0 },
       { word: "SPEAKER", hint: "Someone who delivers speeches to an audience", revealedIndex: 4 },
     ],
-    funFact: "Martin Luther King Jr. was a brilliant student who entered college at 15. He won the Nobel Peace Prize at age 35, the youngest recipient at the time. ✊",
+    funFact: "Martin Luther King Jr. was a brilliant student who entered college at 15. He won the Nobel Peace Prize at age 35, the youngest recipient at the time.",
   },
 
   // =============================================

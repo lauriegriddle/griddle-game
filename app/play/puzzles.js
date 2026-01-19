@@ -823,7 +823,7 @@ const puzzles = [
       { word: "BONFIRE", hint: "An outdoor fire for warmth and gathering", revealedIndex: 0 },
       { word: "HAMMOCK", hint: "A swinging bed hung between two trees", revealedIndex: 4 },
     ],
-    funFact: "The Great Lakes hold 21% of the world's freshwater! 🏡",
+    funFact: "The Great Lakes hold 21% of the world's freshwater!",
   },
 
   // =============================================
@@ -855,7 +855,7 @@ const puzzles = [
       { word: "MUNCHIE", hint: "A craving for something to snack on", revealedIndex: 0 },
       { word: "NIBBLING", hint: "Eating in small, delicate bites", revealedIndex: 4 },
     ],
-    funFact: "Potato chips were invented in 1853 by Chef George Crum in Saratoga Springs, NY, after a customer complained fries were too thick. Crum sliced potatoes paper-thin and fried them crispy! 🍿",
+    funFact: "Potato chips were invented in 1853 by Chef George Crum in Saratoga Springs, NY, after a customer complained fries were too thick. Crum sliced potatoes paper-thin and fried them crispy!",
   },
 
   // =============================================
@@ -903,7 +903,7 @@ const puzzles = [
       { word: "TINTYPE", hint: "An old photographic technique on metal plates", revealedIndex: 0 },
       { word: "PAINTING", hint: "A picture created with brushes and pigments", revealedIndex: 4 },
     ],
-    funFact: "Vincent van Gogh only sold one painting during his lifetime. 🎨",
+    funFact: "Vincent van Gogh only sold one painting during his lifetime.",
   },
 
   // =============================================

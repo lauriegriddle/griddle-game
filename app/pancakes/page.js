@@ -183,7 +183,7 @@ const PancakesGame = () => {
       words: ["PALM", "BEACH", "ISLAND", "COCONUT", "WAVE"],
       funFact: {
         title: "Thai Khanom Buang",
-        text: "These crispy Thai crepes are an ancient street dessert dating back centuries! Ultra-thin and crispy shells are filled with sweet or savory toppings - the sweet version has meringue and shredded coconut, while savory ones have dried shrimp and cilantro. The batter contains rice flour, creating that signature crunch!"
+        text: "These crispy Thai crepes are an ancient street dessert dating back centuries! Ultra-thin and crispy shells are filled with sweet or savory toppings.  The sweet version has meringue and shredded coconut, while savory ones have dried shrimp and cilantro. The batter contains rice flour, creating that signature crunch!"
       }
     },
     {

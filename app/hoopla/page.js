@@ -965,7 +965,7 @@ Play at lettergriddle.com/hoopla
             rel="noopener noreferrer"
             className="text-yellow-300/80 hover:text-yellow-200 text-[10px] mt-2 inline-block transition-all hover:scale-105"
           >
-            Part of the Letter Griddle Family 🥞
+            Letter Griddle Games 🥞
           </a>
         </div>
       </div>
@@ -1185,7 +1185,7 @@ Play at lettergriddle.com/hoopla
                 {/* Pro Tip */}
                 <div className="bg-yellow-100 rounded-lg p-2.5 mb-4 border border-yellow-300">
                   <p className="text-xs text-yellow-800 text-center">
-                    <strong>🏆 Pro Tip:</strong> Not all tiles have letters - some are decoys! Watch for yellow hints!
+                    <strong>🏆 Pro Tip:</strong> Not all tiles have letters!  Some are decoys! Watch for yellow hints!
                   </p>
                 </div>
 

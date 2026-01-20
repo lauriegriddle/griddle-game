@@ -514,6 +514,16 @@ const LetterGriddleHoopla = () => {
   const celebrationIcons = ['📣', '🎉', '🏆', '⭐', '🎊'];
   const cheerPhrases = ["SCORE!", "NICE PLAY!", "BOOM!", "YES!", "NAILED IT!"];
   const confettiItems = ['📣', '🚩', '🏆', '⭐', '🎉', '🎊', '📣', '🚩', '✨', '🥇'];
+  
+  // Pre-generate confetti data so it doesn't recalculate on re-renders (fixes glitch)
+  const confettiData = useMemo(() => {
+    return Array.from({ length: 60 }).map((_, i) => ({
+      item: confettiItems[i % confettiItems.length],
+      left: Math.random() * 100,
+      delay: Math.random() * 2,
+      duration: 3 + Math.random() * 2
+    }));
+  }, [showConfetti]); // Regenerate when confetti starts
 
   const getCurrentGuess = () => {
     return selectedCells.map(c => grid[c.row][c.col].letter).join('');
@@ -686,26 +696,19 @@ Play at lettergriddle.com/hoopla
       {/* Confetti - z-[60] to show above victory modal (z-40) */}
       {showConfetti && (
         <div className="fixed inset-0 pointer-events-none z-[60]">
-          {Array.from({ length: 60 }).map((_, i) => {
-            const item = confettiItems[i % confettiItems.length];
-            const left = Math.random() * 100;
-            const delay = Math.random() * 2;
-            const duration = 3 + Math.random() * 2;
-            
-            return (
-              <div
-                key={i}
-                className="absolute text-3xl sm:text-4xl"
-                style={{
-                  left: `${left}%`,
-                  top: '-50px',
-                  animation: `confettiFall ${duration}s ease-in ${delay}s forwards`
-                }}
-              >
-                {item}
-              </div>
-            );
-          })}
+          {confettiData.map((confetti, i) => (
+            <div
+              key={i}
+              className="absolute text-3xl sm:text-4xl"
+              style={{
+                left: `${confetti.left}%`,
+                top: '-50px',
+                animation: `confettiFall ${confetti.duration}s ease-in ${confetti.delay}s forwards`
+              }}
+            >
+              {confetti.item}
+            </div>
+          ))}
         </div>
       )}
 
@@ -1182,7 +1185,7 @@ Play at lettergriddle.com/hoopla
                 {/* Pro Tip */}
                 <div className="bg-yellow-100 rounded-lg p-2.5 mb-4 border border-yellow-300">
                   <p className="text-xs text-yellow-800 text-center">
-                    <strong>💡 Pro Tip:</strong> Not all tiles have letters - some are decoys! Watch for yellow hints!
+                    <strong>🏆 Pro Tip:</strong> Not all tiles have letters - some are decoys! Watch for yellow hints!
                   </p>
                 </div>
 
@@ -1202,7 +1205,7 @@ Play at lettergriddle.com/hoopla
                   rel="noopener noreferrer"
                   className="text-center text-orange-500 hover:text-orange-600 text-[10px] mt-3 block transition-all hover:scale-105"
                 >
-                  Part of the Letter Griddle Family 🥞
+                  More Letter Griddle Games 🥞
                 </a>
               </div>
             </div>

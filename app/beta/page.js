@@ -25,6 +25,12 @@ export default function BetaGames() {
         description: "Beta testing in progress.  Kitchen and Office Modes!"
     },
     {
+    name: "Hoopla",
+    href: "/hoopla",
+    emoji: "📣",
+    description: "Beta testing in progress. Sports pep rally word search!"
+},
+    {
       name: "Order Up!",
       href: "/order",
       emoji: "🍳",

@@ -75,7 +75,7 @@ const puzzles = [
   {
     category: "Victory Celebration",
     puzzleNumber: 6,
-    funFact: "Gatorade was invented in 1965 for the Florida Gators football team - and the tradition of dumping it on winning coaches started in 1984!",
+    funFact: "Gatorade was invented in 1965 for the Florida Gators football team and the tradition of dumping it on winning coaches started in 1984!",
     gridSize: 8,
     words: [
       { word: "GOLD", hint: "Color of first place medals 🥇", revealed: [0] },
@@ -88,7 +88,7 @@ const puzzles = [
   {
     category: "Game Night Classics",
     puzzleNumber: 7,
-    funFact: "The board game Monopoly was originally designed to teach people about the dangers of wealth concentration - but became a celebration of capitalism instead!",
+    funFact: "The board game Monopoly was originally designed to teach people about the dangers of wealth concentration but became a celebration of capitalism instead!",
     gridSize: 8,
     words: [
       { word: "DICE", hint: "Cubes rolled for random numbers 🎲", revealed: [0] },
@@ -127,7 +127,7 @@ const puzzles = [
   {
     category: "Championship Night",
     puzzleNumber: 10,
-    funFact: "The tradition of wearing your team's jersey to games started in the 1970s. Before that, fans just wore regular clothes - even suits and ties!",
+    funFact: "The tradition of wearing your team's jersey to games started in the 1970s. Before that, fans just wore regular clothes even suits and ties!",
     gridSize: 8,
     words: [
       { word: "HERO", hint: "Star player of the game ⭐", revealed: [0] },
@@ -179,7 +179,7 @@ const puzzles = [
   {
     category: "Baseball Basics",
     puzzleNumber: 14,
-    funFact: "The seventh-inning stretch became popular when President Taft stood up to stretch at a game in 1910 - everyone else stood too, thinking he was leaving!",
+    funFact: "The seventh-inning stretch became popular when President Taft stood up to stretch at a game in 1910, everyone else stood too, thinking he was leaving!",
     gridSize: 8,
     words: [
       { word: "BASE", hint: "First, second, third, or home", revealed: [0] },
@@ -192,7 +192,7 @@ const puzzles = [
   {
     category: "Soccer Star",
     puzzleNumber: 15,
-    funFact: "A soccer ball is made of 32 panels - 12 pentagons and 20 hexagons. This design was created for the 1970 World Cup so it would show up better on TV!",
+    funFact: "A soccer ball is made of 32 panels, 12 pentagons and 20 hexagons. This design was created for the 1970 World Cup so it would show up better on TV!",
     gridSize: 8,
     words: [
       { word: "GOAL", hint: "Score! Into the net! ⚽", revealed: [0] },
@@ -244,7 +244,7 @@ const puzzles = [
   {
     category: "Track & Field",
     puzzleNumber: 19,
-    funFact: "Usain Bolt's top speed was 27.8 mph - he could outrun a city bus! His stride was so long he took only 41 steps to complete the 100m dash.",
+    funFact: "Usain Bolt's top speed was 27.8 mph.  He could outrun a city bus! His stride was so long he took only 41 steps to complete the 100m dash.",
     gridSize: 8,
     words: [
       { word: "DASH", hint: "Short sprint race 🏃", revealed: [0] },
@@ -257,7 +257,7 @@ const puzzles = [
   {
     category: "Golf Course",
     puzzleNumber: 20,
-    funFact: "Golf balls have 300-500 dimples! The dimples create turbulence that helps the ball fly farther - a smooth ball would only go half as far.",
+    funFact: "Golf balls have 300-500 dimples! The dimples create turbulence that helps the ball fly farther.  A smooth ball would only go half as far.",
     gridSize: 8,
     words: [
       { word: "PUTT", hint: "Gentle roll toward the hole ⛳", revealed: [0] },
@@ -746,7 +746,7 @@ Play at lettergriddle.com/hoopla
             <h1 className="text-2xl sm:text-3xl font-bold text-red-700 flex items-center justify-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
               <span>📣</span> Letter Griddle Hoopla <span>📣</span>
             </h1>
-            <p className="text-orange-600 text-xs mt-1">Find words hiding in random spots!</p>
+            <p className="text-orange-600 text-xs mt-1">Find words hiding in random spots!  Every game is different!</p>
           </div>
         </div>
 

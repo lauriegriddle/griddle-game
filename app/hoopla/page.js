@@ -746,7 +746,7 @@ Play at lettergriddle.com/hoopla
             <h1 className="text-2xl sm:text-3xl font-bold text-red-700 flex items-center justify-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
               <span>📣</span> Letter Griddle Hoopla <span>📣</span>
             </h1>
-            <p className="text-orange-600 text-xs mt-1">Find words hiding in random spots - every game is different!</p>
+            <p className="text-orange-600 text-xs mt-1">Find words hiding in random spots!</p>
           </div>
         </div>
 
@@ -910,7 +910,7 @@ Play at lettergriddle.com/hoopla
           <div className="mt-4 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl p-5 text-center shadow-2xl border-4 border-white">
             <div className="text-5xl mb-2">🏆</div>
             <h2 className="text-2xl font-bold text-white mb-1">CHAMPION!</h2>
-            <p className="text-white/90 text-sm mb-2">You cleared all the tables in {formatTime(completionTime)}!</p>
+            <p className="text-white/90 text-sm mb-2">You found all the words in {formatTime(completionTime)}!</p>
             
             {/* Did You Know? Fun Fact */}
             <div className="bg-white/20 rounded-xl p-3 mb-3 text-left">
@@ -1029,7 +1029,7 @@ Play at lettergriddle.com/hoopla
 
               <div className="bg-yellow-50 rounded-lg p-3 border border-yellow-200">
                 <p className="text-xs text-yellow-800">
-                  <strong>🎯 Tip:</strong> Not all tiles contain word letters - some are decoys! Use the 🔀 button to shuffle positions and play again.
+                  <strong>🎯 Tip:</strong> Not all tiles contain word letters!  Some are decoys! Use the 🔀 button to shuffle positions and play again.
                 </p>
               </div>
 

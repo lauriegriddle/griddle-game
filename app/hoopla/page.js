@@ -780,7 +780,7 @@ Play at lettergriddle.com/hoopla
           }`}>
             {isRallyMode ? (
               <p className="text-[10px] text-red-700">
-                <strong>🔥 Rally Mode:</strong> Words start from random corners! Use hints to find where each word begins.
+                <strong>🔥 Rally Mode:</strong> Use yellow tiles to help find where the words randomly start and snake clockwise!
               </p>
             ) : (
               <p className="text-[10px] text-yellow-800">
@@ -823,7 +823,7 @@ Play at lettergriddle.com/hoopla
           {/* Header with gradient banner */}
           <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-lg px-3 py-1.5 mb-2 flex items-center justify-between shadow-md">
             <h3 className="text-sm font-bold text-yellow-300 flex items-center gap-1.5">
-              <span>🏈</span> Team Playbook <span>📋</span>
+              <span>🏆</span> Team Playbook <span>📋</span>
             </h3>
             <div className="flex gap-1">
               <button
@@ -856,7 +856,7 @@ Play at lettergriddle.com/hoopla
                     ? <><span>🏆</span> <strong>{wordData.word}</strong></> 
                     : revealedHints.includes(idx)
                       ? <><span>📣</span> {wordData.word.length} letters: {wordData.hint}</>
-                      : <><span>🎯</span> {wordData.word.length} letters</>
+                      : <><span>📋</span> {wordData.word.length} letters</>
                   }
                 </span>
                 {!foundWords.includes(idx) && !revealedHints.includes(idx) && (
@@ -946,7 +946,7 @@ Play at lettergriddle.com/hoopla
           </div>
 
           <p className="text-center text-yellow-200/80 text-[10px] sm:text-xs mt-2">
-            💡 Words hide in boxes (2×2 or 2×3). Yellow tiles are hints!
+            🏆 Words hide in boxes (2×2 or 2×3). Yellow tiles are hints!
             {isRallyMode && <span className="block mt-0.5">🔥 Rally: Words start from random corners!</span>}
           </p>
         </div>
@@ -1120,7 +1120,7 @@ Play at lettergriddle.com/hoopla
                 {/* How It Works Section */}
                 <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-4 mb-4 border-2 border-orange-200">
                   <h3 className="text-red-700 font-bold text-center mb-3 flex items-center justify-center gap-2">
-                    <span>🎯</span> How to Play <span>🎯</span>
+                    <span>📣</span> How to Play <span>📣</span>
                   </h3>
                   
                   <div className="space-y-2.5">

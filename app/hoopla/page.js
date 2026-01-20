@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useCallback, useEffect, useMemo } from 'react';
+import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react';
 
 // ============================================
-// 10 PUZZLES WITH FUN FACTS
-// (No hardcoded box positions - they'll be randomized!)
+// 20 PUZZLES WITH FUN FACTS
 // ============================================
 const puzzles = [
   {
@@ -270,11 +269,52 @@ const puzzles = [
 ];
 
 // ============================================
+// RALLY MODE: Get snake pattern with rotated starting corner
+// ============================================
+const getSnakePattern = (boxWidth, boxHeight, startCorner) => {
+  if (boxWidth === 2 && boxHeight === 2) {
+    const basePositions = [
+      { r: 0, c: 0 },
+      { r: 0, c: 1 },
+      { r: 1, c: 1 },
+      { r: 1, c: 0 },
+    ];
+    
+    const rotated = [];
+    for (let i = 0; i < 4; i++) {
+      const idx = (i + startCorner) % 4;
+      rotated.push({ ...basePositions[idx], idx: i });
+    }
+    return rotated;
+    
+  } else if (boxWidth === 3 && boxHeight === 2) {
+    const basePositions = [
+      { r: 0, c: 0 },
+      { r: 0, c: 1 },
+      { r: 0, c: 2 },
+      { r: 1, c: 2 },
+      { r: 1, c: 1 },
+      { r: 1, c: 0 },
+    ];
+    
+    const rotationOffsets = [0, 2, 3, 5];
+    const offset = rotationOffsets[startCorner] || 0;
+    
+    const rotated = [];
+    for (let i = 0; i < 6; i++) {
+      const idx = (i + offset) % 6;
+      rotated.push({ ...basePositions[idx], idx: i });
+    }
+    return rotated;
+  }
+  
+  return [];
+};
+
+// ============================================
 // RANDOMIZED POSITION GENERATOR
 // ============================================
 const generateRandomPositions = (gridSize) => {
-  // All possible positions for 2x2 boxes (4-letter words)
-  // We'll use positions that don't go off the grid
   const possible2x2 = [];
   for (let row = 0; row <= gridSize - 2; row++) {
     for (let col = 0; col <= gridSize - 2; col++) {
@@ -282,7 +322,6 @@ const generateRandomPositions = (gridSize) => {
     }
   }
   
-  // All possible positions for 2x3 boxes (6-letter words)
   const possible2x3 = [];
   for (let row = 0; row <= gridSize - 2; row++) {
     for (let col = 0; col <= gridSize - 3; col++) {
@@ -290,7 +329,6 @@ const generateRandomPositions = (gridSize) => {
     }
   }
   
-  // Check if two boxes overlap
   const boxesOverlap = (box1, box2) => {
     const r1 = { 
       left: box1.col, 
@@ -309,7 +347,6 @@ const generateRandomPositions = (gridSize) => {
              r1.bottom <= r2.top || r2.bottom <= r1.top);
   };
   
-  // Shuffle array helper
   const shuffle = (array) => {
     const arr = [...array];
     for (let i = arr.length - 1; i > 0; i--) {
@@ -319,17 +356,13 @@ const generateRandomPositions = (gridSize) => {
     return arr;
   };
   
-  // Try to place all 5 words (4 four-letter + 1 six-letter)
   const maxAttempts = 100;
   
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
     const placedBoxes = [];
-    
-    // Shuffle possible positions
     const shuffled2x3 = shuffle(possible2x3);
     const shuffled2x2 = shuffle(possible2x2);
     
-    // First, place the 6-letter word (2x3 box)
     let sixLetterBox = null;
     for (const box of shuffled2x3) {
       sixLetterBox = box;
@@ -339,10 +372,8 @@ const generateRandomPositions = (gridSize) => {
     if (!sixLetterBox) continue;
     placedBoxes.push(sixLetterBox);
     
-    // Now place 4 four-letter words (2x2 boxes)
     let fourLetterBoxes = [];
     for (const box of shuffled2x2) {
-      // Check if this box overlaps with any already placed
       const hasOverlap = placedBoxes.some(placed => boxesOverlap(placed, box));
       if (!hasOverlap) {
         fourLetterBoxes.push(box);
@@ -351,7 +382,6 @@ const generateRandomPositions = (gridSize) => {
       }
     }
     
-    // If we successfully placed all 5 boxes, return them
     if (fourLetterBoxes.length === 4) {
       return {
         fourLetterBoxes,
@@ -360,7 +390,6 @@ const generateRandomPositions = (gridSize) => {
     }
   }
   
-  // Fallback to default positions if random fails (shouldn't happen)
   console.warn('Random placement failed, using fallback positions');
   return {
     fourLetterBoxes: [
@@ -377,46 +406,41 @@ const generateRandomPositions = (gridSize) => {
 // MAIN COMPONENT
 // ============================================
 const LetterGriddleHoopla = () => {
-  // Start at puzzle 1 (index 0) - players can cycle through all puzzles freely
   const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(0);
-  
-  // Generate random positions - this changes on every mount/reset
   const [positionSeed, setPositionSeed] = useState(0);
+  const [isRallyMode, setIsRallyMode] = useState(false);
   
   const puzzle = puzzles[currentPuzzleIndex];
 
-  // Generate randomized positions for current puzzle
   const randomPositions = useMemo(() => {
     return generateRandomPositions(puzzle.gridSize);
   }, [currentPuzzleIndex, positionSeed, puzzle.gridSize]);
 
-  // Assign boxes to words based on word length
+  const wordStartCorners = useMemo(() => {
+    if (!isRallyMode) return puzzle.words.map(() => 0);
+    return puzzle.words.map(() => Math.floor(Math.random() * 4));
+  }, [puzzle.words, isRallyMode, positionSeed]);
+
   const wordsWithBoxes = useMemo(() => {
     const fourLetterWords = puzzle.words.filter(w => w.word.length === 4);
-    const sixLetterWords = puzzle.words.filter(w => w.word.length >= 5);
-    
-    // Shuffle the four-letter words to randomize which goes where
     const shuffledFourLetter = [...fourLetterWords].sort(() => Math.random() - 0.5);
     
-    return puzzle.words.map(wordData => {
+    return puzzle.words.map((wordData, wordIdx) => {
+      const startCorner = wordStartCorners[wordIdx];
       if (wordData.word.length >= 5) {
-        // 6-letter word gets the 2x3 box
-        return { ...wordData, box: randomPositions.sixLetterBox };
+        return { ...wordData, box: randomPositions.sixLetterBox, startCorner };
       } else {
-        // 4-letter words get 2x2 boxes
         const idx = shuffledFourLetter.indexOf(wordData);
-        return { ...wordData, box: randomPositions.fourLetterBoxes[idx] || randomPositions.fourLetterBoxes[0] };
+        return { ...wordData, box: randomPositions.fourLetterBoxes[idx] || randomPositions.fourLetterBoxes[0], startCorner };
       }
     });
-  }, [puzzle.words, randomPositions]);
+  }, [puzzle.words, randomPositions, wordStartCorners]);
 
-  // Hidden tile icons - megaphones on edges, pennants in the middle
   const getHiddenIcon = useCallback((row, col, gridSize) => {
     const isEdge = row === 0 || row === gridSize - 1 || col === 0 || col === gridSize - 1;
     return isEdge ? '📣' : '🚩';
   }, []);
 
-  // Build the grid with words placed in their boxes (SNAKE PATTERN)
   const buildGrid = useCallback(() => {
     const gridSize = puzzle.gridSize;
     
@@ -432,60 +456,26 @@ const LetterGriddleHoopla = () => {
     );
 
     wordsWithBoxes.forEach((wordData, wordIdx) => {
-      const { word, box, revealed } = wordData;
+      const { word, box, revealed, startCorner } = wordData;
       
-      if (box.height === 2 && box.width === 2) {
-        // 4-letter word: snake pattern [0][1] / [3][2]
-        const positions = [
-          { r: 0, c: 0, idx: 0 },
-          { r: 0, c: 1, idx: 1 },
-          { r: 1, c: 1, idx: 2 },
-          { r: 1, c: 0, idx: 3 },
-        ];
-        
-        positions.forEach(({ r, c, idx }) => {
-          if (idx < word.length) {
-            const gridRow = box.row + r;
-            const gridCol = box.col + c;
-            grid[gridRow][gridCol] = {
-              letter: word[idx],
-              wordIndex: wordIdx,
-              letterIndex: idx,
-              isRevealed: revealed.includes(idx),
-              isFound: false,
-              hiddenIcon: getHiddenIcon(gridRow, gridCol, gridSize)
-            };
-          }
-        });
-      } else if (box.height === 2 && box.width === 3) {
-        // 6-letter word: snake pattern [0][1][2] / [5][4][3]
-        const positions = [
-          { r: 0, c: 0, idx: 0 },
-          { r: 0, c: 1, idx: 1 },
-          { r: 0, c: 2, idx: 2 },
-          { r: 1, c: 2, idx: 3 },
-          { r: 1, c: 1, idx: 4 },
-          { r: 1, c: 0, idx: 5 },
-        ];
-        
-        positions.forEach(({ r, c, idx }) => {
-          if (idx < word.length) {
-            const gridRow = box.row + r;
-            const gridCol = box.col + c;
-            grid[gridRow][gridCol] = {
-              letter: word[idx],
-              wordIndex: wordIdx,
-              letterIndex: idx,
-              isRevealed: revealed.includes(idx),
-              isFound: false,
-              hiddenIcon: getHiddenIcon(gridRow, gridCol, gridSize)
-            };
-          }
-        });
-      }
+      const positions = getSnakePattern(box.width, box.height, startCorner);
+      
+      positions.forEach(({ r, c, idx }) => {
+        if (idx < word.length) {
+          const gridRow = box.row + r;
+          const gridCol = box.col + c;
+          grid[gridRow][gridCol] = {
+            letter: word[idx],
+            wordIndex: wordIdx,
+            letterIndex: idx,
+            isRevealed: revealed.includes(idx),
+            isFound: false,
+            hiddenIcon: getHiddenIcon(gridRow, gridCol, gridSize)
+          };
+        }
+      });
     });
 
-    // Fill empty cells with filler letters
     const fillers = 'QXZKVBMFJLRYTUEPGHW';
     let fillerIdx = 0;
     for (let r = 0; r < gridSize; r++) {
@@ -514,16 +504,15 @@ const LetterGriddleHoopla = () => {
   const [showHowToPlay, setShowHowToPlay] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
+  const [showVictoryModal, setShowVictoryModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [message, setMessage] = useState('');
   const [startTime, setStartTime] = useState(Date.now());
   const [completionTime, setCompletionTime] = useState(null);
-  const [revealedHints, setRevealedHints] = useState([]); // Track which word hints are revealed
+  const [revealedHints, setRevealedHints] = useState([]);
 
   const celebrationIcons = ['📣', '🎉', '🏆', '⭐', '🎊'];
   const cheerPhrases = ["SCORE!", "NICE PLAY!", "BOOM!", "YES!", "NAILED IT!"];
-
-  // Hoopla confetti items
   const confettiItems = ['📣', '🚩', '🏆', '⭐', '🎉', '🎊', '📣', '🚩', '✨', '🥇'];
 
   const getCurrentGuess = () => {
@@ -548,46 +537,46 @@ const LetterGriddleHoopla = () => {
     setMessage('');
   };
 
-  // Reset current puzzle (start over with NEW random positions)
   const resetGame = () => {
-    setPositionSeed(prev => prev + 1); // This triggers new random positions
+    setPositionSeed(prev => prev + 1);
     setSelectedCells([]);
     setFoundWords([]);
     setShowCelebration(null);
     setShowConfetti(false);
+    setShowVictoryModal(false);
     setMessage('');
     setStartTime(Date.now());
     setCompletionTime(null);
     setShareCopied(false);
-    setRevealedHints([]); // Clear revealed hints
+    setRevealedHints([]);
   };
 
-  // Rebuild grid when positions change
   useEffect(() => {
     setGrid(buildGrid());
   }, [buildGrid]);
 
-  // Play again (same as reset, for after winning)
   const playAgain = () => {
     resetGame();
   };
 
-  // Go to next puzzle
   const nextPuzzle = () => {
     const nextIndex = (currentPuzzleIndex + 1) % puzzles.length;
     setCurrentPuzzleIndex(nextIndex);
     setPositionSeed(prev => prev + 1);
   };
 
-  // Go to previous puzzle
   const prevPuzzle = () => {
     const prevIndex = (currentPuzzleIndex - 1 + puzzles.length) % puzzles.length;
     setCurrentPuzzleIndex(prevIndex);
     setPositionSeed(prev => prev + 1);
   };
 
-  // When puzzle changes, reset game state
-  const isInitialMount = React.useRef(true);
+  const toggleRallyMode = () => {
+    setIsRallyMode(prev => !prev);
+    resetGame();
+  };
+
+  const isInitialMount = useRef(true);
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
@@ -596,11 +585,12 @@ const LetterGriddleHoopla = () => {
       setFoundWords([]);
       setShowCelebration(null);
       setShowConfetti(false);
+      setShowVictoryModal(false);
       setMessage('');
       setStartTime(Date.now());
       setCompletionTime(null);
       setShareCopied(false);
-      setRevealedHints([]); // Clear revealed hints
+      setRevealedHints([]);
     }
   }, [currentPuzzleIndex]);
 
@@ -640,12 +630,12 @@ const LetterGriddleHoopla = () => {
 
   const allWordsFound = foundWords.length === puzzle.words.length;
 
-  // Victory effects
   useEffect(() => {
     if (allWordsFound && !completionTime) {
       const timeInSeconds = Math.floor((Date.now() - startTime) / 1000);
       setCompletionTime(timeInSeconds);
       setShowConfetti(true);
+      setShowVictoryModal(true);
       setTimeout(() => setShowConfetti(false), 6000);
     }
   }, [allWordsFound, completionTime, startTime]);
@@ -657,13 +647,13 @@ const LetterGriddleHoopla = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // Native Share
   const handleShare = async () => {
     const hintsUsed = revealedHints.length;
     const hintText = hintsUsed === 0 ? '🎯 No hints!' : `💡 ${hintsUsed} hint${hintsUsed > 1 ? 's' : ''} used`;
+    const modeText = isRallyMode ? '🔥 Rally Mode' : '📣 Pep Mode';
     
     const shareText = `📣 Letter Griddle Hoopla #${puzzle.puzzleNumber}
-${puzzle.category}
+${puzzle.category} | ${modeText}
 ${'🏆'.repeat(foundWords.length)} ${foundWords.length}/5
 ⏱️ ${formatTime(completionTime)} | ${hintText}
 
@@ -693,9 +683,9 @@ Play at lettergriddle.com/hoopla
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-600 via-orange-500 to-yellow-500 p-2 sm:p-4 relative overflow-hidden">
       
-      {/* Confetti */}
+      {/* Confetti - z-[60] to show above victory modal (z-40) */}
       {showConfetti && (
-        <div className="fixed inset-0 pointer-events-none z-50">
+        <div className="fixed inset-0 pointer-events-none z-[60]">
           {Array.from({ length: 60 }).map((_, i) => {
             const item = confettiItems[i % confettiItems.length];
             const left = Math.random() * 100;
@@ -746,7 +736,54 @@ Play at lettergriddle.com/hoopla
             <h1 className="text-2xl sm:text-3xl font-bold text-red-700 flex items-center justify-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
               <span>📣</span> Letter Griddle Hoopla <span>📣</span>
             </h1>
-            <p className="text-orange-600 text-xs mt-1">Find words hiding in random spots!  Every game is different!</p>
+            <p className="text-orange-600 text-xs mt-1">Find words hiding in random spots! Every game is different!</p>
+          </div>
+        </div>
+
+        {/* Pep vs Rally Mode Toggle */}
+        <div className="bg-white/90 rounded-xl p-3 mb-3 shadow-lg">
+          <p className="text-[10px] text-gray-500 text-center mb-2 font-semibold uppercase tracking-wide">Choose Your Mode</p>
+          <div className="flex items-center justify-center gap-2">
+            <button
+              onClick={() => { if (isRallyMode) toggleRallyMode(); }}
+              className={`flex-1 py-2 px-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-1.5 ${
+                !isRallyMode 
+                  ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-lg scale-105 border-2 border-yellow-500' 
+                  : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+              }`}
+            >
+              <span className="text-lg">📣</span>
+              <span>Pep</span>
+            </button>
+            
+            <button
+              onClick={() => { if (!isRallyMode) toggleRallyMode(); }}
+              className={`flex-1 py-2 px-3 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-1.5 ${
+                isRallyMode 
+                  ? 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg scale-105 border-2 border-red-400' 
+                  : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+              }`}
+            >
+              <span className="text-lg">🔥</span>
+              <span>Rally</span>
+            </button>
+          </div>
+          
+          {/* Mode Description - UPDATED: Pep Mode no longer mentions top-left corner */}
+          <div className={`mt-2 rounded-lg p-2 text-center transition-all duration-300 ${
+            isRallyMode 
+              ? 'bg-red-50 border border-red-200' 
+              : 'bg-yellow-50 border border-yellow-200'
+          }`}>
+            {isRallyMode ? (
+              <p className="text-[10px] text-red-700">
+                <strong>🔥 Rally Mode:</strong> Words start from random corners! Use hints to find where each word begins.
+              </p>
+            ) : (
+              <p className="text-[10px] text-yellow-800">
+                <strong>📣 Pep Mode:</strong> The classic game! Words snake clockwise in their boxes. Great for getting warmed up!
+              </p>
+            )}
           </div>
         </div>
 
@@ -761,7 +798,9 @@ Play at lettergriddle.com/hoopla
               ◀
             </button>
             <div className="text-center">
-              <p className="text-yellow-300 text-[10px] font-semibold tracking-wider">PUZZLE {puzzle.puzzleNumber} OF {puzzles.length}</p>
+              <p className="text-yellow-300 text-[10px] font-semibold tracking-wider">
+                PUZZLE {puzzle.puzzleNumber} OF {puzzles.length} | {isRallyMode ? '🔥 RALLY' : '📣 PEP'}
+              </p>
               <p className="text-white text-lg font-bold" style={{ fontFamily: 'Georgia, serif' }}>
                 {puzzle.category}
               </p>
@@ -778,19 +817,22 @@ Play at lettergriddle.com/hoopla
 
         {/* Team Playbook (Word List) */}
         <div className="bg-white/90 rounded-xl p-3 mb-3 shadow-lg">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-bold text-red-800">🏈 Team Playbook</h3>
+          {/* Header with gradient banner */}
+          <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-lg px-3 py-1.5 mb-2 flex items-center justify-between shadow-md">
+            <h3 className="text-sm font-bold text-yellow-300 flex items-center gap-1.5">
+              <span>🏈</span> Team Playbook <span>📋</span>
+            </h3>
             <div className="flex gap-1">
               <button
                 onClick={resetGame}
-                className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full hover:bg-gray-200 transition-all"
+                className="text-xs bg-yellow-400/90 text-red-800 px-2 py-1 rounded-full hover:bg-yellow-300 transition-all font-semibold"
                 title="Shuffle positions & start over"
               >
                 🔀
               </button>
               <button
                 onClick={() => setShowHowToPlay(true)}
-                className="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full hover:bg-red-200 transition-all"
+                className="text-xs bg-white/90 text-red-600 px-2 py-1 rounded-full hover:bg-white transition-all font-semibold"
               >
                 ❓
               </button>
@@ -800,27 +842,27 @@ Play at lettergriddle.com/hoopla
             {puzzle.words.map((wordData, idx) => (
               <div
                 key={idx}
-                className={`text-xs p-2 rounded-lg transition-all flex items-center justify-between ${
+                className={`text-xs p-2.5 rounded-lg transition-all flex items-center justify-between border-l-4 ${
                   foundWords.includes(idx)
-                    ? 'bg-green-100 text-green-800'
-                    : 'bg-orange-50 text-orange-800'
+                    ? 'bg-gradient-to-r from-green-100 to-green-50 text-green-800 border-green-500'
+                    : 'bg-gradient-to-r from-orange-100 to-yellow-50 text-orange-800 border-orange-400'
                 }`}
               >
-                <span>
+                <span className="flex items-center gap-1.5">
                   {foundWords.includes(idx) 
-                    ? `✅ ${wordData.word}` 
+                    ? <><span>🏆</span> <strong>{wordData.word}</strong></> 
                     : revealedHints.includes(idx)
-                      ? `${wordData.word.length} letters: ${wordData.hint}`
-                      : `${wordData.word.length} letters`
+                      ? <><span>📣</span> {wordData.word.length} letters: {wordData.hint}</>
+                      : <><span>🎯</span> {wordData.word.length} letters</>
                   }
                 </span>
                 {!foundWords.includes(idx) && !revealedHints.includes(idx) && (
                   <button
                     onClick={() => setRevealedHints(prev => [...prev, idx])}
-                    className="bg-yellow-200 hover:bg-yellow-300 text-yellow-800 px-2 py-0.5 rounded-full text-[10px] font-semibold transition-all ml-2"
+                    className="bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white px-2.5 py-1 rounded-full text-[10px] font-bold transition-all ml-2 shadow-sm"
                     title="Reveal hint for this word"
                   >
-                    💡
+                    HINT
                   </button>
                 )}
               </div>
@@ -901,49 +943,10 @@ Play at lettergriddle.com/hoopla
           </div>
 
           <p className="text-center text-yellow-200/80 text-[10px] sm:text-xs mt-2">
-            💡 Words hide in boxes (2×2 or 2×3). Yellow tiles are hints! Positions shuffle each game.
+            💡 Words hide in boxes (2×2 or 2×3). Yellow tiles are hints!
+            {isRallyMode && <span className="block mt-0.5">🔥 Rally: Words start from random corners!</span>}
           </p>
         </div>
-
-        {/* Victory Banner with Fun Fact */}
-        {allWordsFound && (
-          <div className="mt-4 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl p-5 text-center shadow-2xl border-4 border-white">
-            <div className="text-5xl mb-2">🏆</div>
-            <h2 className="text-2xl font-bold text-white mb-1">CHAMPION!</h2>
-            <p className="text-white/90 text-sm mb-2">You found all the words in {formatTime(completionTime)}!</p>
-            
-            {/* Did You Know? Fun Fact */}
-            <div className="bg-white/20 rounded-xl p-3 mb-3 text-left">
-              <p className="text-white font-bold text-xs mb-1">🎯 Did You Know?</p>
-              <p className="text-white/90 text-xs leading-relaxed">{puzzle.funFact}</p>
-            </div>
-            
-            {/* Action Buttons */}
-            <div className="space-y-2">
-              <button 
-                onClick={handleShare}
-                className="bg-white text-red-600 px-5 py-2 rounded-full font-bold hover:bg-yellow-100 transition-all shadow-md flex items-center gap-2 mx-auto"
-              >
-                {shareCopied ? '✓ Copied!' : 'Share Results'} <span>📣</span>
-              </button>
-              
-              <div className="flex justify-center gap-2 pt-2">
-                <button
-                  onClick={playAgain}
-                  className="bg-white/30 hover:bg-white/50 text-white px-4 py-1.5 rounded-full font-bold text-xs transition-all flex items-center gap-1"
-                >
-                  🔀 Play Again (New Layout)
-                </button>
-                <button
-                  onClick={nextPuzzle}
-                  className="bg-white/30 hover:bg-white/50 text-white px-4 py-1.5 rounded-full font-bold text-xs transition-all flex items-center gap-1"
-                >
-                  ➡️ Next Puzzle
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Footer with Privacy/Terms */}
         <div className="text-center mt-4 text-white/70 text-xs space-y-1">
@@ -953,11 +956,91 @@ Play at lettergriddle.com/hoopla
             <span>|</span>
             <a href="/terms" className="hover:text-white underline">Terms of Service</a>
           </div>
-          <p className="text-white/50 text-[10px] mt-2">
+          <a 
+            href="https://lettergriddle.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-yellow-300/80 hover:text-yellow-200 text-[10px] mt-2 inline-block transition-all hover:scale-105"
+          >
             Part of the Letter Griddle Family 🥞
-          </p>
+          </a>
         </div>
       </div>
+
+      {/* ============================================ */}
+      {/* VICTORY MODAL - POPUP VERSION */}
+      {/* ============================================ */}
+      {showVictoryModal && (
+        <div
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-40 p-4"
+          onClick={() => setShowVictoryModal(false)}
+        >
+          <div
+            className="bg-gradient-to-br from-yellow-400 via-orange-400 to-red-500 rounded-3xl p-1.5 max-w-sm w-full shadow-2xl"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 rounded-2xl p-5">
+              {/* Trophy and Title */}
+              <div className="text-center mb-4">
+                <div className="text-6xl mb-2">🏆</div>
+                <h2 className="text-3xl font-bold text-red-700" style={{ fontFamily: 'Georgia, serif' }}>
+                  CHAMPION!
+                </h2>
+                <p className="text-gray-700 text-sm mt-1">
+                  You found all the words in <span className="font-bold text-red-600">{formatTime(completionTime)}</span>!
+                </p>
+                <p className="text-xs text-orange-600 mt-0.5 font-medium">
+                  {isRallyMode ? '🔥 Rally Mode' : '📣 Pep Mode'} Complete!
+                </p>
+              </div>
+              
+              {/* Did You Know? Fun Fact */}
+              <div className="bg-white/80 rounded-xl p-4 mb-4 border-2 border-yellow-400 shadow-inner">
+                <p className="text-red-700 font-bold text-sm mb-2 flex items-center gap-2">
+                  <span>🎯</span> Did You Know?
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed">{puzzle.funFact}</p>
+              </div>
+              
+              {/* Action Buttons */}
+              <div className="space-y-2">
+                <button 
+                  onClick={handleShare}
+                  className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-5 py-3 rounded-full font-bold transition-all shadow-md flex items-center justify-center gap-2"
+                >
+                  {shareCopied ? '✓ Copied!' : 'Share Results'} <span>📣</span>
+                </button>
+                
+                <div className="flex justify-center gap-2 pt-1">
+                  <button
+                    onClick={() => {
+                      setShowVictoryModal(false);
+                      playAgain();
+                    }}
+                    className="bg-white/80 hover:bg-white text-gray-700 px-4 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-1 border border-orange-200"
+                  >
+                    🔀 Play Again
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowVictoryModal(false);
+                      nextPuzzle();
+                    }}
+                    className="bg-white/80 hover:bg-white text-gray-700 px-4 py-2 rounded-full font-bold text-xs transition-all flex items-center gap-1 border border-orange-200"
+                  >
+                    ➡️ Next Puzzle
+                  </button>
+                </div>
+              </div>
+              
+              {/* Close hint */}
+              <p className="text-center text-orange-400 text-[10px] mt-3">
+                Tap outside to close
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Share Modal (fallback for non-native share) */}
       {showShareModal && (
@@ -972,7 +1055,7 @@ Play at lettergriddle.com/hoopla
             <h2 className="text-xl font-bold text-red-700 mb-3 text-center">Share Your Results! 📣</h2>
             <div className="bg-gray-100 rounded-lg p-3 text-sm font-mono mb-4">
               📣 Letter Griddle Hoopla #{puzzle.puzzleNumber}<br/>
-              {puzzle.category}<br/>
+              {puzzle.category} | {isRallyMode ? '🔥 Rally Mode' : '📣 Pep Mode'}<br/>
               {'🏆'.repeat(foundWords.length)} {foundWords.length}/5<br/>
               ⏱️ {formatTime(completionTime)} | {revealedHints.length === 0 ? '🎯 No hints!' : `💡 ${revealedHints.length} hint${revealedHints.length > 1 ? 's' : ''}`}<br/><br/>
               Play at lettergriddle.com/hoopla
@@ -987,87 +1070,142 @@ Play at lettergriddle.com/hoopla
         </div>
       )}
 
-      {/* How to Play Modal */}
+      {/* ============================================ */}
+      {/* LANDING SCREEN / HOW TO PLAY - GAME NIGHT STYLE! */}
+      {/* ============================================ */}
       {showHowToPlay && (
         <div
-          className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4"
-          onClick={() => setShowHowToPlay(false)}
+          className="fixed inset-0 bg-gradient-to-br from-red-600 via-orange-500 to-yellow-500 flex items-center justify-center z-50 p-4 overflow-y-auto"
         >
-          <div
-            className="bg-white rounded-2xl p-5 max-w-sm w-full shadow-2xl max-h-[90vh] overflow-y-auto"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="text-center mb-4">
-              <span className="text-4xl">📣</span>
-              <h2 className="text-xl font-bold text-red-700 mt-1">How to Play</h2>
-            </div>
-
-            <div className="space-y-3">
-              <div className="flex gap-3 items-start">
-                <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold shrink-0">1</span>
-                <div>
-                  <p className="font-bold text-gray-800 text-sm">Find the Words</p>
-                  <p className="text-xs text-gray-600">Words hide in rectangular boxes - 2×2 boxes (4 letters) or 2×3 boxes (6 letters). <strong>Positions are random each game!</strong></p>
-                </div>
+          {/* Floating Sports Emojis Background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {['🏈', '⚽', '🏀', '🎾', '⚾', '🏐', '🏆', '📣', '🎯', '🥇'].map((emoji, i) => (
+              <div
+                key={i}
+                className="absolute text-4xl opacity-20 animate-pulse"
+                style={{
+                  left: `${(i * 13) % 100}%`,
+                  top: `${(i * 17) % 100}%`,
+                  animationDelay: `${i * 0.3}s`
+                }}
+              >
+                {emoji}
               </div>
+            ))}
+          </div>
 
-              <div className="flex gap-3 items-start">
-                <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold shrink-0">2</span>
-                <div>
-                  <p className="font-bold text-gray-800 text-sm">Follow Yellow Hints</p>
-                  <p className="text-xs text-gray-600">Yellow tiles reveal letters to help you locate where words are hidden!</p>
-                </div>
-              </div>
-
-              <div className="flex gap-3 items-start">
-                <span className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold shrink-0">3</span>
-                <div>
-                  <p className="font-bold text-gray-800 text-sm">Tap in Snake Order</p>
-                  <p className="text-xs text-gray-600">Top row left→right, then bottom row right→left. Then tap Check!</p>
-                </div>
-              </div>
-
-              <div className="bg-yellow-50 rounded-lg p-3 border border-yellow-200">
-                <p className="text-xs text-yellow-800">
-                  <strong>🎯 Tip:</strong> Not all tiles contain word letters!  Some are decoys! Use the 🔀 button to shuffle positions and play again.
-                </p>
-              </div>
-
-              <div className="bg-red-50 rounded-lg p-3 border border-red-200">
-                <p className="text-xs text-gray-700 mb-2">
-                  <strong>📐 Box Examples (snake pattern):</strong>
-                </p>
-                <div className="flex gap-4 justify-center">
-                  <div className="text-center">
-                    <div className="grid grid-cols-2 gap-0.5 mx-auto w-fit">
-                      <div className="w-7 h-7 bg-yellow-200 rounded text-xs flex items-center justify-center font-bold border border-yellow-400">W<span className="text-[8px] text-red-500 ml-0.5">1</span></div>
-                      <div className="w-7 h-7 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">I<span className="text-[8px] text-red-500 ml-0.5">2</span></div>
-                      <div className="w-7 h-7 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">G<span className="text-[8px] text-red-500 ml-0.5">4</span></div>
-                      <div className="w-7 h-7 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">N<span className="text-[8px] text-red-500 ml-0.5">3</span></div>
-                    </div>
-                    <p className="text-[10px] text-gray-500 mt-1">2×2 = WING</p>
+          <div className="max-w-md w-full relative">
+            {/* Main Card with Stadium Border Effect */}
+            <div className="bg-gradient-to-br from-yellow-400 via-orange-400 to-red-500 rounded-3xl p-1 shadow-2xl">
+              <div className="bg-white rounded-2xl p-5 max-h-[85vh] overflow-y-auto">
+                
+                {/* Header - Game Night Banner */}
+                <div className="text-center mb-4">
+                  <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-xl py-2 px-4 mb-3 shadow-lg">
+                    <p className="text-yellow-300 text-xs font-bold tracking-widest uppercase">🏟️ Game Night at the Cafe 🏟️</p>
                   </div>
-                  <div className="text-center">
-                    <div className="grid grid-cols-3 gap-0.5 mx-auto w-fit">
-                      <div className="w-7 h-7 bg-yellow-200 rounded text-xs flex items-center justify-center font-bold border border-yellow-400">N<span className="text-[8px] text-red-500 ml-0.5">1</span></div>
-                      <div className="w-7 h-7 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">A<span className="text-[8px] text-red-500 ml-0.5">2</span></div>
-                      <div className="w-7 h-7 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">C<span className="text-[8px] text-red-500 ml-0.5">3</span></div>
-                      <div className="w-7 h-7 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">S<span className="text-[8px] text-red-500 ml-0.5">6</span></div>
-                      <div className="w-7 h-7 bg-yellow-200 rounded text-xs flex items-center justify-center font-bold border border-yellow-400">O<span className="text-[8px] text-red-500 ml-0.5">5</span></div>
-                      <div className="w-7 h-7 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">H<span className="text-[8px] text-red-500 ml-0.5">4</span></div>
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="text-4xl">📣</span>
+                    <h1 className="text-4xl font-bold text-red-700" style={{ fontFamily: 'Georgia, serif' }}>
+                      HOOPLA
+                    </h1>
+                    <span className="text-4xl">📣</span>
+                  </div>
+                  <p className="text-orange-600 text-sm font-medium">The Word-Finding Challenge!</p>
+                </div>
+
+                {/* How It Works Section */}
+                <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-4 mb-4 border-2 border-orange-200">
+                  <h3 className="text-red-700 font-bold text-center mb-3 flex items-center justify-center gap-2">
+                    <span>🎯</span> How to Play <span>🎯</span>
+                  </h3>
+                  
+                  <div className="space-y-2.5">
+                    <div className="flex gap-2 items-start">
+                      <span className="bg-gradient-to-br from-red-500 to-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 shadow-md">1</span>
+                      <p className="text-xs text-gray-700"><strong className="text-red-700">Hunt for words</strong> hiding in 2×2 or 2×3 boxes on the grid</p>
                     </div>
-                    <p className="text-[10px] text-gray-500 mt-1">2×3 = NACHOS</p>
+
+                    <div className="flex gap-2 items-start">
+                      <span className="bg-gradient-to-br from-red-500 to-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 shadow-md">2</span>
+                      <p className="text-xs text-gray-700"><strong className="text-yellow-600">Yellow tiles</strong> are hints showing where letters hide!</p>
+                    </div>
+
+                    <div className="flex gap-2 items-start">
+                      <span className="bg-gradient-to-br from-red-500 to-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 shadow-md">3</span>
+                      <p className="text-xs text-gray-700"><strong className="text-red-700">Tap letters</strong> in clockwise snake order, then Check!</p>
+                    </div>
                   </div>
                 </div>
+
+                {/* Snake Pattern Visual */}
+                <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-3 mb-4 border-2 border-red-200">
+                  <p className="text-xs text-red-700 font-bold text-center mb-2">📐 Words Snake Clockwise:</p>
+                  <div className="flex gap-4 justify-center">
+                    <div className="text-center">
+                      <div className="grid grid-cols-2 gap-0.5 mx-auto w-fit">
+                        <div className="w-8 h-8 bg-yellow-200 rounded text-xs flex items-center justify-center font-bold border-2 border-yellow-400 shadow-sm">W<span className="text-[8px] text-red-500 ml-0.5">1</span></div>
+                        <div className="w-8 h-8 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">I<span className="text-[8px] text-red-500 ml-0.5">2</span></div>
+                        <div className="w-8 h-8 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">G<span className="text-[8px] text-red-500 ml-0.5">4</span></div>
+                        <div className="w-8 h-8 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">N<span className="text-[8px] text-red-500 ml-0.5">3</span></div>
+                      </div>
+                      <p className="text-[10px] text-gray-600 mt-1 font-medium">4-letter</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="grid grid-cols-3 gap-0.5 mx-auto w-fit">
+                        <div className="w-8 h-8 bg-yellow-200 rounded text-xs flex items-center justify-center font-bold border-2 border-yellow-400 shadow-sm">N<span className="text-[8px] text-red-500 ml-0.5">1</span></div>
+                        <div className="w-8 h-8 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">A<span className="text-[8px] text-red-500 ml-0.5">2</span></div>
+                        <div className="w-8 h-8 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">C<span className="text-[8px] text-red-500 ml-0.5">3</span></div>
+                        <div className="w-8 h-8 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">S<span className="text-[8px] text-red-500 ml-0.5">6</span></div>
+                        <div className="w-8 h-8 bg-yellow-200 rounded text-xs flex items-center justify-center font-bold border-2 border-yellow-400 shadow-sm">O<span className="text-[8px] text-red-500 ml-0.5">5</span></div>
+                        <div className="w-8 h-8 bg-orange-200 rounded text-xs flex items-center justify-center font-bold border border-orange-300">H<span className="text-[8px] text-red-500 ml-0.5">4</span></div>
+                      </div>
+                      <p className="text-[10px] text-gray-600 mt-1 font-medium">6-letter</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Game Modes */}
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  <div className="bg-gradient-to-br from-orange-100 to-yellow-100 rounded-lg p-2.5 border border-orange-200 text-center">
+                    <p className="text-lg mb-0.5">📣</p>
+                    <p className="text-xs font-bold text-orange-700">Pep Mode</p>
+                    <p className="text-[10px] text-gray-600">The classic game!</p>
+                  </div>
+                  <div className="bg-gradient-to-br from-red-100 to-orange-100 rounded-lg p-2.5 border border-red-200 text-center">
+                    <p className="text-lg mb-0.5">🔥</p>
+                    <p className="text-xs font-bold text-red-700">Rally Mode</p>
+                    <p className="text-[10px] text-gray-600">Random start corners!</p>
+                  </div>
+                </div>
+
+                {/* Pro Tip */}
+                <div className="bg-yellow-100 rounded-lg p-2.5 mb-4 border border-yellow-300">
+                  <p className="text-xs text-yellow-800 text-center">
+                    <strong>💡 Pro Tip:</strong> Not all tiles have letters - some are decoys! Watch for yellow hints!
+                  </p>
+                </div>
+
+                {/* Let's Go Button */}
+                <button
+                  onClick={() => setShowHowToPlay(false)}
+                  className="w-full bg-gradient-to-r from-red-500 via-red-600 to-orange-500 hover:from-red-600 hover:via-red-700 hover:to-orange-600 text-white py-4 rounded-full font-bold text-xl transition-all shadow-lg transform hover:scale-[1.02] flex items-center justify-center gap-2"
+                  style={{ fontFamily: 'Georgia, serif' }}
+                >
+                  <span>🏆</span> LET'S GO! <span>🏆</span>
+                </button>
+
+                {/* Part of Letter Griddle */}
+                <a 
+                  href="https://lettergriddle.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-center text-orange-500 hover:text-orange-600 text-[10px] mt-3 block transition-all hover:scale-105"
+                >
+                  Part of the Letter Griddle Family 🥞
+                </a>
               </div>
             </div>
-
-            <button
-              onClick={() => setShowHowToPlay(false)}
-              className="w-full mt-4 bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-full font-bold hover:from-red-600 hover:to-red-700 transition-all shadow-md"
-            >
-              Let's Go! 📣
-            </button>
           </div>
         </div>
       )}

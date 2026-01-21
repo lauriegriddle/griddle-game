@@ -775,7 +775,7 @@ const puzzles = [
       { word: "BUTTERY", hint: "Rich and smooth like melted spread", revealedIndex: 0 },
       { word: "SANDWICH", hint: "Two slices with fillings in between", revealedIndex: 4 },
     ],
-    funFact: "Ancient Egyptians used bread as money! A rolled-up piece of white bread served as a rudimentary eraser for graphite pencils before the invention of rubber erasers.",
+    funFact: "Ancient Egyptians used bread as money! A rolled-up piece of white bread served as a rudimentary eraser for graphite pencils before the invention of rubber erasers!",
   },
 
   // =============================================

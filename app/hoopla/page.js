@@ -9,7 +9,7 @@ const puzzles = [
   {
     category: "Game Day Snacks",
     puzzleNumber: 1,
-    funFact: "The first Super Bowl in 1967 wasn't even called the 'Super Bowl' - it was the 'AFL-NFL World Championship Game.' The name 'Super Bowl' came from a bouncy ball toy!",
+    funFact: "The first Super Bowl in 1967 wasn't even called the 'Super Bowl.'  It was the 'AFL-NFL World Championship Game.' The name 'Super Bowl' came from a bouncy ball toy!",
     gridSize: 8,
     words: [
       { word: "WING", hint: "Buffalo-style chicken piece 🍗", revealed: [0] },

@@ -22,7 +22,7 @@ const puzzles = [
   {
     category: "Team Spirit",
     puzzleNumber: 2,
-    funFact: "Cheerleading started in 1898 at the University of Minnesota - and the first cheerleaders were all men! Women didn't join until the 1920s.",
+    funFact: "Cheerleading started in 1898 at the University of Minnesota. The first cheerleaders were all men! Women didn't join until the 1920s.",
     gridSize: 8,
     words: [
       { word: "TEAM", hint: "Group playing together 🤝", revealed: [0] },

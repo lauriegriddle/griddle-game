@@ -60,6 +60,12 @@ export default function BetaGames() {
         emoji: "🍪",
         description: "Beta testing in progress"
     },
+     {
+        name: "Spins",
+        href: "/spins",
+        emoji: "💿",
+        description: "Beta Testing.  Music trivia songs with food in the title"
+    },
     {
         name: "Stacks",
         href: "/stacks",

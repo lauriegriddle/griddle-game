@@ -77,13 +77,13 @@ const SpinsGame = () => {
     },
     {
       puzzleNumber: 8,
-      word: "MARGARITA",
-      songTitle: "_____ville",
-      artist: "Jimmy Buffett",
-      year: "1977",
-      hint: "This island-loving singer created an entire lifestyle brand around beach vibes and this famous cocktail destination.",
-      didYouKnow: "Jimmy Buffett's fans call themselves 'Parrotheads' and have raised millions for charity through their fan clubs.",
-      revealedIndex: 4
+      word: "CHICKEN",
+      songTitle: "The _____ Dance",
+      artist: "Werner Thomas",
+      year: "1970s",
+      hint: "This polka tune has been a staple at weddings, sporting events, and Oktoberfest celebrations for decades, complete with its signature arm-flapping moves.",
+      didYouKnow: "The song was originally a Swiss accordion tune called 'Der Ententanz' (The Duck Dance), but became 'The Chicken Dance' in the US. It has sold over 40 million copies worldwide!",
+      revealedIndex: 3
     },
     {
       puzzleNumber: 9,

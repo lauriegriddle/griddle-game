@@ -511,7 +511,11 @@ const SpinsGame = () => {
 "${gameData.songTitle}" by ${gameData.artist}
 ✅ Solved in ${timeStr}!
 ${hintRevealed ? '💡 Used hint' : '🌟 No hints!'}
-Play at lettergriddle.com/spins`;
+Play at lettergriddle.com/spins
+
+Free & ad-free!
+Part of the Letter Griddle Games 🥞
+More games: lettergriddle.com`;
 
     // Try native sharing first (works on mobile!)
     if (navigator.share) {
@@ -821,7 +825,11 @@ Play at lettergriddle.com/spins`;
 "${gameData.songTitle}" by ${gameData.artist}
 ✅ Solved in ${formatTime(completionTime)}!
 ${hintRevealed ? '💡 Used hint' : '🌟 No hints!'}
-Play at lettergriddle.com/spins`}
+Play at lettergriddle.com/spins
+
+Free & ad-free!
+Part of the Letter Griddle Games 🥞
+More games: lettergriddle.com`}
               </div>
             </div>
 

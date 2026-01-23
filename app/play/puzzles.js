@@ -830,16 +830,16 @@ const puzzles = [
   // INDEX 56 - Shows Jan 24, 2026 at 7 PM
   // =============================================
   {
-    category: "Housekeeping",
+    category: "Pie",
     puzzleNumber: 135,
     words: [
-      { word: "DUST", hint: "Tiny particles that settle on furniture", revealedIndex: 0 },
-      { word: "SHINE", hint: "To polish until something gleams", revealedIndex: 2 },
-      { word: "VACUUM", hint: "A machine that sucks up dirt from floors", revealedIndex: 3 },
-      { word: "LAUNDRY", hint: "Clothes that need washing or have been washed", revealedIndex: 0 },
-      { word: "CLEANING", hint: "The act of making something tidy and spotless", revealedIndex: 4 },
+      { word: "ROLL", hint: "To flatten dough with a cylindrical tool", revealedIndex: 0 },
+      { word: "FRUIT", hint: "A sweet filling made from apples, berries, or cherries", revealedIndex: 2 },
+      { word: "PASTRY", hint: "A baked dough used for crusts and shells", revealedIndex: 3 },
+      { word: "FILLING", hint: "The sweet or savory mixture inside a crust", revealedIndex: 0 },
+      { word: "MERINGUE", hint: "A fluffy topping made from whipped egg whites and sugar", revealedIndex: 4 },
     ],
-    funFact: "The golden rule of housekeeping is: Clean as you go!",
+    funFact: "Over 186 million pies are sold in U.S. grocery stores annually, with apple, pumpkin, and cherry being top favorites! 🥧",
   },
 
   // =============================================
@@ -862,16 +862,16 @@ const puzzles = [
   // INDEX 58 - Shows Jan 26, 2026 at 7 PM
   // =============================================
   {
-    category: "Makeover",
+    category: "Chocolate",
     puzzleNumber: 137,
     words: [
-      { word: "HAIR", hint: "Strands on your head that can be styled", revealedIndex: 0 },
-      { word: "STYLE", hint: "A distinctive look or fashion", revealedIndex: 2 },
-      { word: "UPDATE", hint: "To refresh or make more current", revealedIndex: 3 },
-      { word: "PERSONAL", hint: "Relating to an individual's own preferences", revealedIndex: 0 },
-      { word: "WARDROBE", hint: "A collection of clothes or a closet for storing them", revealedIndex: 4 },
+      { word: "DARK", hint: "A rich, intense variety with less sugar", revealedIndex: 0 },
+      { word: "FUDGE", hint: "A soft, dense confection often made with cocoa", revealedIndex: 2 },
+      { word: "FLAVOR", hint: "The distinctive taste of a food or drink", revealedIndex: 3 },
+      { word: "VELVETY", hint: "Smooth and rich in texture", revealedIndex: 0 },
+      { word: "DECADENT", hint: "Luxuriously rich and indulgent", revealedIndex: 4 },
     ],
-    funFact: "In the 1920s, foundation shades were originally created based on zodiac signs!",
+    funFact: "Chocolate cake's history traces back to the 18th century when grinding cocoa beans became feasible, with the first recipe appearing in 1847. 🍫",
   },
 
   // =============================================

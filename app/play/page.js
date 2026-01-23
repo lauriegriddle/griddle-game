@@ -1132,13 +1132,13 @@ const copyToClipboard = async (text) => {
         {/* Thank You Message */}
         <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
           <p className="text-amber-800 text-center leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
-            Thank you for being part of Letter Griddle! 🧡 Your support means everything! So excited to share what's next.
+            Thank you for being part of Letter Griddle! 🍯 Because of you, our launch was a success!
           </p>
         </div>
         
         {/* What's Coming */}
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 border-2 border-blue-200">
-          <p className="text-center text-blue-800 font-bold text-lg mb-2">🎉 What's Coming?</p>
+          <p className="text-center text-blue-800 font-bold text-lg mb-2">🎉 Grand Opening in February 🎉</p>
           <p className="text-center text-blue-700 leading-relaxed">
             Brand new <span className="font-bold">themed games</span> are heading to the Letter Griddle Cafe to celebrate our Grand Opening!
           </p>
@@ -1146,16 +1146,16 @@ const copyToClipboard = async (text) => {
         
         {/* Teaser */}
         <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border-2 border-purple-200">
-          <p className="text-center text-purple-800 font-bold text-lg mb-2">❄️ A Little Hint...</p>
+          <p className="text-center text-purple-800 font-bold text-lg mb-2">🍯 Hint...</p>
           <p className="text-center text-purple-700 leading-relaxed">
-           <span className="font-bold">Winter sports</span>, <span className="font-bold">game night energy</span>, and <span className="font-bold">adventure</span>. These new experiences will be available <span className="font-bold">in February</span>!
+           <span className="font-bold">Winter sports</span>, <span className="font-bold">game night</span>, and <span className="font-bold">adventure</span>. These new Letter Griddle experiences will be free and ad-free <span className="font-bold">in February on our website</span>!
           </p>
         </div>
         
         {/* Stay Tuned */}
         <div className="text-center">
           <div className="inline-flex items-center gap-2 bg-amber-100 px-4 py-2 rounded-full">
-            <span className="text-xl">☕</span>
+            <span className="text-xl">🍯</span>
             <span className="text-amber-800 font-semibold">Stay tuned for more details!</span>
             <span className="text-xl">🥞</span>
           </div>
@@ -1164,7 +1164,7 @@ const copyToClipboard = async (text) => {
       
       {/* Decorative Footer */}
       <div className="flex justify-center gap-3 mt-6 text-3xl">
-        🏔️ ❄️ 🏀 🎸 ⛷️
+        🥞 🍯 🥞 🍯 🥞
       </div>
       
       <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">

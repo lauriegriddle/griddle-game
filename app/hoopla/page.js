@@ -739,7 +739,7 @@ Play at lettergriddle.com/hoopla
             <h1 className="text-2xl sm:text-3xl font-bold text-red-700 flex items-center justify-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
               <span>📣</span> Letter Griddle Hoopla <span>📣</span>
             </h1>
-            <p className="text-orange-600 text-xs mt-1">Find words hiding in random spots! Every game is different!</p>
+            <p className="text-orange-600 text-xs mt-1">Find words hiding! Every game is different!</p>
           </div>
         </div>
 
@@ -947,7 +947,7 @@ Play at lettergriddle.com/hoopla
 
           <p className="text-center text-yellow-200/80 text-[10px] sm:text-xs mt-2">
             🏆 Words hide in boxes (2×2 or 2×3). Yellow tiles are hints!
-            {isRallyMode && <span className="block mt-0.5">🔥 Rally: Words start from random corners!</span>}
+            {isRallyMode && <span className="block mt-0.5">🔥 Rally: Words start from random corners of words!</span>}
           </p>
         </div>
 

@@ -1146,9 +1146,9 @@ const copyToClipboard = async (text) => {
         
         {/* Teaser */}
         <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border-2 border-purple-200">
-          <p className="text-center text-purple-800 font-bold text-lg mb-2">🍯 Hint...</p>
+          <p className="text-center text-purple-800 font-bold text-lg mb-2">🍯 Brand New!</p>
           <p className="text-center text-purple-700 leading-relaxed">
-           <span className="font-bold">Winter sports</span>, <span className="font-bold">game night</span>, and <span className="font-bold">adventure</span>. These new Letter Griddle experiences will be free and ad-free <span className="font-bold">in February on our website</span>!
+           <span className="font-bold">Winter sports</span>, <span className="font-bold">game night spirit</span>, and <span className="font-bold">adventure</span>!  New Letter Griddle experiences will be free and ad-free <span className="font-bold">in February on our website</span>!
           </p>
         </div>
         

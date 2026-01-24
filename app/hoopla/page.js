@@ -784,7 +784,7 @@ Play at lettergriddle.com/hoopla
               </p>
             ) : (
               <p className="text-[10px] text-yellow-800">
-                <strong>📣 Pep Mode:</strong> The classic game! Words snake clockwise in their boxes. Great for getting warmed up!
+                <strong>📣 Pep Mode:</strong> The classic game! Words snake clockwise. Great for getting warmed up!
               </p>
             )}
           </div>

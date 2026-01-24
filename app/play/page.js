@@ -1148,7 +1148,7 @@ const copyToClipboard = async (text) => {
         <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border-2 border-purple-200">
           <p className="text-center text-purple-800 font-bold text-lg mb-2">🍯 Brand New!</p>
           <p className="text-center text-purple-700 leading-relaxed">
-           <span className="font-bold">Letter Griddle fun</span>, <span className="font-bold">games</span> and <span className="font-bold">puzzles</span>!  Free and ad-free <span className="font-bold">in February</span>!
+           <span className="font-bold">Letter Griddle fun</span>, <span className="font-bold">games,</span> and <span className="font-bold">puzzles</span>!  Free and ad-free <span className="font-bold">in February</span>!
           </p>
         </div>
         

@@ -946,7 +946,7 @@ Play at lettergriddle.com/hoopla
           </div>
 
           <p className="text-center text-yellow-200/80 text-[10px] sm:text-xs mt-2">
-            🏆 Words hide in boxes (2×2 or 2×3). Yellow tiles are hints!
+            🏆 Words found in arrays (2×2 or 2×3). Yellow tiles are hints!
             {isRallyMode && <span className="block mt-0.5">🔥 Rally: Words start from random corners of words!</span>}
           </p>
         </div>
@@ -1131,7 +1131,7 @@ Play at lettergriddle.com/hoopla
 
                     <div className="flex gap-2 items-start">
                       <span className="bg-gradient-to-br from-red-500 to-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 shadow-md">2</span>
-                      <p className="text-xs text-gray-700"><strong className="text-yellow-600">Yellow tiles</strong> are hints showing where words can be found!</p>
+                      <p className="text-xs text-gray-700"><strong className="text-yellow-600">Yellow tiles</strong> are hints showing where words are found!</p>
                     </div>
 
                     <div className="flex gap-2 items-start">

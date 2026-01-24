@@ -332,7 +332,7 @@ const PUZZLES = {
     puzzle: {
       type: 'unscramble',
       prompt: "A thick, sweet liquid often poured over pancakes:",
-      scrambled: "PUSRY",
+      scrambled: "SRUYP",
       answer: "SYRUP",
       hint: "Maple trees give us this golden goodness!"
     },

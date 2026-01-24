@@ -1131,7 +1131,7 @@ Play at lettergriddle.com/hoopla
 
                     <div className="flex gap-2 items-start">
                       <span className="bg-gradient-to-br from-red-500 to-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 shadow-md">2</span>
-                      <p className="text-xs text-gray-700"><strong className="text-yellow-600">Yellow tiles</strong> are hints showing where letters hide!</p>
+                      <p className="text-xs text-gray-700"><strong className="text-yellow-600">Yellow tiles</strong> are hints showing where words can be found!</p>
                     </div>
 
                     <div className="flex gap-2 items-start">

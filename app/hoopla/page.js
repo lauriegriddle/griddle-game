@@ -1178,14 +1178,14 @@ Play at lettergriddle.com/hoopla
                   <div className="bg-gradient-to-br from-red-100 to-orange-100 rounded-lg p-2.5 border border-red-200 text-center">
                     <p className="text-lg mb-0.5">🔥</p>
                     <p className="text-xs font-bold text-red-700">Rally Mode</p>
-                    <p className="text-[10px] text-gray-600">Random start corners!</p>
+                    <p className="text-[10px] text-gray-600">Random start, snake clockwise!</p>
                   </div>
                 </div>
 
                 {/* Pro Tip */}
                 <div className="bg-yellow-100 rounded-lg p-2.5 mb-4 border border-yellow-300">
                   <p className="text-xs text-yellow-800 text-center">
-                    <strong>🏆 Pro Tip:</strong> Not all tiles have letters!  Some are decoys! Watch for yellow hints!
+                    <strong>🏆 Pro Tip:</strong> Not all tiles belong in words!  Some are decoys! Use the yellow hints!
                   </p>
                 </div>
 

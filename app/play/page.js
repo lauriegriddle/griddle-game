@@ -1140,7 +1140,7 @@ const copyToClipboard = async (text) => {
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 border-2 border-blue-200">
           <p className="text-center text-blue-800 font-bold text-lg mb-2">🎉 Grand Opening in February 🎉</p>
           <p className="text-center text-blue-700 leading-relaxed">
-            Brand new <span className="font-bold">themed games</span> are heading to the Letter Griddle Cafe to celebrate our Grand Opening!
+            Brand new <span className="font-bold">themed puzzles and games</span> are heading to Letter Griddle to celebrate our Grand Opening!
           </p>
         </div>
         

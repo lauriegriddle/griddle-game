@@ -813,12 +813,12 @@ const copyToClipboard = async (text) => {
   <span className="text-lg">🌠</span>
 </button>
             <button
-              onClick={() => setShowHowToPlayModal(true)}
-              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
-              title="How to Play"
-            >
-              <HelpCircle size={18} />
-            </button>
+  onClick={() => setShowHowToPlayModal(true)}
+  className="... relative"
+>
+  <HelpCircle size={18} />
+  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[8px] font-bold px-1 rounded-full">NEW</span>
+</button>
             <button
               onClick={() => setShowMissionModal(true)}
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
@@ -1353,9 +1353,14 @@ const copyToClipboard = async (text) => {
                 How to Play
               </h2>
             </div>
-            
+            <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
+  <h3 className="font-bold text-amber-800 mb-2">📱 NEW!  Add to Your Home Screen!</h3>
+  <p className="text-gray-700 mb-2">Play Letter Griddle like an app! Add it to your phone's Home Screen for easy one-tap access every day.</p>
+  <p className="text-gray-700 text-sm"><strong>iPhone/iPad:</strong> In Safari, tap the Share button (square with arrow) → "Add to Home Screen"</p>
+</div>
+
             <div className="space-y-4">
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200 mt-4">
                 <h3 className="font-bold text-amber-800 mb-2">🥞 Goal</h3>
                 <p className="text-gray-700">Fill in all 5 words using the available letters!</p>
               </div>
@@ -1388,14 +1393,8 @@ const copyToClipboard = async (text) => {
                 </ul>
               </div>
               
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
-                <h3 className="font-bold text-amber-800 mb-2">☕ Enjoy the Puzzle!</h3>
-                <p className="text-gray-700">Have fun and enjoy your favorite daily pancake-inspired word game! ☕🥞</p>
-              </div>
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
-                <h3 className="font-bold text-amber-800 mb-2">✨ New Feature!</h3>
-                <p className="text-gray-700">Your progress saves automatically! You can leave and come back anytime to finish the puzzle. Click <span className="font-bold">Reset to start fresh</span> if you want to start over.</p>
-              </div>
+              
+             
               
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
                 <h3 className="font-bold text-amber-800 mb-2">📧 Questions or Feedback?</h3>

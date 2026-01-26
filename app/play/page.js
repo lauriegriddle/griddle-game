@@ -1572,6 +1572,11 @@ More games: lettergriddle.com`}
 
       {/* Copyright Footer */}
 <div className="text-center py-6 text-xs text-amber-700 mt-8">
+ <div className="mb-2">
+        <a href="/" className="hover:text-amber-600 underline font-semibold">
+          🥞 Visit Letter Griddle Home
+        </a>
+      </div> 
   <div>
     © {new Date().getFullYear()} Letter Griddle. All rights reserved.
     {' | '}

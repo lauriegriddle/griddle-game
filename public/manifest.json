@@ -1,0 +1,17 @@
+{
+  "name": "Letter Griddle",
+  "short_name": "Griddle",
+  "description": "Your favorite pancake-inspired daily word game",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FEF3C7",
+  "theme_color": "#F59E0B",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "864x864",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

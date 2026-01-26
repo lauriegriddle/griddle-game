@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body>
         {children}

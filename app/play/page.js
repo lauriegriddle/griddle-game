@@ -817,7 +817,7 @@ const copyToClipboard = async (text) => {
   className="... relative"
 >
   <HelpCircle size={18} />
-  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[8px] font-bold px-1 rounded-full">NEW</span>
+  
 </button>
             <button
               onClick={() => setShowMissionModal(true)}
@@ -1354,37 +1354,12 @@ const copyToClipboard = async (text) => {
               </h2>
             </div>
             <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
-  <h3 className="font-bold text-amber-800 mb-2">📱 NEW! Add to Your Home Screen!</h3>
-  <p className="text-gray-700 mb-2">Play Letter Griddle like an app! Add it to your phone's Home Screen for easy one-tap access every day.</p>
-  <p className="text-gray-700 text-sm"><strong>iPhone/iPad:</strong> In Safari, tap the Share button (square with arrow) → "Add to Home Screen"</p>
+ <h3 className="font-bold text-amber-800 mb-2">📱 Add to Your Home Screen</h3>
+<p className="text-gray-700 mb-2">Play Letter Griddle like an app! Add it to your phone's Home Screen for easy one-tap access every day.</p>
+<p className="text-gray-700 text-sm"><strong>iPhone/iPad:</strong> In Safari, tap the Share button (square with arrow) → "Add to Home Screen"</p>
 <p className="text-gray-700 text-sm"><strong>Android:</strong> In Chrome, tap the three dots menu → "Add to Home Screen"</p>
-<p className="text-gray-700 text-sm mb-3 mt-2">You'll see our orange Letter Griddle icon on your Home Screen! 🟠</p>
-  
-  <div className="space-y-3">
-    <div>
-      <p className="text-amber-700 text-xs font-semibold mb-1">📍 From the Landing Page:</p>
-      <video 
-        controls 
-        className="w-full max-h-48 rounded-lg border-2 border-amber-300"
-        preload="metadata"
-      >
-        <source src="/videos/add-to-homescreen-home.mp4" type="video/mp4" />
-        Your browser does not support video.
-      </video>
-    </div>
-    
-    <div>
-      <p className="text-amber-700 text-xs font-semibold mb-1">📍 From the Game Page:</p>
-      <video 
-        controls 
-        className="w-full max-h-48 rounded-lg border-2 border-amber-300"
-        preload="metadata"
-      >
-        <source src="/videos/add-to-homescreen-play.mp4" type="video/mp4" />
-        Your browser does not support video.
-      </video>
-    </div>
-  </div>
+<p className="text-gray-700 text-sm mt-2">You'll see our orange Letter Griddle icon on your Home Screen! 🟠</p>
+<p className="text-amber-600 text-xs mt-2 italic">Note: Adding Letter Griddle to your Home Screen starts fresh stats. Your stats will save within the app going forward!</p>
 </div>
 
             <div className="space-y-4">

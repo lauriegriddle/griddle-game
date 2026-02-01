@@ -273,6 +273,168 @@ const triviaQuestions = [
     correctAnswer: "1989",
     hint: "The end of the 1980s...",
     funFact: "Seinfeld debuted in 1989 as 'The Seinfeld Chronicles.' It was almost cancelled after the pilot but went on to become one of TV's biggest hits!"
+  },
+  {
+    id: 31,
+    theme: "Winter Olympics ❄️",
+    question: "Where are the 2026 Winter Olympics being held?",
+    options: ["Salt Lake City, USA", "Milan-Cortina, Italy", "Sapporo, Japan", "Stockholm, Sweden"],
+    correctAnswer: "Milan-Cortina, Italy",
+    hint: "Two Italian cities are sharing hosting duties...",
+    funFact: "The 2026 Winter Olympics will be held across two Italian cities: Milan and Cortina d'Ampezzo. This is Italy's fourth time hosting the Winter Games!"
+  },
+  {
+    id: 32,
+    theme: "Winter Olympics ❄️",
+    question: "Where were the first Winter Olympics held in 1924?",
+    options: ["St. Moritz, Switzerland", "Chamonix, France", "Oslo, Norway", "Lake Placid, USA"],
+    correctAnswer: "Chamonix, France",
+    hint: "A French Alpine town...",
+    funFact: "The first Winter Olympics were held in Chamonix, France in 1924. Only 16 nations and 258 athletes competed, compared to thousands today!"
+  },
+  {
+    id: 33,
+    theme: "Winter Olympics ❄️",
+    question: "Which country has won the most Winter Olympic medals of all time?",
+    options: ["United States", "Russia", "Norway", "Germany"],
+    correctAnswer: "Norway",
+    hint: "A Scandinavian nation known for skiing...",
+    funFact: "Norway has won over 400 Winter Olympic medals, more than any other country. Their success comes largely from cross-country skiing and biathlon!"
+  },
+  {
+    id: 34,
+    theme: "Winter Olympics ❄️",
+    question: "How many rings are in the Olympic symbol?",
+    options: ["4", "5", "6", "7"],
+    correctAnswer: "5",
+    hint: "One for each inhabited continent...",
+    funFact: "The five Olympic rings represent the five inhabited continents: Africa, the Americas, Asia, Europe, and Oceania. The design was created in 1913!"
+  },
+  {
+    id: 35,
+    theme: "Winter Olympics ❄️",
+    question: "Which figure skater landed the first quadruple jump in Olympic competition?",
+    options: ["Scott Hamilton", "Brian Boitano", "Kurt Browning", "Brian Orser"],
+    correctAnswer: "Kurt Browning",
+    hint: "A Canadian skater in the late 1980s...",
+    funFact: "Kurt Browning of Canada landed the first ratified quadruple jump in competition in 1988. Today, top skaters regularly land multiple quads in a single program!"
+  },
+  {
+    id: 36,
+    theme: "Winter Olympics ❄️",
+    question: "What sport combines cross-country skiing and rifle shooting?",
+    options: ["Nordic combined", "Biathlon", "Ski jumping", "Freestyle skiing"],
+    correctAnswer: "Biathlon",
+    hint: "Athletes must hit targets between skiing legs...",
+    funFact: "Biathlon originated as training for Norwegian military patrol units. Athletes ski up to 20 kilometers and must shoot at targets from both standing and prone positions!"
+  },
+  {
+    id: 37,
+    theme: "Winter Olympics ❄️",
+    question: "Which country invented the sport of curling?",
+    options: ["Canada", "Sweden", "Scotland", "Norway"],
+    correctAnswer: "Scotland",
+    hint: "Think bagpipes and kilts...",
+    funFact: "Curling originated in Scotland in the 16th century. The oldest curling stone, found at the bottom of a Scottish pond, dates back to 1511!"
+  },
+  {
+    id: 38,
+    theme: "Winter Olympics ❄️",
+    question: "How long is a standard Olympic hockey game?",
+    options: ["40 minutes", "48 minutes", "60 minutes", "90 minutes"],
+    correctAnswer: "60 minutes",
+    hint: "Three periods of equal length...",
+    funFact: "Olympic hockey games consist of three 20-minute periods. The sport has been part of the Winter Olympics since the first games in 1924!"
+  },
+  {
+    id: 39,
+    theme: "Winter Olympics ❄️",
+    question: "What is the 'Miracle on Ice'?",
+    options: ["A figure skating move", "USA hockey beating USSR in 1980", "A speed skating record", "The first triple axel"],
+    correctAnswer: "USA hockey beating USSR in 1980",
+    hint: "Lake Placid, Cold War, amateur vs. professionals...",
+    funFact: "The 'Miracle on Ice' was when the underdog US amateur hockey team defeated the heavily favored Soviet team 4-3 at the 1980 Lake Placid Olympics!"
+  },
+  {
+    id: 40,
+    theme: "Winter Olympics ❄️",
+    question: "What do athletes slide down in the luge?",
+    options: ["A bobsled track", "An ice chute", "A ski slope", "A half-pipe"],
+    correctAnswer: "An ice chute",
+    hint: "They lie on their backs on a small sled...",
+    funFact: "Luge athletes reach speeds over 90 mph while lying feet-first on a tiny sled. They steer using only subtle leg movements and body shifts!"
+  },
+  {
+    id: 41,
+    theme: "Winter Olympics ❄️",
+    question: "Which jump is considered the most difficult in figure skating?",
+    options: ["Lutz", "Salchow", "Axel", "Loop"],
+    correctAnswer: "Axel",
+    hint: "It's the only jump that takes off facing forward...",
+    funFact: "The axel is the hardest jump because it requires an extra half rotation. A triple axel is actually 3.5 rotations! It's named after Norwegian skater Axel Paulsen."
+  },
+  {
+    id: 42,
+    theme: "Winter Olympics ❄️",
+    question: "How many athletes are on a bobsled team in the four-man event?",
+    options: ["2", "3", "4", "5"],
+    correctAnswer: "4",
+    hint: "The name gives it away...",
+    funFact: "A four-man bobsled team includes a pilot, brakeman, and two pushers. The sled and crew together can weigh up to 1,389 pounds!"
+  },
+  {
+    id: 43,
+    theme: "Winter Olympics ❄️",
+    question: "What is the half-pipe event named after?",
+    options: ["A musical instrument", "A plumbing fixture", "Its shape", "Its inventor"],
+    correctAnswer: "Its shape",
+    hint: "Think about what it looks like from the side...",
+    funFact: "The half-pipe is shaped like a tube cut in half lengthwise. Snowboard half-pipes at the Olympics are 22 feet tall with walls at 18-foot vertical!"
+  },
+  {
+    id: 44,
+    theme: "Winter Olympics ❄️",
+    question: "Which Winter Olympic sport features the 'skeleton' event?",
+    options: ["Skiing", "Sliding", "Skating", "Snowboarding"],
+    correctAnswer: "Sliding",
+    hint: "Athletes go headfirst down an icy track...",
+    funFact: "In skeleton, athletes dive headfirst onto a tiny sled and race down the same track used for bobsled and luge, reaching speeds over 80 mph!"
+  },
+  {
+    id: 45,
+    theme: "Winter Olympics ❄️",
+    question: "What country dominates short track speed skating?",
+    options: ["Netherlands", "USA", "South Korea", "Japan"],
+    correctAnswer: "South Korea",
+    hint: "An Asian powerhouse in this event...",
+    funFact: "South Korea has won more Olympic medals in short track speed skating than any other country. The sport is incredibly popular there!"
+  },
+  {
+    id: 46,
+    theme: "Winter Olympics ❄️",
+    question: "How many sports are in the Winter Olympics?",
+    options: ["7", "12", "15", "20"],
+    correctAnswer: "15",
+    hint: "More than you might think...",
+    funFact: "The Winter Olympics features 15 sports: alpine skiing, biathlon, bobsled, cross-country skiing, curling, figure skating, freestyle skiing, ice hockey, luge, Nordic combined, short track, skeleton, ski jumping, snowboarding, and speed skating!"
+  },
+  {
+    id: 47,
+    theme: "Winter Olympics ❄️",
+    question: "What color medal is awarded for third place?",
+    options: ["Gold", "Silver", "Bronze", "Copper"],
+    correctAnswer: "Bronze",
+    hint: "A brownish metal...",
+    funFact: "Olympic bronze medals are made of copper and tin. Gold medals are actually mostly silver with gold plating, and must contain at least 6 grams of gold!"
+  },
+  {
+    id: 48,
+    theme: "Winter Olympics ❄️",
+    question: "Which city has hosted the Winter Olympics three times?",
+    options: ["Innsbruck, Austria", "Lake Placid, USA", "St. Moritz, Switzerland", "None yet"],
+    correctAnswer: "None yet",
+    hint: "Two cities have hosted twice, but none three times...",
+    funFact: "No city has hosted three Winter Olympics yet. Innsbruck (1964, 1976), St. Moritz (1928, 1948), and Lake Placid (1932, 1980) have each hosted twice!"
   }
 ];
 

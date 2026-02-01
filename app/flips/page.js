@@ -435,6 +435,186 @@ const triviaQuestions = [
     correctAnswer: "None yet",
     hint: "Two cities have hosted twice, but none three times...",
     funFact: "No city has hosted three Winter Olympics yet. Innsbruck (1964, 1976), St. Moritz (1928, 1948), and Lake Placid (1932, 1980) have each hosted twice!"
+  },
+  {
+    id: 49,
+    theme: "Science 🔬",
+    question: "What is the largest organ in the human body?",
+    options: ["Heart", "Liver", "Brain", "Skin"],
+    correctAnswer: "Skin",
+    hint: "It covers your entire body...",
+    funFact: "Your skin weighs about 8 pounds and covers roughly 22 square feet. It completely renews itself every 27 days!"
+  },
+  {
+    id: 50,
+    theme: "Science 🔬",
+    question: "How many bones are in the adult human body?",
+    options: ["106", "206", "306", "406"],
+    correctAnswer: "206",
+    hint: "More than 200 but less than 250...",
+    funFact: "Babies are born with about 270 bones, but many fuse together as we grow. By adulthood, we have 206 bones!"
+  },
+  {
+    id: 51,
+    theme: "Science 🔬",
+    question: "What planet has the most moons in our solar system?",
+    options: ["Jupiter", "Saturn", "Uranus", "Neptune"],
+    correctAnswer: "Saturn",
+    hint: "The one with the famous rings...",
+    funFact: "Saturn has over 140 known moons, surpassing Jupiter's count. Scientists keep discovering new ones with better telescopes!"
+  },
+  {
+    id: 52,
+    theme: "Science 🔬",
+    question: "What is the speed of light?",
+    options: ["186,000 miles per hour", "186,000 miles per second", "1 million miles per hour", "1 million miles per second"],
+    correctAnswer: "186,000 miles per second",
+    hint: "It's incredibly fast, measured per second...",
+    funFact: "Light travels at 186,000 miles per second. At that speed, it takes sunlight about 8 minutes to reach Earth from the Sun!"
+  },
+  {
+    id: 53,
+    theme: "Science 🔬",
+    question: "What element does 'O' represent on the periodic table?",
+    options: ["Gold", "Osmium", "Oxygen", "Oganesson"],
+    correctAnswer: "Oxygen",
+    hint: "You breathe it every day...",
+    funFact: "Oxygen makes up about 21% of Earth's atmosphere. It was discovered independently by two scientists in the 1770s!"
+  },
+  {
+    id: 54,
+    theme: "Science 🔬",
+    question: "What is the closest star to Earth?",
+    options: ["Proxima Centauri", "Alpha Centauri", "The Sun", "Sirius"],
+    correctAnswer: "The Sun",
+    hint: "It rises every morning...",
+    funFact: "The Sun is about 93 million miles from Earth. The next closest star, Proxima Centauri, is over 4 light-years away!"
+  },
+  {
+    id: 55,
+    theme: "Science 🔬",
+    question: "What do bees collect from flowers to make honey?",
+    options: ["Pollen", "Nectar", "Sap", "Dew"],
+    correctAnswer: "Nectar",
+    hint: "A sweet liquid inside the flower...",
+    funFact: "Bees visit up to 5,000 flowers in a single day to collect nectar. It takes about 60,000 bees traveling 55,000 miles to make one pound of honey!"
+  },
+  {
+    id: 56,
+    theme: "Science 🔬",
+    question: "What causes thunder?",
+    options: ["Clouds colliding", "Lightning heating air", "Wind speed", "Rain falling"],
+    correctAnswer: "Lightning heating air",
+    hint: "It always follows lightning...",
+    funFact: "Lightning heats the air to around 30,000 degrees Fahrenheit, causing it to expand rapidly and create a sonic boom we hear as thunder!"
+  },
+  {
+    id: 57,
+    theme: "Science 🔬",
+    question: "How long does it take Earth to orbit the Sun?",
+    options: ["24 hours", "30 days", "365 days", "1,000 days"],
+    correctAnswer: "365 days",
+    hint: "Think about a calendar...",
+    funFact: "Earth's orbit is actually 365.25 days, which is why we add a leap day every four years to keep our calendars accurate!"
+  },
+  {
+    id: 58,
+    theme: "Science 🔬",
+    question: "What are the three states of matter taught in elementary school?",
+    options: ["Hot, cold, warm", "Solid, liquid, gas", "Hard, soft, fluid", "Ice, water, steam"],
+    correctAnswer: "Solid, liquid, gas",
+    hint: "Water can be all three...",
+    funFact: "There are actually more states of matter, including plasma (found in stars and lightning) and Bose-Einstein condensate, which only exists near absolute zero!"
+  },
+  {
+    id: 59,
+    theme: "Geography 🌍",
+    question: "What is the longest river in the world?",
+    options: ["Amazon", "Nile", "Mississippi", "Yangtze"],
+    correctAnswer: "Nile",
+    hint: "It flows through Egypt...",
+    funFact: "The Nile River stretches about 4,132 miles through 11 African countries. Ancient Egyptians called it 'Ar' meaning 'black' because of its dark sediment!"
+  },
+  {
+    id: 60,
+    theme: "Geography 🌍",
+    question: "What is the largest ocean on Earth?",
+    options: ["Atlantic", "Indian", "Pacific", "Arctic"],
+    correctAnswer: "Pacific",
+    hint: "Its name means peaceful...",
+    funFact: "The Pacific Ocean covers more area than all the land on Earth combined! It contains more than half of the world's free water."
+  },
+  {
+    id: 61,
+    theme: "Geography 🌍",
+    question: "Which continent has the most countries?",
+    options: ["Asia", "Europe", "Africa", "South America"],
+    correctAnswer: "Africa",
+    hint: "It's the second largest continent...",
+    funFact: "Africa has 54 recognized countries. The newest is South Sudan, which became independent in 2011!"
+  },
+  {
+    id: 62,
+    theme: "Geography 🌍",
+    question: "What is the tallest mountain in the world?",
+    options: ["K2", "Mount Everest", "Mount Kilimanjaro", "Denali"],
+    correctAnswer: "Mount Everest",
+    hint: "Located in the Himalayas...",
+    funFact: "Mount Everest stands at 29,032 feet tall and grows about half an inch each year due to tectonic plate movement!"
+  },
+  {
+    id: 63,
+    theme: "Geography 🌍",
+    question: "Which U.S. state has the most coastline?",
+    options: ["California", "Florida", "Alaska", "Hawaii"],
+    correctAnswer: "Alaska",
+    hint: "It's the largest state...",
+    funFact: "Alaska has over 6,600 miles of coastline, more than all other U.S. states combined! Its coastline is longer than the entire U.S. Atlantic coast."
+  },
+  {
+    id: 64,
+    theme: "Geography 🌍",
+    question: "What country has the largest population in the world?",
+    options: ["United States", "China", "India", "Indonesia"],
+    correctAnswer: "India",
+    hint: "It recently passed China...",
+    funFact: "India surpassed China as the world's most populous country in 2023, with over 1.4 billion people. That's about 17% of all humans on Earth!"
+  },
+  {
+    id: 65,
+    theme: "Geography 🌍",
+    question: "What is the driest place on Earth?",
+    options: ["Sahara Desert", "Death Valley", "Atacama Desert", "Gobi Desert"],
+    correctAnswer: "Atacama Desert",
+    hint: "It's in South America...",
+    funFact: "Parts of Chile's Atacama Desert have never recorded rainfall in human history! Scientists use it to test Mars rovers because it's so similar to the Martian surface."
+  },
+  {
+    id: 66,
+    theme: "Geography 🌍",
+    question: "How many continents are there?",
+    options: ["5", "6", "7", "8"],
+    correctAnswer: "7",
+    hint: "Count them: Africa, Antarctica, Asia...",
+    funFact: "The seven continents are Africa, Antarctica, Asia, Australia, Europe, North America, and South America. Together they make up about 30% of Earth's surface!"
+  },
+  {
+    id: 67,
+    theme: "Geography 🌍",
+    question: "Which country is both in Europe and Asia?",
+    options: ["Russia", "Turkey", "Egypt", "Both Russia and Turkey"],
+    correctAnswer: "Both Russia and Turkey",
+    hint: "More than one country straddles the divide...",
+    funFact: "Both Russia and Turkey span two continents. Istanbul, Turkey is the only major city in the world located on two continents!"
+  },
+  {
+    id: 68,
+    theme: "Geography 🌍",
+    question: "What is the largest desert in the world?",
+    options: ["Sahara", "Arabian", "Gobi", "Antarctic"],
+    correctAnswer: "Antarctic",
+    hint: "Deserts are defined by precipitation, not heat...",
+    funFact: "Antarctica is technically the world's largest desert because it receives less than 10 inches of precipitation per year. The Sahara is the largest hot desert!"
   }
 ];
 

@@ -953,6 +953,118 @@ const puzzles = [
     ],
     funFact: "The oldest known evidence of swimming dates back to 2500 BC, with drawings from ancient Egypt!",
   },
+
+  // =============================================
+  // INDEX 64 - Shows Feb 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Groundhog",
+    puzzleNumber: 143,
+    words: [
+      { word: "PHIL", hint: "The famous furry forecaster from Punxsutawney", revealedIndex: 0 },
+      { word: "SPRING", hint: "The warm season that may arrive early or late", revealedIndex: 2 },
+      { word: "WINTER", hint: "The cold season that might stick around six more weeks", revealedIndex: 3 },
+      { word: "SHADOW", hint: "What the critter sees that determines his prediction", revealedIndex: 0 },
+      { word: "FORECAST", hint: "A prediction about future weather conditions", revealedIndex: 4 },
+    ],
+    funFact: "The predicting groundhog is called a prognosticator, a term for someone who foretells future events. Despite the hype, Phil's predictions are only correct about 39% of the time, which is statistically worse than a coin flip. 🦫",
+  },
+
+  // =============================================
+  // INDEX 65 - Shows Feb 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Mardi Gras",
+    puzzleNumber: 144,
+    words: [
+      { word: "GOLD", hint: "One of the iconic colors representing power", revealedIndex: 0 },
+      { word: "GREEN", hint: "One of the iconic colors representing faith", revealedIndex: 2 },
+      { word: "PURPLE", hint: "One of the iconic colors representing justice", revealedIndex: 3 },
+      { word: "PARADES", hint: "Festive processions with floats and marching bands", revealedIndex: 0 },
+      { word: "CARNIVAL", hint: "A season of festivities before Lent begins", revealedIndex: 4 },
+    ],
+    funFact: "Famously celebrated in New Orleans but also globally, Mardi Gras features secret societies, or Krewes, and iconic colors: purple symbolizes justice, gold stands for power, and green represents faith. 🎭",
+  },
+
+  // =============================================
+  // INDEX 66 - Shows Feb 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Going to the Movies",
+    puzzleNumber: 145,
+    words: [
+      { word: "SHOW", hint: "A scheduled screening at the theater", revealedIndex: 0 },
+      { word: "FLICK", hint: "A casual term for a film or movie", revealedIndex: 2 },
+      { word: "SCREEN", hint: "The large surface where images are projected", revealedIndex: 3 },
+      { word: "PICTURE", hint: "Another word for a motion picture or film", revealedIndex: 0 },
+      { word: "ANIMATED", hint: "A type of film made with drawings or computer graphics", revealedIndex: 4 },
+    ],
+    funFact: "Many modern theaters make more money from popcorn than from ticket sales, even though the popcorn costs more per ounce than a filet mignon. 🎬",
+  },
+
+  // =============================================
+  // INDEX 67 - Shows Feb 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "On the Table",
+    puzzleNumber: 146,
+    words: [
+      { word: "BOWL", hint: "A deep, rounded dish for soup or cereal", revealedIndex: 0 },
+      { word: "PLATE", hint: "A flat dish for serving a main course", revealedIndex: 2 },
+      { word: "SAUCER", hint: "A small shallow dish that goes under a cup", revealedIndex: 3 },
+      { word: "PLATTER", hint: "A large serving dish for meats or appetizers", revealedIndex: 0 },
+      { word: "PLACEMAT", hint: "A protective mat placed under a table setting", revealedIndex: 4 },
+    ],
+    funFact: "To remember the placement of the bread plate and dessert, make a lowercase 'b' with your left hand and 'd' with your right by touching your thumb and index finger. The 'b' is for the bread plate on the left, and the 'd' is for dessert on the right. 🍽️",
+  },
+
+  // =============================================
+  // INDEX 68 - Shows Feb 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Frozen",
+    puzzleNumber: 147,
+    words: [
+      { word: "COLD", hint: "Having a low temperature", revealedIndex: 0 },
+      { word: "POLAR", hint: "Relating to the icy regions near the North or South Pole", revealedIndex: 2 },
+      { word: "ARCTIC", hint: "The frigid region surrounding the North Pole", revealedIndex: 3 },
+      { word: "BITING", hint: "Describes a sharp, piercing chill in the air", revealedIndex: 0 },
+      { word: "FREEZING", hint: "Extremely cold, at or below 32 degrees Fahrenheit", revealedIndex: 4 },
+    ],
+    funFact: "While you might think it's cold, Earth is actually closest to the sun during the Northern Hemisphere's winter. ❄️",
+  },
+
+  // =============================================
+  // INDEX 69 - Shows Feb 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Tea",
+    puzzleNumber: 148,
+    words: [
+      { word: "BREW", hint: "To prepare by soaking in hot water", revealedIndex: 0 },
+      { word: "STEEP", hint: "To soak leaves in hot water to extract flavor", revealedIndex: 2 },
+      { word: "KETTLE", hint: "A container used to boil water", revealedIndex: 3 },
+      { word: "INFUSER", hint: "A device that holds loose leaves while they soak", revealedIndex: 0 },
+      { word: "STRAINER", hint: "A tool used to filter out leaves from the liquid", revealedIndex: 4 },
+    ],
+    funFact: "According to legend, Chinese Emperor Shennong discovered tea in 2737 BC when leaves from a wild tree accidentally fell into his pot of boiling water. 🫖",
+  },
+
+  // =============================================
+  // INDEX 70 - Shows Feb 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Crafting",
+    puzzleNumber: 149,
+    words: [
+      { word: "ARTS", hint: "Creative activities involving skill and imagination", revealedIndex: 0 },
+      { word: "HOBBY", hint: "A leisure activity done for enjoyment", revealedIndex: 2 },
+      { word: "CREATE", hint: "To make or bring something into existence", revealedIndex: 3 },
+      { word: "DESIGN", hint: "To plan and make something with purpose", revealedIndex: 0 },
+      { word: "SKILLFUL", hint: "Having or showing expertise and ability", revealedIndex: 4 },
+    ],
+    funFact: "Historically, the word 'craft' comes from an Old English word meaning 'skill or strength'. 🎨",
+  },
 ];
 
 // ===========================================

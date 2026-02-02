@@ -618,21 +618,29 @@ const triviaQuestions = [
   }
 ];
 
-// Function to get today's question
+// Function to get today's question - ANCHOR DATE SYSTEM
 const getTodaysQuestion = () => {
+  // ANCHOR DATE: February 1, 2026 at 7:45 PM EST = Question ID 27 (index 26)
+  const ANCHOR_DATE = new Date('2026-02-01T19:45:00-05:00');
+  const ANCHOR_INDEX = 26; // Question ID 27 = index 26
+  
   const now = new Date();
   const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
   const hour = estTime.getHours();
+  const minutes = estTime.getMinutes();
   
   let questionDate = new Date(estTime);
-  if (hour < 19 || (hour === 19 && estTime.getMinutes() < 45)) {
+  if (hour < 19 || (hour === 19 && minutes < 45)) {
     questionDate.setDate(questionDate.getDate() - 1);
   }
   questionDate.setHours(19, 45, 0, 0);
   
-  const epoch = new Date('1970-01-01');
-  const daysSinceEpoch = Math.floor((questionDate - epoch) / (1000 * 60 * 60 * 24));
-  const questionIndex = daysSinceEpoch % triviaQuestions.length;
+  // Calculate days since anchor date
+  const daysSinceAnchor = Math.floor((questionDate - ANCHOR_DATE) / (1000 * 60 * 60 * 24));
+  
+  // Calculate question index (wraps around after 68 questions)
+  let questionIndex = (ANCHOR_INDEX + daysSinceAnchor) % triviaQuestions.length;
+  if (questionIndex < 0) questionIndex += triviaQuestions.length;
   
   return triviaQuestions[questionIndex];
 };

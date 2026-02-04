@@ -25,22 +25,10 @@ export default function BetaGames() {
         description: "Beta testing in progress.  Kitchen and Office Modes!"
     },
     {
-    name: "Hoopla",
-    href: "/hoopla",
-    emoji: "📣",
-    description: "Beta testing in progress. Sports pep rally word search!"
-},
-    {
       name: "Order Up!",
       href: "/order",
       emoji: "🍳",
       description: "Beta testing in progress.  Assemble café orders before time runs out!"
-    },
-    {
-      name: "Pancakes",
-      href: "/pancakes",
-      emoji: "🥞",
-      description: "Beta testing in progress!"
     },
     {
         name: "Scoops",
@@ -59,12 +47,6 @@ export default function BetaGames() {
         href: "/snacks",
         emoji: "🍪",
         description: "Beta testing in progress"
-    },
-     {
-        name: "Spins",
-        href: "/spins",
-        emoji: "💿",
-        description: "Beta Testing.  Music trivia songs with food in the title"
     },
     {
         name: "Stacks",

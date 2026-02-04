@@ -5,6 +5,69 @@ import Link from 'next/link';
 export default function Home() {
   const [showMoreGames, setShowMoreGames] = useState(false);
   
+  // GRAND OPENING SECTION - New games launching!
+  const grandOpeningGames = [
+    {
+      name: "Pancakes",
+      tagline: "Find the words, earn the toppings!",
+      emoji: "🥞",
+      href: "/pancakes",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #92400E 100%)",
+        icon: "🥞",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Pancakes"],
+        subtitle: "Word Search Game",
+        subtitleColor: "text-amber-100"
+      },
+      borderColor: "border-amber-400",
+      bgColor: "from-amber-100 to-orange-100",
+      textColor: "text-amber-800",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-600/80"
+    },
+    {
+      name: "Hoopla",
+      tagline: "The Word-Finding Challenge!",
+      emoji: "📣",
+      href: "/hoopla",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%)",
+        icon: "📣",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Hoopla"],
+        subtitle: "Game Night at the Cafe",
+        subtitleColor: "text-red-100"
+      },
+      borderColor: "border-red-400",
+      bgColor: "from-red-100 to-orange-100",
+      textColor: "text-red-800",
+      subTextColor: "text-red-700",
+      hoverBg: "bg-red-500/80"
+    },
+    {
+      name: "Letter Griddle Cottage",
+      tagline: "A seasonal retreat",
+      emoji: "🏔️",
+      href: "https://lettergriddlecottage.com",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #38BDF8 0%, #0EA5E9 50%, #0284C7 100%)",
+        icon: "🏔️",
+        iconSize: "text-4xl",
+        title: ["Letter Griddle", "Cottage"],
+        subtitle: "Seasonal Retreat",
+        subtitleColor: "text-sky-100"
+      },
+      borderColor: "border-sky-400",
+      bgColor: "from-sky-100 to-blue-100",
+      textColor: "text-sky-800",
+      subTextColor: "text-sky-700",
+      hoverBg: "bg-sky-500/80",
+      comingSoon: true
+    }
+  ];
+  
   // SECTION 1: Daily Games (scheduled drop times)
   const dailyGames = [
     {
@@ -260,7 +323,7 @@ export default function Home() {
     }
   ];
 
-  // SECTION 3: Stories, Recipes & More
+  // SECTION 3: Stories, Recipes & More (with Spins)
   const storiesAndMore = [
     {
       name: "Cookbook",
@@ -304,25 +367,24 @@ export default function Home() {
       hoverBg: "bg-amber-600/80"
     },
     {
-      name: "Letter Griddle Cottage",
-      tagline: "A seasonal retreat",
-      emoji: "🏔️",
-      href: "https://lettergriddlecottage.com",
-      external: true,
+      name: "Spins",
+      tagline: "Spell the food hidden in the song title",
+      emoji: "💿",
+      href: "/spins",
       thumbnail: {
-        gradient: "linear-gradient(135deg, #38BDF8 0%, #0EA5E9 50%, #0284C7 100%)",
-        icon: "🏔️",
-        iconSize: "text-4xl",
-        title: ["Letter Griddle", "Cottage"],
-        subtitle: "Seasonal Retreat",
-        subtitleColor: "text-sky-100"
+        gradient: "linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #6D28D9 100%)",
+        icon: "💿",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Spins"],
+        subtitle: "Music Word Game",
+        subtitleColor: "text-purple-200",
+        hasStars: true
       },
-      borderColor: "border-gray-300",
-      bgColor: "from-sky-100 to-blue-100",
-      textColor: "text-sky-800",
-      subTextColor: "text-sky-700",
-      hoverBg: "bg-sky-500/80",
-      comingSoon: true
+      borderColor: "border-purple-400",
+      bgColor: "from-purple-100 to-violet-100",
+      textColor: "text-purple-800",
+      subTextColor: "text-purple-700",
+      hoverBg: "bg-purple-500/80"
     }
   ];
 
@@ -433,7 +495,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gray-800/60 flex items-center justify-center">
                 <div className="text-center text-white">
                   <p className="text-2xl mb-1">❄️</p>
-                  <p className="font-bold text-lg" style={{ fontFamily: 'Georgia, serif' }}>Coming February 2026</p>
+                  <p className="font-bold text-lg" style={{ fontFamily: 'Georgia, serif' }}>Coming Soon</p>
                 </div>
               </div>
             ) : (
@@ -483,6 +545,22 @@ export default function Home() {
           ✨ Ad-free • Play free • No downloads ✨
         </p>
         
+        {/* Grand Opening Button */}
+        <div className="mb-6">
+          <button 
+            onClick={() => scrollToSection('grand-opening')}
+            className="inline-flex items-center gap-2 px-8 py-4 text-white rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            style={{
+              background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)',
+              fontFamily: 'Georgia, serif'
+            }}
+          >
+            <span className="text-yellow-300">✨</span>
+            Grand Opening
+            <span className="text-yellow-300">✨</span>
+          </button>
+        </div>
+        
         {/* Section Navigation */}
         <nav className="flex flex-wrap justify-center gap-3 max-w-xl mx-auto">
           <button 
@@ -507,12 +585,35 @@ export default function Home() {
   }}
   className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
 >
-  Stories & More
+  ✨ Stories & More ✨
 </button>
         </nav>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 pb-12">
+        
+        {/* GRAND OPENING SECTION */}
+        <section id="grand-opening" className="mb-16 scroll-mt-8">
+          <div className="text-center mb-8">
+            <div 
+              className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
+              style={{
+                background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)',
+                fontFamily: 'Georgia, serif'
+              }}
+            >
+              <span className="text-yellow-300">✨</span>
+              {' '}Grand Opening{' '}
+              <span className="text-yellow-300">✨</span>
+            </div>
+            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+              New Games & Experiences
+            </h2>
+            <p className="text-amber-600">Fresh additions to the Letter Griddle family!</p>
+          </div>
+          
+          <GameGrid games={grandOpeningGames} />
+        </section>
         
         {/* SECTION 1: Daily Games */}
         <section id="daily-games" className="mb-16 scroll-mt-8">
@@ -578,11 +679,11 @@ export default function Home() {
           {/* Back to Top Button */}
           <div className="text-center mt-10">
             <button 
-              onClick={() => scrollToSection('daily-games')}
+              onClick={() => scrollToSection('grand-opening')}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-full font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all shadow-lg hover:shadow-xl"
             >
               <span className="text-xl">↑</span>
-              Back to Daily Games
+              Back to Top
             </button>
           </div>
         </section>

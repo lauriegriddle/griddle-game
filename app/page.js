@@ -9,7 +9,7 @@ export default function Home() {
   const grandOpeningGames = [
     {
       name: "Pancakes",
-      tagline: "Find the words, earn the toppings!",
+      tagline: "Find the words, earn the toppings! 30 Puzzles!",
       emoji: "🥞",
       href: "/pancakes",
       thumbnail: {
@@ -28,7 +28,7 @@ export default function Home() {
     },
     {
       name: "Hoopla",
-      tagline: "The Word-Finding Challenge!",
+      tagline: "Word-Finding Challenge!  20 Puzzles!",
       emoji: "📣",
       href: "/hoopla",
       thumbnail: {
@@ -36,7 +36,7 @@ export default function Home() {
         icon: "📣",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Hoopla"],
-        subtitle: "Game Night at the Cafe",
+        subtitle: "Game Night Pep Rally",
         subtitleColor: "text-red-100"
       },
       borderColor: "border-red-400",
@@ -47,7 +47,7 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Cottage",
-      tagline: "Winter Olympics 2026 ❄️",
+      tagline: "Winter Olympics Puzzles ❄️ 17 Puzzles!",
       emoji: "🏔️",
       href: "https://lettergriddlecottage.com",
       external: true,

@@ -107,7 +107,7 @@ const puzzles = [
       { word: "CORN", hint: "Buttered ___ on the cob 🌽", revealed: [1] },
       { word: "BEER", hint: "Popular stadium beverage 🍺", revealed: [2] },
       { word: "NUTS", hint: "Pea___ or cashews", revealed: [0] },
-      { word: "PRETZEL", hint: "Twisted salted bread snack 🥨", revealed: [0, 5] }
+      { word: "NACHOS", hint: "Cheesy topped tortilla chips 🧀", revealed: [0, 4] }
     ]
   },
   {

@@ -47,24 +47,23 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Cottage",
-      tagline: "A seasonal retreat",
+      tagline: "Winter Olympics 2026 ❄️",
       emoji: "🏔️",
       href: "https://lettergriddlecottage.com",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #38BDF8 0%, #0EA5E9 50%, #0284C7 100%)",
-        icon: "🏔️",
+        icon: "❄️",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Cottage"],
-        subtitle: "Seasonal Retreat",
+        subtitle: "Winter Olympics 2026",
         subtitleColor: "text-sky-100"
       },
       borderColor: "border-sky-400",
       bgColor: "from-sky-100 to-blue-100",
       textColor: "text-sky-800",
       subTextColor: "text-sky-700",
-      hoverBg: "bg-sky-500/80",
-      comingSoon: true
+      hoverBg: "bg-sky-500/80"
     }
   ];
   
@@ -609,7 +608,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
               New Games & Experiences
             </h2>
-            <p className="text-amber-600">Fresh additions to Letter Griddle Games!</p>
+            <p className="text-amber-600">Fresh additions to the Letter Griddle family!</p>
           </div>
           
           <GameGrid games={grandOpeningGames} />

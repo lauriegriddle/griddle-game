@@ -1065,6 +1065,118 @@ const puzzles = [
     ],
     funFact: "Historically, the word 'craft' comes from an Old English word meaning 'skill or strength'. 🎨",
   },
+
+  // =============================================
+  // INDEX 71 - Shows Feb 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Farm",
+    puzzleNumber: 150,
+    words: [
+      { word: "CROP", hint: "Plants grown for food or profit", revealedIndex: 0 },
+      { word: "RURAL", hint: "Relating to the countryside rather than the city", revealedIndex: 2 },
+      { word: "CATTLE", hint: "Cows and bulls", revealedIndex: 3 },
+      { word: "TRACTOR", hint: "A powerful vehicle used for pulling farm equipment", revealedIndex: 0 },
+      { word: "IRRIGATE", hint: "To supply land with water for growing crops", revealedIndex: 4 },
+    ],
+    funFact: "The average ear of corn has 800 kernels, and it's common for the rows to be an even number, often 16. 🌽",
+  },
+
+  // =============================================
+  // INDEX 72 - Shows Feb 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Sunny",
+    puzzleNumber: 151,
+    words: [
+      { word: "BEAM", hint: "A ray or shaft of light", revealedIndex: 0 },
+      { word: "SOLAR", hint: "Relating to or derived from the sun", revealedIndex: 2 },
+      { word: "GOLDEN", hint: "A warm, bright yellow color like sunshine", revealedIndex: 3 },
+      { word: "GLARING", hint: "Shining with a harsh, dazzling light", revealedIndex: 0 },
+      { word: "DAYLIGHT", hint: "The natural light of the sun during the day", revealedIndex: 4 },
+    ],
+    funFact: "The Sun's diameter is about 865,370 miles, meaning over one million Earths could fit inside it. ☀️",
+  },
+
+  // =============================================
+  // INDEX 73 - Shows Feb 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Computer",
+    puzzleNumber: 152,
+    words: [
+      { word: "APPS", hint: "Software programs designed for specific tasks", revealedIndex: 0 },
+      { word: "MOUSE", hint: "A handheld device used to move a cursor", revealedIndex: 2 },
+      { word: "SCREEN", hint: "The display surface where images appear", revealedIndex: 3 },
+      { word: "PROGRAMS", hint: "Sets of instructions that tell a computer what to do", revealedIndex: 0 },
+      { word: "KEYBOARD", hint: "A panel of keys used for typing", revealedIndex: 4 },
+    ],
+    funFact: "In 1947, engineers found a moth stuck in a relay of the Harvard Mark II computer, causing a malfunction. They literally 'debugged' the machine by removing the insect, coining the term. 🐛",
+  },
+
+  // =============================================
+  // INDEX 74 - Shows Feb 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Lincoln",
+    puzzleNumber: 153,
+    words: [
+      { word: "TALL", hint: "Having great height", revealedIndex: 0 },
+      { word: "CABIN", hint: "A small rustic dwelling made of logs", revealedIndex: 2 },
+      { word: "HONEST", hint: "Truthful and sincere, a famous nickname", revealedIndex: 3 },
+      { word: "DEBATER", hint: "One who argues or discusses opposing viewpoints", revealedIndex: 0 },
+      { word: "WRESTLER", hint: "One who competes in a grappling sport", revealedIndex: 4 },
+    ],
+    funFact: "Abraham Lincoln was the tallest U.S. President (6'4\"), the only President with a patent (for a boat lifter!), a gifted wrestler, a cat lover who held seances, and a prolific storyteller who stored documents in his top hat, but he had no middle name and lost many early elections before becoming president. 🎩",
+  },
+
+  // =============================================
+  // INDEX 75 - Shows Feb 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Library",
+    puzzleNumber: 154,
+    words: [
+      { word: "CARD", hint: "An item used to borrow books and materials", revealedIndex: 0 },
+      { word: "STUDY", hint: "To read and learn about a subject", revealedIndex: 2 },
+      { word: "GOOGLE", hint: "A popular search engine for finding information", revealedIndex: 3 },
+      { word: "ARCHIVE", hint: "A collection of historical documents or records", revealedIndex: 0 },
+      { word: "RESEARCH", hint: "The systematic investigation of a topic", revealedIndex: 4 },
+    ],
+    funFact: "Libraries are more than just books, with some loaning items like fishing poles or cake pans, and the largest one, the Library of Congress, has over 160 million items on 838 miles of shelves. 📚",
+  },
+
+  // =============================================
+  // INDEX 76 - Shows Feb 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Romance",
+    puzzleNumber: 155,
+    words: [
+      { word: "LOVE", hint: "A deep affection for someone special", revealedIndex: 0 },
+      { word: "SWEET", hint: "Endearing, kind, or sugary", revealedIndex: 2 },
+      { word: "WARMTH", hint: "A feeling of affection or coziness", revealedIndex: 3 },
+      { word: "PASSION", hint: "Intense emotion or strong feeling", revealedIndex: 0 },
+      { word: "DEVOTION", hint: "Loyal commitment and deep love", revealedIndex: 4 },
+    ],
+    funFact: "Romance novels consistently rank as the best-selling fiction books and generate over a billion dollars in annual sales. 💕",
+  },
+
+  // =============================================
+  // INDEX 77 - Shows Feb 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Horses",
+    puzzleNumber: 156,
+    words: [
+      { word: "SHOE", hint: "A metal plate on a hoof for protection", revealedIndex: 0 },
+      { word: "STABLE", hint: "A building where horses are kept", revealedIndex: 2 },
+      { word: "SADDLE", hint: "A seat fastened on a horse's back for riding", revealedIndex: 3 },
+      { word: "FARRIER", hint: "A specialist who trims hooves and fits horseshoes", revealedIndex: 0 },
+      { word: "DRESSAGE", hint: "An equestrian sport of precise, controlled movements", revealedIndex: 4 },
+    ],
+    funFact: "A horse needs to eat grass or hay for about 16 hours a day and can drink up to 10 or more gallons of water daily, depending on climate. 🐴",
+  },
 ];
 
 // ===========================================

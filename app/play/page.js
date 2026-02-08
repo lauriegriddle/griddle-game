@@ -1138,9 +1138,9 @@ const copyToClipboard = async (text) => {
         
         {/* What's Coming */}
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 border-2 border-blue-200">
-          <p className="text-center text-blue-800 font-bold text-lg mb-2">🎉 Grand Opening in February 🎉</p>
+          <p className="text-center text-blue-800 font-bold text-lg mb-2">🎉 Grand Opening 🎉</p>
           <p className="text-center text-blue-700 leading-relaxed">
-            Brand new <span className="font-bold">themed puzzles and games</span> are heading to Letter Griddle to celebrate our Grand Opening!
+            Brand new <span className="font-bold">themed puzzles and games</span> are part of Letter Griddle to celebrate our Grand Opening!
           </p>
         </div>
         
@@ -1156,7 +1156,7 @@ const copyToClipboard = async (text) => {
         <div className="text-center">
           <div className="inline-flex items-center gap-2 bg-amber-100 px-4 py-2 rounded-full">
             <span className="text-xl">🍯</span>
-            <span className="text-amber-800 font-semibold">Stay tuned for more details!</span>
+            <span className="text-amber-800 font-semibold">Join us for Pancakes, Hoopla, and the Winter Games!</span>
             <span className="text-xl">🥞</span>
           </div>
         </div>

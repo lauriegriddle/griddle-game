@@ -236,7 +236,7 @@ const puzzles = [
       { word: "PUCK", hint: "Hard rubber disk 🏒", revealed: [0] },
       { word: "RINK", hint: "Ice surface for playing", revealed: [1] },
       { word: "GOAL", hint: "Score! Red light!", revealed: [2] },
-      { word: "SKATE", hint: "Bladed footwear ⛸️", revealed: [0] },
+      { word: "PADS", hint: "Protective gear", revealed: [0] },
       { word: "PERIOD", hint: "One of three game segments", revealed: [0, 4] }
     ]
   },

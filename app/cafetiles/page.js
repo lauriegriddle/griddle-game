@@ -227,7 +227,7 @@ export default function CafeTiles() {
   const [hasSave, setHasSave] = useState(false);
 
   // End-of-round scoring state
-  const [phase, setPhase] = useState("play"); // "play" | "playerScore" | "playerScoreDone" | "aiScore" | "roundDone"
+  const [phase, setPhase] = useState("play"); // "play" | "playerScore" | "playerScoreDone" | "aiScore" | "aiScoreDone" | "roundDone"
   const [completedRows, setCompletedRows] = useState([]); // player's rows ready to move
   const [lastScoreEvent, setLastScoreEvent] = useState(null); // flash scoring info
   const [playerScoreEvents, setPlayerScoreEvents] = useState([]); // Player scoring log
@@ -286,6 +286,11 @@ export default function CafeTiles() {
       setPhase("playerScoreDone");
       setCompletedRows([]);
       setMsg("Welcome back! Click the button to score your opponent.");
+    } else if (savedPhase === "aiScoreDone") {
+      // AI scoring was done, player was reviewing — go to roundDone
+      setPhase("roundDone");
+      setCompletedRows([]);
+      setMsg("Welcome back! Start the next round when ready.");
     } else if (savedPhase === "roundDone") {
       // Round was done — let them start next round
       setPhase("roundDone");
@@ -412,7 +417,8 @@ export default function CafeTiles() {
         if (i === events.length - 1) {
           addTimer(() => {
             setAiBoard(tempBoard);
-            finishRound(tempBoard);
+            setPhase("aiScoreDone");
+            setMsg(`${OPPONENTS[opp]?.name}'s scoring complete. Review their board, then continue.`);
           }, 2000);
         }
       }, (i + 1) * 2800);
@@ -652,7 +658,7 @@ export default function CafeTiles() {
   }
 
   // ---- GAME ----
-  const inScoring = phase === "playerScore" || phase === "playerScoreDone" || phase === "aiScore" || phase === "roundDone";
+  const inScoring = phase === "playerScore" || phase === "playerScoreDone" || phase === "aiScore" || phase === "aiScoreDone" || phase === "roundDone";
 
   return (
     <div style={{ minHeight: "100vh", background: "linear-gradient(180deg, #C17A3A 0%, #D49545 20%, #E8B870 40%, #F5DEB3 60%, #FFF8F0 100%)", fontFamily: "'Georgia', serif", padding: "10px 6px" }}>
@@ -734,6 +740,28 @@ export default function CafeTiles() {
                   {ev.desc}
                 </div>
               ))}
+            </div>
+          </div>
+        )}
+
+        {phase === "aiScoreDone" && (
+          <div style={{ margin: "0 auto 8px", background: "white", borderRadius: 12, padding: "14px 18px", border: "2px solid #E8A54B", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginBottom: 8 }}>
+              <Avatar character={opp} size={26} />
+              <span style={{ fontSize: 14, fontWeight: "bold", color: "#5D4037" }}>{OPPONENTS[opp]?.name}'s Scoring</span>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 4, marginBottom: 10 }}>
+              {aiScoreEvents.map((ev, i) => (
+                <div key={i} style={{ background: "#FAFAFA", borderRadius: 8, padding: "6px 10px", border: "1px solid #EEE", fontSize: 12, color: ev.type === "penalty" ? "#C62828" : "#4E342E" }}>
+                  {ev.desc}
+                </div>
+              ))}
+            </div>
+            <div style={{ textAlign: "center", fontSize: 12, color: "#8B6346", marginBottom: 8 }}>Take a moment to review {OPPONENTS[opp]?.name}'s board and scores.</div>
+            <div style={{ textAlign: "center" }}>
+              <button onClick={() => finishRound()} style={{ background: "linear-gradient(135deg, #2E8B57, #3CB371)", color: "white", border: "none", padding: "10px 24px", borderRadius: 16, fontSize: 14, fontWeight: "bold", cursor: "pointer", fontFamily: "'Georgia', serif" }}>
+                Continue →
+              </button>
             </div>
           </div>
         )}

@@ -581,7 +581,7 @@ export default function CafeTiles() {
           {hasSave && (
             <div style={{ marginBottom: 20, textAlign: "center" }}>
               <button onClick={resumeGame} style={{ background: "linear-gradient(135deg, #2E8B57, #3CB371)", color: "white", border: "none", padding: "12px 28px", borderRadius: 24, fontSize: 15, fontWeight: "bold", cursor: "pointer", fontFamily: "'Georgia', serif", boxShadow: "0 4px 12px rgba(46,139,87,0.3)" }}>☕ Continue Saved Game</button>
-              <div style={{ fontSize: 11, color: "#A08060", marginTop: 6 }}>or choose a new opponent below</div>
+              <div style={{ fontSize: 11, color: "#5C3D2E", marginTop: 6 }}>or choose a new opponent below</div>
             </div>
           )}
           <h2 style={{ textAlign: "center", color: "#8B6346", fontSize: 20, margin: "0 0 6px" }}>Choose Your Opponent</h2>
@@ -604,6 +604,13 @@ export default function CafeTiles() {
           <div style={{ textAlign: "center", marginTop: 16, color: "#A08060", fontSize: 11 }}>🥞 Letter Griddle Games</div>
         </div>
         {showHTP && <HTPModal onClose={() => setShowHTP(false)} />}
+        <div style={{ textAlign: "center", padding: "24px 0", fontSize: 11, color: "#5C3D2E", marginTop: 16 }}>
+          © {new Date().getFullYear()} Letter Griddle. All rights reserved.
+          {' | '}
+          <a href="/privacy" style={{ color: "#5C3D2E", textDecoration: "underline" }}>Privacy Policy</a>
+          {' | '}
+          <a href="/terms" style={{ color: "#5C3D2E", textDecoration: "underline" }}>Terms of Service</a>
+        </div>
       </div>
     );
   }
@@ -632,6 +639,13 @@ export default function CafeTiles() {
             <button onClick={() => startGame(opp)} style={{ background: "linear-gradient(135deg, #D4A843, #C49530)", color: "white", border: "none", padding: "10px 22px", borderRadius: 20, fontSize: 13, fontWeight: "bold", cursor: "pointer", fontFamily: "'Georgia', serif" }}>Play Again</button>
             <button onClick={() => setScreen("menu")} style={{ background: "#F5F0E8", color: "#8B6346", border: "2px solid #E0D5C3", padding: "10px 22px", borderRadius: 20, fontSize: 13, fontWeight: "bold", cursor: "pointer", fontFamily: "'Georgia', serif" }}>New Opponent</button>
           </div>
+        </div>
+        <div style={{ textAlign: "center", padding: "24px 0", fontSize: 11, color: "#5C3D2E", marginTop: 16 }}>
+          © {new Date().getFullYear()} Letter Griddle. All rights reserved.
+          {' | '}
+          <a href="/privacy" style={{ color: "#5C3D2E", textDecoration: "underline" }}>Privacy Policy</a>
+          {' | '}
+          <a href="/terms" style={{ color: "#5C3D2E", textDecoration: "underline" }}>Terms of Service</a>
         </div>
       </div>
     );
@@ -889,7 +903,7 @@ export default function CafeTiles() {
             <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6 }}>
               <Avatar character={opp} size={20} />
               <div style={{ fontWeight: "bold", color: "#8B6346", fontSize: 12 }}>{OPPONENTS[opp]?.name}</div>
-              {aiThinking && <span style={{ marginLeft: "auto", fontSize: 11, color: "#A08060" }}>🤔</span>}
+              {aiThinking && <span style={{ marginLeft: "auto", fontSize: 11, color: "#5C3D2E" }}>🤔</span>}
             </div>
             <div style={{ display: "flex", gap: 6, justifyContent: "center" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: 2, alignItems: "flex-end" }}>
@@ -932,6 +946,13 @@ export default function CafeTiles() {
         <button onClick={() => setShowHTP(true)} style={{ background: "linear-gradient(135deg, #D4A843, #C49530)", color: "white", border: "none", width: 36, height: 36, borderRadius: "50%", fontSize: 16, cursor: "pointer", boxShadow: "0 4px 12px rgba(0,0,0,0.2)" }}>?</button>
       </div>
       {showHTP && <HTPModal onClose={() => setShowHTP(false)} />}
+      <div style={{ textAlign: "center", padding: "24px 0", fontSize: 11, color: "#5C3D2E", marginTop: 16 }}>
+        © {new Date().getFullYear()} Letter Griddle. All rights reserved.
+        {' | '}
+        <a href="/privacy" style={{ color: "#5C3D2E", textDecoration: "underline" }}>Privacy Policy</a>
+        {' | '}
+        <a href="/terms" style={{ color: "#5C3D2E", textDecoration: "underline" }}>Terms of Service</a>
+      </div>
     </div>
   );
 }

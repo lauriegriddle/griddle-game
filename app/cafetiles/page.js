@@ -108,16 +108,16 @@ function wallScoreDetailed(wall, r, c, tileType) {
     points = h + v;
     const hNeighbors = hLeft + hRight;
     const vNeighbors = vUp + vDown;
-    breakdown = `${emoji} placed on wall! ${h} in a row ← → plus ${v} in a column ↑ ↓ = ${points} points!`;
+    breakdown = `${emoji} placed on counter! ${h} in a row ← → plus ${v} in a column ↑ ↓ = ${points} points!`;
   } else if (h > 1) {
     points = h;
-    breakdown = `${emoji} placed on wall! ${h} tiles connected in a row ← → = ${points} points!`;
+    breakdown = `${emoji} placed on counter! ${h} tiles connected in a row ← → = ${points} points!`;
   } else if (v > 1) {
     points = v;
-    breakdown = `${emoji} placed on wall! ${v} tiles connected in a column ↑ ↓ = ${points} points!`;
+    breakdown = `${emoji} placed on counter! ${v} tiles connected in a column ↑ ↓ = ${points} points!`;
   } else {
     points = 1;
-    breakdown = `${emoji} placed on wall — no neighbors yet = 1 point`;
+    breakdown = `${emoji} placed on counter — no neighbors yet = 1 point`;
   }
   
   return { points, breakdown };
@@ -327,7 +327,7 @@ export default function CafeTiles() {
       setCompletedRows(rows);
       setPhase("playerScore");
       if (rows.length > 0) {
-        setMsg("☕ Round over! Click each glowing row to move tiles to your wall.");
+        setMsg("☕ Round over! Click each glowing row to move tiles to your counter.");
       } else {
         setMsg("☕ Round over! Click 'Finish Scoring' to apply penalties.");
       }
@@ -501,7 +501,7 @@ export default function CafeTiles() {
             setAiThinking(false); setAiComment(""); setTurn("player"); setMsg(DEFAULT_MSG);
           }, 3000);
         }, 2200);
-      }, 2000);
+      }, 3000);
     }, 2000);
   }, [turn, screen, opp, phase]);
 
@@ -695,7 +695,7 @@ export default function CafeTiles() {
                 <div style={{ fontWeight: "bold", color: "#E65100", fontSize: 14 }}>☕ Your Scoring</div>
                 <div style={{ color: "#5D4037", fontSize: 12, marginTop: 2 }}>
                   {phase === "playerScore" && completedRows.length > 0 
-                    ? "Click each glowing row to move its tile to your wall!"
+                    ? "Click each glowing row to move its tile to your counter!"
                     : phase === "playerScore" 
                     ? "All rows scored! Click 'Finish Scoring' to check your tip jar."
                     : "Your scoring is complete. Review below, then score your opponent!"}
@@ -993,12 +993,12 @@ function HTPModal({ onClose }) {
         <h2 style={{ color: "#8B6346", textAlign: "center", fontSize: 22, marginBottom: 16 }}>How to Play</h2>
         {[
           { icon: "1️⃣", title: "Pick from a Serving Tray", desc: "Click a tile to take ALL tiles of that type. Leftovers go to the Center." },
-          { icon: "2️⃣", title: "Place on a Pattern Row", desc: "Click a highlighted slot to place tiles. Each row holds ONE type and leads to a specific wall spot." },
-          { icon: "3️⃣", title: "Fill a Row → Move to Wall!", desc: "When a row is full, YOU click it to move the tile to your wall. Score points for adjacent tiles!" },
+          { icon: "2️⃣", title: "Place on a Pattern Row", desc: "Click a highlighted slot to place tiles. Each row holds ONE type and leads to a specific counter spot." },
+          { icon: "3️⃣", title: "Fill a Row → Move to Counter!", desc: "When a row is full, YOU click it to move the tile to your counter. Score points for adjacent tiles!" },
           { icon: "4️⃣", title: "Tip Jar = Penalties", desc: "Can't place tiles? Send them to the Tip Jar. Costs -1, -1, -2, -2, -2, -3, -3 points." },
           { icon: "🔄", title: "Take Turns", desc: "Alternate picks until all trays and center are empty. Then score the round together!" },
-          { icon: "⭐", title: "End Bonuses", desc: "Complete wall row: +2. Complete column: +7. All 5 of one type: +10!" },
-          { icon: "🏆", title: "Win!", desc: "5 rounds or a completed wall row ends the game. Highest score wins!" },
+          { icon: "⭐", title: "End Bonuses", desc: "Complete counter row: +2. Complete column: +7. All 5 of one type: +10!" },
+          { icon: "🏆", title: "Win!", desc: "5 rounds or a completed counter row ends the game. Highest score wins!" },
         ].map((s, i) => (
           <div key={i} style={{ display: "flex", gap: 10, padding: 10, marginBottom: 6, background: "#FFF8F0", borderRadius: 10, border: "1px solid #F0E0C8" }}>
             <div style={{ fontSize: 20, flexShrink: 0 }}>{s.icon}</div>

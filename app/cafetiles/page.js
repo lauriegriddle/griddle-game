@@ -156,11 +156,11 @@ function applyFloorPenalty(board) {
 
 function calcEndBonuses(board) {
   let bonus = 0; const events = [];
-  for (let r = 0; r < BS; r++) { if (board.wall[r].every(c => c)) { bonus += 2; events.push("Complete row → +2"); } }
-  for (let c = 0; c < BS; c++) { if (board.wall.every(row => row[c])) { bonus += 7; events.push("Complete column → +7"); } }
+  for (let r = 0; r < BS; r++) { if (board.wall[r].every(c => c)) { bonus += 2; events.push("Complete counter row → +2"); } }
+  for (let c = 0; c < BS; c++) { if (board.wall.every(row => row[c])) { bonus += 7; events.push("Complete counter column → +7"); } }
   TILE_TYPES.forEach(type => {
     let n = 0; for (let r = 0; r < BS; r++) { const c = WALL_PATTERN[r].indexOf(type); if (board.wall[r][c]) n++; }
-    if (n === 5) { bonus += 10; events.push(`All ${TILE_EMOJI[type]} → +10`); }
+    if (n === 5) { bonus += 10; events.push(`All 5 ${TILE_EMOJI[type]} placed → +10`); }
   });
   return { bonus, events, board: { ...board, score: board.score + bonus } };
 }
@@ -227,13 +227,15 @@ export default function CafeTiles() {
   const [hasSave, setHasSave] = useState(false);
 
   // End-of-round scoring state
-  const [phase, setPhase] = useState("play"); // "play" | "playerScore" | "playerScoreDone" | "aiScore" | "aiScoreDone" | "roundDone"
+  const [phase, setPhase] = useState("play"); // "play" | "playerScore" | "playerScoreDone" | "aiScore" | "aiScoreDone" | "roundDone" | "endBonuses"
   const [completedRows, setCompletedRows] = useState([]); // player's rows ready to move
   const [lastScoreEvent, setLastScoreEvent] = useState(null); // flash scoring info
   const [playerScoreEvents, setPlayerScoreEvents] = useState([]); // Player scoring log
   const [aiScoreEvents, setAiScoreEvents] = useState([]); // AI scoring log
   const [aiScoreIdx, setAiScoreIdx] = useState(0);
   const [gameOver, setGameOver] = useState(false); // prevent auto-save after game ends
+  const [endBonusEvents, setEndBonusEvents] = useState([]); // combined end bonus events for display
+  const [endBonusIdx, setEndBonusIdx] = useState(0);
 
   // Timer refs for cleanup
   const timersRef = useState([])[0];
@@ -426,22 +428,66 @@ export default function CafeTiles() {
   };
 
   const finishRound = (finalAiBoard) => {
+    const ab = finalAiBoard || aiBoard;
     const pDone = isGameOver(pBoard);
-    const aDone = isGameOver(finalAiBoard || aiBoard);
+    const aDone = isGameOver(ab);
     if (pDone || aDone || round >= 5) {
-      // Apply end bonuses
+      // Build animated end bonus events
       const pBonus = calcEndBonuses(pBoard);
-      const aBonus = calcEndBonuses(finalAiBoard || aiBoard);
-      setPBoard(pBonus.board);
-      setAiBoard(aBonus.board);
-      setGameOver(true);
+      const aBonus = calcEndBonuses(ab);
+      const events = [];
+      
+      if (pBonus.events.length > 0 || aBonus.events.length > 0) {
+        events.push({ type: "header", desc: "🌟 End-of-Game Bonuses 🌟" });
+      }
+      
+      if (pBonus.events.length > 0) {
+        events.push({ type: "subheader", desc: "Your Bonuses:" });
+        pBonus.events.forEach(e => events.push({ type: "player", desc: e }));
+        events.push({ type: "playerTotal", desc: `Your bonus total: +${pBonus.bonus}`, points: pBonus.bonus });
+      } else {
+        events.push({ type: "subheader", desc: "No end bonuses for you this game." });
+      }
+      
+      if (aBonus.events.length > 0) {
+        events.push({ type: "subheader", desc: `${OPPONENTS[opp]?.name}'s Bonuses:` });
+        aBonus.events.forEach(e => events.push({ type: "ai", desc: e }));
+        events.push({ type: "aiTotal", desc: `${OPPONENTS[opp]?.name}'s bonus total: +${aBonus.bonus}`, points: aBonus.bonus });
+      } else {
+        events.push({ type: "subheader", desc: `No end bonuses for ${OPPONENTS[opp]?.name}.` });
+      }
+      
+      const finalPScore = pBoard.score + pBonus.bonus;
+      const finalAScore = ab.score + aBonus.bonus;
+      events.push({ type: "final", desc: `Final Score — You: ${finalPScore} | ${OPPONENTS[opp]?.name}: ${finalAScore}` });
+      
+      setEndBonusEvents(events);
+      setEndBonusIdx(0);
+      setPhase("endBonuses");
+      setMsg("🌟 Calculating end-of-game bonuses...");
       clearSave();
-      addTimer(() => setScreen("gameover"), 1200);
+      
+      // Animate events one by one
+      events.forEach((ev, i) => {
+        addTimer(() => {
+          setEndBonusIdx(i + 1);
+        }, (i + 1) * 1800);
+      });
+      
       return;
     }
 
     setPhase("roundDone");
     setMsg("Round complete! Click 'Next Round' to continue.");
+  };
+
+  const goToGameOver = () => {
+    const pBonus = calcEndBonuses(pBoard);
+    const aBonus = calcEndBonuses(aiBoard);
+    setPBoard(pBonus.board);
+    setAiBoard(aBonus.board);
+    setGameOver(true);
+    setScreen("gameover");
   };
 
   const startNextRound = () => {
@@ -658,7 +704,7 @@ export default function CafeTiles() {
   }
 
   // ---- GAME ----
-  const inScoring = phase === "playerScore" || phase === "playerScoreDone" || phase === "aiScore" || phase === "aiScoreDone" || phase === "roundDone";
+  const inScoring = phase === "playerScore" || phase === "playerScoreDone" || phase === "aiScore" || phase === "aiScoreDone" || phase === "roundDone" || phase === "endBonuses";
 
   return (
     <div style={{ minHeight: "100vh", background: "linear-gradient(180deg, #C17A3A 0%, #D49545 20%, #E8B870 40%, #F5DEB3 60%, #FFF8F0 100%)", fontFamily: "'Georgia', serif", padding: "10px 6px" }}>
@@ -763,6 +809,40 @@ export default function CafeTiles() {
                 Continue →
               </button>
             </div>
+          </div>
+        )}
+
+        {phase === "endBonuses" && (
+          <div style={{ margin: "0 auto 8px", background: "linear-gradient(135deg, #FFF8E1, #FFF3E0)", borderRadius: 12, padding: "14px 18px", border: "2px solid #FFB74D", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
+              {endBonusEvents.slice(0, endBonusIdx).map((ev, i) => {
+                const isLatest = i === endBonusIdx - 1;
+                if (ev.type === "header") return (
+                  <div key={i} style={{ textAlign: "center", fontWeight: "bold", color: "#E65100", fontSize: 15, padding: "4px 0", animation: isLatest ? "fadeIn 0.3s ease" : "none" }}>{ev.desc}</div>
+                );
+                if (ev.type === "subheader") return (
+                  <div key={i} style={{ fontWeight: "bold", color: "#5D4037", fontSize: 13, marginTop: 6, animation: isLatest ? "fadeIn 0.3s ease" : "none" }}>{ev.desc}</div>
+                );
+                if (ev.type === "playerTotal" || ev.type === "aiTotal") return (
+                  <div key={i} style={{ background: "#E8F5E9", borderRadius: 8, padding: "6px 10px", border: "2px solid #81C784", fontSize: 13, fontWeight: "bold", color: "#2E7D32", textAlign: "center", animation: isLatest ? "fadeIn 0.3s ease" : "none" }}>{ev.desc}</div>
+                );
+                if (ev.type === "final") return (
+                  <div key={i} style={{ background: "linear-gradient(135deg, #FFF3E0, #FFE0B2)", borderRadius: 8, padding: "8px 10px", border: "2px solid #FF9800", fontSize: 14, fontWeight: "bold", color: "#E65100", textAlign: "center", marginTop: 6, animation: isLatest ? "fadeIn 0.3s ease" : "none" }}>{ev.desc}</div>
+                );
+                return (
+                  <div key={i} style={{ background: isLatest ? "#FFF8E1" : "#FAFAFA", borderRadius: 8, padding: "6px 10px", border: isLatest ? "2px solid #FFB74D" : "1px solid #EEE", fontSize: 12, color: ev.type === "player" ? "#1565C0" : "#8B6346", fontWeight: isLatest ? "bold" : "normal", animation: isLatest ? "fadeIn 0.3s ease" : "none" }}>
+                    <span style={{ color: "#2E7D32", marginRight: 6 }}>+</span>{ev.desc}
+                  </div>
+                );
+              })}
+            </div>
+            {endBonusIdx >= endBonusEvents.length && (
+              <div style={{ textAlign: "center", marginTop: 12 }}>
+                <button onClick={goToGameOver} style={{ background: "linear-gradient(135deg, #D4A843, #C49530)", color: "white", border: "none", padding: "10px 24px", borderRadius: 16, fontSize: 14, fontWeight: "bold", cursor: "pointer", fontFamily: "'Georgia', serif" }}>
+                  See Final Results →
+                </button>
+              </div>
+            )}
           </div>
         )}
 

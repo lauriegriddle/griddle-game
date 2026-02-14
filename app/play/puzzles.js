@@ -1177,6 +1177,118 @@ const puzzles = [
     ],
     funFact: "A horse needs to eat grass or hay for about 16 hours a day and can drink up to 10 or more gallons of water daily, depending on climate. 🐴",
   },
+
+  // =============================================
+  // INDEX 78 - Shows Feb 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "U.S. Presidents",
+    puzzleNumber: 157,
+    words: [
+      { word: "POLK", hint: "11th President who expanded U.S. territory westward", revealedIndex: 0 },
+      { word: "ADAMS", hint: "A surname shared by the 2nd and 6th Presidents", revealedIndex: 2 },
+      { word: "TRUMAN", hint: "33rd President who made the decision to use atomic weapons", revealedIndex: 3 },
+      { word: "JOHNSON", hint: "A surname shared by the 17th and 36th Presidents", revealedIndex: 0 },
+      { word: "ROOSEVELT", hint: "A surname shared by the 26th and 32nd Presidents", revealedIndex: 4 },
+    ],
+    funFact: "No U.S. President's last name starts with the letter 'S,' despite 'S' being the most common starting letter for English words. 🇺🇸",
+  },
+
+  // =============================================
+  // INDEX 79 - Shows Feb 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Tater Tots",
+    puzzleNumber: 158,
+    words: [
+      { word: "PUFF", hint: "To swell or expand with air", revealedIndex: 0 },
+      { word: "CRUST", hint: "A crispy outer layer formed when cooked", revealedIndex: 2 },
+      { word: "POTATO", hint: "The starchy vegetable these are made from", revealedIndex: 3 },
+      { word: "COMFORT", hint: "A type of food that brings warmth and satisfaction", revealedIndex: 0 },
+      { word: "CYLINDER", hint: "The classic shape of these bite-sized treats", revealedIndex: 4 },
+    ],
+    funFact: "Tater tots were invented in 1953 as a way to use up leftover potato scraps from making French fries. 🥔",
+  },
+
+  // =============================================
+  // INDEX 80 - Shows Feb 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Full Moon",
+    puzzleNumber: 159,
+    words: [
+      { word: "TIDE", hint: "The rise and fall of ocean water influenced by lunar gravity", revealedIndex: 0 },
+      { word: "LUNAR", hint: "Relating to the moon", revealedIndex: 2 },
+      { word: "APOLLO", hint: "NASA's program that landed humans on the moon", revealedIndex: 3 },
+      { word: "ECLIPSE", hint: "When Earth's shadow blocks sunlight from reaching the moon", revealedIndex: 0 },
+      { word: "SATELLITE", hint: "A natural or artificial body orbiting a planet", revealedIndex: 4 },
+    ],
+    funFact: "A full moon occurs approximately every 29.5 days when the moon is opposite the Sun, appearing fully illuminated from Earth. It does not produce its own light, but rather reflects sunlight, and it always rises at sunset. 🌕",
+  },
+
+  // =============================================
+  // INDEX 81 - Shows Feb 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Birds",
+    puzzleNumber: 160,
+    words: [
+      { word: "HAWK", hint: "A bird of prey known for sharp eyesight and swift diving", revealedIndex: 0 },
+      { word: "ROBIN", hint: "A songbird with a red or orange breast", revealedIndex: 2 },
+      { word: "PARROT", hint: "A colorful tropical bird known for mimicking speech", revealedIndex: 3 },
+      { word: "PELICAN", hint: "A large waterbird with a pouch under its bill", revealedIndex: 0 },
+      { word: "PHEASANT", hint: "A game bird with colorful plumage, often hunted", revealedIndex: 4 },
+    ],
+    funFact: "Birds are modern-day dinosaurs, with roughly 10,000 species that all share the unique trait of having feathers. 🐦",
+  },
+
+  // =============================================
+  // INDEX 82 - Shows Feb 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Carrot Cake",
+    puzzleNumber: 161,
+    words: [
+      { word: "RICH", hint: "Having a deep, full flavor or texture", revealedIndex: 0 },
+      { word: "ICING", hint: "A sweet topping spread on cakes, often cream cheese", revealedIndex: 2 },
+      { word: "NUTMEG", hint: "A warm spice often used in baking", revealedIndex: 3 },
+      { word: "RAISINS", hint: "Dried grapes sometimes added for sweetness", revealedIndex: 0 },
+      { word: "CINNAMON", hint: "A fragrant spice from tree bark used in desserts", revealedIndex: 4 },
+    ],
+    funFact: "Carrot cake has a surprisingly long history, with roots in the Middle Ages when sweeteners were scarce and expensive. 🥕",
+  },
+
+  // =============================================
+  // INDEX 83 - Shows Feb 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Guitar",
+    puzzleNumber: 162,
+    words: [
+      { word: "PICK", hint: "A small flat tool used to pluck strings", revealedIndex: 0 },
+      { word: "STRUM", hint: "To brush fingers across strings to make chords", revealedIndex: 2 },
+      { word: "STRING", hint: "A thin cord stretched across the instrument to produce sound", revealedIndex: 3 },
+      { word: "AMPLIFY", hint: "To increase the volume of sound electronically", revealedIndex: 0 },
+      { word: "ACOUSTIC", hint: "A type that produces sound naturally without electronics", revealedIndex: 4 },
+    ],
+    funFact: "Guitars, with a 3,500-year history tracing back to ancient Egypt and Persia, are the world's most popular instrument. 🎸",
+  },
+
+  // =============================================
+  // INDEX 84 - Shows Feb 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Washington",
+    puzzleNumber: 163,
+    words: [
+      { word: "ARMY", hint: "The military branch he commanded during the Revolution", revealedIndex: 0 },
+      { word: "FIRST", hint: "His position in the line of U.S. Presidents", revealedIndex: 2 },
+      { word: "FARMER", hint: "His occupation at Mount Vernon", revealedIndex: 3 },
+      { word: "FOUNDER", hint: "One who establishes something, like a nation", revealedIndex: 0 },
+      { word: "DELAWARE", hint: "The river he famously crossed on Christmas night", revealedIndex: 4 },
+    ],
+    funFact: "George Washington was a self-taught, tall, skilled dancer and savvy businessman who ran America's largest whiskey distillery, was a master spy leader, and never lived in the White House. 🇺🇸",
+  },
 ];
 
 // ===========================================

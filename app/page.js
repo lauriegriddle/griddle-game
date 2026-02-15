@@ -112,7 +112,7 @@ export default function Home() {
     },
     {
       name: "Little Letter Griddle",
-      tagline: "Moonlit word puzzle",
+      tagline: "New words, same moonlit puzzle",
       dropTime: "7:30 PM EST",
       emoji: "🌙",
       href: "https://littlelettergriddle.com",
@@ -157,7 +157,7 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Buffet",
-      tagline: "All-you-can-play fine-dining word feast",
+      tagline: "The ambiance is the same, but the menu has changed.",
       dropTime: "8:00 PM EST",
       emoji: "🍽️",
       href: "https://lettergriddlebuffet.com",
@@ -179,7 +179,7 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Cafe Game",
-      tagline: "A Cafe Special",
+      tagline: "An Updated Cafe Special",
       dropTime: "7:00 AM EST",
       emoji: "👑",
       href: "https://lettergriddlecafe.com/game",

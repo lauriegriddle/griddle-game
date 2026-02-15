@@ -211,36 +211,6 @@ export default function CafeTiles() {
   const [unlocked, setUnlocked] = useState(false);
   const [pwInput, setPwInput] = useState("");
   const [pwError, setPwError] = useState(false);
-
-  useEffect(() => {
-    try { if (sessionStorage.getItem("cafeTilesUnlocked") === "true") setUnlocked(true); } catch {}
-  }, []);
-
-  if (!unlocked) {
-    return (
-      <div style={{ minHeight: "100vh", background: "linear-gradient(180deg, #C17A3A 0%, #E8A54B 30%, #F5DEB3 60%, #FFF8F0 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: "'Georgia', serif", padding: 20 }}>
-        <div style={{ fontSize: 48, marginBottom: 8 }}>🥞☕</div>
-        <h1 style={{ fontSize: 32, color: "#FFF8F0", textShadow: "2px 2px 8px rgba(0,0,0,0.3)", margin: "0 0 4px" }}>Cafe Tiles</h1>
-        <p style={{ color: "#FFF8F0", opacity: 0.9, margin: "0 0 24px", fontSize: 14 }}>At the Letter Griddle</p>
-        <div style={{ background: "rgba(255,255,255,0.95)", borderRadius: 20, padding: 28, maxWidth: 380, width: "100%", boxShadow: "0 8px 32px rgba(0,0,0,0.15)", textAlign: "center" }}>
-          <div style={{ fontSize: 36, marginBottom: 12 }}>🔒</div>
-          <p style={{ color: "#5C3D2E", fontSize: 15, fontWeight: "bold", marginBottom: 4 }}>Private Game</p>
-          <p style={{ color: "#8B7355", fontSize: 12, marginBottom: 16 }}>This game is currently in development. Enter the password to play.</p>
-          <input type="password" value={pwInput} onChange={e => { setPwInput(e.target.value); setPwError(false); }}
-            onKeyDown={e => { if (e.key === "Enter") { if (pwInput === "Cards2026") { setUnlocked(true); try { sessionStorage.setItem("cafeTilesUnlocked", "true"); } catch {} } else setPwError(true); } }}
-            placeholder="Enter password"
-            style={{ width: "100%", padding: "10px 14px", borderRadius: 10, border: pwError ? "2px solid #C62828" : "2px solid #E8D5B7", fontSize: 15, fontFamily: "'Georgia', serif", textAlign: "center", boxSizing: "border-box", outline: "none" }}
-          />
-          {pwError && <p style={{ color: "#C62828", fontSize: 12, marginTop: 6 }}>Incorrect password</p>}
-          <button onClick={() => { if (pwInput === "Cards2026") { setUnlocked(true); try { sessionStorage.setItem("cafeTilesUnlocked", "true"); } catch {} } else setPwError(true); }}
-            style={{ marginTop: 12, background: "linear-gradient(135deg, #D4A843, #C49530)", color: "white", border: "none", padding: "10px 28px", borderRadius: 24, fontSize: 15, fontWeight: "bold", cursor: "pointer", fontFamily: "'Georgia', serif" }}>
-            Enter
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   const [screen, setScreen] = useState("menu");
   const [opp, setOpp] = useState(null);
   const [bag, setBag] = useState([]);
@@ -275,7 +245,11 @@ export default function CafeTiles() {
   const clearTimers = () => { timersRef.forEach(t => clearTimeout(t)); timersRef.length = 0; };
   const addTimer = (fn, ms) => { const t = setTimeout(fn, ms); timersRef.push(t); return t; };
 
-  useEffect(() => { setHasSave(!!loadGame()); return clearTimers; }, []);
+  useEffect(() => { setHasSave(!!loadGame()); try { if (sessionStorage.getItem("cafeTilesUnlocked") === "true") setUnlocked(true); } catch {} return clearTimers; }, []);
+
+  useEffect(() => {
+    try { if (sessionStorage.getItem("cafeTilesUnlocked") === "true") setUnlocked(true); } catch {}
+  }, []);
 
   const DEFAULT_MSG = "Your turn! Pick tiles from a serving tray or the center.";
 
@@ -654,6 +628,31 @@ export default function CafeTiles() {
     setPBoard(newBoard);
     setSel(null); setTurn("ai"); setMsg(`${OPPONENTS[opp]?.name}'s turn...`);
   };
+
+  if (!unlocked) {
+    return (
+      <div style={{ minHeight: "100vh", background: "linear-gradient(180deg, #C17A3A 0%, #E8A54B 30%, #F5DEB3 60%, #FFF8F0 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: "'Georgia', serif", padding: 20 }}>
+        <div style={{ fontSize: 48, marginBottom: 8 }}>🥞☕</div>
+        <h1 style={{ fontSize: 32, color: "#FFF8F0", textShadow: "2px 2px 8px rgba(0,0,0,0.3)", margin: "0 0 4px" }}>Cafe Tiles</h1>
+        <p style={{ color: "#FFF8F0", opacity: 0.9, margin: "0 0 24px", fontSize: 14 }}>At the Letter Griddle</p>
+        <div style={{ background: "rgba(255,255,255,0.95)", borderRadius: 20, padding: 28, maxWidth: 380, width: "100%", boxShadow: "0 8px 32px rgba(0,0,0,0.15)", textAlign: "center" }}>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🔒</div>
+          <p style={{ color: "#5C3D2E", fontSize: 15, fontWeight: "bold", marginBottom: 4 }}>Private Game</p>
+          <p style={{ color: "#8B7355", fontSize: 12, marginBottom: 16 }}>This game is currently in development. Enter the password to play.</p>
+          <input type="password" value={pwInput} onChange={e => { setPwInput(e.target.value); setPwError(false); }}
+            onKeyDown={e => { if (e.key === "Enter") { if (pwInput === "Cards2026") { setUnlocked(true); try { sessionStorage.setItem("cafeTilesUnlocked", "true"); } catch {} } else setPwError(true); } }}
+            placeholder="Enter password"
+            style={{ width: "100%", padding: "10px 14px", borderRadius: 10, border: pwError ? "2px solid #C62828" : "2px solid #E8D5B7", fontSize: 15, fontFamily: "'Georgia', serif", textAlign: "center", boxSizing: "border-box", outline: "none" }}
+          />
+          {pwError && <p style={{ color: "#C62828", fontSize: 12, marginTop: 6 }}>Incorrect password</p>}
+          <button onClick={() => { if (pwInput === "Cards2026") { setUnlocked(true); try { sessionStorage.setItem("cafeTilesUnlocked", "true"); } catch {} } else setPwError(true); }}
+            style={{ marginTop: 12, background: "linear-gradient(135deg, #D4A843, #C49530)", color: "white", border: "none", padding: "10px 28px", borderRadius: 24, fontSize: 15, fontWeight: "bold", cursor: "pointer", fontFamily: "'Georgia', serif" }}>
+            Enter
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // ---- MENU ----
   if (screen === "menu") {

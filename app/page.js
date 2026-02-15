@@ -463,6 +463,44 @@ export default function Home() {
       textColor: "text-amber-900",
       subTextColor: "text-amber-800",
       hoverBg: "bg-amber-900/80"
+    },
+    {
+      name: "Order Up!",
+      tagline: "Assemble the order before time runs out",
+      emoji: "🍳",
+      href: "/order",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #2a1a0e 0%, #1c1008 50%, #100a04 100%)",
+        icon: "🍳",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Order Up!"],
+        subtitle: "Timed Challenge",
+        subtitleColor: "text-amber-300/60"
+      },
+      borderColor: "border-amber-700",
+      bgColor: "from-amber-50 to-orange-50",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-900/80"
+    },
+    {
+      name: "To Go!",
+      tagline: "Pick the right magnet to complete the order",
+      emoji: "🥡",
+      href: "/togo",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #261a12 0%, #1a1008 50%, #0e0804 100%)",
+        icon: "🥡",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "To Go!"],
+        subtitle: "Coffee Orders",
+        subtitleColor: "text-amber-200/60"
+      },
+      borderColor: "border-amber-800",
+      bgColor: "from-amber-50 to-stone-50",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-800",
+      hoverBg: "bg-amber-900/80"
     }
   ];
   // Render thumbnail content based on game config

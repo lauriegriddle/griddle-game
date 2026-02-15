@@ -386,7 +386,85 @@ export default function Home() {
       hoverBg: "bg-purple-500/80"
     }
   ];
-
+// SECTION 4: Espresso Lane (quick-play coffee break games)
+  const espressoLaneGames = [
+    {
+      name: "Glow",
+      tagline: "Flip glowing pancakes, discover your daily activity",
+      emoji: "✨",
+      href: "/glow",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #2d1b0e 0%, #1a0f05 50%, #0d0803 100%)",
+        icon: "✨",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Glow"],
+        subtitle: "Daily Activity",
+        subtitleColor: "text-amber-300/70"
+      },
+      borderColor: "border-amber-700",
+      bgColor: "from-amber-50 to-orange-50",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-900/80"
+    },
+    {
+      name: "Sizzle",
+      tagline: "Grab bacon, serve it fast, beat the 30-second clock",
+      emoji: "🥓",
+      href: "/sizzle",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #3d2216 0%, #2a1610 50%, #1a0e08 100%)",
+        icon: "🥓",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Sizzle"],
+        subtitle: "Speed Game",
+        subtitleColor: "text-orange-300/70"
+      },
+      borderColor: "border-orange-700",
+      bgColor: "from-orange-50 to-amber-50",
+      textColor: "text-orange-900",
+      subTextColor: "text-orange-700",
+      hoverBg: "bg-orange-900/80"
+    },
+    {
+      name: "Top That!",
+      tagline: "Pick the pancake topping before time runs out",
+      emoji: "🥞",
+      href: "/topthat",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #352418 0%, #261810 50%, #180e08 100%)",
+        icon: "🥞",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Top That!"],
+        subtitle: "Quick Decisions",
+        subtitleColor: "text-amber-300/60"
+      },
+      borderColor: "border-amber-600",
+      bgColor: "from-amber-50 to-yellow-50",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-800/80"
+    },
+    {
+      name: "Lattes",
+      tagline: "Spot the coffee item. Cortado or Canoe?",
+      emoji: "☕",
+      href: "/lattes",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #2c2018 0%, #221810 50%, #0e0806 100%)",
+        icon: "☕",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Lattes"],
+        subtitle: "Coffee Game",
+        subtitleColor: "text-amber-200/60"
+      },
+      borderColor: "border-amber-800",
+      bgColor: "from-amber-50 to-stone-50",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-800",
+      hoverBg: "bg-amber-900/80"
+    }
+  ];
   // Render thumbnail content based on game config
   const renderThumbnail = (game) => {
     const { thumbnail } = game;
@@ -586,6 +664,15 @@ export default function Home() {
 >
   ✨ Stories & More ✨
 </button>
+<button 
+            onClick={() => {
+              if (!showMoreGames) setShowMoreGames(true);
+              setTimeout(() => scrollToSection('espresso-lane'), 100);
+            }}
+            className="px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
+          >
+            ☕ Espresso Lane
+          </button>
         </nav>
       </header>
 
@@ -643,6 +730,26 @@ export default function Home() {
 
         {showMoreGames && (
         <>
+        {/* ESPRESSO LANE */}
+        <section id="espresso-lane" className="mb-16 scroll-mt-8">
+          <div className="text-center mb-8">
+            <div 
+              className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
+              style={{
+                background: 'linear-gradient(135deg, #78350F 0%, #92400E 50%, #451A03 100%)',
+                fontFamily: 'Georgia, serif'
+              }}
+            >
+              ☕ Espresso Lane ☕
+            </div>
+            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+              Espresso Lane
+            </h2>
+            <p className="text-amber-600">Games to pair with your coffee break</p>
+          </div>
+          
+          <GameGrid games={espressoLaneGames} />
+        </section>
         {/* SECTION 2: Letter Griddle Games */}
         <section id="more-games" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">

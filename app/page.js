@@ -157,7 +157,7 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Buffet",
-      tagline: "The ambiance is the same, but the menu has changed.",
+      tagline: "Same ambiance, the menu items have changed.",
       dropTime: "8:00 PM EST",
       emoji: "🍽️",
       href: "https://lettergriddlebuffet.com",

@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 
 const GAME_DURATION = 30; // seconds

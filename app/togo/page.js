@@ -363,7 +363,7 @@ const ToGoGame = () => {
                 Stats
               </button>
               <span className="text-amber-600">•</span>
-              <a href="/beta" className="text-amber-400 hover:text-amber-200 underline">
+              <a href="/" className="text-amber-400 hover:text-amber-200 underline">
                 More Games
               </a>
             </div>

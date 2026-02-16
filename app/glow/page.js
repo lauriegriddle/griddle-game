@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 
 const activities = [
@@ -827,14 +826,18 @@ export default function LetterGriddleGlow() {
                   fontSize: 11,
                 }}
               >
-                <span
+                <a
+                  href="/"
                   style={{
                     color: "rgba(255,200,120,0.35)",
-                    cursor: "pointer",
+                    textDecoration: "none",
+                    transition: "color 0.3s ease",
                   }}
+                  onMouseEnter={(e) => { e.target.style.color = "rgba(255,200,120,0.6)"; }}
+                  onMouseLeave={(e) => { e.target.style.color = "rgba(255,200,120,0.35)"; }}
                 >
-                  🥞 lettergriddle.com
-                </span>
+                  🥞 More Games at lettergriddle.com
+                </a>
               </div>
             </div>
           </div>

@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 
 const GAME_DURATION = 30;
@@ -604,7 +603,7 @@ export default function LetterGriddleLattes() {
                       A warm moment from the <span style={{ color: `${c.accent}0.35)` }}>Letter Griddle Family</span>
                     </p>
                     <div style={{ display: "flex", justifyContent: "center", gap: 16, marginTop: 6, fontSize: 11 }}>
-                      <span style={{ color: `${c.accent}0.2)` }}>🥞 lettergriddle.com</span>
+                      <a href="/" style={{ color: `${c.accent}0.2)`, textDecoration: "none", transition: "color 0.3s ease" }} onMouseEnter={(e) => { e.target.style.color = `${c.accent}0.5)`; }} onMouseLeave={(e) => { e.target.style.color = `${c.accent}0.2)`; }}>🥞 More Games at lettergriddle.com</a>
                     </div>
                   </div>
                 </>

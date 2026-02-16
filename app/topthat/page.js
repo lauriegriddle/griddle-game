@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 
 const GAME_DURATION = 30;
@@ -664,7 +663,7 @@ export default function LetterGriddleTopThat() {
                       A tasty moment from the <span style={{ color: "rgba(220,170,110,0.4)" }}>Letter Griddle Family</span>
                     </p>
                     <div style={{ display: "flex", justifyContent: "center", gap: 16, marginTop: 6, fontSize: 11 }}>
-                      <span style={{ color: "rgba(220,170,110,0.25)" }}>🥞 lettergriddle.com</span>
+                      <a href="/" style={{ color: "rgba(220,170,110,0.25)", textDecoration: "none", transition: "color 0.3s ease" }} onMouseEnter={(e) => { e.target.style.color = "rgba(220,170,110,0.55)"; }} onMouseLeave={(e) => { e.target.style.color = "rgba(220,170,110,0.25)"; }}>🥞 More Games at lettergriddle.com</a>
                     </div>
                   </div>
                 </>

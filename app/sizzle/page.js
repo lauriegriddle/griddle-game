@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 
 const GAME_DURATION = 30; // seconds
@@ -1193,9 +1192,18 @@ export default function LetterGriddleSizzle() {
                   fontSize: 11,
                 }}
               >
-                <span style={{ color: "rgba(255,160,80,0.3)" }}>
-                  🥞 lettergriddle.com
-                </span>
+                <a
+                  href="/"
+                  style={{
+                    color: "rgba(255,160,80,0.3)",
+                    textDecoration: "none",
+                    transition: "color 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => { e.target.style.color = "rgba(255,160,80,0.6)"; }}
+                  onMouseLeave={(e) => { e.target.style.color = "rgba(255,160,80,0.3)"; }}
+                >
+                  🥞 More Games at lettergriddle.com
+                </a>
               </div>
             </div>
           </div>

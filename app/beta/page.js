@@ -25,12 +25,6 @@ export default function BetaGames() {
         description: "Beta testing in progress.  Kitchen and Office Modes!"
     },
     {
-      name: "Order Up!",
-      href: "/order",
-      emoji: "🍳",
-      description: "Beta testing in progress.  Assemble café orders before time runs out!"
-    },
-    {
         name: "Scoops",
         href: "/scoops",
         emoji: "🍨",
@@ -53,12 +47,6 @@ export default function BetaGames() {
         href: "/stacks",
         emoji: "🥞",
         description: "Beta testing in progress"
-    },
-    {
-      name: "To Go!",
-      href: "/togo",
-      emoji: "🥡",
-      description: "Beta testing in progress.  Quick-play fill-in-the-blank orders!"
     },
     {
         name: "Travels",

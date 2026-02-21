@@ -1289,6 +1289,117 @@ const puzzles = [
     ],
     funFact: "George Washington was a self-taught, tall, skilled dancer and savvy businessman who ran America's largest whiskey distillery, was a master spy leader, and never lived in the White House. 🇺🇸",
   },
+  // =============================================
+  // INDEX 85 - Shows Feb 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Horses",
+    puzzleNumber: 164,
+    words: [
+      { word: "FOAL", hint: "A baby horse under one year old", revealedIndex: 0 },
+      { word: "FILLY", hint: "A young female horse", revealedIndex: 2 },
+      { word: "EQUINE", hint: "Relating to or affecting horses", revealedIndex: 3 },
+      { word: "MUSTANG", hint: "A free-roaming wild horse of the American West", revealedIndex: 0 },
+      { word: "STALLION", hint: "An adult male horse used for breeding", revealedIndex: 4 },
+    ],
+    funFact: "Horses are social herd animals with excellent long-term memories and can sleep both standing up and lying down. 🐴",
+  },
+
+  // =============================================
+  // INDEX 86 - Shows Feb 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chinese New Year",
+    puzzleNumber: 165,
+    words: [
+      { word: "JADE", hint: "A precious green stone symbolizing purity and wisdom", revealedIndex: 0 },
+      { word: "HORSE", hint: "The zodiac animal for 2026", revealedIndex: 2 },
+      { word: "ORANGE", hint: "A fruit representing good luck and prosperity", revealedIndex: 3 },
+      { word: "EMPEROR", hint: "An ancient ruler of China", revealedIndex: 0 },
+      { word: "ENVELOPE", hint: "A red packet containing money given as a gift", revealedIndex: 4 },
+    ],
+    funFact: "Chinese New Year in 2026 fell on Tuesday, February 17th, marking the start of the Year of the Fire Horse. The celebration, known as the Spring Festival, lasts 16 days, culminating in the Lantern Festival on March 3rd. It is a time for family reunions, red decorations, and fireworks, symbolizing momentum, ambition, and strength. 🧧",
+  },
+
+  // =============================================
+  // INDEX 87 - Shows Feb 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Alaska",
+    puzzleNumber: 166,
+    words: [
+      { word: "BEAR", hint: "A large mammal common in the wilderness", revealedIndex: 0 },
+      { word: "MOOSE", hint: "The largest member of the deer family", revealedIndex: 2 },
+      { word: "MUKLUK", hint: "A soft boot traditionally worn by Arctic peoples", revealedIndex: 3 },
+      { word: "GLACIER", hint: "A massive body of slow-moving ice", revealedIndex: 0 },
+      { word: "BOREALIS", hint: "The northern lights, or aurora", revealedIndex: 4 },
+    ],
+    funFact: "Alaska is the largest U.S. state, twice the size of Texas, yet holds the lowest population density, with over 3 million lakes and 100,000+ glaciers. 🏔️",
+  },
+
+  // =============================================
+  // INDEX 88 - Shows Feb 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Frogurt",
+    puzzleNumber: 167,
+    words: [
+      { word: "TART", hint: "Having a sharp, tangy taste", revealedIndex: 0 },
+      { word: "FRUIT", hint: "A popular topping like strawberries or mango", revealedIndex: 2 },
+      { word: "FLAVOR", hint: "The distinctive taste of a food", revealedIndex: 3 },
+      { word: "REFRESH", hint: "To cool down or revive", revealedIndex: 0 },
+      { word: "TOPPINGS", hint: "Extras added on top like sprinkles or nuts", revealedIndex: 4 },
+    ],
+    funFact: "Frozen yogurt isn't just yogurt that's been frozen; it is made by adding live cultures to milk and mixing in air while it freezes to prevent large ice crystals, resulting in a creamy texture. 🍦",
+  },
+
+  // =============================================
+  // INDEX 89 - Shows Feb 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Opera",
+    puzzleNumber: 168,
+    words: [
+      { word: "ARIA", hint: "A solo song performed by a single voice", revealedIndex: 0 },
+      { word: "TENOR", hint: "A high adult male singing voice", revealedIndex: 2 },
+      { word: "CHORUS", hint: "A group of singers performing together", revealedIndex: 3 },
+      { word: "SOPRANO", hint: "The highest female singing voice", revealedIndex: 0 },
+      { word: "BARITONE", hint: "A male voice between tenor and bass", revealedIndex: 4 },
+    ],
+    funFact: "Opera has a 400-year legacy, originating around 1600 as a fully sung dramatic form. Famous for high drama, it features intense, unamplified vocals that cut through orchestras. 🎭",
+  },
+
+  // =============================================
+  // INDEX 90 - Shows Feb 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Radio",
+    puzzleNumber: 169,
+    words: [
+      { word: "WAVE", hint: "An electromagnetic signal that carries sound", revealedIndex: 0 },
+      { word: "TUNER", hint: "A device that selects a specific frequency", revealedIndex: 2 },
+      { word: "SIGNAL", hint: "A transmitted broadcast picked up by receivers", revealedIndex: 3 },
+      { word: "ANTENNA", hint: "A metal rod or dish that picks up transmissions", revealedIndex: 0 },
+      { word: "RECEIVER", hint: "A device that captures and plays broadcasts", revealedIndex: 4 },
+    ],
+    funFact: "Radio is the oldest form of electronic communication, originating over 120 years ago, with waves that can travel forever through space. 📻",
+  },
+
+  // =============================================
+  // INDEX 91 - Shows Feb 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hippopotamus",
+    puzzleNumber: 170,
+    words: [
+      { word: "YAWN", hint: "An open-mouthed display showing large teeth", revealedIndex: 0 },
+      { word: "BLOAT", hint: "A group of hippos", revealedIndex: 2 },
+      { word: "DANGER", hint: "A threat or risk, as these animals are quite aggressive", revealedIndex: 3 },
+      { word: "RIVERBED", hint: "The bottom of a water channel where they walk", revealedIndex: 0 },
+      { word: "BEHEMOTH", hint: "A huge creature, often used to describe these giants", revealedIndex: 4 },
+    ],
+    funFact: "Hippopotamuses are semi-aquatic giants that, despite spending up to 16 hours a day submerged, cannot actually swim or float, instead walking along riverbeds. They are surprisingly fast, reaching 22 mph on land, and produce their own red, antibiotic 'blood sweat' to protect skin from the sun. 🦛",
+  },
 ];
 
 // ===========================================

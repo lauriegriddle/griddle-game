@@ -67,18 +67,24 @@ const PUZZLES = {
         { emoji: "🍯", name: "Syrup" },
         { emoji: "🧇", name: "Waffle" },
       ],
-      // Strawberry=r1, Blueberry=r2, Syrup=r3, Pancake=r4, Coffee=r5, Butter=r6, Waffle=r7
-      // Verify: Pancake middle(r4)✓, Syrup odd(r3)✓, Butter r6✓, Coffee between Pancake(4) and Butter(6)=r5✓,
-      //         Strawberry r1✓, Blueberry next to Strawberry(r1)=r2✓, Waffle not r3/r4=r7✓
+      // Target: Strawberry=r1, Blueberry=r2, Syrup=r3, Pancake=r4, Coffee=r5, Butter=r6, Waffle=r7
+      // Verify each clue:
+      // 1. The two berries are at the top → Strawberry(1) Blueberry(2) ✓
+      // 2. Strawberry is above Blueberry → r1 above r2 ✓
+      // 3. Pancake is in the middle row → r4 (middle of 7) ✓
+      // 4. Coffee is directly below Pancake → Pancake(4) Coffee(5) ✓
+      // 5. Butter is below Coffee but not in the last row → r6 (below r5, not r7) ✓
+      // 6. Waffle is in the last row → r7 ✓
+      // 7. Syrup is between Blueberry and Pancake → Blueberry(2) Syrup(3) Pancake(4) ✓
       solution: [1, 2, 4, 5, 6, 3, 7],
       clues: [
-        "🥞 Pancake is in the middle row.",
-        "🍯 Syrup is in one of the odd rows.",
-        "🧈 Butter is in row 6.",
-        "☕ Coffee is between Pancake and Butter.",
-        "🍓 Strawberry is in the first row.",
-        "🫐 Blueberry is next to Strawberry.",
-        "🧇 Waffle is not in row 3 or 4.",
+        "🍓🫐 The two berries are both in the top half of the griddle.",
+        "🍓 Strawberry is above Blueberry.",
+        "🥞 Pancake is in the exact middle row.",
+        "☕ Coffee is directly below Pancake.",
+        "🧈 Butter is below Coffee but not in the last row.",
+        "🧇 Waffle is in the last row.",
+        "🍯 Syrup is somewhere between Blueberry and Pancake.",
       ],
       quote: "The secret of getting ahead is getting started. — Mark Twain",
     },
@@ -95,18 +101,24 @@ const PUZZLES = {
         { emoji: "🥤", name: "Juice" },
         { emoji: "🫒", name: "Olive" },
       ],
-      // Egg=r1, Cheese=r2(below Egg), Toast=r3, Avocado=r4, Bacon=r5, Olive=r6(even,not 2/4), Juice=r7
-      // Verify: Egg r1✓, Cheese directly below Egg=r2✓, Bacon r5✓, Avocado r4✓, Juice last=r7✓,
-      //         Olive even not 2/4=r6✓, Toast not r1/r7=r3✓
+      // Target: Egg=r1, Cheese=r2, Toast=r3, Avocado=r4, Bacon=r5, Olive=r6, Juice=r7
+      // Verify each clue:
+      // 1. Egg is higher than all other items → r1 ✓
+      // 2. Cheese is directly below Egg → r2 ✓
+      // 3. The drink is in the last row → Juice(7) ✓
+      // 4. Bacon is in an odd row in the bottom half → r5 (odd, bottom half rows 4-7) ✓
+      // 5. Olive is next to Bacon → Bacon(5) Olive(6) ✓
+      // 6. Toast is above Avocado → Toast(3) Avocado(4) ✓
+      // 7. Avocado is in the middle row → r4 (middle of 7) ✓
       solution: [4, 1, 5, 2, 3, 7, 6],
       clues: [
-        "🍳 Egg is in the first row.",
+        "🍳 Egg is higher than every other item.",
         "🧀 Cheese is directly below Egg.",
-        "🥓 Bacon is in row 5.",
-        "🥑 Avocado is in row 4.",
-        "🥤 Juice is in the last row.",
-        "🫒 Olive is in an even row, but not row 2 or 4.",
-        "🍞 Toast is not in row 1 or 7.",
+        "🥤 The only drink is in the last row.",
+        "🥓 Bacon is in an odd row in the bottom half.",
+        "🫒 Olive is next to Bacon.",
+        "🍞 Toast is somewhere above Avocado.",
+        "🥑 Avocado is in the middle row.",
       ],
       quote: "Every morning brings new potential, but if you dwell on the misfortunes of the day before, you tend to overlook tremendous opportunities. — Harvey Mackay",
     },
@@ -115,76 +127,78 @@ const PUZZLES = {
     {
       id: "h1",
       title: "Full Café Menu",
-      // Items: 0=Pancake, 1=Coffee, 2=Waffle, 3=Honey, 4=Butter, 5=Strawberry, 6=Blueberry, 7=Croissant, 8=Tea
+      // Items: 0=Pancake, 1=Coffee, 2=Waffle, 3=Honey, 4=Butter, 5=Croissant, 6=Tea
       items: [
         { emoji: "🥞", name: "Pancake" },
         { emoji: "☕", name: "Coffee" },
         { emoji: "🧇", name: "Waffle" },
         { emoji: "🍯", name: "Honey" },
         { emoji: "🧈", name: "Butter" },
-        { emoji: "🍓", name: "Strawberry" },
-        { emoji: "🫐", name: "Blueberry" },
         { emoji: "🥐", name: "Croissant" },
         { emoji: "🍵", name: "Tea" },
       ],
-      // Coffee=r1, Butter=r2(below Coffee), Honey=r3, Blueberry=r4, Pancake=r5
-      // Remaining: Waffle, Strawberry, Croissant, Tea for rows 6,7,8,9
-      // Tea=r9(last), Croissant even row higher than 6 → r8
-      // Strawberry not next to Blueberry(r4) → not r5(taken). Options: r6,r7
-      // Waffle between Blueberry(r4) and Strawberry
-      // If Strawberry=r7, Waffle between r4 and r7 = r5(taken) or r6. Waffle=r6. ✓
-      // Verify: Strawberry not next to Blueberry: r7 not adjacent to r4 ✓
-      solution: [5, 1, 6, 3, 2, 7, 4, 8, 9],
+      // Target: Coffee=r1, Croissant=r2, Butter=r3, Pancake=r4, Waffle=r5, Honey=r6, Tea=r7
+      // Verify each clue:
+      // 1. The two drinks are on opposite ends of the griddle → Coffee(1) Tea(7) ✓
+      // 2. Coffee is above Tea → r1 above r7 ✓
+      // 3. The baked goods (Pancake, Waffle, Croissant) are all in a row → r2,r4,r5... no.
+      //    Let me adjust: "No two baked goods are next to each other" → Croissant(2) Pancake(4) Waffle(5)...
+      //    That doesn't work either (4 and 5 adjacent). Let me rethink.
+      //    Baked goods: Croissant(2), Pancake(4), Waffle(5) — 4&5 are adjacent. 
+      //    Change: "The three baked goods are all in the middle five rows" → r2,r4,r5 all in rows 2-6 ✓
+      // 4. Pancake is in the middle row → r4 ✓
+      // 5. Croissant is above Pancake but not in row 1 → r2 or r3. Since Butter is r3, Croissant=r2 ✓
+      // 6. Waffle is directly below Pancake → r5 ✓
+      // 7. Butter is between the top drink and Pancake → Coffee(1)...Butter...Pancake(4) → r2 or r3. 
+      //    Croissant is r2, so Butter=r3 ✓
+      // 8. Honey is in an even row in the bottom half → r6 (even, bottom half rows 4-7) ✓
+      solution: [4, 1, 5, 6, 3, 2, 7],
       clues: [
-        "☕ Coffee is in the first row.",
-        "🧈 Butter is directly below Coffee.",
-        "🍯 Honey is in row 3.",
-        "🫐 Blueberry is in row 4.",
-        "🥞 Pancake is in row 5.",
-        "🍵 Tea is in the last row.",
-        "🍓 Strawberry is not next to Blueberry.",
-        "🥐 Croissant is in an even row higher than row 6.",
-        "🧇 Waffle is between Blueberry and Strawberry.",
+        "☕🍵 The two drinks are on opposite ends of the griddle.",
+        "☕ Coffee is above Tea.",
+        "🥞 Pancake is in the exact middle row.",
+        "🧇 Waffle is directly below Pancake.",
+        "🥐 Croissant is above Pancake but not in the first row.",
+        "🧈 Butter is somewhere between Coffee and Pancake.",
+        "🍯 Honey is in an even row in the bottom half.",
       ],
       quote: "It is during our darkest moments that we must focus to see the light. — Aristotle",
     },
     {
       id: "h2",
       title: "Grand Breakfast",
-      // Items: 0=Egg, 1=Bacon, 2=Pancake, 3=Waffle, 4=Coffee, 5=Honey, 6=Butter, 7=Strawberry, 8=Juice
+      // Items: 0=Egg, 1=Bacon, 2=Pancake, 3=Waffle, 4=Coffee, 5=Strawberry, 6=Juice
       items: [
         { emoji: "🍳", name: "Egg" },
         { emoji: "🥓", name: "Bacon" },
         { emoji: "🥞", name: "Pancake" },
         { emoji: "🧇", name: "Waffle" },
         { emoji: "☕", name: "Coffee" },
-        { emoji: "🍯", name: "Honey" },
-        { emoji: "🧈", name: "Butter" },
         { emoji: "🍓", name: "Strawberry" },
         { emoji: "🥤", name: "Juice" },
       ],
-      // Pancake=r1, Coffee=r2, Waffle=r3, Egg=r4, Honey=r5, Butter=r6, Bacon=r7, Strawberry=r8, Juice=r9
-      // Verify: Pancake r1✓, Coffee r2✓, Butter r3→NO wait let me redo this.
-      // Clues: Pancake r1, Coffee r2, Butter r6, Egg r4, Juice r9(last)
-      // Waffle above Egg(r4), not r1/r2 → r3 ✓
-      // Bacon r7 ✓
-      // Honey not r5 or r8 → remaining rows are 5,8. If not 5 or 8... that's broken.
-      // Let me redesign this puzzle properly.
-      // Remaining after r1,r2,r3,r4,r6,r7,r9: rows 5 and 8 for Honey and Strawberry
-      // Honey not r5 or r8 is impossible. Fix clue: "Honey is in row 5"
-      // Strawberry even row below r6 → r8 ✓
-      // Pancake=r1, Coffee=r2, Waffle=r3, Egg=r4, Honey=r5, Butter=r6, Bacon=r7, Strawberry=r8, Juice=r9
-      solution: [4, 7, 1, 3, 2, 5, 6, 8, 9],
+      // Target: Waffle=r1, Coffee=r2, Egg=r3, Pancake=r4, Strawberry=r5, Bacon=r6, Juice=r7
+      // Verify each clue:
+      // 1. The two drinks (Coffee, Juice) are not next to each other → Coffee(2) Juice(7) ✓
+      // 2. Coffee is in the top three rows → r2 ✓
+      // 3. Juice is below all the food items → r7 (below everything) ✓
+      // 4. The griddle items (Pancake, Waffle) are both above Egg... no, Waffle(1) Pancake(4) Egg(3).
+      //    Pancake(4) is not above Egg(3). Let me adjust.
+      //    "Waffle is higher than Pancake" → r1 above r4 ✓
+      // 5. Egg is between Coffee and Pancake → Coffee(2) Egg(3) Pancake(4) ✓
+      // 6. Strawberry is in an odd row below the middle → odd rows below r4: r5 or r7. Juice is r7. So r5 ✓
+      // 7. Bacon is next to Strawberry → Strawberry(5) Bacon(6) ✓
+      // 8. Waffle is in the first row → too direct. Change to:
+      //    "Waffle is above all other items" → r1 ✓
+      solution: [3, 6, 4, 1, 2, 5, 7],
       clues: [
-        "🥞 Pancake is in row 1.",
-        "☕ Coffee is in row 2.",
-        "🧇 Waffle is above Egg but not in row 1 or 2.",
-        "🍳 Egg is in row 4.",
-        "🍯 Honey is in row 5.",
-        "🧈 Butter is in row 6.",
-        "🥓 Bacon is in row 7.",
-        "🍓 Strawberry is in an even row below row 6.",
-        "🥤 Juice is in the last row.",
+        "☕🥤 The two drinks are not next to each other.",
+        "☕ Coffee is in the top three rows.",
+        "🥤 Juice is below every food item.",
+        "🧇 Waffle is higher than Pancake.",
+        "🍳 Egg is between Coffee and Pancake.",
+        "🍓 Strawberry is in an odd row below the middle.",
+        "🥓 Bacon is next to Strawberry.",
       ],
       quote: "You are never too old to set another goal or to dream a new dream. — C.S. Lewis",
     },
@@ -281,7 +295,7 @@ const PUZZLES = {
 const DIFFICULTY_CONFIG = {
   easy: { label: "Easy", emoji: "☕", color: "#16A34A", desc: "5 items · Direct clues" },
   medium: { label: "Medium", emoji: "🥞", color: "#D97706", desc: "7 items · Mixed clues" },
-  hard: { label: "Hard", emoji: "🔥", color: "#DC2626", desc: "9 items · Tricky clues" },
+  hard: { label: "Hard", emoji: "🔥", color: "#DC2626", desc: "7 items · Indirect clues" },
   trivia: { label: "Trivia Night", emoji: "🌙", color: "#7C3AED", desc: "9 items · Deductive clues" },
 };
 

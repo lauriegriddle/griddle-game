@@ -315,11 +315,13 @@ export default function GriddleLogic() {
   const [attempts, setAttempts] = useState(0);
   const [copied, setCopied] = useState(false);
 
-  const puzzle = PUZZLES[difficulty][puzzleIdx];
+  const puzzle = PUZZLES[difficulty][puzzleIdx] || PUZZLES[difficulty][0];
   const numRows = puzzle.items.length;
 
   useEffect(() => {
-    setGrid(Array(numRows).fill(null));
+    const currentPuzzle = PUZZLES[difficulty][puzzleIdx] || PUZZLES[difficulty][0];
+    const rows = currentPuzzle.items.length;
+    setGrid(Array(rows).fill(null));
     setSelectedItem(null);
     setSelectedRow(null);
     setCheckResults(null);
@@ -329,7 +331,7 @@ export default function GriddleLogic() {
     setConfetti([]);
     setAttempts(0);
     setCopied(false);
-    const indices = puzzle.items.map((_, i) => i);
+    const indices = currentPuzzle.items.map((_, i) => i);
     for (let i = indices.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [indices[i], indices[j]] = [indices[j], indices[i]];
@@ -337,8 +339,14 @@ export default function GriddleLogic() {
     setShuffledOrder(indices);
   }, [difficulty, puzzleIdx]);
 
+  // Guard against stale state during difficulty transitions
+  if (grid.length !== numRows) {
+    return <div style={{ minHeight: "100vh", background: "#FFF8F0" }} />;
+  }
+
   const placedItems = new Set(grid.filter((i) => i !== null));
   const displayTrayItems = shuffledOrder
+    .filter((idx) => idx < puzzle.items.length)
     .map((idx) => ({ ...puzzle.items[idx], idx }))
     .filter((item) => !placedItems.has(item.idx));
 

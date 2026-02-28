@@ -703,14 +703,15 @@ export default function Home() {
   ✨ Stories & More ✨
 </button>
 <button 
-            onClick={() => {
-              if (!showMoreGames) setShowMoreGames(true);
-              setTimeout(() => scrollToSection('espresso-lane'), 100);
+onClick={() => {
+if (!showMoreGames) setShowMoreGames(true);
+setTimeout(() => scrollToSection('espresso-lane'), 100);
             }}
-            className="px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
-          >
+className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
+>
             ☕ Espresso Lane
-          </button>
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-md animate-bounce">NEW!</span>
+</button>
         </nav>
       </header>
 

@@ -1107,68 +1107,74 @@ const copyToClipboard = async (text) => {
 
       {/* GRAND OPENING MODAL */}
 {showLaunchModal && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowLaunchModal(false)}>
-    <div className="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+  <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4" onClick={() => setShowLaunchModal(false)}>
+    <div className="bg-gradient-to-br from-amber-50 via-pink-50 to-purple-50 rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-4 border-amber-400 overflow-hidden" onClick={(e) => e.stopPropagation()}>
+      
+      <div className="absolute top-2 left-4 text-2xl animate-pulse">✨</div>
+      <div className="absolute top-8 right-6 text-xl animate-pulse">🌟</div>
+      <div className="absolute bottom-16 left-6 text-xl animate-pulse">⭐</div>
+      <div className="absolute bottom-8 right-4 text-2xl animate-pulse">✨</div>
+      
       <button
         onClick={() => setShowLaunchModal(false)}
-        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+        className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 z-10 bg-white rounded-full p-1 hover:bg-gray-100 shadow-md"
         aria-label="Close"
       >
-        <X size={24} />
+        <X size={22} />
       </button>
       
       <div className="text-center mb-4">
-        <div className="text-6xl mb-3">🥞</div>
-        <h2 className="text-3xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-          Letter Griddle
+        <div className="text-4xl mb-2">🎉🥞🎉</div>
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-pink-500 to-purple-600 bg-clip-text text-transparent" style={{fontFamily: 'Georgia, serif'}}>
+          Grand Opening Celebration!
         </h2>
-        <div className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-5 py-2 rounded-full text-lg font-bold mt-3 shadow-lg">
-          ✨ Grand Opening ✨
-        </div>
-        <p className="text-purple-600 text-lg mt-2 font-bold">February 2026</p>
+        <p className="text-purple-600 font-semibold text-sm mt-1">Welcome to the Letter Griddle Family!</p>
       </div>
       
-      <div className="space-y-4">
-        {/* Thank You Message */}
-        <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-4 border-2 border-amber-200">
-          <p className="text-amber-800 text-center leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
-            Thank you for being part of Letter Griddle! 🍯 Because of you, our launch was a success!
-          </p>
-        </div>
-        
-        {/* What's Coming */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 border-2 border-blue-200">
-          <p className="text-center text-blue-800 font-bold text-lg mb-2">🎉 Grand Opening 🎉</p>
-          <p className="text-center text-blue-700 leading-relaxed">
-            Brand new <span className="font-bold">themed puzzles and games</span> are part of Letter Griddle to celebrate our Grand Opening!
-          </p>
-        </div>
-        
-        {/* Teaser */}
-        <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border-2 border-purple-200">
-          <p className="text-center text-purple-800 font-bold text-lg mb-2">🍯 Brand New!</p>
-          <p className="text-center text-purple-700 leading-relaxed">
-           <span className="font-bold">Letter Griddle fun</span>, <span className="font-bold">games,</span> and <span className="font-bold">puzzles</span>!  Free and ad-free <span className="font-bold">in February</span>!
-          </p>
-        </div>
-        
-        {/* Stay Tuned */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-amber-100 px-4 py-2 rounded-full">
-            <span className="text-xl">🍯</span>
-            <span className="text-amber-800 font-semibold">Join us for Pancakes, Hoopla, and the Winter Games!</span>
-            <span className="text-xl">🥞</span>
+      <div className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 mb-2 border-2 border-amber-300 shadow-sm">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">🥞</span>
+          <div>
+            <p className="font-bold text-amber-800 text-sm">Pancakes Word Find</p>
+            <p className="text-amber-700 text-xs">A delicious word search adventure!</p>
           </div>
         </div>
       </div>
       
-      {/* Decorative Footer */}
-      <div className="flex justify-center gap-3 mt-6 text-3xl">
-        🥞 🍯 🥞 🍯 🥞
+      <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-3 mb-2 border-2 border-purple-300 shadow-sm">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">📣</span>
+          <div>
+            <p className="font-bold text-purple-800 text-sm">Hoopla Pep Rally Word Search</p>
+            <p className="text-purple-700 text-xs">Get fired up with spirited puzzles!</p>
+          </div>
+        </div>
       </div>
       
-      <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">
-        <p className="text-amber-700 text-sm font-semibold">🥞 New puzzle daily at 7 PM EST 🥞</p>
+      <div className="bg-gradient-to-r from-orange-100 to-amber-100 rounded-xl p-3 mb-2 border-2 border-orange-300 shadow-sm relative">
+        <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md animate-bounce">NEW!</div>
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">☕</span>
+          <div>
+            <p className="font-bold text-orange-800 text-sm">Espresso Lane</p>
+            <p className="text-orange-700 text-xs">6 quick games perfect for coffee breaks!</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="bg-gradient-to-r from-emerald-100 to-teal-100 rounded-xl p-3 mb-3 border-2 border-emerald-300 shadow-sm relative">
+        <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md animate-bounce">NEW!</div>
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">🧩</span>
+          <div>
+            <p className="font-bold text-emerald-800 text-sm">Griddle Logic</p>
+           <p className="text-emerald-700 text-xs">Easy, Medium, Hard + Trivia Night challenge! Dropping this week!</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="text-center bg-gradient-to-r from-pink-100 to-purple-100 rounded-lg p-2 border-2 border-pink-300">
+        <p className="text-purple-800 font-bold text-sm">🌟 Play them all at lettergriddle.com 🌟</p>
       </div>
     </div>
   </div>
@@ -1191,70 +1197,70 @@ const copyToClipboard = async (text) => {
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
           This Week's Schedule
         </h2>
-        <p className="text-purple-600 font-semibold text-sm">February 22 - 28</p>
+        <p className="text-purple-600 font-semibold text-sm">March 1 - 7</p>
       </div>
       
       <div className="space-y-1.5 mb-3">
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 2/22</span>
-            <span className="font-semibold text-amber-800 text-sm">Horses</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 3/1</span>
+            <span className="font-semibold text-amber-800 text-sm">Compliments</span>
           </div>
-          <span className="text-lg">🐴</span>
+          <span className="text-lg">💬</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 2/23</span>
-            <span className="font-semibold text-purple-800 text-sm">Chinese New Year</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 3/2</span>
+            <span className="font-semibold text-purple-800 text-sm">Dr. Seuss</span>
           </div>
-          <span className="text-lg">🧧</span>
+          <span className="text-lg">📚</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 2/24</span>
-            <span className="font-semibold text-amber-800 text-sm">Alaska</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 3/3</span>
+            <span className="font-semibold text-amber-800 text-sm">Lions</span>
           </div>
-          <span className="text-lg">🏔️</span>
+          <span className="text-lg">🦁</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 2/25</span>
-            <span className="font-semibold text-purple-800 text-sm">Frogurt</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 3/4</span>
+            <span className="font-semibold text-purple-800 text-sm">Cheese Doodles</span>
           </div>
-          <span className="text-lg">🍦</span>
+          <span className="text-lg">🧀</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 2/26</span>
-            <span className="font-semibold text-amber-800 text-sm">Opera</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 3/5</span>
+            <span className="font-semibold text-amber-800 text-sm">Cheesecake</span>
           </div>
-          <span className="text-lg">🎭</span>
+          <span className="text-lg">🍰</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 2/27</span>
-            <span className="font-semibold text-purple-800 text-sm">Radio</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 3/6</span>
+            <span className="font-semibold text-purple-800 text-sm">Next Window, Please</span>
           </div>
-          <span className="text-lg">📻</span>
+          <span className="text-lg">🍔</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 2/28</span>
-            <span className="font-semibold text-amber-800 text-sm">Hippopotamus</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 3/7</span>
+            <span className="font-semibold text-amber-800 text-sm">Women's Day</span>
           </div>
-          <span className="text-lg">🦛</span>
+          <span className="text-lg">💪</span>
         </div>
       </div>
       
-      <div className="bg-gradient-to-r from-sky-100 to-blue-100 rounded-xl p-3 border-2 border-sky-300 mb-3">
-        <p className="text-center text-sky-800 font-bold text-xs">🎿 ⛷️ 🏂 🥌</p>
-        <p className="text-center text-sky-700 text-xs mt-1 leading-snug">Visit lettergriddle.com daily to play along with the Winter Olympics in the Letter Griddle Cottage while we continue to celebrate our Grand Opening with special games and puzzles!</p>
+      <div className="bg-gradient-to-r from-pink-100 via-purple-100 to-amber-100 rounded-xl p-3 border-2 border-purple-300 mb-3">
+        <p className="text-center text-purple-800 font-bold text-xs">🎉 ✨ 🥞 ✨ 🎉</p>
+        <p className="text-center text-purple-700 text-xs mt-1 leading-snug">Visit lettergriddle.com daily to continue celebrating our Grand Opening with "Espresso Lane" games and our brand new Griddle Logic game dropping this week!</p>
       </div>
       
       <div className="text-center pt-2 border-t-2 border-dashed border-amber-300">

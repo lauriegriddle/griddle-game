@@ -1400,6 +1400,117 @@ const puzzles = [
     ],
     funFact: "Hippopotamuses are semi-aquatic giants that, despite spending up to 16 hours a day submerged, cannot actually swim or float, instead walking along riverbeds. They are surprisingly fast, reaching 22 mph on land, and produce their own red, antibiotic 'blood sweat' to protect skin from the sun. 🦛",
   },
+  // =============================================
+  // INDEX 92 - Shows Mar 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Compliments",
+    puzzleNumber: 171,
+    words: [
+      { word: "WISH", hint: "A hope or desire for someone's happiness", revealedIndex: 0 },
+      { word: "BOOST", hint: "To lift up or increase confidence", revealedIndex: 2 },
+      { word: "MORALE", hint: "The spirit or confidence of a person or group", revealedIndex: 3 },
+      { word: "GENUINE", hint: "Sincere and authentic, not fake", revealedIndex: 0 },
+      { word: "POSITIVE", hint: "Optimistic and encouraging", revealedIndex: 4 },
+    ],
+    funFact: "Giving compliments can increase stress resilience and enhance personal well-being. For relationships to flourish, experts suggest that positive interactions, including compliments, should outnumber negative ones by more than five to one. 💬",
+  },
+
+  // =============================================
+  // INDEX 93 - Shows Mar 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Dr. Seuss",
+    puzzleNumber: 172,
+    words: [
+      { word: "EGGS", hint: "A breakfast food featured in a famous title with ham", revealedIndex: 0 },
+      { word: "VERSE", hint: "Poetry or rhyming lines", revealedIndex: 2 },
+      { word: "GRINCH", hint: "A green character who stole Christmas", revealedIndex: 3 },
+      { word: "CARTOON", hint: "An animated drawing or illustration", revealedIndex: 0 },
+      { word: "ARTISTIC", hint: "Creative and imaginative in style", revealedIndex: 4 },
+    ],
+    funFact: "Dr. Seuss wasn't a doctor, coined the word 'nerd,' and wrote Green Eggs and Ham when his editor bet him that he couldn't write a book using only 50 words. 📚",
+  },
+
+  // =============================================
+  // INDEX 94 - Shows Mar 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Lions",
+    puzzleNumber: 173,
+    words: [
+      { word: "LAZY", hint: "Resting often, as these cats sleep up to 20 hours a day", revealedIndex: 0 },
+      { word: "PRIDE", hint: "A group of these big cats living together", revealedIndex: 2 },
+      { word: "SOCIAL", hint: "Living and interacting with others in a group", revealedIndex: 3 },
+      { word: "AFRICAN", hint: "The continent where most of these animals live", revealedIndex: 0 },
+      { word: "MAJESTIC", hint: "Grand, impressive, and regal in appearance", revealedIndex: 4 },
+    ],
+    funFact: "Lions are the only truly social big cats, living in prides of up to 40 members, and are famously known as the 'king of the jungle' despite living in grasslands. 🦁",
+  },
+
+  // =============================================
+  // INDEX 95 - Shows Mar 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Cheese Doodles",
+    puzzleNumber: 174,
+    words: [
+      { word: "NEON", hint: "A bright, fluorescent color like orange", revealedIndex: 0 },
+      { word: "SNACK", hint: "A small portion of food eaten between meals", revealedIndex: 2 },
+      { word: "POWDER", hint: "A fine, dusty coating left on fingers", revealedIndex: 3 },
+      { word: "CHEDDAR", hint: "A type of cheese used for flavoring", revealedIndex: 0 },
+      { word: "CORNMEAL", hint: "Ground corn used as the base ingredient", revealedIndex: 4 },
+    ],
+    funFact: "Cheese Doodles stem from farm machinery accidentally puffing corn kernels and were perfected in the 1950s. Over 15 million pounds are produced annually with March 5 officially recognized as National Cheese Doodle Day. 🧀",
+  },
+
+  // =============================================
+  // INDEX 96 - Shows Mar 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Cheesecake",
+    puzzleNumber: 175,
+    words: [
+      { word: "SOUR", hint: "A type of cream used to add tanginess", revealedIndex: 0 },
+      { word: "CRUST", hint: "The graham cracker base of the dessert", revealedIndex: 2 },
+      { word: "CREAMY", hint: "Smooth and rich in texture", revealedIndex: 3 },
+      { word: "CUSTARD", hint: "A thick, creamy mixture of eggs and cream", revealedIndex: 0 },
+      { word: "HEAVENLY", hint: "Delightfully delicious, like paradise", revealedIndex: 4 },
+    ],
+    funFact: "Ancient Greek athletes were served cheesecake to boost their energy during the first Olympic Games. 🍰",
+  },
+
+  // =============================================
+  // INDEX 97 - Shows Mar 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Next Window, Please",
+    puzzleNumber: 176,
+    words: [
+      { word: "SODA", hint: "A fizzy carbonated beverage", revealedIndex: 0 },
+      { word: "SHAKE", hint: "A thick, blended ice cream drink", revealedIndex: 2 },
+      { word: "BURGER", hint: "A sandwich with a ground beef patty", revealedIndex: 3 },
+      { word: "KETCHUP", hint: "A tomato-based condiment for fries", revealedIndex: 0 },
+      { word: "PICKLES", hint: "Tangy cucumber slices on a sandwich", revealedIndex: 4 },
+    ],
+    funFact: "Fast food is full of surprising history, from White Castle being the first chain (1921) and Wendy's inventing the drive-thru (1970) to Taco Bell starting as a hot dog stand before focusing on tacos, while globally, KFC is a Christmas tradition in Japan thanks to clever marketing, and Pizza Hut once delivered to space, showing how these quick meals have quirky origins and global reach. 🍔",
+  },
+
+  // =============================================
+  // INDEX 98 - Shows Mar 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Women's Day",
+    puzzleNumber: 177,
+    words: [
+      { word: "BOLD", hint: "Courageous and daring", revealedIndex: 0 },
+      { word: "HONOR", hint: "To show respect and recognition", revealedIndex: 2 },
+      { word: "RIGHTS", hint: "Freedoms and entitlements for all people", revealedIndex: 3 },
+      { word: "JUSTICE", hint: "Fairness and equality under the law", revealedIndex: 0 },
+      { word: "STRENGTH", hint: "Power, courage, and determination", revealedIndex: 4 },
+    ],
+    funFact: "The first International Women's Day was held in Austria, Denmark, Germany, and Switzerland on March 19, 1911 with over 1 million people attending rallies. 💪",
+  },
 ];
 
 // ===========================================

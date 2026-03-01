@@ -523,7 +523,7 @@ export default function GriddleLogic() {
                   Griddle Logic
                 </h1>
                 <div style={{ fontSize: "13px", color: "#92400E", fontStyle: "italic" }}>
-                  A cozy logic puzzle from the Letter Griddle Café
+                  A cozy logic puzzle from Letter Griddle 
                 </div>
               </div>
 
@@ -630,7 +630,7 @@ export default function GriddleLogic() {
           <div style={{
             fontSize: "12px", color: "#D97706", letterSpacing: "3px",
             textTransform: "uppercase", marginBottom: "4px",
-          }}>Letter Griddle Café presents</div>
+          }}>Letter Griddle presents</div>
           <h1 style={{
             fontSize: "32px", fontWeight: "bold", color: "#3A2A1C", margin: "0 0 4px",
           }}>☕ Griddle Logic</h1>
@@ -996,7 +996,7 @@ export default function GriddleLogic() {
           textAlign: "center", marginTop: "20px", paddingTop: "14px",
           borderTop: "1px solid #FEF3C7", fontSize: "12px", color: "#78716C",
         }}>
-          <div>A game from the <span style={{ color: "#D97706" }}>Letter Griddle Café</span></div>
+          <div>A game from <span style={{ color: "#D97706" }}>Letter Griddle Games</span></div>
           <div style={{ marginTop: "4px" }}>
             🥞 <a href="https://www.lettergriddle.com" style={{ color: "#78716C", textDecoration: "underline" }}>lettergriddle.com</a>
             {" · "}☕ <a href="https://www.griddlefalls.com" style={{ color: "#78716C", textDecoration: "underline" }}>griddlefalls.com</a>

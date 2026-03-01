@@ -19,14 +19,20 @@ const PUZZLES = {
         { emoji: "🧈", name: "Butter" },
         { emoji: "🍓", name: "Strawberry" },
       ],
-      // Coffee=r1, Butter=r2, Pancake=r3, Strawberry=r4, Honey=r5
+      // Target: Coffee=r1, Butter=r2, Pancake=r3, Strawberry=r4, Honey=r5
+      // Verify:
+      // 1. Coffee is above everything else → r1 ✓
+      // 2. Pancake is in the middle row → r3 (middle of 5) ✓
+      // 3. Honey is in the last row → r5 ✓
+      // 4. Butter is between Coffee and Pancake → Coffee(1)...Butter(2)...Pancake(3) ✓
+      // 5. Strawberry is below Pancake → r4 ✓
       solution: [3, 1, 5, 2, 4],
       clues: [
-        "☕ Coffee is in the first row.",
-        "🧈 Butter is in the second row.",
+        "☕ Coffee is above everything else.",
         "🥞 Pancake is in the middle row.",
-        "🍓 Strawberry is in the fourth row.",
         "🍯 Honey is in the last row.",
+        "🧈 Butter is between Coffee and Pancake.",
+        "🍓 Strawberry is below Pancake.",
       ],
       quote: "Start where you are. Use what you have. Do what you can. — Arthur Ashe",
     },
@@ -41,14 +47,20 @@ const PUZZLES = {
         { emoji: "🍵", name: "Tea" },
         { emoji: "🍪", name: "Cookie" },
       ],
-      // Croissant=r1, Waffle=r2, Tea=r3, Blueberry=r4, Cookie=r5
+      // Target: Croissant=r1, Waffle=r2, Tea=r3, Blueberry=r4, Cookie=r5
+      // Verify:
+      // 1. The two baked goods (Croissant, Waffle) are in the top two rows → r1, r2 ✓
+      // 2. Croissant is above Waffle → r1 above r2 ✓
+      // 3. Cookie is in the last row → r5 ✓
+      // 4. Tea is above Blueberry → r3 above r4 ✓
+      // 5. Blueberry is next to Cookie → r4 next to r5 ✓
       solution: [2, 4, 1, 3, 5],
       clues: [
-        "🥐 Croissant is in the first row.",
-        "🧇 Waffle is in row 2.",
+        "🥐🧇 The two baked goods are in the top two rows.",
+        "🥐 Croissant is above Waffle.",
         "🍪 Cookie is in the last row.",
-        "🫐 Blueberry is in row 4.",
-        "🍵 Tea is right above Blueberry.",
+        "🍵 Tea is above Blueberry.",
+        "🫐 Blueberry is next to Cookie.",
       ],
       quote: "Happiness is not something ready made. It comes from your own actions. — Dalai Lama",
     },
@@ -293,7 +305,7 @@ const PUZZLES = {
 };
 
 const DIFFICULTY_CONFIG = {
-  easy: { label: "Easy", emoji: "☕", color: "#16A34A", desc: "5 items · Direct clues" },
+  easy: { label: "Easy", emoji: "☕", color: "#16A34A", desc: "5 items · Gentle clues" },
   medium: { label: "Medium", emoji: "🥞", color: "#D97706", desc: "7 items · Mixed clues" },
   hard: { label: "Hard", emoji: "🔥", color: "#DC2626", desc: "7 items · Indirect clues" },
   trivia: { label: "Trivia Night", emoji: "🌙", color: "#7C3AED", desc: "9 items · Deductive clues" },
@@ -855,8 +867,8 @@ export default function GriddleLogic() {
         }}>
           <div>A game from the <span style={{ color: "#D97706" }}>Letter Griddle Café</span></div>
           <div style={{ marginTop: "4px" }}>
-            🥞 <span style={{ textDecoration: "underline" }}>lettergriddle.com</span>
-            {" · "}☕ <span style={{ textDecoration: "underline" }}>griddlefalls.com</span>
+            🥞 <a href="https://www.lettergriddle.com" style={{ color: "#78716C", textDecoration: "underline" }}>lettergriddle.com</a>
+            {" · "}☕ <a href="https://www.griddlefalls.com" style={{ color: "#78716C", textDecoration: "underline" }}>griddlefalls.com</a>
           </div>
           <div style={{ marginTop: "8px", fontSize: "11px", color: "#A3A3A3" }}>
             © {new Date().getFullYear()} Letter Griddle. All rights reserved.

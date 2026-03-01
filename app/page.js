@@ -319,6 +319,45 @@ export default function Home() {
       textColor: "text-orange-800",
       subTextColor: "text-orange-700",
       hoverBg: "bg-orange-500/80"
+    },
+    {
+      name: "Spins",
+      tagline: "Spell the food hidden in the song title",
+      emoji: "💿",
+      href: "/spins",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #6D28D9 100%)",
+        icon: "💿",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Spins"],
+        subtitle: "Music Word Game",
+        subtitleColor: "text-purple-200",
+        hasStars: true
+      },
+      borderColor: "border-purple-400",
+      bgColor: "from-purple-100 to-violet-100",
+      textColor: "text-purple-800",
+      subTextColor: "text-purple-700",
+      hoverBg: "bg-purple-500/80"
+    },
+    {
+      name: "Hoopla",
+      tagline: "Word-Finding Challenge! 20 Puzzles!",
+      emoji: "📣",
+      href: "/hoopla",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%)",
+        icon: "📣",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Hoopla"],
+        subtitle: "Game Night Pep Rally",
+        subtitleColor: "text-red-100"
+      },
+      borderColor: "border-red-400",
+      bgColor: "from-red-100 to-orange-100",
+      textColor: "text-red-800",
+      subTextColor: "text-red-700",
+      hoverBg: "bg-red-500/80"
     }
   ];
 
@@ -365,45 +404,7 @@ export default function Home() {
       subTextColor: "text-orange-700",
       hoverBg: "bg-amber-600/80"
     },
-    {
-      name: "Spins",
-      tagline: "Spell the food hidden in the song title",
-      emoji: "💿",
-      href: "/spins",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #6D28D9 100%)",
-        icon: "💿",
-        iconSize: "text-5xl",
-        title: ["Letter Griddle", "Spins"],
-        subtitle: "Music Word Game",
-        subtitleColor: "text-purple-200",
-        hasStars: true
-      },
-      borderColor: "border-purple-400",
-      bgColor: "from-purple-100 to-violet-100",
-      textColor: "text-purple-800",
-      subTextColor: "text-purple-700",
-      hoverBg: "bg-purple-500/80"
-    },
-    {
-      name: "Hoopla",
-      tagline: "Word-Finding Challenge! 20 Puzzles!",
-      emoji: "📣",
-      href: "/hoopla",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%)",
-        icon: "📣",
-        iconSize: "text-5xl",
-        title: ["Letter Griddle", "Hoopla"],
-        subtitle: "Game Night Pep Rally",
-        subtitleColor: "text-red-100"
-      },
-      borderColor: "border-red-400",
-      bgColor: "from-red-100 to-orange-100",
-      textColor: "text-red-800",
-      subTextColor: "text-red-700",
-      hoverBg: "bg-red-500/80"
-    }
+    
   ];
 // SECTION 4: Espresso Lane (quick-play coffee break games)
   const espressoLaneGames = [

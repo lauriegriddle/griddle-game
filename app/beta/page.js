@@ -25,21 +25,9 @@ export default function BetaGames() {
         description: "Beta testing in progress.  Kitchen and Office Modes!"
     },
     {
-        name: "Scoops",
-        href: "/scoops",
-        emoji: "🍨",
-        description: "Beta testing in progress"
-    },
-    {
         name: "Servings",
         href: "/servings",
         emoji: "🍽️",
-        description: "Beta testing in progress"
-    },
-    {
-        name: "Snacks",
-        href: "/snacks",
-        emoji: "🍪",
         description: "Beta testing in progress"
     },
     {

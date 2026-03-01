@@ -544,7 +544,7 @@ export default function GriddleLogic() {
                   </div>
                   <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
                     <span style={{ fontSize: "18px", flexShrink: 0 }}>🔍</span>
-                    <div><strong>Read the clues:</strong> Each clue tells you something about where an item belongs — "above," "between," "next to," or which part of the griddle to look at.</div>
+                    <div><strong>Read the clues:</strong> Each clue tells you something about where an item belongs:  "above," "between," "next to," or which part of the griddle to look at.</div>
                   </div>
                   <div style={{ display: "flex", gap: "8px" }}>
                     <span style={{ fontSize: "18px", flexShrink: 0 }}>✅</span>

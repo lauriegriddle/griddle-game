@@ -802,7 +802,7 @@ const copyToClipboard = async (text) => {
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
               title="We're Live!"
             >
-              <span className="text-lg">⭐️</span>
+              <span className="text-lg">🌷</span>
             </button>
             {/* SCHEDULE BUTTON - NEW! */}
 <button
@@ -810,7 +810,7 @@ const copyToClipboard = async (text) => {
   className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
   title="New Year's Week Schedule"
 >
-  <span className="text-lg">🌠</span>
+  <span className="text-lg">🗓️</span>
 </button>
             <button
   onClick={() => setShowHowToPlayModal(true)}

@@ -224,6 +224,45 @@ export default function Home() {
       hoverBg: "bg-orange-500/80"
     },
     {
+      name: "Spins",
+      tagline: "Spell the food hidden in the song title",
+      emoji: "💿",
+      href: "/spins",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #6D28D9 100%)",
+        icon: "💿",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Spins"],
+        subtitle: "Music Word Game",
+        subtitleColor: "text-purple-200",
+        hasStars: true
+      },
+      borderColor: "border-purple-400",
+      bgColor: "from-purple-100 to-violet-100",
+      textColor: "text-purple-800",
+      subTextColor: "text-purple-700",
+      hoverBg: "bg-purple-500/80"
+    },
+    {
+      name: "Hoopla",
+      tagline: "Word-Finding Challenge! 20 Puzzles!",
+      emoji: "📣",
+      href: "/hoopla",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%)",
+        icon: "📣",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Hoopla"],
+        subtitle: "Game Night Pep Rally",
+        subtitleColor: "text-red-100"
+      },
+      borderColor: "border-red-400",
+      bgColor: "from-red-100 to-orange-100",
+      textColor: "text-red-800",
+      subTextColor: "text-red-700",
+      hoverBg: "bg-red-500/80"
+    },
+    {
       name: "Jukebox",
       tagline: "One word leads to the next",
       emoji: "🎵",
@@ -320,45 +359,25 @@ export default function Home() {
       subTextColor: "text-orange-700",
       hoverBg: "bg-orange-500/80"
     },
-    {
-      name: "Spins",
-      tagline: "Spell the food hidden in the song title",
-      emoji: "💿",
-      href: "/spins",
+{
+      name: "Scoops - Brand New!",
+      tagline: "Get the inside scoop at the Letter Griddle Cafe!",
+      emoji: "☕",
+      href: "/scoops",
       thumbnail: {
-        gradient: "linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #6D28D9 100%)",
-        icon: "💿",
+        gradient: "linear-gradient(135deg, #F97316 0%, #EA580C 50%, #C2410C 100%)",
+        icon: "☕",
         iconSize: "text-5xl",
-        title: ["Letter Griddle", "Spins"],
-        subtitle: "Music Word Game",
-        subtitleColor: "text-purple-200",
-        hasStars: true
+        title: ["Letter Griddle", "Scoops"],
+        subtitle: "Trivia Challenge Letter Griddle Style",
+        subtitleColor: "text-orange-100"
       },
-      borderColor: "border-purple-400",
-      bgColor: "from-purple-100 to-violet-100",
-      textColor: "text-purple-800",
-      subTextColor: "text-purple-700",
-      hoverBg: "bg-purple-500/80"
+      borderColor: "border-orange-400",
+      bgColor: "from-orange-100 to-amber-100",
+      textColor: "text-orange-800",
+      subTextColor: "text-orange-700",
+      hoverBg: "bg-orange-500/80"
     },
-    {
-      name: "Hoopla",
-      tagline: "Word-Finding Challenge! 20 Puzzles!",
-      emoji: "📣",
-      href: "/hoopla",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%)",
-        icon: "📣",
-        iconSize: "text-5xl",
-        title: ["Letter Griddle", "Hoopla"],
-        subtitle: "Game Night Pep Rally",
-        subtitleColor: "text-red-100"
-      },
-      borderColor: "border-red-400",
-      bgColor: "from-red-100 to-orange-100",
-      textColor: "text-red-800",
-      subTextColor: "text-red-700",
-      hoverBg: "bg-red-500/80"
-    }
   ];
 
   // SECTION 3: Stories, Recipes & More (with Spins)
@@ -403,6 +422,25 @@ export default function Home() {
       textColor: "text-orange-800",
       subTextColor: "text-orange-700",
       hoverBg: "bg-amber-600/80"
+    },
+    {
+      name: "Snacks - Brand New!",
+      tagline: "Make a snack without leaving any crumbs!",
+      emoji: "🍪",
+      href: "/snacks",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #78350F 0%, #92400E 50%, #451A03 100%)",
+        icon: "🍪",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Snacks"],
+        subtitle: "Midnight Puzzle",
+        subtitleColor: "text-amber-200"
+      },
+      borderColor: "border-amber-700",
+      bgColor: "from-amber-100 to-orange-100",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-800/80"
     },
     
   ];

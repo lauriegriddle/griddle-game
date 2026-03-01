@@ -314,6 +314,7 @@ const DIFFICULTY_CONFIG = {
 export default function GriddleLogic() {
   const [difficulty, setDifficulty] = useState("medium");
   const [puzzleIdx, setPuzzleIdx] = useState(0);
+  const [showLanding, setShowLanding] = useState(true);
   const [grid, setGrid] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -494,8 +495,138 @@ export default function GriddleLogic() {
 
       <div style={{ maxWidth: "480px", margin: "0 auto", padding: "20px 16px 40px" }}>
 
+        {/* ─── HOW TO PLAY LANDING SCREEN ─── */}
+        {showLanding && (
+          <div style={{
+            position: "fixed", inset: 0, zIndex: 200,
+            background: "linear-gradient(180deg, #FFF8F0 0%, #FFF1E0 40%, #FEF3C7 100%)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "16px",
+          }}>
+            <div style={{
+              maxWidth: "420px", width: "100%",
+              background: "rgba(255, 255, 255, 0.45)",
+              backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)",
+              borderRadius: "24px",
+              border: "1px solid rgba(255, 255, 255, 0.6)",
+              boxShadow: "0 8px 32px rgba(180, 120, 60, 0.15), inset 0 1px 0 rgba(255,255,255,0.5)",
+              padding: "32px 24px",
+              maxHeight: "90vh", overflowY: "auto",
+              animation: "fadeInUp 0.5s ease-out",
+            }}>
+              {/* Title */}
+              <div style={{ textAlign: "center", marginBottom: "20px" }}>
+                <div style={{ fontSize: "12px", color: "#D97706", letterSpacing: "3px", marginBottom: "4px" }}>
+                  ☕ FROM THE CAFÉ ☕
+                </div>
+                <h1 style={{ fontSize: "28px", color: "#78350F", margin: "0 0 4px", fontWeight: "bold" }}>
+                  Griddle Logic
+                </h1>
+                <div style={{ fontSize: "13px", color: "#92400E", fontStyle: "italic" }}>
+                  A cozy logic puzzle from the Letter Griddle Café
+                </div>
+              </div>
+
+              {/* How to Play */}
+              <div style={{
+                background: "rgba(255, 255, 255, 0.5)",
+                borderRadius: "16px", padding: "16px", marginBottom: "16px",
+                border: "1px solid rgba(217, 119, 6, 0.15)",
+              }}>
+                <h2 style={{ fontSize: "16px", color: "#92400E", margin: "0 0 10px", textAlign: "center" }}>
+                  How to Play
+                </h2>
+
+                <div style={{ fontSize: "13px", color: "#78350F", lineHeight: "1.6" }}>
+                  <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
+                    <span style={{ fontSize: "18px", flexShrink: 0 }}>👆</span>
+                    <div><strong>Place items:</strong> Tap an emoji from the tray, then tap a row on the griddle to place it. Tap two rows to swap items.</div>
+                  </div>
+                  <div style={{ display: "flex", gap: "8px", marginBottom: "10px" }}>
+                    <span style={{ fontSize: "18px", flexShrink: 0 }}>🔍</span>
+                    <div><strong>Read the clues:</strong> Each clue tells you something about where an item belongs — "above," "between," "next to," or which part of the griddle to look at.</div>
+                  </div>
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    <span style={{ fontSize: "18px", flexShrink: 0 }}>✅</span>
+                    <div><strong>Check your work:</strong> When all items are placed, hit Check. Green means correct, red means try again!</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Difficulty Guide */}
+              <div style={{
+                background: "rgba(255, 255, 255, 0.5)",
+                borderRadius: "16px", padding: "16px", marginBottom: "24px",
+                border: "1px solid rgba(217, 119, 6, 0.15)",
+              }}>
+                <h2 style={{ fontSize: "16px", color: "#92400E", margin: "0 0 10px", textAlign: "center" }}>
+                  Choose Your Challenge
+                </h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                  {Object.entries(DIFFICULTY_CONFIG).map(([key, cfg]) => (
+                    <div key={key} style={{
+                      display: "flex", alignItems: "center", gap: "10px",
+                      padding: "8px 12px", borderRadius: "10px",
+                      background: "rgba(255,255,255,0.4)",
+                      border: "1px solid rgba(255,255,255,0.5)",
+                    }}>
+                      <span style={{ fontSize: "20px" }}>{cfg.emoji}</span>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontSize: "14px", fontWeight: "bold", color: cfg.color }}>{cfg.label}</div>
+                        <div style={{ fontSize: "11px", color: "#78716C" }}>{cfg.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Buttons */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                <button
+                  onClick={() => setShowLanding(false)}
+                  style={{
+                    width: "100%", padding: "14px", borderRadius: "14px",
+                    background: "linear-gradient(135deg, #D97706, #B45309)",
+                    color: "white", fontWeight: "bold", fontSize: "16px",
+                    border: "none", cursor: "pointer",
+                    boxShadow: "0 4px 12px rgba(180, 80, 0, 0.3)",
+                    fontFamily: "'Georgia', serif",
+                  }}
+                >
+                  ☕ Start Puzzling
+                </button>
+                <button
+                  onClick={() => setShowLanding(false)}
+                  style={{
+                    width: "100%", padding: "10px", borderRadius: "10px",
+                    background: "transparent",
+                    color: "#A3A3A3", fontSize: "13px",
+                    border: "none", cursor: "pointer",
+                    fontFamily: "'Georgia', serif",
+                  }}
+                >
+                  Skip →
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* HEADER */}
-        <div style={{ textAlign: "center", marginBottom: "16px" }}>
+        <div style={{ textAlign: "center", marginBottom: "16px", position: "relative" }}>
+          <button
+            onClick={() => setShowLanding(true)}
+            style={{
+              position: "absolute", top: "0", right: "0",
+              background: "rgba(217, 119, 6, 0.1)",
+              border: "1px solid rgba(217, 119, 6, 0.3)", borderRadius: "50%",
+              width: "30px", height: "30px", fontSize: "15px",
+              cursor: "pointer", color: "#D97706",
+              fontFamily: "'Georgia', serif",
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}
+            title="How to Play"
+          >?</button>
           <div style={{
             fontSize: "12px", color: "#D97706", letterSpacing: "3px",
             textTransform: "uppercase", marginBottom: "4px",

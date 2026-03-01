@@ -1128,10 +1128,11 @@ const copyToClipboard = async (text) => {
         <h2 className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-pink-500 to-purple-600 bg-clip-text text-transparent" style={{fontFamily: 'Georgia, serif'}}>
           Grand Opening Celebration!
         </h2>
-        <p className="text-purple-600 font-semibold text-sm mt-1">Welcome to the Letter Griddle Family!</p>
+        <p className="text-purple-600 font-semibold text-sm mt-1">Welcome to Letter Griddle!</p>
       </div>
       
-      <div className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 mb-2 border-2 border-amber-300 shadow-sm">
+      <div className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 mb-2 border-2 border-amber-300 shadow-sm relative">
+        <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md animate-bounce">⭐ FAN FAVE</div>
         <div className="flex items-center gap-3">
           <span className="text-2xl">🥞</span>
           <div>
@@ -1141,12 +1142,13 @@ const copyToClipboard = async (text) => {
         </div>
       </div>
       
-      <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-3 mb-2 border-2 border-purple-300 shadow-sm">
+      <div className="bg-gradient-to-r from-green-100 to-emerald-100 rounded-xl p-3 mb-2 border-2 border-green-300 shadow-sm relative">
+        <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md animate-bounce">NEW!</div>
         <div className="flex items-center gap-3">
-          <span className="text-2xl">📣</span>
+          <span className="text-2xl">🌷</span>
           <div>
-            <p className="font-bold text-purple-800 text-sm">Hoopla Pep Rally Word Search</p>
-            <p className="text-purple-700 text-xs">Get fired up with spirited puzzles!</p>
+            <p className="font-bold text-green-800 text-sm">Spring Cottage</p>
+            <p className="text-green-700 text-xs">Spring puzzles with fun facts & inspirational quotes!</p>
           </div>
         </div>
       </div>
@@ -1168,7 +1170,7 @@ const copyToClipboard = async (text) => {
           <span className="text-2xl">🧩</span>
           <div>
             <p className="font-bold text-emerald-800 text-sm">Griddle Logic</p>
-           <p className="text-emerald-700 text-xs">Easy, Medium, Hard + Trivia Night challenge! Dropping this week!</p>
+           <p className="text-emerald-700 text-xs">Easy, Medium, Hard + Trivia Night challenge!</p>
           </div>
         </div>
       </div>

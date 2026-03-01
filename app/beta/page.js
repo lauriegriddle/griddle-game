@@ -13,12 +13,6 @@ export default function BetaGames() {
         description: "Beta testing in progress"
     },
     {
-      name: "Griddle Logic",
-      href: "/logic",
-      emoji: "☕",
-      description: "Place café items in the right order using clues!"
-    },
-    {
   name: "Letter Griddle Land",
   href: "/griddle-land",
   emoji: "🍂",

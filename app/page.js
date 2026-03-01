@@ -27,43 +27,43 @@ export default function Home() {
       hoverBg: "bg-amber-600/80"
     },
     {
-      name: "Hoopla",
-      tagline: "Word-Finding Challenge!  20 Puzzles!",
-      emoji: "📣",
-      href: "/hoopla",
+      name: "Griddle Logic",
+      tagline: "A fun cafe logic puzzle!",
+      emoji: "🧩",
+      href: "/logic",
       thumbnail: {
-        gradient: "linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%)",
-        icon: "📣",
+        gradient: "linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%)",
+        icon: "🧩",
         iconSize: "text-5xl",
-        title: ["Letter Griddle", "Hoopla"],
-        subtitle: "Game Night Pep Rally",
-        subtitleColor: "text-red-100"
+        title: ["Griddle", "Logic"],
+        subtitle: "Logic Puzzle",
+        subtitleColor: "text-indigo-100"
       },
-      borderColor: "border-red-400",
-      bgColor: "from-red-100 to-orange-100",
-      textColor: "text-red-800",
-      subTextColor: "text-red-700",
-      hoverBg: "bg-red-500/80"
+      borderColor: "border-indigo-400",
+      bgColor: "from-indigo-100 to-purple-100",
+      textColor: "text-indigo-800",
+      subTextColor: "text-indigo-700",
+      hoverBg: "bg-indigo-500/80"
     },
     {
       name: "Letter Griddle Cottage",
-      tagline: "Winter Olympics Puzzles ❄️ 17 Puzzles!",
-      emoji: "🏔️",
+      tagline: "Spring Puzzles 🌷",
+      emoji: "🌸",
       href: "https://lettergriddlecottage.com",
       external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #38BDF8 0%, #0EA5E9 50%, #0284C7 100%)",
-        icon: "❄️",
+        gradient: "linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%)",
+        icon: "🌸",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Cottage"],
-        subtitle: "Winter Olympics 2026",
-        subtitleColor: "text-sky-100"
+        subtitle: "SPRING AWAKENING",
+        subtitleColor: "text-emerald-100"
       },
-      borderColor: "border-sky-400",
-      bgColor: "from-sky-100 to-blue-100",
-      textColor: "text-sky-800",
-      subTextColor: "text-sky-700",
-      hoverBg: "bg-sky-500/80"
+      borderColor: "border-emerald-400",
+      bgColor: "from-emerald-100 to-green-100",
+      textColor: "text-emerald-800",
+      subTextColor: "text-emerald-700",
+      hoverBg: "bg-emerald-500/80"
     }
   ];
   
@@ -384,6 +384,25 @@ export default function Home() {
       textColor: "text-purple-800",
       subTextColor: "text-purple-700",
       hoverBg: "bg-purple-500/80"
+    },
+    {
+      name: "Hoopla",
+      tagline: "Word-Finding Challenge! 20 Puzzles!",
+      emoji: "📣",
+      href: "/hoopla",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%)",
+        icon: "📣",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Hoopla"],
+        subtitle: "Game Night Pep Rally",
+        subtitleColor: "text-red-100"
+      },
+      borderColor: "border-red-400",
+      bgColor: "from-red-100 to-orange-100",
+      textColor: "text-red-800",
+      subTextColor: "text-red-700",
+      hoverBg: "bg-red-500/80"
     }
   ];
 // SECTION 4: Espresso Lane (quick-play coffee break games)

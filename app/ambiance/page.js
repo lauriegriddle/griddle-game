@@ -13,14 +13,14 @@ const AmbiancePage = () => {
   const audioRef = useRef(null);
 
   const dayTracks = [
-    { name: 'Morning Light', file: '/ambiance/day-cafe-jazz.mp3' },
-    { name: 'Sunday Papers', file: '/ambiance/day-acoustic.mp3' },
-    { name: 'Garden Room', file: '/ambiance/day-lofi.mp3' },
+    { name: 'First Light', file: '/ambiance/day-cafe-jazz.mp3' },
+    { name: 'Vivaldi Spring', file: '/ambiance/day-acoustic.mp3' },
+    { name: 'Gardens', file: '/ambiance/day-lofi.mp3' },
   ];
 
   const eveningTracks = [
     { name: 'Golden Hour', file: '/ambiance/evening-jazz.mp3' },
-    { name: 'Last Call', file: '/ambiance/evening-piano.mp3' },
+    { name: 'Sunset', file: '/ambiance/evening-piano.mp3' },
     { name: 'City Lights', file: '/ambiance/evening-rain.mp3' },
   ];
 

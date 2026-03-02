@@ -15,7 +15,7 @@ const AmbiancePage = () => {
   const dayTracks = [
     { name: 'First Light', file: '/ambiance/day-cafe-jazz.mp3' },
     { name: 'Vivaldi Spring', file: '/ambiance/day-acoustic.mp3' },
-    { name: 'Gardens', file: '/ambiance/day-lofi.mp3' },
+    { name: 'In the Spring', file: '/ambiance/day-lofi.mp3' },
   ];
 
   const eveningTracks = [

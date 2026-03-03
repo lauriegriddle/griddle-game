@@ -9,7 +9,7 @@ export default function Home() {
   const grandOpeningGames = [
     {
       name: "Pancakes",
-      tagline: "Find the words, earn the toppings! 30 Puzzles!",
+      tagline: "Find the words, earn the toppings! Play 30 Puzzles!",
       emoji: "🥞",
       href: "/pancakes",
       thumbnail: {

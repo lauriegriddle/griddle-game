@@ -47,7 +47,7 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Cottage",
-      tagline: "Explore 18 Spring Puzzles 🌷",
+      tagline: "Explore 18 Spring Puzzles! 🌷",
       emoji: "🌸",
       href: "https://lettergriddlecottage.com",
       external: true,

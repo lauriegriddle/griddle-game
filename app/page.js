@@ -28,7 +28,7 @@ export default function Home() {
     },
     {
       name: "Griddle Logic",
-      tagline: "A fun cafe logic puzzle!",
+      tagline: "A fun cafe logic puzzle!  Choose your challenge!",
       emoji: "🧩",
       href: "/logic",
       thumbnail: {

@@ -28,7 +28,7 @@ const PUZZLES = [
       { word: "CONNECTION", hint: "The bond between people that some believe continues beyond this life", revealedIndex: 0 },
       { word: "REMEMBRANCE", hint: "The act of honoring and holding close those who have passed", revealedIndex: 4 },
     ],
-    didYouKnow: "Placeholder: Fun fact for After Life puzzle coming soon.",
+    didYouKnow: "Surveys show that about 40% of Americans believe ghosts exist, and 1 in 5 say they have personally encountered one. Among those who have, most describe the experience as positive, with far more people reporting encounters with good spirits than negative ones.",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const PUZZLES = [
       { word: "CLARITY", hint: "When confusion lifts and everything becomes clear", revealedIndex: 2 },
       { word: "INTUITION", hint: "A deep inner knowing that arrives without logical explanation", revealedIndex: 0 },
     ],
-    didYouKnow: "Placeholder: Fun fact for The Bridge Between puzzle coming soon.",
+    didYouKnow: "Research has found that practices like meditation and mindful walking in nature can create a profound sense of connection to something greater than ourselves. Scientists describe it as a shift from focused attention to open awareness, where the boundary between self and surroundings begins to soften.",
   },
 ];
 

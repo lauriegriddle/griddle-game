@@ -469,6 +469,15 @@ export default function Friday13Page() {
                   </div>
                 </div>
               </a>
+              <a href="https://www.amazon.com/gp/product/B0GPN9QFRF?ref=ppx_pt2_dt_b_prod_image" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-r from-amber-700/30 to-amber-800/30 hover:from-amber-600/40 hover:to-amber-700/40 border border-amber-600/30 rounded-lg p-3 transition-all group">
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">{"\uD83E\uDD5E"}</span>
+                  <div className="text-left">
+                    <span className="text-amber-200 text-sm font-medium group-hover:text-amber-100">Letter Griddle: 50 Puzzles</span>
+                    <p className="text-slate-400 text-xs">A paperback book with 50 word puzzles to enjoy</p>
+                  </div>
+                </div>
+              </a>
               <a href="https://www.amazon.com/dp/B0GM1N2YV8?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-r from-purple-900/30 to-indigo-900/30 hover:from-purple-800/40 hover:to-indigo-800/40 border border-purple-600/30 rounded-lg p-3 transition-all group">
                 <div className="flex items-center gap-3">
                   <span className="text-xl">{"\uD83D\uDCD6"}</span>

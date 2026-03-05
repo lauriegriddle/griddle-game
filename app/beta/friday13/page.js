@@ -424,8 +424,8 @@ export default function Friday13Page() {
         <div className="max-w-lg w-full text-center">
           <div className="fade-up fade-up-1 text-3xl mb-4">✨</div>
           <h2 className="fade-up fade-up-1 text-2xl sm:text-3xl font-semibold text-amber-200 mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>Journey Complete</h2>
-          <p className="fade-up fade-up-2 text-slate-400 text-sm mb-1" style={{ fontFamily: "Crimson Text, serif" }}>You explored all three puzzles.</p>
-          <p className="fade-up fade-up-2 text-slate-300 text-xs mb-8 italic" style={{ fontFamily: "Crimson Text, serif" }}>Thank you for playing and attending the Friday the 13th Summit!</p>
+          <p className="fade-up fade-up-2 text-slate-200 text-sm mb-2" style={{ fontFamily: "Crimson Text, serif" }}>You explored all three puzzles.</p>
+          <p className="fade-up fade-up-2 text-slate-300 text-sm mb-8 italic" style={{ fontFamily: "Crimson Text, serif" }}>Thank you for playing and attending the Friday the 13th Summit!</p>
           <div className="fade-up fade-up-3 flex justify-center gap-6 mb-8">
             {PUZZLES.map((p) => (
               <div key={p.id} className="text-center">

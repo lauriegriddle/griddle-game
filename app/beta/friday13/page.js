@@ -6,7 +6,7 @@ const PUZZLES = [
     id: 1,
     theme: "Life",
     subtitle: "Placeholder question or statement.",
-    emoji: "✨",
+    emoji: "\u2728",
     words: [
       { word: "GROW", hint: "To develop, change, and become more than you were before", revealedIndex: 0 },
       { word: "DREAM", hint: "A vision of possibility that guides you forward", revealedIndex: 2 },
@@ -20,7 +20,7 @@ const PUZZLES = [
     id: 2,
     theme: "After Life",
     subtitle: "Placeholder question or statement.",
-    emoji: "🌙",
+    emoji: "\uD83C\uDF19",
     words: [
       { word: "SIGNS", hint: "Messages from beyond that arrive in unexpected, meaningful ways", revealedIndex: 0 },
       { word: "LEGACY", hint: "What you leave behind for the people and world you love", revealedIndex: 0 },
@@ -34,10 +34,10 @@ const PUZZLES = [
     id: 3,
     theme: "The Bridge Between",
     subtitle: "Placeholder question or statement.",
-    emoji: "⭐",
+    emoji: "\u2B50",
     words: [
-      { word: "PEACE", hint: "A deep stillness that comes from understanding and acceptance", revealedIndex: 0 },
       { word: "TABOO", hint: "A topic often avoided but waiting to be explored with openness and curiosity", revealedIndex: 0 },
+      { word: "PEACE", hint: "A deep stillness that comes from understanding and acceptance", revealedIndex: 0 },
       { word: "KNOWING", hint: "A quiet certainty that comes from somewhere deeper than thought", revealedIndex: 0 },
       { word: "CLARITY", hint: "When confusion lifts and everything becomes clear", revealedIndex: 2 },
       { word: "INTUITION", hint: "A deep inner knowing that arrives without logical explanation", revealedIndex: 0 },
@@ -60,7 +60,7 @@ const HowToPlayModal = ({ onClose }) => (
     <div className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-600/50 rounded-xl p-5 max-w-sm w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-amber-200 font-semibold text-lg" style={{ fontFamily: "Cormorant Garamond, serif" }}>How to Play</h3>
-        <button onClick={onClose} className="text-slate-400 hover:text-slate-200 transition-colors text-lg w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-700/50">✕</button>
+        <button onClick={onClose} className="text-slate-400 hover:text-slate-200 transition-colors text-lg w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-700/50">{"\u2715"}</button>
       </div>
       <div className="space-y-3" style={{ fontFamily: "Crimson Text, serif" }}>
         <div className="flex items-start gap-3">
@@ -77,15 +77,15 @@ const HowToPlayModal = ({ onClose }) => (
         </div>
         <div className="flex items-start gap-3">
           <span className="text-amber-400 text-sm mt-0.5 shrink-0">4.</span>
-          <p className="text-slate-300 text-sm leading-relaxed">Tap the Hint button for a clue about each word. Use the ↻ button to shuffle the letters for a fresh look.</p>
+          <p className="text-slate-300 text-sm leading-relaxed">{"Tap the Hint button for a clue about each word. Use the \u21BB button to shuffle the letters for a fresh look."}</p>
         </div>
         <div className="flex items-start gap-3">
           <span className="text-amber-400 text-sm mt-0.5 shrink-0">5.</span>
-          <p className="text-slate-300 text-sm leading-relaxed">Complete all five words to reveal a "Did You Know?" fun fact and move on to the next puzzle.</p>
+          <p className="text-slate-300 text-sm leading-relaxed">{"Complete all five words to reveal a \"Did You Know?\" fun fact and move on to the next puzzle."}</p>
         </div>
       </div>
       <div className="mt-5 text-center">
-        <button onClick={onClose} className="px-6 py-2 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-medium text-sm transition-all" style={{ fontFamily: "Crimson Text, serif" }}>Let us Play</button>
+        <button onClick={onClose} className="px-6 py-2 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-medium text-sm transition-all" style={{ fontFamily: "Crimson Text, serif" }}>{"Let\u2019s Play"}</button>
       </div>
     </div>
   </div>
@@ -96,10 +96,10 @@ const EventFooter = () => {
   return (
     <div className="text-center mt-6 pb-4 space-y-1.5">
       <p className="text-slate-700 text-xs">A Letter Griddle Experience</p>
-      <p className="text-slate-700 text-xs">© {year} Letter Griddle. All rights reserved.</p>
+      <p className="text-slate-700 text-xs">{"\u00A9"} {year} Letter Griddle. All rights reserved.</p>
       <div className="flex justify-center gap-3">
         <a href="https://www.lettergriddle.com/privacy" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-amber-500/70 text-xs underline underline-offset-2 transition-colors">Privacy Policy</a>
-        <span className="text-slate-700 text-xs">•</span>
+        <span className="text-slate-700 text-xs">{"\u2022"}</span>
         <a href="https://www.lettergriddle.com/terms" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-amber-500/70 text-xs underline underline-offset-2 transition-colors">Terms of Service</a>
       </div>
     </div>
@@ -272,12 +272,12 @@ const WordPuzzle = ({ wordData, wordIdx, onComplete, isCompleted, isActive, onFo
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
           <span className="text-amber-300 text-xs font-semibold tracking-wider uppercase">{word.length} Letters</span>
-          {isCompleted && <span className="text-emerald-400 text-sm">✓</span>}
-          {isActive && !isCompleted && <span className="text-amber-400 text-xs">⌨ active</span>}
+          {isCompleted && <span className="text-emerald-400 text-sm">{"\u2713"}</span>}
+          {isActive && !isCompleted && <span className="text-amber-400 text-xs">{"\u2328 active"}</span>}
         </div>
         <div className="flex items-center gap-2">
           {!isCompleted && (
-            <button onClick={handleShuffle} className="text-xs px-2 py-1 rounded-full bg-slate-700/80 text-slate-300 hover:bg-slate-600 hover:text-amber-200 transition-all" title="Shuffle letters">↻</button>
+            <button onClick={handleShuffle} className="text-xs px-2 py-1 rounded-full bg-slate-700/80 text-slate-300 hover:bg-slate-600 hover:text-amber-200 transition-all" title="Shuffle letters">{"\u21BB"}</button>
           )}
           <button onClick={() => setHintRevealed(!hintRevealed)} className={`text-xs px-3 py-1 rounded-full transition-all font-medium ${
             hintRevealed ? "bg-amber-500/20 text-amber-300 border border-amber-500/30" : "bg-gradient-to-r from-amber-600 to-amber-700 text-white hover:from-amber-500 hover:to-amber-600 shadow-sm"
@@ -325,7 +325,7 @@ const WordPuzzle = ({ wordData, wordIdx, onComplete, isCompleted, isActive, onFo
         </div>
       )}
       {isCompleted && !celebrating && (
-        <div className="text-center mt-1"><span className="text-emerald-400 text-lg">✦</span></div>
+        <div className="text-center mt-1"><span className="text-emerald-400 text-lg">{"\u2726"}</span></div>
       )}
     </div>
   );
@@ -376,6 +376,7 @@ export default function Friday13Page() {
     }
   };
 
+  // INTRO SCREEN
   if (showIntro) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-4">
@@ -384,17 +385,22 @@ export default function Friday13Page() {
           @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
           @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
           .fade-up { animation: fadeUp 0.8s ease-out forwards; opacity: 0; }
-          .fade-up-1 { animation-delay: 0.2s; } .fade-up-2 { animation-delay: 0.5s; } .fade-up-3 { animation-delay: 0.8s; } .fade-up-4 { animation-delay: 1.1s; } .fade-up-5 { animation-delay: 1.4s; }
+          .fade-up-1 { animation-delay: 0.2s; } .fade-up-2 { animation-delay: 0.5s; } .fade-up-3 { animation-delay: 0.8s; } .fade-up-4 { animation-delay: 1.1s; } .fade-up-5 { animation-delay: 1.4s; } .fade-up-6 { animation-delay: 1.7s; }
           .shimmer-text { background: linear-gradient(90deg, #d4a054, #f5d89a, #d4a054); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 4s linear infinite; }
         `}</style>
         <div className="max-w-lg w-full text-center">
-          <div className="fade-up fade-up-1 mb-4">
+          {/* Event Banner Image */}
+          <div className="fade-up fade-up-1 mb-6">
+            <img src="/events/friday13-banner.png" alt="Friday the 13th Summit" className="w-full max-w-md mx-auto rounded-xl shadow-lg shadow-black/30" />
+          </div>
+
+          <div className="fade-up fade-up-2 mb-4">
             <span className="text-xs tracking-[0.3em] uppercase text-slate-400 font-medium">Letter Griddle presents</span>
           </div>
           <h1 className="fade-up fade-up-2 text-3xl sm:text-4xl font-semibold mb-2 shimmer-text" style={{ fontFamily: "Cormorant Garamond, serif" }}>Friday the 13th Summit</h1>
           <p className="fade-up fade-up-2 text-lg text-slate-300 mb-6 italic" style={{ fontFamily: "Crimson Text, serif" }}>Life, After Life, and the Bridge Between</p>
-          <p className="fade-up fade-up-3 text-slate-400 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Three puzzles. Fifteen words. A journey from what we know into what we wonder about, connecting the known with the unknown, the seen with the unseen, and the felt with the body, mind, and heart.</p>
-          <p className="fade-up fade-up-3 text-slate-300 text-xs mb-8" style={{ fontFamily: "Crimson Text, serif" }}>Presented by Let's Create Summits</p>
+          <p className="fade-up fade-up-3 text-slate-300 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Three puzzles. Fifteen words. A journey from what we know into what we wonder about, connecting the known with the unknown, the seen with the unseen, and the felt with the body, mind, and heart.</p>
+          <p className="fade-up fade-up-3 text-slate-400 text-xs mb-8" style={{ fontFamily: "Crimson Text, serif" }}>March 13 - 15, 2026</p>
           <div className="fade-up fade-up-4 flex justify-center gap-4 mb-8">
             {PUZZLES.map((p) => (
               <div key={p.id} className="text-center">
@@ -406,12 +412,18 @@ export default function Friday13Page() {
           <div className="fade-up fade-up-5">
             <button onClick={() => setShowIntro(false)} className="px-8 py-3 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-semibold tracking-wide transition-all shadow-lg shadow-amber-900/30 hover:shadow-amber-800/40 hover:scale-105" style={{ fontFamily: "Crimson Text, serif", fontSize: "1.1rem" }}>Begin the Journey</button>
           </div>
-          <div className="fade-up fade-up-5"><EventFooter /></div>
+          {/* Presented by with logo */}
+          <div className="fade-up fade-up-6 mt-8 flex items-center justify-center gap-3">
+            <span className="text-slate-500 text-xs">Presented by</span>
+            <img src="/events/lets-create-logo.jpg" alt="Let's Create Summits" className="h-10 rounded" />
+          </div>
+          <div className="fade-up fade-up-6"><EventFooter /></div>
         </div>
       </div>
     );
   }
 
+  // COMPLETION SCREEN
   if (allDone && !showDidYouKnow) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-4">
@@ -422,9 +434,9 @@ export default function Friday13Page() {
           .fade-up-1 { animation-delay: 0.2s; } .fade-up-2 { animation-delay: 0.5s; } .fade-up-3 { animation-delay: 0.8s; } .fade-up-4 { animation-delay: 1.1s; } .fade-up-5 { animation-delay: 1.6s; }
         `}</style>
         <div className="max-w-lg w-full text-center">
-          <div className="fade-up fade-up-1 text-3xl mb-4">✨</div>
+          <div className="fade-up fade-up-1 text-3xl mb-4">{"\u2728"}</div>
           <h2 className="fade-up fade-up-1 text-2xl sm:text-3xl font-semibold text-amber-200 mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>Journey Complete</h2>
-          <p className="fade-up fade-up-2 text-slate-200 text-sm mb-2" style={{ fontFamily: "Crimson Text, serif" }}>You explored all three puzzles.</p>
+          <p className="fade-up fade-up-2 text-amber-200 text-base mb-2" style={{ fontFamily: "Crimson Text, serif" }}>You explored all three puzzles.</p>
           <p className="fade-up fade-up-2 text-slate-300 text-sm mb-8 italic" style={{ fontFamily: "Crimson Text, serif" }}>Thank you for playing and attending the Friday the 13th Summit!</p>
           <div className="fade-up fade-up-3 flex justify-center gap-6 mb-8">
             {PUZZLES.map((p) => (
@@ -441,16 +453,16 @@ export default function Friday13Page() {
             <div className="space-y-3">
               <a href="https://www.lettergriddle.com/play" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-r from-amber-700/30 to-amber-800/30 hover:from-amber-600/40 hover:to-amber-700/40 border border-amber-600/30 rounded-lg p-3 transition-all group">
                 <div className="flex items-center gap-3">
-                  <span className="text-xl">🥞</span>
+                  <span className="text-xl">{"\uD83E\uDD5E"}</span>
                   <div className="text-left">
                     <span className="text-amber-200 text-sm font-medium group-hover:text-amber-100">Letter Griddle</span>
-                    <p className="text-slate-400 text-xs">A new pancake-inspired word puzzle every day</p>
+                    <p className="text-slate-400 text-xs">A new cozy word puzzle every day</p>
                   </div>
                 </div>
               </a>
               <a href="https://www.lettergriddle.com" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-r from-amber-700/30 to-amber-800/30 hover:from-amber-600/40 hover:to-amber-700/40 border border-amber-600/30 rounded-lg p-3 transition-all group">
                 <div className="flex items-center gap-3">
-                  <span className="text-xl">☕</span>
+                  <span className="text-xl">{"\u2615"}</span>
                   <div className="text-left">
                     <span className="text-amber-200 text-sm font-medium group-hover:text-amber-100">Letter Griddle Games</span>
                     <p className="text-slate-400 text-xs">Explore our full family of games</p>
@@ -459,7 +471,7 @@ export default function Friday13Page() {
               </a>
               <a href="https://www.amazon.com/dp/B0GM1N2YV8?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-r from-purple-900/30 to-indigo-900/30 hover:from-purple-800/40 hover:to-indigo-800/40 border border-purple-600/30 rounded-lg p-3 transition-all group">
                 <div className="flex items-center gap-3">
-                  <span className="text-xl">📖</span>
+                  <span className="text-xl">{"\uD83D\uDCD6"}</span>
                   <div className="text-left">
                     <span className="text-amber-200 text-sm font-medium group-hover:text-amber-100">Breakfast and Tarot: Savor and Shuffle</span>
                     <p className="text-slate-400 text-xs">A 90-day guided journal</p>
@@ -468,15 +480,20 @@ export default function Friday13Page() {
               </a>
             </div>
           </div>
-          <div className="fade-up fade-up-5">
-            <p className="text-slate-600 text-xs mb-2">Friday the 13th Summit • Presented by Let's Create Summits</p>
-            <EventFooter />
+          {/* Presented by with logo */}
+          <div className="fade-up fade-up-5 flex items-center justify-center gap-3 mb-2">
+            <span className="text-slate-500 text-xs">Friday the 13th Summit</span>
+            <span className="text-slate-600 text-xs">{"\u2022"}</span>
+            <span className="text-slate-500 text-xs">Presented by</span>
+            <img src="/events/lets-create-logo.jpg" alt="Let's Create Summits" className="h-8 rounded" />
           </div>
+          <div className="fade-up fade-up-5"><EventFooter /></div>
         </div>
       </div>
     );
   }
 
+  // GAME SCREEN
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <style>{`
@@ -489,7 +506,7 @@ export default function Friday13Page() {
         <div className="text-center mb-4">
           <div className="flex items-center justify-between mb-1">
             <div className="w-8" />
-            <span className="text-xs tracking-[0.2em] uppercase text-slate-300 font-medium">Letter Griddle • Event Edition</span>
+            <span className="text-xs tracking-[0.2em] uppercase text-slate-300 font-medium">Letter Griddle {"\u2022"} Event Edition</span>
             <button onClick={() => setShowHowToPlay(true)} className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800/60 border border-slate-700/50 text-slate-400 hover:text-amber-300 hover:border-amber-500/30 transition-all text-sm" title="How to Play">?</button>
           </div>
           <h1 className="text-xl sm:text-2xl font-semibold text-amber-200 mt-1" style={{ fontFamily: "Cormorant Garamond, serif" }}>Friday the 13th Summit</h1>
@@ -503,7 +520,7 @@ export default function Friday13Page() {
                 }`}>
                 <span>{p.emoji}</span>
                 <span style={{ fontFamily: "Crimson Text, serif" }}>{p.theme}</span>
-                {puzzleComplete[idx] && <span>✓</span>}
+                {puzzleComplete[idx] && <span>{"\u2713"}</span>}
               </button>
             ))}
           </div>
@@ -511,16 +528,16 @@ export default function Friday13Page() {
         {showDidYouKnow && (
           <div className="fade-in mb-4">
             <div className="bg-gradient-to-br from-amber-900/40 to-yellow-900/30 border-2 border-amber-500/30 rounded-xl p-5 text-center">
-              <div className="text-2xl mb-2">💫</div>
+              <div className="text-2xl mb-2">{"\uD83D\uDCAB"}</div>
               <h3 className="text-amber-200 font-semibold text-lg mb-3" style={{ fontFamily: "Cormorant Garamond, serif" }}>Did You Know?</h3>
-              <p className="text-amber-100/80 text-sm leading-relaxed mb-5" style={{ fontFamily: "Crimson Text, serif" }}>{puzzle.didYouKnow}</p>
+              <p className="text-amber-100 text-sm leading-relaxed mb-5" style={{ fontFamily: "Crimson Text, serif" }}>{puzzle.didYouKnow}</p>
               {currentPuzzle < PUZZLES.length - 1 ? (
                 <button onClick={goToNextPuzzle} className="px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-medium transition-all shadow-lg hover:scale-105" style={{ fontFamily: "Crimson Text, serif" }}>
                   Continue to {PUZZLES[currentPuzzle + 1].theme} {PUZZLES[currentPuzzle + 1].emoji}
                 </button>
               ) : (
                 <button onClick={() => setShowDidYouKnow(false)} className="px-6 py-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-medium transition-all shadow-lg hover:scale-105" style={{ fontFamily: "Crimson Text, serif" }}>
-                  Complete the Journey ✨
+                  Complete the Journey {"\u2728"}
                 </button>
               )}
             </div>
@@ -533,7 +550,7 @@ export default function Friday13Page() {
                 <span className="text-lg">{puzzle.emoji}</span>
                 <span className="text-amber-200 font-medium" style={{ fontFamily: "Cormorant Garamond, serif" }}>{puzzle.theme}</span>
               </div>
-              <p className="ttext-amber-200/80 text-xs mt-2 italic" style={{ fontFamily: "Crimson Text, serif" }}>{puzzle.subtitle}</p>
+              <p className="text-amber-200/80 text-xs mt-2 italic" style={{ fontFamily: "Crimson Text, serif" }}>{puzzle.subtitle}</p>
             </div>
             <div className="text-center mb-3">
               <p className="text-slate-300 text-xs">Tap a letter then tap a slot, or tap a slot then tap a letter. On a computer, click a word and type!</p>
@@ -552,7 +569,7 @@ export default function Friday13Page() {
           </div>
         )}
         <EventFooter />
-        </div>
+      </div>
     </div>
   );
 }

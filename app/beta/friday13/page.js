@@ -536,7 +536,7 @@ export default function Friday13Page() {
                   Continue to {PUZZLES[currentPuzzle + 1].theme} {PUZZLES[currentPuzzle + 1].emoji}
                 </button>
               ) : (
-                <button onClick={() => setShowDidYouKnow(false)} className="px-6 py-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-medium transition-all shadow-lg hover:scale-105" style={{ fontFamily: "Crimson Text, serif" }}>
+                <button onClick={() => { setAllDone(true); setShowDidYouKnow(false); }} className="px-6 py-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-medium transition-all shadow-lg hover:scale-105" style={{ fontFamily: "Crimson Text, serif" }}>
                   Complete the Journey {"\u2728"}
                 </button>
               )}

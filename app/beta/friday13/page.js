@@ -25,8 +25,8 @@ const PUZZLES = [
       { word: "SIGNS", hint: "Messages from beyond that arrive in unexpected, meaningful ways", revealedIndex: 0 },
       { word: "LEGACY", hint: "What you leave behind for the people and world you love", revealedIndex: 0 },
       { word: "ETERNAL", hint: "Without end, lasting beyond the boundaries of time", revealedIndex: 2 },
-      { word: "CONNECTION", hint: "The bond between people that some believe continues beyond this life", revealedIndex: 0 },
-      { word: "REMEMBRANCE", hint: "The act of honoring and holding close those who have passed", revealedIndex: 4 },
+      { word: "CONNECT", hint: "To reach across distance and feel linked to someone or something beyond", revealedIndex: 0 },
+      { word: "CHANGES", hint: "The shifts and transformations that shape how we understand life and loss", revealedIndex: 0 },
     ],
     didYouKnow: "Surveys show that about 40% of Americans believe ghosts exist, and 1 in 5 say they have personally encountered one. Among those who have, most describe the experience as positive, with far more people reporting encounters with good spirits than negative ones.",
   },
@@ -37,7 +37,7 @@ const PUZZLES = [
     emoji: "⭐",
     words: [
       { word: "PEACE", hint: "A deep stillness that comes from understanding and acceptance", revealedIndex: 0 },
-      { word: "UNITY", hint: "The state of being joined together as one", revealedIndex: 0 },
+      { word: "TABOO", hint: "A topic often avoided but waiting to be explored with openness and curiosity", revealedIndex: 0 },
       { word: "KNOWING", hint: "A quiet certainty that comes from somewhere deeper than thought", revealedIndex: 0 },
       { word: "CLARITY", hint: "When confusion lifts and everything becomes clear", revealedIndex: 2 },
       { word: "INTUITION", hint: "A deep inner knowing that arrives without logical explanation", revealedIndex: 0 },
@@ -286,7 +286,7 @@ const WordPuzzle = ({ wordData, wordIdx, onComplete, isCompleted, isActive, onFo
       </div>
       {hintRevealed && (
         <div className="bg-slate-900/50 border border-amber-500/20 rounded-lg p-2.5 mb-3">
-          <p className="text-amber-100/90 text-sm leading-relaxed">{wordData.hint}</p>
+          <p className="text-amber-100 text-sm leading-relaxed">{wordData.hint}</p>
         </div>
       )}
       <div className="flex gap-1.5 justify-center flex-wrap mb-3">
@@ -393,8 +393,8 @@ export default function Friday13Page() {
           </div>
           <h1 className="fade-up fade-up-2 text-3xl sm:text-4xl font-semibold mb-2 shimmer-text" style={{ fontFamily: "Cormorant Garamond, serif" }}>Friday the 13th Summit</h1>
           <p className="fade-up fade-up-2 text-lg text-slate-300 mb-6 italic" style={{ fontFamily: "Crimson Text, serif" }}>Life, After Life, and the Bridge Between</p>
-          <p className="fade-up fade-up-3 text-slate-400 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Placeholder: Three puzzles. Fifteen words. A journey from what we know into what we wonder about.</p>
-          <p className="fade-up fade-up-3 text-slate-500 text-xs mb-8" style={{ fontFamily: "Crimson Text, serif" }}>Presented by Let's Create Summits</p>
+          <p className="fade-up fade-up-3 text-slate-400 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Three puzzles. Fifteen words. A journey from what we know into what we wonder about, connecting the known with the unknown, the seen with the unseen, and the felt with the body, mind, and heart.</p>
+          <p className="fade-up fade-up-3 text-slate-300 text-xs mb-8" style={{ fontFamily: "Crimson Text, serif" }}>Presented by Let's Create Summits</p>
           <div className="fade-up fade-up-4 flex justify-center gap-4 mb-8">
             {PUZZLES.map((p) => (
               <div key={p.id} className="text-center">
@@ -425,7 +425,7 @@ export default function Friday13Page() {
           <div className="fade-up fade-up-1 text-3xl mb-4">✨</div>
           <h2 className="fade-up fade-up-1 text-2xl sm:text-3xl font-semibold text-amber-200 mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>Journey Complete</h2>
           <p className="fade-up fade-up-2 text-slate-400 text-sm mb-1" style={{ fontFamily: "Crimson Text, serif" }}>You explored all three puzzles.</p>
-          <p className="fade-up fade-up-2 text-slate-500 text-xs mb-8 italic" style={{ fontFamily: "Crimson Text, serif" }}>Thank you for playing and attending the Friday the 13th Summit!</p>
+          <p className="fade-up fade-up-2 text-slate-300 text-xs mb-8 italic" style={{ fontFamily: "Crimson Text, serif" }}>Thank you for playing and attending the Friday the 13th Summit!</p>
           <div className="fade-up fade-up-3 flex justify-center gap-6 mb-8">
             {PUZZLES.map((p) => (
               <div key={p.id} className="text-center">
@@ -489,7 +489,7 @@ export default function Friday13Page() {
         <div className="text-center mb-4">
           <div className="flex items-center justify-between mb-1">
             <div className="w-8" />
-            <span className="text-xs tracking-[0.2em] uppercase text-slate-500 font-medium">Letter Griddle • Event Edition</span>
+            <span className="text-xs tracking-[0.2em] uppercase text-slate-300 font-medium">Letter Griddle • Event Edition</span>
             <button onClick={() => setShowHowToPlay(true)} className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800/60 border border-slate-700/50 text-slate-400 hover:text-amber-300 hover:border-amber-500/30 transition-all text-sm" title="How to Play">?</button>
           </div>
           <h1 className="text-xl sm:text-2xl font-semibold text-amber-200 mt-1" style={{ fontFamily: "Cormorant Garamond, serif" }}>Friday the 13th Summit</h1>
@@ -533,10 +533,10 @@ export default function Friday13Page() {
                 <span className="text-lg">{puzzle.emoji}</span>
                 <span className="text-amber-200 font-medium" style={{ fontFamily: "Cormorant Garamond, serif" }}>{puzzle.theme}</span>
               </div>
-              <p className="text-slate-400 text-xs mt-2 italic" style={{ fontFamily: "Crimson Text, serif" }}>{puzzle.subtitle}</p>
+              <p className="ttext-amber-200/80 text-xs mt-2 italic" style={{ fontFamily: "Crimson Text, serif" }}>{puzzle.subtitle}</p>
             </div>
             <div className="text-center mb-3">
-              <p className="text-slate-500 text-xs">Tap a letter then tap a slot, or tap a slot then tap a letter. On a computer, click a word and type!</p>
+              <p className="text-slate-300 text-xs">Tap a letter then tap a slot, or tap a slot then tap a letter. On a computer, click a word and type!</p>
             </div>
             {puzzle.words.map((wordData, wordIdx) => (
               <WordPuzzle

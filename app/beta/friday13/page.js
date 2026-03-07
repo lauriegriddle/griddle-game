@@ -5,7 +5,7 @@ const PUZZLES = [
   {
     id: 1,
     theme: "Life",
-    subtitle: "Placeholder question or statement.",
+    subtitle: "",
     emoji: "\u2728",
     words: [
       { word: "GROW", hint: "To develop, change, and become more than you were before", revealedIndex: 0 },
@@ -19,7 +19,7 @@ const PUZZLES = [
   {
     id: 2,
     theme: "After Life",
-    subtitle: "Placeholder question or statement.",
+    subtitle: "",
     emoji: "\uD83C\uDF19",
     words: [
       { word: "SIGNS", hint: "Messages from beyond that arrive in unexpected, meaningful ways", revealedIndex: 0 },
@@ -33,7 +33,7 @@ const PUZZLES = [
   {
     id: 3,
     theme: "The Bridge Between",
-    subtitle: "Placeholder question or statement.",
+    subtitle: "",
     emoji: "\u2B50",
     words: [
       { word: "TABOO", hint: "A topic often avoided but waiting to be explored with openness and curiosity", revealedIndex: 0 },

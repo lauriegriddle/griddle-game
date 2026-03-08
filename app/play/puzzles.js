@@ -1628,7 +1628,7 @@ const puzzles = [
 // ROTATION FUNCTION - Uses Anchor Date System
 // ===========================================
 export function getTodaysPuzzle() {
-  // Get current time in EST
+  // Get current time in America/New_York timezone
   const now = new Date();
   const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
   
@@ -1642,11 +1642,14 @@ export function getTodaysPuzzle() {
     // Before 7 PM - still showing yesterday's puzzle
     puzzleDate.setDate(puzzleDate.getDate() - 1);
   }
-  // After 7 PM - puzzleDate is already correct (today at 7 PM)
+  
+  // Create anchor date in the same timezone-naive way
+  // November 29, 2025 at 7 PM (when index 0 started)
+  const anchorDate = new Date(2025, 10, 29, 19, 0, 0, 0); // Month is 0-indexed, so 10 = November
   
   // Calculate days since anchor date
   const msPerDay = 1000 * 60 * 60 * 24;
-  const daysSinceAnchor = Math.floor((puzzleDate - ANCHOR_DATE) / msPerDay);
+  const daysSinceAnchor = Math.round((puzzleDate - anchorDate) / msPerDay);
   
   // Calculate puzzle index (wrapping around the array)
   let puzzleIndex = daysSinceAnchor % puzzles.length;

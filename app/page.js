@@ -715,7 +715,7 @@ export default function Home() {
           The Letter Griddle Games
         </h1>
         <p className="text-sm text-amber-600 font-medium mb-6">
-          ✨ Ad-free • Play free • No downloads ✨
+          ✨ Play free • No downloads ✨
         </p>
         
         {/* Grand Opening Button */}

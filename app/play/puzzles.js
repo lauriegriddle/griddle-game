@@ -1511,6 +1511,117 @@ const puzzles = [
     ],
     funFact: "The first International Women's Day was held in Austria, Denmark, Germany, and Switzerland on March 19, 1911 with over 1 million people attending rallies. 💪",
   },
+  // =============================================
+  // INDEX 99 - Shows Mar 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Sticky Bun",
+    puzzleNumber: 178,
+    words: [
+      { word: "NUTS", hint: "Crunchy toppings like pecans or walnuts", revealedIndex: 0 },
+      { word: "GOOEY", hint: "Soft, sticky, and deliciously messy", revealedIndex: 2 },
+      { word: "SPIRAL", hint: "A coiled or rolled shape", revealedIndex: 3 },
+      { word: "CARAMEL", hint: "A sweet, buttery topping made from sugar", revealedIndex: 0 },
+      { word: "INVERTED", hint: "Flipped upside down when served", revealedIndex: 4 },
+    ],
+    funFact: "Associated with breakfast or dessert, they are commonly linked to terms like cinnamon rolls, caramel rolls, Schnecken (German origin), monkey bread, and, in the UK/Canada, Chelsea buns. 🥐",
+  },
+
+  // =============================================
+  // INDEX 100 - Shows Mar 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Brown Bag",
+    puzzleNumber: 179,
+    words: [
+      { word: "PREP", hint: "To prepare food in advance", revealedIndex: 0 },
+      { word: "LUNCH", hint: "A midday meal", revealedIndex: 2 },
+      { word: "NAPKIN", hint: "A cloth or paper for wiping hands and face", revealedIndex: 3 },
+      { word: "THERMOS", hint: "An insulated container to keep drinks hot or cold", revealedIndex: 0 },
+      { word: "CONTAINERS", hint: "Reusable boxes for storing food", revealedIndex: 4 },
+    ],
+    funFact: "Packing your lunch dates back to the 1800s using tobacco tins, with the first official, thermos-equipped lunch box appearing in the 1920s. Modern packed lunches save money (potentially $800+ annually) and reduce waste, as average school lunches create 67 pounds of trash yearly. The first character-themed lunchbox featured Mickey Mouse. 🥪",
+  },
+
+  // =============================================
+  // INDEX 101 - Shows Mar 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Asleep",
+    puzzleNumber: 180,
+    words: [
+      { word: "CONK", hint: "To fall asleep suddenly", revealedIndex: 0 },
+      { word: "CRASH", hint: "To collapse into sleep from exhaustion", revealedIndex: 2 },
+      { word: "CATNAP", hint: "A short, light sleep", revealedIndex: 3 },
+      { word: "SLUMBER", hint: "A peaceful, restful sleep", revealedIndex: 0 },
+      { word: "DREAMING", hint: "Experiencing images and stories while sleeping", revealedIndex: 4 },
+    ],
+    funFact: "Roughly 95% of all dreams are forgotten by the time a person wakes up. 😴",
+  },
+
+  // =============================================
+  // INDEX 102 - Shows Mar 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Plant a Flower",
+    puzzleNumber: 181,
+    words: [
+      { word: "SEED", hint: "The tiny beginning of a plant", revealedIndex: 0 },
+      { word: "PETAL", hint: "A colorful part of a bloom", revealedIndex: 2 },
+      { word: "SPROUT", hint: "A young plant just starting to grow", revealedIndex: 3 },
+      { word: "CONTAIN", hint: "To hold or keep within a pot", revealedIndex: 0 },
+      { word: "EMERGING", hint: "Coming out or appearing from the soil", revealedIndex: 4 },
+    ],
+    funFact: "Planting flowers connects you to history and science, with facts like hydrangea and sunflowers being able to remove 95% of radioactivity from soil. Some flowers, like tulips, were once more valuable than gold, while others, like the bamboo orchid, can grow 12 inches a day. 🌸",
+  },
+
+  // =============================================
+  // INDEX 103 - Shows Mar 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Coffee Break",
+    puzzleNumber: 182,
+    words: [
+      { word: "JAVA", hint: "Slang term for coffee", revealedIndex: 0 },
+      { word: "RELAX", hint: "To rest and unwind", revealedIndex: 2 },
+      { word: "PUZZLE", hint: "A brain game to enjoy during downtime", revealedIndex: 3 },
+      { word: "BREATHER", hint: "A short pause to catch your breath", revealedIndex: 0 },
+      { word: "REFRESHMENT", hint: "A drink or snack that revives you", revealedIndex: 5 },
+    ],
+    funFact: "The modern 'coffee break' originated in the late 19th/early 20th century, often attributed to Norwegian immigrant women working in Wisconsin tobacco warehouses who needed to tend to duties at home. It evolved into a widespread office, social, and union-recognized norm by the 1950s, solidified by marketing campaigns to boost productivity. ☕",
+  },
+
+  // =============================================
+  // INDEX 104 - Shows Mar 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Superstition",
+    puzzleNumber: 183,
+    words: [
+      { word: "LUCK", hint: "Good or bad fortune", revealedIndex: 0 },
+      { word: "WORRY", hint: "To feel anxious or uneasy", revealedIndex: 2 },
+      { word: "PHOBIA", hint: "An intense fear of something", revealedIndex: 3 },
+      { word: "THIRTEEN", hint: "A number often considered unlucky", revealedIndex: 0 },
+      { word: "RELIEVED", hint: "Feeling glad that something feared didn't happen", revealedIndex: 4 },
+    ],
+    funFact: "Did you know that Friday the 13th occurs one to three times annually when a month starts on a Sunday? Every calendar year has at least one Friday the 13th, but never more than three. In 2026, Friday the 13th occurs in February, March, and November! 🍀",
+  },
+
+  // =============================================
+  // INDEX 105 - Shows Mar 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pep Rally",
+    puzzleNumber: 184,
+    words: [
+      { word: "GAME", hint: "A competitive event or match", revealedIndex: 0 },
+      { word: "CHEER", hint: "To shout encouragement and support", revealedIndex: 2 },
+      { word: "HOOPLA", hint: "Excitement and commotion", revealedIndex: 3 },
+      { word: "PLAYER", hint: "Someone on a team", revealedIndex: 0 },
+      { word: "SPORTING", hint: "Related to athletic activities", revealedIndex: 4 },
+    ],
+    funFact: "Often held in gyms or stadiums, these events feature loud music, cheerleaders, band performances, themed dress-up days, and competitive games like the 'Cheer-o-Meter' or musical chairs. While usually for sports, they can also celebrate academic achievements, homecoming, or school milestones. 📣",
+  },
 ];
 
 // ===========================================

@@ -615,7 +615,604 @@ const triviaQuestions = [
     correctAnswer: "Antarctic",
     hint: "Deserts are defined by precipitation, not heat...",
     funFact: "Antarctica is technically the world's largest desert because it receives less than 10 inches of precipitation per year. The Sahara is the largest hot desert!"
-  }
+  },
+  // Flips Trivia Questions #69-85
+// Themes drawn from recent Letter Griddle puzzles
+// Add these after question id: 68 in your Flips data file
+
+  {
+    id: 69,
+    theme: "Food & Drink ☕",
+    question: "According to legend, how was tea discovered?",
+    options: [
+      "A monk brewed it intentionally",
+      "Leaves fell into an emperor's boiling water",
+      "It was found growing wild in a market",
+      "A sailor mixed herbs with seawater"
+    ],
+    correctAnswer: "Leaves fell into an emperor's boiling water",
+    hint: "The story involves a Chinese emperor and an accident...",
+    funFact: "According to legend, Chinese Emperor Shennong discovered tea in 2737 BC when leaves from a wild tree accidentally fell into his pot of boiling water. Today tea is the second most consumed beverage in the world after water!"
+  },
+  {
+    id: 70,
+    theme: "Food & Drink 🍰",
+    question: "What ancient group was served cheesecake for energy?",
+    options: [
+      "Roman gladiators",
+      "Egyptian pharaohs",
+      "Greek Olympic athletes",
+      "Viking warriors"
+    ],
+    correctAnswer: "Greek Olympic athletes",
+    hint: "Think ancient Greece and sporting events...",
+    funFact: "Ancient Greek athletes were served cheesecake to boost their energy during the first Olympic Games on the island of Delos. The earliest known cheesecake recipe dates back to the 5th century BC!"
+  },
+  {
+    id: 71,
+    theme: "Food & Drink 🥔",
+    question: "How were Tater Tots invented?",
+    options: [
+      "A chef created them as a side dish for burgers",
+      "They were made to use up leftover potato scraps",
+      "A farmer needed a way to preserve potatoes",
+      "They were inspired by a French croquette recipe"
+    ],
+    correctAnswer: "They were made to use up leftover potato scraps",
+    hint: "Waste not, want not...",
+    funFact: "Tater tots were invented in 1953 by Ore-Ida founders F. Nephi and Golden Grigg as a creative way to use up leftover potato shavings from making French fries. They almost sold them for free before realizing their potential!"
+  },
+  {
+    id: 72,
+    theme: "Food & Drink 🧀",
+    question: "When is National Cheese Doodle Day?",
+    options: [
+      "January 14",
+      "March 5",
+      "July 22",
+      "October 10"
+    ],
+    correctAnswer: "March 5",
+    hint: "It's in early spring...",
+    funFact: "National Cheese Doodle Day is March 5th! Over 15 million pounds of cheese doodles are produced annually. They trace back to farm machinery that accidentally puffed corn kernels, and the snack was perfected in the 1950s."
+  },
+  {
+    id: 73,
+    theme: "Nature & Science 🌕",
+    question: "What is a full moon's relationship to the sun?",
+    options: [
+      "It reflects the sun's light from the opposite side of Earth",
+      "It produces its own glow from its core",
+      "It absorbs sunlight and re-emits it",
+      "It only shines when the sun sets below 30 degrees"
+    ],
+    correctAnswer: "It reflects the sun's light from the opposite side of Earth",
+    hint: "The moon doesn't make its own light...",
+    funFact: "A full moon occurs when the moon is directly opposite the sun, with Earth in between. It doesn't produce its own light:  it reflects sunlight! A full moon always rises at sunset and always sets at sunrise."
+  },
+  {
+    id: 74,
+    theme: "Nature & Science ☀️",
+    question: "Why does the sky appear blue?",
+    options: [
+      "The ocean reflects blue light upward",
+      "Air molecules scatter blue light more than red",
+      "The ozone layer absorbs other colors",
+      "Water vapor refracts sunlight into blue wavelengths"
+    ],
+    correctAnswer: "Air molecules scatter blue light more than red",
+    hint: "It has to do with how light bounces off air...",
+    funFact: "The sky is blue because of Rayleigh Scattering; air molecules scatter shorter blue wavelengths of sunlight much more efficiently than longer red ones. At sunset, light travels through more atmosphere, scattering blue away and leaving reds and oranges!"
+  },
+  {
+    id: 75,
+    theme: "Nature & Science 🌽",
+    question: "How many kernels does an average ear of corn have?",
+    options: [
+      "Around 400",
+      "Around 800",
+      "Around 1,200",
+      "Around 2,000"
+    ],
+    correctAnswer: "Around 800",
+    hint: "More than you might think, and always even rows...",
+    funFact: "The average ear of corn has about 800 kernels arranged in an even number of rows, most commonly 16! Corn is the most produced grain in the world, and every part of the plant is used for something."
+  },
+  {
+    id: 76,
+    theme: "History & People 🎩",
+    question: "What unique distinction did Abraham Lincoln hold among U.S. Presidents?",
+    options: [
+      "He was the only president born outside the U.S.",
+      "He was the only president to hold a patent",
+      "He was the only president who never married",
+      "He was the only president to serve non-consecutive terms"
+    ],
+    correctAnswer: "He was the only president to hold a patent",
+    hint: "It involved boats and water...",
+    funFact: "Abraham Lincoln is the only U.S. President to hold a patent! He invented a device to lift boats over shallow waters. He was also the tallest president at 6'4\", a gifted wrestler, a cat lover who held seances, and a prolific storyteller who famously stored documents in his top hat."
+
+  },
+  {
+    id: 77,
+    theme: "History & People 🇺🇸",
+    question: "What letter does NO U.S. President's last name start with?",
+    options: [
+      "Q",
+      "X",
+      "S",
+      "Z"
+    ],
+    correctAnswer: "S",
+    hint: "It's actually the most common starting letter in English words...",
+    funFact: "Despite 'S' being one of the most common starting letters for English words, no U.S. President has ever had a last name beginning with S! The letters B, Q, U, X, and Y are also missing, but S is the most surprising gap."
+  },
+  {
+    id: 78,
+    theme: "History & People 🎭",
+    question: "What did Dr. Seuss write after his editor dared him to use only 50 words?",
+    options: [
+      "The Cat in the Hat",
+      "How the Grinch Stole Christmas",
+      "Green Eggs and Ham",
+      "One Fish Two Fish Red Fish Blue Fish"
+    ],
+    correctAnswer: "Green Eggs and Ham",
+    hint: "It involves a breakfast food...",
+    funFact: "Dr. Seuss wrote Green Eggs and Ham in 1960 after his editor bet him $50 that he couldn't write a book using only 50 words. He won the bet! He also coined the word 'nerd' and wasn't actually a doctor:  'Seuss' was his middle name."
+  },
+  {
+    id: 79,
+    theme: "Animals 🦛",
+    question: "How do hippos protect their skin from the sun?",
+    options: [
+      "They roll in mud constantly",
+      "They produce a red oily secretion",
+      "They stay submerged all day",
+      "They have extra-thick skin that blocks UV rays"
+    ],
+    correctAnswer: "They produce a red oily secretion",
+    hint: "It looks alarming but it's natural sunscreen...",
+    funFact: "Hippos produce their own reddish, oily 'blood sweat' which is a natural secretion that acts as sunscreen AND an antibiotic! Despite spending up to 16 hours a day in water, hippos can't actually swim.  They walk along riverbeds instead."
+  },
+  {
+    id: 80,
+    theme: "Animals 🦁",
+    question: "How many hours a day do lions typically sleep?",
+    options: [
+      "8 to 10 hours",
+      "12 to 14 hours",
+      "16 to 20 hours",
+      "22 to 23 hours"
+    ],
+    correctAnswer: "16 to 20 hours",
+    hint: "Much more than humans; they conserve energy...",
+    funFact: "Lions sleep up to 20 hours a day! They are the only truly social big cats, living in groups called prides of up to 40 members. Despite being called 'king of the jungle,' lions actually live in grasslands and savannas, not jungles."
+  },
+  {
+    id: 81,
+    theme: "Animals 🐴",
+    question: "How long does a horse typically need to eat each day?",
+    options: [
+      "4 to 6 hours",
+      "8 to 10 hours",
+      "14 to 16 hours",
+      "20 to 22 hours"
+    ],
+    correctAnswer: "14 to 16 hours",
+    hint: "Their digestive system requires near-constant grazing...",
+    funFact: "Horses need to eat grass or hay for about 14–16 hours a day because their digestive systems are designed for near-constant grazing. They can also drink up to 10 gallons of water daily! Horses have excellent long-term memories and can sleep both standing up and lying down."
+  },
+  {
+    id: 82,
+    theme: "Arts & Culture 🎸",
+    question: "How many years of history does the guitar have?",
+    options: [
+      "About 500 years",
+      "About 1,000 years",
+      "About 2,000 years",
+      "About 3,500 years"
+    ],
+    correctAnswer: "About 3,500 years",
+    hint: "Its origins trace back to ancient civilizations...",
+    funFact: "Guitars have a history stretching back approximately 3,500 years, with roots in ancient Egypt and Persia! Today the guitar is the world's most popular instrument. The modern six-string guitar was developed in Spain in the late 18th century."
+  },
+  {
+    id: 83,
+    theme: "Arts & Culture 🎭",
+    question: "How old is opera as an art form?",
+    options: [
+      "About 200 years",
+      "About 400 years",
+      "About 600 years",
+      "About 1,000 years"
+    ],
+    correctAnswer: "About 400 years",
+    hint: "It originated around the turn of the 17th century...",
+    funFact: "Opera originated around 1600 in Florence, Italy, making it about 400 years old! It was created as a fully sung dramatic form combining music, poetry, and theater. Famous operas like La Traviata and Carmen feature unamplified voices that cut through entire orchestras."
+  },
+  {
+    id: 84,
+    theme: "Technology 💻",
+    question: "Where does the term 'computer bug' come from?",
+    options: [
+      "Early computers used insect-shaped transistors",
+      "A moth was found stuck in a computer relay",
+      "Programmers used 'bug' as slang for a code error",
+      "It came from a military code name"
+    ],
+    correctAnswer: "A moth was found stuck in a computer relay",
+    hint: "It was quite literal...",
+    funFact: "In 1947, engineers found an actual moth stuck in a relay of the Harvard Mark II computer, causing a malfunction. They taped it into the logbook and wrote 'First actual case of a bug being found.' The term had been used loosely before, but this cemented it forever!"
+  },
+  {
+    id: 85,
+    theme: "Food & Drink 🍞",
+    question: "What did Ancient Egyptians use bread as?",
+    options: [
+      "Building material",
+      "Currency",
+      "Medicine",
+      "Fuel for fires"
+    ],
+    correctAnswer: "Currency",
+    hint: "It was valuable enough to exchange for goods...",
+    funFact: "Ancient Egyptians used bread and beer as currency to pay workers, including those who built the pyramids! Bread was so central to life that over 50 varieties have been found in archaeological records. A rolled piece of white bread also served as an eraser before rubber was invented!"
+  },
+  // Flips Trivia Questions #86-110
+// Original questions across fun, cozy categories
+// Add after id: 85
+
+  {
+    id: 86,
+    theme: "Food & Drink 🥞",
+    question: "What does the word 'pancake' first appear in?",
+    options: [
+      "A Roman cookbook from 100 AD",
+      "An English cookbook from the 1400s",
+      "A French pastry guide from the 1600s",
+      "An American diner menu from the 1800s"
+    ],
+    correctAnswer: "An English cookbook from the 1400s",
+    hint: "It's older than most people think...",
+    funFact: "The word 'pancake' first appeared in an English cookbook around 1430! But pancake-like foods have been made for over 30,000 years; ancient humans ground grains and cooked them on hot stones. Nearly every culture in the world has its own version of a pancake."
+  },
+  {
+    id: 87,
+    theme: "Food & Drink ☕",
+    question: "How many cups of coffee does the average American drink per day?",
+    options: [
+      "About 1 cup",
+      "About 2 cups",
+      "About 3 cups",
+      "About 5 cups"
+    ],
+    correctAnswer: "About 3 cups",
+    hint: "More than you might expect...",
+    funFact: "The average American coffee drinker has about 3 cups per day! The U.S. is one of the largest coffee-consuming countries in the world. Coffee is also the second most traded commodity globally after oil."
+  },
+  {
+    id: 88,
+    theme: "Food & Drink 🍯",
+    question: "How long does honey last if stored properly?",
+    options: [
+      "About 2 years",
+      "About 10 years",
+      "About 50 years",
+      "Indefinitely"
+    ],
+    correctAnswer: "Indefinitely",
+    hint: "Archaeologists have found it in ancient tombs...",
+    funFact: "Honey never spoils! Archaeologists have found 3,000-year-old honey in Egyptian tombs that was still perfectly edible. Its low moisture content and natural acidity make it almost impossible for bacteria to grow."
+  },
+  {
+    id: 89,
+    theme: "Food & Drink 🍕",
+    question: "What was pizza originally considered in Italy?",
+    options: [
+      "A dessert for wealthy families",
+      "Street food for the poor",
+      "A royal delicacy",
+      "A religious ceremonial food"
+    ],
+    correctAnswer: "Street food for the poor",
+    hint: "It started very humbly...",
+    funFact: "Pizza originated as cheap street food in Naples, Italy, eaten by the working poor. It wasn't considered respectable until Queen Margherita of Italy tried it in 1889 and loved it.  The classic Margherita pizza was created in her honor!"
+  },
+  {
+    id: 90,
+    theme: "Food & Drink 🧇",
+    question: "Which breakfast food was invented as part of a health reform movement?",
+    options: [
+      "Bacon",
+      "Corn flakes",
+      "Orange juice",
+      "Scrambled eggs"
+    ],
+    correctAnswer: "Corn flakes",
+    hint: "A doctor invented it to discourage something...",
+    funFact: "Corn flakes were invented in 1894 by Dr. John Harvey Kellogg as a bland, healthy food to discourage what he believed were unhealthy impulses. His brother Will added sugar and turned it into a commercial sensation. The Kellogg's brand was born!"
+  },
+  {
+    id: 91,
+    theme: "Words & Language 📖",
+    question: "How many words does the average person know?",
+    options: [
+      "Around 5,000",
+      "Around 20,000",
+      "Around 42,000",
+      "Around 100,000"
+    ],
+    correctAnswer: "Around 42,000",
+    hint: "Researchers studied this carefully...",
+    funFact: "A 2016 study found that the average adult knows around 42,000 dictionary words by age 20 and keeps growing to about 48,000 by age 60. But experts estimate we passively recognize far more, perhaps 100,000 words, even if we rarely use them."
+  },
+  {
+    id: 92,
+    theme: "Words & Language 📖",
+    question: "What is the most common letter in the English language?",
+    options: [
+      "A",
+      "T",
+      "E",
+      "S"
+    ],
+    correctAnswer: "E",
+    hint: "It shows up in roughly 13% of all English text...",
+    funFact: "The letter E is the most common letter in English, appearing in about 13% of all text! That's why Wheel of Fortune gives players E, R, S, T, L, and N for free in the final round; they're the six most frequently used letters."
+  },
+  {
+    id: 93,
+    theme: "Words & Language 📖",
+    question: "Approximately how many words does the English language contain?",
+    options: [
+      "Around 50,000",
+      "Around 170,000",
+      "Around 500,000",
+      "Around 1,000,000"
+    ],
+    correctAnswer: "Around 170,000",
+    hint: "The Oxford English Dictionary is the best reference...",
+    funFact: "The Oxford English Dictionary contains about 170,000 words currently in use, with another 47,000 obsolete words. English adds roughly 1,000 new words every year! It borrows heavily from French, Latin, German, and hundreds of other languages."
+  },
+  {
+    id: 94,
+    theme: "Cozy Living 🕯️",
+    question: "What Danish concept describes the feeling of coziness and contentment?",
+    options: [
+      "Lagom",
+      "Hygge",
+      "Sisu",
+      "Fika"
+    ],
+    correctAnswer: "Hygge",
+    hint: "It became a wellness trend worldwide...",
+    funFact: "Hygge (pronounced HOO-gah) is a Danish and Norwegian concept describing a mood of coziness and comfortable conviviality. It might be a candlelit dinner, a warm blanket, or good conversation. Denmark consistently ranks among the happiest countries and hygge is often credited!"
+  },
+  {
+    id: 95,
+    theme: "Cozy Living 🕯️",
+    question: "What does 'fika' mean in Swedish culture?",
+    options: [
+      "An afternoon nap",
+      "A coffee and snack break with others",
+      "A long walk in nature",
+      "A weekly family dinner"
+    ],
+    correctAnswer: "A coffee and snack break with others",
+    hint: "It's a daily ritual in Swedish workplaces...",
+    funFact: "Fika, a cherished Swedish tradition, is a deliberate pause in the day to enjoy coffee and a sweet treat with friends or colleagues. It's considered so important that many Swedish workplaces build it into the daily schedule. Cinnamon rolls are the classic fika companion!"
+  },
+  {
+    id: 96,
+    theme: "Books & Reading 📚",
+    question: "How many books does the average American read per year?",
+    options: [
+      "About 2",
+      "About 4",
+      "About 12",
+      "About 20"
+    ],
+    correctAnswer: "About 12",
+    hint: "Roughly one per month...",
+    funFact: "According to Gallup, Americans read an average of about 12 books per year, though avid readers skew that number up significantly. Women tend to read more books than men, and fiction is the most popular genre across all age groups."
+  },
+  {
+    id: 97,
+    theme: "Books & Reading 📚",
+    question: "What is the best-selling book of all time?",
+    options: [
+      "Harry Potter and the Sorcerer's Stone",
+      "Don Quixote",
+      "The Bible",
+      "A Tale of Two Cities"
+    ],
+    correctAnswer: "The Bible",
+    hint: "It has been translated into over 700 languages...",
+    funFact: "The Bible is the best-selling book of all time with an estimated 5 billion copies sold. Don Quixote holds the record for best-selling novel at over 500 million copies. Harry Potter has sold over 600 million copies across the entire series!"
+  },
+  {
+    id: 98,
+    theme: "Fun Facts 🌍",
+    question: "What percentage of Earth's water is drinkable fresh water?",
+    options: [
+      "About 25%",
+      "About 10%",
+      "About 3%",
+      "About 1%"
+    ],
+    correctAnswer: "About 3%",
+    hint: "Far less than most people assume...",
+    funFact: "Only about 3% of Earth's water is fresh water and most of that is locked in glaciers and ice caps! Less than 1% of all water on Earth is actually accessible for human use. This is why water conservation matters so much."
+  },
+  {
+    id: 99,
+    theme: "Fun Facts 🐝",
+    question: "How far does a bee travel to make one pound of honey?",
+    options: [
+      "About 500 miles",
+      "About 10,000 miles",
+      "About 55,000 miles",
+      "About 100,000 miles"
+    ],
+    correctAnswer: "About 55,000 miles",
+    hint: "The number is staggering...",
+    funFact: "To produce just one pound of honey, bees collectively fly about 55,000 miles and visit around 2 million flowers! A single bee will produce only about 1/12 of a teaspoon of honey in its entire lifetime. No wonder it's so special."
+  },
+  {
+    id: 100,
+    theme: "Fun Facts 🎉",
+    question: "What is the only food that never expires?",
+    options: [
+      "Vinegar",
+      "Salt",
+      "Honey",
+      "All of the above"
+    ],
+    correctAnswer: "All of the above",
+    hint: "There's more than one answer here...",
+    funFact: "Honey, salt, and pure distilled white vinegar all have an indefinite shelf life when stored properly! Salt never expires because it's a mineral. Vinegar is self-preserving due to its acidity. And honey's low moisture and natural antimicrobial properties keep it fresh for millennia."
+  },
+  {
+    id: 101,
+    theme: "Music 🎵",
+    question: "What is the most covered song in history?",
+    options: [
+      "Yesterday by The Beatles",
+      "Happy Birthday to You",
+      "Somewhere Over the Rainbow",
+      "What a Wonderful World"
+    ],
+    correctAnswer: "Yesterday by The Beatles",
+    hint: "It's by the most famous band in rock history...",
+    funFact: "Yesterday by The Beatles holds the Guinness World Record as the most covered song in history, with over 2,200 recorded versions! Paul McCartney woke up with the melody in his head and temporarily titled it 'Scrambled Eggs' while writing the lyrics."
+  },
+  {
+    id: 102,
+    theme: "Music 🎵",
+    question: "How many piano keys are on a standard piano?",
+    options: [
+      "72",
+      "76",
+      "88",
+      "96"
+    ],
+    correctAnswer: "88",
+    hint: "The number hasn't changed in over a century...",
+    funFact: "A standard piano has 88 keys:  52 white and 36 black. This design was standardized in the late 1800s. The piano was invented around 1700 by Bartolomeo Cristofori in Italy, who called it 'gravicembalo col piano e forte', harpsichord with soft and loud."
+  },
+  {
+    id: 103,
+    theme: "Nature 🌿",
+    question: "What is the oldest living type of tree on Earth?",
+    options: [
+      "Redwood",
+      "Baobab",
+      "Bristlecone Pine",
+      "Olive tree"
+    ],
+    correctAnswer: "Bristlecone Pine",
+    hint: "It grows in harsh, high-altitude conditions in the American West...",
+    funFact: "The Great Basin Bristlecone Pine is the oldest known living tree species, with one individual named Methuselah estimated to be over 4,800 years old! Its location is kept secret to protect it. It grows in the White Mountains of California in extremely harsh conditions."
+  },
+  {
+    id: 104,
+    theme: "Nature 🌿",
+    question: "How much of the Earth's oxygen is produced by the ocean?",
+    options: [
+      "About 10%",
+      "About 30%",
+      "About 50%",
+      "About 80%"
+    ],
+    correctAnswer: "About 50%",
+    hint: "It's roughly half and most people are surprised...",
+    funFact: "About 50% of Earth's oxygen comes from the ocean, produced by tiny marine plants called phytoplankton! The Amazon rainforest produces about 20%. So the ocean is literally the lungs of the planet, and phytoplankton are creatures most people have never heard of."
+  },
+  {
+    id: 105,
+    theme: "Everyday Wonders 💡",
+    question: "How long does it take to form a habit, according to research?",
+    options: [
+      "21 days",
+      "66 days",
+      "90 days",
+      "It varies widely by person and habit"
+    ],
+    correctAnswer: "It varies widely by person and habit",
+    hint: "The popular '21 days' figure isn't quite accurate...",
+    funFact: "The popular idea that habits form in 21 days comes from a misread of a 1960 self-help book! A 2010 study by Phillippa Lally found it actually takes anywhere from 18 to 254 days depending on the person and the habit with an average of about 66 days."
+  },
+  {
+    id: 106,
+    theme: "Everyday Wonders 💡",
+    question: "How many times does the average person laugh per day?",
+    options: [
+      "About 5",
+      "About 15",
+      "About 30",
+      "About 50"
+    ],
+    correctAnswer: "About 15",
+    hint: "Children laugh far more than adults...",
+    funFact: "Adults laugh an average of about 15 times per day but children laugh up to 400 times! Laughter is contagious, social, and actually good for your health. It releases endorphins, reduces stress hormones, and even provides a mild workout for your core muscles."
+  },
+  {
+    id: 107,
+    theme: "Everyday Wonders 💡",
+    question: "What sense is most closely linked to memory?",
+    options: [
+      "Sight",
+      "Hearing",
+      "Smell",
+      "Touch"
+    ],
+    correctAnswer: "Smell",
+    hint: "Have you ever caught a scent and instantly remembered something from years ago?",
+    funFact: "Smell is the sense most directly connected to memory and emotion! The olfactory bulb, which processes smell, is directly linked to the hippocampus and amygdala, the brain's memory and emotion centers. This is why a whiff of cinnamon or coffee can instantly transport you back in time."
+  },
+  {
+    id: 108,
+    theme: "Animals 🐘",
+    question: "How long is an elephant's pregnancy?",
+    options: [
+      "About 6 months",
+      "About 12 months",
+      "About 18 months",
+      "About 22 months"
+    ],
+    correctAnswer: "About 22 months",
+    hint: "It's the longest of any land animal...",
+    funFact: "Elephants have the longest pregnancy of any land animal:  nearly 22 months! That's almost two years. Baby elephants are born weighing about 200 pounds and can stand within an hour. Elephants also mourn their dead and have been observed returning to the bones of deceased family members."
+  },
+  {
+    id: 109,
+    theme: "Animals 🐙",
+    question: "How many hearts does an octopus have?",
+    options: [
+      "1",
+      "2",
+      "3",
+      "5"
+    ],
+    correctAnswer: "3",
+    hint: "More than you'd expect...",
+    funFact: "Octopuses have three hearts! Two pump blood to the gills, and one pumps it to the rest of the body. Their blood is also blue because it contains copper-based hemocyanin instead of the iron-based hemoglobin that makes human blood red. They also have nine brains:  one central and one in each arm!"
+  },
+  {
+    id: 110,
+    theme: "Fun Facts ✨",
+    question: "What is the shortest complete sentence in the English language?",
+    options: [
+      "Go.",
+      "I am.",
+      "Be.",
+      "Hi."
+    ],
+    correctAnswer: "Go.",
+    hint: "It's a command with an implied subject...",
+    funFact: "The shortest grammatically complete sentence in English is 'Go.' It's a command where the subject 'you' is implied. 'I am.' is the shortest sentence with an explicit subject and verb. English is fascinating in how much meaning can be packed into just two letters!"
+  },
 ];
 
 // Function to get today's question - ANCHOR DATE SYSTEM

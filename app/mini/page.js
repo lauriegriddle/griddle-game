@@ -97,7 +97,7 @@ const getPuzzleInfo = () => {
   
   // Create anchor date in timezone-naive way
   // December 28, 2025 at 7:15 PM (when index 0 started)
-  const anchorDate = new Date(2025, 11, 28, 19, 15, 0, 0); // Month is 0-indexed, so 11 = December
+  const anchorDate = new Date(2026, 2, 9, 19, 15, 0, 0); // March 9, 2026 // Month is 0-indexed, so 11 = December
   
   const daysSinceAnchor = Math.round((puzzleDate.getTime() - anchorDate.getTime()) / (1000 * 60 * 60 * 24));
   const puzzleIndex = ((daysSinceAnchor % miniPuzzles.length) + miniPuzzles.length) % miniPuzzles.length;

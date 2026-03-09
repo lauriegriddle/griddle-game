@@ -5,8 +5,12 @@ import { X } from 'lucide-react';
 // Mini puzzles drawn from existing Letter Griddle 5-letter words
 // NEW Mini puzzles - 22 words from Letter Griddle puzzles #79-99
 // Replace the existing miniPuzzles array with this one
-
-const miniPuzzles = [
+// =============================================
+// BENCHED MINI PUZZLES (formerly active)
+// Words from Letter Griddle puzzles #79-99
+// =============================================
+/*
+const miniPuzzlesBenched = [
   { word: "STORY", category: "'Round the Hearth", hint: "A tale shared aloud while gathered together" },
   { word: "PRIZE", category: "The Price is Right", hint: "Something won in a game or competition" },
   { word: "GLIDE", category: "Moving Through the Air", hint: "To move smoothly through the air with little effort" },
@@ -29,6 +33,37 @@ const miniPuzzles = [
   { word: "PENNE", category: "Pasta", hint: "Cylinder pasta cut at an angle, perfect for holding chunky sauces" },
   { word: "BACON", category: "Breakfast", hint: "Crispy strips of cured pork, a breakfast favorite" },
   { word: "WHISK", category: "Cooking", hint: "To beat ingredients quickly with a wire tool to blend or add air" },
+];
+*/
+
+// =============================================
+// FRESH MINI PUZZLES
+// Words drawn from Letter Griddle puzzles #130-178
+// =============================================
+
+const miniPuzzles = [
+  { word: "CRUST", category: "Bread", hint: "The golden outer layer of a baked loaf" },
+  { word: "SOLVE", category: "Detective", hint: "To find the answer to a mystery or problem" },
+  { word: "CLOUD", category: "Skygazing", hint: "A white or gray mass floating in the sky" },
+  { word: "CANOE", category: "Lakehouse", hint: "A narrow boat you paddle through the water" },
+  { word: "FRUIT", category: "Pie", hint: "A sweet filling made from apples, berries, or cherries" },
+  { word: "GRAZE", category: "Snacking", hint: "To eat small amounts throughout the day" },
+  { word: "FUDGE", category: "Chocolate", hint: "A soft, dense confection often made with cocoa" },
+  { word: "GAMES", category: "Tablet", hint: "Digital entertainment apps you play" },
+  { word: "PRINT", category: "Artwork", hint: "A reproduction of an image on paper" },
+  { word: "TRAIN", category: "Run", hint: "To practice and prepare for a race" },
+  { word: "CHAIR", category: "Furnishings", hint: "A seat with a back for one person" },
+  { word: "DIVER", category: "Swimming", hint: "Someone who plunges headfirst into water" },
+  { word: "GREEN", category: "Mardi Gras", hint: "One of the iconic colors representing faith" },
+  { word: "FLICK", category: "Going to the Movies", hint: "A casual term for a film or movie" },
+  { word: "POLAR", category: "Frozen", hint: "Relating to the icy regions near the North or South Pole" },
+  { word: "STEEP", category: "Tea", hint: "To soak leaves in hot water to extract flavor" },
+  { word: "HOBBY", category: "Crafting", hint: "A leisure activity done for enjoyment" },
+  { word: "RURAL", category: "Farm", hint: "Relating to the countryside rather than the city" },
+  { word: "SOLAR", category: "Sunny", hint: "Relating to or derived from the sun" },
+  { word: "MOUSE", category: "Computer", hint: "A handheld device used to move a cursor" },
+  { word: "CABIN", category: "Lincoln", hint: "A small rustic dwelling made of logs" },
+  { word: "BOOST", category: "Compliments", hint: "To lift up or increase confidence" },
 ];
 
 // Generate decoy letters that aren't in the word

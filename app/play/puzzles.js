@@ -1538,7 +1538,7 @@ const puzzles = [
       { word: "LUNCH", hint: "A midday meal", revealedIndex: 2 },
       { word: "NAPKIN", hint: "A cloth or paper for wiping hands and face", revealedIndex: 3 },
       { word: "THERMOS", hint: "An insulated container to keep drinks hot or cold", revealedIndex: 0 },
-      { word: "CONTAINERS", hint: "Reusable boxes for storing food", revealedIndex: 4 },
+      { word: "CONTENTS", hint: "What's inside the bag", revealedIndex: 4 },,
     ],
     funFact: "Packing your lunch dates back to the 1800s using tobacco tins, with the first official, thermos-equipped lunch box appearing in the 1920s. Modern packed lunches save money (potentially $800+ annually) and reduce waste, as average school lunches create 67 pounds of trash yearly. The first character-themed lunchbox featured Mickey Mouse. 🥪",
   },

@@ -46,9 +46,6 @@ const getYellowPosition = (word, letterIndex) => {
   return positions[Math.floor(Math.random() * positions.length)];
 };
 
-// Anchor date for puzzle rotation
-const ANCHOR_DATE = new Date('2025-12-28T19:15:00-05:00');
-
 // Get puzzle number and index based on date
 const getPuzzleInfo = () => {
   const now = new Date();
@@ -63,7 +60,11 @@ const getPuzzleInfo = () => {
   }
   puzzleDate.setHours(19, 15, 0, 0);
   
-  const daysSinceAnchor = Math.floor((puzzleDate.getTime() - ANCHOR_DATE.getTime()) / (1000 * 60 * 60 * 24));
+  // Create anchor date in timezone-naive way
+  // December 28, 2025 at 7:15 PM (when index 0 started)
+  const anchorDate = new Date(2025, 11, 28, 19, 15, 0, 0); // Month is 0-indexed, so 11 = December
+  
+  const daysSinceAnchor = Math.round((puzzleDate.getTime() - anchorDate.getTime()) / (1000 * 60 * 60 * 24));
   const puzzleIndex = ((daysSinceAnchor % miniPuzzles.length) + miniPuzzles.length) % miniPuzzles.length;
   const puzzleNumber = Math.max(1, daysSinceAnchor + 1);
   

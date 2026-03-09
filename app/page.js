@@ -5,75 +5,13 @@ import Link from 'next/link';
 export default function Home() {
   const [showMoreGames, setShowMoreGames] = useState(false);
   
-  // GRAND OPENING SECTION - New games launching!
-  const grandOpeningGames = [
-    {
-      name: "Pancakes",
-      tagline: "Find the words, earn the toppings! Play 30 Puzzles!",
-      emoji: "🥞",
-      href: "/pancakes",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #92400E 100%)",
-        icon: "🥞",
-        iconSize: "text-5xl",
-        title: ["Letter Griddle", "Pancakes"],
-        subtitle: "Word Search Game",
-        subtitleColor: "text-amber-100"
-      },
-      borderColor: "border-amber-400",
-      bgColor: "from-amber-100 to-orange-100",
-      textColor: "text-amber-800",
-      subTextColor: "text-amber-700",
-      hoverBg: "bg-amber-600/80"
-    },
-    {
-      name: "Griddle Logic",
-      tagline: "A fun cafe logic puzzle where you choose your challenge!",
-      emoji: "🧩",
-      href: "/logic",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%)",
-        icon: "🧩",
-        iconSize: "text-5xl",
-        title: ["Griddle", "Logic"],
-        subtitle: "Logic Puzzle",
-        subtitleColor: "text-indigo-100"
-      },
-      borderColor: "border-indigo-400",
-      bgColor: "from-indigo-100 to-purple-100",
-      textColor: "text-indigo-800",
-      subTextColor: "text-indigo-700",
-      hoverBg: "bg-indigo-500/80"
-    },
-    {
-      name: "Letter Griddle Cottage",
-      tagline: "Explore 18 Spring Puzzles! 🌷",
-      emoji: "🌸",
-      href: "https://lettergriddlecottage.com",
-      external: true,
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%)",
-        icon: "🌸",
-        iconSize: "text-4xl",
-        title: ["Letter Griddle", "Cottage"],
-        subtitle: "SPRING AWAKENING",
-        subtitleColor: "text-emerald-100"
-      },
-      borderColor: "border-emerald-400",
-      bgColor: "from-emerald-100 to-green-100",
-      textColor: "text-emerald-800",
-      subTextColor: "text-emerald-700",
-      hoverBg: "bg-emerald-500/80"
-    }
-  ];
-  
-  // SECTION 1: Daily Games (scheduled drop times)
-  const dailyGames = [
+  // SECTION 1: Daily Favorites (top 3 most played)
+  const dailyFavorites = [
     {
       name: "Letter Griddle",
       tagline: "The original daily word puzzle",
       dropTime: "7:00 PM EST",
-      emoji: "🥞",
+      emoji: "\uD83E\uDD5E",
       href: "/play",
       thumbnail: {
         gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #EA580C 100%)",
@@ -95,7 +33,7 @@ export default function Home() {
       name: "Letter Griddle Mini",
       tagline: "A bite-sized word puzzle",
       dropTime: "7:15 PM EST",
-      emoji: "🍯",
+      emoji: "\uD83C\uDF6F",
       href: "/mini",
       thumbnail: {
         gradient: "linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #D97706 100%)",
@@ -111,15 +49,103 @@ export default function Home() {
       hoverBg: "bg-yellow-500/80"
     },
     {
+      name: "Letter Griddle Flips",
+      tagline: "Daily trivia flip",
+      dropTime: "7:45 PM EST",
+      emoji: "\u2615",
+      href: "/flips",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #B45309 0%, #92400E 50%, #78350F 100%)",
+        icon: "\u2615",
+        iconSize: "text-4xl",
+        title: ["Letter Griddle", "Flips"],
+        titleStyle: ["text-xl", "text-3xl italic"],
+        subtitle: "Daily Trivia",
+        subtitleColor: "text-amber-200"
+      },
+      borderColor: "border-amber-300",
+      bgColor: "from-amber-100 to-yellow-100",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      timeColor: "text-amber-600",
+      hoverBg: "bg-amber-700/80"
+    }
+  ];
+
+  // SECTION 2: Grand Opening
+  const grandOpeningGames = [
+    {
+      name: "Pancakes",
+      tagline: "Find the words, earn the toppings! Play 30 Puzzles!",
+      emoji: "\uD83E\uDD5E",
+      href: "/pancakes",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #92400E 100%)",
+        icon: "\uD83E\uDD5E",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Pancakes"],
+        subtitle: "Word Search Game",
+        subtitleColor: "text-amber-100"
+      },
+      borderColor: "border-amber-400",
+      bgColor: "from-amber-100 to-orange-100",
+      textColor: "text-amber-800",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-600/80"
+    },
+    {
+      name: "Griddle Logic",
+      tagline: "A fun cafe logic puzzle where you choose your challenge!",
+      emoji: "\uD83E\uDDE9",
+      href: "/logic",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%)",
+        icon: "\uD83E\uDDE9",
+        iconSize: "text-5xl",
+        title: ["Griddle", "Logic"],
+        subtitle: "Logic Puzzle",
+        subtitleColor: "text-indigo-100"
+      },
+      borderColor: "border-indigo-400",
+      bgColor: "from-indigo-100 to-purple-100",
+      textColor: "text-indigo-800",
+      subTextColor: "text-indigo-700",
+      hoverBg: "bg-indigo-500/80"
+    },
+    {
+      name: "Letter Griddle Cottage",
+      tagline: "Explore 18 Spring Puzzles! \uD83C\uDF37",
+      emoji: "\uD83C\uDF38",
+      href: "https://lettergriddlecottage.com",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%)",
+        icon: "\uD83C\uDF38",
+        iconSize: "text-4xl",
+        title: ["Letter Griddle", "Cottage"],
+        subtitle: "SPRING AWAKENING",
+        subtitleColor: "text-emerald-100"
+      },
+      borderColor: "border-emerald-400",
+      bgColor: "from-emerald-100 to-green-100",
+      textColor: "text-emerald-800",
+      subTextColor: "text-emerald-700",
+      hoverBg: "bg-emerald-500/80"
+    }
+  ];
+
+  // SECTION 3: More Daily Games
+  const moreDailyGames = [
+    {
       name: "Little Letter Griddle",
       tagline: "New words, same moonlit puzzle",
       dropTime: "7:30 PM EST",
-      emoji: "🌙",
+      emoji: "\uD83C\uDF19",
       href: "https://littlelettergriddle.com",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #818CF8 0%, #6366F1 50%, #4F46E5 100%)",
-        icon: "🌙",
+        icon: "\uD83C\uDF19",
         iconSize: "text-5xl",
         title: ["Little Letter", "Griddle"],
         subtitle: "Moonlit Puzzle",
@@ -134,37 +160,15 @@ export default function Home() {
       hoverBg: "bg-indigo-500/80"
     },
     {
-      name: "Letter Griddle Flips",
-      tagline: "Daily trivia flip",
-      dropTime: "7:45 PM EST",
-      emoji: "☕",
-      href: "/flips",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #B45309 0%, #92400E 50%, #78350F 100%)",
-        icon: "☕",
-        iconSize: "text-4xl",
-        title: ["Letter Griddle", "Flips"],
-        titleStyle: ["text-xl", "text-3xl italic"],
-        subtitle: "Daily Trivia",
-        subtitleColor: "text-amber-200"
-      },
-      borderColor: "border-amber-300",
-      bgColor: "from-amber-100 to-yellow-100",
-      textColor: "text-amber-900",
-      subTextColor: "text-amber-700",
-      timeColor: "text-amber-600",
-      hoverBg: "bg-amber-700/80"
-    },
-    {
       name: "Letter Griddle Buffet",
       tagline: "Same ambiance, the menu items have changed.",
       dropTime: "8:00 PM EST",
-      emoji: "🍽️",
+      emoji: "\uD83C\uDF7D\uFE0F",
       href: "https://lettergriddlebuffet.com",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #F97316 0%, #EA580C 50%, #DC2626 100%)",
-        icon: "🍽️",
+        icon: "\uD83C\uDF7D\uFE0F",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Buffet"],
         subtitle: "All-You-Can-Play",
@@ -181,12 +185,12 @@ export default function Home() {
       name: "Letter Griddle Cafe Game",
       tagline: "A Cafe Daily Special For Dedicated Puzzlers",
       dropTime: "7:00 AM EST",
-      emoji: "👑",
+      emoji: "\uD83D\uDC51",
       href: "https://lettergriddlecafe.com/game",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
-        icon: "👑",
+        icon: "\uD83D\uDC51",
         iconSize: "text-4xl",
         title: ["Cafe", "Game"],
         subtitle: "A CAFE SPECIAL",
@@ -201,17 +205,17 @@ export default function Home() {
     }
   ];
 
-  // SECTION 2: Letter Griddle Games (Trivia Crew / anytime games)
+  // SECTION 4: More Games (Letter Griddle Games collection)
   const letterGriddleGames = [
     {
       name: "Griddle Falls",
       tagline: "Trivia with the Letter Griddle Cafe Crew",
-      emoji: "☕",
+      emoji: "\u2615",
       href: "https://griddlefalls.com",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #f4a574 0%, #e8956a 50%, #d4825a 100%)",
-        icon: "☕",
+        icon: "\u2615",
         iconSize: "text-4xl",
         title: ["Griddle", "Falls"],
         subtitle: "Cafe Crew Trivia",
@@ -226,11 +230,11 @@ export default function Home() {
     {
       name: "Spins",
       tagline: "Spell the food hidden in the song title",
-      emoji: "💿",
+      emoji: "\uD83D\uDCBF",
       href: "/spins",
       thumbnail: {
         gradient: "linear-gradient(135deg, #A855F7 0%, #7C3AED 50%, #6D28D9 100%)",
-        icon: "💿",
+        icon: "\uD83D\uDCBF",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Spins"],
         subtitle: "Music Word Game",
@@ -246,11 +250,11 @@ export default function Home() {
     {
       name: "Hoopla",
       tagline: "Word-Finding Challenge! 20 Puzzles!",
-      emoji: "📣",
+      emoji: "\uD83D\uDCE3",
       href: "/hoopla",
       thumbnail: {
         gradient: "linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%)",
-        icon: "📣",
+        icon: "\uD83D\uDCE3",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Hoopla"],
         subtitle: "Game Night Pep Rally",
@@ -265,12 +269,12 @@ export default function Home() {
     {
       name: "Jukebox",
       tagline: "One word leads to the next",
-      emoji: "🎵",
+      emoji: "\uD83C\uDFB5",
       href: "https://lettergriddlecafe.com/jukebox",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #115e59 0%, #0f4c4c 50%, #0a3939 100%)",
-        icon: "💿",
+        icon: "\uD83D\uDCBF",
         iconSize: "text-4xl",
         title: ["Jukebox"],
         subtitle: "Word Chain",
@@ -285,11 +289,11 @@ export default function Home() {
     {
       name: "Griddle Shake",
       tagline: "A Letter Griddle Word Hunt Game",
-      emoji: "🔍",
+      emoji: "\uD83D\uDD0D",
       href: "/griddleshake",
       thumbnail: {
         gradient: "linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 25%, #f5d0fe 50%, #a5f3fc 75%, #c4b5fd 100%)",
-        icon: "🔍",
+        icon: "\uD83D\uDD0D",
         iconSize: "text-4xl",
         title: ["Griddle", "Shake"],
         subtitle: "WORD HUNT",
@@ -304,12 +308,12 @@ export default function Home() {
     {
       name: "Kerflufflegrid",
       tagline: "Reveal the theme before Kerflufflegrid",
-      emoji: "⏳",
+      emoji: "\u231B",
       href: "https://kerflufflegrid.com",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%)",
-        icon: "⏳",
+        icon: "\u231B",
         iconSize: "text-4xl",
         title: ["Kerfluffle", "grid"],
         subtitle: "Beat the Clock",
@@ -324,11 +328,11 @@ export default function Home() {
     {
       name: "Saddle Shoes",
       tagline: "A retro memory matching game",
-      emoji: "👟",
+      emoji: "\uD83D\uDC5F",
       href: "/saddleshoes",
       thumbnail: {
         gradient: "linear-gradient(135deg, #78350f 0%, #44403c 50%, #451a03 100%)",
-        icon: "🍨",
+        icon: "\uD83C\uDF68",
         iconSize: "text-4xl",
         title: ["Saddle", "Shoes"],
         subtitle: "Memory Match Game",
@@ -343,11 +347,11 @@ export default function Home() {
     {
       name: "Tile Griddle",
       tagline: "A domino-style matching game with the Trivia Crew",
-      emoji: "🥞🧁🍿",
+      emoji: "\uD83E\uDD5E\uD83E\uDDC1\uD83C\uDF7F",
       href: "/tilegriddle",
       thumbnail: {
         gradient: "linear-gradient(135deg, #f6ad55 0%, #ed8936 50%, #dd6b20 100%)",
-        icon: "🥞|🥞",
+        icon: "\uD83E\uDD5E|\uD83E\uDD5E",
         iconSize: "text-3xl",
         title: ["Tile", "Griddle"],
         subtitle: "MATCH GAME",
@@ -359,14 +363,14 @@ export default function Home() {
       subTextColor: "text-orange-700",
       hoverBg: "bg-orange-500/80"
     },
-{
+    {
       name: "Scoops - Brand New!",
       tagline: "Get the inside scoop at the Letter Griddle Cafe!",
-      emoji: "☕",
+      emoji: "\u2615",
       href: "/scoops",
       thumbnail: {
         gradient: "linear-gradient(135deg, #F97316 0%, #EA580C 50%, #C2410C 100%)",
-        icon: "☕",
+        icon: "\u2615",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Scoops"],
         subtitle: "Trivia Challenge Letter Griddle Style",
@@ -380,17 +384,17 @@ export default function Home() {
     },
   ];
 
-  // SECTION 3: Stories, Recipes & More (with Spins)
+  // SECTION 5: Stories, Recipes & More
   const storiesAndMore = [
     {
       name: "Cookbook",
       tagline: "Recipes paired with word puzzles",
-      emoji: "🍊",
+      emoji: "\uD83C\uDF4A",
       href: "https://lettergriddlecookbook.com",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #FB923C 0%, #F97316 50%, #EA580C 100%)",
-        icon: "🍊",
+        icon: "\uD83C\uDF4A",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Cookbook"],
         subtitle: "Recipes + Puzzles",
@@ -405,12 +409,12 @@ export default function Home() {
     {
       name: "The Letter Griddle Cafe",
       tagline: "Stories and Puzzles from the Letter Griddle Cafe",
-      emoji: "🧡",
+      emoji: "\uD83E\uDDE1",
       href: "https://lettergriddlecafe.com",
       external: true,
       thumbnail: {
         gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)",
-        icon: "🧡",
+        icon: "\uD83E\uDDE1",
         iconSize: "text-4xl",
         title: ["The Letter Griddle", "Cafe"],
         titleStyle: ["text-lg", "text-2xl"],
@@ -426,11 +430,11 @@ export default function Home() {
     {
       name: "Snacks - Brand New!",
       tagline: "Make a snack without leaving any crumbs!",
-      emoji: "🍪",
+      emoji: "\uD83C\uDF6A",
       href: "/snacks",
       thumbnail: {
         gradient: "linear-gradient(135deg, #78350F 0%, #92400E 50%, #451A03 100%)",
-        icon: "🍪",
+        icon: "\uD83C\uDF6A",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Snacks"],
         subtitle: "Midnight Puzzle",
@@ -442,18 +446,18 @@ export default function Home() {
       subTextColor: "text-amber-700",
       hoverBg: "bg-amber-800/80"
     },
-    
   ];
-// SECTION 4: Espresso Lane (quick-play coffee break games)
+
+  // SECTION 6: Espresso Lane
   const espressoLaneGames = [
     {
       name: "Glow",
       tagline: "Flip glowing pancakes, discover your daily activity",
-      emoji: "✨",
+      emoji: "\u2728",
       href: "/glow",
       thumbnail: {
         gradient: "linear-gradient(135deg, #2d1b0e 0%, #1a0f05 50%, #0d0803 100%)",
-        icon: "✨",
+        icon: "\u2728",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Glow"],
         subtitle: "Daily Activity",
@@ -468,11 +472,11 @@ export default function Home() {
     {
       name: "Sizzle",
       tagline: "Grab bacon, serve it fast, beat the 30-second clock",
-      emoji: "🥓",
+      emoji: "\uD83E\uDD53",
       href: "/sizzle",
       thumbnail: {
         gradient: "linear-gradient(135deg, #3d2216 0%, #2a1610 50%, #1a0e08 100%)",
-        icon: "🥓",
+        icon: "\uD83E\uDD53",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Sizzle"],
         subtitle: "Speed Game",
@@ -487,11 +491,11 @@ export default function Home() {
     {
       name: "Top That!",
       tagline: "Pick the pancake topping before time runs out",
-      emoji: "🥞",
+      emoji: "\uD83E\uDD5E",
       href: "/topthat",
       thumbnail: {
         gradient: "linear-gradient(135deg, #352418 0%, #261810 50%, #180e08 100%)",
-        icon: "🥞",
+        icon: "\uD83E\uDD5E",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Top That!"],
         subtitle: "Quick Decisions",
@@ -506,11 +510,11 @@ export default function Home() {
     {
       name: "Lattes",
       tagline: "Spot the coffee item. Cortado or Canoe?",
-      emoji: "☕",
+      emoji: "\u2615",
       href: "/lattes",
       thumbnail: {
         gradient: "linear-gradient(135deg, #2c2018 0%, #221810 50%, #0e0806 100%)",
-        icon: "☕",
+        icon: "\u2615",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Lattes"],
         subtitle: "Coffee Game",
@@ -525,11 +529,11 @@ export default function Home() {
     {
       name: "Order Up!",
       tagline: "Assemble the order before time runs out",
-      emoji: "🍳",
+      emoji: "\uD83C\uDF73",
       href: "/order",
       thumbnail: {
         gradient: "linear-gradient(135deg, #2a1a0e 0%, #1c1008 50%, #100a04 100%)",
-        icon: "🍳",
+        icon: "\uD83C\uDF73",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Order Up!"],
         subtitle: "Timed Challenge",
@@ -544,11 +548,11 @@ export default function Home() {
     {
       name: "To Go!",
       tagline: "Pick the right magnet to complete the order",
-      emoji: "🥡",
+      emoji: "\uD83E\uDD61",
       href: "/togo",
       thumbnail: {
         gradient: "linear-gradient(135deg, #261a12 0%, #1a1008 50%, #0e0804 100%)",
-        icon: "🥡",
+        icon: "\uD83E\uDD61",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "To Go!"],
         subtitle: "Coffee Orders",
@@ -561,6 +565,7 @@ export default function Home() {
       hoverBg: "bg-amber-900/80"
     }
   ];
+
   // Render thumbnail content based on game config
   const renderThumbnail = (game) => {
     const { thumbnail } = game;
@@ -570,18 +575,16 @@ export default function Home() {
         className="w-full h-full flex flex-col items-center justify-center p-4 relative overflow-hidden"
         style={{ background: thumbnail.gradient }}
       >
-        {/* Stars for Little Letter Griddle */}
         {thumbnail.hasStars && (
           <>
-            <div className="absolute top-3 left-5 text-white/40 text-sm">✦</div>
-            <div className="absolute top-6 right-6 text-white/30 text-xs">✦</div>
-            <div className="absolute bottom-8 left-8 text-white/25 text-sm">✦</div>
-            <div className="absolute top-10 left-1/4 text-white/20 text-xs">✦</div>
-            <div className="absolute bottom-12 right-10 text-white/35 text-xs">✦</div>
+            <div className="absolute top-3 left-5 text-white/40 text-sm">{"\u2726"}</div>
+            <div className="absolute top-6 right-6 text-white/30 text-xs">{"\u2726"}</div>
+            <div className="absolute bottom-8 left-8 text-white/25 text-sm">{"\u2726"}</div>
+            <div className="absolute top-10 left-1/4 text-white/20 text-xs">{"\u2726"}</div>
+            <div className="absolute bottom-12 right-10 text-white/35 text-xs">{"\u2726"}</div>
           </>
         )}
         
-        {/* Letter tiles (for Letter Griddle and Mini) */}
         {thumbnail.tiles && (
           <div className="flex gap-1.5 mb-3">
             {thumbnail.tiles.split('').map((letter, i) => (
@@ -600,12 +603,10 @@ export default function Home() {
           </div>
         )}
         
-        {/* Icon (for other games) */}
         {thumbnail.icon && (
           <div className={`${thumbnail.iconSize} mb-2`}>{thumbnail.icon}</div>
         )}
         
-        {/* Title */}
         <div className="text-center">
           {thumbnail.title.map((line, i) => (
             <div 
@@ -627,7 +628,6 @@ export default function Home() {
           ))}
         </div>
         
-        {/* Subtitle */}
         <div className={`text-xs tracking-widest uppercase mt-2 font-medium ${thumbnail.subtitleColor}`}>
           {thumbnail.subtitle}
         </div>
@@ -635,7 +635,6 @@ export default function Home() {
     );
   };
 
-  // Wrapper component that handles internal vs external links
   const GameCard = ({ game, children }) => {
     const baseClasses = `group block bg-white rounded-2xl shadow-lg overflow-hidden border-2 ${game.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${game.comingSoon ? 'opacity-70 pointer-events-none' : ''}`;
     
@@ -654,34 +653,29 @@ export default function Home() {
     );
   };
 
-  // Reusable game grid component
   const GameGrid = ({ games }) => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {games.map((game) => (
         <GameCard key={game.name} game={game}>
-          {/* Thumbnail */}
           <div className="relative h-48">
             {renderThumbnail(game)}
             
-            {/* Coming Soon Overlay */}
             {game.comingSoon ? (
               <div className="absolute inset-0 bg-gray-800/60 flex items-center justify-center">
                 <div className="text-center text-white">
-                  <p className="text-2xl mb-1">❄️</p>
+                  <p className="text-2xl mb-1">{"\u2744\uFE0F"}</p>
                   <p className="font-bold text-lg" style={{ fontFamily: 'Georgia, serif' }}>Coming Soon</p>
                 </div>
               </div>
             ) : (
-              /* Hover Overlay */
               <div className={`absolute inset-0 ${game.hoverBg} flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity`}>
                 <span className="text-white font-bold text-lg">
-                  {game.href.includes('cafe') || game.href.includes('cookbook') || game.href.includes('cottage') ? 'Visit →' : 'Play Now →'}
+                  {game.href.includes('cafe') || game.href.includes('cookbook') || game.href.includes('cottage') ? 'Visit \u2192' : 'Play Now \u2192'}
                 </span>
               </div>
             )}
           </div>
           
-          {/* Card Footer */}
           <div className={`p-5 bg-gradient-to-br ${game.bgColor}`}>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-2xl">{game.emoji}</span>
@@ -692,7 +686,7 @@ export default function Home() {
             <p className={`${game.subTextColor} text-sm mb-2`}>{game.tagline}</p>
             {game.dropTime && (
               <p className={`${game.timeColor} text-xs font-semibold`}>
-                🕖 New puzzle daily at {game.dropTime}
+                {"\uD83D\uDD56"} New puzzle daily at {game.dropTime}
               </p>
             )}
           </div>
@@ -701,7 +695,6 @@ export default function Home() {
     </div>
   );
 
-  // Smooth scroll to section
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -710,72 +703,92 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
       {/* Header */}
       <header className="text-center py-12 px-4">
-        <div className="text-6xl mb-4">🥞</div>
+        <div className="text-6xl mb-4">{"\uD83E\uDD5E"}</div>
         <h1 className="text-4xl md:text-5xl font-bold text-amber-800 mb-4" style={{ fontFamily: 'Georgia, serif' }}>
           The Letter Griddle Games
         </h1>
         <p className="text-sm text-amber-600 font-medium mb-6">
-          ✨ Play free • No downloads ✨
+          {"\u2728"} Play free {"\u2022"} No downloads {"\u2728"}
         </p>
         
-        {/* Grand Opening Button */}
-        <div className="mb-6">
-          <button 
-            onClick={() => scrollToSection('grand-opening')}
-            className="inline-flex items-center gap-2 px-8 py-4 text-white rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            style={{
-              background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)',
-              fontFamily: 'Georgia, serif'
-            }}
-          >
-            <span className="text-yellow-300">✨</span>
-            Grand Opening
-            <span className="text-yellow-300">✨</span>
-          </button>
-        </div>
-        
-        {/* Section Navigation */}
+        {/* Navigation */}
         <nav className="flex flex-wrap justify-center gap-3 max-w-xl mx-auto">
           <button 
-            onClick={() => scrollToSection('daily-games')}
-            className="px-4 py-2 bg-amber-600 text-white rounded-full text-sm font-semibold hover:bg-amber-700 transition-colors shadow-md"
+            onClick={() => scrollToSection('daily-favorites')}
+            className="inline-flex items-center gap-1 px-4 py-2 text-white rounded-full text-sm font-semibold shadow-md hover:opacity-90 transition-opacity animate-pulse"
+            style={{
+              background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)',
+              animationDuration: '3s'
+            }}
           >
-            Daily Games
+            <span>{"\uD83E\uDD5E"}</span>
+            Daily Favorites
           </button>
           <button 
-  onClick={() => {
-    if (!showMoreGames) setShowMoreGames(true);
-    setTimeout(() => scrollToSection('more-games'), 100);
-  }}
-  className="px-4 py-2 bg-orange-500 text-white rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors shadow-md"
->
-  More Games
-</button>
-          <button 
-  onClick={() => {
-    if (!showMoreGames) setShowMoreGames(true);
-    setTimeout(() => scrollToSection('stories-more'), 100);
-  }}
-  className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
->
-  ✨ Stories & More ✨
-</button>
-<button 
-onClick={() => {
-if (!showMoreGames) setShowMoreGames(true);
-setTimeout(() => scrollToSection('espresso-lane'), 100);
+            onClick={() => scrollToSection('grand-opening')}
+            className="inline-flex items-center gap-1 px-4 py-2 text-white rounded-full text-sm font-semibold shadow-md hover:opacity-90 transition-opacity"
+            style={{
+              background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)'
             }}
-className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
->
-            ☕ Espresso Lane
+          >
+            <span className="text-yellow-300">{"\u2728"}</span>
+            Grand Opening
+          </button>
+          <button 
+            onClick={() => {
+              if (!showMoreGames) setShowMoreGames(true);
+              setTimeout(() => scrollToSection('more-daily'), 100);
+            }}
+            className="px-4 py-2 bg-orange-500 text-white rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors shadow-md"
+          >
+            More Daily Games
+          </button>
+          <button 
+            onClick={() => {
+              if (!showMoreGames) setShowMoreGames(true);
+              setTimeout(() => scrollToSection('more-games'), 100);
+            }}
+            className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
+          >
+            More Games
+          </button>
+          <button 
+            onClick={() => {
+              if (!showMoreGames) setShowMoreGames(true);
+              setTimeout(() => scrollToSection('stories-more'), 100);
+            }}
+            className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
+          >
+            {"\u2728"} Stories & More
+          </button>
+          <button 
+            onClick={() => {
+              if (!showMoreGames) setShowMoreGames(true);
+              setTimeout(() => scrollToSection('espresso-lane'), 100);
+            }}
+            className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
+          >
+            {"\u2615"} Espresso Lane
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-md animate-bounce">NEW!</span>
-</button>
+          </button>
         </nav>
       </header>
 
       <main className="max-w-6xl mx-auto px-4 pb-12">
         
-        {/* GRAND OPENING SECTION */}
+        {/* SECTION 1: Daily Favorites */}
+        <section id="daily-favorites" className="mb-16 scroll-mt-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+              Daily Favorites
+            </h2>
+            <p className="text-amber-600">Our most popular daily puzzles</p>
+          </div>
+          
+          <GameGrid games={dailyFavorites} />
+        </section>
+
+        {/* SECTION 2: Grand Opening */}
         <section id="grand-opening" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
             <div 
@@ -785,9 +798,9 @@ className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-
                 fontFamily: 'Georgia, serif'
               }}
             >
-              <span className="text-yellow-300">✨</span>
+              <span className="text-yellow-300">{"\u2728"}</span>
               {' '}Grand Opening{' '}
-              <span className="text-yellow-300">✨</span>
+              <span className="text-yellow-300">{"\u2728"}</span>
             </div>
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
               New Games & Experiences
@@ -796,38 +809,39 @@ className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-
           </div>
           
           <GameGrid games={grandOpeningGames} />
-        </section>
-        
-        {/* SECTION 1: Daily Games */}
-        <section id="daily-games" className="mb-16 scroll-mt-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-              Daily Games
-            </h2>
-          </div>
           
-          <GameGrid games={dailyGames} />
-          
-          {/* Next Section Button */}
+          {/* Explore More Button */}
           <div className="text-center mt-10">
             <button 
               onClick={() => {
                 setShowMoreGames(!showMoreGames);
                 if (!showMoreGames) {
-                  setTimeout(() => scrollToSection('more-games'), 100);
+                  setTimeout(() => scrollToSection('more-daily'), 100);
                 }
               }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-full font-semibold hover:from-orange-500 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl"
             >
               {showMoreGames ? 'Hide More Games' : 'Explore More Games'}
-              <span className="text-xl">{showMoreGames ? '↑' : '→'}</span>
+              <span className="text-xl">{showMoreGames ? '\u2191' : '\u2192'}</span>
             </button>
           </div>
         </section>
 
         {showMoreGames && (
         <>
-        {/* ESPRESSO LANE */}
+        {/* SECTION 3: More Daily Games */}
+        <section id="more-daily" className="mb-16 scroll-mt-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+              More Daily Games
+            </h2>
+            <p className="text-amber-600">Even more puzzles that refresh daily</p>
+          </div>
+          
+          <GameGrid games={moreDailyGames} />
+        </section>
+
+        {/* SECTION 4: Espresso Lane */}
         <section id="espresso-lane" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
             <div 
@@ -837,7 +851,7 @@ className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-
                 fontFamily: 'Georgia, serif'
               }}
             >
-              ☕ Espresso Lane ☕
+              {"\u2615"} Espresso Lane {"\u2615"}
             </div>
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
               Espresso Lane
@@ -847,7 +861,8 @@ className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-
           
           <GameGrid games={espressoLaneGames} />
         </section>
-        {/* SECTION 2: Letter Griddle Games */}
+
+        {/* SECTION 5: More Games */}
         <section id="more-games" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
@@ -857,19 +872,18 @@ className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-
           
           <GameGrid games={letterGriddleGames} />
           
-          {/* Next Section Button */}
           <div className="text-center mt-10">
             <button 
               onClick={() => scrollToSection('stories-more')}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 text-white rounded-full font-semibold hover:from-amber-700 hover:to-amber-800 transition-all shadow-lg hover:shadow-xl"
             >
               Recipes, Stories, Puzzles & More
-              <span className="text-xl">→</span>
+              <span className="text-xl">{"\u2192"}</span>
             </button>
           </div>
         </section>
 
-        {/* SECTION 3: Stories & More */}
+        {/* SECTION 6: Stories & More */}
         <section id="stories-more" className="mb-8 scroll-mt-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
@@ -879,13 +893,12 @@ className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-
           
           <GameGrid games={storiesAndMore} />
           
-          {/* Back to Top Button */}
           <div className="text-center mt-10">
             <button 
-              onClick={() => scrollToSection('grand-opening')}
+              onClick={() => scrollToSection('daily-favorites')}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-full font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all shadow-lg hover:shadow-xl"
             >
-              <span className="text-xl">↑</span>
+              <span className="text-xl">{"\u2191"}</span>
               Back to Top
             </button>
           </div>
@@ -899,7 +912,7 @@ className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-
       <footer className="bg-amber-800 text-amber-100 py-8 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center items-center gap-2 mb-4">
-            <span className="text-2xl">🥞</span>
+            <span className="text-2xl">{"\uD83E\uDD5E"}</span>
             <span className="text-xl font-bold" style={{ fontFamily: 'Georgia, serif' }}>Letter Griddle</span>
           </div>
           <div className="flex justify-center gap-6 mb-4 text-sm">
@@ -910,8 +923,8 @@ className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
           </div>
-          <div className="text-2xl mb-2">🧡</div>
-          <p className="text-sm">© {new Date().getFullYear()} Letter Griddle. All rights reserved.</p>
+          <div className="text-2xl mb-2">{"\uD83E\uDDE1"}</div>
+          <p className="text-sm">{"\u00A9"} {new Date().getFullYear()} Letter Griddle. All rights reserved.</p>
         </div>
       </footer>
     </div>

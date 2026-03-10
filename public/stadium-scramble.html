@@ -3,492 +3,449 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stadium Scramble – Letter Griddle Challenge</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<title>Stadium Scramble – Letter Griddle Challenge Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --amber:#f59e0b; --amber-dark:#b45309; --amber-light:#fef3c7;
-    --amber-mid:#fde68a; --honey:#d97706; --cream:#fffbeb;
-    --brown:#78350f; --green:#16a34a; --green-light:#dcfce7;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'Lora',Georgia,serif;background:var(--cream);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:16px 12px 40px;background-image:radial-gradient(circle at 20% 10%,#fde68a44 0%,transparent 50%),radial-gradient(circle at 80% 90%,#fcd34d33 0%,transparent 50%);}
-
-  header{text-align:center;margin-bottom:14px;}
-  .site-tag{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--honey);background:var(--amber-light);border:1px solid var(--amber-mid);border-radius:20px;padding:3px 12px;margin-bottom:8px;}
-  h1{font-family:'Playfair Display',serif;font-size:clamp(22px,5vw,34px);font-weight:900;color:var(--brown);line-height:1.1;}
-  h1 span{color:var(--honey);}
-  .subtitle{font-size:13px;color:var(--amber-dark);font-style:italic;margin-top:4px;}
-  .category-badge{display:inline-block;margin-top:8px;background:linear-gradient(135deg,var(--amber),var(--honey));color:white;font-family:'Playfair Display',serif;font-size:15px;font-weight:700;padding:5px 18px;border-radius:20px;box-shadow:0 2px 8px #f59e0b66;}
-
-  /* Puzzle Selector */
-  .puzzle-selector{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:600px;margin-bottom:16px;}
-  .puzzle-btn{font-family:'Lora',serif;font-size:12px;padding:6px 14px;border-radius:16px;border:2px solid var(--amber-mid);background:white;color:var(--amber-dark);cursor:pointer;transition:all 0.15s;font-weight:600;}
-  .puzzle-btn:hover{background:var(--amber-light);}
-  .puzzle-btn.active{background:linear-gradient(135deg,var(--amber),var(--honey));color:white;border-color:var(--honey);box-shadow:0 2px 8px #f59e0b44;}
-
-  .timer-bar{display:flex;align-items:center;gap:8px;margin-bottom:14px;background:white;border:2px solid var(--amber-mid);border-radius:30px;padding:6px 18px;box-shadow:0 2px 6px #f59e0b22;}
-  .timer-label{font-size:11px;color:var(--amber-dark);text-transform:uppercase;letter-spacing:1px;}
-  #timer{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--brown);min-width:52px;text-align:center;}
-
-  .game-area{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;justify-content:center;max-width:720px;width:100%;}
-  .grid-wrapper{display:flex;flex-direction:column;align-items:center;gap:10px;}
-  #grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
-  .cell{width:clamp(44px,9vw,54px);height:clamp(44px,9vw,54px);background:white;border:2.5px solid #e4c07a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:clamp(16px,3.5vw,21px);font-weight:700;color:var(--brown);cursor:pointer;transition:all 0.15s ease;box-shadow:0 2px 4px #f59e0b18;user-select:none;}
-  .cell:hover:not(.found){border-color:var(--amber);background:var(--amber-light);transform:scale(1.05);}
-  .cell.selected{background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;border-color:#1d4ed8;box-shadow:0 3px 10px #2563eb44;transform:scale(1.08);}
-  .cell.found{background:linear-gradient(135deg,#22c55e,#16a34a);color:white;border-color:var(--green);box-shadow:0 3px 10px #16a34a44;cursor:default;animation:foundPop 0.3s ease;}
-  @keyframes foundPop{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
-
-  .current-word{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--brown);letter-spacing:4px;min-height:28px;text-align:center;}
-  .grid-btns{display:flex;gap:8px;}
-  .btn{font-family:'Lora',serif;font-size:13px;padding:8px 18px;border-radius:20px;border:none;cursor:pointer;font-weight:600;transition:all 0.15s;}
-  .btn-primary{background:linear-gradient(135deg,var(--amber),var(--honey));color:white;box-shadow:0 2px 8px #f59e0b44;}
-  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 12px #f59e0b66;}
-  .btn-secondary{background:white;color:var(--amber-dark);border:2px solid var(--amber-mid);}
-  .btn-secondary:hover{background:var(--amber-light);}
-
-  .word-panel{background:white;border:2px solid var(--amber-mid);border-radius:16px;padding:16px;width:clamp(200px,38vw,240px);box-shadow:0 4px 16px #f59e0b18;}
-  .panel-title{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--amber-dark);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;border-bottom:2px solid var(--amber-light);padding-bottom:6px;}
-  .word-item{padding:8px 10px;border-radius:10px;margin-bottom:6px;border:1.5px solid #e8dfc5;transition:all 0.2s;}
-  .word-item.found-item{background:var(--green-light);border-color:var(--green);}
-  .word-hint{font-size:11.5px;color:#6b7280;font-style:italic;line-height:1.4;}
-  .word-answer{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#d4c5a0;letter-spacing:4px;margin-top:3px;height:20px;}
-  .word-answer.revealed{color:var(--green);letter-spacing:2px;text-decoration:line-through;}
-
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fffdf5;font-family:'Lora',serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:12px}
+  h1{font-family:'Playfair Display',serif;color:#92400e;font-size:1.6rem;text-align:center;margin-bottom:2px}
+  .subtitle{color:#b45309;font-size:.85rem;margin-bottom:10px;text-align:center}
+  .puzzle-selector{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px;max-width:500px}
+  .puzzle-btn{background:#fff;border:2px solid #d97706;color:#92400e;border-radius:20px;padding:5px 12px;font-size:.78rem;cursor:pointer;font-family:'Lora',serif;transition:all .2s}
+  .puzzle-btn:hover{background:#fef3c7}
+  .puzzle-btn.active{background:#d97706;color:#fff;border-color:#d97706}
+  .category-display{text-align:center;margin-bottom:6px}
+  .category-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:#92400e}
+  .puzzle-num{font-size:.8rem;color:#b45309;margin-top:1px}
+  .timer-box{background:#fff;border:2px solid #d97706;border-radius:20px;padding:6px 20px;margin-bottom:10px;font-size:.95rem;color:#92400e;font-weight:600;letter-spacing:.05em}
+  .selected-display{min-height:28px;font-size:1.1rem;font-weight:700;color:#92400e;letter-spacing:.15em;text-align:center;margin-bottom:6px;font-family:'Playfair Display',serif}
+  .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:10px;max-width:340px;width:100%}
+  .cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:#fff;border:2px solid #d97706;border-radius:10px;font-family:'Playfair Display',serif;font-size:1.1rem;color:#92400e;cursor:pointer;user-select:none;transition:all .15s;font-weight:700}
+  .cell:hover{background:#fef3c7}
+  .cell.selected{background:#3b82f6;border-color:#1d4ed8;color:#fff}
+  .cell.found{background:#16a34a;border-color:#15803d;color:#fff;cursor:default}
+  .cell.shake{animation:shake .4s ease}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  .buttons{display:flex;gap:10px;margin-bottom:12px}
+  .btn{padding:8px 22px;border-radius:20px;border:none;font-family:'Lora',serif;font-size:.9rem;cursor:pointer;font-weight:600;transition:all .2s}
+  .btn-submit{background:linear-gradient(135deg,#d97706,#b45309);color:#fff}
+  .btn-submit:hover{background:linear-gradient(135deg,#b45309,#92400e)}
+  .btn-clear{background:#fff;border:2px solid #d97706;color:#92400e}
+  .btn-clear:hover{background:#fef3c7}
+  .words-panel{width:100%;max-width:340px;background:#fff;border:2px solid #d97706;border-radius:16px;padding:12px;margin-bottom:10px}
+  .words-title{font-family:'Playfair Display',serif;color:#92400e;font-size:.95rem;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .word-item{padding:8px 10px;border-radius:10px;margin-bottom:6px;border:1.5px solid #fcd34d;background:#fffbeb}
+  .word-item.found{background:#f0fdf4;border-color:#86efac}
+  .word-hint{font-size:.78rem;color:#78350f;margin-bottom:3px}
+  .word-blank{font-size:.95rem;font-weight:700;color:#92400e;letter-spacing:.12em;font-family:'Playfair Display',serif}
+  .word-item.found .word-blank{color:#16a34a;text-decoration:line-through}
   /* Modals */
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;align-items:center;justify-content:center;padding:20px;}
-  .modal-overlay.open{display:flex;}
-  .modal-box{background:white;border-radius:20px;padding:28px 28px 24px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:modalPop 0.35s cubic-bezier(0.34,1.56,0.64,1);position:relative;text-align:center;}
-  @keyframes modalPop{from{opacity:0;transform:scale(0.7)}to{opacity:1;transform:scale(1)}}
-  .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:#aaa;line-height:1;}
-  .modal-close:hover{color:var(--brown);}
-
-  .modal-fact-icon{font-size:44px;margin-bottom:8px;}
-  .modal-fact-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--brown);margin-bottom:12px;}
-  .modal-fact-box{background:linear-gradient(135deg,var(--amber-light),#fef9e7);border:2px solid var(--amber-mid);border-radius:12px;padding:14px 16px;margin-bottom:20px;}
-  .modal-fact-text{font-size:14px;color:#555;line-height:1.75;}
-
-  .modal-share-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--brown);margin-bottom:6px;}
-  .modal-time-big{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;color:var(--honey);letter-spacing:-1px;margin:4px 0;}
-  .modal-sub{font-size:13px;color:var(--amber-dark);margin-bottom:14px;}
-  .share-card{background:linear-gradient(135deg,#fffbeb,#fef3c7);border:2px solid var(--amber-mid);border-radius:14px;padding:16px;margin-bottom:16px;text-align:left;font-size:13px;color:var(--brown);line-height:1.8;white-space:pre-wrap;font-family:'Lora',serif;}
-  .share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-  .btn-copy{background:linear-gradient(135deg,var(--amber),var(--honey));color:white;font-size:14px;padding:10px 24px;}
-  .copied-msg{font-size:12px;color:var(--green);margin-top:8px;height:18px;font-style:italic;}
-
-  .how-to-play{max-width:500px;width:100%;margin-top:20px;background:white;border:2px solid var(--amber-mid);border-left:5px solid var(--amber);border-radius:12px;padding:14px 18px;box-shadow:0 2px 8px #f59e0b18;}
-  .how-to-play h3{font-family:'Playfair Display',serif;font-size:13px;color:var(--honey);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
-  .how-to-play ul{padding-left:16px;color:#555;font-size:12.5px;line-height:1.7;}
-
-  .confetti-piece{position:fixed;border-radius:2px;animation:confettiFall linear forwards;pointer-events:none;z-index:9999;}
-  @keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
-  @keyframes wrongShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-
-  footer{margin-top:28px;text-align:center;font-size:11px;color:#b08040;font-style:italic;}
-  footer a{color:var(--honey);text-decoration:none;}
-  @media(max-width:520px){.game-area{gap:14px}.word-panel{width:100%;max-width:360px}}
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px}
+  .modal{background:#fffdf5;border-radius:20px;padding:24px;max-width:340px;width:100%;text-align:center;border:3px solid #d97706}
+  .modal h2{font-family:'Playfair Display',serif;color:#92400e;font-size:1.4rem;margin-bottom:10px}
+  .modal p{color:#78350f;font-size:.9rem;line-height:1.6;margin-bottom:12px}
+  .modal .fun-fact-box{background:#fef3c7;border:2px solid #fcd34d;border-radius:12px;padding:12px;margin-bottom:14px;font-size:.85rem;color:#78350f;line-height:1.6}
+  .modal-btn{padding:9px 24px;border-radius:20px;border:none;font-family:'Lora',serif;font-size:.9rem;cursor:pointer;font-weight:600;margin:4px}
+  .modal-btn-primary{background:linear-gradient(135deg,#d97706,#b45309);color:#fff}
+  .modal-btn-secondary{background:#fff;border:2px solid #d97706;color:#92400e}
+  .share-card{background:#fffbeb;border:2px solid #fcd34d;border-radius:12px;padding:12px;margin:10px 0;font-family:monospace;font-size:.85rem;color:#78350f;white-space:pre-line;text-align:left}
+  canvas#confetti-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:200}
 </style>
 </head>
 <body>
+<canvas id="confetti-canvas"></canvas>
+<h1>🏟️ Stadium Scramble</h1>
+<p class="subtitle">Letter Griddle Challenge Edition</p>
 
-<header>
-  <div class="site-tag">🥞 lettergriddle.com</div>
-  <h1>Stadium <span>Scramble</span></h1>
-  <div class="subtitle">Letter Griddle Challenge Edition</div>
-</header>
+<div class="puzzle-selector" id="puzzleSelector"></div>
 
-<!-- Puzzle Selector -->
-<div class="puzzle-selector" id="puzzle-selector"></div>
-
-<div style="text-align:center;margin-bottom:14px;">
-  <div class="category-badge" id="cat-badge"></div>
-  <div style="font-size:12px;color:var(--amber-dark);font-style:italic;margin-top:6px;" id="puzzle-sub"></div>
+<div class="category-display">
+  <div class="category-name" id="categoryName"></div>
+  <div class="puzzle-num" id="puzzleNum"></div>
 </div>
 
-<div class="timer-bar">
-  <span>⏱️</span>
-  <span class="timer-label">Time</span>
-  <span id="timer">0:00</span>
+<div class="timer-box">⏱️ TIME &nbsp;<span id="timerDisplay">0:00</span></div>
+<div class="selected-display" id="selectedDisplay">Select a letter to begin</div>
+<div class="grid" id="grid"></div>
+<div class="buttons">
+  <button class="btn btn-submit" onclick="submitWord()">✓ Submit</button>
+  <button class="btn btn-clear" onclick="clearSelection()">↺ Clear</button>
 </div>
-
-<div class="game-area">
-  <div class="grid-wrapper">
-    <div id="current-path" class="current-word">&nbsp;</div>
-    <div id="grid"></div>
-    <div class="grid-btns">
-      <button class="btn btn-primary" onclick="submitWord()">✓ Submit</button>
-      <button class="btn btn-secondary" onclick="clearSelection()">↺ Clear</button>
-    </div>
-  </div>
-  <div class="word-panel">
-    <div class="panel-title">🍋 Find These Words</div>
-    <div id="word-list"></div>
-  </div>
+<div class="words-panel">
+  <div class="words-title">🥞 FIND THESE WORDS</div>
+  <div id="wordsList"></div>
 </div>
-
-<div class="how-to-play">
-  <h3>🕹️ How to Play</h3>
-  <ul>
-    <li>Letters can <strong>snake</strong> in any direction , up, down, left, right, or diagonal.</li>
-    <li>Each letter must <strong>touch</strong> the previous one (adjacent cells only).</li>
-    <li>Select letters in order, then hit <strong>"Submit"</strong> to score.</li>
-    <li>Use the <strong>hints</strong> on the right to know what you're searching for.</li>
-    <li>Find all 5 words to reveal a fun fact!</li>
-  </ul>
-</div>
-
-<footer>
-  A Letter Griddle original ·
-  <a href="https://lettergriddle.com" target="_blank">lettergriddle.com</a> ·
-  Play a new puzzle every day at 7 PM EST 🥞
-</footer>
 
 <!-- Fun Fact Modal -->
-<div class="modal-overlay" id="fact-modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('fact-modal');openModal('share-modal')">×</button>
-    <div class="modal-fact-icon">🍯</div>
-    <div class="modal-fact-title">Did You Know?</div>
-    <div class="modal-fact-box"><div class="modal-fact-text" id="fact-text"></div></div>
-    <button class="btn btn-primary" style="font-size:14px;padding:10px 28px" onclick="closeModal('fact-modal');openModal('share-modal')">See My Results →</button>
+<div class="modal-overlay" id="factModal" style="display:none">
+  <div class="modal">
+    <h2>🎉 Puzzle Complete!</h2>
+    <div class="fun-fact-box" id="factText"></div>
+    <button class="modal-btn modal-btn-primary" onclick="showShareModal()">Share Results</button>
+    <button class="modal-btn modal-btn-secondary" onclick="closeFactModal()">Close</button>
   </div>
 </div>
 
 <!-- Share Modal -->
-<div class="modal-overlay" id="share-modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('share-modal')">×</button>
-    <div style="font-size:36px;margin-bottom:4px">🎉</div>
-    <div class="modal-share-title">Puzzle Complete!</div>
-    <div class="modal-time-big" id="share-time"></div>
-    <div class="modal-sub">You found all 5 words!</div>
-    <div class="share-card" id="share-card-text"></div>
-    <div class="share-btns">
-      <button class="btn btn-copy" onclick="copyShare()">📋 Copy Results</button>
-      <button class="btn btn-secondary" onclick="closeModal('share-modal');loadNextPuzzle()" id="next-btn" style="font-size:13px;padding:9px 20px;">Next Puzzle →</button>
-    </div>
-    <div class="copied-msg" id="copied-msg"></div>
+<div class="modal-overlay" id="shareModal" style="display:none">
+  <div class="modal">
+    <h2>📋 Share Your Result</h2>
+    <div class="share-card" id="shareCard"></div>
+    <button class="modal-btn modal-btn-primary" onclick="copyShare()">Copy to Clipboard</button>
+    <button class="modal-btn modal-btn-secondary" onclick="nextPuzzle()">Next Puzzle →</button>
+    <button class="modal-btn modal-btn-secondary" onclick="closeShareModal()">Close</button>
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════
-//  PUZZLE LIBRARY  , add new puzzles here!
-// ═══════════════════════════════════════════════
 const PUZZLES = [
   {
     category: "Pancakes", number: 93, emoji: "🥞",
-    funFact: "The first pancakes may have been made as far back as 12,000 years ago. Ancient grains mixed with water and cooked on hot stones. Ötzi the Iceman, who lived over 5,000 years ago, was found to have eaten einkorn wheat pancakes as one of his last meals! 🥞",
+    funFact: "There are many different names for pancakes including flapjacks, griddlecakes and hotcakes. All of these names refer to the same basic ingredients and cooking method, they just may be called something different depending on region or restaurant.",
+    grid: [['H','O','M','E','M','A'],['G','R','I','D','X','D'],['F','E','L','D','X','E'],['L','O','U','R','X','X'],['S','Y','R','U','P','X'],['E','G','G','S','X','X']],
     words: [
-      { word: "EGGS",     hint: "Ingredient that helps bind the batter together" },
-      { word: "FLOUR",    hint: "The main dry ingredient that gives pancakes their structure" },
-      { word: "SYRUP",    hint: "Sweet, sticky topping poured generously over a stack" },
-      { word: "GRIDDLE",  hint: "Flat cooking surface used to make golden-brown pancakes" },
-      { word: "HOMEMADE", hint: "Made from scratch in your own kitchen, not from a box" },
+      { word: "HOMEMADE", hint: "Made from scratch at home", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "GRIDDLE",  hint: "A flat pan used for cooking pancakes", path: [[1,0],[1,1],[1,2],[1,3],[2,3],[2,2],[2,1]] },
+      { word: "FLOUR",    hint: "A powdery ingredient made from ground grain", path: [[2,0],[3,0],[3,1],[3,2],[3,3]] },
+      { word: "SYRUP",    hint: "Sweet liquid poured over pancakes", path: [[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "EGGS",     hint: "A binding ingredient in pancake batter", path: [[5,0],[5,1],[5,2],[5,3]] }
     ]
   },
   {
     category: "Cheese Doodles", number: 174, emoji: "🧀",
-    funFact: "Cheese Doodles stem from farm machinery accidentally puffing corn kernels and were perfected in the 1950s. Over 15 million pounds are produced annually. March 5 officially recognized as National Cheese Doodle Day! 🧀",
+    funFact: "Cheese doodles were invented in the 1940s. The iconic neon orange color comes from annatto, a natural food dye made from the seeds of the achiote tree.",
+    grid: [['C','O','R','N','M','E'],['C','S','N','A','L','A'],['H','E','B','C','K','F'],['D','D','P','O','G','N'],['A','R','D','W','I','E'],['J','Q','E','R','N','O']],
     words: [
-      { word: "NEON",     hint: "A bright, fluorescent color like orange" },
-      { word: "SNACK",    hint: "A small portion of food eaten between meals" },
-      { word: "POWDER",   hint: "A fine, dusty coating left on fingers" },
-      { word: "CHEDDAR",  hint: "A type of cheese used for flavoring" },
-      { word: "CORNMEAL", hint: "Ground corn used as the base ingredient" },
+      { word: "CORNMEAL", hint: "Ground dried corn used in many snack foods", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[1,4]] },
+      { word: "CHEDDAR",  hint: "A popular orange cheese variety", path: [[1,0],[2,0],[2,1],[3,1],[3,0],[4,0],[4,1]] },
+      { word: "SNACK",    hint: "A small portion of food eaten between meals", path: [[1,1],[1,2],[1,3],[2,3],[2,4]] },
+      { word: "POWDER",   hint: "The coating that makes your fingers orange", path: [[3,2],[3,3],[4,3],[4,2],[5,2],[5,3]] },
+      { word: "NEON",     hint: "A bright, fluorescent color like orange", path: [[3,5],[4,5],[5,5],[5,4]] }
     ]
   },
   {
     category: "Cool Weather Clothing", number: 72, emoji: "🧥",
-    funFact: "Cashmere comes from the soft undercoat of Kashmir goats, and it takes the fleece of about two goats to make a single sweater. The finest cashmere in the world comes from the Changthangi goat in the Himalayan plateau. 🧣",
+    funFact: "Cashmere wool comes from the soft undercoat of cashmere goats, primarily found in Mongolia and China. It takes the fleece of about four goats to make a single cashmere sweater.",
+    grid: [['C','A','S','H','M','E'],['S','S','C','A','R','R'],['W','E','A','T','F','E'],['J','X','X','E','R','C'],['A','C','K','E','T','O'],['S','X','X','X','T','A']],
     words: [
-      { word: "COAT",     hint: "A long outer garment worn for warmth" },
-      { word: "SCARF",    hint: "A piece of fabric worn around the neck" },
-      { word: "JACKET",   hint: "A shorter outer garment for the upper body" },
-      { word: "SWEATER",  hint: "A knitted garment, often made of wool" },
-      { word: "CASHMERE", hint: "A luxuriously soft wool from the Kashmir goat" },
+      { word: "CASHMERE", hint: "A luxuriously soft fiber from goats", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "SWEATER",  hint: "A knitted garment worn on the upper body", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[3,3],[3,4]] },
+      { word: "SCARF",    hint: "A long piece of fabric worn around the neck", path: [[1,1],[1,2],[1,3],[1,4],[2,4]] },
+      { word: "JACKET",   hint: "A short coat worn over other clothing", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "COAT",     hint: "A long outer garment for cold weather", path: [[3,5],[4,5],[5,5],[5,4]] }
     ]
   },
   {
     category: "Friendship", number: 73, emoji: "🤝",
-    funFact: "Research shows that having strong friendships can add years to your life. A landmark Harvard study that followed people for 80 years found that close relationships, more than money or fame, are what keep people happy and healthy throughout their lives. 🤝",
+    funFact: "Research shows that having strong friendships can boost your immune system, reduce stress, and even add years to your life. Aristotle wrote that friendship is a single soul dwelling in two bodies.",
+    grid: [['K','I','N','D','N','E'],['S','A','L','L','Y','S'],['U','P','P','O','R','S'],['T','L','O','Y','T','X'],['R','U','S','T','Y','X'],['L','O','Y','A','L','X']],
     words: [
-      { word: "ALLY",     hint: "A trusted friend who supports and stands by you" },
-      { word: "LOYAL",    hint: "Faithful and devoted through thick and thin" },
-      { word: "TRUSTY",   hint: "Reliable and dependable, someone you can count on" },
-      { word: "SUPPORT",  hint: "To give help, encouragement, and assistance" },
-      { word: "KINDNESS", hint: "The quality of being friendly, generous, and considerate" },
+      { word: "KINDNESS", hint: "The quality of being friendly and generous", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "SUPPORT",  hint: "To help and encourage someone", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
+      { word: "ALLY",     hint: "A person who helps and supports another", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "TRUSTY",   hint: "Reliable and faithful over time", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "LOYAL",    hint: "Giving firm and constant support", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
     ]
   },
   {
     category: "Art Projects", number: 74, emoji: "🎨",
-    funFact: "The word 'collage' comes from the French word 'coller,' meaning to glue. Pablo Picasso and Georges Braque are credited with pioneering the collage art form around 1912, transforming everyday scraps like newspaper into fine art. 🎨",
+    funFact: "Collage as an art form was popularized by Picasso and Braque in the early 1900s. The word collage comes from the French word coller, meaning to glue.",
+    grid: [['C','O','L','L','A','G'],['D','C','A','N','V','E'],['R','A','W','I','N','G'],['C','S','H','A','D','E'],['A','N','V','A','S','X'],['L','I','N','E','X','X']],
     words: [
-      { word: "LINE",     hint: "A mark made by a pencil, pen, or brush" },
-      { word: "SHADE",    hint: "Use of darkness to create depth and dimension" },
-      { word: "CANVAS",   hint: "A piece of cloth stretched over a frame for painting" },
-      { word: "DRAWING",  hint: "Creating images with pencils, pens, or charcoal" },
-      { word: "COLLAGE",  hint: "Artwork made by gluing paper, photos, and materials together" },
+      { word: "COLLAGE",  hint: "Art made by gluing various materials together", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5]] },
+      { word: "DRAWING",  hint: "Creating images with a pencil or pen", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[2,5]] },
+      { word: "CANVAS",   hint: "A surface used for painting", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "SHADE",    hint: "Darker areas in a drawing or painting", path: [[3,1],[3,2],[3,3],[3,4],[3,5]] },
+      { word: "LINE",     hint: "The most basic element of art", path: [[5,0],[5,1],[5,2],[5,3]] }
     ]
   },
   {
     category: "Musicals", number: 75, emoji: "🎭",
-    funFact: "Hamilton made Broadway history as the first musical to feature a non-white actor playing a Founding Father. Lin-Manuel Miranda wrote the entire show in about six years, famously getting the idea while reading Ron Chernow's biography of Alexander Hamilton on vacation. 🎭",
+    funFact: "Hamilton by Lin-Manuel Miranda became a cultural phenomenon, blending hip-hop with history. It won 11 Tony Awards in 2016 and brought a new generation to Broadway.",
+    grid: [['H','A','M','I','L','T'],['C','R','E','N','T','O'],['O','M','P','A','N','N'],['W','X','X','X','Y','E'],['I','C','K','E','D','X'],['E','V','I','T','A','X']],
     words: [
-      { word: "RENT",     hint: "Rock musical about struggling artists in New York City" },
-      { word: "EVITA",    hint: "Musical about Argentina's first lady Eva Perón" },
-      { word: "WICKED",   hint: "The untold story of the witches of Oz" },
-      { word: "COMPANY",  hint: "Sondheim musical about a bachelor and his married friends" },
-      { word: "HAMILTON", hint: "Lin-Manuel Miranda's hip-hop musical about a founding father" },
+      { word: "HAMILTON", hint: "A hip-hop musical about a founding father", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "COMPANY",  hint: "A Sondheim musical about relationships", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
+      { word: "RENT",     hint: "A rock musical inspired by La Boheme", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "WICKED",   hint: "The untold story of the witches of Oz", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "EVITA",    hint: "A musical about Argentina's First Lady", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
     ]
   },
   {
     category: "Football", number: 76, emoji: "🏈",
-    funFact: "The word 'gridiron' dates back to the 1800s when football fields were marked with a grid of horizontal and vertical lines, resembling the cooking grate used to broil meat. Modern fields only have horizontal yard lines, but the nickname stuck! 🏈",
+    funFact: "The word gridiron refers to the grid of lines on a football field. The term dates back to the 1800s when the field had a crosshatch pattern of lines resembling a cooking grill.",
+    grid: [['G','R','I','D','I','R'],['D','D','O','W','N','O'],['E','F','E','N','S','N'],['C','B','L','I','E','X'],['E','N','T','E','R','X'],['B','L','I','T','Z','X']],
     words: [
-      { word: "DOWN",     hint: "Teams get four tries to advance 10 yards" },
-      { word: "BLITZ",    hint: "Defensive play where extra players rush the quarterback" },
-      { word: "CENTER",   hint: "The lineman who snaps the ball to the quarterback" },
-      { word: "DEFENSE",  hint: "The team trying to stop the other team from scoring" },
-      { word: "GRIDIRON", hint: "Another name for a football field, named for its yard lines" },
+      { word: "GRIDIRON", hint: "Another name for a football field", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "DEFENSE",  hint: "The team trying to stop the offense", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
+      { word: "DOWN",     hint: "A single play in football", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "CENTER",   hint: "The player who snaps the ball", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "BLITZ",    hint: "When extra defenders rush the quarterback", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
     ]
   },
   {
     category: "Cities Around the World", number: 77, emoji: "🌍",
-    funFact: "Rome is often called the 'Eternal City,' a nickname it has held for over 2,000 years. The city sits on seven hills, and legend says it was founded by Romulus in 753 BC. Today, it contains an entire country (Vatican City) within its borders! 🌍",
+    funFact: "Nairobi, Kenya is one of the few capital cities in the world with a national park inside its limits. You can watch lions roam the savanna with skyscrapers in the background.",
+    grid: [['N','A','I','R','O','B'],['T','O','R','O','N','I'],['L','X','X','X','T','R'],['O','P','A','M','O','O'],['N','D','O','N','X','M'],['P','A','R','I','S','E']],
     words: [
-      { word: "ROME",    hint: "Ancient Italian city known as the Eternal City" },
-      { word: "PARIS",   hint: "French capital famous for the Eiffel Tower" },
-      { word: "LONDON",  hint: "UK capital with Big Ben and Buckingham Palace" },
-      { word: "TORONTO", hint: "Canada's largest city, known for the CN Tower" },
-      { word: "NAIROBI", hint: "Capital city of Kenya, gateway to African safaris" },
+      { word: "NAIROBI",  hint: "The capital city of Kenya", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5]] },
+      { word: "TORONTO",  hint: "Canada's largest city", path: [[1,0],[1,1],[1,2],[1,3],[1,4],[2,4],[3,4]] },
+      { word: "LONDON",   hint: "The capital of England", path: [[2,0],[3,0],[4,0],[4,1],[4,2],[4,3]] },
+      { word: "ROME",     hint: "The Eternal City, capital of Italy", path: [[2,5],[3,5],[4,5],[5,5]] },
+      { word: "PARIS",    hint: "The City of Light, capital of France", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
     ]
   },
   {
     category: "At the Lake", number: 78, emoji: "🏕️",
-    funFact: "The Great Lakes hold about 21% of the world's surface freshwater. Lake Superior alone is so large that it could cover all of North and South America in about one foot of water! 🌊",
+    funFact: "Hammocks were invented by indigenous peoples of Central and South America over a thousand years ago. Sailors adopted them for sleeping aboard ships because they swing with the motion of the waves.",
+    grid: [['H','A','M','M','O','C'],['B','F','I','S','H','K'],['O','N','F','I','R','E'],['C','X','X','X','X','X'],['A','N','O','E','X','X'],['S','N','O','O','Z','E']],
     words: [
-      { word: "FISH",    hint: "To cast a line and try to catch dinner" },
-      { word: "CANOE",   hint: "A narrow boat you paddle through the water" },
-      { word: "SNOOZE",  hint: "To take a lazy nap in the afternoon sun" },
-      { word: "BONFIRE", hint: "A large outdoor fire for gathering and roasting marshmallows" },
-      { word: "HAMMOCK", hint: "A hanging bed of fabric or rope, perfect for relaxing" },
+      { word: "HAMMOCK",  hint: "A swinging bed hung between two trees", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5]] },
+      { word: "BONFIRE",  hint: "A large outdoor fire for warmth or celebration", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[2,5]] },
+      { word: "FISH",     hint: "A popular lakeside activity", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "CANOE",    hint: "A narrow boat paddled by hand", path: [[3,0],[4,0],[4,1],[4,2],[4,3]] },
+      { word: "SNOOZE",   hint: "A peaceful nap in the fresh air", path: [[5,0],[5,1],[5,2],[5,3],[5,4],[5,5]] }
     ]
   },
   {
     category: "Vacation", number: 79, emoji: "✈️",
-    funFact: "Some researchers found that introverts tend to prefer mountain or forest vacations while extroverts lean toward beaches and cities, though the best vacation is simply one that lets you truly unwind! The planning itself also boosts happiness, often more than the trip. ✈️",
+    funFact: "The word holiday comes from the Old English words halig (holy) and daeg (day). Holy days were religious festivals when people were excused from work, which eventually became the modern concept of a day off.",
+    grid: [['R','E','L','A','X','I'],['H','R','E','S','T','N'],['O','L','I','D','A','G'],['B','X','X','X','Y','X'],['R','E','A','K','X','X'],['L','E','A','V','E','X']],
     words: [
-      { word: "REST",     hint: "To take it easy and recover your energy" },
-      { word: "BREAK",    hint: "Time away from work or school" },
-      { word: "LEAVE",    hint: "Time off granted from your job" },
-      { word: "HOLIDAY",  hint: "A special period of celebration and time off" },
-      { word: "RELAXING", hint: "The act of unwinding and letting stress melt away" },
+      { word: "RELAXING", hint: "Resting and freeing yourself from stress", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "HOLIDAY",  hint: "A period of time away from work", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
+      { word: "REST",     hint: "Relaxing the body and mind", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "BREAK",    hint: "A pause from regular routine", path: [[3,0],[4,0],[4,1],[4,2],[4,3]] },
+      { word: "LEAVE",    hint: "Time away from work", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
     ]
-  },
+  }
 ];
 
-// ═══════════════════════════════════════════════
-//  GRID GENERATOR (non-overlapping paths)
-// ═══════════════════════════════════════════════
-function isAdj(r1,c1,r2,c2){return Math.abs(r1-r2)<=1&&Math.abs(c1-c2)<=1&&!(r1===r2&&c1===c2);}
+let currentPuzzleIdx = 0;
+let selectedCells = [];
+let foundWords = [];
+let timerInterval = null;
+let seconds = 0;
+let gameComplete = false;
+let completionTime = '';
 
-function generateGrid(words) {
-  const ROWS=6,COLS=6;
-  function tryPlace(word,sr,sc,forbidden){
-    const used=new Set(forbidden);const path=[];let r=sr,c=sc;
-    for(let i=0;i<word.length;i++){
-      if(r<0||r>=ROWS||c<0||c>=COLS||used.has(r+','+c))return null;
-      path.push([r,c]);used.add(r+','+c);
-      if(i<word.length-1){
-        const dirs=[[0,1],[1,0],[1,1],[0,-1],[-1,0],[1,-1],[-1,1],[-1,-1]];
-        let moved=false;
-        for(const[dr,dc]of dirs){const nr=r+dr,nc=c+dc;if(nr>=0&&nr<ROWS&&nc>=0&&nc<COLS&&!used.has(nr+','+nc)){r=nr;c=nc;moved=true;break;}}
-        if(!moved)return null;
-      }
-    }
-    return path;
-  }
-  for(let attempt=0;attempt<300;attempt++){
-    const grid=Array.from({length:ROWS},()=>Array(COLS).fill('.'));
-    const allUsed=new Set();const allPaths={};let success=true;
-    for(let wi=0;wi<words.length;wi++){
-      const word=words[wi];
-      const starts=[];
-      for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++)starts.push([r,c]);
-      starts.sort(()=>Math.random()-0.5);
-      let placed=false;
-      for(const[sr,sc]of starts){
-        const path=tryPlace(word,sr,sc,allUsed);
-        if(path){
-          allPaths[word]=path;
-          for(let i=0;i<path.length;i++){allUsed.add(path[i][0]+','+path[i][1]);grid[path[i][0]][path[i][1]]=word[i];}
-          placed=true;break;
-        }
-      }
-      if(!placed){success=false;break;}
-    }
-    if(success){
-      const decoys='BFGIJQTVXYZ';let di=0;
-      for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++)if(grid[r][c]==='.')grid[r][c]=decoys[di++%decoys.length];
-      return{grid,paths:allPaths};
-    }
-  }
-  return{grid:Array.from({length:6},()=>Array(6).fill('?')),paths:{}};
-}
-
-// ═══════════════════════════════════════════════
-//  GAME STATE
-// ═══════════════════════════════════════════════
-let PUZZLE, GRID, WORD_PATHS;
-let selectedCells=[], foundWords=new Set();
-let seconds=0, timerRunning=false, timerInterval=null, completionSeconds=0;
-let currentPuzzleIndex=0;
-
-function formatTime(s){return`${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;}
-
-function loadPuzzle(index) {
-  // Stop existing timer
+function initPuzzle(idx) {
+  currentPuzzleIdx = idx;
+  selectedCells = [];
+  foundWords = [];
+  seconds = 0;
+  gameComplete = false;
   clearInterval(timerInterval);
-  seconds=0; timerRunning=false; completionSeconds=0;
-  document.getElementById('timer').textContent='0:00';
-  selectedCells=[]; foundWords=new Set();
-  currentPuzzleIndex=index;
-  PUZZLE=PUZZLES[index];
-
-  // Update header
-  document.getElementById('cat-badge').textContent=PUZZLE.emoji+' '+PUZZLE.category;
-  document.getElementById('puzzle-sub').textContent='Puzzle #'+PUZZLE.number;
-  document.getElementById('fact-text').textContent=PUZZLE.funFact||'Fun fact coming soon!';
-
-  // Update selector buttons
-  document.querySelectorAll('.puzzle-btn').forEach((btn,i)=>btn.classList.toggle('active',i===index));
-
-  // Generate grid
-  const wordList=PUZZLE.words.map(w=>w.word);
-  const result=generateGrid(wordList);
-  GRID=result.grid; WORD_PATHS=result.paths;
-
-  buildGrid(); buildWordList();
-
-  // Start timer on first click
-  timerRunning=true;
-  timerInterval=setInterval(()=>{if(timerRunning){seconds++;document.getElementById('timer').textContent=formatTime(seconds);}},1000);
+  timerInterval = setInterval(() => {
+    if (!gameComplete) {
+      seconds++;
+      const m = Math.floor(seconds/60);
+      const s = seconds%60;
+      document.getElementById('timerDisplay').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+    }
+  }, 1000);
+  document.getElementById('timerDisplay').textContent = '0:00';
+  const p = PUZZLES[idx];
+  document.getElementById('categoryName').textContent = `${p.emoji} ${p.category}`;
+  document.getElementById('puzzleNum').textContent = `Puzzle #${p.number}`;
+  document.getElementById('selectedDisplay').textContent = 'Select a letter to begin';
+  renderGrid();
+  renderWords();
+  document.querySelectorAll('.puzzle-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
 }
 
-function loadNextPuzzle() {
-  const next=(currentPuzzleIndex+1)%PUZZLES.length;
-  loadPuzzle(next);
-}
-
-// ═══════════════════════════════════════════════
-//  BUILD UI
-// ═══════════════════════════════════════════════
-function buildPuzzleSelector() {
-  const sel=document.getElementById('puzzle-selector');
-  PUZZLES.forEach((p,i)=>{
-    const btn=document.createElement('button');
-    btn.className='puzzle-btn'+(i===0?' active':'');
-    btn.textContent=p.emoji+' '+p.category;
-    btn.onclick=()=>loadPuzzle(i);
-    sel.appendChild(btn);
-  });
-}
-
-function buildGrid(){
-  const gridEl=document.getElementById('grid');gridEl.innerHTML='';
-  GRID.forEach((row,r)=>row.forEach((letter,c)=>{
-    const div=document.createElement('div');div.className='cell';
-    div.textContent=letter;div.dataset.r=r;div.dataset.c=c;
-    div.onclick=()=>handleCellClick(r,c,div);
-    gridEl.appendChild(div);
-  }));
-}
-
-function buildWordList(){
-  const listEl=document.getElementById('word-list');listEl.innerHTML='';
-  PUZZLE.words.forEach(w=>{
-    const item=document.createElement('div');item.className='word-item';item.id=`item-${w.word}`;
-    item.innerHTML=`<div class="word-hint">${w.hint}</div><div class="word-answer" id="ans-${w.word}">${'_ '.repeat(w.word.length).trim()}</div>`;
-    listEl.appendChild(item);
-  });
-}
-
-// ═══════════════════════════════════════════════
-//  CELL INTERACTION
-// ═══════════════════════════════════════════════
-function handleCellClick(r,c,el){
-  if(el.classList.contains('found'))return;
-  const lastIdx=selectedCells.findIndex(s=>s.r===r&&s.c===c);
-  if(lastIdx===selectedCells.length-1&&selectedCells.length>0){el.classList.remove('selected');selectedCells.pop();updatePath();return;}
-  if(lastIdx!==-1)return;
-  if(selectedCells.length>0){const last=selectedCells[selectedCells.length-1];if(!isAdj(last.r,last.c,r,c))return;}
-  el.classList.add('selected');selectedCells.push({r,c,el});updatePath();
-}
-
-function updatePath(){document.getElementById('current-path').textContent=selectedCells.map(s=>GRID[s.r][s.c]).join('')||'\u00a0';}
-
-function submitWord(){
-  const word=selectedCells.map(s=>GRID[s.r][s.c]).join('');
-  const match=PUZZLE.words.find(w=>w.word===word);
-  if(match&&!foundWords.has(word)){
-    selectedCells.forEach(s=>{s.el.classList.remove('selected');s.el.classList.add('found');});
-    foundWords.add(word);
-    document.getElementById(`item-${word}`).classList.add('found-item');
-    const ansEl=document.getElementById(`ans-${word}`);ansEl.classList.add('revealed');ansEl.textContent=word+' ✓';
-    if(foundWords.size===PUZZLE.words.length)setTimeout(handleVictory,500);
-  } else {
-    selectedCells.forEach(s=>{s.el.style.animation='none';s.el.getBoundingClientRect();s.el.style.animation='wrongShake 0.3s ease';setTimeout(()=>s.el.style.animation='',350);});
+function renderGrid() {
+  const p = PUZZLES[currentPuzzleIdx];
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  for (let r=0; r<6; r++) {
+    for (let c=0; c<6; c++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.textContent = p.grid[r][c];
+      cell.dataset.r = r; cell.dataset.c = c;
+      if (isCellFound(r,c)) { cell.classList.add('found'); }
+      else { cell.addEventListener('click', () => toggleCell(r,c)); }
+      grid.appendChild(cell);
+    }
   }
-  selectedCells=[];updatePath();
 }
 
-function clearSelection(){selectedCells.forEach(s=>s.el.classList.remove('selected'));selectedCells=[];updatePath();}
-
-// ═══════════════════════════════════════════════
-//  VICTORY
-// ═══════════════════════════════════════════════
-function handleVictory(){
-  timerRunning=false;completionSeconds=seconds;launchConfetti();
-  // Next puzzle button label
-  const nextIdx=(currentPuzzleIndex+1)%PUZZLES.length;
-  document.getElementById('next-btn').textContent='Next: '+PUZZLES[nextIdx].emoji+' '+PUZZLES[nextIdx].category+' →';
-  buildShareCard();
-  setTimeout(()=>openModal('fact-modal'),600);
+function isCellFound(r,c) {
+  const p = PUZZLES[currentPuzzleIdx];
+  for (const fw of foundWords) {
+    const wordObj = p.words.find(w=>w.word===fw);
+    if (wordObj && wordObj.path.some(([pr,pc])=>pr===r&&pc===c)) return true;
+  }
+  return false;
 }
 
-function buildShareCard(){
-  const timeStr=formatTime(completionSeconds);
-  const text=`🏟️ Stadium Scramble\n${PUZZLE.emoji} ${PUZZLE.category} · Puzzle #${PUZZLE.number}\n⏱️ Completed in ${timeStr}!\n🟩🟩🟩🟩🟩\nPlay at lettergriddle.com 🥞`;
-  document.getElementById('share-card-text').textContent=text;
-  document.getElementById('share-time').textContent=timeStr;
+function isAdjacent(r1,c1,r2,c2) {
+  return Math.abs(r1-r2)<=1 && Math.abs(c1-c2)<=1 && !(r1===r2&&c1===c2);
 }
 
-function openModal(id){document.getElementById(id).classList.add('open');}
-function closeModal(id){document.getElementById(id).classList.remove('open');}
-document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
+function toggleCell(r,c) {
+  if (gameComplete) return;
+  if (isCellFound(r,c)) return;
+  const idx = selectedCells.findIndex(([sr,sc])=>sr===r&&sc===c);
+  if (idx !== -1) {
+    selectedCells = selectedCells.slice(0, idx);
+  } else {
+    if (selectedCells.length > 0) {
+      const [lr,lc] = selectedCells[selectedCells.length-1];
+      if (!isAdjacent(lr,lc,r,c)) return;
+    }
+    selectedCells.push([r,c]);
+  }
+  updateSelectedDisplay();
+  updateCellStyles();
+}
 
-function copyShare(){
-  navigator.clipboard.writeText(document.getElementById('share-card-text').textContent).then(()=>{
-    const msg=document.getElementById('copied-msg');msg.textContent='✓ Copied to clipboard!';setTimeout(()=>msg.textContent='',2500);
+function updateSelectedDisplay() {
+  const p = PUZZLES[currentPuzzleIdx];
+  if (selectedCells.length === 0) {
+    document.getElementById('selectedDisplay').textContent = 'Select a letter to begin';
+  } else {
+    const letters = selectedCells.map(([r,c])=>p.grid[r][c]).join('');
+    document.getElementById('selectedDisplay').textContent = letters;
+  }
+}
+
+function updateCellStyles() {
+  document.querySelectorAll('.cell').forEach(cell => {
+    const r = parseInt(cell.dataset.r), c = parseInt(cell.dataset.c);
+    if (!isCellFound(r,c)) {
+      cell.classList.toggle('selected', selectedCells.some(([sr,sc])=>sr===r&&sc===c));
+    }
   });
 }
 
-function launchConfetti(){
-  const colors=['#f59e0b','#fbbf24','#ef4444','#22c55e','#3b82f6','#a855f7','#ec4899'];
-  for(let i=0;i<90;i++)setTimeout(()=>{
-    const p=document.createElement('div');p.className='confetti-piece';
-    p.style.cssText=`left:${Math.random()*100}vw;top:-20px;width:${8+Math.random()*8}px;height:${8+Math.random()*8}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${1.5+Math.random()*2}s`;
-    document.body.appendChild(p);setTimeout(()=>p.remove(),4000);
-  },i*35);
+function submitWord() {
+  const p = PUZZLES[currentPuzzleIdx];
+  const attempt = selectedCells.map(([r,c])=>p.grid[r][c]).join('');
+  const match = p.words.find(w => w.word === attempt && !foundWords.includes(w.word));
+  if (match) {
+    const pathMatch = JSON.stringify(selectedCells) === JSON.stringify(match.path);
+    if (!pathMatch) {
+      // Still correct word but wrong path — shake and show message
+      shakeGrid();
+      clearSelection();
+      return;
+    }
+    foundWords.push(match.word);
+    selectedCells = [];
+    renderGrid();
+    renderWords();
+    updateSelectedDisplay();
+    if (foundWords.length === p.words.length) {
+      gameComplete = true;
+      clearInterval(timerInterval);
+      const m = Math.floor(seconds/60);
+      const s = seconds%60;
+      completionTime = `${m}:${s.toString().padStart(2,'0')}`;
+      setTimeout(() => { launchConfetti(); showFactModal(); }, 600);
+    }
+  } else {
+    shakeGrid();
+    clearSelection();
+  }
 }
 
-// ═══════════════════════════════════════════════
-//  START
-// ═══════════════════════════════════════════════
-buildPuzzleSelector();
-loadPuzzle(0);
+function shakeGrid() {
+  document.querySelectorAll('.cell.selected').forEach(c => {
+    c.classList.add('shake');
+    setTimeout(()=>c.classList.remove('shake'), 400);
+  });
+}
+
+function clearSelection() {
+  selectedCells = [];
+  updateSelectedDisplay();
+  updateCellStyles();
+}
+
+function renderWords() {
+  const p = PUZZLES[currentPuzzleIdx];
+  const list = document.getElementById('wordsList');
+  list.innerHTML = '';
+  p.words.forEach(w => {
+    const div = document.createElement('div');
+    div.className = 'word-item' + (foundWords.includes(w.word) ? ' found' : '');
+    const blank = foundWords.includes(w.word) ? w.word : w.word.split('').map((_,i)=> i===0 ? '_' : ' _').join('');
+    div.innerHTML = `<div class="word-hint">${w.hint}</div><div class="word-blank">${foundWords.includes(w.word) ? w.word : w.word.replace(/./g,'_ ').trim()}</div>`;
+    list.appendChild(div);
+  });
+}
+
+function showFactModal() {
+  const p = PUZZLES[currentPuzzleIdx];
+  document.getElementById('factText').textContent = '🍯 ' + p.funFact;
+  document.getElementById('factModal').style.display = 'flex';
+}
+
+function closeFactModal() { document.getElementById('factModal').style.display = 'none'; }
+
+function showShareModal() {
+  closeFactModal();
+  const p = PUZZLES[currentPuzzleIdx];
+  const card = `🏟️ Stadium Scramble\n${p.emoji} ${p.category} · Puzzle #${p.number}\n⏱️ Completed in ${completionTime}!\n🟩🟩🟩🟩🟩\nPlay at lettergriddle.com 🥞`;
+  document.getElementById('shareCard').textContent = card;
+  document.getElementById('shareModal').style.display = 'flex';
+}
+
+function closeShareModal() { document.getElementById('shareModal').style.display = 'none'; }
+
+function copyShare() {
+  const text = document.getElementById('shareCard').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy to Clipboard', 2000);
+  });
+}
+
+function nextPuzzle() {
+  closeShareModal();
+  const next = (currentPuzzleIdx + 1) % PUZZLES.length;
+  initPuzzle(next);
+}
+
+// Confetti
+function launchConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const pieces = Array.from({length:120},()=>({
+    x: Math.random()*canvas.width, y: Math.random()*canvas.height-canvas.height,
+    r: Math.random()*6+3, color: ['#f59e0b','#10b981','#3b82f6','#ef4444','#8b5cf6'][Math.floor(Math.random()*5)],
+    speed: Math.random()*3+2, drift: Math.random()*2-1
+  }));
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pieces.forEach(p => {
+      ctx.fillStyle = p.color;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+      p.y += p.speed; p.x += p.drift;
+    });
+    frame++;
+    if (frame < 180) requestAnimationFrame(draw);
+    else ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+  draw();
+}
+
+// Build puzzle selector buttons
+const selector = document.getElementById('puzzleSelector');
+PUZZLES.forEach((p,i) => {
+  const btn = document.createElement('button');
+  btn.className = 'puzzle-btn';
+  btn.textContent = `${p.emoji} ${p.category}`;
+  btn.onclick = () => initPuzzle(i);
+  selector.appendChild(btn);
+});
+
+initPuzzle(0);
 </script>
 </body>
 </html>

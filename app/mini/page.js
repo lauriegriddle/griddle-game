@@ -413,15 +413,18 @@ const copyToClipboard = async (text) => {
         <div className="flex flex-col items-center mb-4">
           <div className="bg-amber-200 rounded-full p-1 flex shadow-inner">
             <button
-              onClick={() => setMode('plain')}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-                mode === 'plain'
-                  ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-md'
-                  : 'text-amber-700 hover:text-amber-900'
-              }`}
-            >
-              🥞 Plain Stack
-            </button>
+  onClick={() => mode !== 'syrup' && setMode('plain')}
+  disabled={mode === 'syrup'}
+  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+    mode === 'plain'
+      ? 'bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-md'
+      : mode === 'syrup'
+      ? 'text-amber-400 cursor-not-allowed'
+      : 'text-amber-700 hover:text-amber-900'
+  }`}
+>
+  🥞 Plain Stack
+</button>
             <button
               onClick={() => setMode('syrup')}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
@@ -723,7 +726,7 @@ const copyToClipboard = async (text) => {
             <span className="font-bold">With Syrup</span> — reveals today's theme and unlocks a hint if you need a nudge in the right direction.
           </p>
           <p className="text-amber-500 text-xs">
-            You can switch between modes anytime during your game. No judgment here! 🍯
+            Start with Plain Stack and switch to With Syrup anytime, but once the syrup is poured, it can't be un-poured! 🍯
           </p>
         </div>
       </div>

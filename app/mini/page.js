@@ -649,8 +649,8 @@ const copyToClipboard = async (text) => {
   </p>
   <div className="mt-2 pt-2 border-t border-amber-200 text-xs text-amber-600">
     <p className="font-semibold mb-1">🥞 Plain Stack vs 🍯 With Syrup</p>
-    <p>Plain Stack is pure word deduction — no hints, no theme.</p>
-    <p>Switch to With Syrup anytime to reveal the theme and unlock a hint!</p>
+    <p>Plain Stack is pure word deduction:  No hints, no theme.</p>
+<p>Start with Plain Stack and switch to With Syrup anytime but once the syrup is poured, it can't be un-poured! 🍯</p>
   </div>
 </div>
 
@@ -720,10 +720,10 @@ const copyToClipboard = async (text) => {
         </p>
         <div className="text-amber-700 text-sm space-y-2">
           <p>
-            <span className="font-bold">Plain Stack</span> — pure word deduction. No theme, no hints. Just you and the letters!
+            <span className="font-bold">Plain Stack</span> is pure word deduction. No theme, no hints. Just you and the letters!
           </p>
           <p>
-            <span className="font-bold">With Syrup</span> — reveals today's theme and unlocks a hint if you need a nudge in the right direction.
+            <span className="font-bold">With Syrup</span> reveals today's theme and unlocks a hint if you need a nudge in the right direction.
           </p>
           <p className="text-amber-500 text-xs">
             Start with Plain Stack and switch to With Syrup anytime, but once the syrup is poured, it can't be un-poured! 🍯

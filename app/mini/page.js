@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback } from 'react';
-import { X } from 'lucide-react';
+import { X, HelpCircle } from 'lucide-react';
 
 // Mini puzzles drawn from existing Letter Griddle 5-letter words
 // NEW Mini puzzles - 22 words from Letter Griddle puzzles #79-99
@@ -120,6 +120,7 @@ const LetterGriddleMini = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
+  const [showHowToPlay, setShowHowToPlay] = useState(false);
   
   const [yellowLetter] = useState(() => {
     const seedIndex = puzzle.word.charCodeAt(0) % 5;
@@ -382,16 +383,24 @@ const copyToClipboard = async (text) => {
 
       <div className="max-w-md mx-auto">
   {/* Header with home link */}
-  <div className="flex justify-start mb-2">
-    <a 
-      href="https://lettergriddle.com" 
-      className="flex items-center gap-1 text-amber-700 hover:text-amber-900 transition-colors"
-      title="Back to Letter Griddle Games"
-    >
-      <span className="text-xl">🥞</span>
-      <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>Letter Griddle Games</span>
-    </a>
-  </div>
+  <div className="flex justify-between items-center mb-2">
+  <a
+    href="https://lettergriddle.com"
+    className="flex items-center gap-1 text-amber-700 hover:text-amber-900 transition-colors"
+    title="Back to Letter Griddle Games"
+  >
+    <span className="text-xl">🥞</span>
+    <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>Letter Griddle Games</span>
+  </a>
+  <button
+    onClick={() => setShowHowToPlay(true)}
+    className="flex items-center gap-1 text-amber-700 hover:text-amber-900 transition-colors"
+    title="How to Play"
+  >
+    <HelpCircle size={18} />
+    <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>How to Play</span>
+  </button>
+</div>
   
   <div className="text-center mb-4">
     <div className="text-5xl mb-2">🍯</div>
@@ -626,16 +635,21 @@ const copyToClipboard = async (text) => {
         </div>
 
         <div className="mt-4 text-center text-amber-700 text-sm bg-amber-50 rounded-xl p-3 border border-amber-200">
-          <p className="font-semibold mb-1">🍯 How to Play</p>
-          <p>The yellow letter IS in the word, but NOT in that position.</p>
-          <p>Use the letter griddle to guess the 5-letter word!</p>
-          <p className="mt-2 text-xs text-amber-600">
-            🟩 Correct spot • 🟨 Wrong spot • ⬜ Not in word
-          </p>
-          <p className="mt-1 text-xs text-amber-500">
-            ⌨️ Type letters • Backspace to delete • Enter to submit
-          </p>
-        </div>
+  <p className="font-semibold mb-1">🍯 How to Play</p>
+  <p>The yellow letter IS in the word, but NOT in that position.</p>
+  <p>Use the letter griddle to guess the 5-letter word!</p>
+  <p className="mt-2 text-xs text-amber-600">
+    🟩 Correct spot • 🟨 Wrong spot • ⬜ Not in word
+  </p>
+  <p className="mt-1 text-xs text-amber-500">
+    ⌨️ Type letters • Backspace to delete • Enter to submit
+  </p>
+  <div className="mt-2 pt-2 border-t border-amber-200 text-xs text-amber-600">
+    <p className="font-semibold mb-1">🥞 Plain Stack vs 🍯 With Syrup</p>
+    <p>Plain Stack is pure word deduction — no hints, no theme.</p>
+    <p>Switch to With Syrup anytime to reveal the theme and unlock a hint!</p>
+  </div>
+</div>
 
         <div className="text-center mt-4 text-sm text-amber-800 font-semibold">
           <p>Part of The Letter Griddle Games 🥞</p>
@@ -647,6 +661,93 @@ const copyToClipboard = async (text) => {
         </div>
       </div>
     
+    {showHowToPlay && (
+  <div
+    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+    onClick={() => setShowHowToPlay(false)}
+  >
+    <div
+      className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl relative max-h-[90vh] overflow-y-auto"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        onClick={() => setShowHowToPlay(false)}
+        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+      >
+        <X size={24} />
+      </button>
+
+      <div className="text-center mb-4">
+        <p className="text-3xl mb-2">🍯</p>
+        <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
+          How to Play
+        </h2>
+        <p className="text-amber-600 text-sm mt-1">Letter Griddle Mini</p>
+      </div>
+
+      {/* Yellow Letter Clue */}
+      <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-4 mb-3 border border-amber-200">
+        <p className="font-bold text-amber-800 mb-1" style={{fontFamily: 'Georgia, serif'}}>
+          🟨 The Yellow Letter
+        </p>
+        <p className="text-amber-700 text-sm">
+          Every puzzle starts with a clue of one letter shown in yellow. That letter <span className="font-bold">is</span> in the word, but <span className="font-bold">not</span> in the position shown. Use it to narrow down your guesses!
+        </p>
+      </div>
+
+      {/* The Guessing */}
+      <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-4 mb-3 border border-amber-200">
+        <p className="font-bold text-amber-800 mb-1" style={{fontFamily: 'Georgia, serif'}}>
+          🥞 Making Your Guess
+        </p>
+        <p className="text-amber-700 text-sm mb-2">
+          Tap letters from the griddle to fill your 5-letter guess, then hit <span className="font-bold">Check Answer</span>. You have 5 guesses!
+        </p>
+        <div className="flex justify-center gap-3 text-sm">
+          <span>🟩 Right spot</span>
+          <span>🟨 Wrong spot</span>
+          <span>⬜ Not in word</span>
+        </div>
+      </div>
+
+      {/* Plain Stack vs With Syrup */}
+      <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-4 mb-3 border border-amber-200">
+        <p className="font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+          🥞 Plain Stack vs 🍯 With Syrup
+        </p>
+        <div className="text-amber-700 text-sm space-y-2">
+          <p>
+            <span className="font-bold">Plain Stack</span> — pure word deduction. No theme, no hints. Just you and the letters!
+          </p>
+          <p>
+            <span className="font-bold">With Syrup</span> — reveals today's theme and unlocks a hint if you need a nudge in the right direction.
+          </p>
+          <p className="text-amber-500 text-xs">
+            You can switch between modes anytime during your game. No judgment here! 🍯
+          </p>
+        </div>
+      </div>
+
+      {/* Keyboard tip */}
+      <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-4 mb-4 border border-amber-200">
+        <p className="font-bold text-amber-800 mb-1" style={{fontFamily: 'Georgia, serif'}}>
+          ⌨️ Keyboard Shortcuts
+        </p>
+        <p className="text-amber-700 text-sm">
+          Playing on desktop? Type your letters directly, use <span className="font-bold">Backspace</span> to delete, and hit <span className="font-bold">Enter</span> to submit your guess.
+        </p>
+      </div>
+
+      <button
+        onClick={() => setShowHowToPlay(false)}
+        className="w-full py-3 rounded-full font-bold text-lg shadow-lg bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white transition-all"
+        style={{fontFamily: 'Georgia, serif'}}
+      >
+        Let's Play! 🥞
+      </button>
+    </div>
+  </div>
+)}
 
       {showShareModal && (
         <div 

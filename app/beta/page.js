@@ -1,55 +1,62 @@
 export default function BetaGames() {
   const betaGames = [
     {
-        name: "Ambiance",
-        href: "/ambiance",
-        emoji: "☕",
-        description: "Beta testing in progress.  Ambient cafe vibes while you play"
+      name: "Ambiance",
+      href: "/ambiance",
+      emoji: "☕",
+      description: "Beta testing in progress.  Ambient cafe vibes while you play"
     },
     {
-        name: "Checkers",
-        href: "/checkers",
-        emoji: "🔴",
-        description: "Beta testing in progress"
+      name: "Checkers",
+      href: "/checkers",
+      emoji: "🔴",
+      description: "Beta testing in progress"
     },
     {
-  name: "Letter Griddle Land",
-  href: "/griddle-land",
-  emoji: "🍂",
-  description: "Beta testing.  Guide the Trivia Crew to the Cinnamon Festival!"
-},
-    {
-        name: "Has the Goods",
-        href: "/goods",
-        emoji: "🧲",
-        description: "Beta testing in progress.  Kitchen and Office Modes!"
+      name: "Letter Griddle Land",
+      href: "/griddle-land",
+      emoji: "🍂",
+      description: "Beta testing.  Guide the Trivia Crew to the Cinnamon Festival!"
     },
     {
-        name: "Servings",
-        href: "/servings",
-        emoji: "🍽️",
-        description: "Beta testing in progress"
+      name: "Has the Goods",
+      href: "/goods",
+      emoji: "🧲",
+      description: "Beta testing in progress.  Kitchen and Office Modes!"
     },
     {
-        name: "Stacks",
-        href: "/stacks",
-        emoji: "🥞",
-        description: "Beta testing in progress"
+      name: "Servings",
+      href: "/servings",
+      emoji: "🍽️",
+      description: "Beta testing in progress"
     },
     {
-        name: "Travels",
-        href: "/travels",
-        emoji: "🌍",
-        description: "Beta testing in progress."
+      name: "Stadium Scramble",
+      href: "/challenge",
+      emoji: "🏟️",
+      description: "Beta testing in progress. Snake through the grid to find all 5 hidden words!"
     },
     {
-  name: "Winter Land",
-  href: "/winter-land",
-  emoji: "⛷️",
-  description: "Beta testing.  Guide the Trivia Crew to the Winter Sports Festival!"
-},
-];
-return (
+      name: "Stacks",
+      href: "/stacks",
+      emoji: "🥞",
+      description: "Beta testing in progress"
+    },
+    {
+      name: "Travels",
+      href: "/travels",
+      emoji: "🌍",
+      description: "Beta testing in progress."
+    },
+    {
+      name: "Winter Land",
+      href: "/winter-land",
+      emoji: "⛷️",
+      description: "Beta testing.  Guide the Trivia Crew to the Winter Sports Festival!"
+    },
+  ];
+
+  return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-8">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
@@ -57,7 +64,6 @@ return (
           <h1 className="text-4xl font-bold text-amber-800 mb-2">Beta Games</h1>
           <p className="text-amber-600">Thank you for being a tester!</p>
         </div>
-
         <div className="space-y-4">
           {betaGames.map((game) => (
             <a
@@ -75,7 +81,6 @@ return (
             </a>
           ))}
         </div>
-
         <div className="text-center mt-8 text-amber-600 text-sm">
           <a href="/" className="hover:text-amber-800 underline">← Back to Letter Griddle</a>
         </div>

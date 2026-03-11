@@ -32,6 +32,8 @@
   .btn-submit:hover{background:linear-gradient(135deg,#b45309,#92400e)}
   .btn-clear{background:#fff;border:2px solid #d97706;color:#92400e}
   .btn-clear:hover{background:#fef3c7}
+  .btn-undo{background:#fff;border:2px solid #d97706;color:#92400e}
+.btn-undo:hover{background:#fef3c7}
   .words-panel{width:100%;max-width:340px;background:#fff;border:2px solid #d97706;border-radius:16px;padding:12px;margin-bottom:10px}
   .words-title{font-family:'Playfair Display',serif;color:#92400e;font-size:.95rem;margin-bottom:8px;display:flex;align-items:center;gap:6px}
   .word-item{padding:8px 10px;border-radius:10px;margin-bottom:6px;border:1.5px solid #fcd34d;background:#fffbeb}
@@ -69,6 +71,7 @@
 <div class="grid" id="grid"></div>
 <div class="buttons">
   <button class="btn btn-submit" onclick="submitWord()">✓ Submit</button>
+  <button class="btn btn-undo" onclick="undoLetter()">⌫ Undo</button>
   <button class="btn btn-clear" onclick="clearSelection()">↺ Clear</button>
 </div>
 <div class="words-panel">
@@ -363,6 +366,12 @@ function clearSelection() {
   updateSelectedDisplay();
   updateCellStyles();
 }
+function undoLetter() {
+  if (selectedCells.length === 0) return;
+  selectedCells.pop();
+  updateSelectedDisplay();
+  updateCellStyles();
+}
 
 function renderWords() {
   const p = PUZZLES[currentPuzzleIdx];
@@ -429,7 +438,7 @@ function launchConfetti() {
       p.y += p.speed; p.x += p.drift;
     });
     frame++;
-    if (frame < 180) requestAnimationFrame(draw);
+    if (frame < 360) requestAnimationFrame(draw);
     else ctx.clearRect(0,0,canvas.width,canvas.height);
   }
   draw();

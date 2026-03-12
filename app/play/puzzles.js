@@ -1734,6 +1734,118 @@ const puzzles = [
     ],
     funFact: "Lambs are highly social and intelligent. They can walk within minutes of birth and recognize human faces. They possess nearly 360-degree panoramic vision, which allows them to spot predators without turning their heads. 🐑",
   },
+
+  // =============================================
+  // INDEX 113 - Shows Mar 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "World Water Day",
+    puzzleNumber: 192,
+    words: [
+      { word: "DROP", hint: "A tiny bead of liquid", revealedIndex: 0 },
+      { word: "OCEAN", hint: "A vast body of saltwater", revealedIndex: 2 },
+      { word: "STREAM", hint: "A small, flowing body of water", revealedIndex: 3 },
+      { word: "HYDRATE", hint: "To drink water and replenish fluids", revealedIndex: 0 },
+      { word: "RESOURCE", hint: "Something valuable we must protect", revealedIndex: 4 },
+    ],
+    funFact: "World Water Day 2026, held on March 22, focuses on the theme 'Water and Gender' with the campaign 'Where water flows, equality grows'. Led by UNICEF and UN-Women, it highlights that women and girls in 53 countries spend 250 million hours daily collecting water. 🌊",
+  },
+
+  // =============================================
+  // INDEX 114 - Shows Mar 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Puppy",
+    puzzleNumber: 193,
+    words: [
+      { word: "BARK", hint: "The sound a dog makes", revealedIndex: 0 },
+      { word: "FETCH", hint: "A game of throwing and retrieving", revealedIndex: 2 },
+      { word: "TREAT", hint: "A tasty reward for good behavior", revealedIndex: 3 },
+      { word: "COLLAR", hint: "Worn around the neck with tags", revealedIndex: 0 },
+      { word: "CUDDLING", hint: "Snuggling up close for warmth", revealedIndex: 4 },
+    ],
+    funFact: "Puppies need 15–20 hours of sleep per day to support their rapid development. Similar to human fingerprints, every dog has a unique nose print. 🐶",
+  },
+
+  // =============================================
+  // INDEX 115 - Shows Mar 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Theatre",
+    puzzleNumber: 194,
+    words: [
+      { word: "ROLE", hint: "A part played by an actor", revealedIndex: 0 },
+      { word: "DRAMA", hint: "A serious or emotional performance", revealedIndex: 2 },
+      { word: "SCRIPT", hint: "The written dialogue for a play", revealedIndex: 3 },
+      { word: "CURTAIN", hint: "It rises at the start and falls at the end", revealedIndex: 0 },
+      { word: "BROADWAY", hint: "New York City's famous theatre district", revealedIndex: 4 },
+    ],
+    funFact: "Many Broadway theaters skip Row I, going from H to J, because audiences often mistook the letter 'I' for the number '1'. 🎭",
+  },
+
+  // =============================================
+  // INDEX 116 - Shows Mar 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Waffle",
+    puzzleNumber: 195,
+    words: [
+      { word: "IRON", hint: "The tool used to cook waffles", revealedIndex: 0 },
+      { word: "CRISP", hint: "Crunchy on the outside", revealedIndex: 2 },
+      { word: "GOLDEN", hint: "The perfect color when done", revealedIndex: 3 },
+      { word: "BELGIAN", hint: "A style known for deep pockets", revealedIndex: 0 },
+      { word: "TOPPINGS", hint: "Fruit, syrup, or whipped cream", revealedIndex: 4 },
+    ],
+    funFact: "Waffles originated in the Middle Ages, with 13th-century irons creating honeycomb patterns that inspired Nike's first sneaker soles. 🧇",
+  },
+
+  // =============================================
+  // INDEX 117 - Shows Mar 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Butterfly",
+    puzzleNumber: 196,
+    words: [
+      { word: "LIFE", hint: "The stages from egg to adult", revealedIndex: 0 },
+      { word: "CYCLE", hint: "A repeating pattern of changes", revealedIndex: 2 },
+      { word: "WINGED", hint: "Having colorful flight appendages", revealedIndex: 3 },
+      { word: "MONARCH", hint: "An orange and black migratory species", revealedIndex: 0 },
+      { word: "ANTENNAE", hint: "Sensory organs on the head", revealedIndex: 4 },
+    ],
+    funFact: "A caterpillar transforms into a butterfly within 10 to 15 days inside a chrysalis. 🦋",
+  },
+
+  // =============================================
+  // INDEX 118 - Shows Mar 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Popcorn",
+    puzzleNumber: 197,
+    words: [
+      { word: "SALT", hint: "A classic seasoning", revealedIndex: 0 },
+      { word: "WHITE", hint: "The color of plain popped kernels", revealedIndex: 2 },
+      { word: "CRUNCH", hint: "The satisfying sound when you bite", revealedIndex: 3 },
+      { word: "BUTTERY", hint: "Rich and golden-coated", revealedIndex: 0 },
+      { word: "UNPOPPED", hint: "The kernels left at the bottom of the bowl", revealedIndex: 4 },
+    ],
+    funFact: "The oldest ears of popcorn were found in a cave in New Mexico and are estimated to be about 5,600 years old. 🍿",
+  },
+
+  // =============================================
+  // INDEX 119 - Shows Mar 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Puzzles",
+    puzzleNumber: 198,
+    words: [
+      { word: "CLUE", hint: "A helpful hint to solve", revealedIndex: 0 },
+      { word: "PIECE", hint: "One part of the whole", revealedIndex: 2 },
+      { word: "TEASER", hint: "A brain ___ challenges the mind", revealedIndex: 3 },
+      { word: "JIGSAW", hint: "A puzzle with interlocking pieces", revealedIndex: 0 },
+      { word: "SOLUTION", hint: "The answer you're looking for", revealedIndex: 4 },
+    ],
+    funFact: "Jigsaw puzzles were invented around 1760 by cartographer John Spilsbury, who mounted maps on wood and cut them into pieces to teach geography. Known as 'Dissected Maps' originally, they were expensive, high-society entertainment until die-cut cardboard made them popular during the Great Depression. 🧩",
+  },
 ];
 
 // ===========================================

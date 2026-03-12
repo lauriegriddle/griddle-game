@@ -1622,6 +1622,118 @@ const puzzles = [
     ],
     funFact: "Often held in gyms or stadiums, these events feature loud music, cheerleaders, band performances, themed dress-up days, and competitive games like the 'Cheer-o-Meter' or musical chairs. While usually for sports, they can also celebrate academic achievements, homecoming, or school milestones. 📣",
   },
+
+  // =============================================
+  // INDEX 106 - Shows Mar 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Ides of March",
+    puzzleNumber: 185,
+    words: [
+      { word: "DOOM", hint: "A fate of destruction or death", revealedIndex: 0 },
+      { word: "ROMAN", hint: "Relating to ancient Rome", revealedIndex: 2 },
+      { word: "BEWARE", hint: "To be cautious or on guard", revealedIndex: 3 },
+      { word: "WARNING", hint: "A sign of danger ahead", revealedIndex: 0 },
+      { word: "CAUTIOUS", hint: "Careful to avoid risk or trouble", revealedIndex: 4 },
+    ],
+    funFact: "The Ides of March is famously known as the date in 44 BCE when Julius Caesar was assassinated by senators, a turning point that accelerated the end of the Roman Republic. The phrase 'Beware the Ides of March' was popularized by Shakespeare. 🏛️",
+  },
+
+  // =============================================
+  // INDEX 107 - Shows Mar 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "St. Patrick's Day",
+    puzzleNumber: 186,
+    words: [
+      { word: "LUCK", hint: "Good fortune, often associated with the Irish", revealedIndex: 0 },
+      { word: "GREEN", hint: "The color of shamrocks and leprechauns", revealedIndex: 2 },
+      { word: "CLOVER", hint: "A plant with leaves considered lucky", revealedIndex: 3 },
+      { word: "IRELAND", hint: "The Emerald Isle", revealedIndex: 0 },
+      { word: "TREASURE", hint: "What's at the end of the rainbow", revealedIndex: 4 },
+    ],
+    funFact: "There are no snakes in Ireland, and legend says St. Patrick drove them out, but scientists believe they never inhabited the island post-Ice Age. ☘️",
+  },
+
+  // =============================================
+  // INDEX 108 - Shows Mar 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "March Madness",
+    puzzleNumber: 187,
+    words: [
+      { word: "FOUR", hint: "The Final ___ in college basketball", revealedIndex: 0 },
+      { word: "HOOPS", hint: "Slang for basketball", revealedIndex: 2 },
+      { word: "BUZZER", hint: "A last-second shot is called a ___-beater", revealedIndex: 3 },
+      { word: "BRACKET", hint: "The tournament chart fans fill out", revealedIndex: 0 },
+      { word: "CHAMPION", hint: "The team that wins it all", revealedIndex: 4 },
+    ],
+    funFact: "March Madness began in 1939 with only eight teams, with Oregon winning the inaugural tournament. It has since grown into a massive 68-team event, where the odds of a perfect bracket are roughly 1 in 9.2 quintillion. 🏀",
+  },
+
+  // =============================================
+  // INDEX 109 - Shows Mar 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pie",
+    puzzleNumber: 188,
+    words: [
+      { word: "LIME", hint: "Key ___ pie is a Florida favorite", revealedIndex: 0 },
+      { word: "PEACH", hint: "A sweet summer fruit pie", revealedIndex: 2 },
+      { word: "CHERRY", hint: "A classic red fruit filling", revealedIndex: 3 },
+      { word: "COCONUT", hint: "A tropical pie flavor with cream", revealedIndex: 0 },
+      { word: "MERINGUE", hint: "A fluffy, toasted topping made from egg whites", revealedIndex: 4 },
+    ],
+    funFact: "Pie has an 8,000-year history, starting with ancient Egyptians and Romans, and was historically known for savory fillings served in inedible, thick crusts. 🥧",
+  },
+
+  // =============================================
+  // INDEX 110 - Shows Mar 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "First Day of Spring",
+    puzzleNumber: 189,
+    words: [
+      { word: "BIRD", hint: "Migrating creatures returning north", revealedIndex: 0 },
+      { word: "BLOOM", hint: "When flowers open up", revealedIndex: 2 },
+      { word: "GARDEN", hint: "A place to plant and grow", revealedIndex: 3 },
+      { word: "RENEWAL", hint: "A fresh start or rebirth", revealedIndex: 0 },
+      { word: "SUNLIGHT", hint: "Longer days bring more of this", revealedIndex: 4 },
+    ],
+    funFact: "The first day of spring (vernal equinox) occurs on March 19, 20, or 21, marking the moment the Sun crosses the celestial equator, resulting in nearly equal 12-hour day and night worldwide. It signifies the start of six months of daylight at the North Pole and a 'balancing' of Earth's tilt. 🌸",
+  },
+
+  // =============================================
+  // INDEX 111 - Shows Mar 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Vacation",
+    puzzleNumber: 190,
+    words: [
+      { word: "REST", hint: "Time to relax and recharge", revealedIndex: 0 },
+      { word: "BREAK", hint: "A pause from work or routine", revealedIndex: 2 },
+      { word: "LEAVE", hint: "Time off from your job", revealedIndex: 3 },
+      { word: "HOLIDAY", hint: "A special day or getaway", revealedIndex: 0 },
+      { word: "RELAXING", hint: "Calm and stress-free", revealedIndex: 4 },
+    ],
+    funFact: "Some people are more likely to choose mountain vacations (introverts) while others prefer beaches (extroverts). 🏖️",
+  },
+
+  // =============================================
+  // INDEX 112 - Shows Mar 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Lamb",
+    puzzleNumber: 191,
+    words: [
+      { word: "WALK", hint: "Lambs can do this within minutes of birth", revealedIndex: 0 },
+      { word: "BLEAT", hint: "The sound a lamb makes", revealedIndex: 2 },
+      { word: "VISION", hint: "Lambs have nearly 360 degrees of this", revealedIndex: 3 },
+      { word: "PLAYFUL", hint: "Frisky and full of fun", revealedIndex: 0 },
+      { word: "SHEARING", hint: "The process of removing wool", revealedIndex: 4 },
+    ],
+    funFact: "Lambs are highly social and intelligent. They can walk within minutes of birth and recognize human faces. They possess nearly 360-degree panoramic vision, which allows them to spot predators without turning their heads. 🐑",
+  },
 ];
 
 // ===========================================

@@ -23,6 +23,12 @@ export default function EventBanner() {
             Delve into the topics of Life, After Life, and the Bridge Between,
             plus play special Letter Griddle puzzles as part of the event.
           </p>
+          <p
+            className="text-amber-200/70 text-xs italic mt-2"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
+            Did you know? Friday the 13th occurs one to three times every year. This Friday is one of them!
+          </p>
           <p className="text-amber-400 text-xs font-bold mt-2 tracking-wide">
             Register Now
           </p>

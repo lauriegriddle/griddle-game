@@ -276,7 +276,8 @@ ${grid}
 
 ${resultText}
 
-Play at lettergriddle.com/mini`;
+Play at lettergriddle.com/mini
+More games: lettergriddle.com`
   };
 
   const handleShare = async () => {

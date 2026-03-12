@@ -1586,7 +1586,7 @@ const puzzles = [
       { word: "RELAX", hint: "To rest and unwind", revealedIndex: 2 },
       { word: "PUZZLE", hint: "A brain game to enjoy during downtime", revealedIndex: 3 },
       { word: "BREATHER", hint: "A short pause to catch your breath", revealedIndex: 0 },
-      { word: "REFRESHMENT", hint: "A drink or snack that revives you", revealedIndex: 5 },
+      { word: "REFRESHES", hint: "Revives and re-energizes you", revealedIndex: 4 },
     ],
     funFact: "The modern 'coffee break' originated in the late 19th/early 20th century, often attributed to Norwegian immigrant women working in Wisconsin tobacco warehouses who needed to tend to duties at home. It evolved into a widespread office, social, and union-recognized norm by the 1950s, solidified by marketing campaigns to boost productivity. ☕",
   },

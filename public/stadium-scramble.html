@@ -397,7 +397,7 @@ function closeFactModal() { document.getElementById('factModal').style.display =
 function showShareModal() {
   closeFactModal();
   const p = PUZZLES[currentPuzzleIdx];
-  const card = `🏟️ Stadium Scramble\n${p.emoji} ${p.category} · Puzzle #${p.number}\n⏱️ Completed in ${completionTime}!\n🟩🟩🟩🟩🟩\nPlay at lettergriddle.com 🥞`;
+  const card = `🏟️ Stadium Scramble\n${p.emoji} ${p.category} · Puzzle #${p.number}\n⏱️ Completed in ${completionTime}!\n🟩🟩🟩🟩🟩\nPlay at lettergriddle.com/challenge 🏟️\nMore games at lettergriddle.com 🥞`;;
   document.getElementById('shareCard').textContent = card;
   document.getElementById('shareModal').style.display = 'flex';
 }

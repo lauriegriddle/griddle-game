@@ -95,21 +95,33 @@ const SnacksGame = () => {
   
   // Word unscramble state
   const [scrambledWord] = useState(() => scrambleWord(puzzle.word));
-  const [wordSlots, setWordSlots] = useState(Array(puzzle.word.length).fill(''));
-  const [availableWordLetters, setAvailableWordLetters] = useState([...scrambledWord]);
+const [wordSlots, setWordSlots] = useState(Array(puzzle.word.length).fill(''));
+const [availableWordLetters, setAvailableWordLetters] = useState([]);
   const [wordComplete, setWordComplete] = useState(false);
+
+ useEffect(() => {
+  setAvailableWordLetters([...scrambledWord]);
+}, []);
+
+useEffect(() => {
+  setAvailableCategoryLetters([...scrambledCategory]);
+}, []);
   
   // Category unscramble state
-  const [scrambledCategory] = useState(() => scrambleWord(puzzle.category.toUpperCase()));
-  const [categorySlots, setCategorySlots] = useState(Array(puzzle.category.length).fill(''));
-  const [availableCategoryLetters, setAvailableCategoryLetters] = useState([...scrambledCategory]);
-  const [categoryComplete, setCategoryComplete] = useState(false);
+const [scrambledCategory] = useState(() => scrambleWord(puzzle.category.toUpperCase()));
+const [categorySlots, setCategorySlots] = useState(Array(puzzle.category.length).fill(''));
+const [availableCategoryLetters, setAvailableCategoryLetters] = useState([]);
+const [categoryComplete, setCategoryComplete] = useState(false);
   
   // Hint chunk state
-  const [hintChunks] = useState(() => chunkHint(puzzle.hint));
-  const [arrangedHint, setArrangedHint] = useState([]);
-  const [availableChunks, setAvailableChunks] = useState([...hintChunks.scrambled]);
+const [hintChunks] = useState(() => chunkHint(puzzle.hint));
+const [arrangedHint, setArrangedHint] = useState([]);
+const [availableChunks, setAvailableChunks] = useState([]);
   const [hintComplete, setHintComplete] = useState(false);
+
+  useEffect(() => {
+  setAvailableChunks([...hintChunks.scrambled]);
+}, []);
   
   // Game state
   const [showConfetti, setShowConfetti] = useState(false);
@@ -373,7 +385,11 @@ Play at lettergriddle.com/snacks`;
   };
   
   const snackEmojis = ['🍪', '🥨', '🍿', '🧁', '🍩', '🍫', '🥜', '🍬'];
-  const unlockedList = stats.unlockedAchievements || [];
+  const [unlockedList, setUnlockedList] = useState([]);
+
+useEffect(() => {
+  setUnlockedList(stats.unlockedAchievements || []);
+}, [stats]);
   const currentYear = new Date().getFullYear();
   const copyrightYear = currentYear > 2025 ? `2025-${currentYear}` : '2025';
   
@@ -646,7 +662,6 @@ Play at lettergriddle.com/snacks`;
                   className="fridge-magnet-orange px-4 py-2.5 text-base font-medium text-orange-900 hover:scale-105 transition-all cursor-pointer"
                   style={{ 
                     fontFamily: 'Georgia, serif',
-                    transform: `rotate(${(i % 5 - 2) * 2}deg)`
                   }}
                 >
                   {chunk}
@@ -749,7 +764,7 @@ Play at lettergriddle.com/snacks`;
               <button
                 key={i}
                 onClick={() => handleCategorySlotClick(i)}
-                className={`w-10 h-10 flex items-center justify-center text-base font-bold transition-all ${
+                className={`w-10 h-10 flex items-center justify-center text-2xl font-extrabold transition-all ${
                   categoryComplete
                     ? 'bg-green-500 text-white rounded-full shadow-lg'
                     : letter 
@@ -770,12 +785,15 @@ Play at lettergriddle.com/snacks`;
                 <button
                   key={i}
                   onClick={() => handleCategoryLetterClick(letter, i)}
-                  className={`w-10 h-10 flex items-center justify-center text-sm font-bold transition-all cursor-pointer ${
+                  className={`w-10 h-10 flex items-center justify-center text-xl font-extrabold transition-all cursor-pointer ${
                     selectedCategoryLetter?.index === i
-                      ? 'cookie-tile-selected text-amber-900 scale-110'
-                      : 'cookie-tile text-amber-900 hover:scale-105'
+                      ? 'cookie-tile-selected text-orange-600 scale-110'
+                      : 'cookie-tile text-orange-600 hover:scale-105'
                   }`}
-                  style={{ fontFamily: 'Georgia, serif' }}
+                  style={{ 
+  fontFamily: 'Georgia, serif',
+  textShadow: '-1px -1px 0 #4a1c00, 1px -1px 0 #4a1c00, -1px 1px 0 #4a1c00, 1px 1px 0 #4a1c00'
+}}
                 >
                   {letter}
                 </button>

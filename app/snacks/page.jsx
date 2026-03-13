@@ -77,8 +77,7 @@ const getTodaysPuzzleIndex = () => {
   const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
   
   // Anchor date: January 10, 2026 at midnight EST (first puzzle after launch)
-  const anchorDate = new Date('2026-01-10T00:00:00');
-  const anchorEST = new Date(anchorDate.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  const anchorEST = new Date(2026, 0, 10, 0, 0, 0, 0);;
   
   // Calculate days since anchor
   const msPerDay = 24 * 60 * 60 * 1000;

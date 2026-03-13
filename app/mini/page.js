@@ -62,7 +62,6 @@ const miniPuzzles = [
   { word: "RURAL", category: "Farm", hint: "Relating to the countryside rather than the city" },
   { word: "SOLAR", category: "Sunny", hint: "Relating to or derived from the sun" },
   { word: "MOUSE", category: "Computer", hint: "A handheld device used to move a cursor" },
-  { word: "CABIN", category: "Lincoln", hint: "A small rustic dwelling made of logs" },
   { word: "BOOST", category: "Compliments", hint: "To lift up or increase confidence" },
   { word: "DUVET", category: "Cozy", hint: "Fluffy quilted bed covering" },
   { word: "BLISS", category: "Mood", hint: "Perfect happiness" },
@@ -78,8 +77,9 @@ const miniPuzzles = [
   { word: "STAFF", category: "Workplace", hint: "The employees who work at a company or organization" },
   { word: "METAL", category: "Sounds", hint: "Heavy rock genre featuring loud, distorted guitars and powerful drums" },
   { word: "THYME", category: "Spices", hint: "Fragrant herb with tiny leaves, often used in soups and roasts" },
-  { word: "CRISP", category: "Cool", hint: "Fresh and sharp, like air" },
+  { word: "CRISP", category: "Air", hint: "Fresh and sharp, like air" },
   { word: "VIRAL", category: "Apps", hint: "When content spreads rapidly across the internet" },
+  { word: "CABIN", category: "Woods", hint: "A small rustic dwelling made of logs" },
 ];
 
 // Generate decoy letters that aren't in the word

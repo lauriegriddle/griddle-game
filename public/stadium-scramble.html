@@ -33,7 +33,7 @@
   .btn-clear{background:#fff;border:2px solid #d97706;color:#92400e}
   .btn-clear:hover{background:#fef3c7}
   .btn-undo{background:#fff;border:2px solid #d97706;color:#92400e}
-.btn-undo:hover{background:#fef3c7}
+  .btn-undo:hover{background:#fef3c7}
   .words-panel{width:100%;max-width:340px;background:#fff;border:2px solid #d97706;border-radius:16px;padding:12px;margin-bottom:10px}
   .words-title{font-family:'Playfair Display',serif;color:#92400e;font-size:.95rem;margin-bottom:8px;display:flex;align-items:center;gap:6px}
   .word-item{padding:8px 10px;border-radius:10px;margin-bottom:6px;border:1.5px solid #fcd34d;background:#fffbeb}
@@ -221,6 +221,78 @@ const PUZZLES = [
       { word: "BREAK",    hint: "A pause from regular routine", path: [[3,0],[4,0],[4,1],[4,2],[4,3]] },
       { word: "LEAVE",    hint: "Time away from work", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
     ]
+  },
+  {
+    category: "Pep Rally", number: 184, emoji: "📣",
+    funFact: "Often held in gyms or stadiums, pep rallies feature loud music, cheerleaders, band performances, themed dress-up days, and competitive games. While usually for sports, they can also celebrate academic achievements, homecoming, or school milestones.",
+    grid: [['S','P','O','R','T','I'],['H','G','A','M','E','N'],['O','O','P','L','A','G'],['P','C','H','E','E','R'],['L','A','Y','E','R','X'],['X','X','X','X','X','X']],
+    words: [
+      { word: "SPORTING", hint: "Related to athletic activities", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "HOOPLA",   hint: "Excitement and commotion", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4]] },
+      { word: "GAME",     hint: "A competitive event or match", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "CHEER",    hint: "To shout encouragement and support", path: [[3,1],[3,2],[3,3],[3,4],[3,5]] },
+      { word: "PLAYER",   hint: "Someone on a team", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] }
+    ]
+  },
+  {
+    category: "Pie", number: 188, emoji: "🥧",
+    funFact: "Pie has an 8,000-year history, starting with ancient Egyptians and Romans, and was historically known for savory fillings served in inedible, thick crusts.",
+    grid: [['M','E','R','I','N','G'],['C','L','I','M','E','U'],['O','C','O','N','U','E'],['C','P','E','A','T','X'],['H','E','R','R','Y','X'],['P','E','A','C','H','X']],
+    words: [
+      { word: "MERINGUE", hint: "A fluffy, toasted topping made from egg whites", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "COCONUT",  hint: "A tropical pie flavor with cream", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
+      { word: "LIME",     hint: "Key ___ pie is a Florida favorite", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "CHERRY",   hint: "A classic red fruit filling", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "PEACH",    hint: "A sweet summer fruit pie", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
+    ]
+  },
+  {
+    category: "Waffle", number: 195, emoji: "🧇",
+    funFact: "Waffles originated in the Middle Ages, with 13th-century irons creating honeycomb patterns that inspired Nike's first sneaker soles.",
+    grid: [['T','O','P','P','I','N'],['B','I','R','O','N','G'],['E','L','G','I','A','S'],['G','C','R','I','N','X'],['O','L','D','E','N','X'],['C','R','I','S','P','X']],
+    words: [
+      { word: "TOPPINGS", hint: "Fruit, syrup, or whipped cream", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "BELGIAN",  hint: "A style known for deep pockets", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
+      { word: "IRON",     hint: "The tool used to cook waffles", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "GOLDEN",   hint: "The perfect color when done", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "CRISP",    hint: "Crunchy on the outside", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
+    ]
+  },
+  {
+    category: "Butterfly", number: 196, emoji: "🦋",
+    funFact: "A caterpillar transforms into a butterfly within 10 to 15 days inside a chrysalis.",
+    grid: [['A','N','T','E','N','N'],['M','L','I','F','E','A'],['O','N','A','R','C','E'],['W','C','Y','C','H','X'],['I','N','G','E','D','X'],['C','Y','C','L','E','X']],
+    words: [
+      { word: "ANTENNAE", hint: "Sensory organs on the head", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "MONARCH",  hint: "An orange and black migratory species", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
+      { word: "LIFE",     hint: "The stages from egg to adult", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "WINGED",   hint: "Having colorful flight appendages", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "CYCLE",    hint: "A repeating pattern of changes", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
+    ]
+  },
+  {
+    category: "Popcorn", number: 197, emoji: "🍿",
+    funFact: "The oldest ears of popcorn were found in a cave in New Mexico and are estimated to be about 5,600 years old.",
+    grid: [['U','N','P','O','P','P'],['B','S','A','L','T','E'],['U','T','T','E','R','D'],['C','W','H','I','Y','X'],['R','U','N','C','H','X'],['W','H','I','T','E','X']],
+    words: [
+      { word: "UNPOPPED", hint: "The kernels left at the bottom of the bowl", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "BUTTERY",  hint: "Rich and golden-coated", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
+      { word: "SALT",     hint: "A classic seasoning", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "CRUNCH",   hint: "The satisfying sound when you bite", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "WHITE",    hint: "The color of plain popped kernels", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
+    ]
+  },
+  {
+    category: "Puzzles", number: 198, emoji: "🧩",
+    funFact: "Jigsaw puzzles were invented around 1760 by cartographer John Spilsbury, who mounted maps on wood and cut them into pieces to teach geography. Known as Dissected Maps originally, they were expensive, high-society entertainment until die-cut cardboard made them popular during the Great Depression.",
+    grid: [['S','O','L','U','T','I'],['J','C','L','U','E','O'],['I','G','S','A','W','N'],['T','P','I','E','X','X'],['E','A','S','E','R','X'],['P','I','E','C','E','X']],
+    words: [
+      { word: "SOLUTION", hint: "The answer you're looking for", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
+      { word: "JIGSAW",   hint: "A puzzle with interlocking pieces", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4]] },
+      { word: "CLUE",     hint: "A helpful hint to solve", path: [[1,1],[1,2],[1,3],[1,4]] },
+      { word: "TEASER",   hint: "A brain ___ challenges the mind", path: [[3,0],[4,0],[4,1],[4,2],[4,3],[4,4]] },
+      { word: "PIECE",    hint: "One part of the whole", path: [[5,0],[5,1],[5,2],[5,3],[5,4]] }
+    ]
   }
 ];
 
@@ -366,6 +438,7 @@ function clearSelection() {
   updateSelectedDisplay();
   updateCellStyles();
 }
+
 function undoLetter() {
   if (selectedCells.length === 0) return;
   selectedCells.pop();
@@ -397,7 +470,7 @@ function closeFactModal() { document.getElementById('factModal').style.display =
 function showShareModal() {
   closeFactModal();
   const p = PUZZLES[currentPuzzleIdx];
-  const card = `🏟️ Stadium Scramble\n${p.emoji} ${p.category} · Puzzle #${p.number}\n⏱️ Completed in ${completionTime}!\n🟩🟩🟩🟩🟩\nPlay at lettergriddle.com/challenge 🏟️\nMore games at lettergriddle.com 🥞`;;
+  const card = `🏟️ Stadium Scramble\n${p.emoji} ${p.category} · Puzzle #${p.number}\n⏱️ Completed in ${completionTime}!\n🟩🟩🟩🟩🟩\nPlay at lettergriddle.com/challenge 🏟️\nMore games at lettergriddle.com 🥞`;
   document.getElementById('shareCard').textContent = card;
   document.getElementById('shareModal').style.display = 'flex';
 }
@@ -438,7 +511,7 @@ function launchConfetti() {
       p.y += p.speed; p.x += p.drift;
     });
     frame++;
-    if (frame < 360) requestAnimationFrame(draw);
+    if (frame < 180) requestAnimationFrame(draw);
     else ctx.clearRect(0,0,canvas.width,canvas.height);
   }
   draw();

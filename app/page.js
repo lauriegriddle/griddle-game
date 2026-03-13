@@ -182,27 +182,24 @@ export default function Home() {
       hoverBg: "bg-orange-500/80"
     },
     {
-      name: "Letter Griddle Cafe Game",
-      tagline: "A Cafe Daily Special For Dedicated Puzzlers",
-      dropTime: "7:00 AM EST",
-      emoji: "\uD83D\uDC51",
-      href: "https://lettergriddlecafe.com/game",
-      external: true,
+      name: "Snacks - Brand New!",
+      tagline: "Make a snack without leaving any crumbs!",
+      emoji: "\uD83C\uDF6A",
+      href: "/snacks",
       thumbnail: {
-        gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
-        icon: "\uD83D\uDC51",
-        iconSize: "text-4xl",
-        title: ["Cafe", "Game"],
-        subtitle: "A CAFE SPECIAL",
+        gradient: "linear-gradient(135deg, #78350F 0%, #92400E 50%, #451A03 100%)",
+        icon: "\uD83C\uDF6A",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Snacks"],
+        subtitle: "Midnight Puzzle",
         subtitleColor: "text-amber-200"
       },
       borderColor: "border-amber-700",
       bgColor: "from-amber-100 to-orange-100",
       textColor: "text-amber-900",
       subTextColor: "text-amber-700",
-      timeColor: "text-amber-600",
       hoverBg: "bg-amber-800/80"
-    }
+    },
   ];
 
   // SECTION 4: More Games (Letter Griddle Games collection)
@@ -428,22 +425,25 @@ export default function Home() {
       hoverBg: "bg-amber-600/80"
     },
     {
-      name: "Snacks - Brand New!",
-      tagline: "Make a snack without leaving any crumbs!",
-      emoji: "\uD83C\uDF6A",
-      href: "/snacks",
+      name: "Letter Griddle Cafe Game",
+      tagline: "A Cafe Daily Special For Dedicated Puzzlers",
+      dropTime: "7:00 AM EST",
+      emoji: "\uD83D\uDC51",
+      href: "https://lettergriddlecafe.com/game",
+      external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #78350F 0%, #92400E 50%, #451A03 100%)",
-        icon: "\uD83C\uDF6A",
-        iconSize: "text-5xl",
-        title: ["Letter Griddle", "Snacks"],
-        subtitle: "Midnight Puzzle",
+        gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
+        icon: "\uD83D\uDC51",
+        iconSize: "text-4xl",
+        title: ["Cafe", "Game"],
+        subtitle: "A CAFE SPECIAL",
         subtitleColor: "text-amber-200"
       },
       borderColor: "border-amber-700",
       bgColor: "from-amber-100 to-orange-100",
       textColor: "text-amber-900",
       subTextColor: "text-amber-700",
+      timeColor: "text-amber-600",
       hoverBg: "bg-amber-800/80"
     },
   ];
@@ -759,7 +759,7 @@ export default function Home() {
             }}
             className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
           >
-            {"\u2728"} Stories & More
+            {"\u2728"} Recipes, Vignettes, & Puzzles
           </button>
           <button 
             onClick={() => {

@@ -64,6 +64,22 @@ const miniPuzzles = [
   { word: "MOUSE", category: "Computer", hint: "A handheld device used to move a cursor" },
   { word: "CABIN", category: "Lincoln", hint: "A small rustic dwelling made of logs" },
   { word: "BOOST", category: "Compliments", hint: "To lift up or increase confidence" },
+  { word: "DUVET", category: "Cozy", hint: "Fluffy quilted bed covering" },
+  { word: "BLISS", category: "Mood", hint: "Perfect happiness" },
+  { word: "YACHT", category: "Travel", hint: "Luxury sailing vessel" },
+  { word: "LATTE", category: "Drinks", hint: "Espresso drink with steamed milk" },
+  { word: "TAPAS", category: "Foods", hint: "Small Spanish sharing plates" },
+  { word: "REELS", category: "Apps", hint: "Short videos on Instagram and Facebook" },
+  { word: "PLUTO", category: "Character", hint: "Mickey Mouse's lovable pet dog" },
+  { word: "PRIZE", category: "Gameshow", hint: "Something won in a game or competition" },
+  { word: "GLIDE", category: "Flying", hint: "To move smoothly through the air with little effort" },
+  { word: "VISTA", category: "Travel", hint: "A beautiful scenic view" },
+  { word: "QUIRK", category: "Unique", hint: "An unusual habit or trait" },
+  { word: "STAFF", category: "Workplace", hint: "The employees who work at a company or organization" },
+  { word: "METAL", category: "Sounds", hint: "Heavy rock genre featuring loud, distorted guitars and powerful drums" },
+  { word: "THYME", category: "Spices", hint: "Fragrant herb with tiny leaves, often used in soups and roasts" },
+  { word: "CRISP", category: "Cool", hint: "Fresh and sharp, like air" },
+  { word: "VIRAL", category: "Apps", hint: "When content spreads rapidly across the internet" },
 ];
 
 // Generate decoy letters that aren't in the word

@@ -45,7 +45,7 @@ const miniPuzzles = [
   { word: "CRUST", category: "Bread", hint: "The golden outer layer of a baked loaf" },
   { word: "SOLVE", category: "Detective", hint: "To find the answer to a mystery or problem" },
   { word: "CLOUD", category: "Skygazing", hint: "A white or gray mass floating in the sky" },
-  { word: "CANOE", category: "Lakehouse", hint: "A narrow boat you paddle through the water" },
+  { word: "CANOE", category: "Lake", hint: "A narrow boat you paddle through the water" },
   { word: "FRUIT", category: "Pie", hint: "A sweet filling made from apples, berries, or cherries" },
   { word: "GRAZE", category: "Snacking", hint: "To eat small amounts throughout the day" },
   { word: "FUDGE", category: "Chocolate", hint: "A soft, dense confection often made with cocoa" },

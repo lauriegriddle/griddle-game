@@ -27,10 +27,10 @@ export default function EventBanner() {
             className="text-amber-200/70 text-xs italic mt-2"
             style={{ fontFamily: "Georgia, serif" }}
           >
-            Did you know? Friday the 13th occurs one to three times every year. This Friday is one of them!
+            Starting tonight at 7 PM EST
           </p>
           <p className="text-amber-400 text-xs font-bold mt-2 tracking-wide">
-            Register Now
+            Click to join tonight
           </p>
         </div>
       </a>

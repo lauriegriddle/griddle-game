@@ -30,7 +30,7 @@ export default function EventBanner() {
             Ongoing all weekend ~ All sessions available!
           </p>
           <p className="text-amber-400 text-xs font-bold mt-2 tracking-wide">
-            Plenty of time to enjoy ~ Join here!
+             ~ Join here! ~
           </p>
         </div>
       </a>

@@ -27,10 +27,10 @@ export default function EventBanner() {
             className="text-amber-200/70 text-xs italic mt-2"
             style={{ fontFamily: "Georgia, serif" }}
           >
-            Starting tonight at 7 PM EST
+            Ongoing all weekend ~ All sessions available!
           </p>
           <p className="text-amber-400 text-xs font-bold mt-2 tracking-wide">
-            Click to join tonight
+            You still time to enjoy ~ Join here!
           </p>
         </div>
       </a>

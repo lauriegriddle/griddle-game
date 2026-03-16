@@ -143,6 +143,7 @@ export default function LetterGriddleMaze() {
   const [selSlot,        setSelSlot]        = useState(null);
   const [won,            setWon]            = useState(false);
   const [wrongAns,       setWrongAns]       = useState(false);
+  const [shakingSlot,    setShakingSlot]    = useState(null);
   const [flashCell,      setFlashCell]      = useState(null);
   const [shimmer,        setShimmer]        = useState([]);
   const [startPulse,     setStartPulse]     = useState(true);
@@ -239,6 +240,7 @@ export default function LetterGriddleMaze() {
         // Place directly via state setters - no click simulation, no race condition
         setGriddleLetters(g => { const n=[...g]; n[targetSlot]=item.letter; return n; });
         setCollectedBank(b => b.filter((_,j) => j !== bankIdx));
+        checkPlacement(item.letter, targetSlot);
         setSelBank(null);
         setSelSlot(null);
         return;
@@ -322,6 +324,7 @@ export default function LetterGriddleMaze() {
       } else {
         setCollectedBank(b => b.filter((_,j) => j !== i));
       }
+      checkPlacement(item.letter, selSlot);
       setSelSlot(null); setSelBank(null);
       return;
     }
@@ -342,6 +345,7 @@ export default function LetterGriddleMaze() {
       } else {
         setCollectedBank(b => b.filter((_,i) => i !== selBank));
       }
+      checkPlacement(item.letter, si);
       setSelBank(null);
 
     } else if (selSlot !== null) {
@@ -383,6 +387,14 @@ export default function LetterGriddleMaze() {
     });
   };
 
+  // Check if a letter placed at slot si is correct for the current puzzle
+  const checkPlacement = (letter, si) => {
+    if (letter !== messageFlatRef.current[si]) {
+      setShakingSlot(si);
+      setTimeout(() => setShakingSlot(null), 500);
+    }
+  };
+
   const checkAnswer = () => {
     if (griddleLetters.join("") === MESSAGE_FLAT) {
       wonRef.current = true;
@@ -408,11 +420,11 @@ export default function LetterGriddleMaze() {
     const charmCount = foundCharms.size;
     const total = Object.keys(CHARM_MAP).length;
     const text =
-  "\u2618\uFE0F I solved the Letter Griddle Maze!\n\n" +
-  "\u2728 Found " + charmCount + "/" + total + " charms\n" +
-  "\uD83D\uDFE9 Can you reveal the secret message?\n\n" +
-  "lettergriddle.com/maze\n" +
-  "\uD83E\uDD5E More: lettergriddle.com";
+      "\u2618\uFE0F I solved the Letter Griddle Maze!\n\n" +
+      "\u2728 Found " + charmCount + "/" + total + " charms\n" +
+      "\uD83D\uDFE9 I revealed the secret message!\n\n" +
+      "lettergriddle.com/maze\n" +
+      "\uD83E\uDD5E More: lettergriddle.com";
     if (navigator.share) {
       try { await navigator.share({ title:"Letter Griddle Maze", text }); return; }
       catch(e) {}
@@ -476,6 +488,7 @@ export default function LetterGriddleMaze() {
         @keyframes fallA    { 0%{opacity:1;transform:translateY(0) rotate(0deg)} 100%{opacity:0;transform:translateY(110vh) rotate(720deg)} }
         @keyframes factIn   { 0%{opacity:0;transform:scale(.9)} 100%{opacity:1;transform:scale(1)} }
         @keyframes slideUp  { 0%{opacity:0;transform:translateY(20px)} 100%{opacity:1;transform:translateY(0)} }
+        @keyframes shake    { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-5px)} 40%{transform:translateX(5px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
       `}</style>
 
       {/* Shimmer bg */}
@@ -542,7 +555,7 @@ export default function LetterGriddleMaze() {
                 className="text-emerald-400 hover:text-emerald-200 text-xl leading-none">X</button>
             </div>
             <div className="space-y-3 text-emerald-100 text-sm leading-relaxed">
-              <p>Navigate your shamrock through the maze using the d-pad, arrow keys, tap, click, or swipe.</p>
+              <p>Navigate your shamrock through the maze using the d-pad, arrow keys, click, tap, or swipe.</p>
               <p><span className="text-amber-300 font-bold">Amber tiles</span> are letters to collect - walk over them!</p>
               <p><span className="text-emerald-300 font-bold">Green tiles</span> are already filled in the griddle below.</p>
               <p>Hidden <strong>charms</strong> spin along the path - step on them for a surprise message!</p>
@@ -914,7 +927,7 @@ export default function LetterGriddleMaze() {
                                   : isSel
                                     ? "bg-emerald-700 border-emerald-300 scale-110 shadow-lg"
                                     : "bg-emerald-950 border-emerald-700")}
-                          style={{ fontFamily:FONT }}>
+                          style={{ fontFamily:FONT, animation: shakingSlot===si ? "shake 0.5s ease-in-out" : "none" }}>
                           {letter || ""}
                         </div>
                       );
@@ -972,3 +985,4 @@ export default function LetterGriddleMaze() {
     </div>
   );
 }
+

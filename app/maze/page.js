@@ -408,11 +408,11 @@ export default function LetterGriddleMaze() {
     const charmCount = foundCharms.size;
     const total = Object.keys(CHARM_MAP).length;
     const text =
-      "I completed the Letter Griddle Maze!\n\n" +
-      "Found " + charmCount + "/" + total + " charms\n" +
-      "HAPPY ST. PATRICKS DAY\n\n" +
-      "Play at lettergriddle.com/maze\n" +
-      "More games at lettergriddle.com";
+  "\u2618\uFE0F I solved the Letter Griddle Maze!\n\n" +
+  "\u2728 Found " + charmCount + "/" + total + " charms\n" +
+  "\uD83D\uDFE9 Can you reveal the secret message?\n\n" +
+  "lettergriddle.com/maze\n" +
+  "\uD83E\uDD5E More: lettergriddle.com";
     if (navigator.share) {
       try { await navigator.share({ title:"Letter Griddle Maze", text }); return; }
       catch(e) {}
@@ -542,7 +542,7 @@ export default function LetterGriddleMaze() {
                 className="text-emerald-400 hover:text-emerald-200 text-xl leading-none">X</button>
             </div>
             <div className="space-y-3 text-emerald-100 text-sm leading-relaxed">
-              <p>Navigate your shamrock through the maze using the d-pad, arrow keys, or swipe.</p>
+              <p>Navigate your shamrock through the maze using the d-pad, arrow keys, tap, click, or swipe.</p>
               <p><span className="text-amber-300 font-bold">Amber tiles</span> are letters to collect - walk over them!</p>
               <p><span className="text-emerald-300 font-bold">Green tiles</span> are already filled in the griddle below.</p>
               <p>Hidden <strong>charms</strong> spin along the path - step on them for a surprise message!</p>
@@ -602,7 +602,7 @@ export default function LetterGriddleMaze() {
             <div className="space-y-3 text-emerald-100 text-sm leading-relaxed text-left mb-6">
               <p className="flex items-start gap-2">
                 <span className="text-lg mt-0.5">&#x1F340;</span>
-                <span>Navigate your shamrock through the maze using the <strong>d-pad</strong>, <strong>arrow keys</strong>, or <strong>swipe</strong>.</span>
+                <span>Navigate your shamrock through the maze using the <strong>d-pad</strong>, <strong>arrow keys</strong>, <strong>tap</strong>, <strong>click</strong>, or <strong>swipe</strong>.</span>
               </p>
               <p className="flex items-start gap-2">
                 <span className="text-lg mt-0.5">&#x1F7E8;</span>

@@ -775,7 +775,28 @@ export default function Home() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 pb-12">
-        
+        {/* St. Patrick's Day Maze Banner */}
+<div className="mb-10 mt-2">
+  <a href="/maze" className="block">
+   <div className="relative rounded-xl overflow-hidden shadow-md border border-emerald-500 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 max-w-lg mx-auto"
+  style={{ background: "linear-gradient(135deg, #064e3b 0%, #065f46 50%, #064e3b 100%)" }}>
+  <div className="flex items-center justify-between px-4 py-3">
+    <div className="flex items-center gap-3">
+      <span className="text-2xl">&#x1F340;</span>
+      <div>
+        <h3 className="text-emerald-100 text-sm font-bold" style={{ fontFamily: "Georgia, serif" }}>
+          Letter Griddle Maze
+        </h3>
+        <p className="text-emerald-400 text-xs">A St. Patrick's Day adventure!</p>
+      </div>
+    </div>
+    <div className="bg-emerald-400 text-emerald-950 font-bold text-xs px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+      Play Now &#x279C;
+    </div>
+  </div>
+</div>
+  </a>
+</div>
         {/* SECTION 1: Daily Favorites */}
         <section id="daily-favorites" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">

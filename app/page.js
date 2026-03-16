@@ -791,7 +791,7 @@ export default function Home() {
       </div>
     </div>
     <div className="bg-emerald-400 text-emerald-950 font-bold text-xs px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">
-      Play Now &#x279C;
+      Play &#x279C;
     </div>
   </div>
 </div>

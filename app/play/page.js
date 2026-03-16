@@ -61,6 +61,8 @@ const PancakeWordGame = () => {
   const [completionTime, setCompletionTime] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const [newAchievements, setNewAchievements] = useState([]);
+  const [puzzleFeedback, setPuzzleFeedback] = useState(null);
+const [feedbackSent, setFeedbackSent] = useState(false);
 
   // Keyboard support state
   const [focusedWordIndex, setFocusedWordIndex] = useState(0);
@@ -696,6 +698,16 @@ useEffect(() => {
   }
 };
 
+const handleFeedback = (emoji) => {
+  if (feedbackSent) return;
+  setPuzzleFeedback(emoji);
+  setFeedbackSent(true);
+  // Send to Vercel Analytics
+  if (typeof window !== 'undefined' && window.va) {
+    window.va('event', { name: 'puzzle-feedback', data: { emoji, puzzle: gameData.puzzleNumber } });
+  }
+};
+
 const copyToClipboard = async (text) => {
   try {
     await navigator.clipboard.writeText(text);
@@ -872,8 +884,31 @@ const copyToClipboard = async (text) => {
                 <Share2 size={14} />
                 Share
               </button>
+              {/* Puzzle Feedback */}
+<div className="mt-2">
+  {!feedbackSent ? (
+    <div>
+      <p className="text-xs text-amber-700 font-semibold mb-1">How was today's puzzle?</p>
+      <div className="flex justify-center gap-3">
+        {['😍', '😊', '😐', '😕'].map((emoji) => (
+          <button
+            key={emoji}
+            onClick={() => handleFeedback(emoji)}
+            className="text-2xl hover:scale-125 transition-transform"
+            title={emoji}
+          >
+            {emoji}
+          </button>
+        ))}
+      </div>
+    </div>
+  ) : (
+    <p className="text-xs text-amber-600 font-semibold">Thanks for the feedback! {puzzleFeedback}</p>
+  )}
+</div>
             </div>
           )}
+
 
           {/* Words and Letters Side by Side */}
           <div className="grid md:grid-cols-[1fr,240px] gap-2">

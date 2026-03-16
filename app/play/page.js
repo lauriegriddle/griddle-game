@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Share2, BarChart3, X, Award, Shuffle, Info, Bookmark, HelpCircle, Instagram, RotateCcw, ChefHat } from 'lucide-react';
 import { getTodaysPuzzle } from './puzzles';
-import EventBanner from './EventBanner';
 import { track } from '@vercel/analytics';
 
 const PancakeWordGame = () => {
@@ -718,7 +717,7 @@ const copyToClipboard = async (text) => {
 
   return (
     <div ref={gameContainerRef} tabIndex={0} className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 p-2 relative overflow-hidden outline-none" style={{ touchAction: 'manipulation', overscrollBehavior: 'none' }}>
-      <EventBanner />
+
       <div className="fixed top-2 left-2 text-3xl opacity-20">🧈</div>
       <div className="fixed top-2 right-2 text-3xl opacity-20">🥞</div>
       <div className="fixed bottom-2 left-2 text-3xl opacity-20">🍯</div>

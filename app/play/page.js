@@ -702,10 +702,16 @@ const handleFeedback = (emoji) => {
   if (feedbackSent) return;
   setPuzzleFeedback(emoji);
   setFeedbackSent(true);
-  // Send to Vercel Analytics
-  if (typeof window !== 'undefined' && window.va) {
-    window.va('event', { name: 'puzzle-feedback', data: { emoji, puzzle: gameData.puzzleNumber } });
-  }
+  // Send to Google Forms
+  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHo--3CyvRyNWRYzo9J6_srYUgOgle5QdC1rOexJKhaFJPuw/formResponse';
+  const params = new URLSearchParams({
+    'entry.1226112124': String(gameData.puzzleNumber),
+    'entry.971793728': emoji
+  });
+  fetch(`${formUrl}?${params}`, {
+    method: 'POST',
+    mode: 'no-cors'
+  }).catch(() => {});
 };
 
 const copyToClipboard = async (text) => {

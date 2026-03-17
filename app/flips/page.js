@@ -1249,6 +1249,8 @@ const FlipsGame = () => {
   const [hasAnswered, setHasAnswered] = useState(false);
   const [isFlipping, setIsFlipping] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
+  const [puzzleFeedback, setPuzzleFeedback] = useState(null);
+const [feedbackSent, setFeedbackSent] = useState(false);
 
   const handleCardClick = (option) => {
     if (hasAnswered || isFlipping) return;
@@ -1283,6 +1285,21 @@ const FlipsGame = () => {
   } else {
     copyToClipboard(shareText);
   }
+};
+const handleFeedback = (emoji) => {
+  if (feedbackSent) return;
+  setPuzzleFeedback(emoji);
+  setFeedbackSent(true);
+  // Send to Google Forms
+  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHo--3CyvRyNWRYzo9J6_srYUgOgle5QdC1rOexJKhaFJPuw/formResponse';
+  const params = new URLSearchParams({
+    'entry.1226112124': String(gameData.puzzleNumber),
+    'entry.971793728': emoji
+  });
+  fetch(`${formUrl}?${params}`, {
+    method: 'POST',
+    mode: 'no-cors'
+  }).catch(() => {});
 };
 
 const copyToClipboard = async (text) => {
@@ -1446,6 +1463,23 @@ const copyToClipboard = async (text) => {
                   {shareCopied ? "Copied!" : "Share"}
                 </button>
               </div>
+              {/* Puzzle Feedback */}
+<div className="mt-2 text-center">
+  {!feedbackSent ? (
+    <div>
+      <p className="text-xs text-amber-700 font-semibold mb-1">How was today's puzzle?</p>
+      <div className="flex justify-center gap-3">
+        {['😍', '😊', '😐', '😕'].map((emoji) => (
+          <button key={emoji} onClick={() => handleFeedback(emoji)} className="text-2xl hover:scale-125 transition-transform" title={emoji}>
+            {emoji}
+          </button>
+        ))}
+      </div>
+    </div>
+  ) : (
+    <p className="text-xs text-amber-600 font-semibold">Thanks for the feedback! {puzzleFeedback}</p>
+  )}
+</div>
 
               {/* Come Back Message */}
               <div className="text-center mt-4">

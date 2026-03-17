@@ -424,6 +424,8 @@ export default function LetterGriddleMaze() {
       "\u2728 Found " + charmCount + "/" + total + " charms\n" +
       "\uD83D\uDFE9 I revealed the secret message!\n\n" +
       "lettergriddle.com/maze\n" +
+"\uD83D\uDCDA Read the St. Patrick's Day story:\n" +
+"lettergriddlecafe.com\n" +
       "\uD83E\uDD5E More: lettergriddle.com";
     if (navigator.share) {
       try { await navigator.share({ title:"Letter Griddle Maze", text }); return; }

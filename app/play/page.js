@@ -705,7 +705,7 @@ const handleFeedback = (emoji) => {
   // Send to Google Forms
   const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHo--3CyvRyNWRYzo9J6_srYUgOgle5QdC1rOexJKhaFJPuw/formResponse';
   const params = new URLSearchParams({
-    'entry.1226112124': String(gameData.puzzleNumber),
+    'entry.1226112124': `Letter Griddle - ${gameData.puzzleNumber}`,
     'entry.971793728': emoji
   });
   fetch(`${formUrl}?${params}`, {

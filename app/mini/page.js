@@ -137,6 +137,8 @@ const LetterGriddleMini = () => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
+  const [puzzleFeedback, setPuzzleFeedback] = useState(null);
+const [feedbackSent, setFeedbackSent] = useState(false);
   
   const [yellowLetter] = useState(() => {
     const seedIndex = puzzle.word.charCodeAt(0) % 5;
@@ -312,6 +314,22 @@ More games: lettergriddle.com`
   } else {
     copyToClipboard(shareText);
   }
+};
+
+const handleFeedback = (emoji) => {
+  if (feedbackSent) return;
+  setPuzzleFeedback(emoji);
+  setFeedbackSent(true);
+  // Send to Google Forms
+  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHo--3CyvRyNWRYzo9J6_srYUgOgle5QdC1rOexJKhaFJPuw/formResponse';
+  const params = new URLSearchParams({
+    'entry.1226112124': String(gameData.puzzleNumber),
+    'entry.971793728': emoji
+  });
+  fetch(`${formUrl}?${params}`, {
+    method: 'POST',
+    mode: 'no-cors'
+  }).catch(() => {});
 };
 
 const copyToClipboard = async (text) => {
@@ -542,7 +560,25 @@ const copyToClipboard = async (text) => {
                 You got it in {guesses.length} {guesses.length === 1 ? 'guess' : 'guesses'}!
               </p>
               <p className="text-2xl mt-2">{'🥞'.repeat(Math.max(1, 6 - guesses.length))}</p>
+            {/* Puzzle Feedback */}
+            <div className="mt-2">
+              {!feedbackSent ? (
+                <div>
+                  <p className="text-xs text-amber-700 font-semibold mb-1">How was today's puzzle?</p>
+                  <div className="flex justify-center gap-3">
+                    {['😍', '😊', '😐', '😕'].map((emoji) => (
+                      <button key={emoji} onClick={() => handleFeedback(emoji)} className="text-2xl hover:scale-125 transition-transform" title={emoji}>
+                        {emoji}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <p className="text-xs text-amber-600 font-semibold">Thanks for the feedback! {puzzleFeedback}</p>
+              )}
             </div>
+          </div>
+            
           )}
 
           {gameStatus === 'lost' && (

@@ -681,7 +681,7 @@ useEffect(() => {
   const handleShare = async () => {
   const honeyEmojis = '🍯'.repeat(completedWords.filter(c => c).length);
 
-  const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at lettergriddle.com/play\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com`;
+  const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at lettergriddle.com/play\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com\n🍯 Stories: lettergriddlecafe.com`;
 
   if (navigator.share) {
     try {
@@ -912,6 +912,7 @@ const copyToClipboard = async (text) => {
     <p className="text-xs text-amber-600 font-semibold">Thanks for the feedback! {puzzleFeedback}</p>
   )}
 </div>
+<div className="mt-2"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-700 hover:text-amber-900 font-semibold">🥞 There are stories behind Letter Griddle games and puzzles. Read more</a></div>
             </div>
           )}
 
@@ -1454,7 +1455,7 @@ ${'🍯'.repeat(completedWords.filter(c => c).length)}
 ${completedWords.filter(c => c).length}/5 words
 Play at lettergriddle.com/play
 Free & ad-free!
-Part of the Letter Griddle Games 🥞
+Part of Letter Griddle Games 🥞
 More games: lettergriddle.com`}
               </div>
             </div>
@@ -1480,6 +1481,7 @@ More games: lettergriddle.com`}
                 <Instagram size={14} /> Follow us @letter_griddle
               </a>
             </div>
+            <div className="mt-4 text-center"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-800 text-sm font-semibold">🍯 Read the stories behind Letter Griddle</a></div>
           </div>
         </div>
       )}

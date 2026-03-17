@@ -556,9 +556,9 @@ export default function LetterGriddleMaze() {
             </div>
             <div className="space-y-3 text-emerald-100 text-sm leading-relaxed">
               <p>Navigate your shamrock through the maze using the d-pad, arrow keys, click, tap, or swipe.</p>
-              <p><span className="text-amber-300 font-bold">Amber tiles</span> are letters to collect - walk over them!</p>
+              <p><span className="text-amber-300 font-bold">Amber tiles</span> are letters to collect.  Walk over them!</p>
               <p><span className="text-emerald-300 font-bold">Green tiles</span> are already filled in the griddle below.</p>
-              <p>Hidden <strong>charms</strong> spin along the path - step on them for a surprise message!</p>
+              <p>Hidden <strong>charms</strong> spin along the path.  Step on them for a surprise message!</p>
               <p>Reach the <strong>star</strong> to finish the maze, then arrange your letters to spell the secret message.</p>
               <p>Tap a letter from your bank, then tap a slot to place it. Tap a filled slot to select it, then tap another slot to swap. Double-tap a filled slot to return it to your bank.</p>
               <p>Use the <strong>Shuffle</strong> button to mix up your letter bank.</p>

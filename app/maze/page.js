@@ -96,7 +96,7 @@ const CHARM_MAP = {
   "1-4":{ emoji:"flower", msg:"A beautiful find! Keep going!", spin:"3s" },
   "3-4":{ emoji:"star",   msg:"You're glowing! Halfway through this row!", spin:"2s" },
   "5-6":{ emoji:"teapot", msg:"Tea break! You're doing wonderfully!", spin:"4s" },
-  "7-4":{ emoji:"flower", msg:"You are doing something wonderful - keep going!", spin:"1.5s" },
+  "7-4":{ emoji:"flower", msg:"You are doing something wonderful so keep going!", spin:"1.5s" },
   "9-5":{ emoji:"heart",  msg:"Almost there! The griddle is waiting!", spin:"2.5s" },
 };
 

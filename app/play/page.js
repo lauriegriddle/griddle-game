@@ -63,6 +63,8 @@ const PancakeWordGame = () => {
   const [newAchievements, setNewAchievements] = useState([]);
   const [puzzleFeedback, setPuzzleFeedback] = useState(null);
 const [feedbackSent, setFeedbackSent] = useState(false);
+const [scrapbook, setScrapbook] = useState([]);
+const [showScrapbookModal, setShowScrapbookModal] = useState(false);
 
   // Keyboard support state
   const [focusedWordIndex, setFocusedWordIndex] = useState(0);
@@ -222,10 +224,26 @@ useEffect(() => {
       setStats(newStats);
       try {
         localStorage.setItem('griddleStats', JSON.stringify(newStats));
-        clearProgress(); // Clear saved progress on completion
+        clearProgress();
       } catch (e) {
         console.error('Could not save stats', e);
-      }// Show bookmark prompt (first 3 completions only)
+      }
+
+      try {
+        const newEntry = {
+          puzzleNumber: gameData.puzzleNumber,
+          category: gameData.category,
+          funFact: gameData.funFact || gameData.words[gameData.words.length - 1].hint,
+          date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+        };
+        const alreadySaved = scrapbook.some(entry => entry.puzzleNumber === gameData.puzzleNumber);
+const updatedScrapbook = alreadySaved ? scrapbook : [newEntry, ...scrapbook].slice(0, 365);
+        setScrapbook(updatedScrapbook);
+        localStorage.setItem('griddleScrapbook', JSON.stringify(updatedScrapbook));
+      } catch (e) {
+        console.error('Could not save scrapbook', e);
+      }
+      // Show bookmark prompt (first 3 completions only)
       // Wait for confetti to finish (10 seconds), then show prompt
       if (bookmarkPromptCount < 3) {
         setTimeout(() => {
@@ -274,7 +292,7 @@ useEffect(() => {
   // Load stats from localStorage after mount (prevents hydration mismatch)
 useEffect(() => {
   if (!hasMounted) return;
-  
+
   try {
     const saved = localStorage.getItem('griddleStats');
     if (saved) {
@@ -282,6 +300,15 @@ useEffect(() => {
     }
   } catch (e) {
     console.error('Could not load stats', e);
+  }
+
+  try {
+    const savedScrapbook = localStorage.getItem('griddleScrapbook');
+    if (savedScrapbook) {
+      setScrapbook(JSON.parse(savedScrapbook));
+    }
+  } catch (e) {
+    console.error('Could not load scrapbook', e);
   }
 }, [hasMounted]);
   // Auto-save progress when game state changes
@@ -815,6 +842,15 @@ const copyToClipboard = async (text) => {
             >
               <span className="text-sm">{musicEnabled ? '🔊' : '🎵'}</span>
             </button>
+
+            <button
+  onClick={() => setShowScrapbookModal(true)}
+  className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
+  title="Your Scrapbook"
+>
+  <span className="text-sm">📔</span>
+</button>
+
             {/* LAUNCH BUTTON - NEW! */}
             <button
               onClick={() => setShowLaunchModal(true)}
@@ -884,13 +920,22 @@ const copyToClipboard = async (text) => {
                   )}
                 </p>
               </div>
-              <button
-                onClick={() => setShowShareModal(true)}
-                className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg transition-all flex items-center gap-1 mx-auto"
-              >
-                <Share2 size={14} />
-                Share
-              </button>
+              <div className="flex items-center justify-center gap-2">
+                <button
+                  onClick={() => setShowShareModal(true)}
+                  className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg transition-all flex items-center gap-1"
+                >
+                  <Share2 size={14} />
+                  Share
+                </button>
+                <button
+                  onClick={() => setShowScrapbookModal(true)}
+                  className="bg-gradient-to-r from-amber-100 to-yellow-100 hover:from-amber-200 hover:to-yellow-200 text-amber-800 border border-amber-300 px-3 py-1 rounded-full font-bold text-xs shadow-lg transition-all flex items-center gap-1"
+                >
+                  <span>📔</span>
+                  Scrapbook
+                </button>
+              </div>
               {/* Puzzle Feedback */}
 <div className="mt-2">
   {!feedbackSent ? (
@@ -1562,6 +1607,57 @@ More games: lettergriddle.com`}
             <div className="mt-6 text-center text-sm text-gray-500">
               Stats saved locally on your device
             </div>
+          </div>
+        </div>
+      )}
+
+{/* Scrapbook Modal */}
+      {showScrapbookModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4" onClick={() => setShowScrapbookModal(false)}>
+          <div className="bg-white rounded-3xl p-6 max-w-lg w-full shadow-2xl relative my-8 max-h-[85vh] overflow-y-auto" style={{WebkitOverflowScrolling: 'touch'}} onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowScrapbookModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+              aria-label="Close scrapbook"
+            >
+              <X size={24} />
+            </button>
+
+            <div className="text-center mb-4">
+              <div className="text-5xl mb-2">📔</div>
+              <h2 className="text-2xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
+                Your Scrapbook
+              </h2>
+              <p className="text-xs text-amber-600 mt-1">One fun fact collected per puzzle</p>
+            </div>
+
+            {scrapbook.length === 0 ? (
+              <div className="text-center py-12">
+                <div className="text-5xl mb-4">🍯</div>
+                <p className="text-amber-800 font-semibold text-lg" style={{fontFamily: 'Georgia, serif'}}>Nothing here yet!</p>
+                <p className="text-amber-600 text-sm mt-2">Complete today's puzzle to collect your first fun fact.</p>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                <p className="text-xs text-amber-600 text-center mb-3">{scrapbook.length} {scrapbook.length === 1 ? 'fact' : 'facts'} collected</p>
+                {scrapbook.map((entry, idx) => (
+                  <div
+                    key={idx}
+                    className={`rounded-xl p-4 border ${idx === 0 ? 'bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-400 border-2' : 'bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-200'}`}
+                  >
+                    {idx === 0 && (
+                      <div className="inline-block bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full mb-2">NEW</div>
+                    )}
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[10px] font-bold text-amber-600 uppercase tracking-wide">Puzzle #{entry.puzzleNumber}</span>
+                      <span className="text-[10px] text-amber-500">{entry.date}</span>
+                    </div>
+                    <p className="text-xs font-bold text-amber-800 mb-1.5">{entry.category}</p>
+                    <p className="text-xs text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>{entry.funFact}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -1231,9 +1231,9 @@ const copyToClipboard = async (text) => {
                       {country}
                     </button>
                   ))}
-                  <button onClick={() => handleCountryFeedback('Other')} className="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded-full border border-amber-300 transition-all mb-1">
-                    🌍 Other
-                  </button>
+                  <button onClick={() => handleCountryFeedback('🇫🇷 France')} className="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded-full border border-amber-300 transition-all mb-1">
+  🇫🇷 France
+</button>
                 </div>
                 {countryAnswer && (
                   <p className="text-xs text-amber-600 font-semibold mt-2">Thanks for your input! 🥞</p>

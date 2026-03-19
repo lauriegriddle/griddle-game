@@ -65,6 +65,8 @@ const PancakeWordGame = () => {
 const [feedbackSent, setFeedbackSent] = useState(false);
 const [scrapbook, setScrapbook] = useState([]);
 const [showScrapbookModal, setShowScrapbookModal] = useState(false);
+const [countryAsked, setCountryAsked] = useState(false);
+const [countryAnswer, setCountryAnswer] = useState(null);
 
   // Keyboard support state
   const [focusedWordIndex, setFocusedWordIndex] = useState(0);
@@ -149,6 +151,17 @@ useEffect(() => {
       localStorage.setItem('griddleLastWelcome', today);
     }
   }, []);
+
+  useEffect(() => {
+  if (typeof window !== 'undefined') {
+    const asked = localStorage.getItem('griddleCountryAsked');
+    if (!asked) {
+      setCountryAsked(false);
+    } else {
+      setCountryAsked(true);
+    }
+  }
+}, []);
 
   // Music control effect
   useEffect(() => {
@@ -741,6 +754,25 @@ const handleFeedback = (emoji) => {
   }).catch(() => {});
 };
 
+const handleCountryFeedback = (country) => {
+  setCountryAnswer(country);
+  localStorage.setItem('griddleCountryAsked', 'true');
+  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeHo--3CyvRyNWRYzo9J6_srYUgOgle5QdC1rOexJKhaFJPuw/formResponse';
+  const params = new URLSearchParams({
+    'entry.752780579': country,
+    'entry.1226112124': `Letter Griddle - ${gameData.puzzleNumber}`,
+    'entry.971793728': 'country-question'
+  });
+  fetch(`${formUrl}?${params}`, {
+    method: 'POST',
+    mode: 'no-cors'
+  }).catch(() => {});
+  setTimeout(() => {
+    setCountryAsked(true);
+    setShowWelcomeModal(false);
+  }, 1500);
+};
+
 const copyToClipboard = async (text) => {
   try {
     await navigator.clipboard.writeText(text);
@@ -958,6 +990,7 @@ const copyToClipboard = async (text) => {
     <p className="text-xs text-amber-600 font-semibold">Thanks for the feedback! {puzzleFeedback}</p>
   )}
 </div>
+
 <div className="mt-2"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-700 hover:text-amber-900 font-semibold">🥞 There are stories behind Letter Griddle games and puzzles. Read more</a></div>
             </div>
           )}
@@ -1187,8 +1220,26 @@ const copyToClipboard = async (text) => {
               className="text-stone-500 hover:text-stone-700 text-lg font-medium transition-colors underline"
               style={{fontFamily: 'Georgia, serif'}}
             >
-              Today's Special
+             Today's Special
             </button>
+            {!countryAsked && (
+              <div className="mt-4 mb-4">
+                <p className="text-xs text-amber-700 font-semibold mb-2">🌍 We are planning fun puzzles! Which country would you like to see as a Letter Griddle topic?</p>
+                <div className="flex flex-wrap justify-center gap-1">
+                  {['🇨🇦 Canada', '🇮🇹 Italy', '🇦🇺 Australia', '🇮🇪 Ireland', '🇵🇹 Portugal'].map((country) => (
+                    <button key={country} onClick={() => handleCountryFeedback(country)} className="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded-full border border-amber-300 transition-all mb-1">
+                      {country}
+                    </button>
+                  ))}
+                  <button onClick={() => handleCountryFeedback('Other')} className="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded-full border border-amber-300 transition-all mb-1">
+                    🌍 Other
+                  </button>
+                </div>
+                {countryAnswer && (
+                  <p className="text-xs text-amber-600 font-semibold mt-2">Thanks for your input! 🥞</p>
+                )}
+              </div>
+            )}         
           </div>
         </div>
       )}

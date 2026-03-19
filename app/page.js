@@ -384,6 +384,25 @@ export default function Home() {
   // SECTION 5: Stories, Recipes & More
   const storiesAndMore = [
     {
+  name: "Letter Griddle Maze",
+  tagline: "Navigate the maze, collect letters, reveal the secret message!",
+  emoji: "\uD83C\uDF38",
+  href: "/maze",
+  thumbnail: {
+    gradient: "linear-gradient(135deg, #022c22 0%, #064e3b 50%, #065f46 100%)",
+    icon: "\u2600\uFE0F",
+    iconSize: "text-5xl",
+    title: ["Letter Griddle", "Maze"],
+    subtitle: "A SPRING ADVENTURE",
+    subtitleColor: "text-emerald-200"
+  },
+  borderColor: "border-emerald-400",
+  bgColor: "from-emerald-100 to-green-100",
+  textColor: "text-emerald-800",
+  subTextColor: "text-emerald-700",
+  hoverBg: "bg-emerald-600/80"
+},
+    {
       name: "Cookbook",
       tagline: "Recipes paired with word puzzles",
       emoji: "\uD83C\uDF4A",
@@ -775,28 +794,7 @@ export default function Home() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 pb-12">
-        {/* St. Patrick's Day Maze Banner */}
-<div className="mb-10 mt-2">
-  <a href="/maze" className="block">
-   <div className="relative rounded-xl overflow-hidden shadow-md border border-emerald-500 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 max-w-lg mx-auto"
-  style={{ background: "linear-gradient(135deg, #064e3b 0%, #065f46 50%, #064e3b 100%)" }}>
-  <div className="flex items-center justify-between px-4 py-3">
-    <div className="flex items-center gap-3">
-      <span className="text-2xl">&#x1F338;</span>
-      <div>
-        <h3 className="text-emerald-100 text-sm font-bold" style={{ fontFamily: "Georgia, serif" }}>
-          Letter Griddle Maze
-        </h3>
-        <p className="text-emerald-400 text-xs">A Spring Adventure!</p>
-      </div>
-    </div>
-    <div className="bg-emerald-400 text-emerald-950 font-bold text-xs px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">
-      Play &#x279C;
-    </div>
-  </div>
-</div>
-  </a>
-</div>
+        
         {/* SECTION 1: Daily Favorites */}
         <section id="daily-favorites" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">

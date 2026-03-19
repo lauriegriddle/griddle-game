@@ -782,12 +782,12 @@ export default function Home() {
   style={{ background: "linear-gradient(135deg, #064e3b 0%, #065f46 50%, #064e3b 100%)" }}>
   <div className="flex items-center justify-between px-4 py-3">
     <div className="flex items-center gap-3">
-      <span className="text-2xl">&#x1F340;</span>
+      <span className="text-2xl">&#x1F338;</span>
       <div>
         <h3 className="text-emerald-100 text-sm font-bold" style={{ fontFamily: "Georgia, serif" }}>
           Letter Griddle Maze
         </h3>
-        <p className="text-emerald-400 text-xs">A St. Patrick's Day adventure!</p>
+        <p className="text-emerald-400 text-xs">A Spring Adventure!</p>
       </div>
     </div>
     <div className="bg-emerald-400 text-emerald-950 font-bold text-xs px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap">

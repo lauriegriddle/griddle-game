@@ -5,43 +5,41 @@ const BG = "min-h-screen bg-gradient-to-br from-emerald-950 via-green-900 to-tea
 const FONT = "Georgia, serif";
 const YEAR = new Date().getFullYear();
 
-// Two St. Patrick's Day puzzles - player can choose the next after completing one
+// Three Spring puzzles
 const PUZZLES = [
   {
-    words:   ["HAPPY", "ST", "PATRICKS", "DAY"],
-    flat:    "HAPPYSTPATRICKSDAY",
-    pre:     new Set([0, 6, 12, 17]),
-    // Pre-filled green tiles: [row, col, msgIdx]
-    prePlace:[[1,1,0],[3,9,6],[7,1,12],[9,9,17]],
-    // Collectible amber tiles: [row, col, msgIdx] scrambled so message is not readable
-    collect: [[1,3,10],[1,5,3],[1,7,14],[3,7,1],[3,5,16],[3,3,5],
-              [5,3,13],[5,5,9],[5,7,2],[7,7,15],[7,5,7],[7,3,11],[9,3,4],[9,6,8]],
-    winMsg:  "HAPPY ST. PATRICK'S DAY!",
+    words:   ["HELLO", "SUNSHINE"],
+    flat:    "HELLOSUNSHINE",
+    pre:     new Set([0, 6, 10, 12]),
+    prePlace:[[1,1,0],[3,9,6],[7,1,10],[9,9,12]],
+    collect: [[1,3,2],[1,5,5],[1,7,1],
+              [3,7,3],[3,5,4],[3,3,7],
+              [5,3,8],[5,5,9],[5,7,11]],
+    winMsg:  "HELLO SUNSHINE!",
     nextLabel:"Try the next puzzle!",
   },
   {
-    words:   ["TOP", "OF", "THE", "MORNING", "TO", "YOU"],
-    flat:    "TOPOFTHEMORNINGTOYOU",
-    pre:     new Set([0, 6, 12, 19]),
-    // Pre-filled: T(0) at start, H(6) at top-right, I(12) at bottom-left, U(19) at end
-    prePlace:[[1,1,0],[3,9,6],[7,1,12],[9,9,19]],
-    // Collectible: 16 letters scrambled
-    collect: [[1,3,10],[1,5,3],[1,7,16],[3,7,7],[3,5,14],[3,3,1],
-              [5,3,17],[5,5,5],[5,7,13],[7,7,9],[7,5,2],[7,3,18],[9,2,8],[9,4,4],[9,7,15],[9,8,11]],
-    winMsg:  "TOP OF THE MORNING TO YOU!",
+    words:   ["SPRING", "HAS", "SPRUNG"],
+    flat:    "SPRINGHASSPRUNG",
+    pre:     new Set([0, 6, 12, 14]),
+    prePlace:[[1,1,0],[3,9,6],[7,1,12],[9,9,14]],
+    collect: [[1,3,3],[1,5,1],[1,7,10],
+              [3,7,7],[3,5,4],[3,3,2],
+              [5,3,11],[5,5,8],[5,7,5],
+              [7,7,13],[7,5,9]],
+    winMsg:  "SPRING HAS SPRUNG!",
     nextLabel:"Try the next puzzle!",
   },
   {
-    words:   ["IRISH", "EYES", "ARE", "SMILING"],
-    flat:    "IRISHEYESARESMILING",
-    pre:     new Set([0, 5, 11, 17]),
-    prePlace:[[1,1,0],[3,9,5],[7,1,11],[9,9,17]],
-    collect: [[1,3,10],[1,5,3],[1,7,16],
-              [3,7,7],[3,5,14],[3,3,1],
-              [5,3,18],[5,5,4],[5,7,12],
-              [7,7,9],[7,5,2],[7,3,15],
-              [9,3,6],[9,5,13],[9,7,8]],
-    winMsg:  "IRISH EYES ARE SMILING!",
+    words:   ["SUNNY", "DAYS", "AHEAD"],
+    flat:    "SUNNYDAYSAHEAD",
+    pre:     new Set([0, 4, 9, 13]),
+    prePlace:[[1,1,0],[3,9,4],[7,1,9],[9,9,13]],
+    collect: [[1,3,2],[1,5,8],[1,7,1],
+              [3,7,3],[3,5,6],[3,3,7],
+              [5,3,5],[5,5,10],[5,7,11],
+              [7,7,12]],
+    winMsg:  "SUNNY DAYS AHEAD!",
     nextLabel:"Try the next puzzle!",
   },
 ];
@@ -61,12 +59,10 @@ function buildLetterMap(puzzle) {
 const SHIMMER_COLORS = ["#a7f3d0","#6ee7b7","#fde68a","#fbcfe8","#c4b5fd","#93c5fd"];
 
 const FUN_FACTS = [
-  "The first St. Patrick's Day parade was held in Boston in 1737, not Ireland!",
-  "Blue was the original colour associated with St. Patrick. Green came later.",
-  "There are about 10,000 regular three-leaf clovers for every one four-leaf clover.",
-  "St. Patrick was born in Britain, likely Wales or Scotland, around 385 AD.",
-  "The shamrock was used by St. Patrick to explain the Holy Trinity to the Irish.",
-  "Chicago has dyed its river green for St. Patrick's Day every year since 1962.",
+  "Spring is a season of renewal, marked by the vernal equinox when the Earth's tilt causes nearly equal day and night worldwide. The word vernal means spring, and equinox comes from Latin words meaning equal night.",
+  "Spring officially brings warmer weather, melting snow, blooming flowers, and the end of hibernation for animals. Increased sunshine boosts Vitamin D and raises energy levels, making people more active and happier.",
+  "Spring is famous for newborn animals, increased pollinator activity, and cultural celebrations. Baby birds learn their songs in spring, while migratory birds return north.",
+  "Black bears, squirrels, and marmots emerge from hibernation during spring. Honeybees often swarm in spring to look for a new place to build a hive.",
 ];
 
 // Maze: 11 cols x 11 rows, snake path verified by BFS
@@ -94,40 +90,34 @@ const TURN_ARROWS = {
   "5-9":"v","7-9":"v","7-1":"v","9-1":">",
 };
 
-// Built dynamically when puzzle changes - see component state
-
 const CHARM_MAP = {
-  "1-4":{ emoji:"shamrock", msg:"A lucky find! Keep going!", spin:"3s" },
-  "3-4":{ emoji:"star",     msg:"You're glowing! Halfway through this row!", spin:"2s" },
-  "5-6":{ emoji:"teapot",   msg:"Tea break! You're doing wonderfully!", spin:"4s" },
-  "7-4":{ emoji:"clover",   msg:"The luck of the Irish is with you!", spin:"1.5s" },
-  "9-5":{ emoji:"heart",    msg:"Almost there! The griddle is waiting!", spin:"2.5s" },
+  "1-4":{ emoji:"flower", msg:"A beautiful find! Keep going!", spin:"3s" },
+  "3-4":{ emoji:"star",   msg:"You're glowing! Halfway through this row!", spin:"2s" },
+  "5-6":{ emoji:"teapot", msg:"Tea break! You're doing wonderfully!", spin:"4s" },
+  "7-4":{ emoji:"flower", msg:"You are doing something wonderful - keep going!", spin:"1.5s" },
+  "9-5":{ emoji:"heart",  msg:"Almost there! The griddle is waiting!", spin:"2.5s" },
 };
 
 const CHARM_DISPLAY = {
-  shamrock: "\u2618\uFE0F",
-  star:     "\u2B50",
-  teapot:   "\u{1FAD6}",
-  clover:   "\u{1F340}",
-  heart:    "\u{1F49B}",
+  flower: "&#x1F338;",
+  star:   "&#x2B50;",
+  teapot: "&#x1FAD6;",
+  heart:  "&#x1F49B;",
 };
 
 export default function LetterGriddleMaze() {
   const [puzzleIdx,      setPuzzleIdx]      = useState(0);
 
-  // Derive all puzzle-specific values from current puzzle index
   const puzzle       = PUZZLES[puzzleIdx];
   const MESSAGE_FLAT = puzzle.flat;
   const PRE_FILLED   = puzzle.pre;
   const LETTER_MAP   = buildLetterMap(puzzle);
   const totalCollect = Object.values(LETTER_MAP).filter(v => !v.preFilled).length;
 
-  // Keep a ref to current LETTER_MAP so tryMove always reads the latest version
-  // even if puzzleIdx state hasn't propagated yet
-  const letterMapRef = useRef(LETTER_MAP);
+  const letterMapRef   = useRef(LETTER_MAP);
   const messageFlatRef = useRef(MESSAGE_FLAT);
   useEffect(() => {
-    letterMapRef.current = LETTER_MAP;
+    letterMapRef.current   = LETTER_MAP;
     messageFlatRef.current = MESSAGE_FLAT;
   });
 
@@ -208,7 +198,6 @@ export default function LetterGriddleMaze() {
 
   useEffect(() => {
     const onKey = e => {
-      // Maze navigation
       if (!rearrangeModeRef.current) {
         const map = {
           ArrowUp:[-1,0], ArrowDown:[1,0], ArrowLeft:[0,-1], ArrowRight:[0,1],
@@ -217,30 +206,26 @@ export default function LetterGriddleMaze() {
         if (map[e.key]) { e.preventDefault(); tryMove(...map[e.key]); }
         return;
       }
-
-      // Rearrange mode keyboard support
-      const puzzle = PUZZLES[puzzleIdxRef.current];
-      const allSlots = puzzle.flat.split("").map((_,i) => i).filter(i => !puzzle.pre.has(i));
+      const puz = PUZZLES[puzzleIdxRef.current];
+      const allSlots = puz.flat.split("").map((_,i) => i).filter(i => !puz.pre.has(i));
       const bankLen  = collectedBankRef.current.length;
       const bank     = collectedBankRef.current;
 
-      // Letter key typed: find that letter in bank and place directly into next empty slot
       if (e.key.length === 1 && /[a-zA-Z]/.test(e.key)) {
         e.preventDefault();
         const typed = e.key.toUpperCase();
         const bankIdx = bank.findIndex(item => item.letter === typed);
         if (bankIdx === -1) return;
         const currentGriddle = griddleLetsRef.current;
-        // Find target: selected empty slot first, then next available empty slot
-        let targetSlot = (selSlotRef.current !== null && currentGriddle[selSlotRef.current] === null)
-          ? selSlotRef.current
-          : allSlots.find(si => currentGriddle[si] === null) ?? null;
+        const selSlotVal = selSlotRef.current;
+        let targetSlot = (selSlotVal !== null && currentGriddle[selSlotVal] === null)
+          ? selSlotVal
+          : allSlots.find(si => currentGriddle[si] === null) || null;
         if (targetSlot === null) return;
         const item = bank[bankIdx];
-        // Place directly via state setters - no click simulation, no race condition
         setGriddleLetters(g => { const n=[...g]; n[targetSlot]=item.letter; return n; });
         setCollectedBank(b => b.filter((_,j) => j !== bankIdx));
-        checkPlacement(item.letter, targetSlot);
+        checkPlacementDirect(item.letter, targetSlot);
         setSelBank(null);
         setSelSlot(null);
         return;
@@ -249,10 +234,8 @@ export default function LetterGriddleMaze() {
       if (e.key === "Escape") {
         e.preventDefault();
         setSelBank(null); setSelSlot(null);
-
       } else if (e.key === "Tab") {
         e.preventDefault();
-        // Cycle through bank letters with Tab, slots with Shift+Tab
         if (!e.shiftKey) {
           setSelSlot(null);
           setSelBank(prev => {
@@ -269,23 +252,23 @@ export default function LetterGriddleMaze() {
             return allSlots[(idx + 1) % allSlots.length];
           });
         }
-
       } else if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        // Enter/Space confirms: same as tapping the selected item
-        // We read current selection from state via refs updated below
-        selBankRef.current !== null
-          ? document.getElementById("bank-"+selBankRef.current)?.click()
-          : selSlotRef.current !== null
-            ? document.getElementById("slot-"+selSlotRef.current)?.click()
-            : null;
+        const bRef = selBankRef.current;
+        const sRef = selSlotRef.current;
+        if (bRef !== null) {
+          const el = document.getElementById("bank-"+bRef);
+          if (el) el.click();
+        } else if (sRef !== null) {
+          const el = document.getElementById("slot-"+sRef);
+          if (el) el.click();
+        }
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [tryMove]);
 
-  // Refs so keyboard handler can read latest selection without stale closure
   const puzzleIdxRef    = useRef(0);
   const collectedBankRef = useRef([]);
   const selBankRef      = useRef(null);
@@ -311,10 +294,15 @@ export default function LetterGriddleMaze() {
   };
   const dpadPress = (dr, dc) => e => { e.stopPropagation(); tryMove(dr, dc); };
 
-  // Two-way letter placement
+  const checkPlacementDirect = (letter, si) => {
+    if (letter !== messageFlatRef.current[si]) {
+      setShakingSlot(si);
+      setTimeout(() => setShakingSlot(null), 500);
+    }
+  };
+
   const clickBank = i => {
     if (selBank === i) { setSelBank(null); return; }
-    // If a slot is already highlighted and waiting, place the letter there immediately
     if (selSlot !== null) {
       const item = collectedBank[i];
       const displaced = griddleLetters[selSlot];
@@ -324,7 +312,7 @@ export default function LetterGriddleMaze() {
       } else {
         setCollectedBank(b => b.filter((_,j) => j !== i));
       }
-      checkPlacement(item.letter, selSlot);
+      checkPlacementDirect(item.letter, selSlot);
       setSelSlot(null); setSelBank(null);
       return;
     }
@@ -334,9 +322,7 @@ export default function LetterGriddleMaze() {
   const clickSlot = si => {
     if (PRE_FILLED.has(si)) return;
     const letter = griddleLetters[si];
-
     if (selBank !== null) {
-      // Place bank letter into slot
       const item = collectedBank[selBank];
       const displaced = griddleLetters[si];
       setGriddleLetters(g => { const n=[...g]; n[si]=item.letter; return n; });
@@ -345,24 +331,19 @@ export default function LetterGriddleMaze() {
       } else {
         setCollectedBank(b => b.filter((_,i) => i !== selBank));
       }
-      checkPlacement(item.letter, si);
+      checkPlacementDirect(item.letter, si);
       setSelBank(null);
-
     } else if (selSlot !== null) {
       if (selSlot === si) { setSelSlot(null); return; }
       if (!PRE_FILLED.has(selSlot)) {
         if (letter === null) {
-          // Move slot letter to empty slot
           setGriddleLetters(g => { const n=[...g]; n[si]=n[selSlot]; n[selSlot]=null; return n; });
         } else {
-          // Swap two filled slots
           setGriddleLetters(g => { const n=[...g]; [n[selSlot],n[si]]=[n[si],n[selSlot]]; return n; });
         }
       }
       setSelSlot(null);
-
     } else {
-      // Select any slot (filled or empty) so it lights up ready to receive a letter
       setSelSlot(si);
     }
   };
@@ -387,21 +368,12 @@ export default function LetterGriddleMaze() {
     });
   };
 
-  // Check if a letter placed at slot si is correct for the current puzzle
-  const checkPlacement = (letter, si) => {
-    if (letter !== messageFlatRef.current[si]) {
-      setShakingSlot(si);
-      setTimeout(() => setShakingSlot(null), 500);
-    }
-  };
-
   const checkAnswer = () => {
     if (griddleLetters.join("") === MESSAGE_FLAT) {
       wonRef.current = true;
       setWon(true);
       const fact = FUN_FACTS[Math.floor(Math.random()*FUN_FACTS.length)];
       setFunFact(fact);
-      // Confetti
       const pieces = Array.from({ length:80 }, (_,i) => ({
         id:i, x:Math.random()*100, delay:Math.random()*1.2,
         dur:2+Math.random()*2,
@@ -420,12 +392,12 @@ export default function LetterGriddleMaze() {
     const charmCount = foundCharms.size;
     const total = Object.keys(CHARM_MAP).length;
     const text =
-      "\u2618\uFE0F I solved the Letter Griddle Maze!\n\n" +
+      "\uD83C\uDF38 I solved the Letter Griddle Maze!\n\n" +
       "\u2728 Found " + charmCount + "/" + total + " charms\n" +
-      "\uD83D\uDFE9 I revealed the secret message!\n\n" +
+      "\u2600\uFE0F I revealed the secret message!\n\n" +
       "lettergriddle.com/maze\n" +
-"\uD83D\uDCDA Read the St. Patrick's Day story:\n" +
-"lettergriddlecafe.com\n" +
+      "\uD83D\uDCDA Read Letter Griddle Stories:\n" +
+      "lettergriddlecafe.com\n" +
       "\uD83E\uDD5E More: lettergriddle.com";
     if (navigator.share) {
       try { await navigator.share({ title:"Letter Griddle Maze", text }); return; }
@@ -438,17 +410,14 @@ export default function LetterGriddleMaze() {
 
   const resetForPuzzle = (pIdx) => {
     const p = PUZZLES[pIdx];
-    // Update refs immediately so tryMove uses new puzzle data right away
-    letterMapRef.current = buildLetterMap(p);
+    letterMapRef.current   = buildLetterMap(p);
     messageFlatRef.current = p.flat;
-    // Always wipe collected state completely before loading new puzzle
-    collectedRef.current = new Set();
+    collectedRef.current   = new Set();
     setCollectedSet(new Set());
     foundCharmsRef.current = new Set();
     setFoundCharms(new Set());
     setPlayerPos({ r:1, c:1 });
     setCollectedBank([]);
-    // Build fresh griddle from the target puzzle - not from stale derived state
     setGriddleLetters(p.flat.split("").map((l,i) => p.pre.has(i) ? l : null));
     rearrangeModeRef.current = false;
     setRearrangeMode(false);
@@ -462,20 +431,22 @@ export default function LetterGriddleMaze() {
     setCopyMsg(false);
     setStartPulse(true);
     setTimeout(() => setStartPulse(false), 6000);
-    // Keep welcome hidden on replay - player already knows how to play
   };
 
   const reset = () => resetForPuzzle(puzzleIdx);
 
   const switchPuzzle = () => {
     const next = (puzzleIdx + 1) % PUZZLES.length;
-    // Set puzzle index first, then reset using explicit index (not stale puzzleIdx)
     setPuzzleIdx(next);
     resetForPuzzle(next);
   };
 
   const gotCount = [...collectedSet].filter(k => LETTER_MAP[k] && !LETTER_MAP[k].preFilled).length;
   const allPlaced = collectedBank.length === 0;
+
+  const CharmIcon = ({ emoji }) => (
+    <span dangerouslySetInnerHTML={{ __html: CHARM_DISPLAY[emoji] }} />
+  );
 
   return (
     <div className={BG} style={{ fontFamily:FONT, userSelect:"none" }}>
@@ -519,9 +490,8 @@ export default function LetterGriddleMaze() {
           style={{ animation:"charmIn .35s ease-out forwards" }}>
           <div className="flex items-center gap-3 px-5 py-3 rounded-2xl border border-emerald-400 shadow-2xl"
             style={{ background:"linear-gradient(135deg,#064e3b,#065f46)", boxShadow:"0 0 30px #6ee7b799" }}>
-            <span className="text-3xl" style={{ animation:"spinA "+charmPopup.spin+" linear infinite", display:"inline-block" }}>
-              {charmPopup.display}
-            </span>
+            <span className="text-3xl" style={{ animation:"spinA "+charmPopup.spin+" linear infinite", display:"inline-block" }}
+              dangerouslySetInnerHTML={{ __html: charmPopup.display }} />
             <p className="text-emerald-100 text-sm font-medium" style={{ maxWidth:200 }}>{charmPopup.msg}</p>
           </div>
         </div>
@@ -533,7 +503,7 @@ export default function LetterGriddleMaze() {
           onClick={() => setShowFunFact(false)}>
           <div className="rounded-2xl p-6 max-w-sm w-full border border-emerald-400 shadow-2xl text-center"
             style={{ background:"linear-gradient(135deg,#064e3b,#065f46)", animation:"factIn .4s ease-out" }}>
-            <div className="text-4xl mb-3">&#x2618;&#xFE0F;</div>
+            <div className="text-4xl mb-3">&#x1F338;</div>
             <h3 className="text-emerald-200 font-bold text-base mb-2">Did You Know?</h3>
             <p className="text-emerald-100 text-sm leading-relaxed mb-4">{funFact}</p>
             <button onClick={() => setShowFunFact(false)}
@@ -557,10 +527,10 @@ export default function LetterGriddleMaze() {
                 className="text-emerald-400 hover:text-emerald-200 text-xl leading-none">X</button>
             </div>
             <div className="space-y-3 text-emerald-100 text-sm leading-relaxed">
-              <p>Navigate your shamrock through the maze using the d-pad, arrow keys, click, tap, or swipe.</p>
-              <p><span className="text-amber-300 font-bold">Amber tiles</span> are letters to collect.  Walk over them!</p>
+              <p>Navigate your <strong>sun</strong> through the maze using the d-pad, arrow keys, click, tap, or swipe.</p>
+              <p><span className="text-amber-300 font-bold">Amber tiles</span> are letters to collect. Walk over them!</p>
               <p><span className="text-emerald-300 font-bold">Green tiles</span> are already filled in the griddle below.</p>
-              <p>Hidden <strong>charms</strong> spin along the path.  Step on them for a surprise message!</p>
+              <p>Hidden <strong>charms</strong> spin along the path. Step on them for a surprise message!</p>
               <p>Reach the <strong>star</strong> to finish the maze, then arrange your letters to spell the secret message.</p>
               <p>Tap a letter from your bank, then tap a slot to place it. Tap a filled slot to select it, then tap another slot to swap. Double-tap a filled slot to return it to your bank.</p>
               <p>Use the <strong>Shuffle</strong> button to mix up your letter bank.</p>
@@ -592,13 +562,13 @@ export default function LetterGriddleMaze() {
           </button>
           <div className="text-center">
             <div className="flex items-center justify-center gap-2">
-              <span className="text-xl">&#x1F340;</span>
+              <span className="text-xl">&#x1F338;</span>
               <h1 className="text-base font-bold text-emerald-200 tracking-widest uppercase"
                 style={{ textShadow:"0 0 16px #6ee7b7" }}>Letter Griddle Maze</h1>
-              <span className="text-xl">&#x1F340;</span>
+              <span className="text-xl">&#x1F337;</span>
             </div>
             <p className="text-emerald-400 text-xs mt-0.5">
-              {won ? "You did it!" : rearrangeMode ? "Arrange letters to reveal the message!" : "Collect all letters and reach the star!"}
+              {won ? "You did it!" : rearrangeMode ? "Arrange letters to reveal the message!" : "A Spring Adventure!"}
             </p>
             <p className="text-emerald-600 text-xs">Puzzle {puzzleIdx + 1} of {PUZZLES.length}</p>
           </div>
@@ -611,20 +581,20 @@ export default function LetterGriddleMaze() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-emerald-950/90 px-6">
           <div className="rounded-3xl p-8 max-w-sm w-full border-2 border-emerald-500 shadow-2xl text-center"
             style={{ background:"linear-gradient(160deg,#064e3b,#065f46,#064e3b)", boxShadow:"0 0 40px #6ee7b744" }}>
-            <div className="text-5xl mb-3">&#x1F340;</div>
+            <div className="text-5xl mb-3">&#x1F338;</div>
             <h2 className="text-xl font-bold text-emerald-200 tracking-widest uppercase mb-4"
               style={{ textShadow:"0 0 16px #6ee7b7" }}>Letter Griddle Maze</h2>
             <div className="space-y-3 text-emerald-100 text-sm leading-relaxed text-left mb-6">
               <p className="flex items-start gap-2">
-                <span className="text-lg mt-0.5">&#x1F340;</span>
-                <span>Navigate your shamrock through the maze using the <strong>d-pad</strong>, <strong>arrow keys</strong>, <strong>tap</strong>, <strong>click</strong>, or <strong>swipe</strong>.</span>
+                <span className="text-lg mt-0.5">&#x2600;&#xFE0F;</span>
+                <span>Navigate your <strong>sun</strong> through the maze using the <strong>d-pad</strong>, <strong>arrow keys</strong>, <strong>tap</strong>, <strong>click</strong>, or <strong>swipe</strong>.</span>
               </p>
               <p className="flex items-start gap-2">
                 <span className="text-lg mt-0.5">&#x1F7E8;</span>
                 <span>Walk over <strong className="text-amber-300">amber letter tiles</strong> to collect them.</span>
               </p>
               <p className="flex items-start gap-2">
-                <span className="text-2728">&#x2728;</span>
+                <span className="text-lg mt-0.5">&#x2728;</span>
                 <span>Find hidden <strong>charms</strong> along the path for a surprise!</span>
               </p>
               <p className="flex items-start gap-2">
@@ -638,7 +608,7 @@ export default function LetterGriddleMaze() {
             </div>
             <button onClick={() => setShowWelcome(false)}
               className="w-full py-3 rounded-full bg-emerald-400 text-emerald-950 font-bold text-base hover:bg-emerald-300 transition-all shadow-lg">
-              Let's Play! &#x1F340;
+              Let's Play! &#x1F338;
             </button>
           </div>
         </div>
@@ -670,7 +640,7 @@ export default function LetterGriddleMaze() {
               gridTemplateColumns:"repeat("+COLS+", "+CELL+"px)",
               gridTemplateRows:"repeat("+ROWS+", "+CELL+"px)" }}>
               {RAW_MAZE.map((row,r) => row.map((cell,c) => {
-                const key = r+"-"+c;
+                const key      = r+"-"+c;
                 const isPlayer = playerPos.r===r && playerPos.c===c;
                 const entry    = LETTER_MAP[key];
                 const charm    = CHARM_MAP[key];
@@ -715,7 +685,7 @@ export default function LetterGriddleMaze() {
                             animation:"spinA "+charm.spin+" linear infinite" }}/>
                         <span className="text-xl relative z-10"
                           style={{ animation:"spinA "+charm.spin+" linear infinite", display:"inline-block" }}>
-                          {CHARM_DISPLAY[charm.emoji]}
+                          <CharmIcon emoji={charm.emoji} />
                         </span>
                       </div>
                     )}
@@ -744,7 +714,7 @@ export default function LetterGriddleMaze() {
                     {isPlayer && (
                       <div className="z-20 flex items-center justify-center text-3xl"
                         style={{ filter:"drop-shadow(0 0 8px #fde68a)", lineHeight:1 }}>
-                        &#x1F340;
+                        &#x2600;&#xFE0F;
                       </div>
                     )}
 
@@ -769,7 +739,7 @@ export default function LetterGriddleMaze() {
                 &#9664;
               </button>
               <div className="w-12 h-11 rounded-xl bg-emerald-950 border border-emerald-800 flex items-center justify-center text-2xl">
-                &#x1F340;
+                &#x2600;&#xFE0F;
               </div>
               <button onTouchStart={dpadPress(0,1)} onTouchEnd={e=>e.stopPropagation()} onClick={()=>tryMove(0,1)}
                 className="w-12 h-11 rounded-xl bg-emerald-800 border border-emerald-600 text-emerald-100 text-xl shadow-lg active:bg-emerald-600 active:scale-95 transition-all">
@@ -788,7 +758,7 @@ export default function LetterGriddleMaze() {
               <span key={i} className="text-lg transition-all"
                 style={{ opacity:foundCharms.has(key)?1:0.25,
                   filter:foundCharms.has(key)?"drop-shadow(0 0 4px #6ee7b7)":"none" }}>
-                {CHARM_DISPLAY[CHARM_MAP[key].emoji]}
+                <CharmIcon emoji={CHARM_MAP[key].emoji} />
               </span>
             ))}
             <span className="text-emerald-500 text-xs ml-1">
@@ -802,13 +772,12 @@ export default function LetterGriddleMaze() {
       {rearrangeMode && !won && (
         <div className="relative z-10 w-full max-w-sm flex flex-col items-center gap-3 mt-1 px-3">
           <p className="text-emerald-300 text-sm text-center">You made it! Place your letters into the griddle.</p>
-
           <div className="w-full">
             <div className="flex items-center justify-between mb-1 px-1">
               <p className="text-emerald-400 text-xs tracking-wider uppercase">Your letters</p>
               <button onClick={shuffleBank}
                 className="flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-800 border border-emerald-600 text-emerald-200 text-xs hover:bg-emerald-700 active:scale-95 transition-all">
-                &#x1F340; Shuffle
+                &#x1F338; Shuffle
               </button>
             </div>
             <div className="flex gap-2 flex-wrap justify-center p-3 rounded-2xl bg-emerald-950 border border-emerald-700 min-h-14">
@@ -827,7 +796,6 @@ export default function LetterGriddleMaze() {
               }
             </div>
           </div>
-
           <p className="text-emerald-500 text-xs text-center">
             {selBank !== null
               ? "Tap a slot in the griddle below"
@@ -835,14 +803,13 @@ export default function LetterGriddleMaze() {
                 ? "Tap another slot to swap, or same slot to deselect"
                 : "Tap a letter above, then tap a slot. Double-tap a slot to return it."}
           </p>
-
           {foundCharms.size > 0 && (
             <div className="flex items-center gap-2">
               <span className="text-emerald-500 text-xs">Charms:</span>
               {Object.keys(CHARM_MAP).map((key,i) => (
                 <span key={i} className="text-base"
                   style={{ opacity:foundCharms.has(key)?1:0.2 }}>
-                  {CHARM_DISPLAY[CHARM_MAP[key].emoji]}
+                  <CharmIcon emoji={CHARM_MAP[key].emoji} />
                 </span>
               ))}
             </div>
@@ -853,7 +820,7 @@ export default function LetterGriddleMaze() {
       {/* Win screen */}
       {won && (
         <div className="relative z-10 flex flex-col items-center gap-3 mt-2 px-4">
-          <div className="text-5xl animate-bounce">&#x2B50;</div>
+          <div className="text-5xl animate-bounce">&#x1F338;</div>
           <h2 className="text-xl font-bold text-emerald-200 text-center"
             style={{ animation:"glowA 2s ease-in-out infinite" }}>
             {puzzle.winMsg}
@@ -867,7 +834,7 @@ export default function LetterGriddleMaze() {
               <span key={i} className="text-2xl"
                 style={{ opacity:foundCharms.has(key)?1:0.2,
                   filter:foundCharms.has(key)?"drop-shadow(0 0 6px #6ee7b7)":"none" }}>
-                {CHARM_DISPLAY[CHARM_MAP[key].emoji]}
+                <CharmIcon emoji={CHARM_MAP[key].emoji} />
               </span>
             ))}
           </div>
@@ -899,7 +866,6 @@ export default function LetterGriddleMaze() {
             <span className="text-emerald-300 text-xs tracking-widest uppercase">Letter Griddle</span>
             <span>&#x1F95E;</span>
           </div>
-
           <div className="flex flex-col items-center gap-2 px-3 pt-2 pb-3">
             {(() => {
               let idx = 0;
@@ -939,7 +905,6 @@ export default function LetterGriddleMaze() {
               });
             })()}
           </div>
-
           {!rearrangeMode && !won && (
             <div className="px-4 pb-3">
               <div className="flex justify-between text-emerald-500 text-xs mb-1">
@@ -955,7 +920,6 @@ export default function LetterGriddleMaze() {
               </p>
             </div>
           )}
-
           {rearrangeMode && !won && allPlaced && (
             <div className="flex justify-center pb-3">
               <button onClick={checkAnswer}
@@ -987,4 +951,3 @@ export default function LetterGriddleMaze() {
     </div>
   );
 }
-

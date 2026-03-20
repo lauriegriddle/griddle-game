@@ -813,7 +813,7 @@ export default function GriddleLogic() {
             borderRadius: "12px", marginBottom: "14px", animation: "fadeInUp 0.3s ease",
           }}>
             <span style={{ fontSize: "14px", color: "#DC2626" }}>
-              Some items aren't quite right — keep thinking! 🤔
+              Some items aren't quite right.  Keep thinking! 🤔
             </span>
           </div>
         )}

@@ -132,7 +132,7 @@ const SpinsGame = () => {
       artist: "The Four Tops",
       year: "1965",
       hint: "This Motown classic features one of the most irresistible hooks in music history and was recorded in the legendary Studio A in Detroit.",
-      didYouKnow: "The Four Tops kept the same lineup for over 40 years - Levi Stubbs, Abdul 'Duke' Fakir, Renaldo 'Obie' Benson, and Lawrence Payton never had a single member change!",
+      didYouKnow: "The Four Tops kept the same lineup for over 40 years:  Levi Stubbs, Abdul 'Duke' Fakir, Renaldo 'Obie' Benson, and Lawrence Payton never had a single member change!",
       revealedIndex: 5
     },
     {

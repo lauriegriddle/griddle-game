@@ -72,69 +72,7 @@ export default function Home() {
     }
   ];
 
-  // SECTION 2: Grand Opening
-  const grandOpeningGames = [
-    {
-      name: "Pancakes",
-      tagline: "Find the words, earn the toppings! Play 30 Puzzles!",
-      emoji: "\uD83E\uDD5E",
-      href: "/pancakes",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #92400E 100%)",
-        icon: "\uD83E\uDD5E",
-        iconSize: "text-5xl",
-        title: ["Letter Griddle", "Pancakes"],
-        subtitle: "Word Search Game",
-        subtitleColor: "text-amber-100"
-      },
-      borderColor: "border-amber-400",
-      bgColor: "from-amber-100 to-orange-100",
-      textColor: "text-amber-800",
-      subTextColor: "text-amber-700",
-      hoverBg: "bg-amber-600/80"
-    },
-    {
-      name: "Griddle Logic",
-      tagline: "A fun cafe logic puzzle where you choose your challenge!",
-      emoji: "\uD83E\uDDE9",
-      href: "/logic",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%)",
-        icon: "\uD83E\uDDE9",
-        iconSize: "text-5xl",
-        title: ["Griddle", "Logic"],
-        subtitle: "Logic Puzzle",
-        subtitleColor: "text-indigo-100"
-      },
-      borderColor: "border-indigo-400",
-      bgColor: "from-indigo-100 to-purple-100",
-      textColor: "text-indigo-800",
-      subTextColor: "text-indigo-700",
-      hoverBg: "bg-indigo-500/80"
-    },
-    {
-      name: "Letter Griddle Cottage",
-      tagline: "Explore 18 Spring Puzzles! \uD83C\uDF37",
-      emoji: "\uD83C\uDF38",
-      href: "https://lettergriddlecottage.com",
-      external: true,
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%)",
-        icon: "\uD83C\uDF38",
-        iconSize: "text-4xl",
-        title: ["Letter Griddle", "Cottage"],
-        subtitle: "SPRING AWAKENING",
-        subtitleColor: "text-emerald-100"
-      },
-      borderColor: "border-emerald-400",
-      bgColor: "from-emerald-100 to-green-100",
-      textColor: "text-emerald-800",
-      subTextColor: "text-emerald-700",
-      hoverBg: "bg-emerald-500/80"
-    }
-  ];
-
-  // SECTION 3: More Daily Games
+  // SECTION 2: More Daily Games
   const moreDailyGames = [
     {
       name: "Little Letter Griddle",
@@ -200,6 +138,68 @@ export default function Home() {
       subTextColor: "text-amber-700",
       hoverBg: "bg-amber-800/80"
     },
+  ];
+
+  // SECTION 3: Grand Opening
+  const grandOpeningGames = [
+    {
+      name: "Pancakes",
+      tagline: "Find the words, earn the toppings! Play 30 Puzzles!",
+      emoji: "\uD83E\uDD5E",
+      href: "/pancakes",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #92400E 100%)",
+        icon: "\uD83E\uDD5E",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Pancakes"],
+        subtitle: "Word Search Game",
+        subtitleColor: "text-amber-100"
+      },
+      borderColor: "border-amber-400",
+      bgColor: "from-amber-100 to-orange-100",
+      textColor: "text-amber-800",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-600/80"
+    },
+    {
+      name: "Griddle Logic",
+      tagline: "A fun cafe logic puzzle where you choose your challenge!",
+      emoji: "\uD83E\uDDE9",
+      href: "/logic",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%)",
+        icon: "\uD83E\uDDE9",
+        iconSize: "text-5xl",
+        title: ["Griddle", "Logic"],
+        subtitle: "Logic Puzzle",
+        subtitleColor: "text-indigo-100"
+      },
+      borderColor: "border-indigo-400",
+      bgColor: "from-indigo-100 to-purple-100",
+      textColor: "text-indigo-800",
+      subTextColor: "text-indigo-700",
+      hoverBg: "bg-indigo-500/80"
+    },
+    {
+      name: "Letter Griddle Cottage",
+      tagline: "Explore 18 Spring Puzzles! \uD83C\uDF37",
+      emoji: "\uD83C\uDF38",
+      href: "https://lettergriddlecottage.com",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%)",
+        icon: "\uD83C\uDF38",
+        iconSize: "text-4xl",
+        title: ["Letter Griddle", "Cottage"],
+        subtitle: "SPRING AWAKENING",
+        subtitleColor: "text-emerald-100"
+      },
+      borderColor: "border-emerald-400",
+      bgColor: "from-emerald-100 to-green-100",
+      textColor: "text-emerald-800",
+      subTextColor: "text-emerald-700",
+      hoverBg: "bg-emerald-500/80"
+    }
   ];
 
   // SECTION 4: More Games (Letter Griddle Games collection)
@@ -807,7 +807,19 @@ export default function Home() {
           <GameGrid games={dailyFavorites} />
         </section>
 
-        {/* SECTION 2: Grand Opening */}
+        {/* SECTION 2: More Daily Games */}
+        <section id="more-daily" className="mb-16 scroll-mt-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+              More Daily Games
+            </h2>
+            <p className="text-amber-600">Even more puzzles that refresh daily</p>
+          </div>
+          
+          <GameGrid games={moreDailyGames} />
+        </section>
+
+        {/* SECTION 3: Grand Opening */}
         <section id="grand-opening" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
             <div 
@@ -848,17 +860,6 @@ export default function Home() {
 
         {showMoreGames && (
         <>
-        {/* SECTION 3: More Daily Games */}
-        <section id="more-daily" className="mb-16 scroll-mt-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-              More Daily Games
-            </h2>
-            <p className="text-amber-600">Even more puzzles that refresh daily</p>
-          </div>
-          
-          <GameGrid games={moreDailyGames} />
-        </section>
 
         {/* SECTION 4: Espresso Lane */}
         <section id="espresso-lane" className="mb-16 scroll-mt-8">

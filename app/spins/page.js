@@ -777,7 +777,7 @@ More games: lettergriddle.com`;
           {/* Instructions */}
           {!isComplete && (
             <div className="mt-4 text-center text-purple-300 text-sm space-y-1">
-              <p>🎵 Click a letter, then click a slot — or vice versa!</p>
+              <p>🎵 Click a letter, then click a slot or vice versa!</p>
               <p className="text-purple-400 text-xs">⌨️ Or just type letters on your keyboard</p>
             </div>
           )}

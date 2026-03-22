@@ -1338,64 +1338,64 @@ const copyToClipboard = async (text) => {
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
           This Week's Schedule
         </h2>
-        <p className="text-purple-600 font-semibold text-sm">March 15 - 21</p>
+        <p className="text-purple-600 font-semibold text-sm">March 22 - 28</p>
       </div>
       
       <div className="space-y-1.5 mb-3">
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 3/15</span>
-            <span className="font-semibold text-amber-800 text-sm">Ides of March</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 3/22</span>
+            <span className="font-semibold text-amber-800 text-sm">World Water Day</span>
           </div>
-          <span className="text-lg">🏛️</span>
+          <span className="text-lg">🌊</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 3/16</span>
-            <span className="font-semibold text-purple-800 text-sm">St. Patrick's Day</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 3/23</span>
+            <span className="font-semibold text-purple-800 text-sm">Puppy</span>
           </div>
-          <span className="text-lg">☘️</span>
+          <span className="text-lg">🐶</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 3/17</span>
-            <span className="font-semibold text-amber-800 text-sm">March Madness</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 3/24</span>
+            <span className="font-semibold text-amber-800 text-sm">Theatre</span>
           </div>
-          <span className="text-lg">🏀</span>
+          <span className="text-lg">🎭</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 3/18</span>
-            <span className="font-semibold text-purple-800 text-sm">Pie</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 3/25</span>
+            <span className="font-semibold text-purple-800 text-sm">Waffle</span>
           </div>
-          <span className="text-lg">🥧</span>
+          <span className="text-lg">🧇</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 3/19</span>
-            <span className="font-semibold text-amber-800 text-sm">First Day of Spring</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 3/26</span>
+            <span className="font-semibold text-amber-800 text-sm">Butterfly</span>
           </div>
-          <span className="text-lg">🌸</span>
+          <span className="text-lg">🦋</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 3/20</span>
-            <span className="font-semibold text-purple-800 text-sm">Vacation</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 3/27</span>
+            <span className="font-semibold text-purple-800 text-sm">Popcorn</span>
           </div>
-          <span className="text-lg">🏖️</span>
+          <span className="text-lg">🍿</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 3/21</span>
-            <span className="font-semibold text-amber-800 text-sm">Lamb</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 3/28</span>
+            <span className="font-semibold text-amber-800 text-sm">Puzzles</span>
           </div>
-          <span className="text-lg">🐑</span>
+          <span className="text-lg">🧩</span>
         </div>
       </div>
       
@@ -1410,7 +1410,6 @@ const copyToClipboard = async (text) => {
     </div>
   </div>
 )}
-
       {/* Mission Modal */}
       {showMissionModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowMissionModal(false)}>

@@ -846,7 +846,7 @@ const copyToClipboard = async (text) => {
       `}</style>
 
       <div className="max-w-5xl mx-auto relative">
-        <div className="bg-green-100 border border-green-300 rounded-lg px-3 py-2 mb-2 text-center"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-green-800 text-xs font-semibold hover:text-green-900">⭐️ Have you read the latest vignette about the scavenger hunt?  Read more</a></div>
+        <div className="bg-green-100 border border-green-300 rounded-lg px-3 py-2 mb-2 text-center"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-green-800 text-xs font-semibold hover:text-green-900">⭐️ More Letter Griddle fun ⭐️ Short stories, puzzles, & fun facts ⭐️ Enjoy</a></div>
         {/* Compact Header */}
         <div className="flex justify-between items-center mb-1.5 px-1">
           <a 

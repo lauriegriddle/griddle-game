@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from 'react';
-import { Share2, Instagram } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Share2, Instagram, BarChart3, X } from 'lucide-react';
 
 // Daily trivia questions - tied to Letter Griddle themes
 const triviaQuestions = [
@@ -1244,6 +1244,15 @@ const getTodaysQuestion = () => {
 
 const FlipsGame = () => {
   const [question] = useState(getTodaysQuestion());
+  const [showStatsModal, setShowStatsModal] = useState(false);
+const [flipsStats, setFlipsStats] = useState({
+  totalFlips: 0,
+  correctAnswers: 0,
+  correctWithHint: 0,
+  currentStreak: 0,
+  maxStreak: 0,
+  lastCorrectDate: null
+});
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showHint, setShowHint] = useState(false);
   const [hasAnswered, setHasAnswered] = useState(false);
@@ -1251,6 +1260,16 @@ const FlipsGame = () => {
   const [shareCopied, setShareCopied] = useState(false);
   const [puzzleFeedback, setPuzzleFeedback] = useState(null);
 const [feedbackSent, setFeedbackSent] = useState(false);
+useEffect(() => {
+    try {
+      const saved = localStorage.getItem('griddleFlipsStats');
+      if (saved) {
+        setFlipsStats(JSON.parse(saved));
+      }
+    } catch (e) {
+      console.error('Could not load flips stats', e);
+    }
+  }, []);
 
   const handleCardClick = (option) => {
     if (hasAnswered || isFlipping) return;
@@ -1261,6 +1280,37 @@ const [feedbackSent, setFeedbackSent] = useState(false);
     setTimeout(() => {
       setHasAnswered(true);
       setIsFlipping(false);
+
+      const correct = option === question.correctAnswer;
+      try {
+        const saved = localStorage.getItem('griddleFlipsStats');
+        const current = saved ? JSON.parse(saved) : {
+          totalFlips: 0, correctAnswers: 0, correctWithHint: 0,
+          currentStreak: 0, maxStreak: 0, lastCorrectDate: null
+        };
+
+        const today = new Date().toDateString();
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
+        const newStreak = correct
+          ? (current.lastCorrectDate === yesterday || current.lastCorrectDate === today
+            ? current.currentStreak + 1 : 1)
+          : current.currentStreak;
+
+        const newStats = {
+          ...current,
+          totalFlips: current.totalFlips + 1,
+          correctAnswers: correct ? current.correctAnswers + 1 : current.correctAnswers,
+          correctWithHint: correct && showHint ? current.correctWithHint + 1 : current.correctWithHint,
+          currentStreak: newStreak,
+          maxStreak: Math.max(current.maxStreak, newStreak),
+          lastCorrectDate: correct ? today : current.lastCorrectDate
+        };
+
+        setFlipsStats(newStats);
+        localStorage.setItem('griddleFlipsStats', JSON.stringify(newStats));
+      } catch (e) {
+        console.error('Could not save flips stats', e);
+      }
     }, 600);
   };
 
@@ -1350,7 +1400,17 @@ const copyToClipboard = async (text) => {
   </div>
 
   {/* Header */}
-  <div className="text-center mb-6">
+  <div className="text-center mb-6 relative">
+    <div className="absolute right-0 top-0">
+      <button
+        onClick={() => setShowStatsModal(true)}
+        className="flex items-center gap-1 text-amber-200 hover:text-amber-100 transition-colors"
+        title="Your Stats"
+      >
+        <BarChart3 size={18} />
+        <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>Stats</span>
+      </button>
+    </div>
     <div className="text-5xl mb-2">☕</div>
     <h1 className="text-3xl font-bold text-amber-100" style={{fontFamily: 'Georgia, serif'}}>
       Letter Griddle Flips
@@ -1546,6 +1606,58 @@ const copyToClipboard = async (text) => {
         </div>
       </footer>
 
+      {showStatsModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowStatsModal(false)}>
+          <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setShowStatsModal(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+              <X size={24} />
+            </button>
+
+            <div className="text-center mb-4">
+              <p className="text-3xl mb-2">☕</p>
+              <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>Your Flips Stats</h2>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">{flipsStats.totalFlips}</div>
+                <div className="text-xs text-amber-600 mt-1">Total Flips</div>
+              </div>
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">{flipsStats.correctAnswers}</div>
+                <div className="text-xs text-amber-600 mt-1">Correct Answers</div>
+              </div>
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">
+                  {flipsStats.totalFlips > 0 ? Math.round((flipsStats.correctAnswers / flipsStats.totalFlips) * 100) : 0}%
+                </div>
+                <div className="text-xs text-amber-600 mt-1">Accuracy</div>
+              </div>
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">{flipsStats.currentStreak}</div>
+                <div className="text-xs text-amber-600 mt-1">Win Streak 🔥</div>
+              </div>
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">{flipsStats.maxStreak}</div>
+                <div className="text-xs text-amber-600 mt-1">Best Streak</div>
+              </div>
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">{flipsStats.correctWithHint}</div>
+                <div className="text-xs text-amber-600 mt-1">Won with Hint 💡</div>
+              </div>
+            </div>
+
+           <div className="bg-amber-50 rounded-xl p-3 text-center">
+              <div className="text-2xl font-bold text-amber-800">
+                {flipsStats.correctAnswers - flipsStats.correctWithHint}
+              </div>
+              <div className="text-xs text-amber-600 mt-1">Won Without Hint ✨</div>
+            </div>
+
+            <p className="text-center text-xs text-gray-400">Stats saved locally on your device</p>
+          </div>
+        </div>
+      )}
       {/* Custom animation styles */}
       <style jsx>{`
         @keyframes fade-in {

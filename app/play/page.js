@@ -53,6 +53,7 @@ const PancakeWordGame = () => {
   const [shareCopied, setShareCopied] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const [musicEnabled, setMusicEnabled] = useState(false);
+  const [nightMode, setNightMode] = useState(false);
   const audioRef = useRef(null);
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const playlist = ['/cafe-music.mp3', '/cafe-music-2.mp3', '/cafe-music-3.mp3', '/cafe-music-4.mp3'];
@@ -130,6 +131,10 @@ useEffect(() => {
   const saved = localStorage.getItem('griddleMusicEnabled');
   if (saved === 'true') {
     setMusicEnabled(true);
+  }
+  const savedNight = localStorage.getItem('griddleNightMode');
+  if (savedNight === 'true') {
+    setNightMode(true);
   }
 }, []);
 
@@ -670,6 +675,12 @@ useEffect(() => {
     localStorage.setItem('griddleMusicEnabled', newState.toString());
   };
 
+  const toggleNightMode = () => {
+  const newState = !nightMode;
+  setNightMode(newState);
+  localStorage.setItem('griddleNightMode', newState.toString());
+};
+
   const toggleHint = (idx) => {
     setHintsRevealed(prev => {
       const newHints = [...prev];
@@ -799,6 +810,9 @@ const copyToClipboard = async (text) => {
       <div className="fixed top-2 right-2 text-3xl opacity-20">🥞</div>
       <div className="fixed bottom-2 left-2 text-3xl opacity-20">🍯</div>
       <div className="fixed bottom-2 right-2 text-3xl opacity-20">🧇</div>
+      {nightMode && (
+  <div className="fixed inset-0 pointer-events-none z-10" style={{background: 'rgba(120, 60, 0, 0.18)', transition: 'opacity 1.2s ease'}} />
+)}
 
       {showConfetti && (
         <div className="fixed inset-0 pointer-events-none z-50">
@@ -837,13 +851,27 @@ const copyToClipboard = async (text) => {
       )}
       
       <style>{`
-        @keyframes fall {
-          to {
-            transform: translateY(100vh) rotate(360deg);
-            opacity: 0;
-          }
-        }
-      `}</style>
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  .modal-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .modal-scroll::-webkit-scrollbar-track {
+    background: #fef3c7;
+    border-radius: 10px;
+  }
+  .modal-scroll::-webkit-scrollbar-thumb {
+    background: #d97706;
+    border-radius: 10px;
+  }
+  .modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: #b45309;
+  }
+`}</style>
 
       <div className="max-w-5xl mx-auto relative">
         <div className="bg-green-100 border border-green-300 rounded-lg px-3 py-2 mb-2 text-center"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-green-800 text-xs font-semibold hover:text-green-900">⭐️ More Letter Griddle fun ⭐️ Short stories, puzzles, & fun facts ⭐️ Enjoy</a></div>
@@ -874,6 +902,17 @@ const copyToClipboard = async (text) => {
             >
               <span className="text-sm">{musicEnabled ? '🔊' : '🎵'}</span>
             </button>
+            <button
+  onClick={toggleNightMode}
+  className={`p-1.5 rounded-full transition-all shadow-md ${
+    nightMode
+      ? 'bg-amber-800 hover:bg-amber-900 text-amber-200'
+      : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
+  }`}
+  title={nightMode ? "Switch to day mode" : "Switch to night mode"}
+>
+  <span className="text-sm">{nightMode ? '☀️' : '🌙'}</span>
+</button>
 
             <button
   onClick={() => setShowScrapbookModal(true)}
@@ -1138,7 +1177,7 @@ const copyToClipboard = async (text) => {
       </div>
 {/* BOOKMARK PROMPT MODAL */}
       {showBookmarkPrompt && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[110] p-4" onClick={() => setShowBookmarkPrompt(false)}>
+        <div className="fixed inset-0 flex items-center justify-center z-[110] p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowBookmarkPrompt(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative animate-[slideUp_0.3s_ease-out]" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowBookmarkPrompt(false)}
@@ -1206,7 +1245,7 @@ const copyToClipboard = async (text) => {
 
       {/* Welcome Modal */}
       {showWelcomeModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.35)'}}>
           <div className="bg-amber-50 rounded-2xl p-10 max-w-sm w-full shadow-xl text-center">
             <div className="text-4xl mb-4">🥞</div>
             <p className="text-sm text-stone-400 mb-2" style={{fontFamily: 'Georgia, serif'}}>
@@ -1246,7 +1285,7 @@ const copyToClipboard = async (text) => {
 
       {/* GRAND OPENING MODAL */}
 {showLaunchModal && (
-  <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4" onClick={() => setShowLaunchModal(false)}>
+  <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowLaunchModal(false)}>
     <div className="bg-gradient-to-br from-amber-50 via-pink-50 to-purple-50 rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-4 border-amber-400 overflow-hidden" onClick={(e) => e.stopPropagation()}>
       
       <div className="absolute top-2 left-4 text-2xl animate-pulse">✨</div>
@@ -1323,7 +1362,7 @@ const copyToClipboard = async (text) => {
 
      {/* SCHEDULE MODAL */}
 {showScheduleModal && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowScheduleModal(false)}>
+  <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowScheduleModal(false)}>
     <div className="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
       <button
         onClick={() => setShowScheduleModal(false)}
@@ -1412,7 +1451,7 @@ const copyToClipboard = async (text) => {
 )}
       {/* Mission Modal */}
       {showMissionModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowMissionModal(false)}>
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowMissionModal(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowMissionModal(false)}
@@ -1452,8 +1491,8 @@ const copyToClipboard = async (text) => {
 
       {/* How to Play Modal */}
       {showHowToPlayModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowHowToPlayModal(false)}>
-          <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowHowToPlayModal(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl relative max-h-[90vh] overflow-y-auto modal-scroll" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowHowToPlayModal(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
@@ -1529,7 +1568,7 @@ const copyToClipboard = async (text) => {
 
       {/* Share Modal */}
       {showShareModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowShareModal(false)}>
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowShareModal(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowShareModal(false)}
@@ -1584,8 +1623,8 @@ More games: lettergriddle.com`}
 
       {/* Stats Modal */}
       {showStatsModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4" onClick={() => setShowStatsModal(false)}>
-          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative my-8 max-h-[85vh] overflow-y-auto" style={{WebkitOverflowScrolling: 'touch'}} onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 flex items-center justify-center z-[100] p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowStatsModal(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative my-8 max-h-[85vh] overflow-y-auto modal-scroll" style={{WebkitOverflowScrolling: 'touch'}} onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowStatsModal(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
@@ -1663,8 +1702,8 @@ More games: lettergriddle.com`}
 
 {/* Scrapbook Modal */}
       {showScrapbookModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4" onClick={() => setShowScrapbookModal(false)}>
-          <div className="bg-white rounded-3xl p-6 max-w-lg w-full shadow-2xl relative my-8 max-h-[85vh] overflow-y-auto" style={{WebkitOverflowScrolling: 'touch'}} onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 flex items-center justify-center z-[100] p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowScrapbookModal(false)}>
+          <div className="bg-white rounded-3xl p-6 max-w-lg w-full shadow-2xl relative my-8 max-h-[85vh] overflow-y-auto modal-scroll" style={{WebkitOverflowScrolling: 'touch'}} onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowScrapbookModal(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"

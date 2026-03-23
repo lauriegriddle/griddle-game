@@ -778,7 +778,7 @@ export default function Home() {
             }}
             className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
           >
-            {"\u2728"} Recipes, Vignettes, & Puzzles
+            {"\u2728"} Recipes, Stories, & Puzzles
           </button>
           <button 
             onClick={() => {

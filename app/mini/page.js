@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback } from 'react';
-import { X, HelpCircle } from 'lucide-react';
+import { X, HelpCircle, BarChart3 } from 'lucide-react';
 
 // Mini puzzles drawn from existing Letter Griddle 5-letter words
 // NEW Mini puzzles - 22 words from Letter Griddle puzzles #79-99
@@ -124,6 +124,18 @@ const getPuzzleInfo = () => {
 
 const LetterGriddleMini = () => {
   const [hasMounted, setHasMounted] = useState(false);
+  const [showStatsModal, setShowStatsModal] = useState(false);
+const [stats, setStats] = useState({
+  puzzlesCompleted: 0,
+  currentStreak: 0,
+  maxStreak: 0,
+  lastWonDate: null,
+  winRate: 0,
+  totalPlayed: 0,
+  guessDistribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+  plainStackWins: 0,
+  syrupWins: 0
+});
   const { puzzleIndex, puzzleNumber } = getPuzzleInfo();
   const puzzle = miniPuzzles[puzzleIndex];
   
@@ -158,8 +170,16 @@ const [feedbackSent, setFeedbackSent] = useState(false);
   const maxGuesses = 5;
 
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  setHasMounted(true);
+  try {
+    const saved = localStorage.getItem('griddleMiniStats');
+    if (saved) {
+      setStats(JSON.parse(saved));
+    }
+  } catch (e) {
+    console.error('Could not load mini stats', e);
+  }
+}, []);
 
   const handleLetterClick = useCallback((letter) => {
     if (gameStatus !== 'playing') return;
@@ -210,6 +230,43 @@ const [feedbackSent, setFeedbackSent] = useState(false);
       setGameStatus('won');
       setShowConfetti(true);
       setTimeout(() => setShowConfetti(false), 4000);
+
+      try {
+        const saved = localStorage.getItem('griddleMiniStats');
+        const currentStats = saved ? JSON.parse(saved) : {
+          puzzlesCompleted: 0, currentStreak: 0, maxStreak: 0,
+          lastWonDate: null, totalPlayed: 0,
+          guessDistribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+          plainStackWins: 0, syrupWins: 0
+        };
+
+        const today = new Date().toDateString();
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
+        const newStreak = currentStats.lastWonDate === yesterday || currentStats.lastWonDate === today
+          ? currentStats.currentStreak + 1
+          : 1;
+
+        const finalGuessCount = newGuesses.length;
+        const newDist = { ...currentStats.guessDistribution };
+        newDist[finalGuessCount] = (newDist[finalGuessCount] || 0) + 1;
+
+        const newStats = {
+          ...currentStats,
+          puzzlesCompleted: currentStats.puzzlesCompleted + 1,
+          totalPlayed: currentStats.totalPlayed + 1,
+          currentStreak: newStreak,
+          maxStreak: Math.max(currentStats.maxStreak, newStreak),
+          lastWonDate: today,
+          guessDistribution: newDist,
+          plainStackWins: mode === 'plain' ? currentStats.plainStackWins + 1 : currentStats.plainStackWins,
+          syrupWins: mode === 'syrup' ? currentStats.syrupWins + 1 : currentStats.syrupWins
+        };
+
+        setStats(newStats);
+        localStorage.setItem('griddleMiniStats', JSON.stringify(newStats));
+      } catch (e) {
+        console.error('Could not save mini stats', e);
+      }
     } else if (newGuesses.length >= maxGuesses) {
       setGameStatus('lost');
       setShowConfetti(true);
@@ -401,7 +458,10 @@ const copyToClipboard = async (text) => {
       opacity: 0;
     }
   }
-  
+  .modal-scroll::-webkit-scrollbar { width: 6px; }
+  .modal-scroll::-webkit-scrollbar-track { background: #fef3c7; border-radius: 10px; }
+  .modal-scroll::-webkit-scrollbar-thumb { background: #d97706; border-radius: 10px; }
+  .modal-scroll::-webkit-scrollbar-thumb:hover { background: #b45309; }
   button {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -427,14 +487,24 @@ const copyToClipboard = async (text) => {
     <span className="text-xl">🥞</span>
     <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>Letter Griddle Games</span>
   </a>
-  <button
-    onClick={() => setShowHowToPlay(true)}
-    className="flex items-center gap-1 text-amber-700 hover:text-amber-900 transition-colors"
-    title="How to Play"
-  >
-    <HelpCircle size={18} />
-    <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>How to Play</span>
-  </button>
+  <div className="flex items-center gap-2">
+    <button
+      onClick={() => setShowStatsModal(true)}
+      className="flex items-center gap-1 text-amber-700 hover:text-amber-900 transition-colors"
+      title="Your Stats"
+    >
+      <BarChart3 size={18} />
+      <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>Stats</span>
+    </button>
+    <button
+      onClick={() => setShowHowToPlay(true)}
+      className="flex items-center gap-1 text-amber-700 hover:text-amber-900 transition-colors"
+      title="How to Play"
+    >
+      <HelpCircle size={18} />
+      <span className="text-sm font-semibold" style={{fontFamily: 'Georgia, serif'}}>How to Play</span>
+    </button>
+  </div>
 </div>
   
   <div className="text-center mb-4">
@@ -716,14 +786,86 @@ const copyToClipboard = async (text) => {
           </p>
         </div>
       </div>
-    
+    {showStatsModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowStatsModal(false)}>
+          <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl relative max-h-[90vh] overflow-y-auto modal-scroll" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setShowStatsModal(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+              <X size={24} />
+            </button>
+
+            <div className="text-center mb-4">
+              <p className="text-3xl mb-2">📊</p>
+              <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>Your Mini Stats</h2>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">{stats.puzzlesCompleted}</div>
+                <div className="text-xs text-amber-600 mt-1">Puzzles Won</div>
+              </div>
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">{stats.currentStreak}</div>
+                <div className="text-xs text-amber-600 mt-1">Win Streak 🔥</div>
+              </div>
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">{stats.maxStreak}</div>
+                <div className="text-xs text-amber-600 mt-1">Best Streak</div>
+              </div>
+              <div className="bg-amber-50 rounded-xl p-3 text-center">
+                <div className="text-2xl font-bold text-amber-800">
+                  {stats.totalPlayed > 0 ? Math.round((stats.puzzlesCompleted / stats.totalPlayed) * 100) : 0}%
+                </div>
+                <div className="text-xs text-amber-600 mt-1">Win Rate</div>
+              </div>
+            </div>
+
+            <div className="bg-amber-50 rounded-xl p-3 mb-4">
+              <p className="text-xs font-bold text-amber-700 mb-2 text-center">Guess Distribution</p>
+              {[1, 2, 3, 4, 5].map(num => {
+                const count = stats.guessDistribution?.[num] || 0;
+                const max = Math.max(...Object.values(stats.guessDistribution || {}), 1);
+                const width = Math.round((count / max) * 100);
+                return (
+                  <div key={num} className="flex items-center gap-2 mb-1">
+                    <span className="text-xs text-amber-700 w-3">{num}</span>
+                    <div className="flex-1 bg-amber-200 rounded-full h-4 overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full flex items-center justify-end pr-1 transition-all"
+                        style={{width: `${width}%`, minWidth: count > 0 ? '1.5rem' : '0'}}
+                      >
+                        {count > 0 && <span className="text-white text-[10px] font-bold">{count}</span>}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="bg-amber-50 rounded-xl p-3 mb-4">
+              <p className="text-xs font-bold text-amber-700 mb-2 text-center">Mode Preference</p>
+              <div className="flex justify-around">
+                <div className="text-center">
+                  <div className="text-xl font-bold text-amber-800">{stats.plainStackWins}</div>
+                  <div className="text-xs text-amber-600">🥞 Plain Stack</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-xl font-bold text-amber-800">{stats.syrupWins}</div>
+                  <div className="text-xs text-amber-600">🍯 With Syrup</div>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-center text-xs text-gray-400">Stats saved locally on your device</p>
+          </div>
+        </div>
+      )}
     {showHowToPlay && (
   <div
-    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+    className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}}
     onClick={() => setShowHowToPlay(false)}
   >
     <div
-      className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl relative max-h-[90vh] overflow-y-auto"
+      className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl relative max-h-[90vh] overflow-y-auto modal-scroll"
       onClick={(e) => e.stopPropagation()}
     >
       <button
@@ -807,7 +949,7 @@ const copyToClipboard = async (text) => {
 
       {showShareModal && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}}
           onClick={() => setShowShareModal(false)}
         >
           <div 

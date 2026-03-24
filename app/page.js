@@ -484,6 +484,25 @@ export default function Home() {
       subTextColor: "text-amber-700",
       hoverBg: "bg-amber-900/80"
     },
+    {
+      name: "Has the Goods",
+      tagline: "Sort the cafe inventory before time runs out!",
+      emoji: "🧲",
+      href: "/goods",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #92400E 100%)",
+        icon: "🧲",
+        iconSize: "text-4xl",
+        title: ["Has the", "Goods!"],
+        subtitle: "SORT & STOCK",
+        subtitleColor: "text-amber-100"
+      },
+      borderColor: "border-amber-400",
+      bgColor: "from-amber-100 to-orange-100",
+      textColor: "text-amber-800",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-600/80"
+    },
   ];
 
   // SECTION 6: Espresso Lane

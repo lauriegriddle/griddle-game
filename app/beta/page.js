@@ -1,12 +1,6 @@
 export default function BetaGames() {
   const betaGames = [
     {
-      name: "Ambiance",
-      href: "/ambiance",
-      emoji: "☕",
-      description: "Beta testing in progress.  Ambient cafe vibes while you play"
-    },
-    {
       name: "Checkers",
       href: "/checkers",
       emoji: "🔴",

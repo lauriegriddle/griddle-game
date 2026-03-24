@@ -465,6 +465,25 @@ export default function Home() {
       timeColor: "text-amber-600",
       hoverBg: "bg-amber-800/80"
     },
+    {
+      name: "Ambiance",
+      tagline: "Spring music for your puzzle sessions, day or evening",
+      emoji: "🎵",
+      href: "/ambiance",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #1c1008 0%, #2d1b0e 50%, #3d2a18 100%)",
+        icon: "🎵",
+        iconSize: "text-4xl",
+        title: ["Letter Griddle", "Ambiance"],
+        subtitle: "DAY & EVENING MUSIC",
+        subtitleColor: "text-amber-300/70"
+      },
+      borderColor: "border-amber-700",
+      bgColor: "from-amber-50 to-stone-50",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-900/80"
+    },
   ];
 
   // SECTION 6: Espresso Lane

@@ -402,27 +402,7 @@ export default function Home() {
   subTextColor: "text-emerald-700",
   hoverBg: "bg-emerald-600/80"
 },
-    {
-      name: "Cookbook",
-      tagline: "Recipes paired with word puzzles",
-      emoji: "\uD83C\uDF4A",
-      href: "https://lettergriddlecookbook.com",
-      external: true,
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #FB923C 0%, #F97316 50%, #EA580C 100%)",
-        icon: "\uD83C\uDF4A",
-        iconSize: "text-4xl",
-        title: ["Letter Griddle", "Cookbook"],
-        subtitle: "Recipes + Puzzles",
-        subtitleColor: "text-orange-100"
-      },
-      borderColor: "border-orange-200",
-      bgColor: "from-orange-100 to-amber-100",
-      textColor: "text-orange-800",
-      subTextColor: "text-orange-700",
-      hoverBg: "bg-orange-500/80"
-    },
-    {
+ {
       name: "The Letter Griddle Cafe",
       tagline: "Stories and Puzzles from the Letter Griddle Cafe",
       emoji: "\uD83E\uDDE1",
@@ -442,6 +422,26 @@ export default function Home() {
       textColor: "text-orange-800",
       subTextColor: "text-orange-700",
       hoverBg: "bg-amber-600/80"
+    },
+    {
+      name: "Cookbook",
+      tagline: "Recipes paired with word puzzles",
+      emoji: "\uD83C\uDF4A",
+      href: "https://lettergriddlecookbook.com",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #FB923C 0%, #F97316 50%, #EA580C 100%)",
+        icon: "\uD83C\uDF4A",
+        iconSize: "text-4xl",
+        title: ["Letter Griddle", "Cookbook"],
+        subtitle: "Recipes + Puzzles",
+        subtitleColor: "text-orange-100"
+      },
+      borderColor: "border-orange-200",
+      bgColor: "from-orange-100 to-amber-100",
+      textColor: "text-orange-800",
+      subTextColor: "text-orange-700",
+      hoverBg: "bg-orange-500/80"
     },
     {
       name: "Letter Griddle Cafe Game",
@@ -778,7 +778,7 @@ export default function Home() {
             }}
             className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
           >
-            {"\u2728"} Recipes, Stories, & Puzzles
+            {"\u2728"} Stories, Recipes, & More Puzzles
           </button>
           <button 
             onClick={() => {

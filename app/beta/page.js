@@ -13,12 +13,6 @@ export default function BetaGames() {
       description: "Beta testing.  Guide the Trivia Crew to the Cinnamon Festival!"
     },
     {
-      name: "Has the Goods",
-      href: "/goods",
-      emoji: "🧲",
-      description: "Beta testing in progress.  Kitchen and Office Modes!"
-    },
-    {
       name: "Servings",
       href: "/servings",
       emoji: "🍽️",

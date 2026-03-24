@@ -468,11 +468,11 @@ export default function Home() {
     {
       name: "Ambiance",
       tagline: "Spring music for your puzzle sessions, day or evening",
-      emoji: "🎵",
+      emoji: "🎹",
       href: "/ambiance",
       thumbnail: {
         gradient: "linear-gradient(135deg, #1c1008 0%, #2d1b0e 50%, #3d2a18 100%)",
-        icon: "🎵",
+        icon: "🎹",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Ambiance"],
         subtitle: "DAY & EVENING MUSIC",

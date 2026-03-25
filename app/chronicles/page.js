@@ -169,7 +169,7 @@ const LEGENDS = [
   "Future cafe regulars will study your answers.",
   "The leather tome glows with your contribution.",
   "You have honored the Letter Griddle Cafe.",
-  "Laurel smiles at you from across time.",
+  "The cafe regulars smile at you from across time.",
   "Well done, chronicler. The future remembers.",
   "The archives of Griddle Falls are richer for your visit.",
   "Your name is written in the pages of the tome.",
@@ -428,7 +428,7 @@ export default function ChroniclesPage() {
               </div>
 
               <div style={S.loreBox}>
-                <strong style={{ color: '#c09ef5' }}>Mission briefing:</strong> The Trivia Crew&apos;s trivia questions are at risk of being lost to history. You have a limited time to answer as many as you can and preserve them in the Lore of the Letter Griddle's leather-bound tome for future generations of Letter Griddle Cafe regulars.
+                <strong style={{ color: '#c09ef5' }}>Mission briefing:</strong> The Trivia Crew&apos;s trivia questions are at risk of being lost to history. You have a limited time to answer as many as you can and preserve them in the lore's leather-bound tome for future generations of Letter Griddle Cafe regulars.
               </div>
 
               <div style={S.sectionLabel}>Questions to preserve</div>

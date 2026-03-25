@@ -167,7 +167,7 @@ const LEGENDS = [
   "Future cafe regulars will study your answers.",
   "The leather tome glows with your contribution.",
   "You have honored the Letter Griddle Cafe.",
-  "Laurel smiles at you from across time.",
+  "The trivia crew smiles at you from across time.",
   "Well done, chronicler. The future remembers.",
   "The archives of Griddle Falls are richer for your visit.",
   "Your name is written in the pages of the tome.",

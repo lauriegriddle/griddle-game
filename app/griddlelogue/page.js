@@ -386,7 +386,7 @@ export default function GriddleloguePage() {
                 lineHeight: '1.65',
               }}>
                 It is the year 2126. The trivia questions beloved by the Letter Griddle Cafe&apos;s Trivia Crew are at risk of being lost to history. You have a limited time to answer as many as you can and preserve them in the{' '}
-                <em>cafe&apos;s</em> leather-bound tome, for future generations of cafe regulars.
+                <em>Letter Griddle&apos;s</em> leather-bound tome, for future generations of cafe regulars.
               </div>
 
               <div style={{fontSize: '11px', letterSpacing: '1.5px', textTransform: 'uppercase', color: '#8a7055', marginBottom: '10px'}}>

@@ -206,16 +206,16 @@ export default function Home() {
   const letterGriddleGames = [
     {
       name: "Griddle Falls",
-      tagline: "Trivia with the Letter Griddle Cafe Crew",
+      tagline: "A cozy trivia night with the Letter Griddle Cafe Crew",
       emoji: "\u2615",
       href: "https://griddlefalls.com",
       external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #f4a574 0%, #e8956a 50%, #d4825a 100%)",
+        gradient: "linear-gradient(135deg, #D4833A 0%, #C2632A 50%, #8B3A1A 100%)",
         icon: "\u2615",
         iconSize: "text-4xl",
         title: ["Griddle", "Falls"],
-        subtitle: "Cafe Crew Trivia",
+        subtitle: "Cozy Cafe Trivia",
         subtitleColor: "text-orange-100"
       },
       borderColor: "border-orange-300",
@@ -466,25 +466,6 @@ export default function Home() {
       hoverBg: "bg-amber-800/80"
     },
     {
-      name: "Ambiance",
-      tagline: "Spring music for your puzzle sessions, day or evening",
-      emoji: "🎹",
-      href: "/ambiance",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #1c1008 0%, #2d1b0e 50%, #3d2a18 100%)",
-        icon: "🎹",
-        iconSize: "text-4xl",
-        title: ["Letter Griddle", "Ambiance"],
-        subtitle: "DAY & EVENING MUSIC",
-        subtitleColor: "text-amber-300/70"
-      },
-      borderColor: "border-amber-700",
-      bgColor: "from-amber-50 to-stone-50",
-      textColor: "text-amber-900",
-      subTextColor: "text-amber-700",
-      hoverBg: "bg-amber-900/80"
-    },
-    {
       name: "Has the Goods",
       tagline: "Sort the cafe inventory before time runs out!",
       emoji: "🧲",
@@ -502,6 +483,25 @@ export default function Home() {
       textColor: "text-amber-800",
       subTextColor: "text-amber-700",
       hoverBg: "bg-amber-600/80"
+    },
+     {
+      name: "Ambiance",
+      tagline: "Spring music for your puzzle sessions, day or evening",
+      emoji: "🎹",
+      href: "/ambiance",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #C2632A 0%, #8B3A1A 50%, #5C2010 100%)",
+        icon: "🎹",
+        iconSize: "text-4xl",
+        title: ["Letter Griddle", "Ambiance"],
+        subtitle: "DAY & EVENING MUSIC",
+        subtitleColor: "text-amber-300/70"
+      },
+      borderColor: "border-amber-700",
+      bgColor: "from-amber-50 to-stone-50",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-900/80"
     },
   ];
 

@@ -732,7 +732,7 @@ useEffect(() => {
   const handleShare = async () => {
   const honeyEmojis = '🍯'.repeat(completedWords.filter(c => c).length);
 
-  const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at lettergriddle.com/play\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com\n🍯 Stories: lettergriddlecafe.com`;
+  const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at lettergriddle.com/play\nFree & ad-free!\nPart of the Letter Griddle Games 🥞\nMore games: lettergriddle.com\n🍯 Stories: lettergriddlecafe.com\n☕ Trivia: griddlefalls.com`;
 
   if (navigator.share) {
     try {
@@ -1591,7 +1591,9 @@ ${completedWords.filter(c => c).length}/5 words
 Play at lettergriddle.com/play
 Free & ad-free!
 Part of Letter Griddle Games 🥞
-More games: lettergriddle.com`}
+More games: lettergriddle.com
+🍯 Stories: lettergriddlecafe.com
+☕ Trivia: griddlefalls.com`}
               </div>
             </div>
 

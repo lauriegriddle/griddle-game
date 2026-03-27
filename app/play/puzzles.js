@@ -1846,6 +1846,822 @@ const puzzles = [
     ],
     funFact: "Jigsaw puzzles were invented around 1760 by cartographer John Spilsbury, who mounted maps on wood and cut them into pieces to teach geography. Known as 'Dissected Maps' originally, they were expensive, high-society entertainment until die-cut cardboard made them popular during the Great Depression. 🧩",
   },
+
+  // =============================================
+  // INDEX 120 - Shows Mar 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pencil",
+    puzzleNumber: 199,
+    words: [
+      { word: "LEAD", hint: "What the writing core is mistakenly called", revealedIndex: 0 },
+      { word: "WRITE", hint: "To put words on paper", revealedIndex: 2 },
+      { word: "WOODEN", hint: "Made from timber", revealedIndex: 3 },
+      { word: "SHARPEN", hint: "To restore the point", revealedIndex: 0 },
+      { word: "GRAPHITE", hint: "The actual material in the core", revealedIndex: 4 },
+    ],
+    funFact: "Pencil 'lead' is actually a mixture of graphite and clay. Pencils are generally made with six sides to prevent them from rolling off tables and to make them easier to grip. ✏️",
+  },
+
+  // =============================================
+  // INDEX 121 - Shows Mar 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Paella",
+    puzzleNumber: 200,
+    words: [
+      { word: "RICE", hint: "The base grain of this dish", revealedIndex: 0 },
+      { word: "SPAIN", hint: "Country where it originated", revealedIndex: 2 },
+      { word: "CHICKEN", hint: "A common protein topping", revealedIndex: 3 },
+      { word: "SAFFRON", hint: "The expensive spice that gives it color", revealedIndex: 0 },
+      { word: "VALENCIA", hint: "The Spanish region famous for this dish", revealedIndex: 4 },
+    ],
+    funFact: "Paella originated as an 18th-century farmers' lunch in Valencia, Spain. It takes its name from the wide, shallow pan used, rather than the rice itself. 🥘",
+  },
+
+  // =============================================
+  // INDEX 122 - Shows Mar 31, 2026 at 7 PM
+  // =============================================
+  {
+    category: "April 1",
+    puzzleNumber: 201,
+    words: [
+      { word: "ZANY", hint: "Amusingly unconventional", revealedIndex: 0 },
+      { word: "SILLY", hint: "Playfully foolish", revealedIndex: 2 },
+      { word: "GOTCHA", hint: "Exclaimed after a successful prank", revealedIndex: 3 },
+      { word: "COMICAL", hint: "Funny and entertaining", revealedIndex: 0 },
+      { word: "MISCHIEF", hint: "Playful troublemaking", revealedIndex: 4 },
+    ],
+    funFact: "April 1 is a day for pranks and hoaxes with origins possibly dating back to 1392. Traditions often require pranks to cease by noon. 🃏",
+  },
+
+  // =============================================
+  // INDEX 123 - Shows Apr 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Oatmeal Cookie",
+    puzzleNumber: 202,
+    words: [
+      { word: "OATS", hint: "The hearty grain in the recipe", revealedIndex: 0 },
+      { word: "CHEWY", hint: "Soft and easy to bite", revealedIndex: 2 },
+      { word: "RAISIN", hint: "A dried grape often added", revealedIndex: 3 },
+      { word: "HEALTHY", hint: "Good for you", revealedIndex: 0 },
+      { word: "MOLASSES", hint: "A dark, sweet syrup", revealedIndex: 4 },
+    ],
+    funFact: "Oatmeal cookies, often considered a 'healthy' treat, originated in the 1800s from Scottish oatcakes, which soldiers historically carried for energy. In the early 1900s, oatmeal raisin cookies were popular as a health food due to their fiber and vitamin content. They are the #1 non-cereal use for oatmeal. 🍪",
+  },
+
+  // =============================================
+  // INDEX 124 - Shows Apr 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Selfie",
+    puzzleNumber: 203,
+    words: [
+      { word: "SNAP", hint: "To take a quick photo", revealedIndex: 0 },
+      { word: "PHONE", hint: "The device most often used", revealedIndex: 2 },
+      { word: "CAMERA", hint: "What captures the image", revealedIndex: 3 },
+      { word: "SHARING", hint: "Posting for others to see", revealedIndex: 0 },
+      { word: "PORTRAIT", hint: "A photo of a person", revealedIndex: 4 },
+    ],
+    funFact: "The first photographic selfie was taken in 1839. Roughly 92 million selfies are taken daily, often motivated by capturing memories. The term was coined in 2002. 📱",
+  },
+
+  // =============================================
+  // INDEX 125 - Shows Apr 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Caramel",
+    puzzleNumber: 204,
+    words: [
+      { word: "SOFT", hint: "Tender and easy to chew", revealedIndex: 0 },
+      { word: "APPLE", hint: "A fruit often dipped in this treat", revealedIndex: 2 },
+      { word: "STICKY", hint: "Tends to cling to your teeth", revealedIndex: 3 },
+      { word: "POPCORN", hint: "A snack often coated with this", revealedIndex: 0 },
+      { word: "LUSCIOUS", hint: "Richly appealing and delicious", revealedIndex: 4 },
+    ],
+    funFact: "The word caramel is derived from the Portuguese or Spanish word 'caramelo,' which appeared in the English language around 1725. In the 1950s, a Kraft Foods salesman invented caramel apples after experimenting with melting caramel candies. 🍎",
+  },
+
+  // =============================================
+  // INDEX 126 - Shows Apr 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Perfume",
+    puzzleNumber: 205,
+    words: [
+      { word: "MUSK", hint: "A warm, earthy base note", revealedIndex: 0 },
+      { word: "SCENT", hint: "A distinctive smell", revealedIndex: 2 },
+      { word: "FLORAL", hint: "Smelling like flowers", revealedIndex: 3 },
+      { word: "POWDERY", hint: "A soft, delicate fragrance type", revealedIndex: 0 },
+      { word: "ESSENCE", hint: "The concentrated extract", revealedIndex: 4 },
+    ],
+    funFact: "According to a Cuneiform tablet, the world's first recorded chemist was a woman named Tapputi, a perfume maker in Mesopotamia. Modern perfumes are largely synthetic, as producing natural essential oils on a mass scale is too expensive. 🌸",
+  },
+
+  // =============================================
+  // INDEX 127 - Shows Apr 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Easter",
+    puzzleNumber: 206,
+    words: [
+      { word: "LILY", hint: "A white flower associated with this holiday", revealedIndex: 0 },
+      { word: "BUNNY", hint: "A hopping symbol of the season", revealedIndex: 2 },
+      { word: "BONNET", hint: "A decorative hat worn in parades", revealedIndex: 3 },
+      { word: "DECORATE", hint: "To adorn eggs with colors", revealedIndex: 0 },
+      { word: "SUNRISE", hint: "Early morning service time", revealedIndex: 4 },
+    ],
+    funFact: "Before the rabbit became popular, other animals like the fox, cuckoo, or stork were believed to deliver eggs in different parts of Germany. Roughly 76% of people eat the ears of a chocolate bunny first. 🐰",
+  },
+
+  // =============================================
+  // INDEX 128 - Shows Apr 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Reading",
+    puzzleNumber: 207,
+    words: [
+      { word: "SKIM", hint: "To read quickly for main points", revealedIndex: 0 },
+      { word: "BROWSE", hint: "To look through casually", revealedIndex: 2 },
+      { word: "PERUSE", hint: "To read thoroughly", revealedIndex: 3 },
+      { word: "INFORMED", hint: "Having knowledge from learning", revealedIndex: 0 },
+      { word: "BOOKMARK", hint: "Saves your place in a book", revealedIndex: 4 },
+    ],
+    funFact: "Reading is a form of exercise for the brain that improves focus, strengthens memory, and can make you kinder by fostering empathy. 📚",
+  },
+
+  // =============================================
+  // INDEX 129 - Shows Apr 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Party",
+    puzzleNumber: 208,
+    words: [
+      { word: "BASH", hint: "A lively celebration", revealedIndex: 0 },
+      { word: "MIXER", hint: "A social gathering to meet people", revealedIndex: 2 },
+      { word: "SOIRÉE", hint: "An elegant evening party", revealedIndex: 3 },
+      { word: "SHINDIG", hint: "A fun, festive event", revealedIndex: 0 },
+      { word: "WINGDING", hint: "A wild, lavish party", revealedIndex: 4 },
+    ],
+    funFact: "The Holi festival, one of the world's oldest party traditions, has been celebrated for over 2,000 years, featuring a massive, colorful, festive crowd. 🎉",
+  },
+
+  // =============================================
+  // INDEX 130 - Shows Apr 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Eiffel Tower",
+    puzzleNumber: 209,
+    words: [
+      { word: "VIEW", hint: "What you see from the top", revealedIndex: 0 },
+      { word: "PARIS", hint: "The city where it stands", revealedIndex: 2 },
+      { word: "ICONIC", hint: "Widely recognized and symbolic", revealedIndex: 3 },
+      { word: "TOURIST", hint: "A visitor to a famous site", revealedIndex: 0 },
+      { word: "LANDMARK", hint: "A famous, recognizable structure", revealedIndex: 4 },
+    ],
+    funFact: "The Eiffel Tower, originally built for the 1889 World's Fair, was meant to be dismantled after 20 years but was saved by its use as a radio antenna. 🗼",
+  },
+
+  // =============================================
+  // INDEX 131 - Shows Apr 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Antique",
+    puzzleNumber: 210,
+    words: [
+      { word: "RARE", hint: "Uncommon and hard to find", revealedIndex: 0 },
+      { word: "RELIC", hint: "An object from the past", revealedIndex: 2 },
+      { word: "RUSTIC", hint: "Having a simple, aged charm", revealedIndex: 3 },
+      { word: "COLLECT", hint: "To gather items as a hobby", revealedIndex: 0 },
+      { word: "HEIRLOOM", hint: "A treasured family possession", revealedIndex: 4 },
+    ],
+    funFact: "An antique is generally defined as an item at least 100 years old, distinguishing it from vintage or collectibles. These pieces often feature superior craftsmanship, such as handmade dovetail joints, hidden compartments for secrets, and materials rarely used today. 🏺",
+  },
+
+  // =============================================
+  // INDEX 132 - Shows Apr 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Golf",
+    puzzleNumber: 211,
+    words: [
+      { word: "IRON", hint: "A type of club for mid-range shots", revealedIndex: 0 },
+      { word: "WEDGE", hint: "A club for short, high shots", revealedIndex: 2 },
+      { word: "BIRDIE", hint: "One stroke under par", revealedIndex: 3 },
+      { word: "FAIRWAY", hint: "The mowed path between tee and green", revealedIndex: 0 },
+      { word: "SANDTRAP", hint: "A bunker filled with sand", revealedIndex: 4 },
+    ],
+    funFact: "Golf is a historic sport with roots in 15th-century Scotland. The Scottish government banned golf three times between 1457 and 1744 because it distracted from mandatory archery practice. ⛳",
+  },
+
+  // =============================================
+  // INDEX 133 - Shows Apr 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Stars",
+    puzzleNumber: 212,
+    words: [
+      { word: "TINY", hint: "Very small in appearance from Earth", revealedIndex: 0 },
+      { word: "DWARF", hint: "A small, dim type of star", revealedIndex: 2 },
+      { word: "DAZZLE", hint: "To impress with brightness", revealedIndex: 3 },
+      { word: "SPARKLE", hint: "To twinkle with light", revealedIndex: 0 },
+      { word: "CELESTIAL", hint: "Relating to the sky or heavens", revealedIndex: 4 },
+    ],
+    funFact: "There are more stars in the universe than grains of sand on Earth, and they range in color from blue (hottest) to red (coolest). ⭐",
+  },
+
+  // =============================================
+  // INDEX 134 - Shows Apr 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Dance",
+    puzzleNumber: 213,
+    words: [
+      { word: "FOLK", hint: "Traditional cultural style", revealedIndex: 0 },
+      { word: "MUSIC", hint: "What dancers move to", revealedIndex: 2 },
+      { word: "BALLET", hint: "A classical form with pointe shoes", revealedIndex: 3 },
+      { word: "PERFORM", hint: "To present before an audience", revealedIndex: 0 },
+      { word: "BALLROOM", hint: "Elegant partner dancing", revealedIndex: 4 },
+    ],
+    funFact: "Dance is an ancient, global form of expression, spanning from 1500s Italian courts to modern hip-hop, that improves cognitive function and physical health. 💃",
+  },
+
+  // =============================================
+  // INDEX 135 - Shows Apr 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Scrabble",
+    puzzleNumber: 214,
+    words: [
+      { word: "TILE", hint: "A small piece with a letter", revealedIndex: 0 },
+      { word: "POINT", hint: "The value of each letter", revealedIndex: 2 },
+      { word: "SQUARE", hint: "A space on the board", revealedIndex: 3 },
+      { word: "SCORING", hint: "Adding up your word value", revealedIndex: 0 },
+      { word: "INVENTOR", hint: "Alfred Mosher Butts created it", revealedIndex: 4 },
+    ],
+    funFact: "Invented in 1933 by architect Alfred Mosher Butts, Scrabble was originally named 'Lexiko' and later 'Criss-Cross Words' before becoming the popular game found in three of every five American homes. 🎯",
+  },
+
+  // =============================================
+  // INDEX 136 - Shows Apr 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Laughter",
+    puzzleNumber: 215,
+    words: [
+      { word: "GLEE", hint: "Great delight and joy", revealedIndex: 0 },
+      { word: "AMUSE", hint: "To make someone smile", revealedIndex: 2 },
+      { word: "GIGGLE", hint: "A light, silly laugh", revealedIndex: 3 },
+      { word: "CHUCKLE", hint: "A quiet, soft laugh", revealedIndex: 0 },
+      { word: "CHEERFUL", hint: "Happy and in good spirits", revealedIndex: 4 },
+    ],
+    funFact: "Laughter is the only 'contagious' health condition, and you are 30 times more likely to laugh in a group than when alone. Your brain responds to the sound of laughter by preparing your facial muscles to join in, even if you don't know why everyone is laughing. 😂",
+  },
+
+  // =============================================
+  // INDEX 137 - Shows Apr 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Jelly Beans",
+    puzzleNumber: 216,
+    words: [
+      { word: "JARS", hint: "Containers often filled with them", revealedIndex: 0 },
+      { word: "FRUIT", hint: "A common flavor category", revealedIndex: 2 },
+      { word: "FLAVOR", hint: "The taste of each bean", revealedIndex: 3 },
+      { word: "GUMDROP", hint: "A similar sugar-coated candy", revealedIndex: 0 },
+      { word: "COLORFUL", hint: "Bright and varied in hue", revealedIndex: 4 },
+    ],
+    funFact: "Jelly beans were the first candy sold by weight and have a 7-day 'panning' process to create their hard shell. 🫘",
+  },
+
+  // =============================================
+  // INDEX 138 - Shows Apr 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Takeout",
+    puzzleNumber: 217,
+    words: [
+      { word: "FAST", hint: "Quick and convenient", revealedIndex: 0 },
+      { word: "READY", hint: "Prepared and waiting", revealedIndex: 2 },
+      { word: "PICKUP", hint: "To collect your order", revealedIndex: 3 },
+      { word: "PACKAGE", hint: "How the food is wrapped", revealedIndex: 0 },
+      { word: "CURBSIDE", hint: "Delivered to your car", revealedIndex: 4 },
+    ],
+    funFact: "Takeout has ancient roots, in Pompeii, Italy, serving fast food from street-side counters in Roman times. 🥡",
+  },
+
+  // =============================================
+  // INDEX 139 - Shows Apr 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Friday",
+    puzzleNumber: 218,
+    words: [
+      { word: "TGIF", hint: "Thank Goodness It's ___", revealedIndex: 0 },
+      { word: "JEANS", hint: "Casual pants often worn this day", revealedIndex: 2 },
+      { word: "CASUAL", hint: "Relaxed and informal", revealedIndex: 3 },
+      { word: "COMFORT", hint: "A feeling of ease", revealedIndex: 0 },
+      { word: "INFORMAL", hint: "Not following strict rules", revealedIndex: 4 },
+    ],
+    funFact: "Casual Friday, which boosts morale and allows personal expression, originated from Hawaii's 'Aloha Friday' in the 1960s, where workers wore tropical shirts to combat heat. 👖",
+  },
+
+  // =============================================
+  // INDEX 140 - Shows Apr 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Kickball",
+    puzzleNumber: 219,
+    words: [
+      { word: "TEAM", hint: "A group playing together", revealedIndex: 0 },
+      { word: "FIELD", hint: "The outdoor playing area", revealedIndex: 2 },
+      { word: "KICKER", hint: "The person who boots the ball", revealedIndex: 3 },
+      { word: "PITCHER", hint: "The person who rolls the ball", revealedIndex: 0 },
+      { word: "HOMEBASE", hint: "Where you score a run", revealedIndex: 4 },
+    ],
+    funFact: "Known as 'soccer baseball' in Canada, this playground staple was actually used to train soldiers during World War II. ⚽",
+  },
+
+  // =============================================
+  // INDEX 141 - Shows Apr 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Garlic",
+    puzzleNumber: 220,
+    words: [
+      { word: "BULB", hint: "The whole head of cloves", revealedIndex: 0 },
+      { word: "CLOVE", hint: "One segment of the bulb", revealedIndex: 2 },
+      { word: "MINCED", hint: "Finely chopped", revealedIndex: 3 },
+      { word: "ROASTED", hint: "Cooked until soft and sweet", revealedIndex: 0 },
+      { word: "AROMATIC", hint: "Having a strong, pleasant smell", revealedIndex: 4 },
+    ],
+    funFact: "Garlic is a natural mosquito repellent and was historically used to keep away 'blood suckers,' inspiring vampire lore. 🧄",
+  },
+
+  // =============================================
+  // INDEX 142 - Shows Apr 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Volunteers",
+    puzzleNumber: 221,
+    words: [
+      { word: "HELP", hint: "To assist others", revealedIndex: 0 },
+      { word: "SERVE", hint: "To give your time and effort", revealedIndex: 2 },
+      { word: "DONATE", hint: "To give freely", revealedIndex: 3 },
+      { word: "INVOLVE", hint: "To participate actively", revealedIndex: 0 },
+      { word: "OUTREACH", hint: "Efforts to connect with communities", revealedIndex: 4 },
+    ],
+    funFact: "Over 1 billion people volunteer worldwide, contributing over $184 billion in economic value. Volunteers are 78% less likely to feel stressed and have a lower risk of isolation. 🤝",
+  },
+
+  // =============================================
+  // INDEX 143 - Shows Apr 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Earth Day",
+    puzzleNumber: 222,
+    words: [
+      { word: "SOIL", hint: "The ground where plants grow", revealedIndex: 0 },
+      { word: "GREEN", hint: "The color of environmental efforts", revealedIndex: 2 },
+      { word: "PLANET", hint: "Our home in space", revealedIndex: 3 },
+      { word: "COMPOST", hint: "Recycled organic matter", revealedIndex: 0 },
+      { word: "CONSERVE", hint: "To protect and preserve", revealedIndex: 4 },
+    ],
+    funFact: "Earth Day, celebrated annually on April 22 since 1970, is the world's largest secular observance, with over 1 billion people in 190+ countries participating. 🌍",
+  },
+
+  // =============================================
+  // INDEX 144 - Shows Apr 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hot Tea",
+    puzzleNumber: 223,
+    words: [
+      { word: "BOIL", hint: "To heat water to bubbling", revealedIndex: 0 },
+      { word: "SPOON", hint: "Used to stir in honey", revealedIndex: 2 },
+      { word: "TEAPOT", hint: "A vessel for steeping", revealedIndex: 3 },
+      { word: "SIPPING", hint: "Drinking slowly", revealedIndex: 0 },
+      { word: "STEAMING", hint: "Giving off hot vapor", revealedIndex: 4 },
+    ],
+    funFact: "Contrary to popular belief, Turkey, not Britain, has the highest per capita tea consumption. 🫖",
+  },
+
+  // =============================================
+  // INDEX 145 - Shows Apr 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Shakespeare",
+    puzzleNumber: 224,
+    words: [
+      { word: "PLAY", hint: "A theatrical performance", revealedIndex: 0 },
+      { word: "STAGE", hint: "Where actors perform", revealedIndex: 2 },
+      { word: "FAMOUS", hint: "Widely known and celebrated", revealedIndex: 3 },
+      { word: "THEATER", hint: "A venue for dramatic arts", revealedIndex: 0 },
+      { word: "EVERYONE", hint: "His works are for all people", revealedIndex: 4 },
+    ],
+    funFact: "William Shakespeare was a prolific playwright and poet who invented over 1,700 words, including 'eyeball' and 'swagger' and coined phrases like 'break the ice'. 🎭",
+  },
+
+  // =============================================
+  // INDEX 146 - Shows Apr 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Penguins",
+    puzzleNumber: 225,
+    words: [
+      { word: "DIVE", hint: "To plunge into the water", revealedIndex: 0 },
+      { word: "PREEN", hint: "To groom feathers", revealedIndex: 2 },
+      { word: "WADDLE", hint: "A side-to-side walk", revealedIndex: 3 },
+      { word: "ROOKERY", hint: "A penguin nesting colony", revealedIndex: 0 },
+      { word: "FEATHERS", hint: "Waterproof covering", revealedIndex: 4 },
+    ],
+    funFact: "Penguins are flightless seabirds that 'fly' underwater at speeds up to 22 mph, utilizing countershading (black/white coloring) for camouflage. 🐧",
+  },
+
+  // =============================================
+  // INDEX 147 - Shows Apr 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Getting Organized",
+    puzzleNumber: 226,
+    words: [
+      { word: "FIND", hint: "To locate something", revealedIndex: 0 },
+      { word: "PLACE", hint: "A spot for everything", revealedIndex: 2 },
+      { word: "REDUCE", hint: "To minimize clutter", revealedIndex: 3 },
+      { word: "CLUTTER", hint: "Messy, disorganized items", revealedIndex: 0 },
+      { word: "PLANNING", hint: "Thinking ahead systematically", revealedIndex: 4 },
+    ],
+    funFact: "Getting organized is a powerful habit that saves roughly 3,680 hours of life spent searching for lost items and eliminates 40% of household chores. It increases mental clarity, reduces decision fatigue, and can even prompt healthier eating choices. 🗂️",
+  },
+
+  // =============================================
+  // INDEX 148 - Shows Apr 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Superhero",
+    puzzleNumber: 227,
+    words: [
+      { word: "CAPE", hint: "A flowing garment worn on the back", revealedIndex: 0 },
+      { word: "POWER", hint: "A special ability", revealedIndex: 2 },
+      { word: "SECRET", hint: "A hidden identity", revealedIndex: 3 },
+      { word: "COSTUME", hint: "A distinctive outfit", revealedIndex: 0 },
+      { word: "DISGUISE", hint: "A way to hide who you are", revealedIndex: 4 },
+    ],
+    funFact: "Unlike many heroes, Batman has no inherent superhuman powers and relies solely on his intellect, training, and gadgets. 🦸",
+  },
+
+  // =============================================
+  // INDEX 149 - Shows Apr 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Poetry",
+    puzzleNumber: 228,
+    words: [
+      { word: "LOVE", hint: "A common poetic theme", revealedIndex: 0 },
+      { word: "VERSE", hint: "A line or stanza", revealedIndex: 2 },
+      { word: "RECITE", hint: "To speak aloud from memory", revealedIndex: 3 },
+      { word: "RHYMING", hint: "Words that sound alike", revealedIndex: 0 },
+      { word: "METAPHOR", hint: "A comparison without like or as", revealedIndex: 4 },
+    ],
+    funFact: "Poetry is one of the oldest forms of literature, with origins predating written language, often used to pass down history. 📝",
+  },
+
+  // =============================================
+  // INDEX 150 - Shows Apr 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Animal Crackers",
+    puzzleNumber: 229,
+    words: [
+      { word: "LION", hint: "The king of the jungle", revealedIndex: 0 },
+      { word: "TIGER", hint: "A striped big cat", revealedIndex: 2 },
+      { word: "CIRCUS", hint: "Where these animals once performed", revealedIndex: 3 },
+      { word: "CRUNCHY", hint: "Crisp and noisy to eat", revealedIndex: 0 },
+      { word: "ELEPHANT", hint: "The largest land animal", revealedIndex: 4 },
+    ],
+    funFact: "Animal Crackers date back from 1902. They were originally designed with a string to hang as Christmas tree ornaments. More than 40 million packages are sold annually, featuring over 50 different animal shapes throughout their history. 🦁",
+  },
+
+  // =============================================
+  // INDEX 151 - Shows Apr 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Barbecue",
+    puzzleNumber: 230,
+    words: [
+      { word: "SLOW", hint: "Low and ___ cooking method", revealedIndex: 0 },
+      { word: "GRILL", hint: "To cook over open flames", revealedIndex: 2 },
+      { word: "SMOKER", hint: "Equipment for adding wood flavor", revealedIndex: 3 },
+      { word: "COOKOUT", hint: "An outdoor gathering with food", revealedIndex: 0 },
+      { word: "CHARCOAL", hint: "Black briquettes for grilling", revealedIndex: 4 },
+    ],
+    funFact: "Barbecue, or BBQ, originated from the Caribbean Taino word barbacoa, meaning a 'sacred fire pit' or raised wooden grate, and has been used for over 200,000 years. 🍖",
+  },
+
+  // =============================================
+  // INDEX 152 - Shows Apr 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "April Showers",
+    puzzleNumber: 231,
+    words: [
+      { word: "RAIN", hint: "Water falling from clouds", revealedIndex: 0 },
+      { word: "STORM", hint: "A weather disturbance", revealedIndex: 2 },
+      { word: "GROWTH", hint: "What rain helps plants do", revealedIndex: 3 },
+      { word: "FLOWERS", hint: "What May brings", revealedIndex: 0 },
+      { word: "MOISTURE", hint: "Wetness in the air or soil", revealedIndex: 4 },
+    ],
+    funFact: "The phrase originated in a poem by Thomas Tusser in 1557, initially recorded as 'Sweet April showers, do spring May flowers'. While famously linked to blooming flowers, they often act as a myth in some regions, with June actually being wetter in the US. 🌧️",
+  },
+
+  // =============================================
+  // INDEX 153 - Shows May 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hoagie",
+    puzzleNumber: 232,
+    words: [
+      { word: "LONG", hint: "The shape of the roll", revealedIndex: 0 },
+      { word: "BREAD", hint: "The base of any sandwich", revealedIndex: 2 },
+      { word: "SALAMI", hint: "A popular Italian cold cut", revealedIndex: 3 },
+      { word: "VEGGIES", hint: "Lettuce, tomato, onion", revealedIndex: 0 },
+      { word: "REGIONAL", hint: "Varies by location", revealedIndex: 4 },
+    ],
+    funFact: "Declared the 'Official Sandwich of Philadelphia' in 1992, it is a staple of Philly culture typically made with cold cuts, cheese, and veggies on a long roll. 🥖",
+  },
+
+  // =============================================
+  // INDEX 154 - Shows May 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Iris",
+    puzzleNumber: 233,
+    words: [
+      { word: "NEWS", hint: "Fleur-de-lis appears on news logos", revealedIndex: 0 },
+      { word: "GREEK", hint: "Named after a goddess from this culture", revealedIndex: 2 },
+      { word: "GARDEN", hint: "Where flowers grow", revealedIndex: 3 },
+      { word: "BELGIUM", hint: "Country with the iris as national flower", revealedIndex: 0 },
+      { word: "BLOOMING", hint: "In the process of flowering", revealedIndex: 4 },
+    ],
+    funFact: "National Iris Day, celebrated on May 8th, honors the vibrant flower representing the Greek goddess of the rainbow. Symbolizing faith and wisdom, irises bloom in every color except red. 💜",
+  },
+
+  // =============================================
+  // INDEX 155 - Shows May 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Shrimp",
+    puzzleNumber: 234,
+    words: [
+      { word: "LEGS", hint: "Shrimp have ten of these", revealedIndex: 0 },
+      { word: "OCEAN", hint: "Where most shrimp live", revealedIndex: 2 },
+      { word: "MANTIS", hint: "A type with powerful claws", revealedIndex: 3 },
+      { word: "SEAFOOD", hint: "A category of ocean cuisine", revealedIndex: 0 },
+      { word: "GRILLING", hint: "A popular cooking method", revealedIndex: 4 },
+    ],
+    funFact: "Shrimp are fascinating crustaceans with their hearts located in their heads, and they possess ten legs, often swimming backward to escape danger. 🦐",
+  },
+
+  // =============================================
+  // INDEX 156 - Shows May 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Indulge",
+    puzzleNumber: 235,
+    words: [
+      { word: "FEED", hint: "To satisfy a craving", revealedIndex: 0 },
+      { word: "ALLOW", hint: "To permit yourself", revealedIndex: 2 },
+      { word: "PAMPER", hint: "To treat yourself luxuriously", revealedIndex: 3 },
+      { word: "IMPULSE", hint: "A sudden urge", revealedIndex: 0 },
+      { word: "GENEROUS", hint: "Giving freely to yourself", revealedIndex: 4 },
+    ],
+    funFact: "Indulging mindfully and without guilt can boost mental well-being, reduce stress, and improve work engagement. 🍫",
+  },
+
+  // =============================================
+  // INDEX 157 - Shows May 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Cinco de Mayo",
+    puzzleNumber: 236,
+    words: [
+      { word: "ARMY", hint: "Military forces that fought", revealedIndex: 0 },
+      { word: "HONOR", hint: "To show respect", revealedIndex: 2 },
+      { word: "FRANCE", hint: "The country Mexico defeated", revealedIndex: 3 },
+      { word: "MEXICAN", hint: "Relating to Mexico", revealedIndex: 0 },
+      { word: "INVASION", hint: "A foreign military attack", revealedIndex: 4 },
+    ],
+    funFact: "Cinco de Mayo commemorates the Mexican army's unexpected 1862 victory over France at the Battle of Puebla, not Mexican Independence Day (Sept 16). While a minor holiday in Mexico, it became popular in the U.S. during the 1960s-80s to celebrate Mexican-American culture. 🇲🇽",
+  },
+
+  // =============================================
+  // INDEX 158 - Shows May 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Nurse",
+    puzzleNumber: 237,
+    words: [
+      { word: "CARE", hint: "Compassionate attention", revealedIndex: 0 },
+      { word: "TREAT", hint: "To provide medical help", revealedIndex: 2 },
+      { word: "HEALTH", hint: "Physical well-being", revealedIndex: 3 },
+      { word: "MEDICAL", hint: "Related to medicine", revealedIndex: 0 },
+      { word: "HOSPITAL", hint: "Where patients receive care", revealedIndex: 4 },
+    ],
+    funFact: "Nurses are the backbone of healthcare, consistently ranked as the most honest and ethical profession. With over 4.7 million registered nurses in the U.S. alone, they represent the largest healthcare profession. 👩‍⚕️",
+  },
+
+  // =============================================
+  // INDEX 159 - Shows May 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chicken Dance",
+    puzzleNumber: 238,
+    words: [
+      { word: "CLAP", hint: "To bring hands together", revealedIndex: 0 },
+      { word: "POLKA", hint: "A lively European dance style", revealedIndex: 2 },
+      { word: "WIGGLE", hint: "To move side to side", revealedIndex: 3 },
+      { word: "WEDDING", hint: "Where this dance is often performed", revealedIndex: 0 },
+      { word: "FEATHERS", hint: "What chickens are covered in", revealedIndex: 4 },
+    ],
+    funFact: "Inspired by skiers, it was brought to the U.S. in 1981, where a lack of duck costumes at a Tulsa event forced a name change to the Chicken Dance. 🐔",
+  },
+
+  // =============================================
+  // INDEX 160 - Shows May 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Mothers Day",
+    puzzleNumber: 239,
+    words: [
+      { word: "LOVE", hint: "Deep affection", revealedIndex: 0 },
+      { word: "HEART", hint: "Symbol of love", revealedIndex: 2 },
+      { word: "WISDOM", hint: "Knowledge gained through experience", revealedIndex: 3 },
+      { word: "NURTURE", hint: "To care for and encourage", revealedIndex: 0 },
+      { word: "SELFLESS", hint: "Putting others first", revealedIndex: 4 },
+    ],
+    funFact: "Mother's Day is celebrated on the second Sunday of May in many countries, initiated by Anna Jarvis in 1908 to honor her mother. 💐",
+  },
+
+  // =============================================
+  // INDEX 161 - Shows May 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hat",
+    puzzleNumber: 240,
+    words: [
+      { word: "BRIM", hint: "The edge that shades your face", revealedIndex: 0 },
+      { word: "BERET", hint: "A soft, round French cap", revealedIndex: 2 },
+      { word: "COWBOY", hint: "A Western style with a wide brim", revealedIndex: 3 },
+      { word: "HATBAND", hint: "A decorative strip around the crown", revealedIndex: 0 },
+      { word: "SOMBRERO", hint: "A Mexican hat with a very wide brim", revealedIndex: 4 },
+    ],
+    funFact: "Originally used for protection from the elements, hats became important indicators of social status, profession, and religious beliefs. 🎩",
+  },
+
+  // =============================================
+  // INDEX 162 - Shows May 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Museum",
+    puzzleNumber: 241,
+    words: [
+      { word: "TOUR", hint: "A guided walk through exhibits", revealedIndex: 0 },
+      { word: "GUIDE", hint: "Someone who explains the displays", revealedIndex: 2 },
+      { word: "TICKET", hint: "Your pass for entry", revealedIndex: 3 },
+      { word: "GALLERY", hint: "A room for displaying art", revealedIndex: 0 },
+      { word: "ARTIFACT", hint: "A historical object on display", revealedIndex: 4 },
+    ],
+    funFact: "There are over 55,000 museums worldwide, with the Louvre in Paris being the most visited, hosting over 10 million people annually. 🏛️",
+  },
+
+  // =============================================
+  // INDEX 163 - Shows May 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Money Tips",
+    puzzleNumber: 242,
+    words: [
+      { word: "PLAN", hint: "A strategy for your finances", revealedIndex: 0 },
+      { word: "ASSET", hint: "Something of value you own", revealedIndex: 2 },
+      { word: "FRUGAL", hint: "Careful with spending", revealedIndex: 3 },
+      { word: "INTEREST", hint: "What your savings can earn", revealedIndex: 0 },
+      { word: "SAVINGS", hint: "Money set aside for later", revealedIndex: 4 },
+    ],
+    funFact: "Money has been part of human history for at least 5,000 years. Put tax refunds or bonuses toward savings, not impulse buys. 💰",
+  },
+
+  // =============================================
+  // INDEX 164 - Shows May 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Notebook",
+    puzzleNumber: 243,
+    words: [
+      { word: "MEMO", hint: "A short written note", revealedIndex: 0 },
+      { word: "DIARY", hint: "A personal daily record", revealedIndex: 2 },
+      { word: "LEDGER", hint: "A book for financial records", revealedIndex: 3 },
+      { word: "JOURNAL", hint: "A place to write thoughts", revealedIndex: 0 },
+      { word: "PORTABLE", hint: "Easy to carry around", revealedIndex: 4 },
+    ],
+    funFact: "Notebooks and journals are essential for enhancing memory, boosting creativity, and reducing screen time, with studies showing that writing by hand aids in cognitive retention. 📓",
+  },
+
+  // =============================================
+  // INDEX 165 - Shows May 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Turtles",
+    puzzleNumber: 244,
+    words: [
+      { word: "BASK", hint: "To warm in the sun", revealedIndex: 0 },
+      { word: "SHELL", hint: "The protective outer covering", revealedIndex: 2 },
+      { word: "WISDOM", hint: "Often symbolized by these creatures", revealedIndex: 3 },
+      { word: "ANCIENT", hint: "Very old, from long ago", revealedIndex: 0 },
+      { word: "TORTOISE", hint: "A land-dwelling relative", revealedIndex: 4 },
+    ],
+    funFact: "Turtles are ancient reptiles existing for over 150 million years. They live on every continent except Antarctica. 🐢",
+  },
+
+  // =============================================
+  // INDEX 166 - Shows May 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Tap Dance",
+    puzzleNumber: 245,
+    words: [
+      { word: "FLAP", hint: "A basic tap step", revealedIndex: 0 },
+      { word: "BRUSH", hint: "A sweeping foot movement", revealedIndex: 2 },
+      { word: "CHANGE", hint: "A weight shift step", revealedIndex: 3 },
+      { word: "HOOFING", hint: "Slang for tap dancing", revealedIndex: 0 },
+      { word: "RHYTHMIC", hint: "Having a regular beat", revealedIndex: 4 },
+    ],
+    funFact: "Tap dance is a uniquely American art form born from blending Irish clog, British step dancing, and West African drumming rhythms in the 1700s-1800s. 👞",
+  },
+
+  // =============================================
+  // INDEX 167 - Shows May 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hamburger",
+    puzzleNumber: 246,
+    words: [
+      { word: "BEEF", hint: "The main meat ingredient", revealedIndex: 0 },
+      { word: "PATTY", hint: "The shaped meat portion", revealedIndex: 2 },
+      { word: "MEDIUM", hint: "A common cooking preference", revealedIndex: 3 },
+      { word: "TOPPING", hint: "Lettuce, tomato, cheese", revealedIndex: 0 },
+      { word: "BARBECUE", hint: "A popular sauce flavor", revealedIndex: 4 },
+    ],
+    funFact: "Burgers are incredibly popular, with around 60% of all sandwiches sold worldwide being hamburgers. 🍔",
+  },
+
+  // =============================================
+  // INDEX 168 - Shows May 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Compost",
+    puzzleNumber: 247,
+    words: [
+      { word: "SOIL", hint: "What compost enriches", revealedIndex: 0 },
+      { word: "MULCH", hint: "Material spread around plants", revealedIndex: 2 },
+      { word: "MATTER", hint: "Organic ___ breaks down", revealedIndex: 3 },
+      { word: "ORGANIC", hint: "Natural, from living things", revealedIndex: 0 },
+      { word: "NUTRIENT", hint: "Food for plants", revealedIndex: 4 },
+    ],
+    funFact: "Composting is a natural, 12,000-year-old process that turns organic waste into nutrient-rich humus, reducing landfill waste by up to 20%. 🌱",
+  },
+
+  // =============================================
+  // INDEX 169 - Shows May 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Blueberry",
+    puzzleNumber: 248,
+    words: [
+      { word: "TART", hint: "Slightly sour taste", revealedIndex: 0 },
+      { word: "BLOOM", hint: "The dusty coating on fresh ones", revealedIndex: 2 },
+      { word: "BAKING", hint: "Used in muffins and pies", revealedIndex: 3 },
+      { word: "AMERICA", hint: "Native to North ___", revealedIndex: 0 },
+      { word: "SMOOTHIE", hint: "A blended drink", revealedIndex: 4 },
+    ],
+    funFact: "Blueberries, a North American native superfood, are actually purple, rich in antioxidants, and packed with 25% of your daily Vitamin C in just one cup. 🫐",
+  },
+
+  // =============================================
+  // INDEX 170 - Shows May 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Teacher",
+    puzzleNumber: 249,
+    words: [
+      { word: "PLAN", hint: "To prepare lessons", revealedIndex: 0 },
+      { word: "REACH", hint: "To connect with students", revealedIndex: 2 },
+      { word: "LEADER", hint: "Someone who guides others", revealedIndex: 3 },
+      { word: "INSPIRE", hint: "To motivate and encourage", revealedIndex: 0 },
+      { word: "INSTRUCT", hint: "To teach or educate", revealedIndex: 4 },
+    ],
+    funFact: "Many teachers report high job satisfaction, valuing creativity, and forming lasting impacts on students' lives. 👩‍🏫",
+  },
 ];
 
 // ===========================================

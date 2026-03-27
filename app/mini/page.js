@@ -559,7 +559,9 @@ const copyToClipboard = async (text) => {
 
           <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-4 mb-4 border-2 border-amber-200">
             <p className="text-center text-amber-700 text-sm mb-2 font-semibold">
-              This letter is in the word, but NOT here:
+              {puzzle.word.split('').filter(l => l === yellowLetter.letter).length > 1
+                ? `This letter appears more than once in the word:`
+                : `This letter is in the word, but NOT here:`}
             </p>
             <div className="flex justify-center gap-2">
               {[0, 1, 2, 3, 4].map((index) => (
@@ -576,6 +578,11 @@ const copyToClipboard = async (text) => {
                 </div>
               ))}
             </div>
+            {puzzle.word.split('').filter(l => l === yellowLetter.letter).length > 1 && (
+              <p className="text-center text-amber-600 text-xs mt-2">
+                It may appear in more than one spot!
+              </p>
+            )}
           </div>
 
           {guesses.length > 0 && (
@@ -889,7 +896,7 @@ const copyToClipboard = async (text) => {
           🟨 The Yellow Letter
         </p>
         <p className="text-amber-700 text-sm">
-          Every puzzle starts with a clue of one letter shown in yellow. That letter <span className="font-bold">is</span> in the word, but <span className="font-bold">not</span> in the position shown. Use it to narrow down your guesses!
+          Every puzzle starts with a clue of one letter shown in yellow. That letter <span className="font-bold">is</span> in the word, but <span className="font-bold">not</span> in the position shown. Use it to narrow down your guesses! Occasionally, a letter may appear more than once in the word; if so, the clue will let you know!
         </p>
       </div>
 

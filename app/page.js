@@ -76,7 +76,7 @@ export default function Home() {
   const moreDailyGames = [
     {
       name: "Little Letter Griddle",
-      tagline: "New words, same moonlit puzzle",
+      tagline: "Words and a moonlit puzzle",
       dropTime: "7:30 PM EST",
       emoji: "\uD83C\uDF19",
       href: "https://littlelettergriddle.com",
@@ -99,7 +99,7 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Buffet",
-      tagline: "Same ambiance, the menu items have changed.",
+      tagline: "Ambiance and words are always on the menu.",
       dropTime: "8:00 PM EST",
       emoji: "\uD83C\uDF7D\uFE0F",
       href: "https://lettergriddlebuffet.com",
@@ -120,7 +120,7 @@ export default function Home() {
       hoverBg: "bg-orange-500/80"
     },
     {
-      name: "Snacks - Brand New!",
+      name: "Snacks - New!",
       tagline: "Make a snack without leaving any crumbs!",
       emoji: "\uD83C\uDF6A",
       href: "/snacks",

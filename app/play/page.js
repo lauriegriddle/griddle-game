@@ -454,7 +454,8 @@ useEffect(() => {
         
         setAvailableLetters(prev => {
           const newAvailable = [...prev];
-          newAvailable.splice(letterIndex, 1);
+          const actualIndex = newAvailable.indexOf(key);
+if (actualIndex !== -1) newAvailable.splice(actualIndex, 1);
           return newAvailable;
         });
         
@@ -533,7 +534,8 @@ useEffect(() => {
       // Place the letter
       setAvailableLetters(prev => {
         const newAvailable = [...prev];
-        newAvailable.splice(letterIndex, 1);
+        const actualIndex = newAvailable.indexOf(letter);
+if (actualIndex !== -1) newAvailable.splice(actualIndex, 1);
         return newAvailable;
       });
       

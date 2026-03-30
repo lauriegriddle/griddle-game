@@ -1246,7 +1246,7 @@ const copyToClipboard = async (text) => {
 
       {/* Welcome Modal */}
       {showWelcomeModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.35)'}}>
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.20)'}}>
           <div className="bg-amber-50 rounded-2xl p-10 max-w-sm w-full shadow-xl text-center">
             <div className="text-4xl mb-4">🥞</div>
             <p className="text-sm text-stone-400 mb-2" style={{fontFamily: 'Georgia, serif'}}>
@@ -1262,24 +1262,7 @@ const copyToClipboard = async (text) => {
             >
              Today's Special
             </button>
-            {!countryAsked && (
-              <div className="mt-4 mb-4">
-                <p className="text-xs text-amber-700 font-semibold mb-2">🌍 We are planning fun puzzles! Which country would you like to see as a Letter Griddle topic?</p>
-                <div className="flex flex-wrap justify-center gap-1">
-                  {['🇨🇦 Canada', '🇮🇹 Italy', '🇦🇺 Australia', '🇮🇪 Ireland', '🇵🇹 Portugal'].map((country) => (
-                    <button key={country} onClick={() => handleCountryFeedback(country)} className="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded-full border border-amber-300 transition-all mb-1">
-                      {country}
-                    </button>
-                  ))}
-                  <button onClick={() => handleCountryFeedback('🇫🇷 France')} className="text-xs bg-amber-100 hover:bg-amber-200 text-amber-800 px-2 py-1 rounded-full border border-amber-300 transition-all mb-1">
-  🇫🇷 France
-</button>
-                </div>
-                {countryAnswer && (
-                  <p className="text-xs text-amber-600 font-semibold mt-2">Thanks for your input! 🥞</p>
-                )}
-              </div>
-            )}         
+                    
           </div>
         </div>
       )}

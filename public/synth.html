@@ -415,6 +415,9 @@
         analyser = ctx.createAnalyser(); analyser.fftSize = 512;
         mGain.connect(analyser); analyser.connect(ctx.destination);
         makeReverb();
+        // Resume audio context if iOS suspends it mid-session
+        document.addEventListener('touchstart', () => { if (ctx.state === 'suspended') ctx.resume(); }, { passive: true });
+        document.addEventListener('click', () => { if (ctx.state === 'suspended') ctx.resume(); }, { passive: true });
       }
       if (ctx.state === 'suspended') ctx.resume();
     }
@@ -446,13 +449,11 @@
       const dry = ctx.createGain();
       dry.gain.value = 1 - reverbAmt;
       env.connect(dry); dry.connect(mGain);
-      // Wet path — fresh convolver per note so reverb tail never gets cut
+      // Wet path — shared convolver, low wet gain
       if (reverbAmt > 0) {
-        const conv = ctx.createConvolver();
-        conv.buffer = rev.buffer;
         const wet = ctx.createGain();
         wet.gain.value = reverbAmt * 0.15;
-        env.connect(wet); wet.connect(conv); conv.connect(mGain);
+        env.connect(wet); wet.connect(rev);
       }
       ivs.forEach(s => {
         const freq = n.freq * mult * Math.pow(2, s/12);
@@ -460,7 +461,6 @@
         o.type = wave; o.frequency.value = freq;
         o.connect(env);
         o.start(t);
-        // Stop well after reverb tail — no abrupt cut
         o.stop(t + decay + 4.0);
         oscs.push(o);
       });
@@ -474,7 +474,6 @@
     function stopN(n) {
       const nd = active[n.key]; if (!nd) return;
       const t = ctx.currentTime;
-      // setTargetAtTime gives a smooth exponential curve from current value — no clicks
       nd.env.gain.cancelAndHoldAtTime(t);
       nd.env.gain.setTargetAtTime(0.0001, t, decay / 4);
       delete active[n.key];

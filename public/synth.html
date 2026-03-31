@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cafe Synth · Letter Griddle</title>
-  <meta name="description" content="Play the musical instrument that filled Letter Griddle with music.">
+  <meta name="description" content="Play the keyboard that started it all. The Letter Griddle Cafe Jukebox.">
   <meta property="og:title" content="The Cafe Synth · Letter Griddle">
   <meta property="og:description" content="Play the keyboard that started it all.">
   <meta property="og:url" content="https://lettergriddle.com/synth">
@@ -392,6 +392,10 @@
           <button class="tune-btn" data-tune="mary">Mary's Lamb</button>
           <button class="tune-btn" data-tune="jingle">Jingle Bells</button>
           <button class="tune-btn" data-tune="hotcross">Hot Cross Buns</button>
+          <button class="tune-btn" data-tune="furelise">Für Elise</button>
+          <button class="tune-btn" data-tune="entertainer">The Entertainer</button>
+          <button class="tune-btn" data-tune="boogie">Boogie Woogie</button>
+          <button class="tune-btn" data-tune="glowworm">Glow Worm</button>
         </div>
       </div>
       <div id="sheet-body">
@@ -408,7 +412,7 @@
       <div class="keys-row" style="grid-template-columns: repeat(7, 1fr);" id="row-naturals"></div>
     </div>
 
-    <div id="status">Tap anywhere to wake the synth</div>
+    <div id="status">Tap anywhere to wake the jukebox</div>
 
     <!-- iOS audio unlock overlay -->
     <div id="unlock-overlay" style="
@@ -548,11 +552,10 @@
       document.getElementById('status').textContent = 'Playing ' + n.note + octave + (chord!=='none' ? ' · '+chord : '');
       // Highlight matching note on sheet music
       if(typeof drawSheet !== 'undefined' && typeof TUNES !== 'undefined') {
-        const baseName = n.note.replace('#','');
         const tuneNotes = TUNES[currentTune].notes;
         let found = -1;
         for(let i=highlightIdx; i<tuneNotes.length; i++) {
-          if(tuneNotes[i].n === baseName) { found=i; highlightIdx=i+1; break; }
+          if(tuneNotes[i].n === n.note) { found=i; highlightIdx=i+1; break; }
         }
         if(found >= 0) drawSheet(currentTune, found);
         if(highlightIdx >= tuneNotes.length) highlightIdx=0;
@@ -712,7 +715,7 @@
       silentSrc.connect(ctx.destination);
       silentSrc.start(0);
       document.getElementById('unlock-overlay').style.display = 'none';
-      document.getElementById('status').textContent = 'The synth is ready';
+      document.getElementById('status').textContent = 'The jukebox is ready';
     });
 
     // Visualizer
@@ -767,9 +770,45 @@
         {n:'D',d:0.5},{n:'D',d:0.5},{n:'D',d:0.5},{n:'D',d:0.5},
         {n:'E',d:1},{n:'D',d:1},{n:'C',d:2},
       ]},
+      furelise: { title:'Für Elise — Beethoven', notes:[
+        {n:'E',d:0.5},{n:'D#',d:0.5},{n:'E',d:0.5},{n:'D#',d:0.5},{n:'E',d:0.5},{n:'B',d:0.5},{n:'D',d:0.5},{n:'C',d:0.5},
+        {n:'A',d:1.5},{n:'C',d:0.5},{n:'E',d:0.5},{n:'A',d:0.5},
+        {n:'B',d:1.5},{n:'E',d:0.5},{n:'G#',d:0.5},{n:'B',d:0.5},
+        {n:'C',d:1.5},{n:'E',d:0.5},{n:'E',d:0.5},{n:'D#',d:0.5},
+        {n:'E',d:0.5},{n:'D#',d:0.5},{n:'E',d:0.5},{n:'B',d:0.5},{n:'D',d:0.5},{n:'C',d:0.5},
+        {n:'A',d:1.5},
+      ]},
+      entertainer: { title:'The Entertainer — Joplin', notes:[
+        {n:'D',d:0.5},{n:'E',d:0.5},{n:'C',d:0.5},{n:'A',d:0.5},
+        {n:'B',d:0.5},{n:'G',d:0.5},{n:'E',d:0.5},{n:'C',d:0.5},
+        {n:'D',d:0.5},{n:'E',d:0.5},{n:'C',d:0.5},{n:'E',d:0.5},
+        {n:'G',d:1},{n:'E',d:0.5},{n:'G',d:0.5},
+        {n:'F#',d:0.5},{n:'G',d:0.5},{n:'E',d:0.5},{n:'G',d:0.5},
+        {n:'A',d:1},{n:'G',d:0.5},{n:'F#',d:0.5},
+        {n:'G',d:0.5},{n:'E',d:0.5},{n:'D',d:0.5},{n:'C',d:0.5},
+        {n:'D',d:2},
+      ]},
+      boogie: { title:'Boogie Woogie Bass Line', notes:[
+        {n:'C',d:0.5},{n:'E',d:0.5},{n:'G',d:0.5},{n:'A',d:0.5},{n:'A#',d:0.5},{n:'A',d:0.5},{n:'G',d:0.5},{n:'E',d:0.5},
+        {n:'C',d:0.5},{n:'E',d:0.5},{n:'G',d:0.5},{n:'A',d:0.5},{n:'A#',d:0.5},{n:'A',d:0.5},{n:'G',d:0.5},{n:'E',d:0.5},
+        {n:'F',d:0.5},{n:'A',d:0.5},{n:'C',d:0.5},{n:'D',d:0.5},{n:'D#',d:0.5},{n:'D',d:0.5},{n:'C',d:0.5},{n:'A',d:0.5},
+        {n:'G',d:0.5},{n:'B',d:0.5},{n:'D',d:0.5},{n:'E',d:0.5},{n:'F',d:0.5},{n:'E',d:0.5},{n:'D',d:0.5},{n:'B',d:0.5},
+      ]},
+      glowworm: { title:'Glow Worm — Paul Lincke', notes:[
+        {n:'E',d:0.5},{n:'E',d:0.5},{n:'E',d:0.5},{n:'E',d:0.5},{n:'E',d:1},{n:'E',d:1},
+        {n:'E',d:0.5},{n:'F',d:0.5},{n:'E',d:0.5},{n:'D',d:0.5},{n:'C',d:2},
+        {n:'D',d:0.5},{n:'D',d:0.5},{n:'D',d:0.5},{n:'D',d:0.5},{n:'D',d:1},{n:'D',d:1},
+        {n:'D',d:0.5},{n:'E',d:0.5},{n:'D',d:0.5},{n:'C',d:0.5},{n:'B',d:2},
+        {n:'E',d:0.5},{n:'E',d:0.5},{n:'E',d:0.5},{n:'E',d:0.5},{n:'E',d:1},{n:'G',d:1},
+        {n:'A',d:0.5},{n:'G',d:0.5},{n:'F',d:0.5},{n:'E',d:0.5},{n:'D',d:2},
+      ]},
     };
-    const NOTE_Y = {C:0,D:1,E:2,F:3,G:4,A:5,B:6};
-    const NOTE_COLORS = {C:'#D4833A',D:'#C2632A',E:'#8B3A1A',F:'#b85020',G:'#c97a50',A:'#a06030',B:'#7a4020'};
+    const NOTE_Y = {C:0,'C#':0,D:1,'D#':1,E:2,F:3,'F#':3,G:4,'G#':4,A:5,'A#':5,B:6};
+    const NOTE_COLORS = {
+      C:'#D4833A','C#':'#b85020',D:'#C2632A','D#':'#a04018',
+      E:'#8B3A1A',F:'#b85020','F#':'#955020',G:'#c97a50',
+      'G#':'#a06040',A:'#a06030','A#':'#885020',B:'#7a4020'
+    };
     let currentTune='twinkle', highlightIdx=0;
 
     function drawSheet(tune, highlight) {
@@ -804,6 +843,11 @@
         c.fillStyle=isHl?'#C2632A':'#a07040';
         c.font=isHl?'500 11px sans-serif':'400 10px sans-serif';
         c.textAlign='center'; c.fillText(note.n,x,132); c.textAlign='left';
+        // Sharp symbol on note head
+        if(note.n.includes('#')){
+          c.fillStyle=col; c.font='bold 9px sans-serif';
+          c.fillText('♯',x+7,staffY-2);
+        }
         beatPos+=note.d;
       });
     }

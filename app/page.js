@@ -960,7 +960,7 @@ const cafeSpecials = [
         fontFamily: 'Georgia, serif'
       }}
     >
-      ☕ Cafe Specials
+      🎹 Cafe Specials 🕰️
     </div>
     <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
       Something a Little Different

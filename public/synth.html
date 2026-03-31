@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cafe Synth · Letter Griddle</title>
-  <meta name="description" content="Play the Letter Griddle keyboard.">
+  <meta name="description" content="Play the keyboard that brought music to Letter Griddle.">
   <meta property="og:title" content="The Cafe Synth · Letter Griddle">
-  <meta property="og:description" content="Play the keyboard that started it all.">
+  <meta property="og:description" content="Play the Letter Griddle keyboard.">
   <meta property="og:url" content="https://lettergriddle.com/synth">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -238,7 +238,7 @@
     <div id="story-band">
       <div class="avatar">♪</div>
       <div id="story-text">
-        <strong>The Lindsays</strong> brought the old keyboard in one rainy Sunday and said, "The cafe needs a keyboard and this keyboard needs a home!" And a home it found! Soon, the regulars were writing songs. The cafe has been full of music since.
+        <strong>The Lindsays</strong> brought the old keyboard in one rainy Sunday and said, "The cafe needs a keyboard and this keyboard needs a home!" And a home it found! Soon, the regulars were writing songs. Letter Griddle has been full of music since.
       </div>
     </div>
 
@@ -349,7 +349,7 @@
       <div class="keys-row" style="grid-template-columns: repeat(7, 1fr);" id="row-naturals"></div>
     </div>
 
-    <div id="status">Tap anywhere to wake the synth</div>
+    <div id="status">Tap anywhere to wake the jukebox</div>
   </div>
 
   <div id="footer">
@@ -436,7 +436,7 @@
       noteFlash = 1.0;
       const mult = Math.pow(2, octave-4);
       const ivs = CHORD[chord];
-      const oscs=[], gains=[];
+      const oscs=[], gains=[], drys=[], wets=[];
       ivs.forEach(s => {
         const freq = n.freq * mult * Math.pow(2, s/12);
         const o = ctx.createOscillator(), g = ctx.createGain();
@@ -445,12 +445,15 @@
         g.gain.exponentialRampToValueAtTime(0.28/ivs.length, ctx.currentTime+0.018);
         o.connect(g);
         const dry = ctx.createGain(), wet = ctx.createGain();
-        dry.gain.value = 1-reverbAmt; wet.gain.value = reverbAmt;
+        dry.gain.setValueAtTime(0.001, ctx.currentTime);
+        dry.gain.linearRampToValueAtTime(1-reverbAmt, ctx.currentTime+0.018);
+        wet.gain.setValueAtTime(0.001, ctx.currentTime);
+        wet.gain.linearRampToValueAtTime(reverbAmt, ctx.currentTime+0.018);
         g.connect(dry); dry.connect(mGain);
         g.connect(wet); wet.connect(rev);
-        o.start(); oscs.push(o); gains.push(g);
+        o.start(); oscs.push(o); gains.push(g); drys.push(dry); wets.push(wet);
       });
-      active[n.key] = {oscs, gains};
+      active[n.key] = {oscs, gains, drys, wets};
       document.getElementById('note-display').textContent = n.note + octave;
       document.getElementById('note-sub').textContent = chord==='none' ? wave : chord+' chord';
       document.querySelector(`[data-key="${n.key}"]`)?.classList.add('active');
@@ -460,13 +463,24 @@
     function stopN(n) {
       const nd = active[n.key]; if (!nd) return;
       const t = ctx.currentTime;
+      const releaseTime = Math.max(decay, 0.05);
       nd.gains.forEach(g => {
         g.gain.cancelScheduledValues(t);
         g.gain.setValueAtTime(g.gain.value, t);
         g.gain.linearRampToValueAtTime(g.gain.value, t + 0.008);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + decay);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + releaseTime);
       });
-      nd.oscs.forEach(o => o.stop(t + decay + 0.05));
+      nd.drys.forEach(d => {
+        d.gain.cancelScheduledValues(t);
+        d.gain.setValueAtTime(d.gain.value, t);
+        d.gain.linearRampToValueAtTime(0.0001, t + releaseTime);
+      });
+      nd.wets.forEach(w => {
+        w.gain.cancelScheduledValues(t);
+        w.gain.setValueAtTime(w.gain.value, t);
+        w.gain.linearRampToValueAtTime(0.0001, t + releaseTime + 0.1);
+      });
+      nd.oscs.forEach(o => o.stop(t + releaseTime + 0.15));
       delete active[n.key];
       document.querySelector(`[data-key="${n.key}"]`)?.classList.remove('active');
       if (!Object.keys(active).length) {
@@ -599,7 +613,7 @@
     document.getElementById('s-vol').addEventListener('input',    e => { vol=+e.target.value; if(mGain) mGain.gain.value=vol; document.getElementById('v-vol').textContent=Math.round(vol*100)+'%'; });
 
     document.getElementById('wrap').addEventListener('click', () => {
-      boot(); document.getElementById('status').textContent = 'The keyboard is ready';
+      boot(); document.getElementById('status').textContent = 'The jukebox is ready';
     }, {once:true});
 
     // Visualizer

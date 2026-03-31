@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cafe Synth · Letter Griddle</title>
-  <meta name="description" content="Play the Letter Griddle Cafe keyboard: The Letter Griddle Cafe Synth.">
+  <meta name="description" content="Play the keyboard:  The Letter Griddle Cafe Synth.">
   <meta property="og:title" content="The Cafe Synth · Letter Griddle">
   <meta property="og:description" content="Play the keyboard that fills the cafe with music.">
   <meta property="og:url" content="https://lettergriddle.com/synth">
@@ -210,7 +210,7 @@
     <div id="story-band">
       <div class="avatar">♪</div>
       <div id="story-text">
-        <strong>The Lindsays</strong> brought the old keyboard in one rainy Sunday and said, "The cafe needs a keyboard and this keyboard needs a home!" And a home it found! Soon, the regulars were writing songs. The music hasn't stopped since.
+        <strong>The Lindsays</strong> brought the old keyboard in one rainy Sunday and said, "The cafe needs a keyboard and this keyboard needs a home!" And a home it found! Soon, the regulars were writing songs. The cafe has been full of music since.
       </div>
     </div>
 
@@ -303,8 +303,10 @@
   </div>
 
   <div id="footer">
-    <p>Part of the <a href="https://lettergriddle.com">Letter Griddle</a> family ·
-    <a href="https://lettergriddle.com/synth">lettergriddle.com/synth</a></p>
+    <p>Part of the <a href="https://lettergriddle.com">Letter Griddle</a> family</p>
+    <p style="margin-top: 6px;">© <span id="copy-year"></span> Letter Griddle &nbsp;·&nbsp;
+    <a href="https://lettergriddle.com/privacy">Privacy</a> &nbsp;·&nbsp;
+    <a href="https://lettergriddle.com/terms">Terms</a></p>
   </div>
 
   <script>
@@ -568,6 +570,9 @@
       }
     }
     draw();
+
+    // Dynamic copyright year
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

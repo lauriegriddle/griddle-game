@@ -360,7 +360,7 @@ export default function GriddleloguePage() {
           {view === 'setup' && (
             <div style={{padding: '20px 22px 0'}}>
               <div style={{textAlign: 'center', marginBottom: '20px'}}>
-                <div style={{fontSize: '36px', marginBottom: '10px'}}>📖</div>
+                <div style={{fontSize: '36px', marginBottom: '10px'}}>📖🕰️</div>
                 <div style={{
                   fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase',
                   color: '#9070d8', marginBottom: '8px',
@@ -703,7 +703,7 @@ export default function GriddleloguePage() {
                 background: 'none', border: 'none', cursor: 'pointer', color: '#8a7055',
               }}><X size={22} /></button>
               <div style={{textAlign: 'center', marginBottom: '20px'}}>
-                <div style={{fontSize: '28px', marginBottom: '8px'}}>📖</div>
+                <div style={{fontSize: '28px', marginBottom: '8px'}}>📖🕰️</div>
                 <h2 style={{fontFamily: 'Georgia, serif', fontSize: '20px', color: '#5c3d1a'}}>Your Stats</h2>
               </div>
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px'}}>

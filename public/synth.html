@@ -291,72 +291,101 @@
     </div>
 
     <div class="ctrl-panel">
-      <div class="sec-label">Sound</div>
-      <div class="pill-row" id="wave-row">
-        <button class="pill on" data-wave="sine">Mellow</button>
-        <button class="pill" data-wave="triangle">Warm</button>
-        <button class="pill" data-wave="sawtooth">Bright</button>
-        <button class="pill" data-wave="square">Retro</button>
+      <button class="collapse-btn" data-target="sound-body" data-arrow="sound-arrow" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:0;margin-bottom:0;">
+        <div class="sec-label" style="margin-bottom:0;">Sound</div>
+        <span id="sound-arrow" style="font-size:10px;color:#8B3A1A;transition:transform 0.2s;">▼</span>
+      </button>
+      <div id="sound-body" style="margin-top:9px;">
+        <div class="pill-row" id="wave-row">
+          <button class="pill on" data-wave="sine">Mellow</button>
+          <button class="pill" data-wave="triangle">Warm</button>
+          <button class="pill" data-wave="sawtooth">Bright</button>
+          <button class="pill" data-wave="square">Retro</button>
+        </div>
       </div>
     </div>
 
     <div class="ctrl-panel">
-      <div class="sec-label">Chord</div>
-      <div class="pill-row" id="chord-row">
-        <button class="pill on" data-chord="none">Single</button>
-        <button class="pill" data-chord="major">Major</button>
-        <button class="pill" data-chord="minor">Minor</button>
-        <button class="pill" data-chord="dom7">Jazz 7th</button>
+      <button class="collapse-btn" data-target="chord-body" data-arrow="chord-arrow" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:0;margin-bottom:0;">
+        <div class="sec-label" style="margin-bottom:0;">Chord</div>
+        <span id="chord-arrow" style="font-size:10px;color:#8B3A1A;transition:transform 0.2s;">▼</span>
+      </button>
+      <div id="chord-body" style="margin-top:9px;">
+        <div class="pill-row" id="chord-row">
+          <button class="pill on" data-chord="none">Single</button>
+          <button class="pill" data-chord="major">Major</button>
+          <button class="pill" data-chord="minor">Minor</button>
+          <button class="pill" data-chord="dom7">Jazz 7th</button>
+        </div>
       </div>
     </div>
 
     <div id="sliders-panel">
-      <div class="sec-label">Controls</div>
-      <div id="controls-row">
-        <div class="ctrl">
-          <label>Reverb</label>
-          <input type="range" id="s-reverb" min="0" max="1" step="0.01" value="0.2">
-          <span class="ctrl-val" id="v-reverb">20%</span>
-        </div>
-        <div class="ctrl">
-          <label>Decay</label>
-          <input type="range" id="s-decay" min="0.1" max="3" step="0.1" value="0.8">
-          <span class="ctrl-val" id="v-decay">0.8s</span>
-        </div>
-        <div class="ctrl">
-          <label>Volume</label>
-          <input type="range" id="s-vol" min="0.05" max="1" step="0.01" value="0.5">
-          <span class="ctrl-val" id="v-vol">50%</span>
+      <button class="collapse-btn" data-target="controls-body" data-arrow="controls-arrow" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:0;margin-bottom:0;">
+        <div class="sec-label" style="margin-bottom:0;">Controls</div>
+        <span id="controls-arrow" style="font-size:10px;color:#8B3A1A;transition:transform 0.2s;">▼</span>
+      </button>
+      <div id="controls-body" style="margin-top:9px;">
+        <div id="controls-row">
+          <div class="ctrl">
+            <label>Reverb</label>
+            <input type="range" id="s-reverb" min="0" max="1" step="0.01" value="0.2">
+            <span class="ctrl-val" id="v-reverb">20%</span>
+          </div>
+          <div class="ctrl">
+            <label>Decay</label>
+            <input type="range" id="s-decay" min="0.1" max="3" step="0.1" value="0.8">
+            <span class="ctrl-val" id="v-decay">0.8s</span>
+          </div>
+          <div class="ctrl">
+            <label>Volume</label>
+            <input type="range" id="s-vol" min="0.05" max="1" step="0.01" value="0.5">
+            <span class="ctrl-val" id="v-vol">50%</span>
+          </div>
         </div>
       </div>
     </div>
 
     <div id="beat-panel">
-      <div class="sec-label">The Band</div>
-      <div id="beat-top">
-        <button id="beat-toggle">▶ Start Band</button>
-        <div id="beat-right">
-          <div class="beat-ctrl">
-            <label>Tempo</label>
-            <input type="range" id="s-bpm" min="60" max="160" step="1" value="100">
-            <span class="beat-ctrl-val" id="v-bpm">100 bpm</span>
-          </div>
-          <div class="beat-ctrl">
-            <label>Style</label>
-            <div id="beat-style-row">
-              <button class="beat-pill on" data-style="swing">Swing</button>
-              <button class="beat-pill" data-style="bossa">Bossa</button>
-              <button class="beat-pill" data-style="rock">Rock</button>
+      <button id="band-toggle" style="
+        display:flex; align-items:center; gap:6px; background:none; border:none;
+        cursor:pointer; padding:0; margin-bottom:10px;
+      ">
+        <div class="sec-label" style="margin-bottom:0;">The Band</div>
+        <span id="band-arrow" style="font-size:10px; color:#8B3A1A; transition:transform 0.2s;">▼</span>
+      </button>
+      <div id="band-body">
+        <div id="beat-top">
+          <button id="beat-toggle">▶ Start Band</button>
+          <div id="beat-right">
+            <div class="beat-ctrl">
+              <label>Tempo</label>
+              <input type="range" id="s-bpm" min="60" max="160" step="1" value="100">
+              <span class="beat-ctrl-val" id="v-bpm">100 bpm</span>
+            </div>
+            <div class="beat-ctrl">
+              <label>Style</label>
+              <div id="beat-style-row">
+                <button class="beat-pill on" data-style="swing">Swing</button>
+                <button class="beat-pill" data-style="bossa">Bossa</button>
+                <button class="beat-pill" data-style="rock">Rock</button>
+              </div>
             </div>
           </div>
         </div>
+        <div id="beat-indicators"></div>
       </div>
-      <div id="beat-indicators"></div>
     </div>
 
     <div id="sheet-panel">
       <div id="sheet-top">
-        <div class="sec-label">Song Guide</div>
+        <button id="sheet-toggle" style="
+          display:flex; align-items:center; gap:6px; background:none; border:none;
+          cursor:pointer; padding:0;
+        ">
+          <div class="sec-label" style="margin-bottom:0;">Song Guide</div>
+          <span id="sheet-arrow" style="font-size:10px; color:#8B3A1A; transition:transform 0.2s;">▼</span>
+        </button>
         <div id="tune-select">
           <button class="tune-btn on" data-tune="twinkle">Twinkle</button>
           <button class="tune-btn" data-tune="ode">Ode to Joy</button>
@@ -365,10 +394,12 @@
           <button class="tune-btn" data-tune="hotcross">Hot Cross Buns</button>
         </div>
       </div>
-      <div id="sheet-canvas-wrap">
-        <canvas id="sheet" height="140"></canvas>
+      <div id="sheet-body">
+        <div id="sheet-canvas-wrap" style="margin-top:10px;">
+          <canvas id="sheet" height="140"></canvas>
+        </div>
+        <div id="sheet-hint">Keys: A=C &nbsp;·&nbsp; S=D &nbsp;·&nbsp; D=E &nbsp;·&nbsp; F=F &nbsp;·&nbsp; G=G &nbsp;·&nbsp; H=A &nbsp;·&nbsp; J=B</div>
       </div>
-      <div id="sheet-hint">Keys: A=C &nbsp;·&nbsp; S=D &nbsp;·&nbsp; D=E &nbsp;·&nbsp; F=F &nbsp;·&nbsp; G=G &nbsp;·&nbsp; H=A &nbsp;·&nbsp; J=B</div>
     </div>
 
     <div id="keys-panel">
@@ -783,6 +814,39 @@
       b.classList.add('on');
       drawSheet(currentTune,-1);
     }));
+
+    // Shared collapse handler for Sound, Chord, Controls
+    document.querySelectorAll('.collapse-btn').forEach(btn => {
+      let open = true;
+      btn.addEventListener('click', () => {
+        open = !open;
+        const body = document.getElementById(btn.dataset.target);
+        const arrow = document.getElementById(btn.dataset.arrow);
+        body.style.display = open ? 'block' : 'none';
+        arrow.style.transform = open ? 'rotate(0deg)' : 'rotate(-90deg)';
+      });
+    });
+
+    // Sheet music collapse toggle
+    let sheetOpen = true;
+    document.getElementById('sheet-toggle').addEventListener('click', () => {
+      sheetOpen = !sheetOpen;
+      const body = document.getElementById('sheet-body');
+      const arrow = document.getElementById('sheet-arrow');
+      body.style.display = sheetOpen ? 'block' : 'none';
+      arrow.style.transform = sheetOpen ? 'rotate(0deg)' : 'rotate(-90deg)';
+      if (sheetOpen) setTimeout(() => drawSheet(currentTune, highlightIdx-1), 50);
+    });
+
+    // Band collapse toggle
+    let bandOpen = true;
+    document.getElementById('band-toggle').addEventListener('click', () => {
+      bandOpen = !bandOpen;
+      const body = document.getElementById('band-body');
+      const arrow = document.getElementById('band-arrow');
+      body.style.display = bandOpen ? 'block' : 'none';
+      arrow.style.transform = bandOpen ? 'rotate(0deg)' : 'rotate(-90deg)';
+    });
 
     setTimeout(()=>drawSheet('twinkle',-1),100);
     window.addEventListener('resize',()=>drawSheet(currentTune,highlightIdx-1));

@@ -433,23 +433,22 @@
         analyser = ctx.createAnalyser(); analyser.fftSize = 512;
         mGain.connect(analyser); analyser.connect(ctx.destination);
         makeReverb();
-        // Resume audio context if iOS suspends it mid-session
-        document.addEventListener('touchstart', () => { if (ctx.state === 'suspended') ctx.resume(); }, { passive: true });
-        document.addEventListener('click', () => { if (ctx.state === 'suspended') ctx.resume(); }, { passive: true });
+        document.addEventListener('touchstart', () => { if (ctx && ctx.state === 'suspended') ctx.resume(); }, { passive: true });
+        document.addEventListener('click', () => { if (ctx && ctx.state === 'suspended') ctx.resume(); }, { passive: true });
       }
       if (ctx.state === 'suspended') ctx.resume();
     }
 
     function makeReverb() {
-      if (rev) rev.disconnect();
-      rev = ctx.createConvolver();
-      const len = ctx.sampleRate * 2.8;
-      const buf = ctx.createBuffer(2, len, ctx.sampleRate);
-      for (let c=0; c<2; c++) {
-        const d = buf.getChannelData(c);
-        for (let i=0; i<len; i++) d[i] = (Math.random()*2-1) * Math.pow(1-i/len, 2.2);
-      }
-      rev.buffer = buf; rev.connect(mGain);
+      try {
+        rev = ctx.createConvolver();
+        const len = ctx.sampleRate * 1.5;
+        const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i=0; i<len; i++) d[i] = (Math.random()*2-1) * Math.pow(1-i/len, 3);
+        rev.buffer = buf;
+        rev.connect(mGain);
+      } catch(e) { rev = null; }
     }
 
     function playN(n) {
@@ -459,16 +458,17 @@
       const mult = Math.pow(2, octave-4);
       const ivs = CHORD[chord];
       const oscs = [];
-      // Single envelope gain for the whole note
       const env = ctx.createGain();
       env.gain.setValueAtTime(0.0001, t);
       env.gain.exponentialRampToValueAtTime(0.3, t + 0.015);
-      // Dry path
+      // Always connect directly to destination — guaranteed to work on iOS
+      env.connect(ctx.destination);
+      // Also feed through mGain for visualizer
       const dry = ctx.createGain();
       dry.gain.value = 1 - reverbAmt;
       env.connect(dry); dry.connect(mGain);
-      // Wet path — shared convolver, low wet gain
-      if (reverbAmt > 0) {
+      // Reverb only if available
+      if (reverbAmt > 0 && rev) {
         const wet = ctx.createGain();
         wet.gain.value = reverbAmt * 0.15;
         env.connect(wet); wet.connect(rev);
@@ -624,15 +624,23 @@
     document.getElementById('s-decay').addEventListener('input',  e => { decay=+e.target.value;  document.getElementById('v-decay').textContent=(+e.target.value).toFixed(1)+'s'; });
     document.getElementById('s-vol').addEventListener('input',    e => { vol=+e.target.value; if(mGain) mGain.gain.value=vol; document.getElementById('v-vol').textContent=Math.round(vol*100)+'%'; });
 
-    // iOS audio unlock — must create and resume AudioContext in direct gesture handler
+    // iOS audio unlock — AudioContext must be created inline in the gesture handler
     document.getElementById('unlock-btn').addEventListener('click', () => {
-      boot();
-      // Play a silent buffer to fully unlock iOS audio
-      const silentBuf = ctx.createBuffer(1, 1, ctx.sampleRate);
-      const silentSrc = ctx.createBufferSource();
-      silentSrc.buffer = silentBuf;
-      silentSrc.connect(ctx.destination);
-      silentSrc.start(0);
+      if (!ctx) {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        mGain = ctx.createGain(); mGain.gain.value = vol;
+        analyser = ctx.createAnalyser(); analyser.fftSize = 512;
+        mGain.connect(analyser); analyser.connect(ctx.destination);
+        makeReverb();
+      }
+      ctx.resume().then(() => {
+        // Play a silent buffer — the iOS magic unlock
+        const silentBuf = ctx.createBuffer(1, 1, ctx.sampleRate);
+        const silentSrc = ctx.createBufferSource();
+        silentSrc.buffer = silentBuf;
+        silentSrc.connect(ctx.destination);
+        silentSrc.start(0);
+      });
       document.getElementById('unlock-overlay').style.display = 'none';
       document.getElementById('status').textContent = 'The jukebox is ready';
     });

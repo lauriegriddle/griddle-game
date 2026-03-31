@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cafe Synth · Letter Griddle</title>
-  <meta name="description" content="Play Letter Griddle keyboard .">
+  <meta name="description" content="Play the keyboard that started it all. The Letter Griddle Cafe Jukebox.">
   <meta property="og:title" content="The Cafe Synth · Letter Griddle">
   <meta property="og:description" content="Play the keyboard that started it all.">
   <meta property="og:url" content="https://lettergriddle.com/synth">
@@ -224,6 +224,16 @@
     #speed-row { display: flex; align-items: center; gap: 8px; }
     #speed-row input { width: 80px; accent-color: #C2632A; }
     #speed-val { font-size: 11px; color: #a07040; min-width: 32px; }
+
+    /* Sheet music */
+    #sheet-panel { margin: 0.75rem 1rem 0; background: #fff8f0; border: 1px solid #d4a870; border-radius: 8px; padding: 10px 14px; }
+    #sheet-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+    #tune-select { display: flex; gap: 5px; flex-wrap: wrap; }
+    .tune-btn { padding: 4px 11px; border-radius: 20px; border: 1.5px solid #c9956a; background: #fdf0e0; color: #7a3a10; font-size: 11px; cursor: pointer; transition: background 0.12s; }
+    .tune-btn.on { background: #C2632A; color: #fff3e8; border-color: #C2632A; }
+    #sheet-canvas-wrap { border-radius: 6px; overflow: hidden; background: #fffcf5; border: 1px solid #e8d4b0; }
+    canvas#sheet { display: block; width: 100%; }
+    #sheet-hint { font-size: 10px; color: #a07040; margin-top: 6px; text-align: center; }
   </style>
 </head>
 <body>
@@ -344,13 +354,30 @@
       <div id="beat-indicators"></div>
     </div>
 
+    <div id="sheet-panel">
+      <div id="sheet-top">
+        <div class="sec-label">Song Guide</div>
+        <div id="tune-select">
+          <button class="tune-btn on" data-tune="twinkle">Twinkle</button>
+          <button class="tune-btn" data-tune="ode">Ode to Joy</button>
+          <button class="tune-btn" data-tune="mary">Mary's Lamb</button>
+          <button class="tune-btn" data-tune="jingle">Jingle Bells</button>
+          <button class="tune-btn" data-tune="hotcross">Hot Cross Buns</button>
+        </div>
+      </div>
+      <div id="sheet-canvas-wrap">
+        <canvas id="sheet" height="140"></canvas>
+      </div>
+      <div id="sheet-hint">Keys: A=C &nbsp;·&nbsp; S=D &nbsp;·&nbsp; D=E &nbsp;·&nbsp; F=F &nbsp;·&nbsp; G=G &nbsp;·&nbsp; H=A &nbsp;·&nbsp; J=B</div>
+    </div>
+
     <div id="keys-panel">
       <div id="keys-hint">Tap to play · keyboard shortcuts shown below each note</div>
       <div class="keys-row" style="grid-template-columns: repeat(7, 1fr);" id="row-sharps"></div>
       <div class="keys-row" style="grid-template-columns: repeat(7, 1fr);" id="row-naturals"></div>
     </div>
 
-    <div id="status">Tap anywhere to wake the synth</div>
+    <div id="status">Tap anywhere to wake the jukebox</div>
 
     <!-- iOS audio unlock overlay -->
     <div id="unlock-overlay" style="
@@ -359,8 +386,8 @@
       z-index:999; gap:16px;
     ">
       <div style="font-size:36px;">☕</div>
-      <div style="color:#f0c898; font-size:18px; font-weight:600; font-family:Georgia,serif;">The Cafe Synth</div>
-      <div style="color:#d4a070; font-size:13px;">The instrument that started it all</div>
+      <div style="color:#f0c898; font-size:18px; font-weight:600; font-family:Georgia,serif;">Letter Griddle Synth</div>
+      <div style="color:#d4a070; font-size:13px;">The instrument that brought music to Letter Griddle</div>
       <button id="unlock-btn" style="
         margin-top:8px; padding:14px 36px; border-radius:30px;
         background:linear-gradient(135deg,#D4833A,#8B3A1A);
@@ -488,6 +515,17 @@
       document.getElementById('note-sub').textContent = chord==='none' ? wave : chord+' chord';
       document.querySelector(`[data-key="${n.key}"]`)?.classList.add('active');
       document.getElementById('status').textContent = 'Playing ' + n.note + octave + (chord!=='none' ? ' · '+chord : '');
+      // Highlight matching note on sheet music
+      if(typeof drawSheet !== 'undefined' && typeof TUNES !== 'undefined') {
+        const baseName = n.note.replace('#','');
+        const tuneNotes = TUNES[currentTune].notes;
+        let found = -1;
+        for(let i=highlightIdx; i<tuneNotes.length; i++) {
+          if(tuneNotes[i].n === baseName) { found=i; highlightIdx=i+1; break; }
+        }
+        if(found >= 0) drawSheet(currentTune, found);
+        if(highlightIdx >= tuneNotes.length) highlightIdx=0;
+      }
     }
 
     function stopN(n) {
@@ -643,7 +681,7 @@
       silentSrc.connect(ctx.destination);
       silentSrc.start(0);
       document.getElementById('unlock-overlay').style.display = 'none';
-      document.getElementById('status').textContent = 'The synth is ready';
+      document.getElementById('status').textContent = 'The jukebox is ready';
     });
 
     // Visualizer
@@ -671,6 +709,83 @@
 
     // Dynamic copyright year
     document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+    // Sheet music
+    const TUNES = {
+      twinkle: { title:'Twinkle Twinkle Little Star', notes:[
+        {n:'C',d:1},{n:'C',d:1},{n:'G',d:1},{n:'G',d:1},{n:'A',d:1},{n:'A',d:1},{n:'G',d:2},
+        {n:'F',d:1},{n:'F',d:1},{n:'E',d:1},{n:'E',d:1},{n:'D',d:1},{n:'D',d:1},{n:'C',d:2},
+      ]},
+      ode: { title:'Ode to Joy', notes:[
+        {n:'E',d:1},{n:'E',d:1},{n:'F',d:1},{n:'G',d:1},{n:'G',d:1},{n:'F',d:1},{n:'E',d:1},{n:'D',d:1},
+        {n:'C',d:1},{n:'C',d:1},{n:'D',d:1},{n:'E',d:1},{n:'E',d:1.5},{n:'D',d:0.5},{n:'D',d:2},
+      ]},
+      mary: { title:"Mary Had a Little Lamb", notes:[
+        {n:'E',d:1},{n:'D',d:1},{n:'C',d:1},{n:'D',d:1},{n:'E',d:1},{n:'E',d:1},{n:'E',d:2},
+        {n:'D',d:1},{n:'D',d:1},{n:'D',d:2},{n:'E',d:1},{n:'G',d:1},{n:'G',d:2},
+      ]},
+      jingle: { title:'Jingle Bells', notes:[
+        {n:'E',d:1},{n:'E',d:1},{n:'E',d:2},{n:'E',d:1},{n:'E',d:1},{n:'E',d:2},
+        {n:'E',d:1},{n:'G',d:1},{n:'C',d:1},{n:'D',d:1},{n:'E',d:4},
+        {n:'F',d:1},{n:'F',d:1},{n:'F',d:1},{n:'F',d:1},{n:'E',d:1},{n:'E',d:1},{n:'E',d:2},
+      ]},
+      hotcross: { title:'Hot Cross Buns', notes:[
+        {n:'E',d:1},{n:'D',d:1},{n:'C',d:2},
+        {n:'E',d:1},{n:'D',d:1},{n:'C',d:2},
+        {n:'C',d:0.5},{n:'C',d:0.5},{n:'C',d:0.5},{n:'C',d:0.5},
+        {n:'D',d:0.5},{n:'D',d:0.5},{n:'D',d:0.5},{n:'D',d:0.5},
+        {n:'E',d:1},{n:'D',d:1},{n:'C',d:2},
+      ]},
+    };
+    const NOTE_Y = {C:0,D:1,E:2,F:3,G:4,A:5,B:6};
+    const NOTE_COLORS = {C:'#D4833A',D:'#C2632A',E:'#8B3A1A',F:'#b85020',G:'#c97a50',A:'#a06030',B:'#7a4020'};
+    let currentTune='twinkle', highlightIdx=0;
+
+    function drawSheet(tune, highlight) {
+      const canvas=document.getElementById('sheet');
+      const W=canvas.offsetWidth||600;
+      canvas.width=W; canvas.height=140;
+      const c=canvas.getContext('2d');
+      c.fillStyle='#fffcf5'; c.fillRect(0,0,W,140);
+      c.fillStyle='#8B3A1A'; c.font='500 12px sans-serif';
+      c.fillText(TUNES[tune].title,12,18);
+      const staffTop=38, lineGap=12;
+      c.strokeStyle='#d4a870'; c.lineWidth=1;
+      for(let i=0;i<5;i++){c.beginPath();c.moveTo(8,staffTop+i*lineGap);c.lineTo(W-8,staffTop+i*lineGap);c.stroke();}
+      c.fillStyle='#c9956a'; c.font='60px serif'; c.fillText('𝄞',4,staffTop+52);
+      const notes=TUNES[tune].notes;
+      const totalBeats=notes.reduce((s,n)=>s+n.d,0);
+      const startX=50, availW=W-startX-16;
+      let beatPos=0;
+      notes.forEach((note,i)=>{
+        const x=startX+(beatPos/totalBeats)*availW+(note.d/totalBeats*availW*0.5);
+        const notePos=NOTE_Y[note.n];
+        const staffY=staffTop+(6-notePos)*(lineGap/2)+2;
+        const isHl=i===highlight;
+        const col=isHl?'#C2632A':NOTE_COLORS[note.n];
+        if(notePos===0){c.strokeStyle=isHl?'#C2632A':'#d4a870';c.lineWidth=1.5;c.beginPath();c.moveTo(x-9,staffTop+5*lineGap);c.lineTo(x+9,staffTop+5*lineGap);c.stroke();}
+        if(isHl){c.fillStyle='rgba(212,131,58,0.15)';c.beginPath();c.ellipse(x,staffY,12,10,-0.25,0,Math.PI*2);c.fill();}
+        c.fillStyle=col; c.beginPath(); c.ellipse(x,staffY,7,5.5,-0.25,0,Math.PI*2); c.fill();
+        c.strokeStyle=col; c.lineWidth=1.5; c.beginPath();
+        if(notePos>=3){c.moveTo(x-7,staffY);c.lineTo(x-7,staffY+30);}
+        else{c.moveTo(x+7,staffY);c.lineTo(x+7,staffY-30);}
+        c.stroke();
+        c.fillStyle=isHl?'#C2632A':'#a07040';
+        c.font=isHl?'500 11px sans-serif':'400 10px sans-serif';
+        c.textAlign='center'; c.fillText(note.n,x,132); c.textAlign='left';
+        beatPos+=note.d;
+      });
+    }
+
+    document.querySelectorAll('.tune-btn').forEach(b=>b.addEventListener('click',()=>{
+      currentTune=b.dataset.tune; highlightIdx=0;
+      document.querySelectorAll('.tune-btn').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+      drawSheet(currentTune,-1);
+    }));
+
+    setTimeout(()=>drawSheet('twinkle',-1),100);
+    window.addEventListener('resize',()=>drawSheet(currentTune,highlightIdx-1));
 
     // Light show
     const PALETTES = {

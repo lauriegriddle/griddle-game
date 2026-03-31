@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cafe Synth · Letter Griddle</title>
-  <meta name="description" content="Play the keyboard that started it all. The Letter Griddle Cafe Jukebox.">
+  <meta name="description" content="Play Letter Griddle keyboard .">
   <meta property="og:title" content="The Cafe Synth · Letter Griddle">
   <meta property="og:description" content="Play the keyboard that started it all.">
   <meta property="og:url" content="https://lettergriddle.com/synth">
+  <script defer src="/_vercel/insights/script.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -231,14 +232,14 @@
 
   <div id="wrap">
     <div id="header">
-      <h1>☕ The Cafe Synth</h1>
-      <div class="sub">The instrument that started it all</div>
+      <h1>☕ Letter Griddle Synth</h1>
+      <div class="sub">The instrument that brought music to Letter Griddle</div>
     </div>
 
     <div id="story-band">
       <div class="avatar">♪</div>
       <div id="story-text">
-        <strong>The Lindsays</strong> brought the old keyboard in one rainy Sunday and said, "The cafe needs a keyboard and this keyboard needs a home!" And a home it found! Soon, the regulars were writing songs. The jukebox has never been quiet since.
+        <strong>The Lindsays</strong> brought the old keyboard in one rainy Sunday and said, "The cafe needs a keyboard and this keyboard needs a home!" And a home it found! Soon, the regulars were writing songs. The cafe has never been without music since.
       </div>
     </div>
 
@@ -349,7 +350,7 @@
       <div class="keys-row" style="grid-template-columns: repeat(7, 1fr);" id="row-naturals"></div>
     </div>
 
-    <div id="status">Tap anywhere to wake the jukebox</div>
+    <div id="status">Tap anywhere to wake the synth</div>
 
     <!-- iOS audio unlock overlay -->
     <div id="unlock-overlay" style="
@@ -642,7 +643,7 @@
       silentSrc.connect(ctx.destination);
       silentSrc.start(0);
       document.getElementById('unlock-overlay').style.display = 'none';
-      document.getElementById('status').textContent = 'The jukebox is ready';
+      document.getElementById('status').textContent = 'The synth is ready';
     });
 
     // Visualizer

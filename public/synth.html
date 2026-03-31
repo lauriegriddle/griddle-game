@@ -350,6 +350,24 @@
     </div>
 
     <div id="status">Tap anywhere to wake the jukebox</div>
+
+    <!-- iOS audio unlock overlay -->
+    <div id="unlock-overlay" style="
+      position:fixed; inset:0; background:rgba(26,8,2,0.85);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      z-index:999; gap:16px;
+    ">
+      <div style="font-size:36px;">☕</div>
+      <div style="color:#f0c898; font-size:18px; font-weight:600; font-family:Georgia,serif;">The Cafe Synth</div>
+      <div style="color:#d4a070; font-size:13px;">The instrument that started it all</div>
+      <button id="unlock-btn" style="
+        margin-top:8px; padding:14px 36px; border-radius:30px;
+        background:linear-gradient(135deg,#D4833A,#8B3A1A);
+        color:#fff3e8; font-size:16px; font-weight:600;
+        border:none; cursor:pointer; font-family:Georgia,serif;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      ">▶ Tap to Play</button>
+    </div>
   </div>
 
   <div id="footer">
@@ -606,9 +624,18 @@
     document.getElementById('s-decay').addEventListener('input',  e => { decay=+e.target.value;  document.getElementById('v-decay').textContent=(+e.target.value).toFixed(1)+'s'; });
     document.getElementById('s-vol').addEventListener('input',    e => { vol=+e.target.value; if(mGain) mGain.gain.value=vol; document.getElementById('v-vol').textContent=Math.round(vol*100)+'%'; });
 
-    document.getElementById('wrap').addEventListener('click', () => {
-      boot(); document.getElementById('status').textContent = 'The jukebox is ready';
-    }, {once:true});
+    // iOS audio unlock — must create and resume AudioContext in direct gesture handler
+    document.getElementById('unlock-btn').addEventListener('click', () => {
+      boot();
+      // Play a silent buffer to fully unlock iOS audio
+      const silentBuf = ctx.createBuffer(1, 1, ctx.sampleRate);
+      const silentSrc = ctx.createBufferSource();
+      silentSrc.buffer = silentBuf;
+      silentSrc.connect(ctx.destination);
+      silentSrc.start(0);
+      document.getElementById('unlock-overlay').style.display = 'none';
+      document.getElementById('status').textContent = 'The jukebox is ready';
+    });
 
     // Visualizer
     const canvas = document.getElementById('viz');

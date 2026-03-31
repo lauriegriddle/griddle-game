@@ -528,11 +528,11 @@ const cafeSpecials = [
   {
     name: "Griddlelogue",
     tagline: "A trivia travelogue for cafe regulars across time. Set your questions, set your timer, preserve the lore!",
-    emoji: "📖",
+    emoji: "🕰️",
     href: "/griddlelogue",
     thumbnail: {
       gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
-      icon: "📖",
+      icon: "🕰️",
       iconSize: "text-4xl",
       title: ["Griddle", "logue"],
       subtitle: "CAFE TRIVIA TRAVELOGUE",
@@ -866,7 +866,7 @@ const cafeSpecials = [
   }}
   className="px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
 >
-  ☕ Cafe Specials
+  🎵 Cafe Specials 🕰️
 </button>
           
           <button 

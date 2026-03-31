@@ -434,25 +434,37 @@
     function playN(n) {
       boot(); if (active[n.key]) return;
       noteFlash = 1.0;
+      const t = ctx.currentTime;
       const mult = Math.pow(2, octave-4);
       const ivs = CHORD[chord];
-      const oscs = [], noteGain = ctx.createGain();
-      noteGain.gain.setValueAtTime(0.0001, ctx.currentTime);
-      noteGain.gain.exponentialRampToValueAtTime(0.28/ivs.length * ivs.length, ctx.currentTime + 0.02);
-      const dry = ctx.createGain(), wet = ctx.createGain();
+      const oscs = [];
+      // Single envelope gain for the whole note
+      const env = ctx.createGain();
+      env.gain.setValueAtTime(0.0001, t);
+      env.gain.exponentialRampToValueAtTime(0.3, t + 0.015);
+      // Dry path
+      const dry = ctx.createGain();
       dry.gain.value = 1 - reverbAmt;
-      wet.gain.value = reverbAmt;
-      noteGain.connect(dry); dry.connect(mGain);
-      noteGain.connect(wet); wet.connect(rev);
+      env.connect(dry); dry.connect(mGain);
+      // Wet path — fresh convolver per note so reverb tail never gets cut
+      if (reverbAmt > 0) {
+        const conv = ctx.createConvolver();
+        conv.buffer = rev.buffer;
+        const wet = ctx.createGain();
+        wet.gain.value = reverbAmt * 0.4;
+        env.connect(wet); wet.connect(conv); conv.connect(mGain);
+      }
       ivs.forEach(s => {
         const freq = n.freq * mult * Math.pow(2, s/12);
         const o = ctx.createOscillator();
-        o.type = wave; o.frequency.setValueAtTime(freq, ctx.currentTime);
-        o.connect(noteGain);
-        o.start();
+        o.type = wave; o.frequency.value = freq;
+        o.connect(env);
+        o.start(t);
+        // Stop well after reverb tail — no abrupt cut
+        o.stop(t + decay + 4.0);
         oscs.push(o);
       });
-      active[n.key] = {oscs, noteGain};
+      active[n.key] = {oscs, env};
       document.getElementById('note-display').textContent = n.note + octave;
       document.getElementById('note-sub').textContent = chord==='none' ? wave : chord+' chord';
       document.querySelector(`[data-key="${n.key}"]`)?.classList.add('active');
@@ -462,10 +474,9 @@
     function stopN(n) {
       const nd = active[n.key]; if (!nd) return;
       const t = ctx.currentTime;
-      nd.noteGain.gain.cancelScheduledValues(t);
-      nd.noteGain.gain.setValueAtTime(nd.noteGain.gain.value, t);
-      nd.noteGain.gain.exponentialRampToValueAtTime(0.0001, t + decay);
-      nd.oscs.forEach(o => o.stop(t + decay + 0.1));
+      // setTargetAtTime gives a smooth exponential curve from current value — no clicks
+      nd.env.gain.cancelAndHoldAtTime(t);
+      nd.env.gain.setTargetAtTime(0.0001, t, decay / 4);
       delete active[n.key];
       document.querySelector(`[data-key="${n.key}"]`)?.classList.remove('active');
       if (!Object.keys(active).length) {

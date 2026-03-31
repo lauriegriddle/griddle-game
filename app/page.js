@@ -504,6 +504,47 @@ export default function Home() {
       hoverBg: "bg-amber-900/80"
     },
   ];
+// SECTION: Cafe Specials
+const cafeSpecials = [
+  {
+    name: "The Cafe Synth",
+    tagline: "Play the keyboard that brought music to Letter Griddle.",
+    emoji: "🎹",
+    href: "/synth",
+    thumbnail: {
+      gradient: "linear-gradient(135deg, #D4833A 0%, #C2632A 50%, #8B3A1A 100%)",
+      icon: "🎹",
+      iconSize: "text-4xl",
+      title: ["The Cafe", "Synth"],
+      subtitle: "PLAY THE SYNTH",
+      subtitleColor: "text-amber-200"
+    },
+    borderColor: "border-amber-700",
+    bgColor: "from-amber-100 to-orange-100",
+    textColor: "text-amber-900",
+    subTextColor: "text-amber-700",
+    hoverBg: "bg-amber-800/80"
+  },
+  {
+    name: "Griddlelogue",
+    tagline: "A trivia travelogue for cafe regulars across time. Set your questions, set your timer, preserve the lore!",
+    emoji: "📖",
+    href: "/griddlelogue",
+    thumbnail: {
+      gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
+      icon: "📖",
+      iconSize: "text-4xl",
+      title: ["Griddle", "logue"],
+      subtitle: "CAFE TRIVIA TRAVELOGUE",
+      subtitleColor: "text-amber-200"
+    },
+    borderColor: "border-amber-700",
+    bgColor: "from-amber-50 to-stone-100",
+    textColor: "text-amber-900",
+    subTextColor: "text-amber-700",
+    hoverBg: "bg-amber-900/80"
+  },
+];
 
   // SECTION 6: Espresso Lane
   const espressoLaneGames = [
@@ -819,6 +860,16 @@ export default function Home() {
             {"\u2728"} Stories, Recipes, & More
           </button>
           <button 
+  onClick={() => {
+    if (!showMoreGames) setShowMoreGames(true);
+    setTimeout(() => scrollToSection('cafe-specials'), 100);
+  }}
+  className="px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
+>
+  ☕ Cafe Specials
+</button>
+          
+          <button 
             onClick={() => {
               if (!showMoreGames) setShowMoreGames(true);
               setTimeout(() => scrollToSection('espresso-lane'), 100);
@@ -898,6 +949,48 @@ export default function Home() {
 
         {showMoreGames && (
         <>
+
+{/* SECTION: Cafe Specials */}
+<section id="cafe-specials" className="mb-16 scroll-mt-8">
+  <div className="text-center mb-8">
+    <div 
+      className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
+      style={{
+        background: 'linear-gradient(135deg, #D4833A 0%, #C2632A 50%, #8B3A1A 100%)',
+        fontFamily: 'Georgia, serif'
+      }}
+    >
+      ☕ Cafe Specials
+    </div>
+    <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+      Something a Little Different
+    </h2>
+    <p className="text-amber-600">From the Letter Griddle Cafe</p>
+  </div>
+  <div className="flex justify-center gap-6 flex-wrap">
+  {cafeSpecials.map((game) => (
+    <div key={game.name} className="w-full max-w-sm">
+      <GameCard game={game}>
+        <div className="relative h-48">
+          {renderThumbnail(game)}
+          <div className={`absolute inset-0 ${game.hoverBg} flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity`}>
+            <span className="text-white font-bold text-lg">Play Now →</span>
+          </div>
+        </div>
+        <div className={`p-5 bg-gradient-to-br ${game.bgColor}`}>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-2xl">{game.emoji}</span>
+            <h2 className={`text-xl font-bold ${game.textColor}`} style={{ fontFamily: 'Georgia, serif' }}>
+              {game.name}
+            </h2>
+          </div>
+          <p className={`${game.subTextColor} text-sm`}>{game.tagline}</p>
+        </div>
+      </GameCard>
+    </div>
+  ))}
+</div>
+</section>
 
         {/* SECTION 4: Espresso Lane */}
         <section id="espresso-lane" className="mb-16 scroll-mt-8">

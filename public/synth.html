@@ -304,8 +304,8 @@
       <div id="controls-row">
         <div class="ctrl">
           <label>Reverb</label>
-          <input type="range" id="s-reverb" min="0" max="1" step="0.01" value="0.35">
-          <span class="ctrl-val" id="v-reverb">35%</span>
+          <input type="range" id="s-reverb" min="0" max="1" step="0.01" value="0.2">
+          <span class="ctrl-val" id="v-reverb">20%</span>
         </div>
         <div class="ctrl">
           <label>Decay</label>
@@ -402,7 +402,7 @@
     const BASS_NOTES = [65.41,65.41,73.42,65.41,65.41,73.42,55,65.41,65.41,65.41,73.42,65.41,55,65.41,73.42,65.41];
 
     let ctx=null, rev=null, mGain=null, analyser=null;
-    let octave=4, wave='sine', chord='none', reverbAmt=0.35, decay=0.8, vol=0.5;
+    let octave=4, wave='sine', chord='none', reverbAmt=0.2, decay=0.8, vol=0.5;
     let bpm=100, beatStyle='swing', beatPlaying=false, beatStep=0, beatTimer=null;
     const active={}, kmap={};
     NATURALS.forEach(n => kmap[n.key]=n);
@@ -451,7 +451,7 @@
         const conv = ctx.createConvolver();
         conv.buffer = rev.buffer;
         const wet = ctx.createGain();
-        wet.gain.value = reverbAmt * 0.4;
+        wet.gain.value = reverbAmt * 0.15;
         env.connect(wet); wet.connect(conv); conv.connect(mGain);
       }
       ivs.forEach(s => {

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cafe Synth · Letter Griddle</title>
-  <meta name="description" content="Play the keyboard that started it all.">
+  <meta name="description" content="Play the keyboard that started it all. The Letter Griddle Cafe Jukebox.">
   <meta property="og:title" content="The Cafe Synth · Letter Griddle">
   <meta property="og:description" content="Play the keyboard that started it all.">
   <meta property="og:url" content="https://lettergriddle.com/synth">
@@ -241,9 +241,14 @@
   <a href="https://lettergriddle.com" id="back-link">← Letter Griddle</a>
 
   <div id="wrap">
-    <div id="header">
-      <h1>☕ Letter Griddle Synth</h1>
-      <div class="sub">The instrument that brought music to Letter Griddle</div>
+    <div id="header" style="cursor:pointer;" id="header-toggle-area">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <h1>☕ Letter Griddle Synth</h1>
+        <span id="header-arrow" style="font-size:13px; color:#fff3e8; opacity:0.8; transition:transform 0.2s; margin-left:10px;">▼</span>
+      </div>
+      <div id="header-sub-wrap">
+        <div class="sub" style="margin-top:3px;">The instrument that brought music to Letter Griddle</div>
+      </div>
     </div>
 
     <div id="story-band">
@@ -412,7 +417,7 @@
       <div class="keys-row" style="grid-template-columns: repeat(7, 1fr);" id="row-naturals"></div>
     </div>
 
-    <div id="status">Tap anywhere to wake the synth</div>
+    <div id="status">Tap anywhere to wake the jukebox</div>
 
     <!-- iOS audio unlock overlay -->
     <div id="unlock-overlay" style="
@@ -715,7 +720,7 @@
       silentSrc.connect(ctx.destination);
       silentSrc.start(0);
       document.getElementById('unlock-overlay').style.display = 'none';
-      document.getElementById('status').textContent = 'The synth is ready';
+      document.getElementById('status').textContent = 'The jukebox is ready';
     });
 
     // Visualizer
@@ -858,6 +863,15 @@
       b.classList.add('on');
       drawSheet(currentTune,-1);
     }));
+
+    // Header + story collapse toggle
+    let headerOpen = true;
+    document.getElementById('header').addEventListener('click', () => {
+      headerOpen = !headerOpen;
+      document.getElementById('header-sub-wrap').style.display = headerOpen ? 'block' : 'none';
+      document.getElementById('story-band').style.display = headerOpen ? 'flex' : 'none';
+      document.getElementById('header-arrow').style.transform = headerOpen ? 'rotate(0deg)' : 'rotate(-90deg)';
+    });
 
     // Shared collapse handler for Sound, Chord, Controls
     document.querySelectorAll('.collapse-btn').forEach(btn => {

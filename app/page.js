@@ -527,7 +527,7 @@ const cafeSpecials = [
   },
   {
     name: "Griddlelogue",
-    tagline: "A trivia travelogue for cafe regulars across time. Set your questions, set your timer, preserve the lore!",
+    tagline: "A trivia travelogue for cafe regulars across time. Set your timer and preserve the lore!",
     emoji: "🕰️",
     href: "/griddlelogue",
     thumbnail: {

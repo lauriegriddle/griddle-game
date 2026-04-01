@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cafe Synth · Letter Griddle</title>
-  <meta name="description" content="Play the keyboard that started it all..">
+  <meta name="description" content="Play the keyboard that started it all. The Letter Griddle Cafe Jukebox.">
   <meta property="og:title" content="The Cafe Synth · Letter Griddle">
   <meta property="og:description" content="Play the keyboard that started it all.">
   <meta property="og:url" content="https://lettergriddle.com/synth">
@@ -254,7 +254,7 @@
     <div id="story-band">
       <div class="avatar">♪</div>
       <div id="story-text">
-        <strong>The Lindsays</strong> brought the old keyboard in one rainy Sunday and said, "The cafe needs a keyboard and this keyboard needs a home!" And a home it found! Soon, the regulars were writing songs.  Letter Griddle has not been without music since.
+        <strong>The Lindsays</strong> brought the old keyboard in one rainy Sunday and said, "The cafe needs a keyboard and this keyboard needs a home!" And a home it found! Soon, the regulars were writing songs. The cafe has never been without music since.
       </div>
     </div>
 
@@ -407,17 +407,17 @@
         <div id="sheet-canvas-wrap" style="margin-top:10px;">
           <canvas id="sheet" height="140"></canvas>
         </div>
-        <div id="sheet-hint">Keys: A=C &nbsp;·&nbsp; S=D &nbsp;·&nbsp; D=E &nbsp;·&nbsp; F=F &nbsp;·&nbsp; G=G &nbsp;·&nbsp; H=A &nbsp;·&nbsp; J=B</div>
+        <div id="sheet-hint">A=C · S=D · D=E · F=F · G=G · H=A · J=B · K=C5 · L=D5 &nbsp;|&nbsp; Sharps: W E T Y U O P</div>
       </div>
     </div>
 
     <div id="keys-panel">
       <div id="keys-hint">Tap to play · keyboard shortcuts shown below each note</div>
-      <div class="keys-row" style="grid-template-columns: repeat(7, 1fr);" id="row-sharps"></div>
-      <div class="keys-row" style="grid-template-columns: repeat(7, 1fr);" id="row-naturals"></div>
+      <div class="keys-row" style="grid-template-columns: repeat(9, 1fr);" id="row-sharps"></div>
+      <div class="keys-row" style="grid-template-columns: repeat(9, 1fr);" id="row-naturals"></div>
     </div>
 
-    <div id="status">Tap anywhere to wake the synth</div>
+    <div id="status">Tap anywhere to wake the jukebox</div>
 
     <!-- iOS audio unlock overlay -->
     <div id="unlock-overlay" style="
@@ -447,22 +447,26 @@
 
   <script>
     const NATURALS = [
-      {note:'C', freq:261.63, key:'a'},
-      {note:'D', freq:293.66, key:'s'},
-      {note:'E', freq:329.63, key:'d'},
-      {note:'F', freq:349.23, key:'f'},
-      {note:'G', freq:392.00, key:'g'},
-      {note:'A', freq:440.00, key:'h'},
-      {note:'B', freq:493.88, key:'j'},
+      {note:'C',  freq:261.63, key:'a', oct:4},
+      {note:'D',  freq:293.66, key:'s', oct:4},
+      {note:'E',  freq:329.63, key:'d', oct:4},
+      {note:'F',  freq:349.23, key:'f', oct:4},
+      {note:'G',  freq:392.00, key:'g', oct:4},
+      {note:'A',  freq:440.00, key:'h', oct:4},
+      {note:'B',  freq:493.88, key:'j', oct:4},
+      {note:'C',  freq:523.25, key:'k', oct:5},
+      {note:'D',  freq:587.33, key:'l', oct:5},
     ];
     const SHARP_COLS = [
-      {note:'C#', freq:277.18, key:'w'},
-      {note:'D#', freq:311.13, key:'e'},
+      {note:'C#', freq:277.18, key:'w', oct:4},
+      {note:'D#', freq:311.13, key:'e', oct:4},
       null,
-      {note:'F#', freq:369.99, key:'t'},
-      {note:'G#', freq:415.30, key:'y'},
-      {note:'A#', freq:466.16, key:'u'},
+      {note:'F#', freq:369.99, key:'t', oct:4},
+      {note:'G#', freq:415.30, key:'y', oct:4},
+      {note:'A#', freq:466.16, key:'u', oct:4},
       null,
+      {note:'C#', freq:554.37, key:'o', oct:5},
+      {note:'D#', freq:622.25, key:'p', oct:5},
     ];
     const CHORD = {none:[0], major:[0,4,7], minor:[0,3,7], dom7:[0,4,7,10]};
     const PATTERNS = {
@@ -523,7 +527,9 @@
       boot(); if (active[n.key]) return;
       noteFlash = 1.0;
       const t = ctx.currentTime;
-      const mult = Math.pow(2, octave-4);
+      const noteOct = n.oct !== undefined ? n.oct : octave;
+      // Notes with fixed oct use their freq directly; others scale with octave slider
+      const mult = n.oct !== undefined ? 1 : Math.pow(2, octave-4);
       const ivs = CHORD[chord];
       const oscs = [];
       const env = ctx.createGain();
@@ -551,10 +557,10 @@
         oscs.push(o);
       });
       active[n.key] = {oscs, env};
-      document.getElementById('note-display').textContent = n.note + octave;
+      document.getElementById('note-display').textContent = n.note + noteOct;
       document.getElementById('note-sub').textContent = chord==='none' ? wave : chord+' chord';
       document.querySelector(`[data-key="${n.key}"]`)?.classList.add('active');
-      document.getElementById('status').textContent = 'Playing ' + n.note + octave + (chord!=='none' ? ' · '+chord : '');
+      document.getElementById('status').textContent = 'Playing ' + n.note + noteOct + (chord!=='none' ? ' · '+chord : '');
       // Highlight matching note on sheet music
       if(typeof drawSheet !== 'undefined' && typeof TUNES !== 'undefined') {
         const tuneNotes = TUNES[currentTune].notes;
@@ -720,7 +726,7 @@
       silentSrc.connect(ctx.destination);
       silentSrc.start(0);
       document.getElementById('unlock-overlay').style.display = 'none';
-      document.getElementById('status').textContent = 'The synth is ready';
+      document.getElementById('status').textContent = 'The jukebox is ready';
     });
 
     // Visualizer

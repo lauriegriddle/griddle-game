@@ -22,6 +22,7 @@
   .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:10px;max-width:340px;width:100%}
   .cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:#fff;border:2px solid #d97706;border-radius:10px;font-family:'Playfair Display',serif;font-size:1.1rem;color:#92400e;cursor:pointer;user-select:none;transition:all .15s;font-weight:700}
   .cell:hover{background:#fef3c7}
+  .cell.decoy{background:#fff;border-color:#d97706;color:#92400e;cursor:pointer}
   .cell.selected{background:#3b82f6;border-color:#1d4ed8;color:#fff}
   .cell.found{background:#16a34a;border-color:#15803d;color:#fff;cursor:default}
   .cell.shake{animation:shake .4s ease}
@@ -35,6 +36,9 @@
   .btn-undo{background:#fff;border:2px solid #d97706;color:#92400e}
   .btn-undo:hover{background:#fef3c7}
   .words-panel{width:100%;max-width:340px;background:#fff;border:2px solid #d97706;border-radius:16px;padding:12px;margin-bottom:10px}
+  .game-row{display:flex;flex-direction:row;gap:16px;align-items:flex-start;justify-content:center;width:100%;max-width:720px}
+  .game-left{display:flex;flex-direction:column;align-items:center}
+  @media(max-width:680px){.game-row{flex-direction:column;align-items:center}}
   .words-title{font-family:'Playfair Display',serif;color:#92400e;font-size:.95rem;margin-bottom:8px;display:flex;align-items:center;gap:6px}
   .word-item{padding:8px 10px;border-radius:10px;margin-bottom:6px;border:1.5px solid #fcd34d;background:#fffbeb}
   .word-item.found{background:#f0fdf4;border-color:#86efac}
@@ -68,15 +72,19 @@
 
 <div class="timer-box">⏱️ TIME &nbsp;<span id="timerDisplay">0:00</span></div>
 <div class="selected-display" id="selectedDisplay">Select a letter to begin</div>
-<div class="grid" id="grid"></div>
-<div class="buttons">
-  <button class="btn btn-submit" onclick="submitWord()">✓ Submit</button>
-  <button class="btn btn-undo" onclick="undoLetter()">⌫ Undo</button>
-  <button class="btn btn-clear" onclick="clearSelection()">↺ Clear</button>
-</div>
-<div class="words-panel">
-  <div class="words-title">🥞 FIND THESE WORDS</div>
-  <div id="wordsList"></div>
+<div class="game-row">
+  <div class="game-left">
+    <div class="grid" id="grid"></div>
+    <div class="buttons">
+      <button class="btn btn-submit" onclick="submitWord()">✓ Submit</button>
+      <button class="btn btn-undo" onclick="undoLetter()">⌫ Undo</button>
+      <button class="btn btn-clear" onclick="clearSelection()">↺ Clear</button>
+    </div>
+  </div>
+  <div class="words-panel">
+    <div class="words-title">🥞 FIND THESE WORDS</div>
+    <div id="wordsList"></div>
+  </div>
 </div>
 
 <!-- Fun Fact Modal -->
@@ -105,7 +113,7 @@ const PUZZLES = [
   {
     category: "Pancakes", number: 93, emoji: "🥞",
     funFact: "There are many different names for pancakes including flapjacks, griddlecakes and hotcakes. All of these names refer to the same basic ingredients and cooking method, they just may be called something different depending on region or restaurant.",
-    grid: [['H','O','M','E','M','A'],['G','R','I','D','X','D'],['F','E','L','D','X','E'],['L','O','U','R','X','X'],['S','Y','R','U','P','X'],['E','G','G','S','X','X']],
+    grid: [['H','O','M','E','M','A'],['G','R','I','D','B','D'],['F','E','L','D','C','E'],['L','O','U','R','J','K'],['S','Y','R','U','P','N'],['E','G','G','S','Q','V']],
     words: [
       { word: "HOMEMADE", hint: "Made from scratch at home", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "GRIDDLE",  hint: "A flat pan used for cooking pancakes", path: [[1,0],[1,1],[1,2],[1,3],[2,3],[2,2],[2,1]] },
@@ -129,7 +137,7 @@ const PUZZLES = [
   {
     category: "Cool Weather Clothing", number: 72, emoji: "🧥",
     funFact: "Cashmere wool comes from the soft undercoat of cashmere goats, primarily found in Mongolia and China. It takes the fleece of about four goats to make a single cashmere sweater.",
-    grid: [['C','A','S','H','M','E'],['S','S','C','A','R','R'],['W','E','A','T','F','E'],['J','X','X','E','R','C'],['A','C','K','E','T','O'],['S','X','X','X','T','A']],
+    grid: [['C','A','S','H','M','E'],['S','S','C','A','R','R'],['W','E','A','T','F','E'],['J','B','D','E','R','C'],['A','C','K','E','T','O'],['S','G','I','L','T','A']],
     words: [
       { word: "CASHMERE", hint: "A luxuriously soft fiber from goats", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "SWEATER",  hint: "A knitted garment worn on the upper body", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[3,3],[3,4]] },
@@ -141,7 +149,7 @@ const PUZZLES = [
   {
     category: "Friendship", number: 73, emoji: "🤝",
     funFact: "Research shows that having strong friendships can boost your immune system, reduce stress, and even add years to your life. Aristotle wrote that friendship is a single soul dwelling in two bodies.",
-    grid: [['K','I','N','D','N','E'],['S','A','L','L','Y','S'],['U','P','P','O','R','S'],['T','L','O','Y','T','X'],['R','U','S','T','Y','X'],['L','O','Y','A','L','X']],
+    grid: [['K','I','N','D','N','E'],['S','A','L','L','Y','S'],['U','P','P','O','R','S'],['T','L','O','Y','T','B'],['R','U','S','T','Y','C'],['L','O','Y','A','L','F']],
     words: [
       { word: "KINDNESS", hint: "The quality of being friendly and generous", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "SUPPORT",  hint: "To help and encourage someone", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
@@ -153,7 +161,7 @@ const PUZZLES = [
   {
     category: "Art Projects", number: 74, emoji: "🎨",
     funFact: "Collage as an art form was popularized by Picasso and Braque in the early 1900s. The word collage comes from the French word coller, meaning to glue.",
-    grid: [['C','O','L','L','A','G'],['D','C','A','N','V','E'],['R','A','W','I','N','G'],['C','S','H','A','D','E'],['A','N','V','A','S','X'],['L','I','N','E','X','X']],
+    grid: [['C','O','L','L','A','G'],['D','C','A','N','V','E'],['R','A','W','I','N','G'],['C','S','H','A','D','E'],['A','N','V','A','S','B'],['L','I','N','E','F','J']],
     words: [
       { word: "COLLAGE",  hint: "Art made by gluing various materials together", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5]] },
       { word: "DRAWING",  hint: "Creating images with a pencil or pen", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[2,5]] },
@@ -165,7 +173,7 @@ const PUZZLES = [
   {
     category: "Musicals", number: 75, emoji: "🎭",
     funFact: "Hamilton by Lin-Manuel Miranda became a cultural phenomenon, blending hip-hop with history. It won 11 Tony Awards in 2016 and brought a new generation to Broadway.",
-    grid: [['H','A','M','I','L','T'],['C','R','E','N','T','O'],['O','M','P','A','N','N'],['W','X','X','X','Y','E'],['I','C','K','E','D','X'],['E','V','I','T','A','X']],
+    grid: [['H','A','M','I','L','T'],['C','R','E','N','T','O'],['O','M','P','A','N','N'],['W','B','F','G','Y','E'],['I','C','K','E','D','J'],['E','V','I','T','A','Q']],
     words: [
       { word: "HAMILTON", hint: "A hip-hop musical about a founding father", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "COMPANY",  hint: "A Sondheim musical about relationships", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
@@ -177,7 +185,7 @@ const PUZZLES = [
   {
     category: "Football", number: 76, emoji: "🏈",
     funFact: "The word gridiron refers to the grid of lines on a football field. The term dates back to the 1800s when the field had a crosshatch pattern of lines resembling a cooking grill.",
-    grid: [['G','R','I','D','I','R'],['D','D','O','W','N','O'],['E','F','E','N','S','N'],['C','B','L','I','E','X'],['E','N','T','E','R','X'],['B','L','I','T','Z','X']],
+    grid: [['G','R','I','D','I','R'],['D','D','O','W','N','O'],['E','F','E','N','S','N'],['C','B','L','I','E','A'],['E','N','T','E','R','H'],['B','L','I','T','Z','J']],
     words: [
       { word: "GRIDIRON", hint: "Another name for a football field", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "DEFENSE",  hint: "The team trying to stop the offense", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
@@ -189,7 +197,7 @@ const PUZZLES = [
   {
     category: "Cities Around the World", number: 77, emoji: "🌍",
     funFact: "Nairobi, Kenya is one of the few capital cities in the world with a national park inside its limits. You can watch lions roam the savanna with skyscrapers in the background.",
-    grid: [['N','A','I','R','O','B'],['T','O','R','O','N','I'],['L','X','X','X','T','R'],['O','P','A','M','O','O'],['N','D','O','N','X','M'],['P','A','R','I','S','E']],
+    grid: [['N','A','I','R','O','B'],['T','O','R','O','N','I'],['L','C','F','G','T','R'],['O','P','A','M','O','O'],['N','D','O','N','H','M'],['P','A','R','I','S','E']],
     words: [
       { word: "NAIROBI",  hint: "The capital city of Kenya", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5]] },
       { word: "TORONTO",  hint: "Canada's largest city", path: [[1,0],[1,1],[1,2],[1,3],[1,4],[2,4],[3,4]] },
@@ -201,7 +209,7 @@ const PUZZLES = [
   {
     category: "At the Lake", number: 78, emoji: "🏕️",
     funFact: "Hammocks were invented by indigenous peoples of Central and South America over a thousand years ago. Sailors adopted them for sleeping aboard ships because they swing with the motion of the waves.",
-    grid: [['H','A','M','M','O','C'],['B','F','I','S','H','K'],['O','N','F','I','R','E'],['C','X','X','X','X','X'],['A','N','O','E','X','X'],['S','N','O','O','Z','E']],
+    grid: [['H','A','M','M','O','C'],['B','F','I','S','H','K'],['O','N','F','I','R','E'],['C','D','G','J','L','P'],['A','N','O','E','Q','T'],['S','N','O','O','Z','E']],
     words: [
       { word: "HAMMOCK",  hint: "A swinging bed hung between two trees", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5]] },
       { word: "BONFIRE",  hint: "A large outdoor fire for warmth or celebration", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[2,5]] },
@@ -213,7 +221,7 @@ const PUZZLES = [
   {
     category: "Vacation", number: 79, emoji: "✈️",
     funFact: "The word holiday comes from the Old English words halig (holy) and daeg (day). Holy days were religious festivals when people were excused from work, which eventually became the modern concept of a day off.",
-    grid: [['R','E','L','A','X','I'],['H','R','E','S','T','N'],['O','L','I','D','A','G'],['B','X','X','X','Y','X'],['R','E','A','K','X','X'],['L','E','A','V','E','X']],
+    grid: [['R','E','L','A','X','I'],['H','R','E','S','T','N'],['O','L','I','D','A','G'],['B','C','F','J','Y','M'],['R','E','A','K','P','Q'],['L','E','A','V','E','W']],
     words: [
       { word: "RELAXING", hint: "Resting and freeing yourself from stress", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "HOLIDAY",  hint: "A period of time away from work", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
@@ -225,7 +233,7 @@ const PUZZLES = [
   {
     category: "Pep Rally", number: 184, emoji: "📣",
     funFact: "Often held in gyms or stadiums, pep rallies feature loud music, cheerleaders, band performances, themed dress-up days, and competitive games. While usually for sports, they can also celebrate academic achievements, homecoming, or school milestones.",
-    grid: [['S','P','O','R','T','I'],['H','G','A','M','E','N'],['O','O','P','L','A','G'],['P','C','H','E','E','R'],['L','A','Y','E','R','X'],['X','X','X','X','X','X']],
+    grid: [['S','P','O','R','T','I'],['H','G','A','M','E','N'],['O','O','P','L','A','G'],['P','C','H','E','E','R'],['L','A','Y','E','R','V'],['B','D','F','J','K','Q']],
     words: [
       { word: "SPORTING", hint: "Related to athletic activities", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "HOOPLA",   hint: "Excitement and commotion", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4]] },
@@ -237,7 +245,7 @@ const PUZZLES = [
   {
     category: "Pie", number: 188, emoji: "🥧",
     funFact: "Pie has an 8,000-year history, starting with ancient Egyptians and Romans, and was historically known for savory fillings served in inedible, thick crusts.",
-    grid: [['M','E','R','I','N','G'],['C','L','I','M','E','U'],['O','C','O','N','U','E'],['C','P','E','A','T','X'],['H','E','R','R','Y','X'],['P','E','A','C','H','X']],
+    grid: [['M','E','R','I','N','G'],['C','L','I','M','E','U'],['O','C','O','N','U','E'],['C','P','E','A','T','B'],['H','E','R','R','Y','D'],['P','E','A','C','H','F']],
     words: [
       { word: "MERINGUE", hint: "A fluffy, toasted topping made from egg whites", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "COCONUT",  hint: "A tropical pie flavor with cream", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
@@ -249,7 +257,7 @@ const PUZZLES = [
   {
     category: "Waffle", number: 195, emoji: "🧇",
     funFact: "Waffles originated in the Middle Ages, with 13th-century irons creating honeycomb patterns that inspired Nike's first sneaker soles.",
-    grid: [['T','O','P','P','I','N'],['B','I','R','O','N','G'],['E','L','G','I','A','S'],['G','C','R','I','N','X'],['O','L','D','E','N','X'],['C','R','I','S','P','X']],
+    grid: [['T','O','P','P','I','N'],['B','I','R','O','N','G'],['E','L','G','I','A','S'],['G','C','R','I','N','F'],['O','L','D','E','N','H'],['C','R','I','S','P','J']],
     words: [
       { word: "TOPPINGS", hint: "Fruit, syrup, or whipped cream", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "BELGIAN",  hint: "A style known for deep pockets", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
@@ -261,7 +269,7 @@ const PUZZLES = [
   {
     category: "Butterfly", number: 196, emoji: "🦋",
     funFact: "A caterpillar transforms into a butterfly within 10 to 15 days inside a chrysalis.",
-    grid: [['A','N','T','E','N','N'],['M','L','I','F','E','A'],['O','N','A','R','C','E'],['W','C','Y','C','H','X'],['I','N','G','E','D','X'],['C','Y','C','L','E','X']],
+    grid: [['A','N','T','E','N','N'],['M','L','I','F','E','A'],['O','N','A','R','C','E'],['W','C','Y','C','H','B'],['I','N','G','E','D','J'],['C','Y','C','L','E','K']],
     words: [
       { word: "ANTENNAE", hint: "Sensory organs on the head", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "MONARCH",  hint: "An orange and black migratory species", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
@@ -273,7 +281,7 @@ const PUZZLES = [
   {
     category: "Popcorn", number: 197, emoji: "🍿",
     funFact: "The oldest ears of popcorn were found in a cave in New Mexico and are estimated to be about 5,600 years old.",
-    grid: [['U','N','P','O','P','P'],['B','S','A','L','T','E'],['U','T','T','E','R','D'],['C','W','H','I','Y','X'],['R','U','N','C','H','X'],['W','H','I','T','E','X']],
+    grid: [['U','N','P','O','P','P'],['B','S','A','L','T','E'],['U','T','T','E','R','D'],['C','W','H','I','Y','F'],['R','U','N','C','H','G'],['W','H','I','T','E','J']],
     words: [
       { word: "UNPOPPED", hint: "The kernels left at the bottom of the bowl", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "BUTTERY",  hint: "Rich and golden-coated", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4],[3,4]] },
@@ -285,7 +293,7 @@ const PUZZLES = [
   {
     category: "Puzzles", number: 198, emoji: "🧩",
     funFact: "Jigsaw puzzles were invented around 1760 by cartographer John Spilsbury, who mounted maps on wood and cut them into pieces to teach geography. Known as Dissected Maps originally, they were expensive, high-society entertainment until die-cut cardboard made them popular during the Great Depression.",
-    grid: [['S','O','L','U','T','I'],['J','C','L','U','E','O'],['I','G','S','A','W','N'],['T','P','I','E','X','X'],['E','A','S','E','R','X'],['P','I','E','C','E','X']],
+    grid: [['S','O','L','U','T','I'],['J','C','L','U','E','O'],['I','G','S','A','W','N'],['T','P','I','E','B','D'],['E','A','S','E','R','F'],['P','I','E','C','E','H']],
     words: [
       { word: "SOLUTION", hint: "The answer you're looking for", path: [[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[1,5],[2,5]] },
       { word: "JIGSAW",   hint: "A puzzle with interlocking pieces", path: [[1,0],[2,0],[2,1],[2,2],[2,3],[2,4]] },
@@ -400,9 +408,10 @@ function submitWord() {
   const attempt = selectedCells.map(([r,c])=>p.grid[r][c]).join('');
   const match = p.words.find(w => w.word === attempt && !foundWords.includes(w.word));
   if (match) {
-    const pathMatch = JSON.stringify(selectedCells) === JSON.stringify(match.path);
-    if (!pathMatch) {
-      // Still correct word but wrong path — shake and show message
+    // Check that selected cells use exactly the correct path cells (order-flexible)
+    const selectedKey = selectedCells.map(([r,c])=>`${r},${c}`).sort().join('|');
+    const pathKey = match.path.map(([r,c])=>`${r},${c}`).sort().join('|');
+    if (selectedKey !== pathKey) {
       shakeGrid();
       clearSelection();
       return;

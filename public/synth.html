@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Cafe Synth · Letter Griddle</title>
-  <meta name="description" content="Play the keyboard that started it all. The Letter Griddle Cafe Jukebox.">
+  <meta name="description" content="Play the keyboard that brought music to the cafe:  The Letter Griddle Synthesizer.">
   <meta property="og:title" content="The Cafe Synth · Letter Griddle">
   <meta property="og:description" content="Play the keyboard that started it all.">
   <meta property="og:url" content="https://lettergriddle.com/synth">
@@ -417,7 +417,7 @@
       <div class="keys-row" style="grid-template-columns: repeat(9, 1fr);" id="row-naturals"></div>
     </div>
 
-    <div id="status">Tap anywhere to wake the jukebox</div>
+    <div id="status">Tap anywhere to wake the synth</div>
 
     <!-- iOS audio unlock overlay -->
     <div id="unlock-overlay" style="
@@ -725,7 +725,7 @@
       silentSrc.connect(ctx.destination);
       silentSrc.start(0);
       document.getElementById('unlock-overlay').style.display = 'none';
-      document.getElementById('status').textContent = 'The jukebox is ready';
+      document.getElementById('status').textContent = 'The synth is ready';
     });
 
     // Visualizer

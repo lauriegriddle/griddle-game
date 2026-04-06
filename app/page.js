@@ -164,7 +164,7 @@ export default function Home() {
   const grandOpeningGames = [
     {
       name: "Pancakes",
-      tagline: "Find the words, earn the toppings! 30 Puzzles!",
+      tagline: "Earn the toppings! 30 Puzzles!",
       emoji: "\uD83E\uDD5E",
       href: "/pancakes",
       thumbnail: {
@@ -363,7 +363,7 @@ export default function Home() {
     },
     {
       name: "Tile Griddle",
-      tagline: "A domino matching game with the Trivia Crew",
+      tagline: "A domino game with the Trivia Crew",
       emoji: "\uD83E\uDD5E\uD83E\uDDC1\uD83C\uDF7F",
       href: "/tilegriddle",
       thumbnail: {
@@ -381,8 +381,8 @@ export default function Home() {
       hoverBg: "bg-orange-500/80"
     },
     {
-      name: "Scoops - Brand New!",
-      tagline: "The inside scoop at the Letter Griddle Cafe!",
+      name: "Scoops",
+      tagline: "Get the scoop!",
       emoji: "\u2615",
       href: "/scoops",
       thumbnail: {
@@ -405,7 +405,7 @@ export default function Home() {
   const storiesAndMore = [
     {
       name: "Letter Griddle Maze",
-      tagline: "Collect letters to reveal the secret message!",
+      tagline: "Reveal the secret message!",
       emoji: "\uD83C\uDF38",
       href: "/maze",
       thumbnail: {
@@ -424,7 +424,7 @@ export default function Home() {
     },
     {
       name: "The Letter Griddle Cafe",
-      tagline: "Stories & Puzzles from the Letter Griddle Cafe",
+      tagline: "Fictional stories from Letter Griddle Cafe",
       emoji: "\uD83E\uDDE1",
       href: "https://lettergriddlecafe.com",
       external: true,
@@ -465,7 +465,7 @@ export default function Home() {
     },
     {
       name: "Has the Goods",
-      tagline: "Sort the cafe inventory before time runs out!",
+      tagline: "Sort goods before time runs out!",
       emoji: "🧲",
       href: "/goods",
       thumbnail: {
@@ -473,7 +473,7 @@ export default function Home() {
         icon: "🧲",
         iconSize: "text-4xl",
         title: ["Has the", "Goods!"],
-        subtitle: "SORT & STOCK",
+        subtitle: "SORT THE ITEMS",
         subtitleColor: "text-amber-100"
       },
       borderColor: "border-amber-400",

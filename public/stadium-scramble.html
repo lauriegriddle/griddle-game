@@ -526,7 +526,6 @@ function launchConfetti() {
   draw();
 }
 
-// Build puzzle selector buttons
 const selector = document.getElementById('puzzleSelector');
 PUZZLES.forEach((p,i) => {
   const btn = document.createElement('button');
@@ -538,5 +537,17 @@ PUZZLES.forEach((p,i) => {
 
 initPuzzle(0);
 </script>
+<footer style="margin-top:16px;padding:12px;text-align:center;font-size:.75rem;color:#b45309;">
+  <p style="margin-bottom:4px;">
+    <a href="https://www.lettergriddle.com" style="color:#92400e;text-decoration:none;font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;">🥞 lettergriddle.com</a>
+  </p>
+  <p>© <span id="copyright-year"></span> Letter Griddle. All rights reserved.</p>
+  <p style="margin-top:4px;">
+    <a href="https://www.lettergriddle.com/privacy" style="color:#b45309;text-decoration:underline;margin:0 8px;">Privacy Policy</a>
+    <a href="https://www.lettergriddle.com/terms" style="color:#b45309;text-decoration:underline;margin:0 8px;">Terms of Service</a>
+  </p>
+</footer>
+<script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+
 </body>
 </html>

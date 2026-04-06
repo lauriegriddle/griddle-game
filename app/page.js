@@ -95,7 +95,7 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Buffet",
-      tagline: "Ambiance and words are always on the menu.",
+      tagline: "Ambiance and words",
       dropTime: "8:00 PM EST",
       emoji: "\uD83C\uDF7D\uFE0F",
       href: "https://lettergriddlebuffet.com",
@@ -139,7 +139,7 @@ export default function Home() {
     },
     {
      name: "Snacks",
-      tagline: "Make a snack without leaving any crumbs!",
+      tagline: "Don't leave any crumbs!",
       dropTime: "12:00 AM EST",
       emoji: "\uD83C\uDF6A",
       href: "/snacks",
@@ -423,7 +423,7 @@ export default function Home() {
       hoverBg: "bg-emerald-600/80"
     },
     {
-      name: "The Letter Griddle Cafe",
+      name: "Letter Griddle Cafe",
       tagline: "Fictional stories and puzzles",
       emoji: "\uD83E\uDDE1",
       href: "https://lettergriddlecafe.com",
@@ -432,7 +432,7 @@ export default function Home() {
         gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)",
         icon: "\uD83E\uDDE1",
         iconSize: "text-4xl",
-        title: ["The Letter Griddle", "Cafe"],
+        title: ["etter Griddle", "Cafe"],
         titleStyle: ["text-lg", "text-2xl"],
         subtitle: "Stories & Puzzles",
         subtitleColor: "text-amber-100"
@@ -526,7 +526,7 @@ export default function Home() {
     },
     {
       name: "Griddlelogue",
-      tagline: "A trivia travelogue. Set your timer to preserve the lore!",
+      tagline: "Set your timer and preserve the lore!",
       emoji: "🕰️",
       href: "/griddlelogue",
       thumbnail: {
@@ -644,7 +644,7 @@ export default function Home() {
     },
     {
       name: "To Go!",
-      tagline: "Pick the right magnet to complete the order",
+      tagline: "Complete the order",
       emoji: "\uD83E\uDD61",
       href: "/togo",
       thumbnail: {

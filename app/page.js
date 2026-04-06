@@ -117,7 +117,7 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Cafe Game",
-      tagline: "A Cafe Daily Special For Dedicated Puzzlers",
+      tagline: "A Cafe Daily Special",
       dropTime: "7:00 AM EST",
       emoji: "\uD83D\uDC51",
       href: "https://lettergriddlecafe.com/game",
@@ -424,7 +424,7 @@ export default function Home() {
     },
     {
       name: "The Letter Griddle Cafe",
-      tagline: "Fictional stories from Letter Griddle Cafe",
+      tagline: "Fictional stories and puzzles",
       emoji: "\uD83E\uDDE1",
       href: "https://lettergriddlecafe.com",
       external: true,
@@ -507,7 +507,7 @@ export default function Home() {
   const cafeSpecials = [
     {
       name: "The Cafe Synth",
-      tagline: "Play the keyboard that brought music to Letter Griddle.",
+      tagline: "Play a musical keyboard.",
       emoji: "🎹",
       href: "/synth",
       thumbnail: {
@@ -526,7 +526,7 @@ export default function Home() {
     },
     {
       name: "Griddlelogue",
-      tagline: "A trivia travelogue for cafe regulars across time. Set your timer and preserve the lore!",
+      tagline: "A trivia travelogue. Set your timer to preserve the lore!",
       emoji: "🕰️",
       href: "/griddlelogue",
       thumbnail: {
@@ -549,7 +549,7 @@ export default function Home() {
   const espressoLaneGames = [
     {
       name: "Glow",
-      tagline: "Flip pancakes to reveal your daily activity",
+      tagline: "Flip pancakes to reveal your activity",
       emoji: "\u2728",
       href: "/glow",
       thumbnail: {
@@ -587,7 +587,7 @@ export default function Home() {
     },
     {
       name: "Top That!",
-      tagline: "Pick the pancake topping before time runs out",
+      tagline: "Pick the pancake topping quickly!",
       emoji: "\uD83E\uDD5E",
       href: "/topthat",
       thumbnail: {
@@ -625,7 +625,7 @@ export default function Home() {
     },
     {
       name: "Order Up!",
-      tagline: "Assemble the order before time runs out",
+      tagline: "Assemble the order quickly!",
       emoji: "\uD83C\uDF73",
       href: "/order",
       thumbnail: {

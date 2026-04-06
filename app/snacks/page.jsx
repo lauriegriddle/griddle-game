@@ -94,17 +94,21 @@ const chunkHint = (hint) => {
 // Get today's puzzle index based on EST midnight rotation
 const getTodaysPuzzleIndex = () => {
   const now = new Date();
-  const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
   
-  // Anchor date: January 10, 2026 at midnight EST (first puzzle after launch)
-  const anchorEST = new Date(2026, 0, 10, 0, 0, 0, 0);;
+  // Get current date parts in EST (handles DST automatically)
+  const estDateStr = now.toLocaleDateString('en-US', { timeZone: 'America/New_York' });
+  const [month, day, year] = estDateStr.split('/').map(Number);
   
-  // Calculate days since anchor
+  // Build today's midnight as a plain local date (no timezone math)
+  const estMidnight = new Date(year, month - 1, day, 0, 0, 0, 0);
+  
+  // Anchor: January 10, 2026 midnight (same plain local date approach)
+  const anchorMidnight = new Date(2026, 0, 10, 0, 0, 0, 0);
+  
   const msPerDay = 24 * 60 * 60 * 1000;
-  const daysSinceAnchor = Math.floor((estTime - anchorEST) / msPerDay);
+  const daysSinceAnchor = Math.round((estMidnight - anchorMidnight) / msPerDay);
   
-  // Rotate through puzzles (19 total)
-  const index = ((daysSinceAnchor % 19) + 19) % 19; // Handle negative values
+  const index = ((daysSinceAnchor % 19) + 19) % 19;
   return index;
 };
 

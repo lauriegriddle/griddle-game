@@ -1246,8 +1246,8 @@ const copyToClipboard = async (text) => {
 
       {/* Welcome Modal */}
       {showWelcomeModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.20)'}}>
-          <div className="bg-amber-50 rounded-2xl p-10 max-w-sm w-full shadow-xl text-center">
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.00)'}}>
+          <div className="rounded-2xl p-10 max-w-sm w-full shadow-xl text-center backdrop-blur-sm border border-white/40" style={{background: 'rgba(255, 248, 235, 0.92)'}}>
             <div className="text-4xl mb-4">🥞</div>
             <p className="text-sm text-stone-400 mb-2" style={{fontFamily: 'Georgia, serif'}}>
               Welcome to Letter Griddle

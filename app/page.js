@@ -1026,7 +1026,7 @@ export default function Home() {
                 <div className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                   <GameCard game={{
                     name: "Letter Griddle Cafe Game",
-                    tagline: "A Cafe Daily Special For Dedicated Puzzlers",
+                    tagline: "A Cafe Daily Special Puzzle",
                     dropTime: "7:00 AM EST",
                     emoji: "\uD83D\uDC51",
                     href: "https://lettergriddlecafe.com/game",

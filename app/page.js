@@ -1060,7 +1060,7 @@ export default function Home() {
                           Letter Griddle Cafe Game
                         </h2>
                       </div>
-                      <p className="text-amber-700 text-sm mb-2">A Cafe Daily Special For Dedicated Puzzlers</p>
+                      <p className="text-amber-700 text-sm mb-2">A Cafe Daily Special Puzzle</p>
                       <p className="text-amber-600 text-xs font-semibold">🕖 New puzzle daily at 7:00 AM EST</p>
                     </div>
                   </GameCard>

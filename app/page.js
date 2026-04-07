@@ -117,7 +117,7 @@ export default function Home() {
     },
     {
       name: "Cafe Game",
-      tagline: "A Cafe Daily Special",
+      tagline: "A Cafe Daily Special Puzzle",
       dropTime: "7:00 AM EST",
       emoji: "\uD83D\uDC51",
       href: "https://lettergriddlecafe.com/game",

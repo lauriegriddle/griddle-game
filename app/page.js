@@ -116,7 +116,7 @@ export default function Home() {
       hoverBg: "bg-orange-500/80"
     },
     {
-      name: "Letter Griddle Cafe Game",
+      name: "Cafe Game",
       tagline: "A Cafe Daily Special",
       dropTime: "7:00 AM EST",
       emoji: "\uD83D\uDC51",
@@ -432,7 +432,7 @@ export default function Home() {
         gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)",
         icon: "\uD83E\uDDE1",
         iconSize: "text-4xl",
-        title: ["etter Griddle", "Cafe"],
+        title: ["Letter Griddle", "Cafe"],
         titleStyle: ["text-lg", "text-2xl"],
         subtitle: "Stories & Puzzles",
         subtitleColor: "text-amber-100"

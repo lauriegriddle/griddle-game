@@ -1021,6 +1021,51 @@ export default function Home() {
               </div>
               
               <GameGrid games={storiesAndMore} />
+
+              <div className="flex justify-center mt-6">
+                <div className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+                  <GameCard game={{
+                    name: "Letter Griddle Cafe Game",
+                    tagline: "A Cafe Daily Special For Dedicated Puzzlers",
+                    dropTime: "7:00 AM EST",
+                    emoji: "\uD83D\uDC51",
+                    href: "https://lettergriddlecafe.com/game",
+                    external: true,
+                    borderColor: "border-amber-700",
+                    bgColor: "from-amber-100 to-orange-100",
+                    textColor: "text-amber-900",
+                    subTextColor: "text-amber-700",
+                    timeColor: "text-amber-600",
+                    hoverBg: "bg-amber-800/80"
+                  }}>
+                    <div className="relative h-48">
+                      {renderThumbnail({
+                        thumbnail: {
+                          gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
+                          icon: "\uD83D\uDC51",
+                          iconSize: "text-4xl",
+                          title: ["Cafe", "Game"],
+                          subtitle: "A CAFE SPECIAL",
+                          subtitleColor: "text-amber-200"
+                        }
+                      })}
+                      <div className="absolute inset-0 bg-amber-800/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="text-white font-bold text-lg">Visit →</span>
+                      </div>
+                    </div>
+                    <div className="p-5 bg-gradient-to-br from-amber-100 to-orange-100">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-2xl">👑</span>
+                        <h2 className="text-xl font-bold text-amber-900" style={{ fontFamily: 'Georgia, serif' }}>
+                          Letter Griddle Cafe Game
+                        </h2>
+                      </div>
+                      <p className="text-amber-700 text-sm mb-2">A Cafe Daily Special For Dedicated Puzzlers</p>
+                      <p className="text-amber-600 text-xs font-semibold">🕖 New puzzle daily at 7:00 AM EST</p>
+                    </div>
+                  </GameCard>
+                </div>
+              </div>
               
               <div className="text-center mt-10">
                 <button 

@@ -2100,7 +2100,7 @@ const puzzles = [
       { word: "SCORING", hint: "Adding up your word value", revealedIndex: 0 },
       { word: "INVENTOR", hint: "Alfred Mosher Butts created it", revealedIndex: 4 },
     ],
-    funFact: "Invented in 1933 by architect Alfred Mosher Butts, Scrabble was originally named 'Lexiko' and later 'Criss-Cross Words' before becoming the popular game found in three of every five American homes. 🎯",
+    funFact: "Invented in 1933 by architect Alfred Mosher Butts, Scrabble was originally named 'Lexiko' and later 'Criss-Cross Words' before becoming the popular game found in three of every five American homes. 🅰",
   },
 
   // =============================================

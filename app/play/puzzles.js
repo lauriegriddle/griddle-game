@@ -2116,7 +2116,7 @@ const puzzles = [
       { word: "CHUCKLE", hint: "A quiet, soft laugh", revealedIndex: 0 },
       { word: "CHEERFUL", hint: "Happy and in good spirits", revealedIndex: 4 },
     ],
-    funFact: "Laughter is z 'contagious' health condition, and you are 30 times more likely to laugh in a group than when alone. Your brain responds to the sound of laughter by preparing your facial muscles to join in, even if you don't know why everyone is laughing. 😂",
+    funFact: "Laughter is a 'contagious' health condition, and you are 30 times more likely to laugh in a group than when alone. Your brain responds to the sound of laughter by preparing your facial muscles to join in, even if you don't know why everyone is laughing. 😂",
   },
 
   // =============================================

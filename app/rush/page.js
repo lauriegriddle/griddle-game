@@ -829,7 +829,7 @@ export default function GriddleRush(){
           That's a Wrap!
         </h2>
         <p style={{color:"rgba(255,255,255,0.65)",marginBottom:20,fontSize:14}}>
-          {timerOpt>0?"Time's up! Griddle's closed.":"No more moves — the griddle is jammed!"}
+          {timerOpt>0?"Time's up! Griddle's closed.":"No more moves!  The griddle is jammed!"}
         </p>
 
         {/* Score card */}
@@ -858,7 +858,7 @@ export default function GriddleRush(){
           color:"#fff",fontFamily:"'Nunito',sans-serif",fontWeight:800,fontSize:16,
           cursor:"pointer",marginBottom:10,display:"flex",alignItems:"center",gap:8,
           boxShadow:`0 6px 24px ${t.accent}55`}}>
-          📤 Share My Score
+          Share My Score
         </button>
         {showShare&&(
           <div style={{color:t.accent,fontSize:12,fontWeight:700,marginBottom:8,textAlign:"center"}}>

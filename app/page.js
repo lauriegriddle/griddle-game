@@ -543,6 +543,25 @@ export default function Home() {
       subTextColor: "text-amber-700",
       hoverBg: "bg-amber-900/80"
     },
+    {
+  name: "Griddle Rush",
+  tagline: "Drag emoji tiles, match 3 to clear, beat your best!",
+  emoji: "🍳",
+  href: "/rush",
+  thumbnail: {
+    gradient: "linear-gradient(135deg, #b45309 0%, #92400e 50%, #451a03 100%)",
+    icon: "🍳",
+    iconSize: "text-4xl",
+    title: ["Griddle", "Rush"],
+    subtitle: "MATCH 3 TILE GAME",
+    subtitleColor: "text-amber-200"
+  },
+  borderColor: "border-amber-700",
+  bgColor: "from-amber-50 to-orange-100",
+  textColor: "text-amber-900",
+  subTextColor: "text-amber-700",
+  hoverBg: "bg-amber-800/80"
+},
   ];
 
   // SECTION 5: Espresso Lane

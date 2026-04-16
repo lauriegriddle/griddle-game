@@ -674,11 +674,11 @@ export default function GriddleRush(){
 
               {[
                 {icon:"👇",title:"Pick up a group",text:"Tap and drag any tile group from the tray at the bottom."},
-                {icon:"📍",title:"Place it on the griddle",text:"Drag over the grid — glowing cells show exactly where it will land. Release to place."},
+                {icon:"📍",title:"Place it on the griddle",text:"Drag over the grid & glowing cells show exactly where it will land. Release to place."},
                 {icon:"↕ ↔",title:"Vertical & horizontal",text:"Groups can be stacked top-to-bottom or side-by-side. The tray shows their orientation."},
-                {icon:"3️⃣",title:"Match 3 to clear",text:"Get 3 of the same emoji in a row or column — they poof away and score points!"},
-                {icon:"🔥",title:"Combos score double",text:"Clear two sets in a row for a Combo — double points!"},
-                {icon:"🍀",title:"The gift tile",text:"Sometimes a single tile appears — a lucky gift that's easy to place anywhere."},
+                {icon:"3️⃣",title:"Match 3 to clear",text:"Get 3 of the same emoji in a row or column & they poof away and score points!"},
+                {icon:"🔥",title:"Combos score double",text:"Clear two sets in a row for a Combo to earn double points!"},
+                {icon:"🍀",title:"The gift tile",text:"Sometimes a single tile appears, a lucky gift that's easy to place anywhere."},
                 {icon:"🗂️",title:"Use your whole tray",text:"Place all tiles in the current tray before a fresh set is dealt. Strategy counts!"},
                 {icon:"🏆",title:"Beat your best",text:"Your high score is saved between sessions. Can you top it?"},
               ].map(({icon,title,text})=>(

@@ -215,21 +215,41 @@ export default function FactFallsPage() {
     setDone(true); clearInterval(timerRef.current); setConfetti(true);
   }, []);
 
+  const focusCell = useCallback((key) => {
+    setSelKey(key);
+    setTimeout(() => {
+      const el = document.getElementById('cell-' + key);
+      if (el) el.focus();
+    }, 10);
+  }, []);
+
+  const advanceFrom = useCallback((r, c, g, numCols) => {
+    let nc = c + 1, nr = r;
+    while (nr < g.length) {
+      if (nc >= numCols) { nc = 0; nr++; continue; }
+      if (g[nr]?.[nc]?.t === 'l') {
+        const key = nr + ',' + nc;
+        setSelKey(key);
+        setTimeout(() => {
+          const el = document.getElementById('cell-' + key);
+          if (el) el.focus();
+        }, 10);
+        return;
+      }
+      nc++;
+    }
+  }, []);
+
   const handleInput = useCallback((key, r, c, val) => {
     if (!started||done) return;
     const ch = val.toUpperCase().replace(/[^A-Z]/g,'').slice(-1);
     const ans = {...answers, [key]:ch};
     setAnswers(ans);
     if (ch) {
-      let nc=c+1, nr=r;
-      loop: while (nr<grid.length) {
-        if (nc>=cols){nc=0;nr++;continue;}
-        if (grid[nr]?.[nc]?.t==='l'){setSelKey(`${nr},${nc}`);break loop;}
-        nc++;
-      }
+      advanceFrom(r, c, grid, cols);
       checkWin(ans, grid, cols);
     }
-  }, [started,done,answers,grid,cols,checkWin]);
+  }, [started,done,answers,grid,cols,checkWin,advanceFrom]);
 
   const handleCheck = () => {
     let wrong=0,filled=0;
@@ -257,7 +277,24 @@ export default function FactFallsPage() {
   const fmt = (s) => `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
   const circledSet = {};
   circled.forEach(c=>{circledSet[`${c.r},${c.c}`]=true;});
-  const bankH = bank.length ? Math.max(...bank.map(col=>col.length)) : 0;
+
+  // Compute remaining bank: remove correctly placed letters from each column
+  const remainingBank = bank.map((col, c) => {
+    const used = [];
+    for (let r = 0; r < grid.length; r++) {
+      if (grid[r]?.[c]?.t === 'l') {
+        const val = answers[`${r},${c}`] || '';
+        if (val === grid[r][c].ch) used.push(val);
+      }
+    }
+    const remaining = [...col];
+    used.forEach(letter => {
+      const idx = remaining.indexOf(letter);
+      if (idx !== -1) remaining.splice(idx, 1);
+    });
+    return remaining;
+  });
+  const bankH = remainingBank.length ? Math.max(...remainingBank.map(col=>col.length)) : 0;
 
   // Source display
   const srcUpper = fact.source.toUpperCase();
@@ -302,7 +339,23 @@ export default function FactFallsPage() {
         {/* Controls */}
         <div style={{display:'flex',alignItems:'center',gap:'8px',marginBottom:'12px'}}>
           {!started&&!done
-            ? <button onClick={()=>setStarted(true)} style={S.btnPri}>Start</button>
+            ? <button onClick={()=>{
+              setStarted(true);
+              // Focus first letter cell after render
+              setTimeout(()=>{
+                for(let r=0;r<grid.length;r++){
+                  for(let c=0;c<cols;c++){
+                    if(grid[r]?.[c]?.t==='l'){
+                      const k=r+','+c;
+                      setSelKey(k);
+                      const el=document.getElementById('cell-'+k);
+                      if(el)el.focus();
+                      return;
+                    }
+                  }
+                }
+              },50);
+            }} style={S.btnPri}>Start</button>
             : <button onClick={()=>setModal('reset')} style={S.btnPri}>Reset</button>
           }
           <button onClick={handleCheck} disabled={!started} style={{...S.btnSec,opacity:started?1:0.35,cursor:started?'pointer':'default'}}>Check</button>
@@ -326,7 +379,7 @@ export default function FactFallsPage() {
                   <tr key={bi}>
                     {Array.from({length:cols}).map((_,c)=>(
                       <td key={c} style={{textAlign:'center',fontSize:'10px',fontWeight:'700',color:'#633806',height:'13px',lineHeight:'13px',padding:0,border:'none'}}>
-                        {bank[c]?.[bi]||''}
+                        {remainingBank[c]?.[bi]||''}
                       </td>
                     ))}
                   </tr>
@@ -353,7 +406,7 @@ export default function FactFallsPage() {
                           {circledSet[key]&&(
                             <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:'22px',height:'22px',borderRadius:'50%',border:'1.5px solid #BA7517',pointerEvents:'none',zIndex:1}}/>
                           )}
-                          <input type="text" maxLength={2} value={val} disabled={!started}
+                          <input id={'cell-'+key} type="text" maxLength={2} value={val} disabled={!started}
                             onChange={e=>handleInput(key,r,c,e.target.value)}
                             onFocus={()=>setSelKey(key)}
                             style={{display:'block',width:'100%',height:'100%',background:'transparent',border:'none',outline:'none',textAlign:'center',fontSize:'12px',fontWeight:'700',fontFamily:"'Lato',sans-serif",textTransform:'uppercase',padding:0,cursor:started?'pointer':'default',color:ok?'#2d7a2d':bad?'#c0392b':'#633806',position:'relative',zIndex:2}}

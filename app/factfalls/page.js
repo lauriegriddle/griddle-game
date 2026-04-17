@@ -6,36 +6,36 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 const ANCHOR_DATE = new Date('2026-04-16T00:00:00-05:00');
 
 const FACTS = [
-  { number:1,  source:"Laughter",       text:"You are thirty times more likely to laugh in a group than when alone" },
-  { number:2,  source:"Theatre",        text:"Broadway theaters skip Row I because audiences mistook it for the number one" },
-  { number:3,  source:"Pancakes",       text:"The first pancakes may have been made twelve thousand years ago" },
-  { number:4,  source:"Scrabble",       text:"Scrabble is found in three of every five American homes" },
-  { number:5,  source:"Pencil",         text:"Pencils have six sides to prevent them from rolling off tables" },
-  { number:6,  source:"Waffles",        text:"Waffle iron patterns inspired the sole of the first Nike sneaker" },
-  { number:7,  source:"Eiffel Tower",   text:"The Eiffel Tower was saved from demolition by its use as a radio antenna" },
-  { number:8,  source:"Golf",           text:"Scotland banned golf three times because it distracted from archery practice" },
-  { number:9,  source:"Paella",         text:"Paella is named for the wide shallow pan used to cook it" },
-  { number:10, source:"Oatmeal Cookie", text:"Oatmeal raisin cookies were once considered a health food" },
-  { number:11, source:"Perfume",        text:"The first recorded chemist was a woman named Tapputi in ancient Mesopotamia" },
-  { number:12, source:"Potluck",        text:"Potluck comes from serving whatever was left in the pot to unexpected guests" },
-  { number:13, source:"Popcorn",        text:"The oldest popcorn was found in a New Mexico cave five thousand years ago" },
-  { number:14, source:"Caramel",        text:"A Kraft salesman invented caramel apples by melting caramel candies" },
-  { number:15, source:"Easter",         text:"Seventy six percent of people eat the ears of a chocolate bunny first" },
-  { number:16, source:"Brunch",         text:"Brunch was coined in 1895 as a Sunday meal for Saturday night carousers" },
-  { number:17, source:"Breakfast",      text:"Breakfast means to break the fast from not eating through the night" },
-  { number:18, source:"Jelly Beans",    text:"Jelly beans take seven days of panning to create their hard candy shell" },
-  { number:19, source:"Stars",          text:"There are more stars in the universe than grains of sand on Earth" },
-  { number:20, source:"Reading",        text:"Reading strengthens memory improves focus and fosters empathy" },
-  { number:21, source:"Selfie",         text:"The first photographic selfie was taken in 1839 the term coined in 2002" },
-  { number:22, source:"Dance",          text:"Dancing improves brain function and has been part of every human culture" },
-  { number:23, source:"Antique",        text:"An antique must be at least one hundred years old to earn that name" },
-  { number:24, source:"Butterfly",      text:"A caterpillar becomes a butterfly in ten to fifteen days in a chrysalis" },
-  { number:25, source:"Soup",           text:"Evidence of soup dates to six thousand BC and may have included hippopotamus" },
-  { number:26, source:"Piano",          text:"A piano has seventy five hundred parts and spans the range of an orchestra" },
-  { number:27, source:"Social Media",   text:"People spend an average of two hours and twenty four minutes daily on social media" },
-  { number:28, source:"Pasta",          text:"There are more than six hundred pasta shapes worldwide" },
-  { number:29, source:"Puppy",          text:"Puppies sleep fifteen to twenty hours a day to support their rapid growth" },
-  { number:30, source:"Party",          text:"The Holi festival has been celebrated for over two thousand years" },
+  { number:1,  source:"Laughter",       text:"You are thirty times more likely to laugh in a group" },
+  { number:2,  source:"Theatre",        text:"Actors say break a leg instead of good luck" },
+  { number:3,  source:"Pancakes",       text:"Pancakes are one of the oldest foods in human history" },
+  { number:4,  source:"Scrabble",       text:"Scrabble is in three of every five American homes" },
+  { number:5,  source:"Pencil",         text:"Pencils are six sided so they do not roll away" },
+  { number:6,  source:"Waffles",        text:"Waffle irons inspired the first Nike sneaker sole" },
+  { number:7,  source:"Eiffel Tower",   text:"The Eiffel Tower was kept as a radio antenna" },
+  { number:8,  source:"Golf",           text:"Scotland banned golf three times to protect archery" },
+  { number:9,  source:"Paella",         text:"Paella is named for the pan not the rice" },
+  { number:10, source:"Oatmeal Cookie", text:"Oatmeal cookies were once sold as a health food" },
+  { number:11, source:"Perfume",        text:"Tapputi was the worlds first known chemist" },
+  { number:12, source:"Potluck",        text:"Potluck meant giving guests whatever was in the pot" },
+  { number:13, source:"Popcorn",        text:"Popcorn is one of the oldest snack foods ever discovered" },
+  { number:14, source:"Caramel",        text:"Real caramel is just sugar cooked slowly over low heat" },
+  { number:15, source:"Easter",         text:"Most people eat the chocolate bunny ears first" },
+  { number:16, source:"Brunch",         text:"Brunch was coined in 1895 for late night carousers" },
+  { number:17, source:"Breakfast",      text:"Breakfast means breaking the fast from overnight" },
+  { number:18, source:"Jelly Beans",    text:"Jelly beans take seven days to make their hard shell" },
+  { number:19, source:"Stars",          text:"More stars exist than grains of sand on Earth" },
+  { number:20, source:"Reading",        text:"Reading boosts memory focus and empathy" },
+  { number:21, source:"Selfie",         text:"The first selfie was taken in 1839" },
+  { number:22, source:"Dance",          text:"Dancing boosts brain health in every human culture" },
+  { number:23, source:"Antique",        text:"An antique must be at least one hundred years old" },
+  { number:24, source:"Butterfly",      text:"Caterpillars become butterflies inside a chrysalis" },
+  { number:25, source:"Soup",           text:"Evidence of soup dates back to six thousand BC" },
+  { number:26, source:"Piano",          text:"A piano has seventy five hundred parts" },
+  { number:27, source:"Social Media",   text:"People spend over two hours daily on social media" },
+  { number:28, source:"Pasta",          text:"Over six hundred pasta shapes exist worldwide" },
+  { number:29, source:"Puppy",          text:"Puppies sleep up to twenty hours each day" },
+  { number:30, source:"Party",          text:"Holi is one of the oldest festivals on Earth" },
 ];
 
 function getTodaysFact() {
@@ -91,10 +91,7 @@ function buildBank(grid, cols) {
     for (let c = 0; c < cols; c++)
       if (grid[r][c].t === 'l') bank[c].push(grid[r][c].ch);
   bank.forEach(col => {
-    for (let i = col.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [col[i], col[j]] = [col[j], col[i]];
-    }
+    col.sort(); // alphabetical so players can scan easily
   });
   return bank;
 }
@@ -378,7 +375,7 @@ export default function FactFallsPage() {
                 {Array.from({length:bankH}).map((_,bi)=>(
                   <tr key={bi}>
                     {Array.from({length:cols}).map((_,c)=>(
-                      <td key={c} style={{textAlign:'center',fontSize:'10px',fontWeight:'700',color:'#633806',height:'13px',lineHeight:'13px',padding:0,border:'none'}}>
+                      <td key={c} style={{textAlign:'center',fontSize:'12px',fontWeight:'700',color:'#633806',height:'18px',lineHeight:'18px',padding:'0 1px',border:'none'}}>
                         {remainingBank[c]?.[bi]||''}
                       </td>
                     ))}

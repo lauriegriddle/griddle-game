@@ -240,13 +240,31 @@ export default function FactFallsPage() {
   const handleInput = useCallback((key, r, c, val) => {
     if (!started||done) return;
     const ch = val.toUpperCase().replace(/[^A-Z]/g,'').slice(-1);
+    if (!ch) { const ans = {...answers, [key]:''}; setAnswers(ans); return; }
+
+    // Only allow letters present in this column's remaining bank
+    const colLetters = bank[c] ? [...bank[c]] : [];
+    // Remove already correctly placed letters in this column
+    for (let row = 0; row < grid.length; row++) {
+      if (row === r) continue;
+      if (grid[row]?.[c]?.t === 'l') {
+        const placed = answers[row+','+c] || '';
+        if (placed === grid[row][c].ch) {
+          const idx = colLetters.indexOf(placed);
+          if (idx !== -1) colLetters.splice(idx, 1);
+        }
+      }
+    }
+    if (!colLetters.includes(ch)) {
+      showToast(ch + ' is not available in this column!');
+      return;
+    }
+
     const ans = {...answers, [key]:ch};
     setAnswers(ans);
-    if (ch) {
-      advanceFrom(r, c, grid, cols);
-      checkWin(ans, grid, cols);
-    }
-  }, [started,done,answers,grid,cols,checkWin,advanceFrom]);
+    advanceFrom(r, c, grid, cols);
+    checkWin(ans, grid, cols);
+  }, [started,done,answers,grid,cols,bank,checkWin,advanceFrom,showToast]);
 
   const handleCheck = () => {
     let wrong=0,filled=0;
@@ -454,7 +472,7 @@ export default function FactFallsPage() {
               <ol style={{paddingLeft:'20px',margin:0}}>
                 {[
                   <span key={0}>Press <strong style={{color:'#854F0B'}}>Start</strong>. Scrambled letters appear above the grid &mdash; each column&apos;s letters belong somewhere in that column below.</span>,
-                  <span key={1}>Click a white cell and type a letter. Place letters in the right rows to reveal a fun fact reading left to right. Words wrap to the next line.</span>,
+                  <span key={1}>Click a white cell and type a letter. Place each letter in the right row to reveal a fun fact. Each word fits entirely on one line &mdash; no wrapping. You can only enter letters available in that column!</span>,
                   <span key={2}>Cells with a <strong style={{color:'#854F0B'}}>circle</strong> reveal letters in <strong style={{color:'#854F0B'}}>The Fact Source</strong> &mdash; that&apos;s the puzzle category!</span>,
                   <span key={3}><strong style={{color:'#2d7a2d'}}>Green</strong> = correct. <strong style={{color:'#c0392b'}}>Red</strong> = try again. Press <strong style={{color:'#854F0B'}}>Check</strong> anytime.</span>,
                   <span key={4}>Progress saves automatically. A new fact drops every day at midnight.</span>,

@@ -12,7 +12,7 @@ const puzzles = [
   { word: "PHONE", category: "Devices", hint: "Mobile device for calls texts and apps" },
   { word: "MANGO", category: "Fruits", hint: "Tropical stone fruit with orange flesh" },
   { word: "TIGER", category: "Animals", hint: "Large striped cat native to Asia" },
-  { word: "NURSE", category: "Occupations", hint: "Healthcare worker who cares for patients" },
+  { word: "NURSE", category: "Careers", hint: "Healthcare worker who cares for patients" },
   { word: "RUGBY", category: "Sports", hint: "Contact team sport played with an oval ball" },
   { word: "TEXAS", category: "State", hint: "The Lone Star State second largest by area" },
   { word: "LUNCH", category: "Meals", hint: "Midday meal eaten around noon" },

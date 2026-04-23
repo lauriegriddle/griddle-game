@@ -1601,6 +1601,23 @@ Free & ad-free!
             </div>
             <div className="mt-4 text-center"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-800 text-sm font-semibold">🍯 Read the stories behind Letter Griddle</a></div>
           </div>
+          {/* Books announcement */}
+<div className="mt-4 bg-amber-50 border border-amber-300 rounded-lg p-3 text-center">
+  <p className="text-sm font-semibold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
+    🥞 Now in Print!
+  </p>
+  <p className="text-xs text-amber-700 mt-1 mb-2">
+    Letter Griddle puzzle books on Amazon
+  </p>
+  <div className="flex flex-col gap-1">
+    <a href="https://www.amazon.com/Letter-Griddle-Puzzles-Word-Lettergriddle-com/dp/B0GPN9QFRF" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
+      Letter Griddle: 50 Word Puzzles →
+    </a>
+    <a href="https://www.amazon.com/Todays-Special-Breakfast-Inspired-Letter-Griddle/dp/B0GN9K7GKC" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
+      Today's Special Notebook →
+    </a>
+  </div>
+</div>
         </div>
       )}
 

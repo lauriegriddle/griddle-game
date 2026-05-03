@@ -2401,7 +2401,7 @@ const puzzles = [
       { word: "NEWS", hint: "Symbolic of good ----", revealedIndex: 0 },
       { word: "GREEK", hint: "Named after a goddess from this culture", revealedIndex: 2 },
       { word: "GARDEN", hint: "Where flowers grow", revealedIndex: 3 },
-      { word: "BELGIUM", hint: "Country with the iris as national flower", revealedIndex: 0 },
+      { word: "BELGIUM", hint: "Yellow-iris is the symbol of Brussels-Capital Region of _______ ", revealedIndex: 0 },
       { word: "BLOOMING", hint: "In the process of flowering", revealedIndex: 4 },
     ],
     funFact: "National Iris Day, celebrated on May 8th, honors the vibrant flower representing the Greek goddess of the rainbow. Symbolizing faith and wisdom, irises bloom in every color except red. 💜",

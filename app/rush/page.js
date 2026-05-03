@@ -322,7 +322,8 @@ export default function GriddleRush(){
   const[showShare, setShowShare]=useState(false);
   const[showHowTo, setShowHowTo]=useState(false);
   const[showBoard, setShowBoard]=useState(false);
-  const[hasSavedGame, setHasSavedGame]=useState(false); // detected after mount
+  const[hasSavedGame, setHasSavedGame]=useState(false);
+  const[undoStack,   setUndoStack]   =useState(null); // one snapshot: {grid,queue,score}
   const[dragGroup, setDragGroup]=useState(null);
   const[ghostXY,   setGhostXY] =useState({x:0,y:0});
   const[snapPlacement,setSnapPlacement]=useState([]);
@@ -434,6 +435,13 @@ export default function GriddleRush(){
       s.bad();setShaking(true);setTimeout(()=>setShaking(false),420);
       return;
     }
+    // Snapshot BEFORE placement so undo can restore it
+    setUndoStack({
+      grid: gridRef.current.map(r=>[...r]),
+      queue: [...queueRef.current],
+      score: scoreRef.current,
+      comboCount: comboCount.current,
+    });
     setGrid(prevGrid=>{
       const placement=finalSnap.map(p=>({row:p.row,col:p.col}));
       for(const{row,col}of placement){
@@ -510,6 +518,22 @@ export default function GriddleRush(){
       return afterGrid;
     });
   },[themeKey,s,checkAchs,doEndGame,saveGame,timerOpt,timeLeft]);
+
+  const doUndo=useCallback(()=>{
+    if(!undoStack)return;
+    s.bad(); // satisfying "rewind" sound
+    gridRef.current=undoStack.grid;
+    queueRef.current=undoStack.queue;
+    scoreRef.current=undoStack.score;
+    comboCount.current=undoStack.comboCount;
+    setGrid(undoStack.grid);
+    setQueue(undoStack.queue);
+    setScore(undoStack.score);
+    setUndoStack(null); // only one undo allowed
+    // Update save with restored state
+    const tl=timerOpt>0?timeLeft:0;
+    saveGame(undoStack.grid,undoStack.queue,undoStack.score,tl,themeKey,timerOpt);
+  },[undoStack,s,timerOpt,timeLeft,saveGame,themeKey]);
 
   const onGroupPointerDown=useCallback((e,group,idx)=>{
     e.preventDefault();
@@ -600,7 +624,7 @@ export default function GriddleRush(){
       setPoofs([]);setScorePops([]);setComboMsg(null);
       setShaking(false);setNewHigh(false);setNewAch(null);
       setShowShare(false);setShowHowTo(false);setDragGroup(null);setSnapPlacement([]);
-      setHasSavedGame(false);
+      setHasSavedGame(false);setUndoStack(null);
       setScreen("game");
       if(musicPref)startMusic();
     }catch(e){ clearSave(); }
@@ -618,6 +642,7 @@ export default function GriddleRush(){
     setPoofs([]);setScorePops([]);setComboMsg(null);
     setShaking(false);setNewHigh(false);setNewAch(null);
     setShowShare(false);setShowHowTo(false);setDragGroup(null);setSnapPlacement([]);
+    setUndoStack(null);
     setTimeLeft(timerOpt);setScreen("game");
     const gp=parseInt(lsGet("gr9_games","0"))+1;
     lsSet("gr9_games",String(gp));
@@ -1133,6 +1158,14 @@ export default function GriddleRush(){
             background:"rgba(255,255,255,0.08)",border:"none",borderRadius:8,
             padding:"5px 8px",color:musicPref?t.accent:"#444",cursor:"pointer",fontSize:15}}>
             {musicPref?"🎵":"🔇"}</button>
+          <button onClick={doUndo} disabled={!undoStack} style={{
+            background: undoStack?"rgba(255,255,255,0.08)":"rgba(255,255,255,0.03)",
+            border:"1px solid #333",borderRadius:8,
+            padding:"5px 8px",
+            color: undoStack?t.accent:"#333",
+            cursor: undoStack?"pointer":"default",
+            fontSize:14,fontWeight:700,
+            transition:"all 0.15s"}}>↩</button>
           <button onClick={()=>setShowHowTo(true)} style={{
             background:"rgba(255,255,255,0.07)",border:"1px solid #333",borderRadius:8,
             padding:"5px 8px",color:"#888",cursor:"pointer",fontSize:13,fontWeight:700}}>❓</button>

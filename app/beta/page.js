@@ -7,6 +7,12 @@ export default function BetaGames() {
       description: "Beta testing in progress"
     },
     {
+    name: "Fact Falls",
+    href: "/factfalls",
+    emoji: "💧",
+    description: "Quote Falls meets Letter Griddle! Complete facts and puzzle categories with falling letters."
+  },
+    {
       name: "Griddle Chronicles",
       href: "/chronicles",
       emoji: "🌌",

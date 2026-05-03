@@ -10,7 +10,7 @@ export default function BetaGames() {
     name: "Fact Falls",
     href: "/factfalls",
     emoji: "💧",
-    description: "For Desktop and tablet.  Working on mobile/phone version. Quote Falls meets Letter Griddle! Complete facts and puzzle categories with falling letters."
+    description: "Quote Falls meets Letter Griddle! Complete facts and puzzle categories with falling letters."
   },
     {
       name: "Griddle Chronicles",

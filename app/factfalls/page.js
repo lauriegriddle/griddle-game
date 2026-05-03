@@ -331,6 +331,13 @@ export default function FactFallsPage() {
   return (
     <div style={S.page}>
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+      <style>{`
+        .gff-cell { box-sizing: border-box; }
+        .gff-cell input { -webkit-user-select: text; user-select: text; }
+        @media (max-width: 600px) {
+          .gff-grid-wrap { padding: 6px !important; }
+        }
+      `}</style>
       <div style={S.card}>
 
         {/* Header */}
@@ -385,7 +392,7 @@ export default function FactFallsPage() {
 
         {/* Grid */}
         {grid.length>0 && (
-          <div style={{background:'#FFF8EE',border:'1.5px solid #FAC775',borderRadius:'10px',padding:'10px',marginBottom:'12px',overflowX:'auto'}}>
+          <div style={{background:'#FFF8EE',border:'2px solid #EF9F27',borderRadius:'10px',padding:'10px',marginBottom:'12px',overflowX:'auto'}}>
             {/* Bank */}
             <table style={{borderCollapse:'collapse',width:'100%',tableLayout:'fixed'}}>
               <colgroup>{Array.from({length:cols}).map((_,i)=><col key={i}/>)}</colgroup>
@@ -402,7 +409,7 @@ export default function FactFallsPage() {
               </tbody>
             </table>
             {/* Divider */}
-            <div style={{height:'3px',background:'#EF9F27',margin:'4px 0',borderRadius:'2px'}}/>
+            <div style={{height:'3px',background:'#EF9F27',margin:'6px 0 4px',borderRadius:'2px'}}/>
             {/* Answer grid */}
             <table style={{borderCollapse:'collapse',width:'100%',tableLayout:'fixed'}}>
               <colgroup>{Array.from({length:cols}).map((_,i)=><col key={i}/>)}</colgroup>
@@ -414,10 +421,10 @@ export default function FactFallsPage() {
                       const val=answers[key]||'';
                       const ok=started&&val&&val===cell.ch;
                       const bad=started&&val&&val!==cell.ch;
-                      if (cell.t==='b') return <td key={c} style={{height:'30px',background:'#412402',border:'0.5px solid #412402'}}/>;
+                      if (cell.t==='b') return <td key={c} style={{height:'36px',background:'#412402',border:'1.5px solid #412402'}}/>;
                       return (
                         <td key={c} onClick={()=>started&&setSelKey(key)}
-                          style={{height:'30px',border:'0.5px solid #FAC775',padding:0,position:'relative',cursor:started?'pointer':'default',background:selKey===key?'#fff3d6':'white'}}>
+                          style={{height:'36px',border:'1.5px solid #EF9F27',padding:0,position:'relative',cursor:started?'pointer':'default',background:selKey===key?'#fff3d6':'white'}}>
                           {circledSet[key]&&(
                             <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:'22px',height:'22px',borderRadius:'50%',border:'1.5px solid #BA7517',pointerEvents:'none',zIndex:1}}/>
                           )}
@@ -471,9 +478,9 @@ export default function FactFallsPage() {
               <h2 style={{...S.serif,color:'#633806',fontSize:'21px',marginBottom:'16px',marginTop:0}}>How to Play Griddle Fact Falls</h2>
               <ol style={{paddingLeft:'20px',margin:0}}>
                 {[
-                  <span key={0}>Press <strong style={{color:'#854F0B'}}>Start</strong>. Scrambled letters appear above the grid ande each column&apos;s letters belong somewhere in that column below.</span>,
-                  <span key={1}>Click a white cell and type a letter. Place each letter in the right row to reveal a fun fact. Each word fits entirely on one line so no wrapping. You can only enter letters available in that column!</span>,
-                  <span key={2}>Cells with a <strong style={{color:'#854F0B'}}>circle</strong> reveal letters in <strong style={{color:'#854F0B'}}>The Fact Source.</strong> That&apos;s the puzzle category!</span>,
+                  <span key={0}>Press <strong style={{color:'#854F0B'}}>Start</strong>. Scrambled letters appear above the grid &mdash; each column&apos;s letters belong somewhere in that column below.</span>,
+                  <span key={1}>Click a white cell and type a letter. Place each letter in the right row to reveal a fun fact. Each word fits entirely on one line &mdash; no wrapping. You can only enter letters available in that column!</span>,
+                  <span key={2}>Cells with a <strong style={{color:'#854F0B'}}>circle</strong> reveal letters in <strong style={{color:'#854F0B'}}>The Fact Source</strong> &mdash; that&apos;s the puzzle category!</span>,
                   <span key={3}><strong style={{color:'#2d7a2d'}}>Green</strong> = correct. <strong style={{color:'#c0392b'}}>Red</strong> = try again. Press <strong style={{color:'#854F0B'}}>Check</strong> anytime.</span>,
                   <span key={4}>Progress saves automatically. A new fact drops every day at midnight.</span>,
                 ].map((item,i)=>(

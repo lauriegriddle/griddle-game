@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 
 const YEAR = new Date().getFullYear();
@@ -419,23 +420,40 @@ export default function GriddleRush(){
     if(st.gotSingle)  unlockAch("lucky_single","🍀","Lucky Single");
   },[unlockAch]);
 
+  // ── SAVE / RESUME — using refs avoids all initialization-order issues ────
+  // Refs are always defined immediately, unlike useCallback which has timing deps
+  const saveGameRef=useRef((g,q,sc,tl,tk,tOpt)=>{
+    const payload={
+      version:1, grid:g, queue:q, score:sc, themeKey:tk, timerOpt:tOpt,
+      savedAt: tOpt>0 ? Date.now() : null,
+      timeLeft: tl,
+    };
+    lsSet("gr9_save",JSON.stringify(payload));
+  });
+
+  const clearSaveRef=useRef(()=>{
+    lsSet("gr9_save","");
+    setHasSavedGame(false);
+  });
+
+  // Stable wrapper functions — safe to call anywhere
+  const saveGame=useCallback((...a)=>saveGameRef.current(...a),[]);
+  const clearSave=useCallback(()=>clearSaveRef.current(),[]);
+
   const doEndGame=useCallback(()=>{
     stopMusic();
     s.over();
-    clearSave(); // no partial game to resume after it ends
+    lsSet("gr9_save","");
+    setHasSavedGame(false);
     setShowBoard(true);
-    setTimeout(()=>{
-      setShowBoard(false);
-      setScreen("gameover");
-    }, 2200);
-  },[s,stopMusic,clearSave]);
+    setTimeout(()=>{ setShowBoard(false); setScreen("gameover"); }, 2200);
+  },[s,stopMusic]);
 
   const dropGroup=useCallback((group,queueIdx,finalSnap)=>{
     if(!finalSnap||finalSnap.length===0){
       s.bad();setShaking(true);setTimeout(()=>setShaking(false),420);
       return;
     }
-    // Snapshot BEFORE placement so undo can restore it
     setUndoStack({
       grid: gridRef.current.map(r=>[...r]),
       queue: [...queueRef.current],
@@ -486,10 +504,8 @@ export default function GriddleRush(){
 
       const types=THEMES[themeKey].types;
       let newQ=queueRef.current.filter((_,i)=>i!==queueIdx);
-      // Only deal a fresh set when the tray is completely empty
       if(newQ.length===0){
         newQ=makeQueue(types);
-        // Occasionally include a single-tile gift in the new set
         if(Math.random()<0.12){
           const gi=Math.floor(Math.random()*newQ.length);
           newQ[gi]={tiles:[types[Math.floor(Math.random()*types.length)].emoji],
@@ -511,17 +527,16 @@ export default function GriddleRush(){
       }
       checkAchs(statsRef.current);
       setScore(newScore);
-      // Auto-save — capture current timeLeft from closure
       const tl=timerOpt>0?timeLeft:0;
       saveGame(afterGrid,newQ,newScore,tl,themeKey,timerOpt);
       setTimeout(()=>{if(!hasAnyMove(afterGrid,newQ))setTimeout(doEndGame,300);},120);
       return afterGrid;
     });
-  },[themeKey,s,checkAchs,doEndGame,saveGame,timerOpt,timeLeft]);
+  },[themeKey,s,checkAchs,doEndGame,timerOpt,timeLeft]);
 
   const doUndo=useCallback(()=>{
     if(!undoStack)return;
-    s.bad(); // satisfying "rewind" sound
+    s.bad();
     gridRef.current=undoStack.grid;
     queueRef.current=undoStack.queue;
     scoreRef.current=undoStack.score;
@@ -529,13 +544,58 @@ export default function GriddleRush(){
     setGrid(undoStack.grid);
     setQueue(undoStack.queue);
     setScore(undoStack.score);
-    setUndoStack(null); // only one undo allowed
-    // Update save with restored state
+    setUndoStack(null);
     const tl=timerOpt>0?timeLeft:0;
     saveGame(undoStack.grid,undoStack.queue,undoStack.score,tl,themeKey,timerOpt);
-  },[undoStack,s,timerOpt,timeLeft,saveGame,themeKey]);
+  },[undoStack,s,timerOpt,timeLeft,themeKey]);
 
-  const onGroupPointerDown=useCallback((e,group,idx)=>{
+  const resumeGame=useCallback(()=>{
+    const raw=lsGet("gr9_save","");
+    if(!raw)return;
+    try{
+      const sv=JSON.parse(raw);
+      if(!sv||!sv.grid||!sv.queue)return;
+      let tl=sv.timeLeft||0;
+      if(sv.timerOpt>0 && sv.savedAt){
+        const elapsed=Math.floor((Date.now()-sv.savedAt)/1000);
+        tl=Math.max(0, tl-elapsed);
+        if(tl===0){ clearSave(); return; }
+      }
+      comboCount.current=0;
+      statsRef.current={placed:0,clears:0,combo:0,score:0,newHigh:false,gotSingle:false};
+      scoreRef.current=sv.score||0;
+      newHighRef.current=false;
+      gridRef.current=sv.grid;
+      queueRef.current=sv.queue;
+      setGrid(sv.grid);setQueue(sv.queue);setScore(sv.score||0);
+      setThemeKey(sv.themeKey||"cafe");setTimerOpt(sv.timerOpt||0);setTimeLeft(tl);
+      setPoofs([]);setScorePops([]);setComboMsg(null);
+      setShaking(false);setNewHigh(false);setNewAch(null);
+      setShowShare(false);setShowHowTo(false);setDragGroup(null);setSnapPlacement([]);
+      setHasSavedGame(false);setUndoStack(null);
+      setScreen("game");
+      if(musicPref)startMusic();
+    }catch(e){ clearSave(); }
+  },[musicPref,startMusic]);
+
+  const startGame=useCallback(()=>{
+    clearSave();
+    comboCount.current=0;
+    statsRef.current={placed:0,clears:0,combo:0,score:0,newHigh:false,gotSingle:false};
+    scoreRef.current=0;newHighRef.current=false;
+    const types=THEMES[themeKey].types;
+    const g=emptyGrid();const q=makeQueue(types);
+    gridRef.current=g;queueRef.current=q;
+    setGrid(g);setQueue(q);setScore(0);
+    setPoofs([]);setScorePops([]);setComboMsg(null);
+    setShaking(false);setNewHigh(false);setNewAch(null);
+    setShowShare(false);setShowHowTo(false);setDragGroup(null);setSnapPlacement([]);
+    setUndoStack(null);
+    setTimeLeft(timerOpt);setScreen("game");
+    const gp=parseInt(lsGet("gr9_games","0"))+1;
+    lsSet("gr9_games",String(gp));
+    if(musicPref)startMusic();
+  },[themeKey,timerOpt,musicPref,startMusic]);
     e.preventDefault();
     dragActive.current=true;
     dragInfo.current={group,queueIdx:idx};
@@ -628,7 +688,7 @@ export default function GriddleRush(){
       setScreen("game");
       if(musicPref)startMusic();
     }catch(e){ clearSave(); }
-  },[musicPref,startMusic,clearSave]);
+  },[musicPref,startMusic]);
 
   const startGame=useCallback(()=>{
     clearSave();
@@ -647,7 +707,7 @@ export default function GriddleRush(){
     const gp=parseInt(lsGet("gr9_games","0"))+1;
     lsSet("gr9_games",String(gp));
     if(musicPref)startMusic();
-  },[themeKey,timerOpt,musicPref,startMusic,clearSave]);
+  },[themeKey,timerOpt,musicPref,startMusic]);
 
   useEffect(()=>{
     if(screen!=="game"||timerOpt===0)return;

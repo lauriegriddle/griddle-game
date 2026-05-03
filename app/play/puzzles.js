@@ -2398,7 +2398,7 @@ const puzzles = [
     category: "Iris",
     puzzleNumber: 233,
     words: [
-      { word: "NEWS", hint: "Fleur-de-lis appears on news logos", revealedIndex: 0 },
+      { word: "NEWS", hint: "Symbolic of good ----", revealedIndex: 0 },
       { word: "GREEK", hint: "Named after a goddess from this culture", revealedIndex: 2 },
       { word: "GARDEN", hint: "Where flowers grow", revealedIndex: 3 },
       { word: "BELGIUM", hint: "Country with the iris as national flower", revealedIndex: 0 },

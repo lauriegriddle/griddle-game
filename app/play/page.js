@@ -1602,7 +1602,7 @@ Free & ad-free!
             <div className="mt-4 text-center"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-800 text-sm font-semibold">🍯 Read the stories behind Letter Griddle</a></div>
           </div>
           {/* Books announcement */}
-<div className="mt-4 bg-amber-50 border border-amber-300 rounded-lg p-3 text-center">
+<div className="mt-4 bg-purple-50 border-4 border-purple-500 rounded-xl p-4 text-center shadow-lg">
   <p className="text-sm font-semibold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
     🥞 Now in Print!
   </p>

@@ -74,7 +74,7 @@ export default function BetaGames() {
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">🧪</div>
           <h1 className="text-4xl font-bold text-amber-800 mb-2">Beta Games</h1>
-          <p className="text-amber-600">Thank you for being a tester!</p>
+          <p className="text-amber-600">Thank you for being a tester! Please let me know if there are problems with any of the puzzles lettergriddle@gmail.com</p>
         </div>
         <div className="space-y-4">
           {betaGames.map((game) => (

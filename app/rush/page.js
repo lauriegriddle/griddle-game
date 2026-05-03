@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect, useRef, useCallback } from "react";
 
 const YEAR = new Date().getFullYear();
@@ -323,7 +321,8 @@ export default function GriddleRush(){
   const[newAch,    setNewAch]   =useState(null);
   const[showShare, setShowShare]=useState(false);
   const[showHowTo, setShowHowTo]=useState(false);
-  const[showBoard, setShowBoard]=useState(false); // brief board-reveal before gameover
+  const[showBoard, setShowBoard]=useState(false);
+  const[hasSavedGame, setHasSavedGame]=useState(false); // detected after mount
   const[dragGroup, setDragGroup]=useState(null);
   const[ghostXY,   setGhostXY] =useState({x:0,y:0});
   const[snapPlacement,setSnapPlacement]=useState([]);
@@ -351,6 +350,14 @@ export default function GriddleRush(){
     highScore.current=hs;
     setHighScoreVal(hs);
     unlocked.current=new Set(JSON.parse(lsGet("gr9_ach","[]")));
+    // Check for a saved game
+    const saved=lsGet("gr9_save","");
+    if(saved){
+      try{
+        const s=JSON.parse(saved);
+        if(s && s.grid && s.queue && s.version===1) setHasSavedGame(true);
+      }catch(e){}
+    }
   },[]);
 
   const statsRef  =useRef({placed:0,clears:0,combo:0,score:0,newHigh:false,gotSingle:false});
@@ -414,13 +421,13 @@ export default function GriddleRush(){
   const doEndGame=useCallback(()=>{
     stopMusic();
     s.over();
-    // Show the filled board for 2s so players can see their handiwork
+    clearSave(); // no partial game to resume after it ends
     setShowBoard(true);
     setTimeout(()=>{
       setShowBoard(false);
       setScreen("gameover");
     }, 2200);
-  },[s,stopMusic]);
+  },[s,stopMusic,clearSave]);
 
   const dropGroup=useCallback((group,queueIdx,finalSnap)=>{
     if(!finalSnap||finalSnap.length===0){
@@ -496,10 +503,13 @@ export default function GriddleRush(){
       }
       checkAchs(statsRef.current);
       setScore(newScore);
+      // Auto-save — capture current timeLeft from closure
+      const tl=timerOpt>0?timeLeft:0;
+      saveGame(afterGrid,newQ,newScore,tl,themeKey,timerOpt);
       setTimeout(()=>{if(!hasAnyMove(afterGrid,newQ))setTimeout(doEndGame,300);},120);
       return afterGrid;
     });
-  },[themeKey,s,checkAchs,doEndGame]);
+  },[themeKey,s,checkAchs,doEndGame,saveGame,timerOpt,timeLeft]);
 
   const onGroupPointerDown=useCallback((e,group,idx)=>{
     e.preventDefault();
@@ -541,7 +551,63 @@ export default function GriddleRush(){
     };
   },[computeSnap,dropGroup]);
 
+  // ── SAVE / RESUME ─────────────────────────────────────────────────────────
+  const saveGame=useCallback((g,q,sc,tl,tk,tOpt)=>{
+    const payload={
+      version:1,
+      grid:g,
+      queue:q,
+      score:sc,
+      themeKey:tk,
+      timerOpt:tOpt,
+      // If timed, save absolute timestamp so we can deduct elapsed on resume
+      savedAt: tOpt>0 ? Date.now() : null,
+      timeLeft: tl,
+    };
+    lsSet("gr9_save",JSON.stringify(payload));
+  },[]);
+
+  const clearSave=useCallback(()=>{ lsSet("gr9_save",""); setHasSavedGame(false); },[]);
+
+  const resumeGame=useCallback(()=>{
+    const raw=lsGet("gr9_save","");
+    if(!raw)return;
+    try{
+      const sv=JSON.parse(raw);
+      if(!sv||!sv.grid||!sv.queue)return;
+
+      // Adjust time remaining for timed games
+      let tl=sv.timeLeft||0;
+      if(sv.timerOpt>0 && sv.savedAt){
+        const elapsed=Math.floor((Date.now()-sv.savedAt)/1000);
+        tl=Math.max(0, tl-elapsed);
+        if(tl===0){ clearSave(); return; } // time already expired
+      }
+
+      comboCount.current=0;
+      statsRef.current={placed:0,clears:0,combo:0,score:0,newHigh:false,gotSingle:false};
+      scoreRef.current=sv.score||0;
+      newHighRef.current=false;
+
+      gridRef.current=sv.grid;
+      queueRef.current=sv.queue;
+      setGrid(sv.grid);
+      setQueue(sv.queue);
+      setScore(sv.score||0);
+      setThemeKey(sv.themeKey||"cafe");
+      setTimerOpt(sv.timerOpt||0);
+      setTimeLeft(tl);
+      setPoofs([]);setScorePops([]);setComboMsg(null);
+      setShaking(false);setNewHigh(false);setNewAch(null);
+      setShowShare(false);setShowHowTo(false);setDragGroup(null);setSnapPlacement([]);
+      setHasSavedGame(false);
+      setScreen("game");
+      if(musicPref)startMusic();
+    }catch(e){ clearSave(); }
+  },[musicPref,startMusic,clearSave]);
+
   const startGame=useCallback(()=>{
+    clearSave();
     comboCount.current=0;
     statsRef.current={placed:0,clears:0,combo:0,score:0,newHigh:false,gotSingle:false};
     scoreRef.current=0;newHighRef.current=false;
@@ -553,11 +619,10 @@ export default function GriddleRush(){
     setShaking(false);setNewHigh(false);setNewAch(null);
     setShowShare(false);setShowHowTo(false);setDragGroup(null);setSnapPlacement([]);
     setTimeLeft(timerOpt);setScreen("game");
-    // track games played for stats
     const gp=parseInt(lsGet("gr9_games","0"))+1;
     lsSet("gr9_games",String(gp));
     if(musicPref)startMusic();
-  },[themeKey,timerOpt,musicPref,startMusic]);
+  },[themeKey,timerOpt,musicPref,startMusic,clearSave]);
 
   useEffect(()=>{
     if(screen!=="game"||timerOpt===0)return;
@@ -674,11 +739,11 @@ export default function GriddleRush(){
 
               {[
                 {icon:"👇",title:"Pick up a group",text:"Tap and drag any tile group from the tray at the bottom."},
-                {icon:"📍",title:"Place it on the griddle",text:"Drag over the grid & glowing cells show exactly where it will land. Release to place."},
+                {icon:"📍",title:"Place it on the griddle",text:"Drag over the grid — glowing cells show exactly where it will land. Release to place."},
                 {icon:"↕ ↔",title:"Vertical & horizontal",text:"Groups can be stacked top-to-bottom or side-by-side. The tray shows their orientation."},
-                {icon:"3️⃣",title:"Match 3 to clear",text:"Get 3 of the same emoji in a row or column & they poof away and score points!"},
-                {icon:"🔥",title:"Combos score double",text:"Clear two sets in a row for a Combo to earn double points!"},
-                {icon:"🍀",title:"The gift tile",text:"Sometimes a single tile appears, a lucky gift that's easy to place anywhere."},
+                {icon:"3️⃣",title:"Match 3 to clear",text:"Get 3 of the same emoji in a row or column — they poof away and score points!"},
+                {icon:"🔥",title:"Combos score double",text:"Clear two sets in a row for a Combo — double points!"},
+                {icon:"🍀",title:"The gift tile",text:"Sometimes a single tile appears — a lucky gift that's easy to place anywhere."},
                 {icon:"🗂️",title:"Use your whole tray",text:"Place all tiles in the current tray before a fresh set is dealt. Strategy counts!"},
                 {icon:"🏆",title:"Beat your best",text:"Your high score is saved between sessions. Can you top it?"},
               ].map(({icon,title,text})=>(
@@ -796,15 +861,30 @@ export default function GriddleRush(){
           {musicPref?"🎵 Music On":"🔇 Music Off"}
         </button>
 
-        {/* Play */}
+        {/* Play / Continue */}
+        {hasSavedGame && (
+          <button onClick={resumeGame} style={{
+            background:`linear-gradient(135deg,${t.accent},${t.bgTop})`,
+            border:"none",borderRadius:24,padding:"15px 52px",
+            color:"#fff",fontFamily:"'Fredoka One',cursive",fontSize:27,
+            cursor:"pointer",boxShadow:`0 10px 40px ${t.accent}55`,
+            marginBottom:12}}
+            onPointerDown={e=>{e.currentTarget.style.transform="scale(0.95)";unlock();}}
+            onPointerUp={e=>e.currentTarget.style.transform="scale(1)"}>
+            ▶ Continue Game
+          </button>
+        )}
         <button onClick={startGame} style={{
-          background:`linear-gradient(135deg,${t.accent},${t.bgTop})`,
-          border:"none",borderRadius:24,padding:"15px 52px",
-          color:"#fff",fontFamily:"'Fredoka One',cursive",fontSize:27,
-          cursor:"pointer",boxShadow:`0 10px 40px ${t.accent}55`}}
+          background: hasSavedGame ? "rgba(255,255,255,0.09)" : `linear-gradient(135deg,${t.accent},${t.bgTop})`,
+          border: hasSavedGame ? "1px solid rgba(255,255,255,0.2)" : "none",
+          borderRadius:24,padding:"15px 52px",
+          color:"#fff",fontFamily:"'Fredoka One',cursive",
+          fontSize: hasSavedGame ? 20 : 27,
+          cursor:"pointer",
+          boxShadow: hasSavedGame ? "none" : `0 10px 40px ${t.accent}55`}}
           onPointerDown={e=>{e.currentTarget.style.transform="scale(0.95)";unlock();}}
           onPointerUp={e=>e.currentTarget.style.transform="scale(1)"}>
-          Let's Rush! 🍳
+          {hasSavedGame ? "New Game" : "Let's Rush! 🍳"}
         </button>
 
         <p style={{color:"rgba(255,255,255,0.55)",fontSize:11,marginTop:14,
@@ -829,7 +909,7 @@ export default function GriddleRush(){
           That's a Wrap!
         </h2>
         <p style={{color:"rgba(255,255,255,0.65)",marginBottom:20,fontSize:14}}>
-          {timerOpt>0?"Time's up! Griddle's closed.":"No more moves!  The griddle is jammed!"}
+          {timerOpt>0?"Time's up! Griddle's closed.":"No more moves — the griddle is jammed!"}
         </p>
 
         {/* Score card */}
@@ -858,7 +938,7 @@ export default function GriddleRush(){
           color:"#fff",fontFamily:"'Nunito',sans-serif",fontWeight:800,fontSize:16,
           cursor:"pointer",marginBottom:10,display:"flex",alignItems:"center",gap:8,
           boxShadow:`0 6px 24px ${t.accent}55`}}>
-          Share My Score
+          📤 Share My Score
         </button>
         {showShare&&(
           <div style={{color:t.accent,fontSize:12,fontWeight:700,marginBottom:8,textAlign:"center"}}>
@@ -1056,10 +1136,14 @@ export default function GriddleRush(){
           <button onClick={()=>setShowHowTo(true)} style={{
             background:"rgba(255,255,255,0.07)",border:"1px solid #333",borderRadius:8,
             padding:"5px 8px",color:"#888",cursor:"pointer",fontSize:13,fontWeight:700}}>❓</button>
-          <button onClick={()=>{stopMusic();setScreen("menu");}} style={{
+          <button onClick={()=>{
+            saveGame(grid,queue,score,timeLeft,themeKey,timerOpt);
+            setHasSavedGame(true);
+            stopMusic();setScreen("menu");
+          }} style={{
             background:"rgba(255,255,255,0.07)",border:"1px solid #222",borderRadius:8,
             padding:"5px 10px",color:"#777",fontFamily:"'Nunito',sans-serif",
-            fontWeight:700,fontSize:11,cursor:"pointer"}}>Menu</button>
+            fontWeight:700,fontSize:11,cursor:"pointer"}}>💾 Exit</button>
         </div>
       </div>
 

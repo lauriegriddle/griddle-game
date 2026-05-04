@@ -563,9 +563,9 @@ export default function FactFallsPage() {
               <h2 style={{...S.serif,color:'#633806',fontSize:'21px',marginBottom:'16px',marginTop:0}}>How to Play Griddle Fact Falls</h2>
               <ol style={{paddingLeft:'20px',margin:0}}>
                 {[
-                  <span key={0}>Press <strong style={{color:'#854F0B'}}>Start</strong>. Scrambled letters appear above the grid &mdash; each column&apos;s letters belong somewhere in that column below.</span>,
-                  <span key={1}>Type a letter in any white cell to place it. Each word fits on one line &mdash; no wrapping! You can only enter letters available in that column.</span>,
-                  <span key={2}>Cells with a <strong style={{color:'#854F0B'}}>circle</strong> reveal letters in <strong style={{color:'#854F0B'}}>The Fact Source</strong> &mdash; the puzzle category!</span>,
+                  <span key={0}>Press <strong style={{color:'#854F0B'}}>Start</strong>. Scrambled letters appear above the grid.  Each column&apos;s letters belong somewhere in that column below.</span>,
+                  <span key={1}>Type a letter in any white cell to place it. Each word fits on one line so there's no wrapping! You can only enter letters available in that column.</span>,
+                  <span key={2}>Cells with a <strong style={{color:'#854F0B'}}>circle</strong> reveal letters in <strong style={{color:'#854F0B'}}>The Fact Source</strong> is the puzzle category!</span>,
                   <span key={3}><strong style={{color:'#2d7a2d'}}>Green</strong> = correct. <strong style={{color:'#c0392b'}}>Red</strong> = try again. Press <strong style={{color:'#854F0B'}}>Check</strong> anytime.</span>,
                   <span key={4}>Progress saves automatically. A new fact drops every day at midnight.</span>,
                 ].map((item,i)=>(

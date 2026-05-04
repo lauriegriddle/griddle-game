@@ -110,6 +110,24 @@ function findCircled(grid, cols, source) {
   return result;
 }
 
+function updateBankDOM(rb) {
+  if (!rb) return;
+  rb.forEach((col, c) => {
+    col.forEach((ch, bi) => {
+      const el = document.getElementById('bk-'+c+'-'+bi);
+      if (el) el.textContent = ch;
+    });
+    // Clear extra slots
+    let bi = col.length;
+    while (true) {
+      const el = document.getElementById('bk-'+c+'-'+bi);
+      if (!el) break;
+      el.textContent = '';
+      bi++;
+    }
+  });
+}
+
 function Confetti() {
   const colors = ['#EF9F27','#FAC775','#854F0B','#633806','#FAEEDA','#BA7517','#f5c842'];
   const pieces = Array.from({length:45}, (_,i) => ({
@@ -199,7 +217,7 @@ export default function FactFallsPage() {
   const [modal, setModal]     = useState(null);
   const [confetti, setConfetti] = useState(false);
   const [bankH, setBankH]     = useState(0);
-  const [remainingBank, setRemainingBank] = useState([]);
+  const bankRef = useRef([]);
 
   // answers lives in a ref — never causes re-renders
   const answersRef = useRef({});
@@ -217,7 +235,7 @@ export default function FactFallsPage() {
     const circ = findCircled(g, c, fact.source);
     setGrid(g); setBank(b); setCircled(circ);
     setBankH(Math.max(...b.map(col=>col.length)));
-    setRemainingBank(b.map(col=>[...col]));
+    bankRef.current = b.map(col=>[...col]);
 
     try {
       const sv = JSON.parse(localStorage.getItem('gff_progress'));
@@ -249,8 +267,9 @@ export default function FactFallsPage() {
         if (idx !== -1) rb[c].splice(idx, 1);
       }
     });
-    setRemainingBank(rb);
-  }, [grid, started, bank]);
+    bankRef.current = rb;
+    updateBankDOM(rb);
+  }, [grid, started, bank, updateBankDOM]);
 
   // ── Timer ────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -345,14 +364,13 @@ export default function FactFallsPage() {
     const newAns = {...ans, [key]:ch};
     answersRef.current = newAns;
 
-    // Update remaining bank display
+    // Update remaining bank display via DOM only
     if (ch === grid[r][c].ch) {
-      setRemainingBank(prev => {
-        const rb = prev.map(col=>[...col]);
-        const idx = rb[c].indexOf(ch);
-        if (idx !== -1) rb[c].splice(idx, 1);
-        return rb;
-      });
+      const rb = bankRef.current.map(col=>[...col]);
+      const idx = rb[c].indexOf(ch);
+      if (idx !== -1) rb[c].splice(idx, 1);
+      bankRef.current = rb;
+      updateBankDOM(rb);
     }
 
     // Update source display
@@ -403,7 +421,7 @@ export default function FactFallsPage() {
     const c=pickCols(fact.text), g=buildGrid(fact.text,c), b=buildBank(g,c);
     setCols(c); setGrid(g); setBank(b); setCircled(findCircled(g,c,fact.source));
     setBankH(Math.max(...b.map(col=>col.length)));
-    setRemainingBank(b.map(col=>[...col]));
+    bankRef.current = b.map(col=>[...col]);
     setModal(null);
     // Clear all DOM inputs
     setTimeout(()=>{
@@ -481,15 +499,15 @@ export default function FactFallsPage() {
         {/* Grid area */}
         {grid.length>0 && (
           <div style={{background:'#FFF8EE',border:'2px solid #EF9F27',borderRadius:'10px',padding:'10px',marginBottom:'12px',overflowX:'auto'}}>
-            {/* Bank */}
-            <table style={{borderCollapse:'collapse',width:'100%',tableLayout:'fixed'}}>
+            {/* Bank — rendered once, updated via DOM */}
+            <table id="gff-bank" style={{borderCollapse:'collapse',width:'100%',tableLayout:'fixed'}}>
               <colgroup>{Array.from({length:cols}).map((_,i)=><col key={i}/>)}</colgroup>
               <tbody>
                 {Array.from({length:bankH}).map((_,bi)=>(
                   <tr key={bi}>
                     {Array.from({length:cols}).map((_,c)=>(
-                      <td key={c} style={{textAlign:'center',fontSize:'12px',fontWeight:'700',color:'#633806',height:'18px',lineHeight:'18px',padding:'0 1px',border:'none'}}>
-                        {remainingBank[c]?.[bi]||''}
+                      <td key={c} id={`bk-${c}-${bi}`} style={{textAlign:'center',fontSize:'12px',fontWeight:'700',color:'#633806',height:'18px',lineHeight:'18px',padding:'0 1px',border:'none'}}>
+                        {bankRef.current[c]?.[bi]||''}
                       </td>
                     ))}
                   </tr>

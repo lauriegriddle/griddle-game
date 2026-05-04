@@ -18,13 +18,6 @@ const GLOBAL_CSS = `
 @keyframes pulse     { 0%,100%{opacity:1} 50%{opacity:0.4} }
 @keyframes toastDrop { 0%{transform:translate(-50%,-16px);opacity:0} 100%{transform:translate(-50%,0);opacity:1} }
 @keyframes snapPulse { 0%,100%{opacity:0.85} 50%{opacity:1} }
-.griddle-rush-title {
-  background-image: linear-gradient(90deg, var(--acc, #f59e0b), #fff, var(--acc, #f59e0b));
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
 `;
 
 const THEMES = {
@@ -322,46 +315,13 @@ export default function GriddleRush(){
   const[newAch,    setNewAch]   =useState(null);
   const[showShare, setShowShare]=useState(false);
   const[showHowTo, setShowHowTo]=useState(false);
-  const[showBoard, setShowBoard]=useState(false);
-  const[hasSavedGame, setHasSavedGame]=useState(false);
-  const[undoStack,   setUndoStack]   =useState(null); // one snapshot: {grid,queue,score}
+  const[showBoard, setShowBoard]=useState(false); // brief board-reveal before gameover
   const[dragGroup, setDragGroup]=useState(null);
   const[ghostXY,   setGhostXY] =useState({x:0,y:0});
   const[snapPlacement,setSnapPlacement]=useState([]);
 
-  // ── Safe localStorage helpers ─────────────────────────────────────────────
-  const lsGet=(key,fallback="")=>{
-    if(typeof window==="undefined") return fallback;
-    return localStorage.getItem(key)||fallback;
-  };
-  const lsSet=(key,val)=>{
-    if(typeof window!=="undefined") localStorage.setItem(key,val);
-  };
-
-  // highScore as STATE (it's displayed in UI) — start at 0 to match server,
-  // then read real value from localStorage after first client render.
-  const[highScoreVal, setHighScoreVal]=useState(0);
-  const highScore=useRef(0); // ref keeps sync value for game logic
-
-  // unlocked achievements — also initialized empty, hydrated after mount
-  const unlocked=useRef(new Set());
-
-  useEffect(()=>{
-    // This runs only on the client, after hydration — safe to read localStorage
-    const hs=parseInt(lsGet("gr9_hs","0"));
-    highScore.current=hs;
-    setHighScoreVal(hs);
-    unlocked.current=new Set(JSON.parse(lsGet("gr9_ach","[]")));
-    // Check for a saved game
-    const saved=lsGet("gr9_save","");
-    if(saved){
-      try{
-        const s=JSON.parse(saved);
-        if(s && s.grid && s.queue && s.version===1) setHasSavedGame(true);
-      }catch(e){}
-    }
-  },[]);
-
+  const highScore =useRef(parseInt(localStorage.getItem("gr9_hs")||"0"));
+  const unlocked  =useRef(new Set(JSON.parse(localStorage.getItem("gr9_ach")||"[]")));
   const statsRef  =useRef({placed:0,clears:0,combo:0,score:0,newHigh:false,gotSingle:false});
   const comboCount=useRef(0);
   const timerRef  =useRef(null);
@@ -374,13 +334,7 @@ export default function GriddleRush(){
   const dragActive=useRef(false);
   const dragInfo  =useRef(null);
   const lastSnapRef=useRef([]);
-  const uidRef    =useRef(0);
-  const uid       =()=>{ uidRef.current+=1; return uidRef.current; };
-
-  // Safe window.innerWidth — returns 390 during SSR
-  const TILE=Math.min(54,Math.floor(
-    (Math.min(typeof window!=="undefined"?window.innerWidth:390,420)-56)/GRID
-  ));
+  const TILE=Math.min(54,Math.floor((Math.min(window.innerWidth,420)-56)/GRID));
   const GAP=5;
 
   useEffect(()=>{scoreRef.current=score;},[score]);
@@ -405,7 +359,7 @@ export default function GriddleRush(){
   const unlockAch=useCallback((id,icon,name)=>{
     if(unlocked.current.has(id))return;
     unlocked.current.add(id);
-    lsSet("gr9_ach",JSON.stringify([...unlocked.current]));
+    localStorage.setItem("gr9_ach",JSON.stringify([...unlocked.current]));
     setNewAch({id,icon,name});setTimeout(()=>setNewAch(null),3000);s.ping();
   },[s]);
 
@@ -420,33 +374,15 @@ export default function GriddleRush(){
     if(st.gotSingle)  unlockAch("lucky_single","🍀","Lucky Single");
   },[unlockAch]);
 
-  // ── SAVE / RESUME — using refs avoids all initialization-order issues ────
-  // Refs are always defined immediately, unlike useCallback which has timing deps
-  const saveGameRef=useRef((g,q,sc,tl,tk,tOpt)=>{
-    const payload={
-      version:1, grid:g, queue:q, score:sc, themeKey:tk, timerOpt:tOpt,
-      savedAt: tOpt>0 ? Date.now() : null,
-      timeLeft: tl,
-    };
-    lsSet("gr9_save",JSON.stringify(payload));
-  });
-
-  const clearSaveRef=useRef(()=>{
-    lsSet("gr9_save","");
-    setHasSavedGame(false);
-  });
-
-  // Stable wrapper functions — safe to call anywhere
-  const saveGame=useCallback((...a)=>saveGameRef.current(...a),[]);
-  const clearSave=useCallback(()=>clearSaveRef.current(),[]);
-
   const doEndGame=useCallback(()=>{
     stopMusic();
     s.over();
-    lsSet("gr9_save","");
-    setHasSavedGame(false);
+    // Show the filled board for 2s so players can see their handiwork
     setShowBoard(true);
-    setTimeout(()=>{ setShowBoard(false); setScreen("gameover"); }, 2200);
+    setTimeout(()=>{
+      setShowBoard(false);
+      setScreen("gameover");
+    }, 2200);
   },[s,stopMusic]);
 
   const dropGroup=useCallback((group,queueIdx,finalSnap)=>{
@@ -454,12 +390,6 @@ export default function GriddleRush(){
       s.bad();setShaking(true);setTimeout(()=>setShaking(false),420);
       return;
     }
-    setUndoStack({
-      grid: gridRef.current.map(r=>[...r]),
-      queue: [...queueRef.current],
-      score: scoreRef.current,
-      comboCount: comboCount.current,
-    });
     setGrid(prevGrid=>{
       const placement=finalSnap.map(p=>({row:p.row,col:p.col}));
       for(const{row,col}of placement){
@@ -490,7 +420,7 @@ export default function GriddleRush(){
           const[mr2,mc]=key.split(",").map(Number);
           const el=cellEls.current[`${mr2},${mc}`];
           const rb=el?.getBoundingClientRect();
-          if(rb)pList.push({id:uid(),x:rb.left+rb.width/2-16,y:rb.top+rb.height/2-16,emoji:ng[mr2][mc]});
+          if(rb)pList.push({id:Date.now()+Math.random(),x:rb.left+rb.width/2-16,y:rb.top+rb.height/2-16,emoji:ng[mr2][mc]});
         });
         setPoofs(p=>[...p,...pList]);
         afterGrid=ng.map((row,ri)=>row.map((cell,ci)=>matches.has(`${ri},${ci}`)?null:cell));
@@ -500,12 +430,14 @@ export default function GriddleRush(){
         statsRef.current.combo=Math.max(statsRef.current.combo,comboCount.current);
       }else comboCount.current=0;
 
-      setScorePops(p=>[...p,{id:uid(),x:popX,y:popY,val:gained}]);
+      setScorePops(p=>[...p,{id:Date.now(),x:popX,y:popY,val:gained}]);
 
       const types=THEMES[themeKey].types;
       let newQ=queueRef.current.filter((_,i)=>i!==queueIdx);
+      // Only deal a fresh set when the tray is completely empty
       if(newQ.length===0){
         newQ=makeQueue(types);
+        // Occasionally include a single-tile gift in the new set
         if(Math.random()<0.12){
           const gi=Math.floor(Math.random()*newQ.length);
           newQ[gi]={tiles:[types[Math.floor(Math.random()*types.length)].emoji],
@@ -520,82 +452,16 @@ export default function GriddleRush(){
       statsRef.current.score=newScore;
       if(newScore>highScore.current){
         highScore.current=newScore;
-        setHighScoreVal(newScore);
-        lsSet("gr9_hs",String(newScore));
+        localStorage.setItem("gr9_hs",String(newScore));
         if(!newHighRef.current){setNewHigh(true);s.newBest();}
         statsRef.current.newHigh=true;
       }
       checkAchs(statsRef.current);
       setScore(newScore);
-      const tl=timerOpt>0?timeLeft:0;
-      saveGame(afterGrid,newQ,newScore,tl,themeKey,timerOpt);
       setTimeout(()=>{if(!hasAnyMove(afterGrid,newQ))setTimeout(doEndGame,300);},120);
       return afterGrid;
     });
-  },[themeKey,s,checkAchs,doEndGame,timerOpt,timeLeft]);
-
-  const doUndo=useCallback(()=>{
-    if(!undoStack)return;
-    s.bad();
-    gridRef.current=undoStack.grid;
-    queueRef.current=undoStack.queue;
-    scoreRef.current=undoStack.score;
-    comboCount.current=undoStack.comboCount;
-    setGrid(undoStack.grid);
-    setQueue(undoStack.queue);
-    setScore(undoStack.score);
-    setUndoStack(null);
-    const tl=timerOpt>0?timeLeft:0;
-    saveGame(undoStack.grid,undoStack.queue,undoStack.score,tl,themeKey,timerOpt);
-  },[undoStack,s,timerOpt,timeLeft,themeKey]);
-
-  const resumeGame=useCallback(()=>{
-    const raw=lsGet("gr9_save","");
-    if(!raw)return;
-    try{
-      const sv=JSON.parse(raw);
-      if(!sv||!sv.grid||!sv.queue)return;
-      let tl=sv.timeLeft||0;
-      if(sv.timerOpt>0 && sv.savedAt){
-        const elapsed=Math.floor((Date.now()-sv.savedAt)/1000);
-        tl=Math.max(0, tl-elapsed);
-        if(tl===0){ clearSave(); return; }
-      }
-      comboCount.current=0;
-      statsRef.current={placed:0,clears:0,combo:0,score:0,newHigh:false,gotSingle:false};
-      scoreRef.current=sv.score||0;
-      newHighRef.current=false;
-      gridRef.current=sv.grid;
-      queueRef.current=sv.queue;
-      setGrid(sv.grid);setQueue(sv.queue);setScore(sv.score||0);
-      setThemeKey(sv.themeKey||"cafe");setTimerOpt(sv.timerOpt||0);setTimeLeft(tl);
-      setPoofs([]);setScorePops([]);setComboMsg(null);
-      setShaking(false);setNewHigh(false);setNewAch(null);
-      setShowShare(false);setShowHowTo(false);setDragGroup(null);setSnapPlacement([]);
-      setHasSavedGame(false);setUndoStack(null);
-      setScreen("game");
-      if(musicPref)startMusic();
-    }catch(e){ clearSave(); }
-  },[musicPref,startMusic]);
-
-  const startGame=useCallback(()=>{
-    clearSave();
-    comboCount.current=0;
-    statsRef.current={placed:0,clears:0,combo:0,score:0,newHigh:false,gotSingle:false};
-    scoreRef.current=0;newHighRef.current=false;
-    const types=THEMES[themeKey].types;
-    const g=emptyGrid();const q=makeQueue(types);
-    gridRef.current=g;queueRef.current=q;
-    setGrid(g);setQueue(q);setScore(0);
-    setPoofs([]);setScorePops([]);setComboMsg(null);
-    setShaking(false);setNewHigh(false);setNewAch(null);
-    setShowShare(false);setShowHowTo(false);setDragGroup(null);setSnapPlacement([]);
-    setUndoStack(null);
-    setTimeLeft(timerOpt);setScreen("game");
-    const gp=parseInt(lsGet("gr9_games","0"))+1;
-    lsSet("gr9_games",String(gp));
-    if(musicPref)startMusic();
-  },[themeKey,timerOpt,musicPref,startMusic]);
+  },[themeKey,s,checkAchs,doEndGame]);
 
   const onGroupPointerDown=useCallback((e,group,idx)=>{
     e.preventDefault();
@@ -637,6 +503,24 @@ export default function GriddleRush(){
     };
   },[computeSnap,dropGroup]);
 
+  const startGame=useCallback(()=>{
+    comboCount.current=0;
+    statsRef.current={placed:0,clears:0,combo:0,score:0,newHigh:false,gotSingle:false};
+    scoreRef.current=0;newHighRef.current=false;
+    const types=THEMES[themeKey].types;
+    const g=emptyGrid();const q=makeQueue(types);
+    gridRef.current=g;queueRef.current=q;
+    setGrid(g);setQueue(q);setScore(0);
+    setPoofs([]);setScorePops([]);setComboMsg(null);
+    setShaking(false);setNewHigh(false);setNewAch(null);
+    setShowShare(false);setShowHowTo(false);setDragGroup(null);setSnapPlacement([]);
+    setTimeLeft(timerOpt);setScreen("game");
+    // track games played for stats
+    const gp=parseInt(localStorage.getItem("gr9_games")||"0")+1;
+    localStorage.setItem("gr9_games",String(gp));
+    if(musicPref)startMusic();
+  },[themeKey,timerOpt,musicPref,startMusic]);
+
   useEffect(()=>{
     if(screen!=="game"||timerOpt===0)return;
     timerRef.current=setInterval(()=>{
@@ -648,43 +532,28 @@ export default function GriddleRush(){
     return()=>clearInterval(timerRef.current);
   },[screen,timerOpt,doEndGame]);
 
-  // ── SHARE ────────────────────────────────────────────────────────────────
-  // iOS iMessage: when both `text` and `url` are passed, some apps only show
-  // the URL card. Fix: put the full message in `text` WITH the URL embedded,
-  // and omit the separate `url` field so the text is always shown in full.
-  const buildShareText = useCallback(()=>{
-    const theme = THEMES[themeKey].name;
-    const lines = [
-      `🍳 Griddle Rush! ${theme}`,
-      ``,
-      `Score: ${score} pts`,
-      highScoreVal > 0 ? `🏆 Personal Best: ${highScoreVal}` : null,
-      ``,
-      `Play free → lettergriddle.com/rush`,
-      `More games → lettergriddle.com`,
-    ].filter(l => l !== null);
-    return lines.join("\n");
-  },[score, themeKey]);
+  // ── SHARE — updated URLs ──────────────────────────────────────────────────
+  const shareText=
+    `🍳 Griddle Rush!\n`+
+    `Score: ${score} pts`+
+    (highScore.current>0?`\n🏆 Best: ${highScore.current}`:"")+
+    `\n\nPlay free → lettergriddle.com/rush`+
+    `\nMore games → lettergriddle.com`;
 
   const doShare=useCallback(async()=>{
-    const text = buildShareText();
     if(navigator.share){
       try{
-        // Pass text only (with URL embedded inside) — no separate `url` field.
-        // This ensures iMessage shows the full message rather than just a link card.
-        await navigator.share({ title:"Griddle Rush 🍳", text });
-      }catch(e){
-        // User cancelled or share failed — fall through to clipboard
-        if(e.name !== "AbortError"){
-          try{ await navigator.clipboard.writeText(text); }catch{}
-          setShowShare(true); setTimeout(()=>setShowShare(false),2500);
-        }
-      }
+        await navigator.share({
+          title:"Griddle Rush 🍳",
+          text:shareText,
+          url:"https://lettergriddle.com/rush",
+        });
+      }catch(e){}
     } else {
-      try{ await navigator.clipboard.writeText(text); }catch(e){}
-      setShowShare(true); setTimeout(()=>setShowShare(false),2500);
+      try{await navigator.clipboard.writeText(shareText);}catch(e){}
+      setShowShare(true);setTimeout(()=>setShowShare(false),2200);
     }
-  },[buildShareText]);
+  },[shareText]);
 
   const fmtTime=sec=>`${Math.floor(sec/60)}:${String(sec%60).padStart(2,"0")}`;
   const timerWarn=timerOpt>0&&timeLeft>0&&timeLeft<=15;
@@ -694,7 +563,7 @@ export default function GriddleRush(){
 
   // ── MENU ──────────────────────────────────────────────────────────────────
   if(screen==="menu"){
-    const gamesPlayed=parseInt(lsGet("gr9_games","0"));
+    const gamesPlayed=parseInt(localStorage.getItem("gr9_games")||"0");
     const LABEL="rgba(255,255,255,0.75)"; // readable on dark bg
     const INACTIVE="rgba(255,255,255,0.55)"; // unselected buttons
 
@@ -776,7 +645,7 @@ export default function GriddleRush(){
                 </p>
                 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
                   {[
-                    {label:"Best Score",val:highScoreVal||0,icon:"🏆"},
+                    {label:"Best Score",val:highScore.current||0,icon:"🏆"},
                     {label:"Games Played",val:gamesPlayed,icon:"🍳"},
                   ].map(({label,val,icon})=>(
                     <div key={label} style={{background:"rgba(255,255,255,0.06)",
@@ -805,11 +674,10 @@ export default function GriddleRush(){
         {/* Logo */}
         <div style={{textAlign:"center",marginBottom:14,animation:"slideUp 0.5s ease"}}>
           <div style={{fontSize:68,animation:"floatBob 3s ease-in-out infinite"}}>🍳</div>
-          <h1 className="griddle-rush-title" style={{
-            fontFamily:"'Fredoka One',cursive",fontSize:50,margin:"2px 0 0",
-            animation:"shimmer 3s linear infinite",
-            "--acc": t.accent,
-          }}>Griddle Rush</h1>
+          <h1 style={{fontFamily:"'Fredoka One',cursive",fontSize:50,margin:"2px 0 0",
+            background:`linear-gradient(90deg,${t.accent},#fff,${t.accent})`,
+            backgroundSize:"200% auto",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",
+            animation:"shimmer 3s linear infinite"}}>Griddle Rush</h1>
           <p style={{color:"rgba(255,255,255,0.65)",margin:"3px 0 0",fontSize:11,
             letterSpacing:2,textTransform:"uppercase"}}>
             from the Letter Griddle Cafe
@@ -819,7 +687,7 @@ export default function GriddleRush(){
         {/* Best score */}
         <div style={{background:t.panelBg,border:`1px solid ${t.accent}55`,borderRadius:16,
           padding:"10px 28px",marginBottom:14,textAlign:"center"}}>
-          <div style={{fontFamily:"'Fredoka One',cursive",fontSize:28,color:t.accent}}>🏆 {highScoreVal}</div>
+          <div style={{fontFamily:"'Fredoka One',cursive",fontSize:28,color:t.accent}}>🏆 {highScore.current}</div>
           <div style={{color:"rgba(255,255,255,0.5)",fontSize:10,marginTop:1,letterSpacing:1}}>BEST SCORE</div>
         </div>
 
@@ -874,30 +742,15 @@ export default function GriddleRush(){
           {musicPref?"🎵 Music On":"🔇 Music Off"}
         </button>
 
-        {/* Play / Continue */}
-        {hasSavedGame && (
-          <button onClick={resumeGame} style={{
-            background:`linear-gradient(135deg,${t.accent},${t.bgTop})`,
-            border:"none",borderRadius:24,padding:"15px 52px",
-            color:"#fff",fontFamily:"'Fredoka One',cursive",fontSize:27,
-            cursor:"pointer",boxShadow:`0 10px 40px ${t.accent}55`,
-            marginBottom:12}}
-            onPointerDown={e=>{e.currentTarget.style.transform="scale(0.95)";unlock();}}
-            onPointerUp={e=>e.currentTarget.style.transform="scale(1)"}>
-            ▶ Continue Game
-          </button>
-        )}
+        {/* Play */}
         <button onClick={startGame} style={{
-          background: hasSavedGame ? "rgba(255,255,255,0.09)" : `linear-gradient(135deg,${t.accent},${t.bgTop})`,
-          border: hasSavedGame ? "1px solid rgba(255,255,255,0.2)" : "none",
-          borderRadius:24,padding:"15px 52px",
-          color:"#fff",fontFamily:"'Fredoka One',cursive",
-          fontSize: hasSavedGame ? 20 : 27,
-          cursor:"pointer",
-          boxShadow: hasSavedGame ? "none" : `0 10px 40px ${t.accent}55`}}
+          background:`linear-gradient(135deg,${t.accent},${t.bgTop})`,
+          border:"none",borderRadius:24,padding:"15px 52px",
+          color:"#fff",fontFamily:"'Fredoka One',cursive",fontSize:27,
+          cursor:"pointer",boxShadow:`0 10px 40px ${t.accent}55`}}
           onPointerDown={e=>{e.currentTarget.style.transform="scale(0.95)";unlock();}}
           onPointerUp={e=>e.currentTarget.style.transform="scale(1)"}>
-          {hasSavedGame ? "New Game" : "Let's Rush! 🍳"}
+          Let's Rush! 🍳
         </button>
 
         <p style={{color:"rgba(255,255,255,0.55)",fontSize:11,marginTop:14,
@@ -940,7 +793,7 @@ export default function GriddleRush(){
             </div>
           )}
           <div style={{color:"rgba(255,255,255,0.55)",fontSize:13,marginTop:8,fontWeight:700}}>
-            Best: <span style={{color:"#fff"}}>{highScoreVal}</span>
+            Best: <span style={{color:"#fff"}}>{highScore.current}</span>
           </div>
         </div>
 
@@ -951,7 +804,7 @@ export default function GriddleRush(){
           color:"#fff",fontFamily:"'Nunito',sans-serif",fontWeight:800,fontSize:16,
           cursor:"pointer",marginBottom:10,display:"flex",alignItems:"center",gap:8,
           boxShadow:`0 6px 24px ${t.accent}55`}}>
-          Share My Score
+          📤 Share My Score
         </button>
         {showShare&&(
           <div style={{color:t.accent,fontSize:12,fontWeight:700,marginBottom:8,textAlign:"center"}}>
@@ -1132,7 +985,7 @@ export default function GriddleRush(){
               opacity:0.8,display:"block",marginBottom:2}}>
             🥞 lettergriddle.com
           </a>
-          <div style={{color:t.accent,fontSize:12,fontWeight:700}}>🏆 {highScoreVal}</div>
+          <div style={{color:t.accent,fontSize:12,fontWeight:700}}>🏆 {highScore.current}</div>
           {newHigh&&<div style={{color:t.accent,fontSize:9,fontWeight:900,animation:"pulse 0.8s infinite"}}>NEW BEST!</div>}
         </div>
 
@@ -1146,25 +999,13 @@ export default function GriddleRush(){
             background:"rgba(255,255,255,0.08)",border:"none",borderRadius:8,
             padding:"5px 8px",color:musicPref?t.accent:"#444",cursor:"pointer",fontSize:15}}>
             {musicPref?"🎵":"🔇"}</button>
-          <button onClick={doUndo} disabled={!undoStack} style={{
-            background: undoStack?"rgba(255,255,255,0.08)":"rgba(255,255,255,0.03)",
-            border:"1px solid #333",borderRadius:8,
-            padding:"5px 8px",
-            color: undoStack?t.accent:"#333",
-            cursor: undoStack?"pointer":"default",
-            fontSize:14,fontWeight:700,
-            transition:"all 0.15s"}}>↩</button>
           <button onClick={()=>setShowHowTo(true)} style={{
             background:"rgba(255,255,255,0.07)",border:"1px solid #333",borderRadius:8,
             padding:"5px 8px",color:"#888",cursor:"pointer",fontSize:13,fontWeight:700}}>❓</button>
-          <button onClick={()=>{
-            saveGame(grid,queue,score,timeLeft,themeKey,timerOpt);
-            setHasSavedGame(true);
-            stopMusic();setScreen("menu");
-          }} style={{
+          <button onClick={()=>{stopMusic();setScreen("menu");}} style={{
             background:"rgba(255,255,255,0.07)",border:"1px solid #222",borderRadius:8,
             padding:"5px 10px",color:"#777",fontFamily:"'Nunito',sans-serif",
-            fontWeight:700,fontSize:11,cursor:"pointer"}}>💾 Exit</button>
+            fontWeight:700,fontSize:11,cursor:"pointer"}}>Menu</button>
         </div>
       </div>
 

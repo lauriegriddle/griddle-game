@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 
 // Anchor: April 16, 2026 = Fact #1 (Laughter)
 const ANCHOR_DATE = new Date('2026-04-16T00:00:00-05:00');
@@ -200,6 +200,19 @@ export default function FactFallsPage() {
     }));
   }, [answers, secs, done, started, fact, grid]);
 
+  // Sync saved answers to uncontrolled DOM inputs after load
+  useEffect(() => {
+    if (!grid.length || !started) return;
+    Object.entries(answers).forEach(([key, ch]) => {
+      if (!ch) return;
+      const el = document.getElementById('cell-'+key);
+      if (!el) return;
+      el.value = ch;
+      const [r, c] = key.split(',').map(Number);
+      el.style.color = ch === grid[r]?.[c]?.ch ? '#2d7a2d' : '#c0392b';
+    });
+  }, [grid, started]); // only on grid/started change, not every keystroke
+
   const showToast = useCallback((msg) => {
     setToast(msg); clearTimeout(toastRef.current);
     toastRef.current = setTimeout(() => setToast(''), 2600);
@@ -240,11 +253,18 @@ export default function FactFallsPage() {
   const handleInput = useCallback((key, r, c, val) => {
     if (!started||done) return;
     const ch = val.toUpperCase().replace(/[^A-Z]/g,'').slice(-1);
-    if (!ch) { const ans = {...answers, [key]:''}; setAnswers(ans); return; }
 
-    // Only allow letters present in this column's remaining bank
+    // Clear
+    if (!ch) {
+      const ans = {...answers, [key]:''};
+      setAnswers(ans);
+      const el = document.getElementById('cell-'+key);
+      if (el) { el.value=''; el.style.color='#633806'; }
+      return;
+    }
+
+    // Only allow letters present in this column's bank
     const colLetters = bank[c] ? [...bank[c]] : [];
-    // Remove already correctly placed letters in this column
     for (let row = 0; row < grid.length; row++) {
       if (row === r) continue;
       if (grid[row]?.[c]?.t === 'l') {
@@ -257,11 +277,21 @@ export default function FactFallsPage() {
     }
     if (!colLetters.includes(ch)) {
       showToast(ch + ' is not available in this column!');
+      const el = document.getElementById('cell-'+key);
+      if (el) el.value = answers[key] || '';
       return;
     }
 
     const ans = {...answers, [key]:ch};
     setAnswers(ans);
+
+    // Update DOM directly — no re-render flash
+    const el = document.getElementById('cell-'+key);
+    if (el) {
+      el.value = ch;
+      el.style.color = ch === grid[r][c].ch ? '#2d7a2d' : '#c0392b';
+    }
+
     advanceFrom(r, c, grid, cols);
     checkWin(ans, grid, cols);
   }, [started,done,answers,grid,cols,bank,checkWin,advanceFrom,showToast]);
@@ -410,7 +440,7 @@ export default function FactFallsPage() {
             </table>
             {/* Divider */}
             <div style={{height:'3px',background:'#EF9F27',margin:'6px 0 4px',borderRadius:'2px'}}/>
-            {/* Answer grid */}
+            {/* Answer grid - uses uncontrolled inputs to prevent flash on mobile */}
             <table style={{borderCollapse:'collapse',width:'100%',tableLayout:'fixed'}}>
               <colgroup>{Array.from({length:cols}).map((_,i)=><col key={i}/>)}</colgroup>
               <tbody>
@@ -418,20 +448,20 @@ export default function FactFallsPage() {
                   <tr key={r}>
                     {row.map((cell,c)=>{
                       const key=`${r},${c}`;
-                      const val=answers[key]||'';
-                      const ok=started&&val&&val===cell.ch;
-                      const bad=started&&val&&val!==cell.ch;
+                      const isCircled=circledSet[key];
                       if (cell.t==='b') return <td key={c} style={{height:'36px',background:'#412402',border:'1.5px solid #412402'}}/>;
                       return (
-                        <td key={c} onClick={()=>started&&setSelKey(key)}
-                          style={{height:'36px',border:'1.5px solid #EF9F27',padding:0,position:'relative',cursor:started?'pointer':'default',background:selKey===key?'#fff3d6':'white'}}>
-                          {circledSet[key]&&(
+                        <td key={c} onClick={()=>started&&focusCell(key)}
+                          style={{height:'36px',border:'1.5px solid #EF9F27',padding:0,position:'relative',cursor:started?'pointer':'default',background:'white'}}>
+                          {isCircled&&(
                             <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:'22px',height:'22px',borderRadius:'50%',border:'1.5px solid #BA7517',pointerEvents:'none',zIndex:1}}/>
                           )}
-                          <input id={'cell-'+key} type="text" maxLength={2} value={val} disabled={!started}
+                          <input id={'cell-'+key} type="text" maxLength={2}
+                            defaultValue=""
+                            disabled={!started}
                             onChange={e=>handleInput(key,r,c,e.target.value)}
                             onFocus={()=>setSelKey(key)}
-                            style={{display:'block',width:'100%',height:'100%',background:'transparent',border:'none',outline:'none',textAlign:'center',fontSize:'12px',fontWeight:'700',fontFamily:"'Lato',sans-serif",textTransform:'uppercase',padding:0,cursor:started?'pointer':'default',color:ok?'#2d7a2d':bad?'#c0392b':'#633806',position:'relative',zIndex:2}}
+                            style={{display:'block',width:'100%',height:'100%',background:'transparent',border:'none',outline:'none',textAlign:'center',fontSize:'12px',fontWeight:'700',fontFamily:"'Lato',sans-serif",textTransform:'uppercase',padding:0,cursor:started?'pointer':'default',color:'#633806',position:'relative',zIndex:2}}
                           />
                         </td>
                       );
@@ -478,9 +508,9 @@ export default function FactFallsPage() {
               <h2 style={{...S.serif,color:'#633806',fontSize:'21px',marginBottom:'16px',marginTop:0}}>How to Play Griddle Fact Falls</h2>
               <ol style={{paddingLeft:'20px',margin:0}}>
                 {[
-                  <span key={0}>Press <strong style={{color:'#854F0B'}}>Start</strong>. Scrambled letters appear above the grid.  Each column&apos;s letters belong somewhere in that column below.</span>,
-                  <span key={1}>Click a white cell and type a letter. Place each letter in the right row to reveal a fun fact. Each word fits entirely on one line, so no wrapping. You can only enter letters available in that column!</span>,
-                  <span key={2}>Cells with a <strong style={{color:'#854F0B'}}>circle</strong> reveal letters in <strong style={{color:'#854F0B'}}>The Fact Source: </strong> the puzzle category!</span>,
+                  <span key={0}>Press <strong style={{color:'#854F0B'}}>Start</strong>. Scrambled letters appear above the grid &mdash; each column&apos;s letters belong somewhere in that column below.</span>,
+                  <span key={1}>Click a white cell and type a letter. Place each letter in the right row to reveal a fun fact. Each word fits entirely on one line &mdash; no wrapping. You can only enter letters available in that column!</span>,
+                  <span key={2}>Cells with a <strong style={{color:'#854F0B'}}>circle</strong> reveal letters in <strong style={{color:'#854F0B'}}>The Fact Source</strong> &mdash; that&apos;s the puzzle category!</span>,
                   <span key={3}><strong style={{color:'#2d7a2d'}}>Green</strong> = correct. <strong style={{color:'#c0392b'}}>Red</strong> = try again. Press <strong style={{color:'#854F0B'}}>Check</strong> anytime.</span>,
                   <span key={4}>Progress saves automatically. A new fact drops every day at midnight.</span>,
                 ].map((item,i)=>(

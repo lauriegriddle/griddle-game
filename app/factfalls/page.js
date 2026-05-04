@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useState, useEffect, useRef, useCallback, memo } from 'react';
 
-// Anchor: April 16, 2026 = Fact #1 (Laughter)
 const ANCHOR_DATE = new Date('2026-04-16T00:00:00-05:00');
 
 const FACTS = [
@@ -61,8 +60,7 @@ function pickCols(text) {
       if (wi < words.length - 1 && col < cols) col++;
     }
     blacks += cols - col; rows++;
-    const maxCol = Math.max(...colCounts);
-    const score = blacks + Math.abs(rows - 6) * 3 + maxCol * 2;
+    const score = blacks + Math.abs(rows - 6) * 3 + Math.max(...colCounts) * 2;
     if (score < bestScore) { bestScore = score; best = cols; }
   }
   return best;
@@ -90,9 +88,7 @@ function buildBank(grid, cols) {
   for (let r = 0; r < grid.length; r++)
     for (let c = 0; c < cols; c++)
       if (grid[r][c].t === 'l') bank[c].push(grid[r][c].ch);
-  bank.forEach(col => {
-    col.sort(); // alphabetical so players can scan easily
-  });
+  bank.forEach(col => col.sort());
   return bank;
 }
 
@@ -117,158 +113,217 @@ function findCircled(grid, cols, source) {
 function Confetti() {
   const colors = ['#EF9F27','#FAC775','#854F0B','#633806','#FAEEDA','#BA7517','#f5c842'];
   const pieces = Array.from({length:45}, (_,i) => ({
-    id:i,
-    left: Math.random()*100,
-    delay: Math.random()*1.5,
-    dur: 1.8+Math.random()*1.5,
-    color: colors[Math.floor(Math.random()*colors.length)],
-    size: 7+Math.random()*9,
-    rot: Math.random()*360,
+    id:i, left:Math.random()*100, delay:Math.random()*1.5,
+    dur:1.8+Math.random()*1.5, color:colors[Math.floor(Math.random()*colors.length)],
+    size:7+Math.random()*9, rot:Math.random()*360,
   }));
   return (
     <div style={{position:'fixed',inset:0,pointerEvents:'none',zIndex:50,overflow:'hidden'}}>
       {pieces.map(p=>(
-        <div key={p.id} style={{
-          position:'absolute',top:'-20px',left:`${p.left}%`,
-          width:`${p.size}px`,height:`${p.size}px`,
-          background:p.color,borderRadius:'2px',
-          animation:`gff-fall ${p.dur}s ${p.delay}s ease-in forwards`,
-          transform:`rotate(${p.rot}deg)`,
-        }}/>
+        <div key={p.id} style={{position:'absolute',top:'-20px',left:`${p.left}%`,
+          width:`${p.size}px`,height:`${p.size}px`,background:p.color,borderRadius:'2px',
+          animation:`gff-fall ${p.dur}s ${p.delay}s ease-in forwards`,transform:`rotate(${p.rot}deg)`}}/>
       ))}
       <style>{`@keyframes gff-fall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(540deg);opacity:0}}`}</style>
     </div>
   );
 }
 
-// ── Styles ────────────────────────────────────────────────────────────
+// ── AnswerGrid: memoized, never re-renders from parent state changes ──
+// All interaction handled via direct DOM manipulation through callbacks
+const AnswerGrid = memo(function AnswerGrid({ grid, cols, circledSet, started, onInput, onFocus }) {
+  return (
+    <table style={{borderCollapse:'collapse',width:'100%',tableLayout:'fixed'}}>
+      <colgroup>{Array.from({length:cols}).map((_,i)=><col key={i}/>)}</colgroup>
+      <tbody>
+        {grid.map((row,r)=>(
+          <tr key={r}>
+            {row.map((cell,c)=>{
+              const key=`${r},${c}`;
+              if (cell.t==='b') return (
+                <td key={c} style={{height:'36px',background:'#412402',border:'1.5px solid #412402'}}/>
+              );
+              return (
+                <td key={c}
+                  onClick={()=>started && onFocus(key)}
+                  style={{height:'36px',border:'1.5px solid #EF9F27',padding:0,position:'relative',
+                    cursor:started?'pointer':'default',background:'white'}}>
+                  {circledSet[key] && (
+                    <div style={{position:'absolute',top:'50%',left:'50%',
+                      transform:'translate(-50%,-50%)',width:'22px',height:'22px',
+                      borderRadius:'50%',border:'1.5px solid #BA7517',pointerEvents:'none',zIndex:1}}/>
+                  )}
+                  <input
+                    id={'cell-'+key}
+                    type="text"
+                    maxLength={2}
+                    defaultValue=""
+                    disabled={!started}
+                    onChange={e=>onInput(key,r,c,e.target.value)}
+                    onFocus={()=>onFocus(key)}
+                    style={{display:'block',width:'100%',height:'100%',background:'transparent',
+                      border:'none',outline:'none',textAlign:'center',fontSize:'13px',fontWeight:'700',
+                      fontFamily:"'Lato',sans-serif",textTransform:'uppercase',padding:0,
+                      cursor:started?'pointer':'default',color:'#633806',position:'relative',zIndex:2}}
+                  />
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+});
+
 const S = {
   page:    {background:'#f0e4d0',minHeight:'100vh',padding:'16px',display:'flex',justifyContent:'center',fontFamily:"'Lato',sans-serif"},
   card:    {maxWidth:'640px',width:'100%',background:'#FFFBF4',borderRadius:'18px',border:'2px solid #FAC775',padding:'18px',boxShadow:'0 4px 24px rgba(65,36,2,0.12)',alignSelf:'flex-start'},
   btnPri:  {background:'#EF9F27',color:'white',border:'none',borderRadius:'7px',padding:'7px 18px',fontWeight:'700',cursor:'pointer',fontSize:'13px',fontFamily:"'Lato',sans-serif"},
   btnSec:  {background:'white',color:'#854F0B',border:'1.5px solid #EF9F27',borderRadius:'7px',padding:'7px 18px',fontWeight:'700',cursor:'pointer',fontSize:'13px',fontFamily:"'Lato',sans-serif"},
-  iconBtn: {width:'34px',height:'34px',borderRadius:'7px',fontSize:'15px',cursor:'pointer',background:'white',color:'#854F0B',border:'1.5px solid #FAC775',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:"'Lato',sans-serif"},
+  iconBtn: {width:'34px',height:'34px',borderRadius:'7px',fontSize:'15px',cursor:'pointer',background:'white',color:'#854F0B',border:'1.5px solid #FAC775',display:'inline-flex',alignItems:'center',justifyContent:'center'},
   serif:   {fontFamily:"'Playfair Display',serif"},
 };
 
 export default function FactFallsPage() {
-  const [fact]          = useState(() => getTodaysFact());
-  const [cols, setCols] = useState(10);
-  const [grid, setGrid] = useState([]);
-  const [bank, setBank] = useState([]);
+  const [fact]           = useState(() => getTodaysFact());
+  const [cols, setCols]  = useState(10);
+  const [grid, setGrid]  = useState([]);
+  const [bank, setBank]  = useState([]);
   const [circled, setCircled] = useState([]);
-  const [answers, setAnswers] = useState({});
   const [started, setStarted] = useState(false);
   const [done, setDone]       = useState(false);
   const [secs, setSecs]       = useState(0);
   const [noTimer, setNoTimer] = useState(false);
-  const [selKey, setSelKey]   = useState(null);
   const [toast, setToast]     = useState('');
   const [modal, setModal]     = useState(null);
   const [confetti, setConfetti] = useState(false);
-  const timerRef = useRef(null);
-  const toastRef = useRef(null);
+  const [bankH, setBankH]     = useState(0);
+  const [remainingBank, setRemainingBank] = useState([]);
 
-  // Init
+  // answers lives in a ref — never causes re-renders
+  const answersRef = useRef({});
+  const timerRef   = useRef(null);
+  const toastRef   = useRef(null);
+  const selKeyRef  = useRef(null);
+
+  // ── Init ────────────────────────────────────────────────────────────
   useEffect(() => {
     setNoTimer(localStorage.getItem('gff_nt') === 'true');
     const c = pickCols(fact.text);
     setCols(c);
     const g = buildGrid(fact.text, c);
     const b = buildBank(g, c);
-    setGrid(g); setBank(b); setCircled(findCircled(g, c, fact.source));
+    const circ = findCircled(g, c, fact.source);
+    setGrid(g); setBank(b); setCircled(circ);
+    setBankH(Math.max(...b.map(col=>col.length)));
+    setRemainingBank(b.map(col=>[...col]));
+
     try {
       const sv = JSON.parse(localStorage.getItem('gff_progress'));
       if (sv && sv.date === new Date().toDateString() && sv.num === fact.number) {
-        setAnswers(sv.answers||{}); setSecs(sv.secs||0); setStarted(true);
+        answersRef.current = sv.answers || {};
+        setSecs(sv.secs || 0);
+        setStarted(true);
         if (sv.done) { setDone(true); setConfetti(true); }
+        // DOM sync happens in grid-ready effect below
       }
     } catch(e) {}
   }, [fact]);
 
-  // Timer
-  useEffect(() => {
-    if (started && !done) timerRef.current = setInterval(() => setSecs(s=>s+1), 1000);
-    return () => clearInterval(timerRef.current);
-  }, [started, done]);
-
-  // Save
-  useEffect(() => {
-    if (!started || !grid.length) return;
-    localStorage.setItem('gff_progress', JSON.stringify({
-      date: new Date().toDateString(), num: fact.number, answers, secs, done
-    }));
-  }, [answers, secs, done, started, fact, grid]);
-
-  // Sync saved answers to uncontrolled DOM inputs after load
+  // ── Sync saved answers to DOM after grid mounts ──────────────────────
   useEffect(() => {
     if (!grid.length || !started) return;
-    Object.entries(answers).forEach(([key, ch]) => {
+    const ans = answersRef.current;
+    const rb = bank.map(col=>[...col]);
+    Object.entries(ans).forEach(([key, ch]) => {
       if (!ch) return;
       const el = document.getElementById('cell-'+key);
       if (!el) return;
       el.value = ch;
       const [r, c] = key.split(',').map(Number);
       el.style.color = ch === grid[r]?.[c]?.ch ? '#2d7a2d' : '#c0392b';
+      // remove from remaining bank
+      if (ch === grid[r]?.[c]?.ch) {
+        const idx = rb[c].indexOf(ch);
+        if (idx !== -1) rb[c].splice(idx, 1);
+      }
     });
-  }, [grid, started]); // only on grid/started change, not every keystroke
+    setRemainingBank(rb);
+  }, [grid, started, bank]);
+
+  // ── Timer ────────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (started && !done) timerRef.current = setInterval(() => setSecs(s=>s+1), 1000);
+    return () => clearInterval(timerRef.current);
+  }, [started, done]);
+
+  // ── Save (throttled — only on secs, not every keystroke) ─────────────
+  useEffect(() => {
+    if (!started || !grid.length) return;
+    localStorage.setItem('gff_progress', JSON.stringify({
+      date: new Date().toDateString(), num: fact.number,
+      answers: answersRef.current, secs, done
+    }));
+  }, [secs, done, started, fact, grid]);
 
   const showToast = useCallback((msg) => {
     setToast(msg); clearTimeout(toastRef.current);
     toastRef.current = setTimeout(() => setToast(''), 2600);
   }, []);
 
+  // ── Check win ────────────────────────────────────────────────────────
   const checkWin = useCallback((ans, g, c) => {
     for (let r=0; r<g.length; r++)
       for (let col=0; col<c; col++)
         if (g[r][col].t==='l' && (ans[`${r},${col}`]||'') !== g[r][col].ch) return;
     setDone(true); clearInterval(timerRef.current); setConfetti(true);
-  }, []);
+    // Save immediately on win
+    localStorage.setItem('gff_progress', JSON.stringify({
+      date: new Date().toDateString(), num: fact.number,
+      answers: ans, secs, done: true
+    }));
+  }, [fact, secs]);
 
-  const focusCell = useCallback((key) => {
-    setSelKey(key);
-    setTimeout(() => {
-      const el = document.getElementById('cell-' + key);
-      if (el) el.focus();
-    }, 10);
-  }, []);
-
+  // ── Advance to next cell ─────────────────────────────────────────────
   const advanceFrom = useCallback((r, c, g, numCols) => {
-    let nc = c + 1, nr = r;
+    let nc=c+1, nr=r;
     while (nr < g.length) {
-      if (nc >= numCols) { nc = 0; nr++; continue; }
-      if (g[nr]?.[nc]?.t === 'l') {
-        const key = nr + ',' + nc;
-        setSelKey(key);
-        setTimeout(() => {
-          const el = document.getElementById('cell-' + key);
-          if (el) el.focus();
-        }, 10);
+      if (nc >= numCols) { nc=0; nr++; continue; }
+      if (g[nr]?.[nc]?.t==='l') {
+        const key=nr+','+nc;
+        selKeyRef.current = key;
+        setTimeout(()=>{ const el=document.getElementById('cell-'+key); if(el)el.focus(); }, 10);
         return;
       }
       nc++;
     }
   }, []);
 
-  const handleInput = useCallback((key, r, c, val) => {
-    if (!started||done) return;
-    const ch = val.toUpperCase().replace(/[^A-Z]/g,'').slice(-1);
+  const focusCell = useCallback((key) => {
+    selKeyRef.current = key;
+    setTimeout(()=>{ const el=document.getElementById('cell-'+key); if(el){el.focus();el.select();} }, 10);
+  }, []);
 
-    // Clear
+  // ── Handle input — pure DOM, no React state ──────────────────────────
+  const handleInput = useCallback((key, r, c, val) => {
+    if (!started || done) return;
+    const ch = val.toUpperCase().replace(/[^A-Z]/g,'').slice(-1);
+    const el = document.getElementById('cell-'+key);
+
     if (!ch) {
-      const ans = {...answers, [key]:''};
-      setAnswers(ans);
-      const el = document.getElementById('cell-'+key);
+      answersRef.current = {...answersRef.current, [key]:''};
       if (el) { el.value=''; el.style.color='#633806'; }
       return;
     }
 
-    // Only allow letters present in this column's bank
+    // Validate: letter must be in this column's bank
     const colLetters = bank[c] ? [...bank[c]] : [];
-    for (let row = 0; row < grid.length; row++) {
-      if (row === r) continue;
-      if (grid[row]?.[c]?.t === 'l') {
-        const placed = answers[row+','+c] || '';
+    const ans = answersRef.current;
+    for (let row=0; row<grid.length; row++) {
+      if (row===r) continue;
+      if (grid[row]?.[c]?.t==='l') {
+        const placed = ans[row+','+c]||'';
         if (placed === grid[row][c].ch) {
           const idx = colLetters.indexOf(placed);
           if (idx !== -1) colLetters.splice(idx, 1);
@@ -276,41 +331,88 @@ export default function FactFallsPage() {
       }
     }
     if (!colLetters.includes(ch)) {
-      showToast(ch + ' is not available in this column!');
-      const el = document.getElementById('cell-'+key);
-      if (el) el.value = answers[key] || '';
+      showToast(ch+' is not in this column!');
+      if (el) el.value = ans[key]||'';
       return;
     }
 
-    const ans = {...answers, [key]:ch};
-    setAnswers(ans);
-
-    // Update DOM directly — no re-render flash
-    const el = document.getElementById('cell-'+key);
+    // Update DOM directly — zero React re-render
     if (el) {
       el.value = ch;
       el.style.color = ch === grid[r][c].ch ? '#2d7a2d' : '#c0392b';
     }
 
+    const newAns = {...ans, [key]:ch};
+    answersRef.current = newAns;
+
+    // Update remaining bank display
+    if (ch === grid[r][c].ch) {
+      setRemainingBank(prev => {
+        const rb = prev.map(col=>[...col]);
+        const idx = rb[c].indexOf(ch);
+        if (idx !== -1) rb[c].splice(idx, 1);
+        return rb;
+      });
+    }
+
+    // Update source display
+    updateSourceDisplay(newAns);
+
     advanceFrom(r, c, grid, cols);
-    checkWin(ans, grid, cols);
-  }, [started,done,answers,grid,cols,bank,checkWin,advanceFrom,showToast]);
+    checkWin(newAns, grid, cols);
+  }, [started, done, bank, grid, cols, advanceFrom, checkWin, showToast]);
+
+  // ── Source display — DOM update only ────────────────────────────────
+  const updateSourceDisplay = useCallback((ans) => {
+    const srcEl = document.getElementById('gff-source');
+    if (!srcEl || !circled.length) return;
+    const src = fact.source.toUpperCase();
+    let html = '', ni = 0;
+    for (let i=0; i<src.length; i++) {
+      if (src[i]===' ') { html+='&nbsp;&nbsp;'; continue; }
+      const ci = circled[ni++];
+      if (ci) {
+        const v = ans[`${ci.r},${ci.c}`]||'';
+        const hit = grid[ci.r] && v===grid[ci.r][ci.c]?.ch;
+        html += `<span style="color:${hit?'#EF9F27':'#633806'}">${hit?src[i]:'_'}</span>`;
+      } else { html += src[i]; }
+    }
+    srcEl.innerHTML = html;
+  }, [fact, circled, grid]);
+
+  // Init source display when grid loads
+  useEffect(() => {
+    if (grid.length) updateSourceDisplay(answersRef.current);
+  }, [grid, updateSourceDisplay]);
 
   const handleCheck = () => {
-    let wrong=0,filled=0;
+    const ans = answersRef.current;
+    let wrong=0, filled=0;
     for (let r=0;r<grid.length;r++) for (let c=0;c<cols;c++) {
-      if (grid[r][c].t==='l') { const v=answers[`${r},${c}`]||''; if(v){filled++;if(v!==grid[r][c].ch)wrong++;} }
+      if (grid[r][c].t==='l') { const v=ans[`${r},${c}`]||''; if(v){filled++;if(v!==grid[r][c].ch)wrong++;} }
     }
     if (!filled){showToast('Fill in some letters first!');return;}
-    showToast(wrong===0 ? 'All good so far. Keep going!' : `${wrong} letter${wrong>1?'s':''} to fix. You got this!`);
+    showToast(wrong===0?'All good so far. Keep going!': `${wrong} letter${wrong>1?'s':''} to fix. You got this!`);
   };
 
   const handleReset = () => {
     clearInterval(timerRef.current);
-    setSecs(0);setAnswers({});setStarted(false);setDone(false);setSelKey(null);setConfetti(false);
+    setSecs(0); setStarted(false); setDone(false); setConfetti(false);
+    answersRef.current = {};
     localStorage.removeItem('gff_progress');
     const c=pickCols(fact.text), g=buildGrid(fact.text,c), b=buildBank(g,c);
-    setCols(c);setGrid(g);setBank(b);setCircled(findCircled(g,c,fact.source));setModal(null);
+    setCols(c); setGrid(g); setBank(b); setCircled(findCircled(g,c,fact.source));
+    setBankH(Math.max(...b.map(col=>col.length)));
+    setRemainingBank(b.map(col=>[...col]));
+    setModal(null);
+    // Clear all DOM inputs
+    setTimeout(()=>{
+      g.forEach((row,r)=>row.forEach((_,c)=>{
+        const el=document.getElementById(`cell-${r},${c}`);
+        if(el){el.value='';el.style.color='#633806';}
+      }));
+      updateSourceDisplay({});
+    }, 50);
   };
 
   const handleShare = () => {
@@ -319,55 +421,16 @@ export default function FactFallsPage() {
     navigator.clipboard.writeText(txt).then(()=>showToast('Copied to clipboard!'));
   };
 
-  const fmt = (s) => `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
   const circledSet = {};
   circled.forEach(c=>{circledSet[`${c.r},${c.c}`]=true;});
 
-  // Compute remaining bank: remove correctly placed letters from each column
-  const remainingBank = bank.map((col, c) => {
-    const used = [];
-    for (let r = 0; r < grid.length; r++) {
-      if (grid[r]?.[c]?.t === 'l') {
-        const val = answers[`${r},${c}`] || '';
-        if (val === grid[r][c].ch) used.push(val);
-      }
-    }
-    const remaining = [...col];
-    used.forEach(letter => {
-      const idx = remaining.indexOf(letter);
-      if (idx !== -1) remaining.splice(idx, 1);
-    });
-    return remaining;
-  });
-  const bankH = remainingBank.length ? Math.max(...remainingBank.map(col=>col.length)) : 0;
-
-  // Source display
-  const srcUpper = fact.source.toUpperCase();
-  let ni = 0;
-  const srcDisplay = srcUpper.split('').map((ch,i) => {
-    if (ch===' ') return <span key={i}>&nbsp;&nbsp;</span>;
-    const ci = circled[ni++];
-    if (ci) {
-      const val = answers[`${ci.r},${ci.c}`]||'';
-      const hit = grid[ci.r] && val===grid[ci.r][ci.c]?.ch;
-      return <span key={i} style={{color:hit?'#EF9F27':'#633806'}}>{hit?ch:'_'}</span>;
-    }
-    return <span key={i}>{ch}</span>;
-  });
-
+  const fmt = (s) => `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
   const year = new Date().getFullYear();
   const dateStr = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
 
   return (
     <div style={S.page}>
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
-      <style>{`
-        .gff-cell { box-sizing: border-box; }
-        .gff-cell input { -webkit-user-select: text; user-select: text; }
-        @media (max-width: 600px) {
-          .gff-grid-wrap { padding: 6px !important; }
-        }
-      `}</style>
       <div style={S.card}>
 
         {/* Header */}
@@ -392,22 +455,17 @@ export default function FactFallsPage() {
         <div style={{display:'flex',alignItems:'center',gap:'8px',marginBottom:'12px'}}>
           {!started&&!done
             ? <button onClick={()=>{
-              setStarted(true);
-              // Focus first letter cell after render
-              setTimeout(()=>{
-                for(let r=0;r<grid.length;r++){
-                  for(let c=0;c<cols;c++){
-                    if(grid[r]?.[c]?.t==='l'){
-                      const k=r+','+c;
-                      setSelKey(k);
-                      const el=document.getElementById('cell-'+k);
-                      if(el)el.focus();
-                      return;
+                setStarted(true);
+                setTimeout(()=>{
+                  const g=grid;
+                  for(let r=0;r<g.length;r++) for(let c=0;c<cols;c++) {
+                    if(g[r]?.[c]?.t==='l'){
+                      const el=document.getElementById(`cell-${r},${c}`);
+                      if(el){el.focus();selKeyRef.current=`${r},${c}`;return;}
                     }
                   }
-                }
-              },50);
-            }} style={S.btnPri}>Start</button>
+                },80);
+              }} style={S.btnPri}>Start</button>
             : <button onClick={()=>setModal('reset')} style={S.btnPri}>Reset</button>
           }
           <button onClick={handleCheck} disabled={!started} style={{...S.btnSec,opacity:started?1:0.35,cursor:started?'pointer':'default'}}>Check</button>
@@ -420,7 +478,7 @@ export default function FactFallsPage() {
           )}
         </div>
 
-        {/* Grid */}
+        {/* Grid area */}
         {grid.length>0 && (
           <div style={{background:'#FFF8EE',border:'2px solid #EF9F27',borderRadius:'10px',padding:'10px',marginBottom:'12px',overflowX:'auto'}}>
             {/* Bank */}
@@ -440,43 +498,22 @@ export default function FactFallsPage() {
             </table>
             {/* Divider */}
             <div style={{height:'3px',background:'#EF9F27',margin:'6px 0 4px',borderRadius:'2px'}}/>
-            {/* Answer grid - uses uncontrolled inputs to prevent flash on mobile */}
-            <table style={{borderCollapse:'collapse',width:'100%',tableLayout:'fixed'}}>
-              <colgroup>{Array.from({length:cols}).map((_,i)=><col key={i}/>)}</colgroup>
-              <tbody>
-                {grid.map((row,r)=>(
-                  <tr key={r}>
-                    {row.map((cell,c)=>{
-                      const key=`${r},${c}`;
-                      const isCircled=circledSet[key];
-                      if (cell.t==='b') return <td key={c} style={{height:'36px',background:'#412402',border:'1.5px solid #412402'}}/>;
-                      return (
-                        <td key={c} onClick={()=>started&&focusCell(key)}
-                          style={{height:'36px',border:'1.5px solid #EF9F27',padding:0,position:'relative',cursor:started?'pointer':'default',background:'white'}}>
-                          {isCircled&&(
-                            <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:'22px',height:'22px',borderRadius:'50%',border:'1.5px solid #BA7517',pointerEvents:'none',zIndex:1}}/>
-                          )}
-                          <input id={'cell-'+key} type="text" maxLength={2}
-                            defaultValue=""
-                            disabled={!started}
-                            onChange={e=>handleInput(key,r,c,e.target.value)}
-                            onFocus={()=>setSelKey(key)}
-                            style={{display:'block',width:'100%',height:'100%',background:'transparent',border:'none',outline:'none',textAlign:'center',fontSize:'12px',fontWeight:'700',fontFamily:"'Lato',sans-serif",textTransform:'uppercase',padding:0,cursor:started?'pointer':'default',color:'#633806',position:'relative',zIndex:2}}
-                          />
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            {/* Answer grid — memoized, never re-renders from parent state */}
+            <AnswerGrid
+              grid={grid}
+              cols={cols}
+              circledSet={circledSet}
+              started={started}
+              onInput={handleInput}
+              onFocus={focusCell}
+            />
           </div>
         )}
 
         {/* Fact Source */}
         <div style={{background:'white',border:'1.5px solid #FAC775',borderRadius:'10px',padding:'12px 16px',marginBottom:'12px',textAlign:'center'}}>
           <div style={{...S.serif,fontSize:'12px',color:'#BA7517',letterSpacing:'1.5px',textTransform:'uppercase',marginBottom:'8px'}}>The Fact Source</div>
-          <div style={{fontFamily:'monospace',fontSize:'17px',fontWeight:'700',color:'#633806',letterSpacing:'5px'}}>{srcDisplay}</div>
+          <div id="gff-source" style={{fontFamily:'monospace',fontSize:'17px',fontWeight:'700',color:'#633806',letterSpacing:'5px'}}></div>
         </div>
 
         {/* Footer */}
@@ -509,8 +546,8 @@ export default function FactFallsPage() {
               <ol style={{paddingLeft:'20px',margin:0}}>
                 {[
                   <span key={0}>Press <strong style={{color:'#854F0B'}}>Start</strong>. Scrambled letters appear above the grid &mdash; each column&apos;s letters belong somewhere in that column below.</span>,
-                  <span key={1}>Click a white cell and type a letter. Place each letter in the right row to reveal a fun fact. Each word fits entirely on one line &mdash; no wrapping. You can only enter letters available in that column!</span>,
-                  <span key={2}>Cells with a <strong style={{color:'#854F0B'}}>circle</strong> reveal letters in <strong style={{color:'#854F0B'}}>The Fact Source</strong> &mdash; that&apos;s the puzzle category!</span>,
+                  <span key={1}>Type a letter in any white cell to place it. Each word fits on one line &mdash; no wrapping! You can only enter letters available in that column.</span>,
+                  <span key={2}>Cells with a <strong style={{color:'#854F0B'}}>circle</strong> reveal letters in <strong style={{color:'#854F0B'}}>The Fact Source</strong> &mdash; the puzzle category!</span>,
                   <span key={3}><strong style={{color:'#2d7a2d'}}>Green</strong> = correct. <strong style={{color:'#c0392b'}}>Red</strong> = try again. Press <strong style={{color:'#854F0B'}}>Check</strong> anytime.</span>,
                   <span key={4}>Progress saves automatically. A new fact drops every day at midnight.</span>,
                 ].map((item,i)=>(

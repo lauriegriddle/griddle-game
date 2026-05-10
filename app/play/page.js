@@ -1344,7 +1344,7 @@ const copyToClipboard = async (text) => {
   </div>
 )}
 
-     {showScheduleModal && (
+{showScheduleModal && (
   <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{backgroundColor: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowScheduleModal(false)}>
     <div className="bg-gradient-to-b from-amber-50 to-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-2 border-amber-200" onClick={(e) => e.stopPropagation()}>
       <button
@@ -1360,64 +1360,64 @@ const copyToClipboard = async (text) => {
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
           This Week's Schedule
         </h2>
-        <p className="text-purple-600 font-semibold text-sm">May 3 - 9</p>
+        <p className="text-purple-600 font-semibold text-sm">May 10 - 16</p>
       </div>
       
       <div className="space-y-1.5 mb-3">
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 5/3</span>
-            <span className="font-semibold text-amber-800 text-sm">Shrimp</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 5/10</span>
+            <span className="font-semibold text-amber-800 text-sm">Museum</span>
           </div>
-          <span className="text-lg">🦐</span>
+          <span className="text-lg">🏛️</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 5/4</span>
-            <span className="font-semibold text-purple-800 text-sm">Indulge</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 5/11</span>
+            <span className="font-semibold text-purple-800 text-sm">Money Tips</span>
           </div>
-          <span className="text-lg">🍫</span>
+          <span className="text-lg">💰</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 5/5</span>
-            <span className="font-semibold text-amber-800 text-sm">Cinco de Mayo</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 5/12</span>
+            <span className="font-semibold text-amber-800 text-sm">Notebook</span>
           </div>
-          <span className="text-lg">🇲🇽</span>
+          <span className="text-lg">📓</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 5/6</span>
-            <span className="font-semibold text-purple-800 text-sm">Nurse</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 5/13</span>
+            <span className="font-semibold text-purple-800 text-sm">Turtles</span>
           </div>
-          <span className="text-lg">👩‍⚕️</span>
+          <span className="text-lg">🐢</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 5/7</span>
-            <span className="font-semibold text-amber-800 text-sm">Chicken Dance</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 5/14</span>
+            <span className="font-semibold text-amber-800 text-sm">Tap Dance</span>
           </div>
-          <span className="text-lg">🐔</span>
+          <span className="text-lg">👞</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 5/8</span>
-            <span className="font-semibold text-purple-800 text-sm">Mother's Day</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 5/15</span>
+            <span className="font-semibold text-purple-800 text-sm">Hamburger</span>
           </div>
-          <span className="text-lg">💐</span>
+          <span className="text-lg">🍔</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 5/9</span>
-            <span className="font-semibold text-amber-800 text-sm">Hat</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 5/16</span>
+            <span className="font-semibold text-amber-800 text-sm">Compost</span>
           </div>
-          <span className="text-lg">🎩</span>
+          <span className="text-lg">🌱</span>
         </div>
       </div>
       
@@ -1432,6 +1432,7 @@ const copyToClipboard = async (text) => {
     </div>
   </div>
 )}
+     
       {/* Mission Modal */}
       {showMissionModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowMissionModal(false)}>

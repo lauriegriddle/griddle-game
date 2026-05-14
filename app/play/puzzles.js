@@ -2662,6 +2662,214 @@ const puzzles = [
     ],
     funFact: "Many teachers report high job satisfaction, valuing creativity, and forming lasting impacts on students' lives. 👩‍🏫",
   },
+
+  // =============================================
+  // INDEX 170 - Shows May 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Australia",
+    puzzleNumber: 250,
+    words: [
+      { word: "MATE", hint: "A friendly Aussie greeting", revealedIndex: 0 },
+      { word: "KOALA", hint: "A tree-dwelling marsupial", revealedIndex: 2 },
+      { word: "WOMBAT", hint: "A burrowing marsupial", revealedIndex: 3 },
+      { word: "BARRIER", hint: "The Great ___ Reef", revealedIndex: 0 },
+      { word: "KANGAROO", hint: "A hopping marsupial", revealedIndex: 4 },
+    ],
+    funFact: "Australia is the only nation that covers an entire continent, known for being the driest inhabited land, housing unique wildlife like kangaroos and koalas, and having 90% of its population living on the coast. 🦘",
+  },
+
+  // =============================================
+  // INDEX 171 - Shows May 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Bracelet",
+    puzzleNumber: 251,
+    words: [
+      { word: "LINK", hint: "A chain connection", revealedIndex: 0 },
+      { word: "CHARM", hint: "A small decorative pendant", revealedIndex: 2 },
+      { word: "TRENDY", hint: "Fashionable and popular", revealedIndex: 3 },
+      { word: "TIFFANY", hint: "A famous jewelry brand", revealedIndex: 0 },
+      { word: "KEEPSAKE", hint: "A sentimental memento", revealedIndex: 4 },
+    ],
+    funFact: "Charm bracelets have been worn for over 75,000 years, beginning as protective amulets made of shells, bone, and clay before evolving into fashion statements that tell a personal story. 📿",
+  },
+
+  // =============================================
+  // INDEX 172 - Shows May 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Ladybug",
+    puzzleNumber: 252,
+    words: [
+      { word: "SPOT", hint: "A dot on the wings", revealedIndex: 0 },
+      { word: "APHID", hint: "A pest that ladybugs eat", revealedIndex: 2 },
+      { word: "BEETLE", hint: "The insect family", revealedIndex: 3 },
+      { word: "BENEFIT", hint: "A helpful advantage", revealedIndex: 0 },
+      { word: "LADYBIRD", hint: "British name for this insect", revealedIndex: 4 },
+    ],
+    funFact: "Ladybugs are known for their bright colors that warn predators of their terrible taste. They have the unique ability to smell with their feet. 🐞",
+  },
+
+  // =============================================
+  // INDEX 173 - Shows May 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Goth",
+    puzzleNumber: 253,
+    words: [
+      { word: "PUNK", hint: "A rebellious music style", revealedIndex: 0 },
+      { word: "MUSIC", hint: "Dark, atmospheric sound", revealedIndex: 2 },
+      { word: "GOTHIC", hint: "Relating to dark aesthetics", revealedIndex: 3 },
+      { word: "FASHION", hint: "Black clothing and makeup", revealedIndex: 0 },
+      { word: "DRAMATIC", hint: "Theatrical and intense", revealedIndex: 4 },
+    ],
+    funFact: "While associated with morbidity, Goth is a creative, artistic community that embraces dark romanticism and literature. 🖤",
+  },
+
+  // =============================================
+  // INDEX 174 - Shows May 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pack Rat",
+    puzzleNumber: 254,
+    words: [
+      { word: "SAVE", hint: "To keep for later", revealedIndex: 0 },
+      { word: "STOCK", hint: "To accumulate supplies", revealedIndex: 2 },
+      { word: "GATHER", hint: "To collect together", revealedIndex: 3 },
+      { word: "COLLECT", hint: "To acquire and keep", revealedIndex: 0 },
+      { word: "ORGANIZE", hint: "To arrange systematically", revealedIndex: 4 },
+    ],
+    funFact: "While letting go of things is tough, people who purge their hoards often find the process life-changing. 📦",
+  },
+
+  // =============================================
+  // INDEX 175 - Shows May 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Memorial Day",
+    puzzleNumber: 255,
+    words: [
+      { word: "FLAG", hint: "Stars and stripes", revealedIndex: 0 },
+      { word: "HONOR", hint: "To show respect", revealedIndex: 2 },
+      { word: "WREATH", hint: "A circular flower arrangement", revealedIndex: 3 },
+      { word: "SERVICE", hint: "Military duty", revealedIndex: 0 },
+      { word: "REMEMBER", hint: "To keep in memory", revealedIndex: 4 },
+    ],
+    funFact: "Memorial Day, originally known as Decoration Day, was established to honor Civil War soldiers. 🇺🇸",
+  },
+
+  // =============================================
+  // INDEX 176 - Shows May 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Trees",
+    puzzleNumber: 256,
+    words: [
+      { word: "ROOT", hint: "Underground support system", revealedIndex: 0 },
+      { word: "SHADE", hint: "Cool relief from sun", revealedIndex: 2 },
+      { word: "CANOPY", hint: "The leafy top layer", revealedIndex: 3 },
+      { word: "CONIFER", hint: "A cone-bearing evergreen", revealedIndex: 0 },
+      { word: "HARDWOOD", hint: "Dense timber from deciduous trees", revealedIndex: 4 },
+    ],
+    funFact: "Most tree roots are in the top 12–18 inches of soil rather than deep taproots. 🌳",
+  },
+
+  // =============================================
+  // INDEX 177 - Shows May 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Sunscreen",
+    puzzleNumber: 257,
+    words: [
+      { word: "ZINC", hint: "A white mineral blocker", revealedIndex: 0 },
+      { word: "CREAM", hint: "A thick lotion", revealedIndex: 2 },
+      { word: "LOTION", hint: "A liquid skin protector", revealedIndex: 3 },
+      { word: "REAPPLY", hint: "To put on again", revealedIndex: 0 },
+      { word: "SUNBLOCK", hint: "Another term for SPF protection", revealedIndex: 4 },
+    ],
+    funFact: "The FDA prohibits manufacturers from using 'waterproof' or 'sweatproof' labels. Sunscreen is only 'water-resistant' for 40 or 80 minutes, after which it must be reapplied. ☀️",
+  },
+
+  // =============================================
+  // INDEX 178 - Shows May 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Mint",
+    puzzleNumber: 258,
+    words: [
+      { word: "COOL", hint: "A refreshing sensation", revealedIndex: 0 },
+      { word: "BRISK", hint: "Sharp and invigorating", revealedIndex: 2 },
+      { word: "HERBAL", hint: "Made from plants", revealedIndex: 3 },
+      { word: "REFRESH", hint: "To revive and renew", revealedIndex: 0 },
+      { word: "TINGLING", hint: "A prickling sensation", revealedIndex: 4 },
+    ],
+    funFact: "Mint flavor offers a unique 'cooling' sensation caused by menthol triggering cold-sensitive receptors in the brain rather than an actual temperature drop. 🌿",
+  },
+
+  // =============================================
+  // INDEX 179 - Shows May 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Outdoors",
+    puzzleNumber: 259,
+    words: [
+      { word: "OPEN", hint: "Exposed to the sky", revealedIndex: 0 },
+      { word: "FRESH", hint: "Clean, unpolluted air", revealedIndex: 2 },
+      { word: "NATURE", hint: "The natural world", revealedIndex: 3 },
+      { word: "COUNTRY", hint: "Rural landscapes", revealedIndex: 0 },
+      { word: "WILDLIFE", hint: "Animals in their habitat", revealedIndex: 4 },
+    ],
+    funFact: "Spending time in nature significantly reduces stress by lowering cortisol levels. 🏞️",
+  },
+
+  // =============================================
+  // INDEX 180 - Shows May 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "School's Out",
+    puzzleNumber: 260,
+    words: [
+      { word: "PLAY", hint: "Time for fun", revealedIndex: 0 },
+      { word: "BREAK", hint: "Time off from studies", revealedIndex: 2 },
+      { word: "SUMMER", hint: "The warm season vacation", revealedIndex: 3 },
+      { word: "FREEDOM", hint: "Liberation from schedules", revealedIndex: 0 },
+      { word: "GRADUATE", hint: "To complete school", revealedIndex: 4 },
+    ],
+    funFact: "Common fun, often chaotic, themes include watching movies, playing games, and cleaning out desks and classrooms with fun activities like using shaving cream to clean tables. 🎓",
+  },
+
+  // =============================================
+  // INDEX 181 - Shows May 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Summer Vacations",
+    puzzleNumber: 261,
+    words: [
+      { word: "HIKE", hint: "A nature walk", revealedIndex: 0 },
+      { word: "CABIN", hint: "A rustic retreat", revealedIndex: 2 },
+      { word: "CRUISE", hint: "A ship vacation", revealedIndex: 3 },
+      { word: "FISHING", hint: "Catching aquatic life", revealedIndex: 0 },
+      { word: "ROADTRIP", hint: "Driving adventure", revealedIndex: 4 },
+    ],
+    funFact: "Most popular trips: Beach vacations top the list, followed by visiting national parks, big cities, and lakes. 🏖️",
+  },
+
+  // =============================================
+  // INDEX 182 - Shows May 31, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Coconut",
+    puzzleNumber: 262,
+    words: [
+      { word: "MILK", hint: "A creamy liquid", revealedIndex: 0 },
+      { word: "SHELL", hint: "The hard outer layer", revealedIndex: 2 },
+      { word: "BUTTER", hint: "A smooth spread", revealedIndex: 3 },
+      { word: "DESSERT", hint: "Sweet treats like macaroons", revealedIndex: 0 },
+      { word: "TROPICAL", hint: "From warm climates", revealedIndex: 4 },
+    ],
+    funFact: "Known as the Tree of Life, they provide food, oil, materials, and natural electrolyte-packed water. 🥥",
+  },
 ];
 
 // ===========================================

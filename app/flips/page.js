@@ -3,7 +3,384 @@ import React, { useState, useEffect } from 'react';
 import { Share2, Instagram, BarChart3, X } from 'lucide-react';
 
 // Daily trivia questions - tied to Letter Griddle themes
+
+// ============================================================
+// LETTER GRIDDLE FLIPS - TRIVIA QUESTIONS
+// ============================================================
+// ACTIVE QUESTIONS: ids 111-135 (fresh content, May 15, 2026)
+// BENCHED QUESTIONS: ids 1-110 (commented out below, reuse anytime)
+//
+// ANCHOR DATE SET TO: May 15, 2026 at 7:45 PM
+// Update this in getTodaysQuestion():
+//   const anchorDate = new Date(2026, 4, 15, 19, 45, 0, 0);
+//   const ANCHOR_INDEX = 0;
+// ============================================================
+
 const triviaQuestions = [
+
+  // ============================================================
+  // ACTIVE QUESTIONS - ids 111-135
+  // ============================================================
+
+  {
+    id: 111,
+    theme: "Food & Drink 🧈",
+    question: "Why is butter yellow?",
+    options: [
+      "Food coloring is added during production",
+      "From beta-carotene in the grass cows eat",
+      "The churning process oxidizes the fat",
+      "It absorbs color from the cream"
+    ],
+    correctAnswer: "From beta-carotene in the grass cows eat",
+    hint: "It comes from what the cow eats...",
+    funFact: "Butter gets its yellow color from beta-carotene, the same pigment that makes carrots orange, found in the grass and plants cows eat. Grain-fed cows produce paler butter, which is why some manufacturers add annatto dye to keep color consistent year-round!"
+  },
+  {
+    id: 112,
+    theme: "Literature 📖",
+    question: "What job did Mark Twain have before becoming a writer?",
+    options: [
+      "Riverboat pilot",
+      "Schoolteacher",
+      "Newspaper editor",
+      "Telegraph operator"
+    ],
+    correctAnswer: "Riverboat pilot",
+    hint: "It inspired his pen name...",
+    funFact: "Mark Twain worked as a Mississippi River steamboat pilot before writing. His pen name comes from a riverboat term: 'mark twain' means two fathoms deep, the minimum safe depth for navigation. He called it the most wonderful job in the world before the Civil War shut down river traffic!"
+  },
+  {
+    id: 113,
+    theme: "Science 🌊",
+    question: "How deep is the deepest point in the ocean?",
+    options: [
+      "About 20,000 feet",
+      "About 36,000 feet",
+      "About 50,000 feet",
+      "About 60,000 feet"
+    ],
+    correctAnswer: "About 36,000 feet",
+    hint: "It's in the Pacific Ocean...",
+    funFact: "The Mariana Trench's Challenger Deep reaches about 36,000 feet, deep enough to submerge Mount Everest with a mile to spare! Less than 20 people have visited the bottom of the ocean, compared to over 600 who have been to space. The pressure there is over 1,000 times surface pressure."
+  },
+  {
+    id: 114,
+    theme: "Travel ✈️",
+    question: "Which country has the most UNESCO World Heritage Sites?",
+    options: [
+      "China",
+      "Italy",
+      "Spain",
+      "France"
+    ],
+    correctAnswer: "Italy",
+    hint: "Think Roman ruins, Renaissance art, and ancient cities...",
+    funFact: "Italy leads the world with 59 UNESCO World Heritage Sites, just edging out China! Sites include the Colosseum, Venice, Pompeii, the Amalfi Coast, and the historic centers of Florence and Rome. Italy has been continuously inhabited and culturally influential for over 3,000 years."
+  },
+  {
+    id: 115,
+    theme: "History 🏛️",
+    question: "How long did the Roman Empire last?",
+    options: [
+      "About 200 years",
+      "About 500 years",
+      "About 1,000 years",
+      "About 1,500 years"
+    ],
+    correctAnswer: "About 1,500 years",
+    hint: "Much longer than most people think...",
+    funFact: "If you count from the founding of Rome to the fall of the Eastern Roman Empire (Byzantine Empire) in 1453, Rome lasted roughly 1,500 years! The Western Empire fell in 476 AD, but the Eastern Empire continued for nearly another thousand years, only ending when Constantinople fell to the Ottomans."
+  },
+  {
+    id: 116,
+    theme: "Nature 🦋",
+    question: "How far can monarch butterflies migrate?",
+    options: [
+      "Up to 500 miles",
+      "Up to 1,000 miles",
+      "Up to 3,000 miles",
+      "Up to 5,000 miles"
+    ],
+    correctAnswer: "Up to 3,000 miles",
+    hint: "They travel from Canada to Mexico...",
+    funFact: "Monarch butterflies migrate up to 3,000 miles from Canada and the northern U.S. to their winter home in the mountains of central Mexico. The remarkable part: no single butterfly completes the round trip. It takes 3 to 4 generations to make the return journey, yet each new generation knows the way!"
+  },
+  {
+    id: 117,
+    theme: "Food & Drink 🍜",
+    question: "What country invented noodles?",
+    options: [
+      "Italy",
+      "Japan",
+      "China",
+      "India"
+    ],
+    correctAnswer: "China",
+    hint: "Archaeologists found the oldest noodles there...",
+    funFact: "The world's oldest noodles, about 4,000 years old, were discovered in China preserved under ten feet of sediment. Made from millet, they looked remarkably like modern ramen! Italy and China both developed pasta traditions independently, a great example of culinary parallel evolution."
+  },
+  {
+    id: 118,
+    theme: "Literature 📖",
+    question: "How long did it take Tolkien to write The Lord of the Rings?",
+    options: [
+      "About 2 years",
+      "About 5 years",
+      "About 12 years",
+      "About 20 years"
+    ],
+    correctAnswer: "About 12 years",
+    hint: "He started it right after The Hobbit...",
+    funFact: "J.R.R. Tolkien spent about 12 years writing The Lord of the Rings, from 1937 to 1949, though it wasn't published until 1954. He invented entire languages, including Elvish, and drew detailed maps of Middle-earth. He considered the whole work a mythology for England, which he felt lacked one."
+  },
+  {
+    id: 119,
+    theme: "Geography 🌏",
+    question: "What is the only country in the world that is also a continent?",
+    options: [
+      "Greenland",
+      "Australia",
+      "Antarctica",
+      "New Zealand"
+    ],
+    correctAnswer: "Australia",
+    hint: "It's in the Southern Hemisphere...",
+    funFact: "Australia is the only nation that is also its own continent! It's the world's sixth-largest country and home to some of the most unique wildlife on Earth, including kangaroos, koalas, and platypuses. About 80% of its plant and animal species are found nowhere else on the planet."
+  },
+  {
+    id: 120,
+    theme: "History 📜",
+    question: "What was the first printed book in Europe?",
+    options: [
+      "The Canterbury Tales",
+      "Don Quixote",
+      "The Gutenberg Bible",
+      "Shakespeare's First Folio"
+    ],
+    correctAnswer: "The Gutenberg Bible",
+    hint: "It was printed in the 1450s...",
+    funFact: "Johannes Gutenberg printed his famous Bible around 1455 using the first movable-type printing press in Europe. Before this, books had to be copied by hand, often taking years. Gutenberg's press is considered one of the most important inventions in history, democratizing knowledge and fueling the Renaissance and Reformation."
+  },
+  {
+    id: 121,
+    theme: "Science 🧠",
+    question: "What percentage of the brain is water?",
+    options: [
+      "About 40%",
+      "About 60%",
+      "About 73%",
+      "About 90%"
+    ],
+    correctAnswer: "About 73%",
+    hint: "More than most people would guess...",
+    funFact: "The human brain is about 73% water, which is why even mild dehydration can affect concentration and mood. The brain also uses about 20% of the body's total energy despite being only 2% of its weight. It generates enough electrical activity to power a small light bulb!"
+  },
+  {
+    id: 122,
+    theme: "Travel 🗺️",
+    question: "What is the most visited city in the world?",
+    options: [
+      "Paris",
+      "New York City",
+      "Bangkok",
+      "London"
+    ],
+    correctAnswer: "Bangkok",
+    hint: "It's in Southeast Asia...",
+    funFact: "Bangkok, Thailand consistently ranks as the world's most visited city, welcoming over 20 million international tourists annually! Its official ceremonial name is one of the longest place names in the world, with 168 characters in Thai. The city is known for its ornate temples, vibrant street food, and legendary hospitality."
+  },
+  {
+    id: 123,
+    theme: "Food & Drink 🍫",
+    question: "How many cacao beans does it take to make one pound of chocolate?",
+    options: [
+      "About 50 beans",
+      "About 200 beans",
+      "About 400 beans",
+      "About 1,000 beans"
+    ],
+    correctAnswer: "About 400 beans",
+    hint: "Far more than most people realize...",
+    funFact: "It takes about 400 cacao beans, the entire yield of a cacao tree for a full year, to make just one pound of chocolate! The Aztecs considered cacao so valuable they used the beans as currency. Today, the world consumes about 7.5 million tons of chocolate per year."
+  },
+  {
+    id: 124,
+    theme: "Literature 📖",
+    question: "What classic novel begins with 'Call me Ishmael'?",
+    options: [
+      "Robinson Crusoe",
+      "Moby-Dick",
+      "The Old Man and the Sea",
+      "Twenty Thousand Leagues Under the Sea"
+    ],
+    correctAnswer: "Moby-Dick",
+    hint: "It involves a white whale...",
+    funFact: "Moby-Dick by Herman Melville was published in 1851 and was a commercial failure during his lifetime. Today it's considered one of the greatest American novels. Melville based it on two real events: the sinking of the whale ship Essex in 1820 and the story of a real albino sperm whale known as Mocha Dick!"
+  },
+  {
+    id: 125,
+    theme: "Nature 🌋",
+    question: "How many volcanoes does Indonesia have?",
+    options: [
+      "About 30",
+      "About 75",
+      "About 130",
+      "About 400"
+    ],
+    correctAnswer: "About 130",
+    hint: "It sits on the Pacific Ring of Fire...",
+    funFact: "Indonesia has about 130 active volcanoes, more than any other country on Earth! It sits on the Pacific Ring of Fire where tectonic plates collide. The 1883 eruption of Krakatoa was heard 3,000 miles away and caused a global drop in temperature. Volcanic soil makes Indonesian land exceptionally fertile."
+  },
+  {
+    id: 126,
+    theme: "History 🎖️",
+    question: "What ancient wonder of the world still stands today?",
+    options: [
+      "The Colossus of Rhodes",
+      "The Lighthouse of Alexandria",
+      "The Great Pyramid of Giza",
+      "The Hanging Gardens of Babylon"
+    ],
+    correctAnswer: "The Great Pyramid of Giza",
+    hint: "It's in Egypt...",
+    funFact: "The Great Pyramid of Giza is the only one of the Seven Wonders of the Ancient World still standing. Built around 2560 BC, it was the tallest man-made structure in the world for over 3,800 years! It contains an estimated 2.3 million stone blocks, each weighing 2.5 to 15 tons."
+  },
+  {
+    id: 127,
+    theme: "Science 🌡️",
+    question: "At what temperature are Fahrenheit and Celsius the same?",
+    options: [
+      "-32 degrees",
+      "-40 degrees",
+      "0 degrees",
+      "-20 degrees"
+    ],
+    correctAnswer: "-40 degrees",
+    hint: "It's very cold...",
+    funFact: "Fahrenheit and Celsius meet at exactly -40 degrees! Below that point, Celsius readings are always higher numbers than Fahrenheit. The two scales were invented about 20 years apart: Fahrenheit in 1724 and Celsius in 1742. Interestingly, Celsius originally had 0 as boiling and 100 as freezing before it was reversed!"
+  },
+  {
+    id: 128,
+    theme: "Travel 🏯",
+    question: "How long is the Great Wall of China?",
+    options: [
+      "About 1,000 miles",
+      "About 5,500 miles",
+      "About 13,000 miles",
+      "About 20,000 miles"
+    ],
+    correctAnswer: "About 13,000 miles",
+    hint: "Much longer than most people think...",
+    funFact: "The Great Wall of China stretches about 13,000 miles when all its sections and branches are measured together! Construction spanned more than 2,000 years across multiple dynasties. Contrary to popular belief, it is NOT visible from space with the naked eye; astronauts have confirmed this!"
+  },
+  {
+    id: 129,
+    theme: "Food & Drink 🫙",
+    question: "Why do crackers have holes in them?",
+    options: [
+      "For decoration and branding",
+      "To let steam escape during baking",
+      "To make them easier to break apart",
+      "To reduce calorie content"
+    ],
+    correctAnswer: "To let steam escape during baking",
+    hint: "Think about what happens inside the oven...",
+    funFact: "The holes in crackers, called 'docker holes,' let steam escape during baking so the crackers stay flat and crisp. Without them, the steam would create air pockets and the crackers would puff up like pita bread! The tool that makes the holes is called a docker."
+  },
+  {
+    id: 130,
+    theme: "Literature 📖",
+    question: "Which author is one of the most prolific novelists of all time with over 225 books?",
+    options: [
+      "Agatha Christie",
+      "Stephen King",
+      "Nora Roberts",
+      "Isaac Asimov"
+    ],
+    correctAnswer: "Nora Roberts",
+    hint: "A beloved romance writer with several pen names...",
+    funFact: "Nora Roberts has published over 225 novels and is one of the best-selling authors of all time with over 500 million copies sold. She writes under the pen name J.D. Robb for her futuristic crime series. She once wrote two complete novels during a single blizzard that trapped her at home!"
+  },
+  {
+    id: 131,
+    theme: "Nature 🐝",
+    question: "How do bees communicate the location of flowers to each other?",
+    options: [
+      "Through a series of buzzing sounds",
+      "By leaving a scent trail",
+      "Through a waggle dance",
+      "By touching antennae"
+    ],
+    correctAnswer: "Through a waggle dance",
+    hint: "It's surprisingly literal...",
+    funFact: "Honeybees perform a 'waggle dance' to tell hivemates exactly where to find food! The angle of the dance corresponds to the direction relative to the sun, and the duration indicates distance. Karl von Frisch decoded this bee language in the 1940s and won the Nobel Prize for it in 1973!"
+  },
+  {
+    id: 132,
+    theme: "History 🌏",
+    question: "Which civilization invented the wheel?",
+    options: [
+      "Ancient Egyptians",
+      "Ancient Mesopotamians",
+      "Ancient Greeks",
+      "Ancient Chinese"
+    ],
+    correctAnswer: "Ancient Mesopotamians",
+    hint: "Think modern-day Iraq...",
+    funFact: "The wheel was invented around 3500 BC in Mesopotamia, in the region of modern-day Iraq. Interestingly, the first wheels weren't used for transportation; they were potter's wheels for shaping clay! Wheels used for vehicles came about 300 years later. The Aztec and Inca empires, remarkably, never developed the wheel."
+  },
+  {
+    id: 133,
+    theme: "Science 🔭",
+    question: "How old is the universe?",
+    options: [
+      "About 4.5 billion years",
+      "About 7 billion years",
+      "About 13.8 billion years",
+      "About 20 billion years"
+    ],
+    correctAnswer: "About 13.8 billion years",
+    hint: "It started with the Big Bang...",
+    funFact: "The universe is estimated to be about 13.8 billion years old, determined by measuring the cosmic microwave background radiation left over from the Big Bang. For context, Earth is about 4.5 billion years old, meaning the universe existed for over 9 billion years before our planet formed!"
+  },
+  {
+    id: 134,
+    theme: "Travel 🇯🇵",
+    question: "What is Japan's bullet train called?",
+    options: [
+      "Fuji Express",
+      "Shinkansen",
+      "Hikari",
+      "Nozomi"
+    ],
+    correctAnswer: "Shinkansen",
+    hint: "The name means 'new trunk line'...",
+    funFact: "Japan's Shinkansen bullet train network has been operating since 1964 and has carried over 10 billion passengers with zero passenger fatalities from accidents! Trains run every few minutes and average delays of under one minute. Staff bow to passengers as trains depart, and food wrappers are designed to be virtually silent out of respect for fellow travelers."
+  },
+  {
+    id: 135,
+    theme: "Food & Drink 🥐",
+    question: "What determines the flavor of vanilla ice cream?",
+    options: [
+      "The type of milk used",
+      "The source and quality of the vanilla bean",
+      "The churning speed",
+      "The sugar-to-cream ratio"
+    ],
+    correctAnswer: "The source and quality of the vanilla bean",
+    hint: "It all starts with the pod...",
+    funFact: "True vanilla flavor comes from vanilla beans, the seed pods of a tropical orchid vine. Madagascar produces about 80% of the world's vanilla. Each flower must be hand-pollinated within 12 hours of blooming, making real vanilla one of the world's most labor-intensive spices and second only to saffron in price per pound!"
+  },
+
+];
+
+/*
+// ============================================================
+// BENCHED QUESTIONS - ids 1-110
+// Uncomment and move above the closing ]; to restore
+// ============================================================
+
   {
     id: 1,
     theme: "Pancakes 🥞",
@@ -416,7 +793,7 @@ const triviaQuestions = [
     options: ["7", "12", "15", "20"],
     correctAnswer: "15",
     hint: "More than you might think...",
-    funFact: "The Winter Olympics features 15 sports: alpine skiing, biathlon, bobsled, cross-country skiing, curling, figure skating, freestyle skiing, ice hockey, luge, Nordic combined, short track, skeleton, ski jumping, snowboarding, and speed skating!"
+    funFact: "The Winter Olympics features 15 sports including alpine skiing, biathlon, bobsled, curling, figure skating, ice hockey, luge, skeleton, snowboarding, and speed skating!"
   },
   {
     id: 47,
@@ -616,20 +993,11 @@ const triviaQuestions = [
     hint: "Deserts are defined by precipitation, not heat...",
     funFact: "Antarctica is technically the world's largest desert because it receives less than 10 inches of precipitation per year. The Sahara is the largest hot desert!"
   },
-  // Flips Trivia Questions #69-85
-// Themes drawn from recent Letter Griddle puzzles
-// Add these after question id: 68 in your Flips data file
-
   {
     id: 69,
     theme: "Food & Drink ☕",
     question: "According to legend, how was tea discovered?",
-    options: [
-      "A monk brewed it intentionally",
-      "Leaves fell into an emperor's boiling water",
-      "It was found growing wild in a market",
-      "A sailor mixed herbs with seawater"
-    ],
+    options: ["A monk brewed it intentionally", "Leaves fell into an emperor's boiling water", "It was found growing wild in a market", "A sailor mixed herbs with seawater"],
     correctAnswer: "Leaves fell into an emperor's boiling water",
     hint: "The story involves a Chinese emperor and an accident...",
     funFact: "According to legend, Chinese Emperor Shennong discovered tea in 2737 BC when leaves from a wild tree accidentally fell into his pot of boiling water. Today tea is the second most consumed beverage in the world after water!"
@@ -638,12 +1006,7 @@ const triviaQuestions = [
     id: 70,
     theme: "Food & Drink 🍰",
     question: "What ancient group was served cheesecake for energy?",
-    options: [
-      "Roman gladiators",
-      "Egyptian pharaohs",
-      "Greek Olympic athletes",
-      "Viking warriors"
-    ],
+    options: ["Roman gladiators", "Egyptian pharaohs", "Greek Olympic athletes", "Viking warriors"],
     correctAnswer: "Greek Olympic athletes",
     hint: "Think ancient Greece and sporting events...",
     funFact: "Ancient Greek athletes were served cheesecake to boost their energy during the first Olympic Games on the island of Delos. The earliest known cheesecake recipe dates back to the 5th century BC!"
@@ -652,12 +1015,7 @@ const triviaQuestions = [
     id: 71,
     theme: "Food & Drink 🥔",
     question: "How were Tater Tots invented?",
-    options: [
-      "A chef created them as a side dish for burgers",
-      "They were made to use up leftover potato scraps",
-      "A farmer needed a way to preserve potatoes",
-      "They were inspired by a French croquette recipe"
-    ],
+    options: ["A chef created them as a side dish for burgers", "They were made to use up leftover potato scraps", "A farmer needed a way to preserve potatoes", "They were inspired by a French croquette recipe"],
     correctAnswer: "They were made to use up leftover potato scraps",
     hint: "Waste not, want not...",
     funFact: "Tater tots were invented in 1953 by Ore-Ida founders F. Nephi and Golden Grigg as a creative way to use up leftover potato shavings from making French fries. They almost sold them for free before realizing their potential!"
@@ -666,12 +1024,7 @@ const triviaQuestions = [
     id: 72,
     theme: "Food & Drink 🧀",
     question: "When is National Cheese Doodle Day?",
-    options: [
-      "January 14",
-      "March 5",
-      "July 22",
-      "October 10"
-    ],
+    options: ["January 14", "March 5", "July 22", "October 10"],
     correctAnswer: "March 5",
     hint: "It's in early spring...",
     funFact: "National Cheese Doodle Day is March 5th! Over 15 million pounds of cheese doodles are produced annually. They trace back to farm machinery that accidentally puffed corn kernels, and the snack was perfected in the 1950s."
@@ -680,26 +1033,16 @@ const triviaQuestions = [
     id: 73,
     theme: "Nature & Science 🌕",
     question: "What is a full moon's relationship to the sun?",
-    options: [
-      "It reflects the sun's light from the opposite side of Earth",
-      "It produces its own glow from its core",
-      "It absorbs sunlight and re-emits it",
-      "It only shines when the sun sets below 30 degrees"
-    ],
+    options: ["It reflects the sun's light from the opposite side of Earth", "It produces its own glow from its core", "It absorbs sunlight and re-emits it", "It only shines when the sun sets below 30 degrees"],
     correctAnswer: "It reflects the sun's light from the opposite side of Earth",
     hint: "The moon doesn't make its own light...",
-    funFact: "A full moon occurs when the moon is directly opposite the sun, with Earth in between. It doesn't produce its own light:  it reflects sunlight! A full moon always rises at sunset and always sets at sunrise."
+    funFact: "A full moon occurs when the moon is directly opposite the sun, with Earth in between. It doesn't produce its own light: it reflects sunlight! A full moon always rises at sunset and always sets at sunrise."
   },
   {
     id: 74,
     theme: "Nature & Science ☀️",
     question: "Why does the sky appear blue?",
-    options: [
-      "The ocean reflects blue light upward",
-      "Air molecules scatter blue light more than red",
-      "The ozone layer absorbs other colors",
-      "Water vapor refracts sunlight into blue wavelengths"
-    ],
+    options: ["The ocean reflects blue light upward", "Air molecules scatter blue light more than red", "The ozone layer absorbs other colors", "Water vapor refracts sunlight into blue wavelengths"],
     correctAnswer: "Air molecules scatter blue light more than red",
     hint: "It has to do with how light bounces off air...",
     funFact: "The sky is blue because of Rayleigh Scattering; air molecules scatter shorter blue wavelengths of sunlight much more efficiently than longer red ones. At sunset, light travels through more atmosphere, scattering blue away and leaving reds and oranges!"
@@ -708,12 +1051,7 @@ const triviaQuestions = [
     id: 75,
     theme: "Nature & Science 🌽",
     question: "How many kernels does an average ear of corn have?",
-    options: [
-      "Around 400",
-      "Around 800",
-      "Around 1,200",
-      "Around 2,000"
-    ],
+    options: ["Around 400", "Around 800", "Around 1,200", "Around 2,000"],
     correctAnswer: "Around 800",
     hint: "More than you might think, and always even rows...",
     funFact: "The average ear of corn has about 800 kernels arranged in an even number of rows, most commonly 16! Corn is the most produced grain in the world, and every part of the plant is used for something."
@@ -722,27 +1060,16 @@ const triviaQuestions = [
     id: 76,
     theme: "History & People 🎩",
     question: "What unique distinction did Abraham Lincoln hold among U.S. Presidents?",
-    options: [
-      "He was the only president born outside the U.S.",
-      "He was the only president to hold a patent",
-      "He was the only president who never married",
-      "He was the only president to serve non-consecutive terms"
-    ],
+    options: ["He was the only president born outside the U.S.", "He was the only president to hold a patent", "He was the only president who never married", "He was the only president to serve non-consecutive terms"],
     correctAnswer: "He was the only president to hold a patent",
     hint: "It involved boats and water...",
-    funFact: "Abraham Lincoln is the only U.S. President to hold a patent! He invented a device to lift boats over shallow waters. He was also the tallest president at 6'4\", a gifted wrestler, a cat lover who held seances, and a prolific storyteller who famously stored documents in his top hat."
-
+    funFact: "Abraham Lincoln is the only U.S. President to hold a patent! He invented a device to lift boats over shallow waters. He was also the tallest president at 6'4\", a gifted wrestler, and famously stored documents in his top hat."
   },
   {
     id: 77,
     theme: "History & People 🇺🇸",
     question: "What letter does NO U.S. President's last name start with?",
-    options: [
-      "Q",
-      "X",
-      "S",
-      "Z"
-    ],
+    options: ["Q", "X", "S", "Z"],
     correctAnswer: "S",
     hint: "It's actually the most common starting letter in English words...",
     funFact: "Despite 'S' being one of the most common starting letters for English words, no U.S. President has ever had a last name beginning with S! The letters B, Q, U, X, and Y are also missing, but S is the most surprising gap."
@@ -751,40 +1078,25 @@ const triviaQuestions = [
     id: 78,
     theme: "History & People 🎭",
     question: "What did Dr. Seuss write after his editor dared him to use only 50 words?",
-    options: [
-      "The Cat in the Hat",
-      "How the Grinch Stole Christmas",
-      "Green Eggs and Ham",
-      "One Fish Two Fish Red Fish Blue Fish"
-    ],
+    options: ["The Cat in the Hat", "How the Grinch Stole Christmas", "Green Eggs and Ham", "One Fish Two Fish Red Fish Blue Fish"],
     correctAnswer: "Green Eggs and Ham",
     hint: "It involves a breakfast food...",
-    funFact: "Dr. Seuss wrote Green Eggs and Ham in 1960 after his editor bet him $50 that he couldn't write a book using only 50 words. He won the bet! He also coined the word 'nerd' and wasn't actually a doctor:  'Seuss' was his middle name."
+    funFact: "Dr. Seuss wrote Green Eggs and Ham in 1960 after his editor bet him $50 that he couldn't write a book using only 50 words. He won the bet! He also coined the word 'nerd' and wasn't actually a doctor: 'Seuss' was his middle name."
   },
   {
     id: 79,
     theme: "Animals 🦛",
     question: "How do hippos protect their skin from the sun?",
-    options: [
-      "They roll in mud constantly",
-      "They produce a red oily secretion",
-      "They stay submerged all day",
-      "They have extra-thick skin that blocks UV rays"
-    ],
+    options: ["They roll in mud constantly", "They produce a red oily secretion", "They stay submerged all day", "They have extra-thick skin that blocks UV rays"],
     correctAnswer: "They produce a red oily secretion",
     hint: "It looks alarming but it's natural sunscreen...",
-    funFact: "Hippos produce their own reddish, oily 'blood sweat' which is a natural secretion that acts as sunscreen AND an antibiotic! Despite spending up to 16 hours a day in water, hippos can't actually swim.  They walk along riverbeds instead."
+    funFact: "Hippos produce their own reddish, oily 'blood sweat' which acts as sunscreen AND an antibiotic! Despite spending up to 16 hours a day in water, hippos can't actually swim. They walk along riverbeds instead."
   },
   {
     id: 80,
     theme: "Animals 🦁",
     question: "How many hours a day do lions typically sleep?",
-    options: [
-      "8 to 10 hours",
-      "12 to 14 hours",
-      "16 to 20 hours",
-      "22 to 23 hours"
-    ],
+    options: ["8 to 10 hours", "12 to 14 hours", "16 to 20 hours", "22 to 23 hours"],
     correctAnswer: "16 to 20 hours",
     hint: "Much more than humans; they conserve energy...",
     funFact: "Lions sleep up to 20 hours a day! They are the only truly social big cats, living in groups called prides of up to 40 members. Despite being called 'king of the jungle,' lions actually live in grasslands and savannas, not jungles."
@@ -793,26 +1105,16 @@ const triviaQuestions = [
     id: 81,
     theme: "Animals 🐴",
     question: "How long does a horse typically need to eat each day?",
-    options: [
-      "4 to 6 hours",
-      "8 to 10 hours",
-      "14 to 16 hours",
-      "20 to 22 hours"
-    ],
+    options: ["4 to 6 hours", "8 to 10 hours", "14 to 16 hours", "20 to 22 hours"],
     correctAnswer: "14 to 16 hours",
     hint: "Their digestive system requires near-constant grazing...",
-    funFact: "Horses need to eat grass or hay for about 14–16 hours a day because their digestive systems are designed for near-constant grazing. They can also drink up to 10 gallons of water daily! Horses have excellent long-term memories and can sleep both standing up and lying down."
+    funFact: "Horses need to eat grass or hay for about 14-16 hours a day because their digestive systems are designed for near-constant grazing. They can also drink up to 10 gallons of water daily! Horses have excellent long-term memories and can sleep both standing up and lying down."
   },
   {
     id: 82,
     theme: "Arts & Culture 🎸",
     question: "How many years of history does the guitar have?",
-    options: [
-      "About 500 years",
-      "About 1,000 years",
-      "About 2,000 years",
-      "About 3,500 years"
-    ],
+    options: ["About 500 years", "About 1,000 years", "About 2,000 years", "About 3,500 years"],
     correctAnswer: "About 3,500 years",
     hint: "Its origins trace back to ancient civilizations...",
     funFact: "Guitars have a history stretching back approximately 3,500 years, with roots in ancient Egypt and Persia! Today the guitar is the world's most popular instrument. The modern six-string guitar was developed in Spain in the late 18th century."
@@ -821,12 +1123,7 @@ const triviaQuestions = [
     id: 83,
     theme: "Arts & Culture 🎭",
     question: "How old is opera as an art form?",
-    options: [
-      "About 200 years",
-      "About 400 years",
-      "About 600 years",
-      "About 1,000 years"
-    ],
+    options: ["About 200 years", "About 400 years", "About 600 years", "About 1,000 years"],
     correctAnswer: "About 400 years",
     hint: "It originated around the turn of the 17th century...",
     funFact: "Opera originated around 1600 in Florence, Italy, making it about 400 years old! It was created as a fully sung dramatic form combining music, poetry, and theater. Famous operas like La Traviata and Carmen feature unamplified voices that cut through entire orchestras."
@@ -835,44 +1132,25 @@ const triviaQuestions = [
     id: 84,
     theme: "Technology 💻",
     question: "Where does the term 'computer bug' come from?",
-    options: [
-      "Early computers used insect-shaped transistors",
-      "A moth was found stuck in a computer relay",
-      "Programmers used 'bug' as slang for a code error",
-      "It came from a military code name"
-    ],
+    options: ["Early computers used insect-shaped transistors", "A moth was found stuck in a computer relay", "Programmers used 'bug' as slang for a code error", "It came from a military code name"],
     correctAnswer: "A moth was found stuck in a computer relay",
     hint: "It was quite literal...",
-    funFact: "In 1947, engineers found an actual moth stuck in a relay of the Harvard Mark II computer, causing a malfunction. They taped it into the logbook and wrote 'First actual case of a bug being found.' The term had been used loosely before, but this cemented it forever!"
+    funFact: "In 1947, engineers found an actual moth stuck in a relay of the Harvard Mark II computer. They taped it into the logbook and wrote 'First actual case of a bug being found.' The term had been used loosely before, but this cemented it forever!"
   },
   {
     id: 85,
     theme: "Food & Drink 🍞",
     question: "What did Ancient Egyptians use bread as?",
-    options: [
-      "Building material",
-      "Currency",
-      "Medicine",
-      "Fuel for fires"
-    ],
+    options: ["Building material", "Currency", "Medicine", "Fuel for fires"],
     correctAnswer: "Currency",
     hint: "It was valuable enough to exchange for goods...",
     funFact: "Ancient Egyptians used bread and beer as currency to pay workers, including those who built the pyramids! Bread was so central to life that over 50 varieties have been found in archaeological records. A rolled piece of white bread also served as an eraser before rubber was invented!"
   },
-  // Flips Trivia Questions #86-110
-// Original questions across fun, cozy categories
-// Add after id: 85
-
   {
     id: 86,
     theme: "Food & Drink 🥞",
     question: "What does the word 'pancake' first appear in?",
-    options: [
-      "A Roman cookbook from 100 AD",
-      "An English cookbook from the 1400s",
-      "A French pastry guide from the 1600s",
-      "An American diner menu from the 1800s"
-    ],
+    options: ["A Roman cookbook from 100 AD", "An English cookbook from the 1400s", "A French pastry guide from the 1600s", "An American diner menu from the 1800s"],
     correctAnswer: "An English cookbook from the 1400s",
     hint: "It's older than most people think...",
     funFact: "The word 'pancake' first appeared in an English cookbook around 1430! But pancake-like foods have been made for over 30,000 years; ancient humans ground grains and cooked them on hot stones. Nearly every culture in the world has its own version of a pancake."
@@ -881,12 +1159,7 @@ const triviaQuestions = [
     id: 87,
     theme: "Food & Drink ☕",
     question: "How many cups of coffee does the average American drink per day?",
-    options: [
-      "About 1 cup",
-      "About 2 cups",
-      "About 3 cups",
-      "About 5 cups"
-    ],
+    options: ["About 1 cup", "About 2 cups", "About 3 cups", "About 5 cups"],
     correctAnswer: "About 3 cups",
     hint: "More than you might expect...",
     funFact: "The average American coffee drinker has about 3 cups per day! The U.S. is one of the largest coffee-consuming countries in the world. Coffee is also the second most traded commodity globally after oil."
@@ -895,12 +1168,7 @@ const triviaQuestions = [
     id: 88,
     theme: "Food & Drink 🍯",
     question: "How long does honey last if stored properly?",
-    options: [
-      "About 2 years",
-      "About 10 years",
-      "About 50 years",
-      "Indefinitely"
-    ],
+    options: ["About 2 years", "About 10 years", "About 50 years", "Indefinitely"],
     correctAnswer: "Indefinitely",
     hint: "Archaeologists have found it in ancient tombs...",
     funFact: "Honey never spoils! Archaeologists have found 3,000-year-old honey in Egyptian tombs that was still perfectly edible. Its low moisture content and natural acidity make it almost impossible for bacteria to grow."
@@ -909,26 +1177,16 @@ const triviaQuestions = [
     id: 89,
     theme: "Food & Drink 🍕",
     question: "What was pizza originally considered in Italy?",
-    options: [
-      "A dessert for wealthy families",
-      "Street food for the poor",
-      "A royal delicacy",
-      "A religious ceremonial food"
-    ],
+    options: ["A dessert for wealthy families", "Street food for the poor", "A royal delicacy", "A religious ceremonial food"],
     correctAnswer: "Street food for the poor",
     hint: "It started very humbly...",
-    funFact: "Pizza originated as cheap street food in Naples, Italy, eaten by the working poor. It wasn't considered respectable until Queen Margherita of Italy tried it in 1889 and loved it.  The classic Margherita pizza was created in her honor!"
+    funFact: "Pizza originated as cheap street food in Naples, Italy, eaten by the working poor. It wasn't considered respectable until Queen Margherita of Italy tried it in 1889 and loved it. The classic Margherita pizza was created in her honor!"
   },
   {
     id: 90,
     theme: "Food & Drink 🧇",
     question: "Which breakfast food was invented as part of a health reform movement?",
-    options: [
-      "Bacon",
-      "Corn flakes",
-      "Orange juice",
-      "Scrambled eggs"
-    ],
+    options: ["Bacon", "Corn flakes", "Orange juice", "Scrambled eggs"],
     correctAnswer: "Corn flakes",
     hint: "A doctor invented it to discourage something...",
     funFact: "Corn flakes were invented in 1894 by Dr. John Harvey Kellogg as a bland, healthy food to discourage what he believed were unhealthy impulses. His brother Will added sugar and turned it into a commercial sensation. The Kellogg's brand was born!"
@@ -937,12 +1195,7 @@ const triviaQuestions = [
     id: 91,
     theme: "Words & Language 📖",
     question: "How many words does the average person know?",
-    options: [
-      "Around 5,000",
-      "Around 20,000",
-      "Around 42,000",
-      "Around 100,000"
-    ],
+    options: ["Around 5,000", "Around 20,000", "Around 42,000", "Around 100,000"],
     correctAnswer: "Around 42,000",
     hint: "Researchers studied this carefully...",
     funFact: "A 2016 study found that the average adult knows around 42,000 dictionary words by age 20 and keeps growing to about 48,000 by age 60. But experts estimate we passively recognize far more, perhaps 100,000 words, even if we rarely use them."
@@ -951,12 +1204,7 @@ const triviaQuestions = [
     id: 92,
     theme: "Words & Language 📖",
     question: "What is the most common letter in the English language?",
-    options: [
-      "A",
-      "T",
-      "E",
-      "S"
-    ],
+    options: ["A", "T", "E", "S"],
     correctAnswer: "E",
     hint: "It shows up in roughly 13% of all English text...",
     funFact: "The letter E is the most common letter in English, appearing in about 13% of all text! That's why Wheel of Fortune gives players E, R, S, T, L, and N for free in the final round; they're the six most frequently used letters."
@@ -965,12 +1213,7 @@ const triviaQuestions = [
     id: 93,
     theme: "Words & Language 📖",
     question: "Approximately how many words does the English language contain?",
-    options: [
-      "Around 50,000",
-      "Around 170,000",
-      "Around 500,000",
-      "Around 1,000,000"
-    ],
+    options: ["Around 50,000", "Around 170,000", "Around 500,000", "Around 1,000,000"],
     correctAnswer: "Around 170,000",
     hint: "The Oxford English Dictionary is the best reference...",
     funFact: "The Oxford English Dictionary contains about 170,000 words currently in use, with another 47,000 obsolete words. English adds roughly 1,000 new words every year! It borrows heavily from French, Latin, German, and hundreds of other languages."
@@ -979,12 +1222,7 @@ const triviaQuestions = [
     id: 94,
     theme: "Cozy Living 🕯️",
     question: "What Danish concept describes the feeling of coziness and contentment?",
-    options: [
-      "Lagom",
-      "Hygge",
-      "Sisu",
-      "Fika"
-    ],
+    options: ["Lagom", "Hygge", "Sisu", "Fika"],
     correctAnswer: "Hygge",
     hint: "It became a wellness trend worldwide...",
     funFact: "Hygge (pronounced HOO-gah) is a Danish and Norwegian concept describing a mood of coziness and comfortable conviviality. It might be a candlelit dinner, a warm blanket, or good conversation. Denmark consistently ranks among the happiest countries and hygge is often credited!"
@@ -993,12 +1231,7 @@ const triviaQuestions = [
     id: 95,
     theme: "Cozy Living 🕯️",
     question: "What does 'fika' mean in Swedish culture?",
-    options: [
-      "An afternoon nap",
-      "A coffee and snack break with others",
-      "A long walk in nature",
-      "A weekly family dinner"
-    ],
+    options: ["An afternoon nap", "A coffee and snack break with others", "A long walk in nature", "A weekly family dinner"],
     correctAnswer: "A coffee and snack break with others",
     hint: "It's a daily ritual in Swedish workplaces...",
     funFact: "Fika, a cherished Swedish tradition, is a deliberate pause in the day to enjoy coffee and a sweet treat with friends or colleagues. It's considered so important that many Swedish workplaces build it into the daily schedule. Cinnamon rolls are the classic fika companion!"
@@ -1007,12 +1240,7 @@ const triviaQuestions = [
     id: 96,
     theme: "Books & Reading 📚",
     question: "How many books does the average American read per year?",
-    options: [
-      "About 2",
-      "About 4",
-      "About 12",
-      "About 20"
-    ],
+    options: ["About 2", "About 4", "About 12", "About 20"],
     correctAnswer: "About 12",
     hint: "Roughly one per month...",
     funFact: "According to Gallup, Americans read an average of about 12 books per year, though avid readers skew that number up significantly. Women tend to read more books than men, and fiction is the most popular genre across all age groups."
@@ -1021,12 +1249,7 @@ const triviaQuestions = [
     id: 97,
     theme: "Books & Reading 📚",
     question: "What is the best-selling book of all time?",
-    options: [
-      "Harry Potter and the Sorcerer's Stone",
-      "Don Quixote",
-      "The Bible",
-      "A Tale of Two Cities"
-    ],
+    options: ["Harry Potter and the Sorcerer's Stone", "Don Quixote", "The Bible", "A Tale of Two Cities"],
     correctAnswer: "The Bible",
     hint: "It has been translated into over 700 languages...",
     funFact: "The Bible is the best-selling book of all time with an estimated 5 billion copies sold. Don Quixote holds the record for best-selling novel at over 500 million copies. Harry Potter has sold over 600 million copies across the entire series!"
@@ -1035,12 +1258,7 @@ const triviaQuestions = [
     id: 98,
     theme: "Fun Facts 🌍",
     question: "What percentage of Earth's water is drinkable fresh water?",
-    options: [
-      "About 25%",
-      "About 10%",
-      "About 3%",
-      "About 1%"
-    ],
+    options: ["About 25%", "About 10%", "About 3%", "About 1%"],
     correctAnswer: "About 3%",
     hint: "Far less than most people assume...",
     funFact: "Only about 3% of Earth's water is fresh water and most of that is locked in glaciers and ice caps! Less than 1% of all water on Earth is actually accessible for human use. This is why water conservation matters so much."
@@ -1049,12 +1267,7 @@ const triviaQuestions = [
     id: 99,
     theme: "Fun Facts 🐝",
     question: "How far does a bee travel to make one pound of honey?",
-    options: [
-      "About 500 miles",
-      "About 10,000 miles",
-      "About 55,000 miles",
-      "About 100,000 miles"
-    ],
+    options: ["About 500 miles", "About 10,000 miles", "About 55,000 miles", "About 100,000 miles"],
     correctAnswer: "About 55,000 miles",
     hint: "The number is staggering...",
     funFact: "To produce just one pound of honey, bees collectively fly about 55,000 miles and visit around 2 million flowers! A single bee will produce only about 1/12 of a teaspoon of honey in its entire lifetime. No wonder it's so special."
@@ -1063,12 +1276,7 @@ const triviaQuestions = [
     id: 100,
     theme: "Fun Facts 🎉",
     question: "What is the only food that never expires?",
-    options: [
-      "Vinegar",
-      "Salt",
-      "Honey",
-      "All of the above"
-    ],
+    options: ["Vinegar", "Salt", "Honey", "All of the above"],
     correctAnswer: "All of the above",
     hint: "There's more than one answer here...",
     funFact: "Honey, salt, and pure distilled white vinegar all have an indefinite shelf life when stored properly! Salt never expires because it's a mineral. Vinegar is self-preserving due to its acidity. And honey's low moisture and natural antimicrobial properties keep it fresh for millennia."
@@ -1077,12 +1285,7 @@ const triviaQuestions = [
     id: 101,
     theme: "Music 🎵",
     question: "What is the most covered song in history?",
-    options: [
-      "Yesterday by The Beatles",
-      "Happy Birthday to You",
-      "Somewhere Over the Rainbow",
-      "What a Wonderful World"
-    ],
+    options: ["Yesterday by The Beatles", "Happy Birthday to You", "Somewhere Over the Rainbow", "What a Wonderful World"],
     correctAnswer: "Yesterday by The Beatles",
     hint: "It's by the most famous band in rock history...",
     funFact: "Yesterday by The Beatles holds the Guinness World Record as the most covered song in history, with over 2,200 recorded versions! Paul McCartney woke up with the melody in his head and temporarily titled it 'Scrambled Eggs' while writing the lyrics."
@@ -1091,26 +1294,16 @@ const triviaQuestions = [
     id: 102,
     theme: "Music 🎵",
     question: "How many piano keys are on a standard piano?",
-    options: [
-      "72",
-      "76",
-      "88",
-      "96"
-    ],
+    options: ["72", "76", "88", "96"],
     correctAnswer: "88",
     hint: "The number hasn't changed in over a century...",
-    funFact: "A standard piano has 88 keys:  52 white and 36 black. This design was standardized in the late 1800s. The piano was invented around 1700 by Bartolomeo Cristofori in Italy, who called it 'gravicembalo col piano e forte', harpsichord with soft and loud."
+    funFact: "A standard piano has 88 keys: 52 white and 36 black. This design was standardized in the late 1800s. The piano was invented around 1700 by Bartolomeo Cristofori in Italy, who called it 'gravicembalo col piano e forte', harpsichord with soft and loud."
   },
   {
     id: 103,
     theme: "Nature 🌿",
     question: "What is the oldest living type of tree on Earth?",
-    options: [
-      "Redwood",
-      "Baobab",
-      "Bristlecone Pine",
-      "Olive tree"
-    ],
+    options: ["Redwood", "Baobab", "Bristlecone Pine", "Olive tree"],
     correctAnswer: "Bristlecone Pine",
     hint: "It grows in harsh, high-altitude conditions in the American West...",
     funFact: "The Great Basin Bristlecone Pine is the oldest known living tree species, with one individual named Methuselah estimated to be over 4,800 years old! Its location is kept secret to protect it. It grows in the White Mountains of California in extremely harsh conditions."
@@ -1119,12 +1312,7 @@ const triviaQuestions = [
     id: 104,
     theme: "Nature 🌿",
     question: "How much of the Earth's oxygen is produced by the ocean?",
-    options: [
-      "About 10%",
-      "About 30%",
-      "About 50%",
-      "About 80%"
-    ],
+    options: ["About 10%", "About 30%", "About 50%", "About 80%"],
     correctAnswer: "About 50%",
     hint: "It's roughly half and most people are surprised...",
     funFact: "About 50% of Earth's oxygen comes from the ocean, produced by tiny marine plants called phytoplankton! The Amazon rainforest produces about 20%. So the ocean is literally the lungs of the planet, and phytoplankton are creatures most people have never heard of."
@@ -1133,12 +1321,7 @@ const triviaQuestions = [
     id: 105,
     theme: "Everyday Wonders 💡",
     question: "How long does it take to form a habit, according to research?",
-    options: [
-      "21 days",
-      "66 days",
-      "90 days",
-      "It varies widely by person and habit"
-    ],
+    options: ["21 days", "66 days", "90 days", "It varies widely by person and habit"],
     correctAnswer: "It varies widely by person and habit",
     hint: "The popular '21 days' figure isn't quite accurate...",
     funFact: "The popular idea that habits form in 21 days comes from a misread of a 1960 self-help book! A 2010 study by Phillippa Lally found it actually takes anywhere from 18 to 254 days depending on the person and the habit with an average of about 66 days."
@@ -1147,12 +1330,7 @@ const triviaQuestions = [
     id: 106,
     theme: "Everyday Wonders 💡",
     question: "How many times does the average person laugh per day?",
-    options: [
-      "About 5",
-      "About 15",
-      "About 30",
-      "About 50"
-    ],
+    options: ["About 5", "About 15", "About 30", "About 50"],
     correctAnswer: "About 15",
     hint: "Children laugh far more than adults...",
     funFact: "Adults laugh an average of about 15 times per day but children laugh up to 400 times! Laughter is contagious, social, and actually good for your health. It releases endorphins, reduces stress hormones, and even provides a mild workout for your core muscles."
@@ -1161,12 +1339,7 @@ const triviaQuestions = [
     id: 107,
     theme: "Everyday Wonders 💡",
     question: "What sense is most closely linked to memory?",
-    options: [
-      "Sight",
-      "Hearing",
-      "Smell",
-      "Touch"
-    ],
+    options: ["Sight", "Hearing", "Smell", "Touch"],
     correctAnswer: "Smell",
     hint: "Have you ever caught a scent and instantly remembered something from years ago?",
     funFact: "Smell is the sense most directly connected to memory and emotion! The olfactory bulb, which processes smell, is directly linked to the hippocampus and amygdala, the brain's memory and emotion centers. This is why a whiff of cinnamon or coffee can instantly transport you back in time."
@@ -1175,51 +1348,37 @@ const triviaQuestions = [
     id: 108,
     theme: "Animals 🐘",
     question: "How long is an elephant's pregnancy?",
-    options: [
-      "About 6 months",
-      "About 12 months",
-      "About 18 months",
-      "About 22 months"
-    ],
+    options: ["About 6 months", "About 12 months", "About 18 months", "About 22 months"],
     correctAnswer: "About 22 months",
     hint: "It's the longest of any land animal...",
-    funFact: "Elephants have the longest pregnancy of any land animal:  nearly 22 months! That's almost two years. Baby elephants are born weighing about 200 pounds and can stand within an hour. Elephants also mourn their dead and have been observed returning to the bones of deceased family members."
+    funFact: "Elephants have the longest pregnancy of any land animal: nearly 22 months! That's almost two years. Baby elephants are born weighing about 200 pounds and can stand within an hour. Elephants also mourn their dead and have been observed returning to the bones of deceased family members."
   },
   {
     id: 109,
     theme: "Animals 🐙",
     question: "How many hearts does an octopus have?",
-    options: [
-      "1",
-      "2",
-      "3",
-      "5"
-    ],
+    options: ["1", "2", "3", "5"],
     correctAnswer: "3",
     hint: "More than you'd expect...",
-    funFact: "Octopuses have three hearts! Two pump blood to the gills, and one pumps it to the rest of the body. Their blood is also blue because it contains copper-based hemocyanin instead of the iron-based hemoglobin that makes human blood red. They also have nine brains:  one central and one in each arm!"
+    funFact: "Octopuses have three hearts! Two pump blood to the gills, and one pumps it to the rest of the body. Their blood is also blue because it contains copper-based hemocyanin instead of the iron-based hemoglobin that makes human blood red. They also have nine brains: one central and one in each arm!"
   },
   {
     id: 110,
     theme: "Fun Facts ✨",
     question: "What is the shortest complete sentence in the English language?",
-    options: [
-      "Go.",
-      "I am.",
-      "Be.",
-      "Hi."
-    ],
+    options: ["Go.", "I am.", "Be.", "Hi."],
     correctAnswer: "Go.",
     hint: "It's a command with an implied subject...",
     funFact: "The shortest grammatically complete sentence in English is 'Go.' It's a command where the subject 'you' is implied. 'I am.' is the shortest sentence with an explicit subject and verb. English is fascinating in how much meaning can be packed into just two letters!"
   },
-];
+
+*/
 
 // Function to get today's question - ANCHOR DATE SYSTEM
 const getTodaysQuestion = () => {
   // ANCHOR DATE: February 1, 2026 at 7:45 PM = Question ID 27 (index 26)
-  const anchorDate = new Date(2026, 1, 1, 19, 45, 0, 0); // Month is 0-indexed, so 1 = February
-  const ANCHOR_INDEX = 26; // Question ID 27 = index 26
+  const anchorDate = new Date(2026, 4, 15, 19, 45, 0, 0);
+const ANCHOR_INDEX = 0;
   
   const now = new Date();
   const estTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));

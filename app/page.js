@@ -682,6 +682,48 @@ export default function Home() {
     }
   ];
 
+  // SECTION 6: Summer Days
+  const summerDaysGames = [
+    {
+      name: "Radio",
+      tagline: "Sounds of Summer",
+      emoji: "\uD83D\uDCFB",
+      href: "/radio",
+      thumbnail: {
+        gradient: "linear-gradient(160deg, #0c4a6e 0%, #1e3a8a 50%, #312e81 100%)",
+        icon: "\uD83D\uDCFB",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Radio"],
+        subtitle: "SOUNDS OF SUMMER",
+        subtitleColor: "text-blue-200"
+      },
+      borderColor: "border-blue-400",
+      bgColor: "from-blue-50 to-indigo-50",
+      textColor: "text-blue-900",
+      subTextColor: "text-blue-700",
+      hoverBg: "bg-blue-900/80"
+    },
+    {
+      name: "Beat the Heat",
+      tagline: "The griddle is hot, so stay cool!",
+      emoji: "\u2600\uFE0F",
+      href: "/beat-the-heat",
+      thumbnail: {
+        gradient: "linear-gradient(160deg, #bae6fd 0%, #7dd3fc 40%, #38bdf8 70%, #0ea5e9 100%)",
+        icon: "\u2600\uFE0F",
+        iconSize: "text-5xl",
+        title: ["Beat the", "Heat"],
+        subtitle: "STAY COOL!",
+        subtitleColor: "text-sky-900"
+      },
+      borderColor: "border-sky-300",
+      bgColor: "from-sky-50 to-blue-50",
+      textColor: "text-sky-900",
+      subTextColor: "text-sky-700",
+      hoverBg: "bg-sky-600/80"
+    },
+  ];
+
   // Render thumbnail content based on game config
   const renderThumbnail = (game) => {
     const { thumbnail } = game;
@@ -887,7 +929,14 @@ export default function Home() {
             className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
           >
             {"\u2615"} Espresso Lane
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-md animate-bounce">NEW!</span>
+            
+          </button>
+          <button
+            onClick={() => scrollToSection('summer-days')}
+            className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
+            style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
+          >
+            ☀️ Summer Days
           </button>
         </nav>
       </header>
@@ -1099,6 +1148,25 @@ export default function Home() {
           </>
         )}
 
+{/* SECTION: Summer Days */}
+        <section id="summer-days" className="mb-16 scroll-mt-8">
+          <div className="text-center mb-8">
+            <div
+              className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
+              style={{
+                background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)',
+                fontFamily: 'Georgia, serif'
+              }}
+            >
+              ☀️ Summer Days ☀️
+            </div>
+            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+              Summer Days
+            </h2>
+            <p className="text-amber-600">Fresh summer fun from the Letter Griddle family!</p>
+          </div>
+          <GameGrid games={summerDaysGames} />
+        </section>
       </main>
 
       {/* Footer */}

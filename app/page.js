@@ -246,7 +246,7 @@ export default function Home() {
     },
     {
       name: "Spins",
-      tagline: "Spell the food hidden in the song title",
+      tagline: "Complete the song titles to reveal links to songs",
       emoji: "\uD83D\uDCBF",
       href: "/spins",
       thumbnail: {

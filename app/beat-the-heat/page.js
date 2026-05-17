@@ -1006,7 +1006,7 @@ export default function BeatTheHeat() {
           </div>
         </div>
       </div>
-      {showHtp   && <HowToPlay />}
+      {showHtp && <HowToPlay onClose={() => setShowHtp(false)} />}
       {showSound && <SoundModal soundRef={soundRef} onClose={() => setShowSound(false)} />}
     </>
   );
@@ -1117,7 +1117,7 @@ export default function BeatTheHeat() {
           </div>
         </div>
       </div>
-      {showHtp   && <HowToPlay />}
+      {showHtp && <HowToPlay onClose={() => setShowHtp(false)} />}
       {showSound && <SoundModal soundRef={soundRef} onClose={() => setShowSound(false)} />}
     </>
   );
@@ -1207,7 +1207,7 @@ export default function BeatTheHeat() {
             </div>
           </div>
         </div>
-        {showHtp   && <HowToPlay />}
+        {showHtp && <HowToPlay onClose={() => setShowHtp(false)} />}
         {showSound && <SoundModal soundRef={soundRef} onClose={() => setShowSound(false)} />}
       </>
     );

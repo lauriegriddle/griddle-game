@@ -123,7 +123,7 @@ export default function Home() {
       href: "https://lettergriddlecafe.com/game",
       external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
+        gradient: "linear-gradient(160deg, #fbbf24 0%, #c2410c 30%, #312e81 70%, #0c4a6e 100%)",
         icon: "\uD83D\uDC51",
         iconSize: "text-4xl",
         title: ["Cafe", "Game"],
@@ -409,18 +409,18 @@ export default function Home() {
       emoji: "\uD83C\uDF38",
       href: "/maze",
       thumbnail: {
-        gradient: "linear-gradient(135deg, #022c22 0%, #064e3b 50%, #065f46 100%)",
+ gradient: "linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)",
         icon: "\u2600\uFE0F",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Maze"],
-        subtitle: "A SPRING ADVENTURE",
+        subtitle: "A SUMMER ADVENTURE",
         subtitleColor: "text-emerald-200"
       },
-      borderColor: "border-emerald-400",
-      bgColor: "from-emerald-100 to-green-100",
+      borderColor: "border-amber-400",
+     bgColor: "from-amber-100 to-orange-100",
       textColor: "text-emerald-800",
       subTextColor: "text-emerald-700",
-      hoverBg: "bg-emerald-600/80"
+      hoverBg: "bg-amber-600/80",
     },
     {
       name: "Letter Griddle Cafe",
@@ -429,7 +429,7 @@ export default function Home() {
       href: "https://lettergriddlecafe.com",
       external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)",
+        gradient: "linear-gradient(160deg, #1a3a6e 0%, #6b3fa0 45%, #c25a1c 80%, #f5b942 100%)",
         icon: "\uD83E\uDDE1",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Cafe"],
@@ -450,7 +450,7 @@ export default function Home() {
       href: "https://lettergriddlecookbook.com",
       external: true,
       thumbnail: {
-        gradient: "linear-gradient(135deg, #FB923C 0%, #F97316 50%, #EA580C 100%)",
+        gradient: "linear-gradient(160deg, #2a2a7e 0%, #8b3090 45%, #c26a0c 80%, #f0a830 100%)",
         icon: "\uD83C\uDF4A",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Cookbook"],
@@ -469,7 +469,7 @@ export default function Home() {
       emoji: "🧲",
       href: "/goods",
       thumbnail: {
-        gradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #92400E 100%)",
+        gradient: "linear-gradient(160deg, #3a1a7e 0%, #a02070 45%, #c27a1c 80%, #eaa020 100%)",
         icon: "🧲",
         iconSize: "text-4xl",
         title: ["Has the", "Goods!"],
@@ -488,7 +488,7 @@ export default function Home() {
       emoji: "🎹",
       href: "/ambiance",
       thumbnail: {
-        gradient: "linear-gradient(135deg, #C2632A 0%, #8B3A1A 50%, #5C2010 100%)",
+        gradient: "linear-gradient(160deg, #4a0a6e 0%, #b01060 45%, #c28a2c 80%, #e49018 100%)",
         icon: "🎹",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Ambiance"],
@@ -1060,7 +1060,7 @@ export default function Home() {
                     <div className="relative h-48">
                       {renderThumbnail({
                         thumbnail: {
-                          gradient: "linear-gradient(135deg, #92400e 0%, #78350f 50%, #451a03 100%)",
+                          gradient: "linear-gradient(160deg, #fbbf24 0%, #c2410c 30%, #312e81 70%, #0c4a6e 100%)",
                           icon: "\uD83D\uDC51",
                           iconSize: "text-4xl",
                           title: ["Cafe", "Game"],

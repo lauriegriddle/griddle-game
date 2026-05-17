@@ -406,7 +406,7 @@ export default function Home() {
     {
       name: "Letter Griddle Maze",
       tagline: "Reveal the secret message!",
-      emoji: "\uD83C\uDF38",
+      emoji: "☀️",
       href: "/maze",
       thumbnail: {
  gradient: "linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)",
@@ -418,8 +418,8 @@ export default function Home() {
       },
       borderColor: "border-amber-400",
      bgColor: "from-amber-100 to-orange-100",
-      textColor: "text-emerald-800",
-      subTextColor: "text-emerald-700",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
       hoverBg: "bg-amber-600/80",
     },
     {

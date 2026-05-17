@@ -686,7 +686,7 @@ export default function Home() {
   const summerDaysGames = [
     {
       name: "Radio",
-      tagline: "Sounds of Summer",
+      tagline: "Sounds of Summer and Links to Songs",
       emoji: "\uD83D\uDCFB",
       href: "/radio",
       thumbnail: {

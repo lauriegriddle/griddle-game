@@ -72,7 +72,7 @@ const PUZZLES = [
   },
   {
     country: "Italy", flag: "🇮🇹",
-    funFact: "Italy is a boot-shaped peninsula boasting the most UNESCO World Heritage sites globally. Famous for inventing pizza, espresso machines, and pianos, it surrounds two independent microstates:  Vatican City and San Marino, and produces 20% of the world's olive oil.",
+    funFact: "Italy is a boot-shaped peninsula boasting the most UNESCO World Heritage sites globally. Famous for inventing pizza, espresso machines, and pianos, it surrounds two independent microstates, Vatican City and San Marino, and produces 20% of the world's olive oil.",
     words: [
       { word: "ROME",     hint: "The Eternal City and capital of Italy", revealedIndex: 0 },
       { word: "PASTA",    hint: "Italy has over 350 shapes of this beloved staple", revealedIndex: 0 },
@@ -163,6 +163,7 @@ const PUZZLES = [
 // ── Storage helpers ───────────────────────────────────────────────────────────
 const COMPLETED_KEY = "lgworld_completed";
 const PROGRESS_KEY  = "lgworld_progress";
+const HTP_KEY       = "lgworld_htp_seen";
 
 function loadCompleted() {
   try { return JSON.parse(localStorage.getItem(COMPLETED_KEY) || "[]"); } catch { return []; }
@@ -260,22 +261,92 @@ function SuggestBanner({ onClose }) {
         <div className="suggest-icon">🌍</div>
         <p className="suggest-title">Have an idea for a great Letter Griddle Geo puzzle?</p>
         <p className="suggest-text">We're building Letter Griddle Geo one puzzle at a time. We'd love your ideas! Email us your country, city, or landmark suggestion along with 5 words having 4, 5, 6, 7, and 8 letters that capture it and get your puzzle published with credit!</p>
-        <a className="suggest-link" href="mailto:lettergriddle@gmail.com">lettergriddle@gmail.com</a>
+        <a className="suggest-link" href="mailto:lettergriddle@gmail.com?subject=Letter%20Griddle%20Geo%20Puzzle%20Suggestion&body=Country%2FCity%2FLandmark%3A%20%0A%0AMy%205%20words%3A%0A4-letter%3A%20%0A5-letter%3A%20%0A6-letter%3A%20%0A7-letter%3A%20%0A8-letter%3A%20%0A%0AHint%20for%20each%20word%20(optional)%3A%20%0A%0AMy%20name%20for%20the%20credit%3A%20">lettergriddle@gmail.com</a>
       </div>
     </div>
   );
 }
 
+// ── How To Play Modal ─────────────────────────────────────────────────────────
+function HowToPlayModal({ onClose }) {
+  return (
+    <div className="htp-overlay" onClick={onClose}>
+      <div className="htp-card" onClick={e => e.stopPropagation()}>
+        <button className="htp-close" onClick={onClose}>×</button>
+
+        <div className="htp-header">
+          <div className="htp-logo">🥞</div>
+          <h2 className="htp-title">Letter Griddle Geo</h2>
+          <p className="htp-tagline">Pick a country. Solve the words. Collect the stamps.</p>
+        </div>
+
+        <div className="htp-steps">
+          <div className="htp-step">
+            <span className="htp-step-icon">🌍</span>
+            <div>
+              <p className="htp-step-title">Choose a Country</p>
+              <p className="htp-step-text">Pick any country from the grid to start your puzzle. Play them in any order!</p>
+            </div>
+          </div>
+          <div className="htp-step">
+            <span className="htp-step-icon">🍳</span>
+            <div>
+              <p className="htp-step-title">Solve 5 Words</p>
+              <p className="htp-step-text">Each puzzle has 5 words about that country that are 4, 5, 6, 7, and 8 letters long. One letter is revealed in each word to get you started.</p>
+            </div>
+          </div>
+          <div className="htp-step">
+            <span className="htp-step-icon">🔤</span>
+            <div>
+              <p className="htp-step-title">Place the Letters</p>
+              <p className="htp-step-text">Tap a letter from the tray, then tap an empty slot to place it. On a computer, just type! Solve words in any order.  Tap a word row to focus it.</p>
+            </div>
+          </div>
+          <div className="htp-step">
+            <span className="htp-step-icon">💡</span>
+            <div>
+              <p className="htp-step-title">Use Hints</p>
+              <p className="htp-step-text">Stuck? Each word has a hint button. No penalty for using them!  Hints are there to help!</p>
+            </div>
+          </div>
+          <div className="htp-step">
+            <span className="htp-step-icon">📬</span>
+            <div>
+              <p className="htp-step-title">Collect Your Stamp & Share</p>
+              <p className="htp-step-text">Finish a country and earn a passport stamp! A postcard pops up with a fun fact and a share card to send to friends.</p>
+            </div>
+          </div>
+          <div className="htp-step">
+            <span className="htp-step-icon">⏳</span>
+            <div>
+              <p className="htp-step-title">Pick Up Where You Left Off</p>
+              <p className="htp-step-text">Your progress saves automatically. Come back anytime and resume right where you stopped.</p>
+            </div>
+          </div>
+        </div>
+
+        <button className="htp-start-btn" onClick={onClose}>
+          Start Exploring 🌍
+        </button>
+
+        <p className="htp-footer-note">Part of the <a href="https://lettergriddle.com" className="htp-link">Letter Griddle</a> family of games 🥞</p>
+      </div>
+      <style>{htpStyles}</style>
+    </div>
+  );
+}
+
 // ── Country Selection Screen ──────────────────────────────────────────────────
-function SelectionScreen({ completed, onSelect }) {
+function SelectionScreen({ completed, onSelect, mounted, onHowToPlay }) {
   const [showSuggest, setShowSuggest] = useState(false);
-  const inProgress = PUZZLES.filter(p => loadProgress(p.country) && !completed.includes(p.country));
+  const inProgress = mounted ? PUZZLES.filter(p => loadProgress(p.country) && !completed.includes(p.country)) : [];
   return (
     <div className="screen selection-screen">
       <header className="sel-header">
         <div className="sel-logo">🥞</div>
         <h1 className="sel-title">Letter Griddle Geo</h1>
         <p className="sel-sub">Pick a country. Solve the words. 🌍</p>
+        <button className="htp-trigger-btn" onClick={onHowToPlay}>❓ How to Play</button>
       </header>
       <div className="progress-bar-wrap">
         <div className="progress-bar-track">
@@ -596,8 +667,23 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone }) {
 
 // ── Root App ──────────────────────────────────────────────────────────────────
 export default function App() {
-  const [completed, setCompleted] = useState(() => loadCompleted());
+  const [completed, setCompleted] = useState([]);  // always start empty on server
   const [activePuzzle, setActivePuzzle] = useState(null);
+  const [mounted, setMounted] = useState(false);
+  const [showHtp, setShowHtp] = useState(false);
+
+  // Load localStorage only after mount (client-side only)
+  useEffect(() => {
+    setCompleted(loadCompleted());
+    setMounted(true);
+    // Show How to Play for first-time visitors
+    if (!localStorage.getItem(HTP_KEY)) {
+      setShowHtp(true);
+      localStorage.setItem(HTP_KEY, "true");
+    }
+  }, []);
+
+  const closeHtp = () => setShowHtp(false);
 
   const handleComplete = (country) => {
     setCompleted(prev => {
@@ -613,12 +699,34 @@ export default function App() {
       {activePuzzle
         ? <GameScreen puzzle={activePuzzle} onBack={() => setActivePuzzle(null)}
             onComplete={handleComplete} alreadyDone={completed.includes(activePuzzle.country)} />
-        : <SelectionScreen completed={completed} onSelect={setActivePuzzle} />}
+        : <SelectionScreen completed={completed} onSelect={setActivePuzzle} mounted={mounted} onHowToPlay={() => setShowHtp(true)} />}
+      {showHtp && <HowToPlayModal onClose={closeHtp} />}
       <style>{globalStyles}</style>
     </div>
   );
 }
 
+
+const htpStyles = `
+  .htp-overlay { position: fixed; inset: 0; z-index: 400; background: rgba(0,0,20,0.85); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 16px; animation: fadeIn 0.3s ease; overflow-y: auto; }
+  .htp-card { width: 100%; max-width: 420px; background: linear-gradient(160deg, #0a0f2e 0%, #0d1540 50%, #0a1028 100%); border: 1px solid rgba(96,165,250,0.25); border-radius: 24px; padding: 28px 24px 24px; position: relative; box-shadow: 0 0 60px rgba(59,130,246,0.15), 0 30px 60px rgba(0,0,0,0.6); animation: postcardSlideUp 0.45s cubic-bezier(0.34,1.56,0.64,1); }
+  .htp-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: #93c5fd; font-size: 20px; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .htp-close:hover { background: rgba(255,255,255,0.14); }
+  .htp-header { text-align: center; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(96,165,250,0.15); }
+  .htp-logo { font-size: 40px; margin-bottom: 6px; filter: drop-shadow(0 0 12px rgba(96,165,250,0.4)); }
+  .htp-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: #bfdbfe; margin-bottom: 6px; }
+  .htp-tagline { font-size: 13px; color: #93c5fd; font-weight: 600; opacity: 0.8; }
+  .htp-steps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+  .htp-step { display: flex; gap: 14px; align-items: flex-start; }
+  .htp-step-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .htp-step-title { font-size: 13px; font-weight: 800; color: #bfdbfe; margin-bottom: 3px; }
+  .htp-step-text { font-size: 12px; color: #93c5fd; line-height: 1.55; opacity: 0.85; }
+  .htp-start-btn { width: 100%; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; border: none; border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 15px; padding: 14px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 16px rgba(29,78,216,0.4); margin-bottom: 14px; }
+  .htp-start-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(29,78,216,0.55); }
+  .htp-footer-note { text-align: center; font-size: 12px; color: #93c5fd; opacity: 0.5; }
+  .htp-link { color: #60a5fa; text-decoration: none; font-weight: 700; }
+  .htp-link:hover { opacity: 0.8; }
+`;
 // ── Styles ────────────────────────────────────────────────────────────────────
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700&display=swap');
@@ -755,6 +863,8 @@ const selectionStyles = `
   .suggest-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: #bfdbfe; margin-bottom: 12px; }
   .suggest-text { font-size: 13px; color: #93c5fd; line-height: 1.7; margin-bottom: 16px; }
   .suggest-link { display: inline-block; color: #60a5fa; font-weight: 800; font-size: 14px; text-decoration: none; border-bottom: 1px solid rgba(96,165,250,0.4); padding-bottom: 2px; }
+  .htp-trigger-btn { margin-top: 10px; background: rgba(96,165,250,0.10); border: 1px solid rgba(96,165,250,0.30); color: #93c5fd; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; padding: 7px 16px; border-radius: 99px; cursor: pointer; transition: all 0.2s; }
+  .htp-trigger-btn:hover { background: rgba(96,165,250,0.20); border-color: rgba(96,165,250,0.55); }
 
   .geo-footer { width: 100%; text-align: center; padding: 16px 0 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; border-top: 1px solid rgba(96,165,250,0.12); margin-top: 4px; }
   .footer-home { color: #fbbf24; font-weight: 800; font-size: 14px; text-decoration: none; letter-spacing: 0.3px; transition: opacity 0.2s; }

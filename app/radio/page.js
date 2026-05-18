@@ -74,7 +74,7 @@ const PUZZLES = [
     year: "1966",
     category: "Classic Rock",
     emoji: "🏙️",
-    funFact: "Released in 1966, this hit is famous for being one of the first popular songs to use real street sounds -- car horns and jackhammers -- in the recording.",
+    funFact: "Released in 1966, this hit is famous for being one of the first popular songs to use real street sounds like car horns and jackhammers in the recording.",
     words: [
       { word: "CITY",     hint: "Where the heat hits hardest",       revealedIndex: 1 },
       { word: "DIRTY",    hint: "How summer streets feel",           revealedIndex: 3 },
@@ -1128,7 +1128,7 @@ export default function LetterGriddleRadio() {
               backgroundImage:"linear-gradient(90deg,#fbbf24,#f59e0b,#fbbf24)",
               backgroundSize:"200% auto", animation:"radioShimmer 3s linear infinite",
               marginBottom:8 }}>
-              Got it -- let me tune in! 📻
+              Got it!  let me tune in! 📻
             </button>
             <p style={{ fontSize:10, color:"rgba(125,211,252,0.3)", fontFamily:"sans-serif",
               textAlign:"center" }}>

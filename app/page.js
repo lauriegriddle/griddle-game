@@ -138,7 +138,7 @@ export default function Home() {
       hoverBg: "bg-amber-800/80"
     },
     {
-     name: "Snacks",
+      name: "Snacks",
       tagline: "Don't leave any crumbs!",
       dropTime: "12:00 AM EST",
       emoji: "\uD83C\uDF6A",
@@ -160,7 +160,7 @@ export default function Home() {
     },
   ];
 
-  // SECTION 2: Grand Opening
+  // SECTION 2: Fan Favorites
   const grandOpeningGames = [
     {
       name: "Pancakes",
@@ -200,29 +200,9 @@ export default function Home() {
       subTextColor: "text-indigo-700",
       hoverBg: "bg-indigo-500/80"
     },
-    {
-      name: "Letter Griddle Cottage",
-      tagline: "Explore 18 Spring Puzzles! \uD83C\uDF37",
-      emoji: "\uD83C\uDF38",
-      href: "https://lettergriddlecottage.com",
-      external: true,
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%)",
-        icon: "\uD83C\uDF38",
-        iconSize: "text-4xl",
-        title: ["Letter Griddle", "Cottage"],
-        subtitle: "SPRING AWAKENING",
-        subtitleColor: "text-emerald-100"
-      },
-      borderColor: "border-emerald-400",
-      bgColor: "from-emerald-100 to-green-100",
-      textColor: "text-emerald-800",
-      subTextColor: "text-emerald-700",
-      hoverBg: "bg-emerald-500/80"
-    }
   ];
 
-  // SECTION 3: More Games (Letter Griddle Games collection)
+  // SECTION 3: More Games
   const letterGriddleGames = [
     {
       name: "Griddle Falls",
@@ -409,7 +389,7 @@ export default function Home() {
       emoji: "☀️",
       href: "/maze",
       thumbnail: {
- gradient: "linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)",
+        gradient: "linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)",
         icon: "\u2600\uFE0F",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Maze"],
@@ -417,7 +397,7 @@ export default function Home() {
         subtitleColor: "text-emerald-200"
       },
       borderColor: "border-amber-400",
-     bgColor: "from-amber-100 to-orange-100",
+      bgColor: "from-amber-100 to-orange-100",
       textColor: "text-amber-900",
       subTextColor: "text-amber-700",
       hoverBg: "bg-amber-600/80",
@@ -544,24 +524,24 @@ export default function Home() {
       hoverBg: "bg-amber-900/80"
     },
     {
-  name: "Griddle Rush",
-  tagline: "Drag emoji tiles, match 3 to clear, beat your best!",
-  emoji: "🍳",
-  href: "/rush",
-  thumbnail: {
-    gradient: "linear-gradient(135deg, #b45309 0%, #92400e 50%, #451a03 100%)",
-    icon: "🍳",
-    iconSize: "text-4xl",
-    title: ["Griddle", "Rush"],
-    subtitle: "MATCH 3 TILE GAME",
-    subtitleColor: "text-amber-200"
-  },
-  borderColor: "border-amber-700",
-  bgColor: "from-amber-50 to-orange-100",
-  textColor: "text-amber-900",
-  subTextColor: "text-amber-700",
-  hoverBg: "bg-amber-800/80"
-},
+      name: "Griddle Rush",
+      tagline: "Drag emoji tiles, match 3 to clear, beat your best!",
+      emoji: "🍳",
+      href: "/rush",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #b45309 0%, #92400e 50%, #451a03 100%)",
+        icon: "🍳",
+        iconSize: "text-4xl",
+        title: ["Griddle", "Rush"],
+        subtitle: "MATCH 3 TILE GAME",
+        subtitleColor: "text-amber-200"
+      },
+      borderColor: "border-amber-700",
+      bgColor: "from-amber-50 to-orange-100",
+      textColor: "text-amber-900",
+      subTextColor: "text-amber-700",
+      hoverBg: "bg-amber-800/80"
+    },
   ];
 
   // SECTION 5: Espresso Lane
@@ -690,18 +670,18 @@ export default function Home() {
       emoji: "\uD83D\uDCFB",
       href: "/radio",
       thumbnail: {
-        gradient: "linear-gradient(160deg, #0c4a6e 0%, #1e3a8a 50%, #312e81 100%)",
+        gradient: "linear-gradient(160deg, #0c4a6e 0%, #0369a1 40%, #0ea5e9 70%, #38bdf8 100%)",
         icon: "\uD83D\uDCFB",
         iconSize: "text-5xl",
         title: ["Letter Griddle", "Radio"],
         subtitle: "SOUNDS OF SUMMER",
-        subtitleColor: "text-blue-200"
+        subtitleColor: "text-sky-100"
       },
-      borderColor: "border-blue-400",
-      bgColor: "from-blue-50 to-indigo-50",
-      textColor: "text-blue-900",
-      subTextColor: "text-blue-700",
-      hoverBg: "bg-blue-900/80"
+      borderColor: "border-sky-400",
+      bgColor: "from-sky-50 to-blue-100",
+      textColor: "text-sky-900",
+      subTextColor: "text-sky-700",
+      hoverBg: "bg-sky-800/80"
     },
     {
       name: "Beat the Heat",
@@ -709,27 +689,84 @@ export default function Home() {
       emoji: "\u2600\uFE0F",
       href: "/beat-the-heat",
       thumbnail: {
-        gradient: "linear-gradient(160deg, #bae6fd 0%, #7dd3fc 40%, #38bdf8 70%, #0ea5e9 100%)",
+        gradient: "linear-gradient(160deg, #1e3a8a 0%, #0369a1 35%, #0ea5e9 65%, #7dd3fc 100%)",
         icon: "\u2600\uFE0F",
         iconSize: "text-5xl",
         title: ["Beat the", "Heat"],
         subtitle: "STAY COOL!",
-        subtitleColor: "text-sky-900"
+        subtitleColor: "text-sky-100"
       },
-      borderColor: "border-sky-300",
-      bgColor: "from-sky-50 to-blue-50",
+      borderColor: "border-sky-400",
+      bgColor: "from-sky-50 to-blue-100",
       textColor: "text-sky-900",
       subTextColor: "text-sky-700",
-      hoverBg: "bg-sky-600/80"
+      hoverBg: "bg-sky-700/80"
+    },
+    {
+      name: "Summer Cottage",
+      tagline: "10 summer puzzles with fun facts!",
+      emoji: "\uD83C\uDFD6\uFE0F",
+      href: "https://lettergriddlecottage.com",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(160deg, #0c4a6e 0%, #0e7490 35%, #0891b2 65%, #22d3ee 100%)",
+        icon: "\uD83C\uDFD6\uFE0F",
+        iconSize: "text-4xl",
+        title: ["Summer", "Cottage"],
+        subtitle: "SUMMER ESCAPE",
+        subtitleColor: "text-cyan-100"
+      },
+      borderColor: "border-cyan-400",
+      bgColor: "from-cyan-50 to-sky-100",
+      textColor: "text-cyan-900",
+      subTextColor: "text-cyan-700",
+      hoverBg: "bg-cyan-800/80"
+    },
+    {
+      name: "Beach Cottage",
+      tagline: "Decorate your beach cottage!",
+      emoji: "\uD83C\uDFE1",
+      href: "https://lettergriddlecottage.com/beach",
+      external: true,
+      thumbnail: {
+        gradient: "linear-gradient(160deg, #1e3a8a 0%, #1d4ed8 30%, #0369a1 60%, #0ea5e9 100%)",
+        icon: "\uD83C\uDFE1",
+        iconSize: "text-4xl",
+        title: ["Beach", "Cottage"],
+        subtitle: "DECORATE YOUR COTTAGE",
+        subtitleColor: "text-blue-100"
+      },
+      borderColor: "border-blue-400",
+      bgColor: "from-blue-50 to-sky-100",
+      textColor: "text-blue-900",
+      subTextColor: "text-blue-700",
+      hoverBg: "bg-blue-800/80"
+    },
+    {
+      name: "Letter Griddle Geo",
+      tagline: "Pick a country. Solve the words.",
+      emoji: "\uD83C\uDF0D",
+      href: "/geo",
+      thumbnail: {
+        gradient: "linear-gradient(160deg, #0c4a6e 0%, #1e3a8a 35%, #1d4ed8 65%, #3b82f6 100%)",
+        icon: "\uD83C\uDF0D",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Geo"],
+        subtitle: "WORLD WORD PUZZLE",
+        subtitleColor: "text-blue-100"
+      },
+      borderColor: "border-blue-400",
+      bgColor: "from-blue-50 to-indigo-100",
+      textColor: "text-blue-900",
+      subTextColor: "text-blue-700",
+      hoverBg: "bg-blue-800/80"
     },
   ];
 
-  // Render thumbnail content based on game config
   const renderThumbnail = (game) => {
     const { thumbnail } = game;
-    
     return (
-      <div 
+      <div
         className="w-full h-full flex flex-col items-center justify-center p-4 relative overflow-hidden"
         style={{ background: thumbnail.gradient }}
       >
@@ -742,15 +779,14 @@ export default function Home() {
             <div className="absolute bottom-12 right-10 text-white/35 text-xs">{"\u2726"}</div>
           </>
         )}
-        
         {thumbnail.tiles && (
           <div className="flex gap-1.5 mb-3">
             {thumbnail.tiles.split('').map((letter, i) => (
-              <div 
+              <div
                 key={i}
                 className={`${thumbnail.tiles === 'PLAY' ? 'w-10 h-11' : 'w-9 h-10'} ${thumbnail.tileBg} rounded-lg flex items-center justify-center shadow-md`}
               >
-                <span 
+                <span
                   className={`${thumbnail.tiles === 'PLAY' ? 'text-lg' : 'text-base'} font-bold`}
                   style={{ fontFamily: 'Georgia, serif', color: thumbnail.tileText }}
                 >
@@ -760,23 +796,21 @@ export default function Home() {
             ))}
           </div>
         )}
-        
         {thumbnail.icon && (
           <div className={`${thumbnail.iconSize} mb-2`}>{thumbnail.icon}</div>
         )}
-        
         <div className="text-center">
           {thumbnail.title.map((line, i) => (
-            <div 
+            <div
               key={i}
               className={`font-bold text-white leading-tight ${
-                thumbnail.titleStyle 
-                  ? thumbnail.titleStyle[i] 
+                thumbnail.titleStyle
+                  ? thumbnail.titleStyle[i]
                   : i === 0 && thumbnail.title.length > 1 && !thumbnail.tiles
                     ? 'text-xl'
                     : 'text-2xl'
               }`}
-              style={{ 
+              style={{
                 fontFamily: 'Georgia, serif',
                 textShadow: '1px 1px 3px rgba(0,0,0,0.25)'
               }}
@@ -785,7 +819,6 @@ export default function Home() {
             </div>
           ))}
         </div>
-        
         <div className={`text-xs tracking-widest uppercase mt-2 font-medium ${thumbnail.subtitleColor}`}>
           {thumbnail.subtitle}
         </div>
@@ -795,7 +828,6 @@ export default function Home() {
 
   const GameCard = ({ game, children }) => {
     const baseClasses = `group block bg-white rounded-2xl shadow-lg overflow-hidden border-2 ${game.borderColor} transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${game.comingSoon ? 'opacity-70 pointer-events-none' : ''}`;
-    
     if (game.external) {
       return (
         <a href={game.href} className={baseClasses} target="_blank" rel="noopener noreferrer">
@@ -803,7 +835,6 @@ export default function Home() {
         </a>
       );
     }
-    
     return (
       <Link href={game.href} className={baseClasses}>
         {children}
@@ -818,7 +849,6 @@ export default function Home() {
           <GameCard game={game}>
             <div className="relative h-48">
               {renderThumbnail(game)}
-              
               {game.comingSoon ? (
                 <div className="absolute inset-0 bg-gray-800/60 flex items-center justify-center">
                   <div className="text-center text-white">
@@ -834,7 +864,6 @@ export default function Home() {
                 </div>
               )}
             </div>
-            
             <div className={`p-5 bg-gradient-to-br ${game.bgColor}`}>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-2xl">{game.emoji}</span>
@@ -861,7 +890,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
-      {/* Header */}
       <header className="text-center py-12 px-4">
         <div className="text-6xl mb-4">{"\uD83E\uDD5E"}</div>
         <h1 className="text-4xl md:text-5xl font-bold text-amber-800 mb-4" style={{ fontFamily: 'Georgia, serif' }}>
@@ -870,71 +898,52 @@ export default function Home() {
         <p className="text-sm text-amber-600 font-medium mb-6">
           {"\u2728"} Play free {"\u2022"} No downloads {"\u2728"}
         </p>
-        
-        {/* Navigation */}
         <nav className="flex flex-wrap justify-center gap-3 max-w-xl mx-auto">
-          <button 
+          <button
             onClick={() => scrollToSection('daily-favorites')}
             className="inline-flex items-center gap-1 px-4 py-2 text-white rounded-full text-sm font-semibold shadow-md hover:opacity-90 transition-opacity animate-pulse"
-            style={{
-              background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)',
-              animationDuration: '3s'
-            }}
+            style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)', animationDuration: '3s' }}
           >
             <span>{"\uD83E\uDD5E"}</span>
             Daily Favorites
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('grand-opening')}
             className="inline-flex items-center gap-1 px-4 py-2 text-white rounded-full text-sm font-semibold shadow-md hover:opacity-90 transition-opacity"
-            style={{
-              background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)'
-            }}
+            style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)' }}
           >
             <span className="text-yellow-300">{"\u2728"}</span>
-            Grand Opening
+            Fan Favorites
           </button>
-          <button 
-            onClick={() => {
-              if (!showMoreGames) setShowMoreGames(true);
-              setTimeout(() => scrollToSection('more-games'), 100);
-            }}
+          <button
+            onClick={() => { if (!showMoreGames) setShowMoreGames(true); setTimeout(() => scrollToSection('more-games'), 100); }}
             className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
           >
             More Games
           </button>
-          <button 
-            onClick={() => {
-              if (!showMoreGames) setShowMoreGames(true);
-              setTimeout(() => scrollToSection('stories-more'), 100);
-            }}
-            className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
+          <button
+            onClick={() => { if (!showMoreGames) setShowMoreGames(true); setTimeout(() => scrollToSection('stories-more'), 100); }}
+            className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
+            style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
           >
             {"\u2728"} Stories, Recipes, & More
           </button>
-          <button 
-            onClick={() => {
-              if (!showMoreGames) setShowMoreGames(true);
-              setTimeout(() => scrollToSection('cafe-specials'), 100);
-            }}
+          <button
+            onClick={() => { if (!showMoreGames) setShowMoreGames(true); setTimeout(() => scrollToSection('cafe-specials'), 100); }}
             className="px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
           >
             🎹 Cafe Specials 🕰️
           </button>
-          <button 
-            onClick={() => {
-              if (!showMoreGames) setShowMoreGames(true);
-              setTimeout(() => scrollToSection('espresso-lane'), 100);
-            }}
+          <button
+            onClick={() => { if (!showMoreGames) setShowMoreGames(true); setTimeout(() => scrollToSection('espresso-lane'), 100); }}
             className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
           >
             {"\u2615"} Espresso Lane
-            
           </button>
           <button
             onClick={() => scrollToSection('summer-days')}
             className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
-            style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
+            style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #0369a1 40%, #0ea5e9 75%, #38bdf8 100%)' }}
           >
             ☀️ Summer Days
           </button>
@@ -942,7 +951,7 @@ export default function Home() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 pb-12">
-        
+
         {/* SECTION 1: Daily Favorites */}
         <section id="daily-favorites" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
@@ -951,41 +960,29 @@ export default function Home() {
             </h2>
             <p className="text-amber-600">Our daily puzzles</p>
           </div>
-          
           <GameGrid games={dailyFavorites} />
         </section>
 
-        {/* SECTION 2: Grand Opening */}
+        {/* SECTION 2: Fan Favorites */}
         <section id="grand-opening" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
-            <div 
+            <div
               className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
-              style={{
-                background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)',
-                fontFamily: 'Georgia, serif'
-              }}
+              style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)', fontFamily: 'Georgia, serif' }}
             >
               <span className="text-yellow-300">{"\u2728"}</span>
-              {' '}Grand Opening{' '}
+              {' '}Fan Favorites{' '}
               <span className="text-yellow-300">{"\u2728"}</span>
             </div>
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-              New Games & Experiences
+              Fan Favorites
             </h2>
-            <p className="text-amber-600">Fresh additions to the Letter Griddle Games!</p>
+            <p className="text-amber-600">Community favorites from the Letter Griddle Games!</p>
           </div>
-          
           <GameGrid games={grandOpeningGames} />
-          
-          {/* Explore More Button */}
           <div className="text-center mt-10">
-            <button 
-              onClick={() => {
-                setShowMoreGames(!showMoreGames);
-                if (!showMoreGames) {
-                  setTimeout(() => scrollToSection('more-games'), 100);
-                }
-              }}
+            <button
+              onClick={() => { setShowMoreGames(!showMoreGames); if (!showMoreGames) { setTimeout(() => scrollToSection('more-games'), 100); } }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-full font-semibold hover:from-orange-500 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl"
             >
               {showMoreGames ? 'Hide More Games' : 'Explore More Games'}
@@ -999,12 +996,9 @@ export default function Home() {
             {/* SECTION: Cafe Specials */}
             <section id="cafe-specials" className="mb-16 scroll-mt-8">
               <div className="text-center mb-8">
-                <div 
+                <div
                   className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
-                  style={{
-                    background: 'linear-gradient(135deg, #D4833A 0%, #C2632A 50%, #8B3A1A 100%)',
-                    fontFamily: 'Georgia, serif'
-                  }}
+                  style={{ background: 'linear-gradient(135deg, #D4833A 0%, #C2632A 50%, #8B3A1A 100%)', fontFamily: 'Georgia, serif' }}
                 >
                   🎹 Cafe Specials 🕰️
                 </div>
@@ -1041,12 +1035,9 @@ export default function Home() {
             {/* SECTION: Espresso Lane */}
             <section id="espresso-lane" className="mb-16 scroll-mt-8">
               <div className="text-center mb-8">
-                <div 
+                <div
                   className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
-                  style={{
-                    background: 'linear-gradient(135deg, #78350F 0%, #92400E 50%, #451A03 100%)',
-                    fontFamily: 'Georgia, serif'
-                  }}
+                  style={{ background: 'linear-gradient(135deg, #78350F 0%, #92400E 50%, #451A03 100%)', fontFamily: 'Georgia, serif' }}
                 >
                   {"\u2615"} Espresso Lane {"\u2615"}
                 </div>
@@ -1055,7 +1046,6 @@ export default function Home() {
                 </h2>
                 <p className="text-amber-600">Games to pair with your coffee break</p>
               </div>
-              
               <GameGrid games={espressoLaneGames} />
             </section>
 
@@ -1066,13 +1056,12 @@ export default function Home() {
                   Letter Griddle Games
                 </h2>
               </div>
-              
               <GameGrid games={letterGriddleGames} />
-              
               <div className="text-center mt-10">
-                <button 
+                <button
                   onClick={() => scrollToSection('stories-more')}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 text-white rounded-full font-semibold hover:from-amber-700 hover:to-amber-800 transition-all shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center gap-2 px-6 py-3 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
+                  style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
                 >
                   Recipes, Stories, Puzzles & More
                   <span className="text-xl">{"\u2192"}</span>
@@ -1087,9 +1076,7 @@ export default function Home() {
                   Recipes, Stories, Puzzles & More
                 </h2>
               </div>
-              
               <GameGrid games={storiesAndMore} />
-
               <div className="flex justify-center mt-6">
                 <div className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                   <GameCard game={{
@@ -1134,9 +1121,8 @@ export default function Home() {
                   </GameCard>
                 </div>
               </div>
-              
               <div className="text-center mt-10">
-                <button 
+                <button
                   onClick={() => scrollToSection('daily-favorites')}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-full font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all shadow-lg hover:shadow-xl"
                 >
@@ -1148,15 +1134,12 @@ export default function Home() {
           </>
         )}
 
-{/* SECTION: Summer Days */}
+        {/* SECTION: Summer Days */}
         <section id="summer-days" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
             <div
               className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
-              style={{
-                background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)',
-                fontFamily: 'Georgia, serif'
-              }}
+              style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #0369a1 40%, #0ea5e9 75%, #38bdf8 100%)', fontFamily: 'Georgia, serif' }}
             >
               ☀️ Summer Days ☀️
             </div>
@@ -1167,9 +1150,9 @@ export default function Home() {
           </div>
           <GameGrid games={summerDaysGames} />
         </section>
+
       </main>
 
-      {/* Footer */}
       <footer className="bg-amber-800 text-amber-100 py-8 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex justify-center items-center gap-2 mb-4">

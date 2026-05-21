@@ -743,6 +743,25 @@ export default function Home() {
       hoverBg: "bg-blue-800/80"
     },
     {
+      name: "Letter Griddle Travels",
+      tagline: "Pack your bags and solve the world!",
+      emoji: "\u2708\uFE0F",
+      href: "/travels",
+      thumbnail: {
+        gradient: "linear-gradient(160deg, #0c4a6e 0%, #0369a1 30%, #0891b2 60%, #67e8f9 100%)",
+        icon: "\u2708\uFE0F",
+        iconSize: "text-5xl",
+        title: ["Letter Griddle", "Travels"],
+        subtitle: "SUMMER ADVENTURES",
+        subtitleColor: "text-cyan-100"
+      },
+      borderColor: "border-cyan-400",
+      bgColor: "from-cyan-50 to-sky-100",
+      textColor: "text-cyan-900",
+      subTextColor: "text-cyan-700",
+      hoverBg: "bg-cyan-700/80"
+    },
+    {
       name: "Letter Griddle Geo",
       tagline: "Pick a country. Solve the words.",
       emoji: "\uD83C\uDF0D",

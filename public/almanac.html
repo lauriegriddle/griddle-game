@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cafe Almanac · Letter Griddle</title>
+  <meta name="description" content="Guess the year from the cafe regulars' memories. A daily word game from Letter Griddle.">
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(160deg, #2a1205 0%, #1a0c04 60%, #2d1a08 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    #back-link {
+      align-self: flex-start;
+      font-size: 13px;
+      color: #D4833A;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    #back-link:hover { color: #f0c898; text-decoration: underline; }
+
+    #wrap {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    /* Header */
+    #header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    #header .book-icon { font-size: 32px; margin-bottom: 6px; }
+    #header h1 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #f0c898;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    #header .subtitle {
+      font-size: 11px;
+      color: #c9956a;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Open book */
+    #book {
+      background: linear-gradient(135deg, #fdf6ee 0%, #f0e0c0 100%);
+      border: 2px solid #c9956a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 2px 8px rgba(139,58,26,0.3);
+    }
+
+    #book-title {
+      text-align: center;
+      font-size: 11px;
+      color: #8B3A1A;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* Clue dots */
+    #clue-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 1.25rem;
+    }
+    .clue-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #d4a870;
+      transition: background 0.2s;
+    }
+    .clue-dot.active { background: #C2632A; }
+    .clue-dot.used { background: #8B3A1A; }
+
+    /* Clue cards */
+    #clues-container { display: flex; flex-direction: column; gap: 10px; }
+
+    .clue-card {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid #c9956a;
+      border-radius: 8px;
+      padding: 12px 14px;
+      transition: opacity 0.3s;
+    }
+    .clue-card.locked {
+      opacity: 0.6;
+      background: rgba(255,255,255,0.35);
+    }
+    .clue-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .clue-emoji { font-size: 16px; }
+    .clue-character {
+      font-size: 12px;
+      font-weight: 700;
+      color: #C2632A;
+    }
+    .clue-category {
+      font-size: 10px;
+      color: #7a4a20;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    .clue-text {
+      font-size: 14px;
+      color: #2a1205;
+      line-height: 1.7;
+      font-style: italic;
+      font-weight: 500;
+    }
+    .clue-locked-text {
+      font-size: 12px;
+      color: #8B3A1A;
+      font-style: italic;
+    }
+
+    /* Guess section */
+    #guess-section {
+      background: linear-gradient(135deg, #3b1a08 0%, #2a1205 100%);
+      border: 2px solid #c9956a;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    #guess-label {
+      font-size: 11px;
+      color: #f0c898;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    #guess-input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    #year-input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1.5px solid #c9956a;
+      border-radius: 8px;
+      background: #fdf6ee;
+      font-size: 18px;
+      font-weight: 700;
+      color: #2a1205;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    #year-input:focus { border-color: #D4833A; box-shadow: 0 0 0 2px rgba(212,131,58,0.3); }
+    #year-input::placeholder { color: #c9956a; font-weight: 400; font-size: 14px; }
+
+    #guess-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #D4833A, #C2632A);
+      color: #fff3e8;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.1s;
+      white-space: nowrap;
+    }
+    #guess-btn:hover { opacity: 0.9; }
+    #guess-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Year slider */
+    #year-slider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #year-slider-label { font-size: 11px; color: #a07040; min-width: 32px; text-align: right; }
+    #year-slider { flex: 1; accent-color: #C2632A; cursor: pointer; }
+    #year-slider-label { font-size: 11px; color: #f0c898; min-width: 32px; text-align: right; }
+    #year-slider { flex: 1; accent-color: #D4833A; cursor: pointer; }
+    #year-slider-label-right { font-size: 11px; color: #f0c898; min-width: 32px; }
+
+    /* Guess history */
+    #guess-history { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+
+    .guess-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .guess-row.exact { background: #2d5a1a; color: #a8f080; border: 1px solid #4a8a30; }
+    .guess-row.close { background: #5a4a10; color: #f0d870; border: 1px solid #8a7020; }
+    .guess-row.warm { background: #5a2a10; color: #f0b080; border: 1px solid #8a4a20; }
+    .guess-row.cold { background: #2a1a10; color: #c09070; border: 1px solid #4a3020; }
+
+    .guess-year { font-weight: 700; font-size: 16px; min-width: 48px; }
+    .guess-feedback { flex: 1; }
+    .guess-emoji { font-size: 14px; }
+
+    /* Completion card */
+    #completion-card {
+      background: linear-gradient(135deg, #fdf6ee 0%, #f0e0c0 100%);
+      border: 2px solid #c9956a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      display: none;
+      text-align: center;
+    }
+    #completion-card.visible { display: block; }
+
+    #completion-year {
+      font-size: 48px;
+      font-weight: 700;
+      color: #8B3A1A;
+      font-family: Georgia, serif;
+      margin-bottom: 8px;
+    }
+    #completion-honeypots {
+      font-size: 28px;
+      margin-bottom: 10px;
+      letter-spacing: 4px;
+    }
+    #completion-message {
+      font-size: 14px;
+      color: #2a1205;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    #completion-score {
+      font-size: 13px;
+      color: #8B3A1A;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .completion-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      margin: 4px;
+      transition: opacity 0.1s;
+    }
+    .completion-btn:hover { opacity: 0.85; }
+    #share-btn { background: #C2632A; color: #fff3e8; }
+    #play-again-btn { background: #fdf6ee; color: #8B3A1A; border: 2px solid #C2632A; }
+
+    #share-confirm {
+      font-size: 11px;
+      color: #8B3A1A;
+      margin-top: 6px;
+      height: 16px;
+    }
+
+    /* Footer */
+    #footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 12px;
+      color: #c9956a;
+    }
+    #footer a { color: #D4833A; text-decoration: none; }
+    #footer a:hover { color: #f0c898; text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      body { padding: 1rem 0.75rem 2rem; }
+      #completion-year { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="https://lettergriddle.com" id="back-link">← Letter Griddle</a>
+
+  <div id="wrap">
+    <div id="header">
+      <div class="book-icon">📖</div>
+      <h1>The Cafe Almanac</h1>
+      <div class="subtitle">Letter Griddle · Year <span id="display-year">????</span></div>
+    </div>
+
+    <div id="book">
+      <div id="book-title">The trivia crew remembers…</div>
+      <div id="clue-dots">
+        <div class="clue-dot active" id="dot0"></div>
+        <div class="clue-dot" id="dot1"></div>
+        <div class="clue-dot" id="dot2"></div>
+        <div class="clue-dot" id="dot3"></div>
+      </div>
+      <div id="clues-container">
+        <div class="clue-card" id="clue0">
+          <div class="clue-header">
+            <span class="clue-emoji" id="emoji0"></span>
+            <div>
+              <div class="clue-character" id="char0"></div>
+              <div class="clue-category" id="cat0"></div>
+            </div>
+          </div>
+          <div class="clue-text" id="clueText0"></div>
+        </div>
+        <div class="clue-card locked" id="clue1">
+          <div class="clue-header">
+            <span class="clue-emoji">🔒</span>
+            <div>
+              <div class="clue-character">Second Clue</div>
+              <div class="clue-category">Revealed after your first guess</div>
+            </div>
+          </div>
+          <div class="clue-text"><span class="clue-locked-text">Make a guess to reveal the next memory…</span></div>
+        </div>
+        <div class="clue-card locked" id="clue2">
+          <div class="clue-header">
+            <span class="clue-emoji">🔒</span>
+            <div>
+              <div class="clue-character">Third Clue</div>
+              <div class="clue-category">Revealed after your second guess</div>
+            </div>
+          </div>
+          <div class="clue-text"><span class="clue-locked-text">Make a guess to reveal the next memory…</span></div>
+        </div>
+        <div class="clue-card locked" id="clue3">
+          <div class="clue-header">
+            <span class="clue-emoji">🔒</span>
+            <div>
+              <div class="clue-character">Fourth Clue</div>
+              <div class="clue-category">Revealed after your third guess</div>
+            </div>
+          </div>
+          <div class="clue-text"><span class="clue-locked-text">Make a guess to reveal the next memory…</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="guess-section">
+      <div id="guess-label">Which year is the crew remembering?</div>
+      <div id="guess-input-row">
+        <input type="number" id="year-input" placeholder="Enter a year…" min="1980" max="1999">
+        <button id="guess-btn">Guess</button>
+      </div>
+      <div id="year-slider-wrap">
+        <span id="year-slider-label">1980</span>
+        <input type="range" id="year-slider" min="1980" max="1999" value="1989" step="1">
+        <span id="year-slider-label-right">1999</span>
+      </div>
+      <div id="guess-history"></div>
+    </div>
+
+    <div id="completion-card">
+      <div id="completion-year"></div>
+      <div id="completion-honeypots"></div>
+      <div id="completion-message"></div>
+      <div id="completion-score"></div>
+      <button class="completion-btn" id="share-btn">Share Result</button>
+      <button class="completion-btn" id="play-again-btn">Play Again</button>
+      <div id="share-confirm"></div>
+    </div>
+
+    <div id="footer">
+      <p>Part of the <a href="https://lettergriddle.com">Letter Griddle</a> family &nbsp;·&nbsp;
+      <a href="https://lettergriddle.com/privacy">Privacy</a> &nbsp;·&nbsp;
+      <a href="https://lettergriddle.com/terms">Terms</a></p>
+      <p style="margin-top:4px;">© <span id="copy-year"></span> Letter Griddle</p>
+    </div>
+  </div>
+
+  <script>
+  const almanacData = {
+    1980: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Quiche was having its moment. We couldn't keep up with orders. Every cafe in Griddle Falls had a quiche of the day on the chalkboard." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Pac-Man hit the arcades and nobody went home. I spent every quarter I had on that machine. Also, CNN launched this year, the first all-news channel." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"We lost John Lennon in December, right outside his New York home,\" Mr. Lindsay says quietly. \"The whole world felt it.\" Mrs. Lindsay adds, \"The cafe was very still that evening. Nobody wanted to go home.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"The Shining came to theaters this year. Kubrick's version. Half the regulars couldn't sleep for a week. Stephen King wasn't entirely pleased, but we were terrified." }
+    ]},
+
+    1981: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Frozen yogurt shops were popping up everywhere this year. The regulars kept asking if we were going to add it to the menu. We stuck with coffee and cinnamon rolls." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"MTV launched in August and music was never the same. The first video they played was Video Killed the Radio Star. Also, the first IBM personal computer hit stores this year." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"Mrs. Lindsay remembers watching the royal wedding on television,\" Mr. Lindsay says. \"Charles and Diana, July 29th.\" Mrs. Lindsay adds, \"The whole street gathered around one TV set. It felt like a fairy tale.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"The Hitchhiker's Guide to the Galaxy came out as a novel this year, adapted from the radio series. Douglas Adams had everyone at the cafe questioning the meaning of everything, cheerfully." }
+    ]},
+    1982: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Sun-dried tomatoes started showing up in everything this year. Pasta, sandwiches, appetizers. We added them to the menu and the regulars acted like we had invented something brand new." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"E.T. the Extra-Terrestrial had everyone crying at the movies. Also, the CD was introduced this year and I immediately declared vinyl was finished. I was wrong, but I didn't know it yet." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"The Falklands War was brief but intense,\" Mrs. Lindsay says. \"I followed every dispatch.\" Mr. Lindsay adds, \"I had strong opinions about the geography of it all. Trivia night did not go well for me.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"Alice Walker's The Color Purple was published this year. I had it read before the rest of the cafe had even heard of it. It went on to win the Pulitzer the following year." }
+    ]},
+    1983: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Chicken Caesar salad was everywhere this year. Every lunch spot in Griddle Falls had one on the menu. We made ours with homemade croutons and the regulars approved." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Return of the Jedi closed out the original Star Wars trilogy and I was at the theater opening weekend. Also, the internet as we know it was born this year when the ARPANET officially switched to TCP/IP protocols." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"Sally Ride became the first American woman in space this year,\" Mrs. Lindsay says. \"I remember watching the launch and thinking, well, it's about time.\" Mr. Lindsay adds, \"I had that one right on trivia night.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"The Name of the Rose by Umberto Eco was the book everyone was carrying this year. A medieval murder mystery that made everyone feel very intellectual. I loved every page of it." }
+    ]},
+    1984: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Raspberry vinaigrette was the dressing of the moment. We started making our own at the cafe and drizzling it on everything. The regulars called it fancy. We called it Thursday." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Apple introduced the Macintosh computer with that famous Super Bowl commercial and I watched it about fifty times. Also, Ghostbusters came out this year and we all wanted to be on the crew." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"The summer Olympics in Los Angeles were something special,\" Mr. Lindsay says. \"We watched every night at the cafe.\" Mrs. Lindsay adds, \"The US won 83 gold medals. Mr. Lindsay knew the exact count before anyone asked.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"George Orwell's 1984 had been published decades earlier but this was the actual year and everyone read it again with fresh eyes. It felt uncomfortably timely in a way that kept the cafe very quiet." }
+    ]},
+    1985: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Sun-dried tomatoes in olive oil with herbs. We put a jar on every table and the regulars treated it like a condiment. Also, tiramisu showed up on every dessert menu in Griddle Falls this year." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Back to the Future had everyone at school pretending their bikes were DeLoreans. Also, the first .com domain was registered this year. I remember thinking, that will never catch on." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"Live Aid was two concerts, two continents, one day,\" Mrs. Lindsay says. \"We watched the whole thing at the cafe.\" Mr. Lindsay adds, \"Wembley in the afternoon, Philadelphia in the evening. The whole world watching together.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"The Handmaid's Tale by Margaret Atwood was published this year. I read it in one sitting and then sat very quietly for a while. It has never stopped feeling relevant." }
+    ]},
+    1986: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Croissants were the breakfast of the moment. Every bakery in Griddle Falls was making them and we were no exception. Plain, almond, chocolate. The regulars had strong opinions about which was best." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Top Gun had everyone wearing aviator sunglasses and I was no exception. Also, Pixar was founded this year as a division of Lucasfilm. Nobody knew what was coming." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"The Challenger tragedy in January was something none of us were prepared for,\" Mrs. Lindsay says quietly. \"The cafe was very still that day.\" Mr. Lindsay adds, \"We watched together and nobody said much for a long time.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"It was the year of Watchmen, the graphic novel by Alan Moore. It changed what comics could be and I remember being surprised by how much it moved me. Not everyone at the cafe was convinced it counted as literature. It did." }
+    ]},
+    1987: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Sun-dried tomato and basil was the flavor combination of the year. We put it on focaccia, in pasta, on everything really. The regulars started requesting it by name which meant we had done something right." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"The first disposable camera came out this year and suddenly everyone was a photographer. Also, Fatal Attraction was the movie everyone was talking about. I saw it twice and slept with the lights on." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"Mr. Gorbachev, tear down this wall,\" Mr. Lindsay says, quoting Reagan at the Brandenburg Gate. \"I remember that speech very clearly.\" Mrs. Lindsay adds, \"We did not know then that the wall would actually come down two years later.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"Beloved by Toni Morrison was published this year. I have recommended it more times than I can count. It won the Pulitzer the following year and deserved every word of praise it received." }
+    ]},
+    1988: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Blackened everything was the cooking technique of the moment. Blackened chicken, blackened fish, blackened vegetables. We tried it at the cafe and the smoke alarm had strong opinions about it." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Who Framed Roger Rabbit came out this year and the combination of animation and live action felt like magic. Also, the first digital audio tape was introduced and I told everyone it would replace CDs. I was wrong again." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"The Seoul Olympics were wonderful,\" Mrs. Lindsay says. \"We watched the opening ceremony at the cafe.\" Mr. Lindsay adds, \"Florence Griffith Joyner, Flo-Jo, won three gold medals and ran like nothing any of us had ever seen. I still talk about it.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"The Satanic Verses by Salman Rushdie was published this year. It became one of the most talked about and most controversial books of the decade. I read it and found it extraordinary, whatever one thought of the surrounding noise." }
+    ]},
+    1989: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Biscotti made its way onto every coffee shop counter this year. We put a jar next to the register and the regulars dunked them in their coffee like they had been doing it their whole lives. Maybe they had." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"The World Wide Web was invented by Tim Berners-Lee this year, though nobody outside of a lab knew it yet. Also, the Game Boy came out and I had one in my hands the first week. I still have it somewhere." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"The Berlin Wall came down in November,\" Mr. Lindsay says. \"I remembered what I had said two years earlier about Mr. Gorbachev's speech.\" Mrs. Lindsay adds, \"We watched the images on television and the cafe was very loud that night. In the best way.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"The Remains of the Day by Kazuo Ishiguro was published this year. Quiet, precise, and absolutely devastating by the final page. I pressed it into the hands of every regular who would listen." }
+    ]},
+    1990: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Flavored coffees were everywhere this year. Hazelnut, vanilla, caramel. The regulars weren't sure about it at first but by December everyone had a favorite. We went through hazelnut syrup faster than we could order it." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"The Hubble Space Telescope launched this year and I watched every minute of the coverage. Also, Home Alone came out at Christmas and every kid I knew could quote the whole thing by January." },
+      { character:"Josie", category:"Music & Youth Culture", emoji:"☀️", text:"Milli Vanilli had to give back their Grammy this year when it came out they hadn't sung a single note on their album. I was devastated. Mom said she had her suspicions all along." },
+      { character:"Josephine", category:"Fashion & Lifestyle", emoji:"🤲", text:"Shoulder pads were finally on their way out this year, thank goodness. Josie and I went through my closet and donated half of it. She called it an archaeological dig. She was not entirely wrong." }
+    ]},
+    1991: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Focaccia bread was the thing this year. We started making it fresh every morning and the smell alone brought people through the door. The regulars ate it plain, with olive oil, with everything. We could not keep up." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"The World Wide Web went public this year and I tried to explain to everyone at the cafe what it meant. Nobody was particularly impressed. Also, Terminator 2 came out and everyone was impressed by that." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"The Soviet Union dissolved this year,\" Mr. Lindsay says. \"I had strong opinions about the geopolitics of it all.\" Mrs. Lindsay adds, \"He did. We heard them at length. Trivia night ran very late that evening.\"" },
+      { character:"Jennie & Isaac", category:"Sports & Fun Facts", emoji:"🍩", text:"Michael Jordan and the Chicago Bulls won their first NBA championship this year. Isaac and I watched every game. He has a very specific yap for a buzzer beater and we heard it quite a lot that spring." }
+    ]},
+    1992: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Smoothies arrived this year and suddenly everyone wanted fruit in a cup with a straw. We added a small smoothie menu at the cafe and the regulars treated it like a health revolution. It was mostly strawberries and banana." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Wayne's World came out this year and every conversation ended with Party on. Also, the first text message was sent in December. I remember thinking, who would ever use that instead of just calling someone." },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"A League of Their Own came to theaters this year. There is no crying in baseball, except there was, because it was a wonderful film. I have watched it more times than I will admit to at trivia night." },
+      { character:"Jennie & Isaac", category:"Sports & Fun Facts", emoji:"🍩", text:"The Dream Team at the Barcelona Olympics was something none of us had ever seen before. Michael Jordan, Magic Johnson, Larry Bird, all on the same team. Isaac wore his tiny basketball jersey the whole summer. He knew something historic was happening." }
+    ]},
+    1993: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Soup was having a serious moment this year. Not just any soup, but artisan soup. We added three rotating soups to the daily menu and the regulars started planning their visits around which one was on the chalkboard." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Jurassic Park came out this year and the special effects changed everything. I saw it three times in the theater. Also, the first web browser Mosaic launched this year and suddenly the internet had pictures. Everything changed very quickly after that." },
+      { character:"Josie", category:"Music & Youth Culture", emoji:"☀️", text:"Whitney Houston's I Will Always Love You was everywhere this year from The Bodyguard soundtrack. I sang it constantly. Mom asked me to please sing it a little less constantly. I did not." },
+      { character:"Josephine", category:"Fashion & Lifestyle", emoji:"🤲", text:"Grunge fashion came down from Seattle and into every mall in America this year. Flannel shirts, ripped jeans, chunky boots. Josie wanted the whole look. I compromised on the flannel shirt. We still have it somewhere." }
+    ]},
+    1994: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Panini presses appeared in every cafe this year and we were no exception. The regulars discovered that almost anything was better pressed and melted between two pieces of bread. They were not wrong." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"The Lion King came out this year and I am not ashamed to say I cried. Also, Netscape launched and suddenly everyone wanted to be on the internet. I had been saying this for years. Nobody thanked me." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"Nelson Mandela became president of South Africa this year,\" Mrs. Lindsay says. \"We watched the inauguration at the cafe and it was one of those mornings where nobody wanted to leave.\" Mr. Lindsay adds, \"I have never been more glad to be wrong about how something would turn out.\"" },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"The Shawshank Redemption came to theaters this year, adapted from a Stephen King story. It did not do particularly well at the box office initially. I saw it opening weekend and told everyone who would listen that they were missing something extraordinary." }
+    ]},
+    1995: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Bottled water appeared on cafe tables this year and the regulars looked at it like we had lost our minds. Why would anyone pay for water in a bottle? By December they were asking for it by brand. People are surprising." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Toy Story came out this year and it was the first fully computer animated feature film. I knew immediately that everything about movies had just changed. Also, Windows 95 launched and the whole world lined up to buy it. I was first in line." },
+      { character:"Josie", category:"Music & Youth Culture", emoji:"☀️", text:"TLC's Waterfalls was the song of the summer and I knew every word. Also, the Macarena arrived this year and I taught the whole cafe how to do it one Sunday evening. Even Mr. Lindsay gave it a try. Once." },
+      { character:"Josephine", category:"Fashion & Lifestyle", emoji:"🤲", text:"The little black dress had a real renaissance this year. Simple, classic, versatile. Josie and I found matching ones at a small boutique in Griddle Falls and wore them to the cafe's anniversary dinner. Laurel said we looked like we had planned it. We had." }
+    ]},
+    1996: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Brick oven pizza arrived in Griddle Falls this year and the regulars debated endlessly about whether it was better than the original. We added a flatbread to the cafe menu as a compromise. Everyone claimed victory." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Space Jam came out this year and I will defend it forever. Also, the first DVD player went on sale and I bought one immediately. I told everyone that VHS was finished. This time I was actually right." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"The Summer Olympics were in Atlanta this year,\" Mr. Lindsay says. \"Right here in the United States and we felt every moment of it.\" Mrs. Lindsay adds, \"The Centennial Olympic Park bombing was a very dark day. We sat together at the cafe and were quiet for a long time.\"" },
+      { character:"Jennie & Isaac", category:"Sports & Fun Facts", emoji:"🍩", text:"The Chicago Bulls won 72 games that season, the most in NBA history at the time. Isaac and I watched every one we could. He developed a victory lap around the living room that year. We still call it the Dennis Rodman." }
+    ]},
+    1997: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Bruschetta was the appetizer of the moment this year. We put it on the menu as a starter and the regulars ordered it so often we eventually just left the ingredients on the table. It became its own cafe tradition." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Titanic came out in December and I saw it opening weekend. Three hours and fourteen minutes and nobody in that theater moved. Also, NASA's Pathfinder landed on Mars this year and I followed every transmission. It was a good year for big things." },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"Harry Potter and the Philosopher's Stone was published in the UK this year. A small print run, not much fanfare. I found a copy and read it in one sitting. I told everyone something very special had just arrived. They thought I was overreacting. I was not." },
+      { character:"Jennie & Isaac", category:"Sports & Fun Facts", emoji:"🍩", text:"Tiger Woods won his first Masters this year at just 21 years old. Isaac and I watched the final round together. He was very still for most of it, which is unusual for him, and then very loud at the end. He understood the magnitude." }
+    ]},
+    1998: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Wraps replaced sandwiches almost overnight this year. We redesigned the whole lunch menu around them. Sun-dried tomato and hummus, turkey and avocado, roasted vegetables. The regulars acted like bread had never existed." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Google launched this year out of a garage in California. I signed up on the first day and told everyone it would replace every other search engine within a year. For once nobody argued with me. Also, Saving Private Ryan came out and the whole cafe was very quiet the evening after we saw it." },
+      { character:"Josie", category:"Music & Youth Culture", emoji:"☀️", text:"Titanic was still everywhere from the year before and My Heart Will Go On was on every radio every single day. I knew every word. I still know every word. I will always know every word. Mom has accepted this." },
+      { character:"The Lindsays", category:"History & World Events", emoji:"⚡", text:"\"The Good Friday Agreement brought hope to Northern Ireland this year,\" Mrs. Lindsay says. \"It felt like something that had seemed impossible had suddenly become possible.\" Mr. Lindsay adds, \"I had studied the history of it for years. I did not expect to see it in my lifetime.\"" }
+    ]},
+    1999: { clues: [
+      { character:"Laurel", category:"Cafe & Food", emoji:"🥞", text:"Millennium menus were everywhere by December. Every restaurant in Griddle Falls had a special New Year's Eve tasting menu for the big night. We kept ours simple. Coffee, cinnamon rolls, and good company. The regulars said it was perfect." },
+      { character:"Taylor B.", category:"Pop Culture & Tech", emoji:"🟠", text:"Everyone was convinced the Y2K bug was going to bring down civilization on January 1st. I stocked up on bottled water and flashlights and wrote a very detailed preparedness plan. Nothing happened. The regulars have never let me forget it." },
+      { character:"Josephine", category:"Fashion & Lifestyle", emoji:"🤲", text:"Velvet everything was the look for New Year's Eve this year. Deep jewel tones, rich textures, very glamorous. Josie and I dressed up for the cafe's millennium party and I still think about that evening as one of the loveliest nights we have had here." },
+      { character:"Sarah", category:"Books & Language", emoji:"🌟", text:"The Blair Witch Project came out this year and invented a whole new kind of fear. Found footage, no score, no stars. Just dread. I watched it once and that was enough. I recommended it to everyone anyway. That is what books and films are for." }
+    ]}
+  };
+
+
+  const years = Object.keys(almanacData).map(Number);
+  let targetYear, guessCount, cluesRevealed, gameOver;
+
+  function getDisplayYear() {
+    const today = new Date();
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+    return years[dayOfYear % years.length];
+  }
+
+  function init() {
+    targetYear = getDisplayYear();
+    guessCount = 0;
+    cluesRevealed = 1;
+    gameOver = false;
+    document.getElementById('display-year').textContent = '????';
+    document.getElementById('guess-history').innerHTML = '';
+    document.getElementById('completion-card').classList.remove('visible');
+    document.getElementById('completion-card').style.display = 'none';
+    document.getElementById('guess-section').style.display = 'block';
+    document.getElementById('year-input').value = '';
+    showClue(0);
+    for (let i = 1; i < 4; i++) lockClue(i);
+    updateDots(0);
+  }
+
+  function showClue(index) {
+    const clue = almanacData[targetYear].clues[index];
+    const card = document.getElementById(`clue${index}`);
+    card.classList.remove('locked');
+    card.querySelector(`[id^="emoji"]`) && (document.getElementById(`emoji${index}`) ? document.getElementById(`emoji${index}`).textContent = clue.emoji : null);
+    // Rebuild header
+    card.innerHTML = `
+      <div class="clue-header">
+        <span class="clue-emoji">${clue.emoji}</span>
+        <div>
+          <div class="clue-character">${clue.character}</div>
+          <div class="clue-category">${clue.category}</div>
+        </div>
+      </div>
+      <div class="clue-text">"${clue.text}"</div>
+    `;
+  }
+
+  function lockClue(index) {
+    const card = document.getElementById(`clue${index}`);
+    card.classList.add('locked');
+    const labels = ['first', 'second', 'third'];
+    card.innerHTML = `
+      <div class="clue-header">
+        <span class="clue-emoji">🔒</span>
+        <div>
+          <div class="clue-character">Clue ${index + 1}</div>
+          <div class="clue-category">Revealed after your ${labels[index-1]} guess</div>
+        </div>
+      </div>
+      <div class="clue-text"><span class="clue-locked-text">Make a guess to reveal the next memory…</span></div>
+    `;
+  }
+
+  function updateDots(active) {
+    for (let i = 0; i < 4; i++) {
+      const dot = document.getElementById(`dot${i}`);
+      dot.classList.remove('active', 'used');
+      if (i < active) dot.classList.add('used');
+      else if (i === active) dot.classList.add('active');
+    }
+  }
+
+  function getFeedback(guess, target) {
+    const diff = Math.abs(guess - target);
+    if (diff === 0) return { text: 'You got it!', class: 'exact', emoji: '🍯' };
+    if (diff <= 3) return { text: `Within 3 years (${guess < target ? 'too early' : 'too late'})`, class: 'close', emoji: '🌡️' };
+    if (diff <= 7) return { text: `Within 7 years (${guess < target ? 'too early' : 'too late'})`, class: 'warm', emoji: '📅' };
+    return { text: `${guess < target ? 'Too early' : 'Too late'} — keep trying`, class: 'cold', emoji: '❄️' };
+  }
+
+  function makeGuess() {
+    if (gameOver) return;
+    const input = document.getElementById('year-input');
+    const guess = parseInt(input.value);
+    if (!guess || guess < 1900 || guess > 2100) {
+      input.style.borderColor = '#C2632A';
+      setTimeout(() => input.style.borderColor = '#c9956a', 1000);
+      return;
+    }
+
+    guessCount++;
+    const feedback = getFeedback(guess, targetYear);
+
+    // Add to history
+    const row = document.createElement('div');
+    row.className = `guess-row ${feedback.class}`;
+    row.innerHTML = `<span class="guess-year">${guess}</span><span class="guess-feedback">${feedback.text}</span><span class="guess-emoji">${feedback.emoji}</span>`;
+    document.getElementById('guess-history').prepend(row);
+
+    if (feedback.class === 'exact' || guessCount >= 4) {
+      gameOver = true;
+      showCompletion(feedback.class === 'exact');
+      return;
+    }
+
+    // Reveal next clue
+    if (cluesRevealed < 4) {
+      showClue(cluesRevealed);
+      updateDots(cluesRevealed);
+      cluesRevealed++;
+    }
+
+    input.value = '';
+  }
+
+  function showCompletion(won) {
+    document.getElementById('guess-section').style.display = 'none';
+    const card = document.getElementById('completion-card');
+    card.style.display = 'block';
+    setTimeout(() => card.classList.add('visible'), 50);
+
+    document.getElementById('completion-year').textContent = targetYear;
+    document.getElementById('display-year').textContent = targetYear;
+
+    const honeypots = won ? '🍯'.repeat(5 - guessCount) : '📖';
+    document.getElementById('completion-honeypots').textContent = honeypots;
+
+    const messages = [
+      `"Knew it immediately!" Mr. Lindsay announces. Mrs. Lindsay gives him a look.`,
+      `"Got it in ${guessCount}," Taylor B. says, closing his laptop with satisfaction.`,
+      `"Preserved in ${guessCount} guesses," Sarah says, adding it to the tome.`,
+      `"Still counts!" Laurel says warmly, refilling everyone's coffee.`,
+      `"The year was ${targetYear}," Laurel reads. "It's in the tome now — come back tomorrow."`
+    ];
+    document.getElementById('completion-message').textContent = messages[Math.min(guessCount - 1, messages.length - 1)];
+
+    const scoreText = won
+      ? `Preserved in <strong>${guessCount} ${guessCount === 1 ? 'guess' : 'guesses'}</strong>`
+      : `The entry is safe in the tome.`;
+    document.getElementById('completion-score').innerHTML = scoreText;
+  }
+
+  function buildShareText() {
+    const won = !document.getElementById('completion-honeypots').textContent.includes('📖');
+    const honeypots = document.getElementById('completion-honeypots').textContent;
+    return `The Cafe Almanac 📖\n${targetYear}\n${honeypots}\n${won ? `Preserved in ${guessCount} ${guessCount === 1 ? 'guess' : 'guesses'}!` : 'The entry is safe in the tome.'}\n\nPlay at lettergriddle.com/almanac\nMore games at lettergriddle.com`;
+  }
+
+  // Event listeners
+  document.getElementById('guess-btn').addEventListener('click', makeGuess);
+  document.getElementById('year-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') makeGuess();
+  });
+
+  document.getElementById('year-slider').addEventListener('input', e => {
+    document.getElementById('year-input').value = e.target.value;
+  });
+  document.getElementById('year-input').addEventListener('input', e => {
+    const val = parseInt(e.target.value);
+    if (val >= 1980 && val <= 1999) document.getElementById('year-slider').value = val;
+  });
+
+  document.getElementById('share-btn').addEventListener('click', () => {
+    const text = buildShareText();
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        document.getElementById('share-confirm').textContent = 'Copied to clipboard!';
+        setTimeout(() => document.getElementById('share-confirm').textContent = '', 2000);
+      });
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+      document.getElementById('share-confirm').textContent = 'Copied!';
+      setTimeout(() => document.getElementById('share-confirm').textContent = '', 2000);
+    }
+  });
+
+  document.getElementById('play-again-btn').addEventListener('click', () => {
+    const otherYears = years.filter(y => y !== targetYear);
+    targetYear = otherYears[Math.floor(Math.random() * otherYears.length)];
+    guessCount = 0; cluesRevealed = 1; gameOver = false;
+    document.getElementById('guess-history').innerHTML = '';
+    document.getElementById('guess-section').style.display = 'block';
+    document.getElementById('completion-card').classList.remove('visible');
+    document.getElementById('completion-card').style.display = 'none';
+    document.getElementById('year-input').value = '';
+    document.getElementById('display-year').textContent = '????';
+    showClue(0);
+    for (let i = 1; i < 4; i++) lockClue(i);
+    updateDots(0);
+  });
+
+  document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+  init();
+  </script>
+</body>
+</html>

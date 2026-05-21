@@ -8,6 +8,11 @@ const nextConfig = {
         destination: '/synth.html',
         permanent: false,
       },
+      {
+        source: '/almanac',
+        destination: '/almanac.html',
+        permanent: false,
+      },
     ];
   },
 };

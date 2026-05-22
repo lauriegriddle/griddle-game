@@ -1607,17 +1607,20 @@ Free & ad-free!
   <p className="text-sm font-semibold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
     🥞 Now in Print!
   </p>
-  <p className="text-xs text-amber-700 mt-1 mb-2">
-    Letter Griddle puzzle books on Amazon
-  </p>
-  <div className="flex flex-col gap-1">
-    <a href="https://www.amazon.com/Letter-Griddle-Puzzles-Word-Lettergriddle-com/dp/B0GPN9QFRF" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
-      Letter Griddle: 50 Word Puzzles →
-    </a>
-    <a href="https://www.amazon.com/Todays-Special-Breakfast-Inspired-Letter-Griddle/dp/B0GN9K7GKC" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
-      Today's Special Notebook →
-    </a>
-  </div>
+ <p className="text-xs text-amber-700 mt-1 mb-2">
+  Letter Griddle puzzle books on Amazon
+</p>
+<div className="flex flex-col gap-1">
+  <a href="https://www.amazon.com/Letter-Griddle-Puzzles-Word-Lettergriddle-com/dp/B0GPN9QFRF" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
+    Letter Griddle: 50 Word Puzzles →
+  </a>
+ <a href="https://www.amazon.com/Todays-Special-Breakfast-Inspired-Letter-Griddle/dp/B0GN9K7GKC" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
+    Today's Special Notebook →
+  </a>
+  <a href="https://www.amazon.com/dp/B0H2LCVFY5" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
+    Letter Griddle Travels ✈️ →
+  </a>
+</div>
 </div>
         </div>
       )}

@@ -734,7 +734,7 @@ if (actualIndex !== -1) newAvailable.splice(actualIndex, 1);
   const handleShare = async () => {
   const honeyEmojis = '🍯'.repeat(completedWords.filter(c => c).length);
 
-  const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\nPlay at lettergriddle.com/play\nFree & ad-free!\n🥞 More games & stories: lettergriddle.com\n☕ Trivia: griddlefalls.com`;
+ const shareText = `🥞 Letter Griddle #${gameData.puzzleNumber}\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\n\nNew! Letter Griddle Travels ✈️ is on Amazon\nhttps://www.amazon.com/dp/B0H2LCVFY5\n\nMore games: lettergriddle.com`;
 
   if (navigator.share) {
     try {
@@ -1572,10 +1572,10 @@ const copyToClipboard = async (text) => {
 ${gameData.category}
 ${'🍯'.repeat(completedWords.filter(c => c).length)}
 ${completedWords.filter(c => c).length}/5 words
-Play at lettergriddle.com/play
-Free & ad-free!
-🥞 More games & stories: lettergriddle.com
-☕ Trivia: griddlefalls.com`}
+New! Letter Griddle Travels is on Amazon ✈️
+https://www.amazon.com/dp/B0H2LCVFY5
+
+More games: lettergriddle.com`}
               </div>
             </div>
 

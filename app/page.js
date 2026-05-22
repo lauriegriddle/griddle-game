@@ -973,7 +973,7 @@ export default function Home() {
             className="px-6 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}
           >
-            🍳 Screen-Free ✏️
+            🍳 Screen-Free Books ✏️
           </button>
         </div>
       </header>
@@ -996,7 +996,7 @@ export default function Home() {
         <section id="books" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
             <div className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4" style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}>
-              🍳 Screen-Free ✏️
+              🍳 Screen-Free Books ✏️
             </div>
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>Take Letter Griddle With You</h2>
             <p className="text-amber-600 italic" style={{ fontFamily: 'Georgia, serif' }}>Letter Griddle now offers screen-free options</p>

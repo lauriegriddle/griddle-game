@@ -925,19 +925,19 @@ const copyToClipboard = async (text) => {
 
             {/* LAUNCH BUTTON - NEW! */}
             <button
-              onClick={() => setShowLaunchModal(true)}
-              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
-              title="We're Live!"
-            >
-              <span className="text-lg">🌷</span>
-            </button>
+  onClick={() => setShowLaunchModal(true)}
+  className="p-2 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-800 transition-all shadow-md animate-pulse"
+  title="What's New"
+>
+  <span className="text-xl">🏖️</span>
+</button>
             {/* SCHEDULE BUTTON - NEW! */}
 <button
   onClick={() => setShowScheduleModal(true)}
-  className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
-  title="New Year's Week Schedule"
+  className="p-2 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-800 transition-all shadow-md animate-pulse"
+  title="Schedule"
 >
-  <span className="text-lg">🗓️</span>
+  <span className="text-lg">☀️</span>
 </button>
             <button
   onClick={() => setShowHowToPlayModal(true)}
@@ -1269,76 +1269,48 @@ const copyToClipboard = async (text) => {
 
       {/* GRAND OPENING MODAL */}
 {showLaunchModal && (
-  <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{background: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowLaunchModal(false)}>
-    <div className="bg-gradient-to-br from-amber-50 via-pink-50 to-purple-50 rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-4 border-amber-400 overflow-hidden" onClick={(e) => e.stopPropagation()}>
-      
-      <div className="absolute top-2 left-4 text-2xl animate-pulse">✨</div>
-      <div className="absolute top-8 right-6 text-xl animate-pulse">🌟</div>
-      <div className="absolute bottom-16 left-6 text-xl animate-pulse">⭐</div>
-      <div className="absolute bottom-8 right-4 text-2xl animate-pulse">✨</div>
-      
+  <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}} onClick={() => setShowLaunchModal(false)}>
+    <div className="bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 rounded-3xl p-8 max-w-lg w-full shadow-2xl relative border-4 border-amber-300" onClick={(e) => e.stopPropagation()}>
       <button
         onClick={() => setShowLaunchModal(false)}
-        className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 z-10 bg-white rounded-full p-1 hover:bg-gray-100 shadow-md"
+        className="absolute top-4 right-4 text-amber-600 hover:text-amber-800 z-10 bg-white rounded-full p-2 hover:bg-amber-50 shadow-md"
         aria-label="Close"
       >
-        <X size={22} />
+        <X size={24} />
       </button>
       
-      <div className="text-center mb-4">
-        <div className="text-4xl mb-2">🎉🥞🎉</div>
-        <h2 className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-pink-500 to-purple-600 bg-clip-text text-transparent" style={{fontFamily: 'Georgia, serif'}}>
-          Grand Opening Celebration!
+      <div className="text-center mb-6">
+        <div className="text-6xl mb-3">🏖️☀️</div>
+        <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
+          New at Letter Griddle
         </h2>
-        <p className="text-purple-600 font-semibold text-sm mt-1">Welcome to Letter Griddle!</p>
+        <p className="text-amber-700 text-sm">Enjoy the latest additions!</p>
       </div>
       
-      <div className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 mb-2 border-2 border-amber-300 shadow-sm relative">
-        <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md animate-bounce">⭐ FAN FAVE</div>
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">🥞</span>
-          <div>
-            <p className="font-bold text-amber-800 text-sm">Pancakes Word Find</p>
-            <p className="text-amber-700 text-xs">A delicious word search adventure!</p>
+      <div className="space-y-4 mb-6">
+        <div className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-5 border-3 border-orange-300 shadow-md">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-3xl">🏖️☀️</span>
+            <h3 className="text-xl font-bold text-orange-800" style={{fontFamily: 'Georgia, serif'}}>Summer Days Games</h3>
           </div>
+          <p className="text-orange-700 text-sm leading-relaxed">
+            Enjoy Summer Days & explore the collection of sunny games!
+          </p>
+        </div>
+        
+        <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-5 border-3 border-purple-300 shadow-md">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-3xl">✏️🍳</span>
+            <h3 className="text-xl font-bold text-purple-800" style={{fontFamily: 'Georgia, serif'}}>Screen-Free Books</h3>
+          </div>
+          <p className="text-purple-700 text-sm leading-relaxed">
+            New puzzle books and journals are perfect for screen-free time!
+          </p>
         </div>
       </div>
       
-      <div className="bg-gradient-to-r from-green-100 to-emerald-100 rounded-xl p-3 mb-2 border-2 border-green-300 shadow-sm relative">
-        <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md animate-bounce">NEW!</div>
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">🌷</span>
-          <div>
-            <p className="font-bold text-green-800 text-sm">Spring Cottage</p>
-            <p className="text-green-700 text-xs">Spring puzzles with fun facts & inspirational quotes!</p>
-          </div>
-        </div>
-      </div>
-      
-      <div className="bg-gradient-to-r from-orange-100 to-amber-100 rounded-xl p-3 mb-2 border-2 border-orange-300 shadow-sm relative">
-        <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md animate-bounce">NEW!</div>
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">☕</span>
-          <div>
-            <p className="font-bold text-orange-800 text-sm">Espresso Lane</p>
-            <p className="text-orange-700 text-xs">6 quick games perfect for coffee breaks!</p>
-          </div>
-        </div>
-      </div>
-      
-      <div className="bg-gradient-to-r from-emerald-100 to-teal-100 rounded-xl p-3 mb-3 border-2 border-emerald-300 shadow-sm relative">
-        <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md animate-bounce">NEW!</div>
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">🧩</span>
-          <div>
-            <p className="font-bold text-emerald-800 text-sm">Griddle Logic</p>
-           <p className="text-emerald-700 text-xs">Easy, Medium, Hard + Trivia Night challenge!</p>
-          </div>
-        </div>
-      </div>
-      
-      <div className="text-center bg-gradient-to-r from-pink-100 to-purple-100 rounded-lg p-2 border-2 border-pink-300">
-        <p className="text-purple-800 font-bold text-sm">🌟 Play them all at lettergriddle.com 🌟</p>
+      <div className="text-center pt-4 border-t-2 border-dashed border-amber-400">
+        <p className="text-amber-700 font-semibold text-sm">Go to lettergriddle.com to explore! 🥞</p>
       </div>
     </div>
   </div>

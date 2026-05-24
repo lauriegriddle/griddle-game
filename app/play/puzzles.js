@@ -2870,6 +2870,485 @@ const puzzles = [
     ],
     funFact: "Known as the Tree of Life, they provide food, oil, materials, and natural electrolyte-packed water. 🥥",
   },
+  // =============================================
+  // INDEX 183 - Shows June 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Dinosaur",
+    puzzleNumber: 263,
+    words: [
+      { word: "BONE", hint: "Fossilized skeletal remains", revealedIndex: 0 },
+      { word: "STUDY", hint: "Paleontology research", revealedIndex: 2 },
+      { word: "FOSSIL", hint: "Preserved ancient remains", revealedIndex: 3 },
+      { word: "EXTINCT", hint: "No longer existing", revealedIndex: 0 },
+      { word: "SKELETON", hint: "Framework of bones", revealedIndex: 4 },
+    ],
+    funFact: "Modern birds are actually living dinosaurs, sharing a common ancestor with non-avian dinosaurs. 🦕",
+  },
+
+  // =============================================
+  // INDEX 184 - Shows June 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Rotisserie Chicken",
+    puzzleNumber: 264,
+    words: [
+      { word: "FIRE", hint: "Cooking heat source", revealedIndex: 0 },
+      { word: "SPICY", hint: "Flavorful seasoning", revealedIndex: 2 },
+      { word: "TENDER", hint: "Soft and juicy", revealedIndex: 3 },
+      { word: "ROASTED", hint: "Cooked on a spit", revealedIndex: 0 },
+      { word: "SEASONED", hint: "Flavored with spices", revealedIndex: 4 },
+    ],
+    funFact: "The practice of roasting chickens on a spit dates back to the 1300s. Motor-driven rotisseries didn't arrive until the 1930s. 🍗",
+  },
+
+  // =============================================
+  // INDEX 185 - Shows June 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Graduation",
+    puzzleNumber: 265,
+    words: [
+      { word: "GOWN", hint: "Academic robe", revealedIndex: 0 },
+      { word: "MARCH", hint: "Walk in ceremony", revealedIndex: 2 },
+      { word: "CONFER", hint: "Grant a degree", revealedIndex: 3 },
+      { word: "DIPLOMA", hint: "Certificate of completion", revealedIndex: 0 },
+      { word: "CEREMONY", hint: "Formal celebration", revealedIndex: 4 },
+    ],
+    funFact: "The mortarboard cap is designed to look like a bricklayer's tool, symbolizing knowledge construction. 🎓",
+  },
+
+  // =============================================
+  // INDEX 186 - Shows June 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hug Your Cat",
+    puzzleNumber: 266,
+    words: [
+      { word: "PURR", hint: "Contented vibration", revealedIndex: 0 },
+      { word: "BLINK", hint: "Slow eye gesture of trust", revealedIndex: 2 },
+      { word: "CUDDLE", hint: "Snuggle close", revealedIndex: 3 },
+      { word: "SNUGGLE", hint: "Cozy embrace", revealedIndex: 0 },
+      { word: "BISCUITS", hint: "Kneading paws motion", revealedIndex: 4 },
+    ],
+    funFact: "National Hug Your Cat Day is designed to foster closer bonds between humans and felines through affection, which can reduce stress, lower blood pressure, and improve mental health. 🐱",
+  },
+
+  // =============================================
+  // INDEX 187 - Shows June 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hot Air Balloon",
+    puzzleNumber: 267,
+    words: [
+      { word: "FUEL", hint: "Propane heat source", revealedIndex: 0 },
+      { word: "NYLON", hint: "Envelope fabric", revealedIndex: 2 },
+      { word: "BASKET", hint: "Wicker passenger container", revealedIndex: 3 },
+      { word: "SUNRISE", hint: "Best flying time", revealedIndex: 0 },
+      { word: "BUOYANCY", hint: "Floating force", revealedIndex: 4 },
+    ],
+    funFact: "Hot air balloons are the oldest successful human-carrying flight technology. 🎈",
+  },
+
+  // =============================================
+  // INDEX 188 - Shows June 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Drive-In Movies",
+    puzzleNumber: 268,
+    words: [
+      { word: "FOOD", hint: "Snacks and concessions", revealedIndex: 0 },
+      { word: "RETRO", hint: "Vintage nostalgia", revealedIndex: 2 },
+      { word: "CINEMA", hint: "Movie theater", revealedIndex: 3 },
+      { word: "SPEAKER", hint: "Audio device", revealedIndex: 0 },
+      { word: "TAILGATE", hint: "Back of truck viewing", revealedIndex: 4 },
+    ],
+    funFact: "The first drive-in allowed people to watch movies from their cars with a speaker placed on the screen and later with individual speakers hung on windows. 🎬",
+  },
+
+  // =============================================
+  // INDEX 189 - Shows June 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "VCR",
+    puzzleNumber: 269,
+    words: [
+      { word: "STOP", hint: "End playback", revealedIndex: 0 },
+      { word: "PAUSE", hint: "Temporary halt", revealedIndex: 2 },
+      { word: "REWIND", hint: "Go backwards", revealedIndex: 3 },
+      { word: "FORWARD", hint: "Skip ahead", revealedIndex: 0 },
+      { word: "PLAYBACK", hint: "Watch recorded content", revealedIndex: 4 },
+    ],
+    funFact: "Video Cassette Recorders revolutionized home entertainment in the 1970s-90s by allowing viewers to record TV, pause live broadcasts, and watch movies on demand. 📼",
+  },
+
+  // =============================================
+  // INDEX 190 - Shows June 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Friends",
+    puzzleNumber: 270,
+    words: [
+      { word: "BEST", hint: "Closest companion", revealedIndex: 0 },
+      { word: "BUDDY", hint: "Informal pal", revealedIndex: 2 },
+      { word: "SPIRIT", hint: "Kindred soul", revealedIndex: 3 },
+      { word: "KINDRED", hint: "Similar nature", revealedIndex: 0 },
+      { word: "SIDEKICK", hint: "Loyal partner", revealedIndex: 4 },
+    ],
+    funFact: "Research suggests best friends may share roughly 1% of their DNA, possibly because we are drawn to people with similar genetic backgrounds. 👯‍♀️",
+  },
+
+  // =============================================
+  // INDEX 191 - Shows June 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Ducks",
+    puzzleNumber: 271,
+    words: [
+      { word: "TEAL", hint: "A blue-green duck species", revealedIndex: 0 },
+      { word: "DRAKE", hint: "A male duck", revealedIndex: 2 },
+      { word: "WADDLE", hint: "Walking motion", revealedIndex: 3 },
+      { word: "MALLARD", hint: "Common duck species", revealedIndex: 0 },
+      { word: "DUCKLING", hint: "Baby duck", revealedIndex: 4 },
+    ],
+    funFact: "Female ducks make the quack sound, and male drakes make whistling or rasping noises. 🦆",
+  },
+
+  // =============================================
+  // INDEX 192 - Shows June 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Iced Tea",
+    puzzleNumber: 272,
+    words: [
+      { word: "COLD", hint: "Chilled beverage", revealedIndex: 0 },
+      { word: "SWEET", hint: "Sugary Southern style", revealedIndex: 2 },
+      { word: "SUMMER", hint: "Peak season drink", revealedIndex: 3 },
+      { word: "PITCHER", hint: "Large serving container", revealedIndex: 0 },
+      { word: "GARNISH", hint: "Lemon or mint decoration", revealedIndex: 4 },
+    ],
+    funFact: "While popularized at the 1904 World's Fair due to a heatwave, the oldest known sweet tea recipe dates back to 1879. 🧊",
+  },
+
+  // =============================================
+  // INDEX 193 - Shows June 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Corn on the Cob",
+    puzzleNumber: 273,
+    words: [
+      { word: "HUSK", hint: "Outer protective layer", revealedIndex: 0 },
+      { word: "SWEET", hint: "Sugary variety", revealedIndex: 2 },
+      { word: "KERNEL", hint: "Individual corn seed", revealedIndex: 3 },
+      { word: "PLATTER", hint: "Serving dish", revealedIndex: 0 },
+      { word: "BUTTERED", hint: "Topped with spread", revealedIndex: 4 },
+    ],
+    funFact: "No matter the size, corn cobs always have an even number of rows. 🌽",
+  },
+
+  // =============================================
+  // INDEX 194 - Shows June 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Red Roses",
+    puzzleNumber: 274,
+    words: [
+      { word: "RUBY", hint: "Deep red gemstone color", revealedIndex: 0 },
+      { word: "SCENT", hint: "Fragrant aroma", revealedIndex: 2 },
+      { word: "VELVET", hint: "Soft petal texture", revealedIndex: 3 },
+      { word: "BOUQUET", hint: "Flower arrangement", revealedIndex: 0 },
+      { word: "DEVOTION", hint: "Symbolic meaning", revealedIndex: 4 },
+    ],
+    funFact: "Red roses are related to stone fruits like apples, cherries, and plums, as they are part of the Rosaceae botanical family. 🌹",
+  },
+
+  // =============================================
+  // INDEX 195 - Shows June 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Sewing Machine",
+    puzzleNumber: 275,
+    words: [
+      { word: "FEED", hint: "Fabric movement mechanism", revealedIndex: 0 },
+      { word: "WHEEL", hint: "Hand control dial", revealedIndex: 2 },
+      { word: "THREAD", hint: "Stitching material", revealedIndex: 3 },
+      { word: "TENSION", hint: "Thread tightness control", revealedIndex: 0 },
+      { word: "BACKTACK", hint: "Reverse stitch to secure", revealedIndex: 4 },
+    ],
+    funFact: "Early machines were initially rejected by tailors fearing job loss, and were expensive, costing roughly $125 in the 1850s. 🪡",
+  },
+
+  // =============================================
+  // INDEX 196 - Shows June 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Flags",
+    puzzleNumber: 276,
+    words: [
+      { word: "JACK", hint: "Naval or national flag", revealedIndex: 0 },
+      { word: "HOIST", hint: "Raise up a flagpole", revealedIndex: 2 },
+      { word: "BANNER", hint: "Large decorative flag", revealedIndex: 3 },
+      { word: "PENNANT", hint: "Triangular flag", revealedIndex: 0 },
+      { word: "TRICOLOR", hint: "Three-color flag design", revealedIndex: 4 },
+    ],
+    funFact: "Flag Day commemorates the 1777 adoption of the U.S. flag. 🏳️",
+  },
+
+  // =============================================
+  // INDEX 197 - Shows June 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Fly A Kite",
+    puzzleNumber: 277,
+    words: [
+      { word: "GUST", hint: "Strong wind burst", revealedIndex: 0 },
+      { word: "GLIDE", hint: "Smooth air movement", revealedIndex: 2 },
+      { word: "STRING", hint: "Control line", revealedIndex: 3 },
+      { word: "CONTROL", hint: "Directional steering", revealedIndex: 0 },
+      { word: "DOWNWIND", hint: "With the breeze", revealedIndex: 4 },
+    ],
+    funFact: "Originally created over 3,000 years ago for military, fishing, and cultural purposes, kites have evolved into a popular sport and hobby. 🪁",
+  },
+
+  // =============================================
+  // INDEX 198 - Shows June 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Fresh Vegetables",
+    puzzleNumber: 278,
+    words: [
+      { word: "FARM", hint: "Growing location", revealedIndex: 0 },
+      { word: "CRISP", hint: "Crunchy texture", revealedIndex: 2 },
+      { word: "GARDEN", hint: "Home growing plot", revealedIndex: 3 },
+      { word: "ORGANIC", hint: "Pesticide-free produce", revealedIndex: 0 },
+      { word: "COLORFUL", hint: "Rainbow of hues", revealedIndex: 4 },
+    ],
+    funFact: "Many vegetables are technically fruits, including tomatoes, pumpkins, and bell peppers, and broccoli is actually a flower bud related to cabbage. 🥕",
+  },
+
+  // =============================================
+  // INDEX 199 - Shows June 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Apple Strudel",
+    puzzleNumber: 279,
+    words: [
+      { word: "WARM", hint: "Fresh from the oven", revealedIndex: 0 },
+      { word: "FLAKY", hint: "Crispy layered pastry", revealedIndex: 2 },
+      { word: "PASTRY", hint: "Dough dessert", revealedIndex: 3 },
+      { word: "RAISINS", hint: "Dried fruit filling", revealedIndex: 0 },
+      { word: "TURNOVER", hint: "Folded pastry type", revealedIndex: 4 },
+    ],
+    funFact: "Meaning 'whirlpool' in German, this dessert is celebrated on National Apple Strudel Day. 🍎",
+  },
+
+  // =============================================
+  // INDEX 200 - Shows June 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Treat Yourself",
+    puzzleNumber: 280,
+    words: [
+      { word: "REST", hint: "Take a break", revealedIndex: 0 },
+      { word: "ALLOW", hint: "Give yourself permission", revealedIndex: 2 },
+      { word: "PAMPER", hint: "Indulge in self-care", revealedIndex: 3 },
+      { word: "INDULGE", hint: "Enjoy without guilt", revealedIndex: 0 },
+      { word: "SPLURGES", hint: "Small luxuries", revealedIndex: 4 },
+    ],
+    funFact: "Treating yourself isn't just indulgence; it is a scientifically backed method to improve mood, increase productivity, and strengthen self-control. 💆‍♀️",
+  },
+
+  // =============================================
+  // INDEX 201 - Shows June 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Juneteenth",
+    puzzleNumber: 281,
+    words: [
+      { word: "FREE", hint: "Liberation from slavery", revealedIndex: 0 },
+      { word: "UNITY", hint: "Coming together", revealedIndex: 2 },
+      { word: "PARADE", hint: "Celebratory march", revealedIndex: 3 },
+      { word: "JUBILEE", hint: "Joyful celebration", revealedIndex: 0 },
+      { word: "HERITAGE", hint: "Cultural legacy", revealedIndex: 4 },
+    ],
+    funFact: "Juneteenth marks the day Union troops arrived in Galveston, Texas, to ensure enslaved people were freed, a full 2.5 years after the Emancipation Proclamation. 🎉",
+  },
+
+  // =============================================
+  // INDEX 202 - Shows June 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Milkshakes",
+    puzzleNumber: 282,
+    words: [
+      { word: "COLD", hint: "Icy temperature", revealedIndex: 0 },
+      { word: "DENSE", hint: "Thick consistency", revealedIndex: 2 },
+      { word: "FROTHY", hint: "Foamy texture", revealedIndex: 3 },
+      { word: "COMFORT", hint: "Nostalgic treat", revealedIndex: 0 },
+      { word: "CLASSICS", hint: "Traditional flavors", revealedIndex: 4 },
+    ],
+    funFact: "Vanilla milkshakes are celebrated on National Vanilla Milkshake Day. 🥤",
+  },
+
+  // =============================================
+  // INDEX 203 - Shows June 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Skateboarding",
+    puzzleNumber: 283,
+    words: [
+      { word: "GEAR", hint: "Protective equipment", revealedIndex: 0 },
+      { word: "WHEEL", hint: "Rolling component", revealedIndex: 2 },
+      { word: "TRICKS", hint: "Skilled maneuvers", revealedIndex: 3 },
+      { word: "BALANCE", hint: "Staying upright", revealedIndex: 0 },
+      { word: "SIDEWALK", hint: "Urban riding surface", revealedIndex: 4 },
+    ],
+    funFact: "Skateboarding originated in the 1950s as 'sidewalk surfing' by California surfers looking for land-based thrills. 🛹",
+  },
+
+  // =============================================
+  // INDEX 204 - Shows June 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Onion Rings",
+    puzzleNumber: 284,
+    words: [
+      { word: "AIRY", hint: "Light and crispy", revealedIndex: 0 },
+      { word: "SALTY", hint: "Savory seasoning", revealedIndex: 2 },
+      { word: "GOLDEN", hint: "Fried color", revealedIndex: 3 },
+      { word: "BREADED", hint: "Coated in batter", revealedIndex: 0 },
+      { word: "VIDALIA", hint: "Sweet onion variety", revealedIndex: 4 },
+    ],
+    funFact: "Modern, popular culture popularized onion rings through 1930s Crisco advertisements. 🧅",
+  },
+
+  // =============================================
+  // INDEX 205 - Shows June 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Public Service",
+    puzzleNumber: 285,
+    words: [
+      { word: "HERO", hint: "Community champion", revealedIndex: 0 },
+      { word: "TRUST", hint: "Public confidence", revealedIndex: 2 },
+      { word: "IMPACT", hint: "Positive influence", revealedIndex: 3 },
+      { word: "SERVICE", hint: "Helping others", revealedIndex: 0 },
+      { word: "DEDICATE", hint: "Commit to a cause", revealedIndex: 4 },
+    ],
+    funFact: "United Nations Public Service Day was established in 2002 to honor the value and virtue of public service to the community. 👨‍⚕️",
+  },
+
+  // =============================================
+  // INDEX 206 - Shows June 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Swimming",
+    puzzleNumber: 286,
+    words: [
+      { word: "PACE", hint: "Speed control", revealedIndex: 0 },
+      { word: "BUDDY", hint: "Safety partner", revealedIndex: 2 },
+      { word: "LENGTH", hint: "Pool distance", revealedIndex: 3 },
+      { word: "GOGGLES", hint: "Eye protection", revealedIndex: 0 },
+      { word: "TRAINING", hint: "Skill development", revealedIndex: 4 },
+    ],
+    funFact: "Swim a Lap Day encourages everyone to dive in, beat the summer heat, and improve cardiovascular health with a low-impact full-body workout. 🏊‍♂️",
+  },
+
+  // =============================================
+  // INDEX 207 - Shows June 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "The Beatles",
+    puzzleNumber: 287,
+    words: [
+      { word: "FOUR", hint: "Number of members", revealedIndex: 0 },
+      { word: "ABBEY", hint: "___ Road studio", revealedIndex: 2 },
+      { word: "TALENT", hint: "Musical genius", revealedIndex: 3 },
+      { word: "PIONEER", hint: "Innovative leaders", revealedIndex: 0 },
+      { word: "TIMELESS", hint: "Forever relevant", revealedIndex: 4 },
+    ],
+    funFact: "Known for their wit, they adopted the 'Fab Four' moniker, used exotic instruments, and were the first band to play a stadium, at New York's Shea Stadium in 1965. 🎸",
+  },
+
+  // =============================================
+  // INDEX 208 - Shows June 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Canoe",
+    puzzleNumber: 288,
+    words: [
+      { word: "CREW", hint: "Paddling team", revealedIndex: 0 },
+      { word: "KAYAK", hint: "Similar watercraft", revealedIndex: 2 },
+      { word: "PADDLE", hint: "Propulsion tool", revealedIndex: 3 },
+      { word: "ROWBOAT", hint: "Another small boat", revealedIndex: 0 },
+      { word: "CURRENTS", hint: "Water flow patterns", revealedIndex: 4 },
+    ],
+    funFact: "Canoes are considered the oldest, most foundational boat type, with the 10,000-year-old 'Pesse Canoe' found in the Netherlands being the oldest known example. 🛶",
+  },
+
+  // =============================================
+  // INDEX 209 - Shows June 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pineapple",
+    puzzleNumber: 289,
+    words: [
+      { word: "RING", hint: "Sliced circle shape", revealedIndex: 0 },
+      { word: "CHUNK", hint: "Cut pieces", revealedIndex: 2 },
+      { word: "HAWAII", hint: "Associated location", revealedIndex: 3 },
+      { word: "SMOOTHIE", hint: "Blended drink", revealedIndex: 0 },
+      { word: "TROPICAL", hint: "Warm climate fruit", revealedIndex: 4 },
+    ],
+    funFact: "Pineapple is the only edible fruit of the bromeliad family. 🍍",
+  },
+
+  // =============================================
+  // INDEX 210 - Shows June 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Log Cabin",
+    puzzleNumber: 290,
+    words: [
+      { word: "CAMP", hint: "Rustic retreat", revealedIndex: 0 },
+      { word: "LODGE", hint: "Wilderness shelter", revealedIndex: 2 },
+      { word: "RUSTIC", hint: "Simple, natural style", revealedIndex: 3 },
+      { word: "COTTAGE", hint: "Small dwelling", revealedIndex: 0 },
+      { word: "SECLUDED", hint: "Isolated location", revealedIndex: 4 },
+    ],
+    funFact: "Early cabins relied on notched log ends for stability rather than iron nails. 🏡",
+  },
+
+  // =============================================
+  // INDEX 211 - Shows June 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Camera",
+    puzzleNumber: 291,
+    words: [
+      { word: "LENS", hint: "Focus element", revealedIndex: 0 },
+      { word: "FOCUS", hint: "Sharpness adjustment", revealedIndex: 2 },
+      { word: "TRIPOD", hint: "Stabilizing stand", revealedIndex: 3 },
+      { word: "SHUTTER", hint: "Exposure control", revealedIndex: 0 },
+      { word: "EXPOSURE", hint: "Light measurement", revealedIndex: 4 },
+    ],
+    funFact: "The first photo took 8 hours to expose in 1826, while the first digital camera in 1975 was a toaster-sized device that Kodak kept secret. 📷",
+  },
+
+  // =============================================
+  // INDEX 212 - Shows June 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Meteor",
+    puzzleNumber: 292,
+    words: [
+      { word: "STAR", hint: "Shooting star nickname", revealedIndex: 0 },
+      { word: "COMET", hint: "Similar space object", revealedIndex: 2 },
+      { word: "SHOWER", hint: "Multiple meteors", revealedIndex: 3 },
+      { word: "RADIANT", hint: "Apparent origin point", revealedIndex: 0 },
+      { word: "FIREBALL", hint: "Extremely bright meteor", revealedIndex: 4 },
+    ],
+    funFact: "Meteors, often called shooting stars, are space debris burning up in Earth's atmosphere. ☄️",
+  },
 ];
 
 // ===========================================

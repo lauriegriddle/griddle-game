@@ -7,6 +7,12 @@ export default function BetaGames() {
       description: "Beta testing in progress"
     },
     {
+      name: "Cool Beans",
+      href: "/cool-beans",
+      emoji: "🫘",
+      description: "Pick the cooler colored bean! Sort as many cool colors as you can in 30 seconds."
+    },
+    {
     name: "Fact Falls",
     href: "/factfalls",
     emoji: "💧",

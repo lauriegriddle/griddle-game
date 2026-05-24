@@ -73,12 +73,10 @@ function BeanSvg({ color, size = 120, wiggle = false }) {
           <stop offset="100%" stopColor="rgba(255,255,255,0)" />
         </radialGradient>
       </defs>
-      {/* Bean shape */}
       <path
         d="M60 8 C30 8 10 28 10 52 C10 74 28 92 58 92 C80 92 100 80 108 62 C116 44 108 18 90 10 C82 7 72 8 60 8Z"
         fill={`url(#beanGrad-${color.hex.slice(1)})`}
       />
-      {/* Bean crease */}
       <path
         d="M40 28 C38 42 40 58 48 72"
         stroke={darken(color.hex, 0.3)}
@@ -87,7 +85,6 @@ function BeanSvg({ color, size = 120, wiggle = false }) {
         fill="none"
         opacity="0.55"
       />
-      {/* Shine */}
       <ellipse cx="48" cy="32" rx="18" ry="12"
         fill={`url(#beanShine-${color.hex.slice(1)})`}
         transform="rotate(-20 48 32)"
@@ -112,16 +109,20 @@ function darken(hex, amount) {
 const TIMER_SECONDS = 30;
 
 export default function CoolBeans() {
-  const [phase, setPhase] = useState("intro"); // intro | countdown | playing | results
+  const [phase, setPhase] = useState("intro");
   const [pair, setPair] = useState(() => getRandomPair());
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
   const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
-  const [feedback, setFeedback] = useState(null); // { correct, chosen }
+  const [feedback, setFeedback] = useState(null);
   const [fact] = useState(() => COOL_FACTS[Math.floor(Math.random() * COOL_FACTS.length)]);
   const [countdown, setCountdown] = useState(3);
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
   const intervalRef = useRef(null);
   const feedbackRef = useRef(null);
+
+  const currentYear = new Date().getFullYear();
 
   const startGame = () => {
     setPhase("countdown");
@@ -173,8 +174,31 @@ export default function CoolBeans() {
     feedbackRef.current = setTimeout(() => {
       setFeedback(null);
       setPair(getRandomPair());
-    }, 420);
+    }, 900);
   }, [phase, feedback]);
+
+  const accuracy = total > 0 ? Math.round(score / total * 100) : 0;
+
+  const resultLabel =
+    score / total >= 0.9 ? "You've got cool instincts! 🧊" :
+    score / total >= 0.7 ? "Pretty cool! 😎" :
+    score / total >= 0.5 ? "Warming up! 🌤️" :
+    "It's a hot mess! 🔥";
+
+  const shareText =
+`🫘 Cool Beans
+🎯 Score: ${score}/${total} (${accuracy}% cool)
+${score / total >= 0.9 ? "🧊🧊🧊" : score / total >= 0.7 ? "🧊🧊" : score / total >= 0.5 ? "🧊" : "🔥"}
+${resultLabel}
+Play at lettergriddle.com/cool-beans
+More games: lettergriddle.com`;
+
+  const handleShare = () => {
+    navigator.clipboard.writeText(shareText).then(() => {
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2500);
+    });
+  };
 
   const timerPct = timeLeft / TIMER_SECONDS;
   const timerColor = timerPct > 0.5 ? "#2a9d8f" : timerPct > 0.25 ? "#f59e0b" : "#ef4444";
@@ -195,8 +219,8 @@ export default function CoolBeans() {
       <style>{`
         @keyframes beanWiggle {
           0% { transform: scale(1); }
-          40% { transform: scale(1.15) rotate(-4deg); }
-          70% { transform: scale(0.95) rotate(2deg); }
+          40% { transform: scale(1.06) rotate(-2deg); }
+          70% { transform: scale(0.97) rotate(1deg); }
           100% { transform: scale(1); }
         }
         @keyframes fadeSlideUp {
@@ -237,9 +261,7 @@ export default function CoolBeans() {
           border-color: rgba(255,255,255,0.3);
           background: rgba(255,255,255,0.09);
         }
-        .bean-btn:active {
-          transform: scale(0.97);
-        }
+        .bean-btn:active { transform: scale(0.97); }
         .bean-btn.correct {
           border-color: #2a9d8f;
           background: rgba(42,157,143,0.18);
@@ -265,11 +287,71 @@ export default function CoolBeans() {
           transform: scale(1.06);
           box-shadow: 0 8px 30px rgba(99,102,241,0.5);
         }
+        .share-btn {
+          background: linear-gradient(135deg, #2a9d8f, #6366f1);
+          border: none;
+          border-radius: 50px;
+          color: white;
+          font-size: 1rem;
+          font-family: Georgia, serif;
+          padding: 12px 32px;
+          cursor: pointer;
+          letter-spacing: 0.05em;
+          transition: transform 0.15s, box-shadow 0.15s;
+          margin-bottom: 12px;
+        }
+        .share-btn:hover {
+          transform: scale(1.04);
+          box-shadow: 0 6px 20px rgba(99,102,241,0.5);
+        }
         .deco-bean {
           position: absolute;
           opacity: 0.06;
           pointer-events: none;
         }
+        .footer-link {
+          color: #475569;
+          text-decoration: underline;
+          transition: color 0.15s;
+        }
+        .footer-link:hover { color: #94a3b8; }
+        .modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.7);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 50;
+          padding: 20px;
+        }
+        .modal-box {
+          background: #1e293b;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 20px;
+          padding: 32px;
+          max-width: 420px;
+          width: 100%;
+          position: relative;
+          animation: fadeSlideUp 0.25s ease;
+        }
+        .modal-close {
+          position: absolute;
+          top: 14px;
+          right: 14px;
+          background: rgba(255,255,255,0.08);
+          border: none;
+          color: #94a3b8;
+          border-radius: 50%;
+          width: 32px;
+          height: 32px;
+          cursor: pointer;
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.15); color: #e2e8f0; }
       `}</style>
 
       {/* Decorative background beans */}
@@ -314,7 +396,6 @@ export default function CoolBeans() {
             fontSize: "8rem",
             color: "#2a9d8f",
             animation: "countPop 0.6s ease",
-            key: countdown,
             textShadow: "0 0 40px rgba(42,157,143,0.6)",
           }}>
             {countdown}
@@ -326,7 +407,6 @@ export default function CoolBeans() {
       {/* PLAYING */}
       {phase === "playing" && (
         <div style={{ width: "100%", maxWidth: 460, animation: "fadeSlideUp 0.3s ease" }}>
-          {/* Header */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
             <div style={{ color: "#2a9d8f", fontSize: "1.4rem", fontWeight: "bold" }}>
               {score} <span style={{ color: "#475569", fontSize: "0.8rem" }}>/ {total}</span>
@@ -340,7 +420,6 @@ export default function CoolBeans() {
             </div>
           </div>
 
-          {/* Timer bar */}
           <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: 4, height: 6, marginBottom: 32, overflow: "hidden" }}>
             <div style={{
               height: "100%",
@@ -355,7 +434,6 @@ export default function CoolBeans() {
             Which bean is <span style={{ color: "#38bdf8" }}>cooler</span>?
           </p>
 
-          {/* Bean buttons */}
           <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
             {pair.map((color, i) => {
               let cls = "bean-btn";
@@ -372,7 +450,6 @@ export default function CoolBeans() {
             })}
           </div>
 
-          {/* Live feedback */}
           {feedback && (
             <p style={{
               textAlign: "center",
@@ -395,12 +472,7 @@ export default function CoolBeans() {
           </div>
           <h2 style={{ color: "#e2e8f0", fontSize: "2rem", margin: "0 0 6px" }}>Time's up!</h2>
 
-          {/* Score ring */}
-          <div style={{
-            display: "inline-block",
-            margin: "20px 0",
-            position: "relative",
-          }}>
+          <div style={{ display: "inline-block", margin: "20px 0", position: "relative" }}>
             <svg width="120" height="120">
               <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="10" />
               <circle cx="60" cy="60" r="50" fill="none"
@@ -417,11 +489,7 @@ export default function CoolBeans() {
           </div>
 
           <p style={{ color: "#94a3b8", marginBottom: 6 }}>
-            {total > 0 ? Math.round(score/total*100) : 0}% accurate
-            {score/total >= 0.9 ? " — You've got cool instincts! 🧊" :
-             score/total >= 0.7 ? " — Pretty cool! 😎" :
-             score/total >= 0.5 ? " — Warming up! 🌤️" :
-             " — It's a hot mess! 🔥"}
+            {accuracy}% accurate — {resultLabel}
           </p>
 
           {/* Cool fact */}
@@ -441,6 +509,13 @@ export default function CoolBeans() {
             </p>
           </div>
 
+          {/* Share button */}
+          <button className="share-btn" onClick={() => setShowShareModal(true)}>
+            Share Results 🫘
+          </button>
+
+          <br />
+
           <button className="start-btn" onClick={() => {
             setPhase("intro");
             setScore(0);
@@ -452,6 +527,65 @@ export default function CoolBeans() {
           </button>
         </div>
       )}
+
+      {/* SHARE MODAL */}
+      {showShareModal && (
+        <div className="modal-overlay" onClick={() => setShowShareModal(false)}>
+          <div className="modal-box" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowShareModal(false)}>✕</button>
+            <h2 style={{ color: "#e2e8f0", fontSize: "1.5rem", margin: "0 0 16px", textAlign: "center" }}>
+              Share Your Results! 🫘
+            </h2>
+            <div style={{
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: 12,
+              padding: "16px",
+              marginBottom: 16,
+              fontFamily: "monospace",
+              fontSize: "0.9rem",
+              color: "#94a3b8",
+              whiteSpace: "pre-wrap",
+              lineHeight: 1.7,
+            }}>
+              {shareText}
+            </div>
+            <button
+              className="share-btn"
+              style={{ width: "100%", marginBottom: 0 }}
+              onClick={handleShare}
+            >
+              {shareCopied ? "✓ Copied!" : "Copy to Clipboard"}
+            </button>
+            <p style={{ color: "#475569", fontSize: "0.75rem", textAlign: "center", marginTop: 12, marginBottom: 0 }}>
+              Love the game? Share it with a friend who hasn't played yet! 🫘
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* FOOTER */}
+      <div style={{
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        textAlign: "center",
+        padding: "16px",
+        fontSize: "0.72rem",
+        color: "#334155",
+      }}>
+        <div style={{ marginBottom: 4 }}>
+          <a href="/" className="footer-link" style={{ color: "#475569" }}>🥞 lettergriddle.com</a>
+        </div>
+        <div>
+          © {currentYear} Letter Griddle. All rights reserved.
+          {" | "}
+          <a href="/privacy" className="footer-link">Privacy Policy</a>
+          {" | "}
+          <a href="/terms" className="footer-link">Terms of Service</a>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1394,7 +1394,7 @@ const copyToClipboard = async (text) => {
       </div>
       
       <div className="bg-gradient-to-r from-pink-100 via-purple-100 to-amber-100 rounded-xl p-3 border-2 border-purple-300 mb-3">
-        <p className="text-center text-purple-800 font-bold text-xs">🎉 ✨ 🥞 ✨ 🎉</p>
+        <p className="text-center text-purple-800 font-bold text-xs">☀️ ✏️ 🥞 🍳 🏖️</p>
         <p className="text-center text-purple-700 text-xs mt-1 leading-snug">Visit lettergriddle.com to explore Summer Days games and Screen-Free Books!</p>
       </div>
       

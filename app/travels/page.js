@@ -810,7 +810,7 @@ Play at www.lettergriddle.com/travels
             <h1 className="text-3xl font-bold text-amber-900" style={{ fontFamily: 'Georgia, serif' }}>
               Letter Griddle Travels
             </h1>
-            <p className="text-amber-700 italic mb-3">Evening at the Cafe</p>
+            <p className="text-amber-700 italic mb-3">Letter Griddle Travels is a puzzle book you might enjoy as well!</p>
             
             {/* How to Play Button - centered under subheading */}
             <div className="flex justify-center gap-2">

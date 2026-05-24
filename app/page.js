@@ -744,7 +744,7 @@ export default function Home() {
     },
     {
       name: "Letter Griddle Travels",
-      tagline: "Pack your bags and solve the world!",
+      tagline: "Offered as a puzzle book too!",
       emoji: "\u2708\uFE0F",
       href: "/travels",
       thumbnail: {

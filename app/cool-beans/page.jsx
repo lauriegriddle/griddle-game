@@ -187,7 +187,7 @@ export default function CoolBeans() {
 
   const shareText =
 `🫘 Cool Beans
- Score: ${score}/${total} (${accuracy}% cool)
+v🎯 Score: ${score}/${total} (${accuracy}% cool)
 ${score / total >= 0.9 ? "🧊🧊🧊" : score / total >= 0.7 ? "🧊🧊" : score / total >= 0.5 ? "🧊" : "🔥"}
 ${resultLabel}
 Play at lettergriddle.com/cool-beans

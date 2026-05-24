@@ -31,16 +31,16 @@ const BEAN_COLORS = [
 
 const COOL_FACTS = [
   { emoji: "🫘", text: "The world's oldest known bean was found in Peru and is over 8,000 years old." },
-  { emoji: "🎨", text: "Cool colors (blues, greens, purples) are called 'receding colors' — they appear to move away from you in paintings." },
+  { emoji: "🎨", text: "Cool colors (blues, greens, purples) are called 'receding colors' because they appear to move away from you in paintings." },
   { emoji: "🫘", text: "There are over 400 different varieties of beans grown around the world." },
-  { emoji: "🎨", text: "The color blue didn't appear in most ancient languages — Homer described the sea as 'wine-dark,' not blue." },
+  { emoji: "🎨", text: "The color blue didn't appear in most ancient languages. Homer described the sea as 'wine-dark,' not blue." },
   { emoji: "🫘", text: "Beans are legumes, not vegetables. They're seeds from flowering plants." },
-  { emoji: "🎨", text: "Teal was named after the teal duck — a small freshwater bird with a distinctive eye stripe of that color." },
-  { emoji: "🫘", text: "NASA studies beans as a potential space crop — they fix nitrogen and are nutrient-dense." },
+  { emoji: "🎨", text: "Teal was named after the teal duck, a small freshwater bird with a distinctive eye stripe of that color." },
+  { emoji: "🫘", text: "NASA studies beans as a potential space crop. They fix nitrogen and are nutrient-dense." },
   { emoji: "🎨", text: "Cool colors lower perceived room temperature. Painting a room blue can make it feel 5–8°F cooler." },
-  { emoji: "🫘", text: "Jelly beans were one of the first candies sent into space — astronauts packed them on early missions." },
+  { emoji: "🫘", text: "Jelly beans were one of the first candies sent into space.  Astronauts packed them on early missions." },
   { emoji: "🎨", text: "Indigo was so valuable in ancient times it was traded like gold and called 'blue gold.'" },
-  { emoji: "🫘", text: "The phrase 'spill the beans' may come from ancient Greek elections — white beans meant yes, dark beans meant no." },
+  { emoji: "🫘", text: "The phrase 'spill the beans' may come from ancient Greek elections.  White beans meant yes, dark beans meant no." },
   { emoji: "🎨", text: "Cerulean comes from the Latin 'caelum,' meaning sky or heaven." },
 ];
 

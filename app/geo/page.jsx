@@ -50,7 +50,7 @@ const PUZZLES = [
   },
   {
     country: "Norway", flag: "🇳🇴",
-    funFact: "Norway boasts the world's longest road tunnel, over 1,000 fjords, and 24-hour summer daylight, the Midnight Sun. It is the birthplace of skiing, has won the most Winter Olympic medals, and introduced salmon sushi to Japan.",
+    funFact: "Norway boasts the world's longest road tunnel, over 1,000 fjords, and 24-hour summer daylight called the Midnight Sun. It is the birthplace of skiing, has won the most Winter Olympic medals, and introduced salmon sushi to Japan.",
     words: [
       { word: "OSLO",     hint: "Norway's capital and most populous city", revealedIndex: 0 },
       { word: "CLIFF",    hint: "Dramatic rock face found along Norway's fjord edges", revealedIndex: 0 },
@@ -260,7 +260,7 @@ function SuggestBanner({ onClose }) {
       <div className="suggest-card" onClick={e => e.stopPropagation()}>
         <div className="suggest-icon">🌍</div>
         <p className="suggest-title">Have an idea for a great Letter Griddle Geo puzzle?</p>
-        <p className="suggest-text">We're building Letter Griddle Geo one puzzle at a time. We'd love your ideas! Email us your country, city, or landmark suggestion along with 5 words having 4, 5, 6, 7, and 8 letters that capture it and get your puzzle published with credit!</p>
+        <p className="suggest-text">We're building Letter Griddle Geo one puzzle at a time. We'd love your ideas! Email us your country, city, or landmark suggestion along with 5 words having 4, 5, 6, 7, and 8 letters that capture it to get your puzzle published with credit!</p>
         <a className="suggest-link" href="mailto:lettergriddle@gmail.com?subject=Letter%20Griddle%20Geo%20Puzzle%20Suggestion&body=Country%2FCity%2FLandmark%3A%20%0A%0AMy%205%20words%3A%0A4-letter%3A%20%0A5-letter%3A%20%0A6-letter%3A%20%0A7-letter%3A%20%0A8-letter%3A%20%0A%0AHint%20for%20each%20word%20(optional)%3A%20%0A%0AMy%20name%20for%20the%20credit%3A%20">lettergriddle@gmail.com</a>
       </div>
     </div>
@@ -299,7 +299,7 @@ function HowToPlayModal({ onClose }) {
             <span className="htp-step-icon">🔤</span>
             <div>
               <p className="htp-step-title">Place the Letters</p>
-              <p className="htp-step-text">Tap a letter from the tray, then tap an empty slot to place it. On a computer, just type! Solve words in any order.  Tap a word row to focus it.</p>
+              <p className="htp-step-text">Tap a letter from the tray, then tap an empty slot to place it. On a computer, just type! Solve words in any order — tap a word row to focus it.</p>
             </div>
           </div>
           <div className="htp-step">
@@ -337,9 +337,19 @@ function HowToPlayModal({ onClose }) {
 }
 
 // ── Country Selection Screen ──────────────────────────────────────────────────
-function SelectionScreen({ completed, onSelect, mounted, onHowToPlay }) {
+function SelectionScreen({ completed, onSelect, mounted, onHowToPlay, onReset }) {
   const [showSuggest, setShowSuggest] = useState(false);
+  const [showReset, setShowReset] = useState(false);
   const inProgress = mounted ? PUZZLES.filter(p => loadProgress(p.country) && !completed.includes(p.country)) : [];
+
+  const handleReset = () => {
+    // Clear all localStorage keys
+    localStorage.removeItem(COMPLETED_KEY);
+    localStorage.removeItem(PROGRESS_KEY);
+    localStorage.removeItem(HTP_KEY);
+    setShowReset(false);
+    onReset();
+  };
   return (
     <div className="screen selection-screen">
       <header className="sel-header">
@@ -371,7 +381,7 @@ function SelectionScreen({ completed, onSelect, mounted, onHowToPlay }) {
       <div className="country-grid">
         {[...PUZZLES].sort((a, b) => a.country.localeCompare(b.country)).map((p) => {
           const done = completed.includes(p.country);
-          const wip  = !done && !!loadProgress(p.country);
+          const wip  = mounted && !done && !!loadProgress(p.country);
           return (
             <button key={p.country} className={`country-card ${done?"done":""} ${wip?"wip":""}`} onClick={() => onSelect(p)}>
               <span className="card-flag">{p.flag}</span>
@@ -403,6 +413,22 @@ function SelectionScreen({ completed, onSelect, mounted, onHowToPlay }) {
       </div>
       <button className="suggest-trigger" onClick={() => setShowSuggest(true)}>🌐 Suggest a puzzle</button>
       {showSuggest && <SuggestBanner onClose={() => setShowSuggest(false)} />}
+
+      {showReset && (
+        <div className="reset-overlay" onClick={() => setShowReset(false)}>
+          <div className="reset-card" onClick={e => e.stopPropagation()}>
+            <p className="reset-icon">🗺️</p>
+            <h3 className="reset-title">Reset All Travels?</h3>
+            <p className="reset-text">This will clear all your stamps, progress, and saved games. Your passport will be blank again. This cannot be undone.</p>
+            <div className="reset-btns">
+              <button className="reset-confirm-btn" onClick={handleReset}>Yes, start over</button>
+              <button className="reset-cancel-btn" onClick={() => setShowReset(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <button className="reset-trigger" onClick={() => setShowReset(true)}>↺ Reset all travels</button>
 
       <footer className="geo-footer">
         <a className="footer-home" href="https://lettergriddle.com">🥞 lettergriddle.com</a>
@@ -449,15 +475,22 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone }) {
   }, [slots, tray, completed]);
 
   const placeIntoSlot = useCallback((wIdx, sIdx, letter, trayIdx) => {
-    const cur = slots[wIdx][sIdx];
+    const cur = slots[wIdx][sIdx]; // letter already in this slot (if any)
+
+    // Build new slots with the letter placed
     const newSlots = slots.map(r => [...r]);
-    if (cur) setTray(p => [...p, cur]);
     newSlots[wIdx][sIdx] = letter;
+
+    // Build new tray: remove the placed letter, add back displaced letter if any
     const newTray = [...tray];
-    newTray.splice(trayIdx, 1);
-    setTray(newTray);
+    newTray.splice(trayIdx, 1);       // remove the letter we just placed
+    if (cur) newTray.push(cur);       // return displaced letter in one atomic update
+
+    // Apply both state updates together so nothing gets lost
     setSlots(newSlots);
+    setTray(newTray);
     setSelected(null);
+
     if (letter !== puzzle.words[wIdx].word[sIdx]) flashWrong(`${wIdx}-${sIdx}`);
     checkWord(wIdx, newSlots[wIdx]);
   }, [slots, tray, puzzle]);
@@ -576,8 +609,11 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone }) {
     if (isRevealed || completed[wIdx]) return;
     const cur = slots[wIdx][sIdx];
     if (cur && !selected) {
+      // Return letter to tray atomically
+      const newSlots = slots.map(r => [...r]);
+      newSlots[wIdx][sIdx] = "";
+      setSlots(newSlots);
       setTray(p => [...p, cur]);
-      setSlots(p => { const n=p.map(r=>[...r]); n[wIdx][sIdx]=""; return n; });
       return;
     }
     if (!selected) return;
@@ -699,7 +735,7 @@ export default function App() {
       {activePuzzle
         ? <GameScreen puzzle={activePuzzle} onBack={() => setActivePuzzle(null)}
             onComplete={handleComplete} alreadyDone={completed.includes(activePuzzle.country)} />
-        : <SelectionScreen completed={completed} onSelect={setActivePuzzle} mounted={mounted} onHowToPlay={() => setShowHtp(true)} />}
+        : <SelectionScreen completed={completed} onSelect={setActivePuzzle} mounted={mounted} onHowToPlay={() => setShowHtp(true)} onReset={() => setCompleted([])} />}
       {showHtp && <HowToPlayModal onClose={closeHtp} />}
       <style>{globalStyles}</style>
     </div>
@@ -874,6 +910,20 @@ const selectionStyles = `
   .footer-links a:hover { opacity: 1; }
   .footer-dot { color: #93c5fd; opacity: 0.4; font-size: 12px; }
   .footer-copy { color: #93c5fd; font-size: 11px; opacity: 0.4; font-weight: 600; }
+
+  .reset-trigger { background: none; border: none; color: #93c5fd; font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 600; opacity: 0.35; cursor: pointer; padding: 4px 8px; transition: opacity 0.2s; }
+  .reset-trigger:hover { opacity: 0.65; }
+
+  .reset-overlay { position: fixed; inset: 0; z-index: 400; background: rgba(0,0,20,0.85); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 24px; animation: fadeIn 0.2s ease; }
+  .reset-card { background: linear-gradient(160deg, #0a0f2e, #0d1540); border: 1px solid rgba(239,68,68,0.3); border-radius: 20px; padding: 28px 24px; max-width: 340px; width: 100%; text-align: center; box-shadow: 0 0 40px rgba(239,68,68,0.1), 0 20px 40px rgba(0,0,0,0.5); }
+  .reset-icon { font-size: 40px; margin-bottom: 10px; }
+  .reset-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: #bfdbfe; margin-bottom: 10px; }
+  .reset-text { font-size: 13px; color: #93c5fd; line-height: 1.6; opacity: 0.8; margin-bottom: 20px; }
+  .reset-btns { display: flex; flex-direction: column; gap: 10px; }
+  .reset-confirm-btn { background: linear-gradient(135deg, #dc2626, #991b1b); color: white; border: none; border-radius: 10px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; padding: 12px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(220,38,38,0.3); }
+  .reset-confirm-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(220,38,38,0.4); }
+  .reset-cancel-btn { background: rgba(255,255,255,0.06); color: #93c5fd; border: 1px solid rgba(96,165,250,0.2); border-radius: 10px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; padding: 12px; cursor: pointer; transition: all 0.2s; }
+  .reset-cancel-btn:hover { background: rgba(255,255,255,0.10); }
 `;
 
 const gameStyles = `

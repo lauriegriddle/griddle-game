@@ -12,7 +12,7 @@ const PUZZLES = [
       { word: "SUGAR",    hint: "Barbados built its economy on this sweet crop", revealedIndex: 0 },
       { word: "TURTLE",   hint: "Sea creature that nests on Barbadian beaches", revealedIndex: 0 },
       { word: "CRICKET",  hint: "The most beloved sport on the island", revealedIndex: 0 },
-      { word: "TRANQUIL", hint: "Peacefully calm; a word that suits island life", revealedIndex: 2 },
+      { word: "TRANQUIL", hint: "Peacefully calm — a word that suits island life", revealedIndex: 2 },
     ],
   },
   {
@@ -23,7 +23,7 @@ const PUZZLES = [
       { word: "SPICE",    hint: "India is the world's largest producer of these flavor-makers", revealedIndex: 0 },
       { word: "MARKET",   hint: "Bustling bazaar where traders sell goods", revealedIndex: 0 },
       { word: "DIVERSE",  hint: "India has 22 official languages and hundreds of dialects", revealedIndex: 3 },
-      { word: "MYSTICAL", hint: "Spiritual and mysterious; a quality India is famous for", revealedIndex: 2 },
+      { word: "MYSTICAL", hint: "Spiritual and mysterious — a quality India is famous for", revealedIndex: 2 },
     ],
   },
   {
@@ -50,7 +50,7 @@ const PUZZLES = [
   },
   {
     country: "Norway", flag: "🇳🇴",
-    funFact: "Norway boasts the world's longest road tunnel, over 1,000 fjords, and 24-hour summer daylight, the Midnight Sun. It is the birthplace of skiing, has won the most Winter Olympic medals, and introduced salmon sushi to Japan.",
+    funFact: "Norway boasts the world's longest road tunnel, over 1,000 fjords, and 24-hour summer daylight — the Midnight Sun. It is the birthplace of skiing, has won the most Winter Olympic medals, and introduced salmon sushi to Japan.",
     words: [
       { word: "OSLO",     hint: "Norway's capital and most populous city", revealedIndex: 0 },
       { word: "CLIFF",    hint: "Dramatic rock face found along Norway's fjord edges", revealedIndex: 0 },
@@ -72,7 +72,7 @@ const PUZZLES = [
   },
   {
     country: "Italy", flag: "🇮🇹",
-    funFact: "Italy is a boot-shaped peninsula boasting the most UNESCO World Heritage sites globally. Famous for inventing pizza, espresso machines, and pianos, it surrounds two independent microstates, Vatican City and San Marino, and produces 20% of the world's olive oil.",
+    funFact: "Italy is a boot-shaped peninsula boasting the most UNESCO World Heritage sites globally. Famous for inventing pizza, espresso machines, and pianos, it surrounds two independent microstates — Vatican City and San Marino — and produces 20% of the world's olive oil.",
     words: [
       { word: "ROME",     hint: "The Eternal City and capital of Italy", revealedIndex: 0 },
       { word: "PASTA",    hint: "Italy has over 350 shapes of this beloved staple", revealedIndex: 0 },
@@ -94,7 +94,7 @@ const PUZZLES = [
   },
   {
     country: "Ireland", flag: "🇮🇪",
-    funFact: "Ireland, known as the Emerald Isle, is the only country with a musical instrument, the harp, as its national symbol, has no wild snakes, and features the world's oldest pub, Sean's Bar, operating since 900 AD.",
+    funFact: "Ireland, known as the Emerald Isle, is the only country with a musical instrument — the harp — as its national symbol, has no wild snakes, and features the world's oldest pub, Sean's Bar, operating since 900 AD.",
     words: [
       { word: "HARP",     hint: "Ireland's national symbol and musical instrument", revealedIndex: 0 },
       { word: "CLIFF",    hint: "The dramatic Cliffs of Moher rise 700 feet above the sea", revealedIndex: 0 },
@@ -260,7 +260,7 @@ function SuggestBanner({ onClose }) {
       <div className="suggest-card" onClick={e => e.stopPropagation()}>
         <div className="suggest-icon">🌍</div>
         <p className="suggest-title">Have an idea for a great Letter Griddle Geo puzzle?</p>
-        <p className="suggest-text">We're building Letter Griddle Geo one puzzle at a time. We'd love your ideas! Email us your country, city, or landmark suggestion along with 5 words having 4, 5, 6, 7, and 8 letters that capture it and get your puzzle published with credit!</p>
+        <p className="suggest-text">We're building Letter Griddle Geo one puzzle at a time. We'd love your ideas! Email us your country, city, or landmark suggestion along with 5 words having 4, 5, 6, 7, and 8 letters that capture it — and get your puzzle published with credit!</p>
         <a className="suggest-link" href="mailto:lettergriddle@gmail.com?subject=Letter%20Griddle%20Geo%20Puzzle%20Suggestion&body=Country%2FCity%2FLandmark%3A%20%0A%0AMy%205%20words%3A%0A4-letter%3A%20%0A5-letter%3A%20%0A6-letter%3A%20%0A7-letter%3A%20%0A8-letter%3A%20%0A%0AHint%20for%20each%20word%20(optional)%3A%20%0A%0AMy%20name%20for%20the%20credit%3A%20">lettergriddle@gmail.com</a>
       </div>
     </div>
@@ -292,21 +292,21 @@ function HowToPlayModal({ onClose, onResetPuzzle, onResetAll, activePuzzle }) {
             <span className="htp-step-icon">🍳</span>
             <div>
               <p className="htp-step-title">Solve 5 Words</p>
-              <p className="htp-step-text">Each puzzle has 5 words about that country that are 4, 5, 6, 7, and 8 letters long. One letter is revealed in each word to get you started.</p>
+              <p className="htp-step-text">Each puzzle has 5 words about that country — 4, 5, 6, 7, and 8 letters long. One letter is revealed in each word to get you started.</p>
             </div>
           </div>
           <div className="htp-step">
             <span className="htp-step-icon">🔤</span>
             <div>
               <p className="htp-step-title">Place the Letters</p>
-              <p className="htp-step-text">Tap a letter from the tray, then tap an empty slot to place it. On a computer, just type! Solve words in any order.  Tap a word row to focus it.</p>
+              <p className="htp-step-text">Tap a letter from the tray, then tap an empty slot to place it. On a computer, just type! Solve words in any order — tap a word row to focus it.</p>
             </div>
           </div>
           <div className="htp-step">
             <span className="htp-step-icon">💡</span>
             <div>
               <p className="htp-step-title">Use Hints</p>
-              <p className="htp-step-text">Stuck? Each word has a hint button. No penalty for using them!  Hints are there to help!</p>
+              <p className="htp-step-text">Stuck? Each word has a hint button. No penalty for using them — hints are there to help!</p>
             </div>
           </div>
           <div className="htp-step">
@@ -639,25 +639,49 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone, onHowToPlay, doRe
     }
   }, [puzzle, startTime, onComplete]);
 
-  const handleTrayClick = (letter, idx) => {
-    if (selected?.trayIdx === idx) { setSelected(null); return; }
-    setSelected({ letter, trayIdx: idx });
-  };
+  // selectedSlot: a slot the player tapped first (before picking a letter)
+  const [selectedSlot, setSelectedSlot] = useState(null);
 
   const handleSlotClick = (wIdx, sIdx) => {
     const isRevealed = sIdx === puzzle.words[wIdx].revealedIndex;
     if (isRevealed || completed[wIdx]) return;
     const cur = slots[wIdx][sIdx];
-    if (cur && !selected) {
-      // Return letter to tray atomically
+
+    // If a tray letter is already selected, place it here
+    if (selected) {
+      placeIntoSlot(wIdx, sIdx, selected.letter, selected.trayIdx);
+      setSelectedSlot(null);
+      return;
+    }
+
+    // If this slot already has a letter and no tray letter selected, return it
+    if (cur) {
       const newSlots = slots.map(r => [...r]);
       newSlots[wIdx][sIdx] = "";
       setSlots(newSlots);
       setTray(p => [...p, cur]);
+      setSelectedSlot(null);
       return;
     }
-    if (!selected) return;
-    placeIntoSlot(wIdx, sIdx, selected.letter, selected.trayIdx);
+
+    // Empty slot tapped first — select it so next tray tap fills it
+    if (selectedSlot?.wIdx === wIdx && selectedSlot?.sIdx === sIdx) {
+      setSelectedSlot(null); // deselect if tapped again
+    } else {
+      setSelectedSlot({ wIdx, sIdx });
+      setActiveWord(wIdx);
+    }
+  };
+
+  const handleTrayClick = (letter, idx) => {
+    // If a slot is pre-selected, place directly into it
+    if (selectedSlot) {
+      placeIntoSlot(selectedSlot.wIdx, selectedSlot.sIdx, letter, idx);
+      setSelectedSlot(null);
+      return;
+    }
+    if (selected?.trayIdx === idx) { setSelected(null); return; }
+    setSelected({ letter, trayIdx: idx });
   };
 
   const shuffle = () => {
@@ -724,7 +748,7 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone, onHowToPlay, doRe
                 const isWrong = wrong[`${wIdx}-${sIdx}`];
                 return (
                   <div key={sIdx}
-                    className={`slot ${isRevealed?"slot-revealed":""} ${completed[wIdx]?"slot-complete":""} ${isWrong?"slot-wrong":""} ${letter&&!isRevealed&&!completed[wIdx]?"slot-filled":""}`}
+                    className={`slot ${isRevealed?"slot-revealed":""} ${completed[wIdx]?"slot-complete":""} ${isWrong?"slot-wrong":""} ${letter&&!isRevealed&&!completed[wIdx]?"slot-filled":""} ${selectedSlot?.wIdx===wIdx&&selectedSlot?.sIdx===sIdx?"slot-selected-target":""}`}
                     onClick={() => handleSlotClick(wIdx, sIdx)}>
                     {letter}
                   </div>
@@ -764,6 +788,7 @@ export default function App() {
   const [mounted, setMounted] = useState(false);
   const [showHtp, setShowHtp] = useState(false);
   const [htpResetPuzzle, setHtpResetPuzzle] = useState(false);
+  const [showResetAll, setShowResetAll] = useState(false);
 
   // Load localStorage only after mount (client-side only)
   useEffect(() => {
@@ -795,6 +820,25 @@ export default function App() {
             onHowToPlay={() => setShowHtp(true)}
             doReset={htpResetPuzzle} onResetHandled={() => setHtpResetPuzzle(false)} />
         : <SelectionScreen completed={completed} onSelect={setActivePuzzle} mounted={mounted} onHowToPlay={() => setShowHtp(true)} onReset={() => setCompleted([])} />}
+      {showResetAll && (
+        <div className="reset-overlay" onClick={() => setShowResetAll(false)}>
+          <div className="reset-card" onClick={e => e.stopPropagation()}>
+            <p className="reset-icon">🗺️</p>
+            <h3 className="reset-title">Reset All Travels?</h3>
+            <p className="reset-text">This will clear all your stamps, progress, and saved games. Your passport will be blank again. This cannot be undone.</p>
+            <div className="reset-btns">
+              <button className="reset-confirm-btn" onClick={() => {
+                localStorage.removeItem(COMPLETED_KEY);
+                localStorage.removeItem(PROGRESS_KEY);
+                setCompleted([]);
+                setShowResetAll(false);
+              }}>Yes, start over</button>
+              <button className="reset-cancel-btn" onClick={() => setShowResetAll(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {showHtp && (
         <HowToPlayModal
           onClose={closeHtp}
@@ -804,10 +848,8 @@ export default function App() {
             closeHtp();
           }}
           onResetAll={() => {
-            localStorage.removeItem(COMPLETED_KEY);
-            localStorage.removeItem(PROGRESS_KEY);
-            setCompleted([]);
             closeHtp();
+            setTimeout(() => setShowResetAll(true), 200);
           }}
         />
       )}
@@ -1051,6 +1093,8 @@ const gameStyles = `
   .slot-complete { background: linear-gradient(135deg, rgba(96,165,250,0.35), rgba(59,130,246,0.45)); border-color: rgba(96,165,250,0.75); cursor: default; }
   .slot-complete:hover { transform: none; }
   .slot-wrong    { background: rgba(239,68,68,0.20); border-color: rgba(239,68,68,0.55); animation: shake 0.4s ease; }
+  .slot-selected-target { border-color: rgba(251,191,36,0.90); background: rgba(251,191,36,0.15); box-shadow: 0 0 10px rgba(251,191,36,0.4); animation: pulse-slot 1s ease-in-out infinite; }
+  @keyframes pulse-slot { 0%,100% { box-shadow: 0 0 6px rgba(251,191,36,0.3); } 50% { box-shadow: 0 0 14px rgba(251,191,36,0.6); } }
   @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
   .word-honey { position: absolute; right: 12px; bottom: 10px; font-size: 18px; }
 

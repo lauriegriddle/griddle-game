@@ -50,7 +50,7 @@ const PUZZLES = [
   },
   {
     country: "Norway", flag: "🇳🇴",
-    funFact: "Norway boasts the world's longest road tunnel, over 1,000 fjords, and 24-hour summer daylight called the Midnight Sun. It is the birthplace of skiing, has won the most Winter Olympic medals, and introduced salmon sushi to Japan.",
+    funFact: "Norway boasts the world's longest road tunnel, over 1,000 fjords, and 24-hour summer daylight, the Midnight Sun. It is the birthplace of skiing, has won the most Winter Olympic medals, and introduced salmon sushi to Japan.",
     words: [
       { word: "OSLO",     hint: "Norway's capital and most populous city", revealedIndex: 0 },
       { word: "CLIFF",    hint: "Dramatic rock face found along Norway's fjord edges", revealedIndex: 0 },
@@ -260,7 +260,7 @@ function SuggestBanner({ onClose }) {
       <div className="suggest-card" onClick={e => e.stopPropagation()}>
         <div className="suggest-icon">🌍</div>
         <p className="suggest-title">Have an idea for a great Letter Griddle Geo puzzle?</p>
-        <p className="suggest-text">We're building Letter Griddle Geo one puzzle at a time. We'd love your ideas! Email us your country, city, or landmark suggestion along with 5 words having 4, 5, 6, 7, and 8 letters that capture it to get your puzzle published with credit!</p>
+        <p className="suggest-text">We're building Letter Griddle Geo one puzzle at a time. We'd love your ideas! Email us your country, city, or landmark suggestion along with 5 words having 4, 5, 6, 7, and 8 letters that capture it and get your puzzle published with credit!</p>
         <a className="suggest-link" href="mailto:lettergriddle@gmail.com?subject=Letter%20Griddle%20Geo%20Puzzle%20Suggestion&body=Country%2FCity%2FLandmark%3A%20%0A%0AMy%205%20words%3A%0A4-letter%3A%20%0A5-letter%3A%20%0A6-letter%3A%20%0A7-letter%3A%20%0A8-letter%3A%20%0A%0AHint%20for%20each%20word%20(optional)%3A%20%0A%0AMy%20name%20for%20the%20credit%3A%20">lettergriddle@gmail.com</a>
       </div>
     </div>
@@ -268,7 +268,7 @@ function SuggestBanner({ onClose }) {
 }
 
 // ── How To Play Modal ─────────────────────────────────────────────────────────
-function HowToPlayModal({ onClose }) {
+function HowToPlayModal({ onClose, onResetPuzzle, onResetAll, activePuzzle }) {
   return (
     <div className="htp-overlay" onClick={onClose}>
       <div className="htp-card" onClick={e => e.stopPropagation()}>
@@ -299,7 +299,7 @@ function HowToPlayModal({ onClose }) {
             <span className="htp-step-icon">🔤</span>
             <div>
               <p className="htp-step-title">Place the Letters</p>
-              <p className="htp-step-text">Tap a letter from the tray, then tap an empty slot to place it. On a computer, just type! Solve words in any order — tap a word row to focus it.</p>
+              <p className="htp-step-text">Tap a letter from the tray, then tap an empty slot to place it. On a computer, just type! Solve words in any order.  Tap a word row to focus it.</p>
             </div>
           </div>
           <div className="htp-step">
@@ -323,6 +323,18 @@ function HowToPlayModal({ onClose }) {
               <p className="htp-step-text">Your progress saves automatically. Come back anytime and resume right where you stopped.</p>
             </div>
           </div>
+        </div>
+
+        <div className="htp-divider" />
+
+        <p className="htp-reset-label">Need a fresh start?</p>
+        <div className="htp-reset-row">
+          <button className="htp-reset-btn" onClick={onResetPuzzle}>
+            ↺ Reset current country
+          </button>
+          <button className="htp-reset-btn htp-reset-all-btn" onClick={onResetAll}>
+            ↺ Reset all travels
+          </button>
         </div>
 
         <button className="htp-start-btn" onClick={onClose}>
@@ -446,7 +458,7 @@ function SelectionScreen({ completed, onSelect, mounted, onHowToPlay, onReset })
 }
 
 // ── Game Screen ───────────────────────────────────────────────────────────────
-function GameScreen({ puzzle, onBack, onComplete, alreadyDone }) {
+function GameScreen({ puzzle, onBack, onComplete, alreadyDone, onHowToPlay, doReset, onResetHandled }) {
   // Restore saved progress or start fresh
   const saved = !alreadyDone ? loadProgress(puzzle.country) : null;
 
@@ -467,6 +479,7 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone }) {
   const [startTime]               = useState(() => saved?.startTime || Date.now());
   const [elapsed, setElapsed]     = useState(saved?.elapsed || null);
   const [activeWord, setActiveWord] = useState(0); // which word keyboard types into
+  const [showResetPuzzle, setShowResetPuzzle] = useState(false);
 
   // ── Auto-save progress ──────────────────────────────────────────────────────
   useEffect(() => {
@@ -494,6 +507,32 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone }) {
     if (letter !== puzzle.words[wIdx].word[sIdx]) flashWrong(`${wIdx}-${sIdx}`);
     checkWord(wIdx, newSlots[wIdx]);
   }, [slots, tray, puzzle]);
+
+  // ── Handle reset triggered from How To Play modal ──────────────────────────
+  useEffect(() => {
+    if (doReset) {
+      handleResetPuzzle();
+      onResetHandled();
+    }
+  }, [doReset]);
+
+  // ── Reset this puzzle back to start ───────────────────────────────────────
+  const handleResetPuzzle = () => {
+    const freshSlots = initSlots(puzzle.words);
+    const freshTray  = buildTray(puzzle.words);
+    setSlots(freshSlots);
+    setTray(freshTray);
+    setCompleted(puzzle.words.map(() => false));
+    setSelected(null);
+    setHints(puzzle.words.map(() => false));
+    setActiveWord(0);
+    setAllDone(false);
+    setShowPostcard(false);
+    setConfetti([]);
+    setElapsed(null);
+    clearProgress(puzzle.country);
+    setShowResetPuzzle(false);
+  };
 
   // ── Auto-advance activeWord when a word is completed ──────────────────────
   useEffect(() => {
@@ -577,6 +616,8 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone }) {
 
   const checkWord = useCallback((wordIdx, newSlots) => {
     if (newSlots.join("") === puzzle.words[wordIdx].word) {
+      setCelebrating(wordIdx);
+      setTimeout(() => setCelebrating(null), 1000);
       setCompleted(prev => {
         const n = [...prev]; n[wordIdx] = true;
         if (n.every(Boolean)) {
@@ -589,11 +630,10 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone }) {
             color: ["#60a5fa","#93c5fd","#fbbf24","#34d399","#a78bfa","#fde68a","#38bdf8"][i%7],
             size: 6 + Math.random() * 8,
           })));
-          onComplete(puzzle.country);
+          // Use setTimeout to defer onComplete outside the render cycle
+          setTimeout(() => onComplete(puzzle.country), 0);
           setTimeout(() => setShowPostcard(true), 900);
         }
-        setCelebrating(wordIdx);
-        setTimeout(() => setCelebrating(null), 1000);
         return n;
       });
     }
@@ -636,14 +676,30 @@ function GameScreen({ puzzle, onBack, onComplete, alreadyDone }) {
 
       {showPostcard && <PostcardModal puzzle={puzzle} elapsed={elapsed} onClose={() => { setShowPostcard(false); onBack(); }} />}
 
+      {showResetPuzzle && (
+        <div className="reset-overlay" onClick={() => setShowResetPuzzle(false)}>
+          <div className="reset-card" onClick={e => e.stopPropagation()}>
+            <p className="reset-icon">{puzzle.flag}</p>
+            <h3 className="reset-title">Reset {puzzle.country}?</h3>
+            <p className="reset-text">All your placed letters will be returned to the tray and you'll start this puzzle fresh.</p>
+            <div className="reset-btns">
+              <button className="reset-confirm-btn" onClick={handleResetPuzzle}>Yes, start over</button>
+              <button className="reset-cancel-btn" onClick={() => setShowResetPuzzle(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="game-header">
         <button className="back-btn" onClick={onBack}>← Back</button>
         <div className="game-title-wrap">
           <span className="game-flag">{puzzle.flag}</span>
           <h2 className="game-country">{puzzle.country}</h2>
         </div>
-        {allDone ? <button className="show-postcard-btn" onClick={() => setShowPostcard(true)}>📬</button>
-                 : <div style={{width:40}} />}
+        <div className="game-header-right">
+          {allDone && <button className="show-postcard-btn" onClick={() => setShowPostcard(true)}>📬</button>}
+          <button className="htp-game-btn" onClick={onHowToPlay} title="Help & Reset">❓</button>
+        </div>
       </div>
 
       <div className="keyboard-hint">⌨️ Click a word to focus it · Type to fill · Backspace to remove</div>
@@ -707,6 +763,7 @@ export default function App() {
   const [activePuzzle, setActivePuzzle] = useState(null);
   const [mounted, setMounted] = useState(false);
   const [showHtp, setShowHtp] = useState(false);
+  const [htpResetPuzzle, setHtpResetPuzzle] = useState(false);
 
   // Load localStorage only after mount (client-side only)
   useEffect(() => {
@@ -734,9 +791,26 @@ export default function App() {
     <div className="app-root">
       {activePuzzle
         ? <GameScreen puzzle={activePuzzle} onBack={() => setActivePuzzle(null)}
-            onComplete={handleComplete} alreadyDone={completed.includes(activePuzzle.country)} />
+            onComplete={handleComplete} alreadyDone={completed.includes(activePuzzle.country)}
+            onHowToPlay={() => setShowHtp(true)}
+            doReset={htpResetPuzzle} onResetHandled={() => setHtpResetPuzzle(false)} />
         : <SelectionScreen completed={completed} onSelect={setActivePuzzle} mounted={mounted} onHowToPlay={() => setShowHtp(true)} onReset={() => setCompleted([])} />}
-      {showHtp && <HowToPlayModal onClose={closeHtp} />}
+      {showHtp && (
+        <HowToPlayModal
+          onClose={closeHtp}
+          activePuzzle={activePuzzle}
+          onResetPuzzle={() => {
+            setHtpResetPuzzle(true);
+            closeHtp();
+          }}
+          onResetAll={() => {
+            localStorage.removeItem(COMPLETED_KEY);
+            localStorage.removeItem(PROGRESS_KEY);
+            setCompleted([]);
+            closeHtp();
+          }}
+        />
+      )}
       <style>{globalStyles}</style>
     </div>
   );
@@ -762,6 +836,13 @@ const htpStyles = `
   .htp-footer-note { text-align: center; font-size: 12px; color: #93c5fd; opacity: 0.5; }
   .htp-link { color: #60a5fa; text-decoration: none; font-weight: 700; }
   .htp-link:hover { opacity: 0.8; }
+  .htp-divider { width: 100%; height: 1px; background: rgba(96,165,250,0.15); margin: 4px 0 14px; }
+  .htp-reset-label { font-size: 11px; font-weight: 800; color: #93c5fd; opacity: 0.55; letter-spacing: 0.8px; text-transform: uppercase; text-align: center; margin-bottom: 10px; }
+  .htp-reset-row { display: flex; gap: 8px; margin-bottom: 16px; }
+  .htp-reset-btn { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(96,165,250,0.2); color: #93c5fd; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 12px; padding: 9px 8px; border-radius: 10px; cursor: pointer; transition: all 0.2s; }
+  .htp-reset-btn:hover { background: rgba(255,255,255,0.10); border-color: rgba(96,165,250,0.4); }
+  .htp-reset-all-btn { border-color: rgba(239,68,68,0.25); color: rgba(252,165,165,0.8); }
+  .htp-reset-all-btn:hover { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.45); }
 `;
 // ── Styles ────────────────────────────────────────────────────────────────────
 const globalStyles = `
@@ -937,7 +1018,13 @@ const gameStyles = `
   .game-title-wrap { display: flex; align-items: center; gap: 8px; }
   .game-flag { font-size: 28px; }
   .game-country { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: #bfdbfe; text-shadow: 0 0 20px rgba(96,165,250,0.3); }
+  .game-header-right { display: flex; align-items: center; gap: 6px; }
+  .htp-game-btn { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #93c5fd; border-radius: 99px; font-size: 15px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .htp-game-btn:hover { background: rgba(96,165,250,0.15); border-color: rgba(96,165,250,0.4); }
   .show-postcard-btn { background: rgba(96,165,250,0.15); border: 1px solid rgba(96,165,250,0.4); border-radius: 99px; font-size: 18px; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .show-postcard-btn:hover { background: rgba(96,165,250,0.28); }
+  .reset-puzzle-btn { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #93c5fd; border-radius: 99px; font-size: 16px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; opacity: 0.6; }
+  .reset-puzzle-btn:hover { background: rgba(255,255,255,0.12); opacity: 1; }
   .show-postcard-btn:hover { background: rgba(96,165,250,0.28); }
 
   .keyboard-hint { text-align: center; font-size: 11px; color: #93c5fd; opacity: 0.5; font-weight: 600; letter-spacing: 0.3px; }

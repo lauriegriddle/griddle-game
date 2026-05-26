@@ -1015,7 +1015,7 @@ export default function Home() {
                 <div className="p-4 bg-gradient-to-br from-amber-50 to-yellow-100 flex flex-col justify-between" style={{ minHeight: "140px" }}>
                   <h3 className="text-base font-bold text-amber-900 mb-1" style={{ fontFamily: 'Georgia, serif' }}>Letter Griddle: 50 Word Puzzles</h3>
                   <p className="text-amber-700 text-sm italic mb-2" style={{ fontFamily: 'Georgia, serif' }}>The original collection of puzzles for screen-free downtime</p>
-                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon</p>
+                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Read a sample on Amazon</p>
                 </div>
               </a>
             </div>
@@ -1033,7 +1033,7 @@ export default function Home() {
                 <div className="p-4 bg-gradient-to-br from-amber-50 to-yellow-100 flex flex-col justify-between" style={{ minHeight: "140px" }}>
                   <h3 className="text-base font-bold text-amber-900 mb-1" style={{ fontFamily: 'Georgia, serif' }}>Letter Griddle Travels ✈️</h3>
                   <p className="text-amber-700 text-sm italic mb-2" style={{ fontFamily: 'Georgia, serif' }}>40 puzzles across countries, cities and landmarks</p>
-                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon</p>
+                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Read a sample on Amazon</p>
                 </div>
               </a>
             </div>
@@ -1076,7 +1076,7 @@ export default function Home() {
                 <div className="p-4 bg-gradient-to-br from-amber-50 to-yellow-100 flex flex-col justify-between" style={{ minHeight: '140px' }}>
                   <h3 className="text-base font-bold text-amber-900 mb-1" style={{ fontFamily: 'Georgia, serif' }}>Just Breakfast Journal</h3>
                   <p className="text-amber-700 text-sm italic mb-2" style={{ fontFamily: 'Georgia, serif' }}>A 90-day guided journal for your breakfast ritual to savor every morning</p>
-                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon</p>
+                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon with a "look inside"</p>
                 </div>
               </a>
             </div>
@@ -1093,7 +1093,7 @@ export default function Home() {
                 <div className="p-4 bg-gradient-to-br from-amber-50 to-yellow-100 flex flex-col justify-between" style={{ minHeight: '140px' }}>
                   <h3 className="text-base font-bold text-amber-900 mb-1" style={{ fontFamily: 'Georgia, serif' }}>Breakfast and Nature</h3>
                   <p className="text-amber-700 text-sm italic mb-2" style={{ fontFamily: 'Georgia, serif' }}>A 90-day journal where breakfast meets the beauty of nature</p>
-                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon</p>
+                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon with a "look inside"</p>
                 </div>
               </a>
             </div>
@@ -1104,13 +1104,13 @@ export default function Home() {
                   <p className="text-white font-bold text-lg text-center px-4" style={{ fontFamily: 'Georgia, serif', textShadow: '1px 1px 3px rgba(0,0,0,0.3)' }}>Coffee Coffee Coffee</p>
                   <p className="text-amber-200 text-xs tracking-widest uppercase mt-1">Your Notebook. Your Coffee.</p>
                   <div className="absolute inset-0 bg-amber-900/75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-white font-bold text-lg" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon →</span>
+                    <span className="text-white font-bold text-lg" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon→</span>
                   </div>
                 </div>
                 <div className="p-4 bg-gradient-to-br from-amber-50 to-yellow-100 flex flex-col justify-between" style={{ minHeight: '140px' }}>
                   <h3 className="text-base font-bold text-amber-900 mb-1" style={{ fontFamily: 'Georgia, serif' }}>Coffee Coffee Coffee</h3>
                   <p className="text-amber-700 text-sm italic mb-2" style={{ fontFamily: 'Georgia, serif' }}>A lined notebook for quiet coffee moments & the love of the brew</p>
-                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon</p>
+                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon with a "look inside"</p>
                 </div>
               </a>
             </div>

@@ -998,7 +998,7 @@ export default function Home() {
             <div className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4" style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}>
               🍳 Screen-Free Books ✏️
             </div>
-            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>Take Letter Griddle With You</h2>
+            <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>Letter Griddle is off-line too!</h2>
             <p className="text-amber-600 italic" style={{ fontFamily: 'Georgia, serif' }}>Letter Griddle now offers screen-free options</p>
           </div>
           <div className="flex flex-wrap justify-center gap-6">
@@ -1050,7 +1050,7 @@ export default function Home() {
                 <div className="p-4 bg-gradient-to-br from-amber-50 to-yellow-100 flex flex-col justify-between" style={{ minHeight: "140px" }}>
                   <h3 className="text-base font-bold text-amber-900 mb-1" style={{ fontFamily: 'Georgia, serif' }}>Today's Special Notebook</h3>
                   <p className="text-amber-700 text-sm italic mb-2" style={{ fontFamily: 'Georgia, serif' }}>A beautiful lined notebook with honey pot design on every page</p>
-                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon</p>
+                  <p className="text-amber-600 text-xs font-semibold" style={{ fontFamily: 'Georgia, serif' }}>Now on Amazon with a "look inside"</p>
                 </div>
               </a>
             </div>

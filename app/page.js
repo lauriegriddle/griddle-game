@@ -854,7 +854,7 @@ export default function Home() {
             className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
           >
-            {"\u2728"} Stories, Recipes, & More
+            {"\u2728"} Stories & Recipes
           </button>
           
           <button
@@ -885,7 +885,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
               Daily Favorites
             </h2>
-            <p className="text-amber-600">Our daily puzzles</p>
+            <p className="text-amber-600">New puzzles drop daily</p>
           </div>
           <GameGrid games={dailyFavorites} />
         </section>
@@ -1021,10 +1021,10 @@ export default function Home() {
               className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
               style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)', fontFamily: 'Georgia, serif' }}
             >
-              ✨ Stories, Recipes, & More
+              ✨ Stories & Recipes
             </div>
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-              Recipes, Stories, Puzzles & More
+              Stories, Recipes, & Puzzles
             </h2>
             <p className="text-amber-600">From the Letter Griddle world</p>
           </div>
@@ -1043,7 +1043,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
               Summer Days
             </h2>
-            <p className="text-amber-600">Fresh summer fun from the Letter Griddle family!</p>
+            <p className="text-amber-600">Summer fun from Letter Griddle!</p>
           </div>
           <GameGrid games={summerDaysGames} />
         </section>

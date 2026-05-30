@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
-  const [showMoreGames, setShowMoreGames] = useState(false);
+  
   
   // SECTION 1: Daily Favorites (all daily games)
   const dailyFavorites = [
@@ -926,39 +926,15 @@ export default function Home() {
             <span>{"\uD83E\uDD5E"}</span>
             Daily Favorites
           </button>
+          
           <button
-            onClick={() => scrollToSection('grand-opening')}
-            className="inline-flex items-center gap-1 px-4 py-2 text-white rounded-full text-sm font-semibold shadow-md hover:opacity-90 transition-opacity"
-            style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)' }}
-          >
-            <span className="text-yellow-300">{"\u2728"}</span>
-            Fan Favorites
-          </button>
-          <button
-            onClick={() => { if (!showMoreGames) setShowMoreGames(true); setTimeout(() => scrollToSection('more-games'), 100); }}
-            className="px-4 py-2 bg-amber-700 text-white rounded-full text-sm font-semibold hover:bg-amber-800 transition-colors shadow-md"
-          >
-            More Games
-          </button>
-          <button
-            onClick={() => { if (!showMoreGames) setShowMoreGames(true); setTimeout(() => scrollToSection('stories-more'), 100); }}
+            onClick={() => scrollToSection('stories-more')}
             className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
           >
             {"\u2728"} Stories, Recipes, & More
           </button>
-          <button
-            onClick={() => { if (!showMoreGames) setShowMoreGames(true); setTimeout(() => scrollToSection('cafe-specials'), 100); }}
-            className="px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
-          >
-            🎹 Cafe Specials 🕰️
-          </button>
-          <button
-            onClick={() => { if (!showMoreGames) setShowMoreGames(true); setTimeout(() => scrollToSection('espresso-lane'), 100); }}
-            className="relative px-4 py-2 bg-amber-800 text-white rounded-full text-sm font-semibold hover:bg-amber-900 transition-colors shadow-md"
-          >
-            {"\u2615"} Espresso Lane
-          </button>
+          
           <button
             onClick={() => scrollToSection('summer-days')}
             className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
@@ -1116,176 +1092,16 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* SECTION 2: Fan Favorites */}
-        <section id="grand-opening" className="mb-16 scroll-mt-8">
+        {/* SECTION: Stories & More */}
+        <section id="stories-more" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
-            <div
-              className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
-              style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%)', fontFamily: 'Georgia, serif' }}
-            >
-              <span className="text-yellow-300">{"\u2728"}</span>
-              {' '}Fan Favorites{' '}
-              <span className="text-yellow-300">{"\u2728"}</span>
-            </div>
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-              Fan Favorites
+              Recipes, Stories, Puzzles & More
             </h2>
-            <p className="text-amber-600">Community favorites from the Letter Griddle Games!</p>
+            <p className="text-amber-600">From the Letter Griddle world</p>
           </div>
-          <GameGrid games={grandOpeningGames} />
-          <div className="text-center mt-10">
-            <button
-              onClick={() => { setShowMoreGames(!showMoreGames); if (!showMoreGames) { setTimeout(() => scrollToSection('more-games'), 100); } }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-full font-semibold hover:from-orange-500 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl"
-            >
-              {showMoreGames ? 'Hide More Games' : 'Explore More Games'}
-              <span className="text-xl">{showMoreGames ? '\u2191' : '\u2192'}</span>
-            </button>
-          </div>
+          <GameGrid games={storiesAndMore} />
         </section>
-
-        {showMoreGames && (
-          <>
-            {/* SECTION: Cafe Specials */}
-            <section id="cafe-specials" className="mb-16 scroll-mt-8">
-              <div className="text-center mb-8">
-                <div
-                  className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
-                  style={{ background: 'linear-gradient(135deg, #D4833A 0%, #C2632A 50%, #8B3A1A 100%)', fontFamily: 'Georgia, serif' }}
-                >
-                  🎹 Cafe Specials 🕰️
-                </div>
-                <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-                  Something a Little Different
-                </h2>
-                <p className="text-amber-600">From the Letter Griddle Cafe</p>
-              </div>
-              <div className="flex justify-center gap-6 flex-wrap">
-                {cafeSpecials.map((game) => (
-                  <div key={game.name} className="w-full max-w-sm">
-                    <GameCard game={game}>
-                      <div className="relative h-48">
-                        {renderThumbnail(game)}
-                        <div className={`absolute inset-0 ${game.hoverBg} flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity`}>
-                          <span className="text-white font-bold text-lg">Play Now →</span>
-                        </div>
-                      </div>
-                      <div className={`p-5 bg-gradient-to-br ${game.bgColor}`}>
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-2xl">{game.emoji}</span>
-                          <h2 className={`text-xl font-bold ${game.textColor}`} style={{ fontFamily: 'Georgia, serif' }}>
-                            {game.name}
-                          </h2>
-                        </div>
-                        <p className={`${game.subTextColor} text-sm`}>{game.tagline}</p>
-                      </div>
-                    </GameCard>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* SECTION: Espresso Lane */}
-            <section id="espresso-lane" className="mb-16 scroll-mt-8">
-              <div className="text-center mb-8">
-                <div
-                  className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
-                  style={{ background: 'linear-gradient(135deg, #78350F 0%, #92400E 50%, #451A03 100%)', fontFamily: 'Georgia, serif' }}
-                >
-                  {"\u2615"} Espresso Lane {"\u2615"}
-                </div>
-                <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-                  Espresso Lane
-                </h2>
-                <p className="text-amber-600">Games to pair with your coffee break</p>
-              </div>
-              <GameGrid games={espressoLaneGames} />
-            </section>
-
-            {/* SECTION: More Games */}
-            <section id="more-games" className="mb-16 scroll-mt-8">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-                  Letter Griddle Games
-                </h2>
-              </div>
-              <GameGrid games={letterGriddleGames} />
-              <div className="text-center mt-10">
-                <button
-                  onClick={() => scrollToSection('stories-more')}
-                  className="inline-flex items-center gap-2 px-6 py-3 text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
-                  style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
-                >
-                  Recipes, Stories, Puzzles & More
-                  <span className="text-xl">{"\u2192"}</span>
-                </button>
-              </div>
-            </section>
-
-            {/* SECTION: Stories & More */}
-            <section id="stories-more" className="mb-8 scroll-mt-8">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
-                  Recipes, Stories, Puzzles & More
-                </h2>
-              </div>
-              <GameGrid games={storiesAndMore} />
-              <div className="flex justify-center mt-6">
-                <div className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                  <GameCard game={{
-                    name: "Letter Griddle Cafe Game",
-                    tagline: "A Cafe Daily Special Puzzle",
-                    dropTime: "7:00 AM EST",
-                    emoji: "\uD83D\uDC51",
-                    href: "https://lettergriddlecafe.com/game",
-                    external: true,
-                    borderColor: "border-amber-700",
-                    bgColor: "from-amber-100 to-orange-100",
-                    textColor: "text-amber-900",
-                    subTextColor: "text-amber-700",
-                    timeColor: "text-amber-600",
-                    hoverBg: "bg-amber-800/80"
-                  }}>
-                    <div className="relative h-48">
-                      {renderThumbnail({
-                        thumbnail: {
-                          gradient: "linear-gradient(160deg, #fbbf24 0%, #c2410c 30%, #312e81 70%, #0c4a6e 100%)",
-                          icon: "\uD83D\uDC51",
-                          iconSize: "text-4xl",
-                          title: ["Cafe", "Game"],
-                          subtitle: "A CAFE SPECIAL",
-                          subtitleColor: "text-amber-200"
-                        }
-                      })}
-                      <div className="absolute inset-0 bg-amber-800/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span className="text-white font-bold text-lg">Visit →</span>
-                      </div>
-                    </div>
-                    <div className="p-5 bg-gradient-to-br from-amber-100 to-orange-100">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-2xl">👑</span>
-                        <h2 className="text-xl font-bold text-amber-900" style={{ fontFamily: 'Georgia, serif' }}>
-                          Letter Griddle Cafe Game
-                        </h2>
-                      </div>
-                      <p className="text-amber-700 text-sm mb-2">A Cafe Daily Special Puzzle</p>
-                      <p className="text-amber-600 text-xs font-semibold">🕖 New puzzle daily at 7:00 AM EST</p>
-                    </div>
-                  </GameCard>
-                </div>
-              </div>
-              <div className="text-center mt-10">
-                <button
-                  onClick={() => scrollToSection('daily-favorites')}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-full font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all shadow-lg hover:shadow-xl"
-                >
-                  <span className="text-xl">{"\u2191"}</span>
-                  Back to Top
-                </button>
-              </div>
-            </section>
-          </>
-        )}
 
         {/* SECTION: Summer Days */}
         <section id="summer-days" className="mb-16 scroll-mt-8">

@@ -19,58 +19,10 @@ export default function BetaGames() {
     description: "Quote Falls meets Letter Griddle! Complete facts and puzzle categories with falling letters."
   },
     {
-      name: "Griddle Chronicles",
-      href: "/chronicles",
-      emoji: "🌌",
-      description: "Race against time to preserve trivia in the leather-bound tome for future generations!"
-    },
-    {
-      name: "Griddle Codex",
-      href: "/decoder",
-      emoji: "📜",
-      description: "Choose your knowledge domains and decode trivia entries before time runs out!"
-    },
-    {
-      name: "Griddlelogue",
-      href: "/griddlelogue",
-      emoji: "📖",
-      description: "A trivia travelogue for cafe regulars across time. Set your questions, set your timer, preserve the lore!"
-    },
-    {
-      name: "Letter Griddle Land",
-      href: "/griddle-land",
-      emoji: "🍂",
-      description: "Beta testing. Guide the Trivia Crew to the Cinnamon Festival!"
-    },
-    {
-      name: "Servings",
-      href: "/servings",
-      emoji: "🍽️",
-      description: "Beta testing in progress"
-    },
-    {
-      name: "Stadium Scramble",
-      href: "/challenge",
-      emoji: "🏟️",
-      description: "Beta testing in progress. Snake through the grid to find all 5 hidden words!"
-    },
-    {
       name: "Stacks",
       href: "/stacks",
       emoji: "🥞",
       description: "Beta testing in progress"
-    },
-    {
-      name: "Travels",
-      href: "/travels",
-      emoji: "🌍",
-      description: "Beta testing in progress."
-    },
-    {
-      name: "Winter Land",
-      href: "/winter-land",
-      emoji: "⛷️",
-      description: "Beta testing. Guide the Trivia Crew to the Winter Sports Festival!"
     },
   ];
 

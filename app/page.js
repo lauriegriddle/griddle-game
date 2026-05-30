@@ -1038,7 +1038,7 @@ export default function Home() {
               ☀️ Summer Days ☀️
             </div>
             <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: 'Georgia, serif', textShadow: '1px 1px 3px rgba(0,0,0,0.2)' }}>Summer Days</h2>
-            <p className="text-sky-100 italic mb-4" style={{ fontFamily: 'Georgia, serif' }}>Fresh summer fun from the Letter Griddle family!</p>
+            <p className="text-sky-100 italic mb-4" style={{ fontFamily: 'Georgia, serif' }}>Summer fun from Letter Griddle</p>
             <div className="text-3xl" style={{ animation: 'spin 8s linear infinite', display: 'inline-block' }}>☀️</div>
           </div>
           <style>{`

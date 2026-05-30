@@ -1026,7 +1026,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
               Stories, Recipes, & Puzzles
             </h2>
-            <p className="text-amber-600">From the Letter Griddle world</p>
+            <p className="text-amber-600">From Letter Griddle</p>
           </div>
           <GameGrid games={storiesAndMore} />
         </section>

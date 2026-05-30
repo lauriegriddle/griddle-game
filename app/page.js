@@ -843,7 +843,7 @@ export default function Home() {
           <button
             onClick={() => scrollToSection('daily-favorites')}
             className="inline-flex items-center gap-1 px-4 py-2 text-white rounded-full text-sm font-semibold shadow-md hover:opacity-90 transition-opacity animate-pulse"
-            style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)', animationDuration: '3s' }}
+            style={{ background: 'linear-gradient(135deg, #EA580C 0%, #D97706 50%, #92400E 100%)', animationDuration: '3s' }}
           >
             <span>{"\uD83E\uDD5E"}</span>
             Daily Favorites
@@ -869,7 +869,7 @@ export default function Home() {
           <button
             onClick={() => scrollToSection('books')}
             className="px-6 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
-            style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}
+            style={{ background: 'linear-gradient(135deg, #BE123C 0%, #EA580C 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}
           >
             🍳 Screen-Free Books ✏️
           </button>
@@ -893,7 +893,7 @@ export default function Home() {
 {/* SECTION: Books */}
         <section id="books" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
-            <div className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4" style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}>
+            <div className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4" style={{ background: 'linear-gradient(135deg, #BE123C 0%, #EA580C 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}>
               🍳 Screen-Free Books ✏️
             </div>
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>Letter Griddle is off-line too!</h2>
@@ -1017,6 +1017,12 @@ export default function Home() {
         {/* SECTION: Stories & More */}
         <section id="stories-more" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
+            <div
+              className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
+              style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)', fontFamily: 'Georgia, serif' }}
+            >
+              ✨ Stories, Recipes, & More
+            </div>
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>
               Recipes, Stories, Puzzles & More
             </h2>

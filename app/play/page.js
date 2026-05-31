@@ -1332,64 +1332,64 @@ const copyToClipboard = async (text) => {
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
           This Week's Schedule
         </h2>
-        <p className="text-purple-600 font-semibold text-sm">May 24 - 30</p>
+        <p className="text-purple-600 font-semibold text-sm">May 31 - June 6</p>
       </div>
       
       <div className="space-y-1.5 mb-3">
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 5/24</span>
-            <span className="font-semibold text-amber-800 text-sm">Memorial Day</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 5/31</span>
+            <span className="font-semibold text-amber-800 text-sm">Coconut</span>
           </div>
-          <span className="text-lg">🇺🇸</span>
+          <span className="text-lg">🥥</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 5/25</span>
-            <span className="font-semibold text-purple-800 text-sm">Trees</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 6/1</span>
+            <span className="font-semibold text-purple-800 text-sm">Dinosaur</span>
           </div>
-          <span className="text-lg">🌳</span>
+          <span className="text-lg">🦕</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 5/26</span>
-            <span className="font-semibold text-amber-800 text-sm">Sunscreen</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 6/2</span>
+            <span className="font-semibold text-amber-800 text-sm">Rotisserie Chicken</span>
           </div>
-          <span className="text-lg">☀️</span>
+          <span className="text-lg">🍗</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 5/27</span>
-            <span className="font-semibold text-purple-800 text-sm">Mint</span>
-          </div>
-          <span className="text-lg">🌿</span>
-        </div>
-        
-        <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
-          <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 5/28</span>
-            <span className="font-semibold text-amber-800 text-sm">Outdoors</span>
-          </div>
-          <span className="text-lg">🏞️</span>
-        </div>
-        
-        <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
-          <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 5/29</span>
-            <span className="font-semibold text-purple-800 text-sm">School's Out</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 6/3</span>
+            <span className="font-semibold text-purple-800 text-sm">Graduation</span>
           </div>
           <span className="text-lg">🎓</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 5/30</span>
-            <span className="font-semibold text-amber-800 text-sm">Summer Vacations</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 6/4</span>
+            <span className="font-semibold text-amber-800 text-sm">Hug Your Cat</span>
           </div>
-          <span className="text-lg">🏖️</span>
+          <span className="text-lg">🐱</span>
+        </div>
+        
+        <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
+          <div className="flex items-center gap-2">
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 6/5</span>
+            <span className="font-semibold text-purple-800 text-sm">Hot Air Balloon</span>
+          </div>
+          <span className="text-lg">🎈</span>
+        </div>
+        
+        <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
+          <div className="flex items-center gap-2">
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 6/6</span>
+            <span className="font-semibold text-amber-800 text-sm">Drive-In Movies</span>
+          </div>
+          <span className="text-lg">🎬</span>
         </div>
       </div>
       

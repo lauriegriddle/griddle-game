@@ -2883,7 +2883,7 @@ const puzzles = [
       { word: "EXTINCT", hint: "No longer existing", revealedIndex: 0 },
       { word: "SKELETON", hint: "Framework of bones", revealedIndex: 4 },
     ],
-    funFact: "Modern birds are actually living dinosaurs, sharing a common ancestor with non-avian dinosaurs. 🦕",
+    funFact: "Modern birds are actually living dinosaurs, sharing a common ancestor with non-avian dinosaurs.  Flying reptiles like Pterodactyls aren't actually dinosaurs. 🦕",
   },
 
   // =============================================

@@ -3349,6 +3349,341 @@ const puzzles = [
     ],
     funFact: "Meteors, often called shooting stars, are space debris burning up in Earth's atmosphere. ☄️",
   },
+  // =============================================
+  // INDEX 213 - Shows July 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Ice Cream Treats",
+    puzzleNumber: 293,
+    words: [
+      { word: "CONE", hint: "Waffle or sugar holder", revealedIndex: 0 },
+      { word: "SCOOP", hint: "Round serving portion", revealedIndex: 2 },
+      { word: "SUNDAE", hint: "Ice cream with toppings", revealedIndex: 3 },
+      { word: "POPSICLE", hint: "Frozen treat on a stick", revealedIndex: 0 },
+      { word: "SANDWICH", hint: "Ice cream between cookies", revealedIndex: 4 },
+    ],
+    funFact: "Romans enjoyed snow flavored with fruit and honey. 🍦",
+  },
+
+  // =============================================
+  // INDEX 214 - Shows July 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "UFO",
+    puzzleNumber: 294,
+    words: [
+      { word: "AREA", hint: "Nevada's mysterious Zone 51", revealedIndex: 0 },
+      { word: "DRONE", hint: "Unmanned aerial vehicle", revealedIndex: 2 },
+      { word: "CIRCLE", hint: "Crop formation shape", revealedIndex: 3 },
+      { word: "LANDING", hint: "Touching down", revealedIndex: 0 },
+      { word: "SIGHTING", hint: "Reported observation", revealedIndex: 4 },
+    ],
+    funFact: "World UFO Day is celebrated to encourage governments to declassify information on sightings. It commemorates the 1947 Roswell crash incident and the start of the modern UFO era. 👽",
+  },
+
+  // =============================================
+  // INDEX 215 - Shows July 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Compliment Your Mirror Today",
+    puzzleNumber: 295,
+    words: [
+      { word: "KIND", hint: "Gentle and caring", revealedIndex: 0 },
+      { word: "BOOST", hint: "Lift your confidence", revealedIndex: 2 },
+      { word: "ENOUGH", hint: "You are more than ___", revealedIndex: 3 },
+      { word: "CAPABLE", hint: "Able and competent", revealedIndex: 0 },
+      { word: "STRENGTH", hint: "Inner power", revealedIndex: 4 },
+    ],
+    funFact: "National Compliment Your Mirror Day focuses on positive self-affirmation, self-love, and boosting self-esteem by addressing your reflection with kindness, highlighting inner strength, and acknowledging personal achievements. 🪞",
+  },
+
+  // =============================================
+  // INDEX 216 - Shows July 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Barbecue Spareribs",
+    puzzleNumber: 296,
+    words: [
+      { word: "RACK", hint: "Full slab of ribs", revealedIndex: 0 },
+      { word: "TANGY", hint: "Sharp, zesty flavor", revealedIndex: 2 },
+      { word: "GLAZED", hint: "Coated in sticky sauce", revealedIndex: 3 },
+      { word: "SMOKING", hint: "Low and slow cooking method", revealedIndex: 0 },
+      { word: "MARINADE", hint: "Flavor-soaking liquid", revealedIndex: 4 },
+    ],
+    funFact: "The term 'spareribs' likely comes from the German Rippenspeer, which means 'spear ribs,' as they were traditionally roasted on a spit. 🍖",
+  },
+
+  // =============================================
+  // INDEX 217 - Shows July 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Apple Turnover",
+    puzzleNumber: 297,
+    words: [
+      { word: "PUFF", hint: "Flaky pastry type", revealedIndex: 0 },
+      { word: "BAKED", hint: "Oven cooked", revealedIndex: 2 },
+      { word: "FOLDED", hint: "Pastry technique", revealedIndex: 3 },
+      { word: "BUTTERY", hint: "Rich, smooth flavor", revealedIndex: 0 },
+      { word: "PORTABLE", hint: "Easy to carry and eat", revealedIndex: 4 },
+    ],
+    funFact: "National Apple Turnover Day is designed as a sweet follow-up to Independence Day celebrations. 🥐",
+  },
+
+  // =============================================
+  // INDEX 218 - Shows July 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chocolate Kisses",
+    puzzleNumber: 298,
+    words: [
+      { word: "FOIL", hint: "Shiny wrapper", revealedIndex: 0 },
+      { word: "COCOA", hint: "Chocolate base ingredient", revealedIndex: 2 },
+      { word: "NUGGET", hint: "Small bite-sized piece", revealedIndex: 3 },
+      { word: "TEARDROP", hint: "Classic shape", revealedIndex: 0 },
+      { word: "HERSHEY", hint: "Famous chocolate brand", revealedIndex: 4 },
+    ],
+    funFact: "Hershey's Kisses were introduced in 1907, and named simply because 'kiss' was a common term for small, bite-sized candies at the time. 🍫",
+  },
+
+  // =============================================
+  // INDEX 219 - Shows July 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Tell the Truth",
+    puzzleNumber: 299,
+    words: [
+      { word: "WITH", hint: "Level ___", revealedIndex: 0 },
+      { word: "FRANK", hint: "Open and honest", revealedIndex: 2 },
+      { word: "CANDOR", hint: "Honest, direct speech", revealedIndex: 3 },
+      { word: "STRAIGHT", hint: "Give it to me ____", revealedIndex: 0 },
+      { word: "ACCURATE", hint: "Correct and truthful", revealedIndex: 4 },
+    ],
+    funFact: "Telling the truth does more than just build trust. It has measurable physical health benefits, changes the way the brain works, and makes daily life much easier. ✅",
+  },
+
+  // =============================================
+  // INDEX 220 - Shows July 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Almonds",
+    puzzleNumber: 300,
+    words: [
+      { word: "BARK", hint: "Chocolate almond treat", revealedIndex: 0 },
+      { word: "WHOLE", hint: "Unsliced nut", revealedIndex: 2 },
+      { word: "SALTED", hint: "Classic seasoning", revealedIndex: 3 },
+      { word: "SLIVERED", hint: "Thinly sliced pieces", revealedIndex: 0 },
+      { word: "BLANCHED", hint: "Skin-removed almonds", revealedIndex: 4 },
+    ],
+    funFact: "Almonds are ancient, highly nutritious seeds closely related to peaches and plums. 🌰",
+  },
+
+  // =============================================
+  // INDEX 221 - Shows July 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Sugar Cookie",
+    puzzleNumber: 301,
+    words: [
+      { word: "PIN", hint: "Rolling ___", revealedIndex: 0 },
+      { word: "ROLL", hint: "Flatten the dough", revealedIndex: 2 },
+      { word: "DOUGH", hint: "Unbaked mixture", revealedIndex: 3 },
+      { word: "CUTTER", hint: "Shape-making tool", revealedIndex: 0 },
+      { word: "CRUMBLY", hint: "Delicate texture", revealedIndex: 4 },
+    ],
+    funFact: "The sugar cookie is the official state cookie of both Pennsylvania and New Mexico. 🍪",
+  },
+
+  // =============================================
+  // INDEX 222 - Shows July 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "French Fries",
+    puzzleNumber: 302,
+    words: [
+      { word: "CHIPS", hint: "British name for fries", revealedIndex: 0 },
+      { word: "WEDGE", hint: "Thick-cut potato style", revealedIndex: 2 },
+      { word: "WAFFLE", hint: "Grid-patterned fry cut", revealedIndex: 3 },
+      { word: "CRUNCHY", hint: "Crispy texture", revealedIndex: 0 },
+      { word: "SEASONED", hint: "Flavored with spices", revealedIndex: 4 },
+    ],
+    funFact: "French fries originated in Belgium, where locals in the Meuse Valley reportedly fried potatoes as early as 1680 when their river froze and they couldn't catch fish. 🍟",
+  },
+
+  // =============================================
+  // INDEX 223 - Shows July 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Blueberry Muffin",
+    puzzleNumber: 303,
+    words: [
+      { word: "WARM", hint: "Fresh from the oven", revealedIndex: 0 },
+      { word: "BAKED", hint: "Oven cooked", revealedIndex: 2 },
+      { word: "RECIPE", hint: "Baking instructions", revealedIndex: 3 },
+      { word: "TEATIME", hint: "Afternoon snack time", revealedIndex: 0 },
+      { word: "HOMEMADE", hint: "Made from scratch", revealedIndex: 4 },
+    ],
+    funFact: "Bakeries often rely on dried or specialized dehydrated blueberries to prevent bleeding and sogginess. 🫐",
+  },
+
+  // =============================================
+  // INDEX 224 - Shows July 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Malala",
+    puzzleNumber: 304,
+    words: [
+      { word: "GIRL", hint: "Champion for girls' rights", revealedIndex: 0 },
+      { word: "NOBEL", hint: "___ Peace Prize winner", revealedIndex: 2 },
+      { word: "RIGHTS", hint: "Human equality", revealedIndex: 3 },
+      { word: "ADVOCATE", hint: "Passionate supporter", revealedIndex: 0 },
+      { word: "EQUALITY", hint: "Fair treatment for all", revealedIndex: 4 },
+    ],
+    funFact: "Malala Yousafzai is a global icon for girls' education and human rights. In 2014, she won the Nobel Peace Prize at just 17 years old. 🏅",
+  },
+
+  // =============================================
+  // INDEX 225 - Shows July 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Heat Wave",
+    puzzleNumber: 305,
+    words: [
+      { word: "BOIL", hint: "Reach maximum heat", revealedIndex: 0 },
+      { word: "SWEAT", hint: "Body's cooling system", revealedIndex: 2 },
+      { word: "SCORCH", hint: "Burn from intense heat", revealedIndex: 3 },
+      { word: "SWELTER", hint: "Suffer in the heat", revealedIndex: 0 },
+      { word: "BLISTERS", hint: "Skin reaction to heat", revealedIndex: 4 },
+    ],
+    funFact: "The warmer it is outside, the faster crickets chirp. You can estimate the temperature in degrees Fahrenheit by counting the number of chirps in 15 seconds and adding 37. 🌡️",
+  },
+
+  // =============================================
+  // INDEX 226 - Shows July 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Popsicles",
+    puzzleNumber: 306,
+    words: [
+      { word: "COLD", hint: "Icy temperature", revealedIndex: 0 },
+      { word: "STICKY", hint: "Melting residue", revealedIndex: 2 },
+      { word: "FROZEN", hint: "Solid from cold", revealedIndex: 3 },
+      { word: "MELTING", hint: "Dripping on a hot day", revealedIndex: 0 },
+      { word: "NONDAIRY", hint: "No milk ingredients", revealedIndex: 4 },
+    ],
+    funFact: "Over two billion are sold globally every year, with cherry reigning as the most popular flavor. 🍭",
+  },
+
+  // =============================================
+  // INDEX 227 - Shows July 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hushpuppies",
+    puzzleNumber: 307,
+    words: [
+      { word: "SIDE", hint: "Accompaniment dish", revealedIndex: 0 },
+      { word: "FRIED", hint: "Deep-cooked in oil", revealedIndex: 2 },
+      { word: "CRISPY", hint: "Crunchy exterior", revealedIndex: 3 },
+      { word: "FRITTER", hint: "Fried batter cake", revealedIndex: 0 },
+      { word: "CORNMEAL", hint: "Main ingredient", revealedIndex: 4 },
+    ],
+    funFact: "The town of Calabash, North Carolina, claims the title of 'Seafood Capital of the World,' and is often credited with helping turn leftover fish-batter into the restaurant side-dish we know and love today. 🐾",
+  },
+
+  // =============================================
+  // INDEX 228 - Shows July 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Cherries",
+    puzzleNumber: 308,
+    words: [
+      { word: "BING", hint: "Popular dark variety", revealedIndex: 0 },
+      { word: "BLACK", hint: "Dark sweet variety", revealedIndex: 2 },
+      { word: "CANNED", hint: "Preserved in syrup", revealedIndex: 3 },
+      { word: "ORCHARD", hint: "Where they are grown", revealedIndex: 0 },
+      { word: "BURGUNDY", hint: "Deep red wine color", revealedIndex: 4 },
+    ],
+    funFact: "Cherries are one of the few natural sources for melatonin, which can help regulate sleep cycles. 🍒",
+  },
+
+  // =============================================
+  // INDEX 229 - Shows July 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Emoji",
+    puzzleNumber: 309,
+    words: [
+      { word: "FIRE", hint: "🔥 popular reaction", revealedIndex: 0 },
+      { word: "HEART", hint: "❤️ universal symbol", revealedIndex: 2 },
+      { word: "SMILEY", hint: "😊 classic expression", revealedIndex: 3 },
+      { word: "PANCAKE", hint: "🥞 our favorite!", revealedIndex: 0 },
+      { word: "SPARKLES", hint: "✨ magical shimmer", revealedIndex: 4 },
+    ],
+    funFact: "The Pickle and Meteor emojis are on the upcoming candidate list. 😊",
+  },
+
+  // =============================================
+  // INDEX 230 - Shows July 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Nelson Mandela",
+    puzzleNumber: 310,
+    words: [
+      { word: "FREE", hint: "Liberation from apartheid", revealedIndex: 0 },
+      { word: "UNITY", hint: "Bringing people together", revealedIndex: 2 },
+      { word: "LEGACY", hint: "Lasting impact", revealedIndex: 3 },
+      { word: "JUSTICE", hint: "Fairness and equality", revealedIndex: 0 },
+      { word: "EQUALITY", hint: "Equal rights for all", revealedIndex: 4 },
+    ],
+    funFact: "Nelson Mandela received more than 695 awards, including the 1993 Nobel Peace Prize, and was awarded 115 honorary degrees. More than 25 schools and universities have been named after him. 🕊️",
+  },
+
+  // =============================================
+  // INDEX 231 - Shows July 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Ice Cream",
+    puzzleNumber: 311,
+    words: [
+      { word: "MELT", hint: "What happens in the sun", revealedIndex: 0 },
+      { word: "SCOOP", hint: "Round serving portion", revealedIndex: 2 },
+      { word: "FLAVOR", hint: "Taste variety", revealedIndex: 3 },
+      { word: "REFRESH", hint: "Cool and revive", revealedIndex: 0 },
+      { word: "VANILLA", hint: "Most popular flavor", revealedIndex: 4 },
+    ],
+    funFact: "New Zealand consumes the most ice cream per capita globally, with an average of 7.5 gallons per person annually. 🍨",
+  },
+
+  // =============================================
+  // INDEX 232 - Shows July 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Moon Day",
+    puzzleNumber: 312,
+    words: [
+      { word: "STEP", hint: "One giant leap", revealedIndex: 0 },
+      { word: "LUNAR", hint: "Relating to the moon", revealedIndex: 2 },
+      { word: "APOLLO", hint: "Historic space program", revealedIndex: 3 },
+      { word: "MISSION", hint: "Space journey goal", revealedIndex: 0 },
+      { word: "COLUMBIA", hint: "Apollo 11 command module", revealedIndex: 4 },
+    ],
+    funFact: "July 20, International Moon Day, commemorates the historic 1969 Apollo 11 mission when Neil Armstrong and Buzz Aldrin became the first humans to land and walk on the lunar surface. 🌙",
+  },
+
+  // =============================================
+  // INDEX 233 - Shows July 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Junk",
+    puzzleNumber: 313,
+    words: [
+      { word: "CHIP", hint: "Crispy snack", revealedIndex: 0 },
+      { word: "CANDY", hint: "Sweet treat", revealedIndex: 2 },
+      { word: "GREASY", hint: "Oily texture", revealedIndex: 3 },
+      { word: "INDULGE", hint: "Give in to cravings", revealedIndex: 0 },
+      { word: "DECADENT", hint: "Luxuriously rich", revealedIndex: 4 },
+    ],
+    funFact: "The term 'junk food' became cemented in pop culture when the novelty song 'Junk Food Junkie' topped the music charts in 1976. 🍕",
+  },
 ];
 
 // ===========================================

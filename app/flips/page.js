@@ -456,6 +456,77 @@ const triviaQuestions = [
     hint: "It made people afraid to go in the water...",
     funFact: "Jaws, released in June 1975, became the first film to earn over $100 million at the box office and essentially created the concept of the 'summer blockbuster.' Spielberg was only 26 when he directed it! The mechanical shark broke down so often that Spielberg was forced to show it less, accidentally making the film far more terrifying."
   },
+
+  {
+    id: 142,
+    theme: "Summer Sports 🏄",
+    question: "What is the most watched sport at the Summer Olympics?",
+    options: [
+      "Swimming",
+      "Track and Field",
+      "Gymnastics",
+      "Soccer"
+    ],
+    correctAnswer: "Track and Field",
+    hint: "Think running, jumping, and throwing...",
+    funFact: "Track and field is the most watched Summer Olympic sport worldwide, with events like the 100-meter dash and long jump drawing massive global audiences. Usain Bolt became the most famous Olympian of the modern era through track, winning eight gold medals across three Olympics. The first Olympic marathon in 1896 covered a route from Marathon to Athens, tracing a legendary ancient messenger's run!"
+  },
+  {
+    id: 143,
+    theme: "Outdoor Games 🎯",
+    question: "Where did the backyard game cornhole originate?",
+    options: [
+      "Kentucky",
+      "Ohio",
+      "Tennessee",
+      "Indiana"
+    ],
+    correctAnswer: "Ohio",
+    hint: "A Midwestern state known for its tailgate culture...",
+    funFact: "Cornhole is widely believed to have originated in Cincinnati, Ohio, though Kentucky also claims the title! The game gained national popularity in the early 2000s and now has a professional league, the American Cornhole League, with thousands of registered players. The official board distance is 27 feet apart and the hole is exactly 6 inches in diameter."
+  },
+  {
+    id: 144,
+    theme: "Geography 🗺️",
+    question: "What is the only country that borders both the Atlantic and Indian Oceans?",
+    options: [
+      "Brazil",
+      "Nigeria",
+      "South Africa",
+      "Angola"
+    ],
+    correctAnswer: "South Africa",
+    hint: "Think of the Cape of Good Hope...",
+    funFact: "South Africa is the only country in the world that borders both the Atlantic and Indian Oceans, meeting at Cape Agulhas — the true southernmost tip of Africa. The meeting of the two oceans creates powerful currents that made this coastline one of the most treacherous for early sailors. South Africa is also one of the few countries with three capital cities: Pretoria, Cape Town, and Bloemfontein!"
+  },
+  {
+    id: 145,
+    theme: "Summer Sky 🌤️",
+    question: "Why do fireflies glow?",
+    options: [
+      "To stay warm on cool summer nights",
+      "To attract mates and communicate",
+      "To warn predators they taste bad",
+      "To navigate in the dark"
+    ],
+    correctAnswer: "To attract mates and communicate",
+    hint: "Think about why animals put on a light show...",
+    funFact: "Fireflies produce their cold light through a chemical reaction called bioluminescence, using an enzyme called luciferase. Each firefly species has its own unique flash pattern, like a Morse code for finding a mate! Some species can even synchronize their flashes across an entire forest. The light is remarkably efficient — nearly 100% of the energy becomes light, with almost no heat produced."
+  },
+  {
+    id: 146,
+    theme: "Summer Trends ☀️",
+    question: "Which summer activity saw its biggest boom in popularity during the early 2020s?",
+    options: [
+      "Surfing",
+      "Pickleball",
+      "Frisbee golf",
+      "Paddleboarding"
+    ],
+    correctAnswer: "Pickleball",
+    hint: "It combines elements of tennis, badminton, and ping-pong...",
+    funFact: "Pickleball became the fastest-growing sport in America during the early 2020s, with participation jumping by over 150% in just a few years! It was invented in 1965 on Bainbridge Island, Washington, by a congressman and two friends who improvised a game for their bored kids using ping-pong paddles and a perforated plastic ball. The name supposedly came from the inventor's family dog, Pickles, who would chase the ball!"
+  },
 ];
 
 /*

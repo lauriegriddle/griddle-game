@@ -734,7 +734,7 @@ if (actualIndex !== -1) newAvailable.splice(actualIndex, 1);
   const handleShare = async () => {
   const honeyEmojis = '🍯'.repeat(completedWords.filter(c => c).length);
 
- const shareText = `🥞 Letter Griddle #${gameData.puzzleNumber}\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\n\nNew! Letter Griddle Travels ✈️ is on Amazon\nhttps://www.amazon.com/dp/B0H2LCVFY5\n\nMore games: lettergriddle.com`;
+ const shareText = `Griddle #${gameData.puzzleNumber} 🥞\n${gameData.category}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\n\nMore games: lettergriddle.com`;
 
   if (navigator.share) {
     try {
@@ -1544,8 +1544,6 @@ const copyToClipboard = async (text) => {
 ${gameData.category}
 ${'🍯'.repeat(completedWords.filter(c => c).length)}
 ${completedWords.filter(c => c).length}/5 words
-New! Letter Griddle Travels is on Amazon ✈️
-https://www.amazon.com/dp/B0H2LCVFY5
 
 More games: lettergriddle.com`}
               </div>
@@ -1574,26 +1572,8 @@ More games: lettergriddle.com`}
             </div>
             <div className="mt-4 text-center"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-800 text-sm font-semibold">🍯 Read the stories behind Letter Griddle</a></div>
           </div>
-          {/* Books announcement */}
-<div className="mt-4 bg-purple-50 border-4 border-purple-500 rounded-xl p-4 text-center shadow-lg">
-  <p className="text-sm font-semibold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-    🥞 Now in Print!
-  </p>
- <p className="text-xs text-amber-700 mt-1 mb-2">
-  Letter Griddle puzzle books on Amazon
-</p>
-<div className="flex flex-col gap-1">
-  <a href="https://www.amazon.com/Letter-Griddle-Puzzles-Word-Lettergriddle-com/dp/B0GPN9QFRF" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
-    Letter Griddle: 50 Word Puzzles →
-  </a>
- <a href="https://www.amazon.com/Todays-Special-Breakfast-Inspired-Letter-Griddle/dp/B0GN9K7GKC" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
-    Today's Special Notebook →
-  </a>
-  <a href="https://www.amazon.com/dp/B0H2LCVFY5" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-600 underline hover:text-amber-800">
-    Letter Griddle Travels ✈️ →
-  </a>
-</div>
-</div>
+
+
         </div>
       )}
 

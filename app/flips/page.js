@@ -372,7 +372,90 @@ const triviaQuestions = [
     hint: "It all starts with the pod...",
     funFact: "True vanilla flavor comes from vanilla beans, the seed pods of a tropical orchid vine. Madagascar produces about 80% of the world's vanilla. Each flower must be hand-pollinated within 12 hours of blooming, making real vanilla one of the world's most labor-intensive spices and second only to saffron in price per pound!"
   },
-
+{
+    id: 136,
+    theme: "Summer Vacation 🏖️",
+    question: "Which U.S. state has the most visited beach destinations?",
+    options: [
+      "California",
+      "Hawaii",
+      "Florida",
+      "South Carolina"
+    ],
+    correctAnswer: "Florida",
+    hint: "Think of the state shaped like a peninsula...",
+    funFact: "Florida draws more beach visitors than any other U.S. state, with over 1,300 miles of coastline and more than 825 miles of swimmable beaches. Its warm Gulf and Atlantic waters make it a year-round destination. Clearwater Beach has been repeatedly named the number one beach in the country!"
+  },
+  {
+    id: 137,
+    theme: "Summer Holidays ☀️",
+    question: "What is the most popular holiday in the U.S. for grilling and cookouts?",
+    options: [
+      "Memorial Day",
+      "Independence Day",
+      "Labor Day",
+      "Father's Day"
+    ],
+    correctAnswer: "Independence Day",
+    hint: "Think fireworks and the Fourth...",
+    funFact: "The Fourth of July is America's top grilling holiday, with over 150 million hot dogs consumed on that single day! Americans spend around $7.7 billion on food for Independence Day celebrations. The holiday has been observed since 1776, but wasn't made a federal holiday until 1870."
+  },
+  {
+    id: 138,
+    theme: "Geography 🌍",
+    question: "What is the only sea in the world with no coastline?",
+    options: [
+      "The Caspian Sea",
+      "The Dead Sea",
+      "The Sargasso Sea",
+      "The Aral Sea"
+    ],
+    correctAnswer: "The Sargasso Sea",
+    hint: "It's defined entirely by ocean currents...",
+    funFact: "The Sargasso Sea is the only sea on Earth with no land borders — it's defined entirely by four surrounding ocean currents in the North Atlantic. It's named for the Sargassum seaweed that floats on its surface and creates a unique ecosystem. European and American eels travel thousands of miles to breed there!"
+  },
+  {
+    id: 139,
+    theme: "Science 🌡️",
+    question: "Why does the summer solstice have the longest day of the year?",
+    options: [
+      "Earth is closest to the Sun in summer",
+      "Earth's axis tilts toward the Sun",
+      "The Moon reflects extra sunlight in summer",
+      "Earth rotates more slowly in summer"
+    ],
+    correctAnswer: "Earth's axis tilts toward the Sun",
+    hint: "It's all about the tilt, not the distance...",
+    funFact: "Earth's axis is tilted about 23.5 degrees, and during the summer solstice the Northern Hemisphere tilts directly toward the Sun, giving us more daylight hours. Interestingly, Earth is actually slightly farther from the Sun in summer than in winter! It's the angle of sunlight, not the distance, that makes summer warm."
+  },
+  {
+    id: 140,
+    theme: "Books 📚",
+    question: "What classic novel is set during a single summer and explores race and justice in the American South?",
+    options: [
+      "The Color Purple",
+      "Their Eyes Were Watching God",
+      "To Kill a Mockingbird",
+      "Of Mice and Men"
+    ],
+    correctAnswer: "To Kill a Mockingbird",
+    hint: "Narrated by a young girl named Scout...",
+    funFact: "To Kill a Mockingbird by Harper Lee was published in 1960 and won the Pulitzer Prize the following year. Lee reportedly based the story on events she witnessed as a child in Alabama. Despite being a first novel, it sold over a million copies in its first year and has never gone out of print. Lee's childhood friend Truman Capote is believed to have inspired the character Dill!"
+  },
+  {
+    id: 141,
+    theme: "Movies 🎬",
+    question: "What 1975 Steven Spielberg film is often credited with inventing the summer blockbuster?",
+    options: [
+      "Star Wars",
+      "Jaws",
+      "E.T. the Extra-Terrestrial",
+      "Close Encounters of the Third Kind"
+    ],
+    correctAnswer: "Jaws",
+    hint: "It made people afraid to go in the water...",
+    funFact: "Jaws, released in June 1975, became the first film to earn over $100 million at the box office and essentially created the concept of the 'summer blockbuster.' Spielberg was only 26 when he directed it! The mechanical shark broke down so often that Spielberg was forced to show it less, accidentally making the film far more terrifying."
+  },
 ];
 
 /*

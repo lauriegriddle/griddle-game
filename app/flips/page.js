@@ -527,6 +527,118 @@ const triviaQuestions = [
     hint: "It combines elements of tennis, badminton, and ping-pong...",
     funFact: "Pickleball became the fastest-growing sport in America during the early 2020s, with participation jumping by over 150% in just a few years! It was invented in 1965 on Bainbridge Island, Washington, by a congressman and two friends who improvised a game for their bored kids using ping-pong paddles and a perforated plastic ball. The name supposedly came from the inventor's family dog, Pickles, who would chase the ball!"
   },
+  {
+    id: 147,
+    theme: "Summer Foods 🌽",
+    question: "Why does corn on the cob taste sweeter when eaten immediately after picking?",
+    options: [
+      "It absorbs more sunlight closer to harvest",
+      "Its sugars convert to starch within hours of picking",
+      "Morning dew adds natural sweetness",
+      "The kernels are smaller and more concentrated"
+    ],
+    correctAnswer: "Its sugars convert to starch within hours of picking",
+    hint: "The sweetness is literally a race against time...",
+    funFact: "Fresh-picked corn begins converting its sugars to starch almost immediately after harvest, which is why corn eaten minutes off the stalk tastes remarkably sweeter than store-bought. Old-time farmers used to say you should put the water on to boil before you even picked the corn! Modern 'super sweet' varieties are bred to slow this process, but nothing beats truly fresh corn."
+  },
+  {
+    id: 148,
+    theme: "Picnics 🧺",
+    question: "What country is credited with inventing the modern picnic?",
+    options: [
+      "England",
+      "Italy",
+      "France",
+      "Germany"
+    ],
+    correctAnswer: "France",
+    hint: "The word itself comes from French...",
+    funFact: "The modern picnic originated in post-Revolutionary France, where aristocrats who had lost their private parks began gathering outdoors in public gardens to eat together. The word 'pique-nique' first appeared in French around 1692! The tradition spread to England in the early 1800s, where picnic clubs became fashionable social events. Queen Victoria was reportedly an enthusiastic picnicker."
+  },
+  {
+    id: 149,
+    theme: "State Fairs 🎡",
+    question: "What food was famously popularized at the Texas State Fair?",
+    options: [
+      "Funnel cake",
+      "Corn dogs",
+      "Cotton candy",
+      "Deep-fried butter"
+    ],
+    correctAnswer: "Corn dogs",
+    hint: "A hot dog on a stick with a golden cornmeal coat...",
+    funFact: "The corn dog is widely credited to the Texas State Fair, where it was reportedly introduced in the 1940s. The fair has since become legendary for deep-fried innovations — including deep-fried butter, deep-fried Oreos, and deep-fried Coca-Cola, which is actual Coca-Cola batter fried into little balls! The State Fair of Texas is one of the largest in the country, drawing over 2 million visitors annually."
+  },
+  {
+    id: 150,
+    theme: "Beaches 🏖️",
+    question: "What gives the famous pink beaches of Bermuda their color?",
+    options: [
+      "Minerals in the volcanic rock",
+      "Crushed shells and red coral fragments",
+      "A type of pink algae",
+      "Reflected light from the surrounding reef"
+    ],
+    correctAnswer: "Crushed shells and red coral fragments",
+    hint: "It comes from tiny creatures and what they leave behind...",
+    funFact: "Bermuda's iconic pink sand gets its blush color from the crushed shells and skeletons of a tiny single-celled organism called Homotrema rubrum, a red foraminifera that lives on the underside of coral reefs. When they die, their bright red-pink remains wash ashore and mix with white sand. Bermuda has about 34 beaches, and the pink is most vivid on the south shore!"
+  },
+  {
+    id: 151,
+    theme: "Sea Life 🐠",
+    question: "How do clownfish survive living among sea anemone's stinging tentacles?",
+    options: [
+      "They have thick scales that block the stings",
+      "A protective mucus coating makes them immune",
+      "They move too fast for the tentacles to sting",
+      "They eat the stinging cells before they activate"
+    ],
+    correctAnswer: "A protective mucus coating makes them immune",
+    hint: "Think about what coats their bodies...",
+    funFact: "Clownfish are protected by a special thick mucus coating that prevents the anemone's nematocysts from firing. Scientists believe clownfish gradually acclimate by briefly touching the anemone and slowly building up the protective layer. In return for shelter, clownfish chase away predators, remove parasites, and even fan the anemone with their fins to improve water circulation — a perfect partnership!"
+  },
+  {
+    id: 152,
+    theme: "Fishing 🎣",
+    question: "What is the most popular recreational fishing activity in the United States?",
+    options: [
+      "Deep sea fishing",
+      "Fly fishing",
+      "Freshwater fishing",
+      "Ice fishing"
+    ],
+    correctAnswer: "Freshwater fishing",
+    hint: "Think lakes, rivers, and ponds...",
+    funFact: "Freshwater fishing is by far the most popular form of recreational fishing in the U.S., with over 38 million Americans fishing in lakes, rivers, and streams each year. Bass fishing alone is a multi-billion dollar industry with professional tournaments. Fishing licenses generate hundreds of millions of dollars annually that fund wildlife conservation across the country!"
+  },
+  {
+    id: 153,
+    theme: "Hiking 🥾",
+    question: "How long is the Appalachian Trail from end to end?",
+    options: [
+      "About 800 miles",
+      "About 1,400 miles",
+      "About 2,200 miles",
+      "About 3,100 miles"
+    ],
+    correctAnswer: "About 2,200 miles",
+    hint: "It runs from Georgia all the way to Maine...",
+    funFact: "The Appalachian Trail stretches about 2,190 miles from Springer Mountain in Georgia to Mount Katahdin in Maine, passing through 14 states. Only about 3,000 people successfully 'thru-hike' the entire trail each year, a journey that typically takes 5 to 7 months! The trail was fully completed in 1937 and is maintained almost entirely by volunteers from trail clubs along its length."
+  },
+  {
+    id: 154,
+    theme: "Bicycling 🚴",
+    question: "What country has the highest rate of bicycle commuting in the world?",
+    options: [
+      "Denmark",
+      "Germany",
+      "Netherlands",
+      "Japan"
+    ],
+    correctAnswer: "Netherlands",
+    hint: "A flat country famous for its cycling culture...",
+    funFact: "The Netherlands has more bicycles than people — about 23 million bikes for 17 million residents! In cities like Amsterdam and Utrecht, over 60% of all trips are made by bicycle. The Dutch cycling infrastructure is so well-developed that bike lanes have their own traffic signals, and children receive formal cycling education in school. The country has over 35,000 kilometers of dedicated bike paths!"
+  },
 ];
 
 /*

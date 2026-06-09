@@ -377,7 +377,7 @@ const [selectedSlotIndex, setSelectedSlotIndex] = useState(null);
                   onClick={handleShare}
                   className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white px-3 py-1 rounded-full font-bold text-xs shadow-lg transition-all"
                 >
-                  {shareCopied ? '✓ Copied!' : '📤 Share'}
+                  {shareCopied ? '✓ Copied!' : 'Share'}
                 </button>
                 <button
                   onClick={resetPuzzle}

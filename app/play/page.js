@@ -979,9 +979,16 @@ const copyToClipboard = async (text) => {
     className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-lg p-1.5 mb-2 shadow-lg cursor-pointer hover:from-amber-600 hover:to-yellow-600 transition-all"
   >
     <div className="flex items-center justify-between">
-      <span className="text-white font-bold text-xs flex-1 text-center" style={{fontFamily: 'Georgia, serif'}}>
-        🗂️ New! Puzzle Archive with 10 bonus puzzles, replayable anytime! Click 🗂️ above to visit!
-      </span>
+      <div className="flex-1 text-center">
+  <span className="text-white font-bold text-xs" style={{fontFamily: 'Georgia, serif'}}>
+    🗂️ New! Puzzle Archive — 10 bonus puzzles, replayable anytime!
+  </span>
+  <div className="mt-0.5">
+    <a href="/archive" onClick={(e) => e.stopPropagation()} className="text-white text-xs underline font-semibold" style={{fontFamily: 'Georgia, serif'}}>
+      Tap here to visit the Puzzle Archive →
+    </a>
+  </div>
+</div>
       <span className="text-white text-xs opacity-75 ml-2">✕</span>
     </div>
     

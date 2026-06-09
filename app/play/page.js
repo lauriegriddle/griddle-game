@@ -44,6 +44,7 @@ const PancakeWordGame = () => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
   const [showMissionModal, setShowMissionModal] = useState(false);
+  const [showArchiveBanner, setShowArchiveBanner] = useState(true);
   const [showLaunchModal, setShowLaunchModal] = useState(false);
   const [showScheduleModal, setShowScheduleModal] = useState(false);
   const [showBookmarkPrompt, setShowBookmarkPrompt] = useState(false);
@@ -972,6 +973,20 @@ const copyToClipboard = async (text) => {
 
         <div className="bg-white rounded-xl shadow-2xl p-2 border-2 border-amber-200">
           {/* Thin Category */}
+          {showArchiveBanner && (
+  <div
+    onClick={() => setShowArchiveBanner(false)}
+    className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-lg p-1.5 mb-2 shadow-lg cursor-pointer hover:from-amber-600 hover:to-yellow-600 transition-all"
+  >
+    <div className="flex items-center justify-between">
+      <span className="text-white font-bold text-xs flex-1 text-center" style={{fontFamily: 'Georgia, serif'}}>
+        🗂️ New! Puzzle Archive with 10 bonus puzzles, replayable anytime! Click 🗂️ above to visit!
+      </span>
+      <span className="text-white text-xs opacity-75 ml-2">✕</span>
+    </div>
+    
+  </div>
+)}
           <div className="bg-gradient-to-r from-amber-600 to-amber-700 text-white rounded-lg p-1 mb-2 shadow-lg">
             <p className="text-center text-xs md:text-sm font-bold" style={{fontFamily: 'Georgia, serif'}}>{gameData.category}</p>
           </div>

@@ -873,6 +873,17 @@ export default function Home() {
           >
             🍳 Screen-Free Books ✏️
           </button>
+          
+        </div>
+
+        <div className="flex justify-center mt-3">
+          <button
+            onClick={() => window.location.href = '/archive'}
+            className="px-6 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
+            style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #92400E 100%)', fontFamily: 'Georgia, serif' }}
+          >
+            🗂️ Puzzle Archive
+          </button>
         </div>
       </header>
 

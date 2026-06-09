@@ -886,6 +886,7 @@ const copyToClipboard = async (text) => {
   <span className="text-xl">🥞</span>
   <span className="text-sm font-semibold hidden sm:inline" style={{fontFamily: 'Georgia, serif'}}>Letter Griddle Games</span>
 </a>
+<a href="/archive" className="text-amber-700 hover:text-amber-900 transition-colors ml-2" title="Puzzle Archive"><span className="text-sm font-semibold hidden sm:inline" style={{fontFamily: 'Georgia, serif'}}>🗂️ Archive</span></a>
           <h1 className="text-lg md:text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
             Welcome back for Today's Special
           </h1>
@@ -1713,6 +1714,9 @@ More games: lettergriddle.com`}
         <a href="/" className="hover:text-amber-600 underline font-semibold">
           🥞 Visit Letter Griddle Home
         </a>
+        <a href="/archive" className="hover:text-amber-600 underline font-semibold">
+            🗂️ Puzzle Archive
+          </a>
       </div> 
   <div>
     © {new Date().getFullYear()} Letter Griddle. All rights reserved.

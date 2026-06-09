@@ -99,6 +99,8 @@ function PuzzleGame({ puzzle, onBack }) {
   const [showConfetti, setShowConfetti] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [focusedWordIndex, setFocusedWordIndex] = useState(0);
+const [selectedSlotWord, setSelectedSlotWord] = useState(null);
+const [selectedSlotIndex, setSelectedSlotIndex] = useState(null);
 
   const allComplete = completedWords.every(c => c);
   useEffect(() => {
@@ -245,67 +247,56 @@ function PuzzleGame({ puzzle, onBack }) {
   };
 
   const handleLetterClick = (letter, letterIndex) => {
-    setSelectedLetter(letter);
-    setSelectedLetterIndex(letterIndex);
+    if (selectedSlotWord !== null && selectedSlotIndex !== null) {
+      const wordIdx = selectedSlotWord;
+      const slotIdx = selectedSlotIndex;
+      setSelectedSlotWord(null);
+      setSelectedSlotIndex(null);
+      setAvailableLetters(prev => { const next = [...prev]; const idx = next.indexOf(letter); if (idx !== -1) next.splice(idx, 1); return next; });
+      const newLetters = [...selectedLetters[wordIdx]];
+      newLetters[slotIdx] = letter;
+      setSelectedLetters(prev => { const next = [...prev]; next[wordIdx] = newLetters; return next; });
+      if (letter !== puzzle.words[wordIdx].word[slotIdx]) {
+        setWrongPlacements(prev => ({ ...prev, [`${wordIdx}-${slotIdx}`]: true }));
+        setTimeout(() => { setWrongPlacements(prev => { const next = { ...prev }; delete next[`${wordIdx}-${slotIdx}`]; return next; }); }, 1000);
+      }
+      checkWordComplete(wordIdx, newLetters);
+    } else {
+      setSelectedLetter(letter);
+      setSelectedLetterIndex(letterIndex);
+    }
   };
 
   const handleSlotClick = (wordIdx, slotIdx) => {
     const wordData = puzzle.words[wordIdx];
     if (completedWords[wordIdx]) return;
     if (slotIdx === wordData.revealedIndex) return;
-
     const currentLetter = selectedLetters[wordIdx][slotIdx];
-
     if (currentLetter) {
       setAvailableLetters(prev => [...prev, currentLetter].sort());
-      setSelectedLetters(prev => {
-        const next = [...prev];
-        next[wordIdx] = [...next[wordIdx]];
-        next[wordIdx][slotIdx] = '';
-        return next;
-      });
-      setWrongPlacements(prev => {
-        const next = { ...prev };
-        delete next[`${wordIdx}-${slotIdx}`];
-        return next;
-      });
+      setSelectedLetters(prev => { const next = [...prev]; next[wordIdx] = [...next[wordIdx]]; next[wordIdx][slotIdx] = ''; return next; });
+      setWrongPlacements(prev => { const next = { ...prev }; delete next[`${wordIdx}-${slotIdx}`]; return next; });
+      setSelectedSlotWord(null);
+      setSelectedSlotIndex(null);
     } else if (selectedLetter !== null) {
-      setAvailableLetters(prev => {
-        const next = [...prev];
-        const idx = next.indexOf(selectedLetter);
-        if (idx !== -1) next.splice(idx, 1);
-        return next;
-      });
-
+      setAvailableLetters(prev => { const next = [...prev]; const idx = next.indexOf(selectedLetter); if (idx !== -1) next.splice(idx, 1); return next; });
       const newLetters = [...selectedLetters[wordIdx]];
       newLetters[slotIdx] = selectedLetter;
-      setSelectedLetters(prev => {
-        const next = [...prev];
-        next[wordIdx] = newLetters;
-        return next;
-      });
-
+      setSelectedLetters(prev => { const next = [...prev]; next[wordIdx] = newLetters; return next; });
       setSelectedLetter(null);
       setSelectedLetterIndex(null);
-
+      setSelectedSlotWord(null);
+      setSelectedSlotIndex(null);
       if (selectedLetter !== wordData.word[slotIdx]) {
         setWrongPlacements(prev => ({ ...prev, [`${wordIdx}-${slotIdx}`]: true }));
-        setTimeout(() => {
-          setWrongPlacements(prev => {
-            const next = { ...prev };
-            delete next[`${wordIdx}-${slotIdx}`];
-            return next;
-          });
-        }, 1000);
+        setTimeout(() => { setWrongPlacements(prev => { const next = { ...prev }; delete next[`${wordIdx}-${slotIdx}`]; return next; }); }, 1000);
       } else {
-        setWrongPlacements(prev => {
-          const next = { ...prev };
-          delete next[`${wordIdx}-${slotIdx}`];
-          return next;
-        });
+        setWrongPlacements(prev => { const next = { ...prev }; delete next[`${wordIdx}-${slotIdx}`]; return next; });
       }
-
       checkWordComplete(wordIdx, newLetters);
+    } else {
+      setSelectedSlotWord(wordIdx);
+      setSelectedSlotIndex(slotIdx);
     }
   };
 

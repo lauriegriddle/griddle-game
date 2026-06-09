@@ -301,13 +301,26 @@ const [selectedSlotIndex, setSelectedSlotIndex] = useState(null);
     }
   };
 
-  const handleShare = () => {
+  const handleShare = async () => {
     const honeyEmojis = '🍯'.repeat(completedWords.filter(c => c).length);
     const shareText = `Letter Griddle Archive\n${puzzle.category} ${puzzle.emoji}\n${honeyEmojis}\n${completedWords.filter(c => c).length}/5 words\n\nPlay at lettergriddle.com/archive`;
-    navigator.clipboard.writeText(shareText).then(() => {
-      setShareCopied(true);
-      setTimeout(() => setShareCopied(false), 2000);
-    });
+    if (navigator.share) {
+      try {
+        await navigator.share({ text: shareText });
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          navigator.clipboard.writeText(shareText).then(() => {
+            setShareCopied(true);
+            setTimeout(() => setShareCopied(false), 2000);
+          });
+        }
+      }
+    } else {
+      navigator.clipboard.writeText(shareText).then(() => {
+        setShareCopied(true);
+        setTimeout(() => setShareCopied(false), 2000);
+      });
+    }
   };
 
   const resetPuzzle = () => {

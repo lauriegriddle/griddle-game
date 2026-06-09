@@ -23,7 +23,7 @@ export default function ArchivePage() {
             Puzzle Archive
           </h1>
           <p className="text-amber-600 italic" style={{ fontFamily: 'Georgia, serif' }}>
-            A curated collection — replay anytime! ☕
+            A curated collection 🥞 Replay anytime!
           </p>
         </div>
 

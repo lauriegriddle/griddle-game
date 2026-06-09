@@ -59,7 +59,7 @@ const archivePuzzles = [
       { word: "SUPPORT", hint: "To give help and encouragement", revealedIndex: 0 },
       { word: "KINDNESS", hint: "The quality of being friendly and generous", revealedIndex: 5 },
     ],
-    funFact: "Research suggests best friends may share roughly 1% of their DNA, possibly because we are drawn to people with similar genetic backgrounds. 👯",
+    funFact: "Studies show that friendships boost your immune system, improve your self-esteem, and can even help you live longer! 👯",
   },
   {
     id: 5,

@@ -15,7 +15,7 @@ const archivePuzzles = [
       { word: "MORNING", hint: "The first part of the day", revealedIndex: 0 },
       { word: "NOTEBOOK", hint: "Where thoughts and ideas go to live", revealedIndex: 4 },
     ],
-    funFact: "Studies show that avoiding screens for the first hour of the morning reduces anxiety and improves focus throughout the day. ☀️",
+    funFact: "Studies show that avoiding screens for the first hour of the morning lowers stress, improves focus, and sets a proactive rather than reactive tone for your day. ☀️",
     permanent: true,
   },
   {
@@ -30,7 +30,7 @@ const archivePuzzles = [
       { word: "REFLECT", hint: "To think deeply about your experiences", revealedIndex: 0 },
       { word: "NOTEBOOK", hint: "A bound collection of blank pages", revealedIndex: 4 },
     ],
-    funFact: "Writing by hand activates more regions of the brain than typing and improves memory retention. Just 15 minutes of journaling a day can reduce stress significantly. 📝",
+    funFact: "Writing by hand activates more regions of the brain than typing and improves memory retention. Just 15 minutes of journaling a day can reduce stress significantly.  Taking the time to write out thoughts can clear mental clutter. 📝",
     permanent: true,
   },
   {

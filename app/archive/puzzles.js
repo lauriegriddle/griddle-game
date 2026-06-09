@@ -73,7 +73,7 @@ const archivePuzzles = [
       { word: "BONFIRE", hint: "A large outdoor fire for gathering", revealedIndex: 3 },
       { word: "HAMMOCK", hint: "A hanging bed perfect for relaxing", revealedIndex: 2 },
     ],
-    funFact: "The Great Lakes hold 21% of the world's surface freshwater — enough to cover the entire contiguous United States to a depth of nearly 10 feet. 🌊",
+    funFact: "The Great Lakes hold 21% of the world's surface freshwater, enough to cover the entire contiguous United States to a depth of nearly 10 feet. 🌊",
   },
   {
     id: 6,
@@ -87,7 +87,7 @@ const archivePuzzles = [
       { word: "THUNDER", hint: "The rumbling sound that follows lightning", revealedIndex: 0 },
       { word: "DRIZZLE", hint: "A light, gentle rainfall", revealedIndex: 4 },
     ],
-    funFact: "The smell of rain on dry earth has a name — petrichor — and it comes from oils released by plants and a compound produced by soil bacteria. 🌱",
+    funFact: "The smell of rain on dry earth has a name:  petrichor, and it comes from oils released by plants and a compound produced by soil bacteria. 🌱",
   },
   {
     id: 7,
@@ -101,7 +101,7 @@ const archivePuzzles = [
       { word: "HOLIDAY", hint: "A special period of celebration and time off", revealedIndex: 2 },
       { word: "RELAXING", hint: "The act of unwinding and letting stress go", revealedIndex: 2 },
     ],
-    funFact: "Some people are more likely to choose mountain vacations while others prefer beaches — and research suggests this might be linked to personality type! 🏔️",
+    funFact: "Some people are more likely to choose mountain vacations while others prefer beaches and research suggests this might be linked to personality type! 🏔️",
   },
   {
     id: 8,
@@ -129,7 +129,7 @@ const archivePuzzles = [
       { word: "DEFENSE", hint: "The team trying to stop the other team from scoring", revealedIndex: 0 },
       { word: "GRIDIRON", hint: "Another name for a football field", revealedIndex: 5 },
     ],
-    funFact: "The word 'gridiron' — another name for a football field — comes from the grid-like pattern of the yard lines, which resembles a cooking grate. 🍳",
+    funFact: "The word gridiron, another name for a football field, comes from the grid-like pattern of the yard lines, which resembles a cooking grate. 🍳",
   },
   {
     id: 10,

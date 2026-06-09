@@ -981,7 +981,7 @@ const copyToClipboard = async (text) => {
     <div className="flex items-center justify-between">
       <div className="flex-1 text-center">
   <span className="text-white font-bold text-xs" style={{fontFamily: 'Georgia, serif'}}>
-    🗂️ New! Puzzle Archive — 10 bonus puzzles, replayable anytime!
+    🗂️ New! Puzzle Archive!  Play 10 bonus puzzles, replayable anytime!
   </span>
   <div className="mt-0.5">
     <a href="/archive" onClick={(e) => e.stopPropagation()} className="text-white text-xs underline font-semibold" style={{fontFamily: 'Georgia, serif'}}>

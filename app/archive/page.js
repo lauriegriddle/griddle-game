@@ -443,7 +443,8 @@ const [selectedSlotIndex, setSelectedSlotIndex] = useState(null);
                                 ${!isWrong && isRevealed ? 'bg-gradient-to-br from-blue-200 to-blue-300 border-blue-400 text-blue-900' : ''}
                                 ${!isWrong && !isRevealed && isComplete ? 'bg-gradient-to-br from-yellow-200 to-amber-300 border-amber-500 text-amber-900 shadow-md' : ''}
                                 ${!isWrong && !isRevealed && !isComplete && currentLetter ? 'bg-gradient-to-br from-amber-100 to-yellow-100 border-amber-400 text-amber-900 hover:scale-105' : ''}
-                                ${!isWrong && !isRevealed && !isComplete && !currentLetter ? 'bg-white border-amber-300 text-transparent hover:border-amber-400 hover:scale-105' : ''}`}
+                                ${selectedSlotWord === wordIdx && selectedSlotIndex === letterIdx && !currentLetter ? 'bg-gradient-to-br from-amber-200 to-yellow-200 border-amber-500 border-4 text-transparent cursor-pointer scale-105' : ''}
+${!isWrong && !isRevealed && !isComplete && !currentLetter && !(selectedSlotWord === wordIdx && selectedSlotIndex === letterIdx) ? 'bg-white border-amber-300 text-transparent hover:border-amber-400 hover:scale-105' : ''}`}
                               style={{ fontFamily: 'Georgia, serif' }}>
                               {currentLetter}
                             </div>

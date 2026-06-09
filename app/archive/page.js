@@ -271,6 +271,7 @@ const [selectedSlotIndex, setSelectedSlotIndex] = useState(null);
     const wordData = puzzle.words[wordIdx];
     if (completedWords[wordIdx]) return;
     if (slotIdx === wordData.revealedIndex) return;
+    setFocusedWordIndex(wordIdx);
     const currentLetter = selectedLetters[wordIdx][slotIdx];
     if (currentLetter) {
       setAvailableLetters(prev => [...prev, currentLetter].sort());

@@ -3155,7 +3155,7 @@ const puzzles = [
       { word: "INDULGE", hint: "Enjoy without guilt", revealedIndex: 0 },
       { word: "SPLURGES", hint: "Small luxuries", revealedIndex: 4 },
     ],
-    funFact: "Treating yourself isn't just indulgence; it is a scientifically backed method to improve mood, increase productivity, and strengthen self-control. 💆‍♀️",
+    funFact: "Treating yourself isn't just indulgence; it is a scientifically backed method to improve mood, increase productivity, and strengthen self-control. 🍬",
   },
 
   // =============================================

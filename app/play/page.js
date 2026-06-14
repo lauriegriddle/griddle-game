@@ -1364,7 +1364,7 @@ const copyToClipboard = async (text) => {
             <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 6/14</span>
             <span className="font-semibold text-amber-800 text-sm">Flags</span>
           </div>
-          <span className="text-lg"> 🏁 </span>
+          <span className="text-lg">🏳️</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
@@ -1396,7 +1396,7 @@ const copyToClipboard = async (text) => {
             <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 6/18</span>
             <span className="font-semibold text-amber-800 text-sm">Treat Yourself</span>
           </div>
-          <span className="text-lg">🍭</span>
+          <span className="text-lg">🍬</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
@@ -1404,7 +1404,7 @@ const copyToClipboard = async (text) => {
             <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 6/19</span>
             <span className="font-semibold text-purple-800 text-sm">Juneteenth</span>
           </div>
-          <span className="text-lg">🥳</span>
+          <span className="text-lg">🎉</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">

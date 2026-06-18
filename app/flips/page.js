@@ -497,7 +497,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "South Africa",
     hint: "Think of the Cape of Good Hope...",
-    funFact: "South Africa is the only country in the world that borders both the Atlantic and Indian Oceans, meeting at Cape Agulhas — the true southernmost tip of Africa. The meeting of the two oceans creates powerful currents that made this coastline one of the most treacherous for early sailors. South Africa is also one of the few countries with three capital cities: Pretoria, Cape Town, and Bloemfontein!"
+    funFact: "South Africa is the only country in the world that borders both the Atlantic and Indian Oceans, meeting at Cape Agulhas, the true southernmost tip of Africa. The meeting of the two oceans creates powerful currents that made this coastline one of the most treacherous for early sailors. South Africa is also one of the few countries with three capital cities: Pretoria, Cape Town, and Bloemfontein!"
   },
   {
     id: 145,

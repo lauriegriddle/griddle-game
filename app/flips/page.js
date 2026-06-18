@@ -412,7 +412,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "The Sargasso Sea",
     hint: "It's defined entirely by ocean currents...",
-    funFact: "The Sargasso Sea is the only sea on Earth with no land borders — it's defined entirely by four surrounding ocean currents in the North Atlantic. It's named for the Sargassum seaweed that floats on its surface and creates a unique ecosystem. European and American eels travel thousands of miles to breed there!"
+    funFact: "The Sargasso Sea is the only sea on Earth with no land borders.  It's defined entirely by four surrounding ocean currents in the North Atlantic. It's named for the Sargassum seaweed that floats on its surface and creates a unique ecosystem. European and American eels travel thousands of miles to breed there!"
   },
   {
     id: 139,
@@ -511,7 +511,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "To attract mates and communicate",
     hint: "Think about why animals put on a light show...",
-    funFact: "Fireflies produce their cold light through a chemical reaction called bioluminescence, using an enzyme called luciferase. Each firefly species has its own unique flash pattern, like a Morse code for finding a mate! Some species can even synchronize their flashes across an entire forest. The light is remarkably efficient — nearly 100% of the energy becomes light, with almost no heat produced."
+    funFact: "Fireflies produce their cold light through a chemical reaction called bioluminescence, using an enzyme called luciferase. Each firefly species has its own unique flash pattern, like a Morse code for finding a mate! Some species can even synchronize their flashes across an entire forest. The light is remarkably efficient and  nearly 100% of the energy becomes light, with almost no heat produced."
   },
   {
     id: 146,
@@ -567,7 +567,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Corn dogs",
     hint: "A hot dog on a stick with a golden cornmeal coat...",
-    funFact: "The corn dog is widely credited to the Texas State Fair, where it was reportedly introduced in the 1940s. The fair has since become legendary for deep-fried innovations — including deep-fried butter, deep-fried Oreos, and deep-fried Coca-Cola, which is actual Coca-Cola batter fried into little balls! The State Fair of Texas is one of the largest in the country, drawing over 2 million visitors annually."
+    funFact: "The corn dog is widely credited to the Texas State Fair, where it was reportedly introduced in the 1940s. The fair has since become legendary for deep-fried innovations, including deep-fried butter, deep-fried Oreos, and deep-fried Coca-Cola, which is actual Coca-Cola batter fried into little balls! The State Fair of Texas is one of the largest in the country, drawing over 2 million visitors annually."
   },
   {
     id: 150,
@@ -595,7 +595,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "A protective mucus coating makes them immune",
     hint: "Think about what coats their bodies...",
-    funFact: "Clownfish are protected by a special thick mucus coating that prevents the anemone's nematocysts from firing. Scientists believe clownfish gradually acclimate by briefly touching the anemone and slowly building up the protective layer. In return for shelter, clownfish chase away predators, remove parasites, and even fan the anemone with their fins to improve water circulation — a perfect partnership!"
+    funFact: "Clownfish are protected by a special thick mucus coating that prevents the anemone's nematocysts from firing. Scientists believe clownfish gradually acclimate by briefly touching the anemone and slowly building up the protective layer. In return for shelter, clownfish chase away predators, remove parasites, and even fan the anemone with their fins to improve water circulation, a perfect partnership!"
   },
   {
     id: 152,
@@ -637,7 +637,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Netherlands",
     hint: "A flat country famous for its cycling culture...",
-    funFact: "The Netherlands has more bicycles than people — about 23 million bikes for 17 million residents! In cities like Amsterdam and Utrecht, over 60% of all trips are made by bicycle. The Dutch cycling infrastructure is so well-developed that bike lanes have their own traffic signals, and children receive formal cycling education in school. The country has over 35,000 kilometers of dedicated bike paths!"
+    funFact: "The Netherlands has more bicycles than people:  about 23 million bikes for 17 million residents! In cities like Amsterdam and Utrecht, over 60% of all trips are made by bicycle. The Dutch cycling infrastructure is so well-developed that bike lanes have their own traffic signals, and children receive formal cycling education in school. The country has over 35,000 kilometers of dedicated bike paths!"
   },
 ];
 

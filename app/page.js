@@ -3,6 +3,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
+  const [showStories, setShowStories] = useState(false);
+  const [showBooks, setShowBooks] = useState(false);
+  const [showSummer, setShowSummer] = useState(false);
   
   
   // SECTION 1: Daily Favorites (all daily games)
@@ -850,7 +853,7 @@ export default function Home() {
           </button>
           
           <button
-            onClick={() => scrollToSection('stories-more')}
+            onClick={() => setShowStories(!showStories)}
             className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
           >
@@ -858,7 +861,7 @@ export default function Home() {
           </button>
           
           <button
-            onClick={() => scrollToSection('summer-days')}
+            onClick={() => setShowSummer(!showSummer)}
             className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #0369a1 40%, #0ea5e9 75%, #38bdf8 100%)' }}
           >
@@ -867,7 +870,7 @@ export default function Home() {
         </nav>
         <div className="flex justify-center mt-4">
           <button
-            onClick={() => scrollToSection('books')}
+            onClick={() => setShowBooks(!showBooks)}
             className="px-6 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(135deg, #BE123C 0%, #EA580C 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}
           >
@@ -983,7 +986,8 @@ export default function Home() {
         </section>
 
         {/* SECTION: Books */}
-        <section id="books" className="mb-16 scroll-mt-8" style={{ background: 'linear-gradient(180deg, #BE123C 0%, #EA580C 25%, #D97706 55%, #FCD34D 80%, #FEF9C3 100%)', borderRadius: '24px', padding: '2rem 1.5rem' }}>
+        {showBooks && (
+<section id="books" className="mb-16 scroll-mt-8" style={{ background: 'linear-gradient(180deg, #BE123C 0%, #EA580C 25%, #D97706 55%, #FCD34D 80%, #FEF9C3 100%)', borderRadius: '24px', padding: '2rem 1.5rem' }}>
           <div className="text-center mb-8">
             <div className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4" style={{ background: 'linear-gradient(135deg, #BE123C 0%, #EA580C 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}>
               🍳 Screen-Free Books ✏️
@@ -1106,8 +1110,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+)}
         {/* SECTION: Stories & More */}
-        <section id="stories-more" className="mb-16 scroll-mt-8">
+        {showStories && (
+<section id="stories-more" className="mb-16 scroll-mt-8">
           <div className="text-center mb-8">
             <div
               className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4"
@@ -1122,9 +1128,11 @@ export default function Home() {
           </div>
           <GameGrid games={storiesAndMore} />
         </section>
+)}
 
         {/* SECTION: Summer Days */}
-        <section id="summer-days" className="mb-16 scroll-mt-8 rounded-3xl overflow-hidden" style={{ background: 'linear-gradient(180deg, #0c4a6e 0%, #0369a1 15%, #38bdf8 30%, #fef9c3 50%, #fbbf24 65%, #38bdf8 80%, #0369a1 90%, #0c4a6e 100%)' }}>
+        {showSummer && (
+<section id="summer-days" className="mb-16 scroll-mt-8 rounded-3xl overflow-hidden" style={{ background: 'linear-gradient(180deg, #0c4a6e 0%, #0369a1 15%, #38bdf8 30%, #fef9c3 50%, #fbbf24 65%, #38bdf8 80%, #0369a1 90%, #0c4a6e 100%)' }}>
           <div className="text-center pt-10 pb-4 px-4">
             <div className="inline-block px-6 py-2 rounded-full text-white font-bold mb-4" style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #0369a1 40%, #0ea5e9 75%, #38bdf8 100%)', fontFamily: 'Georgia, serif' }}>
               ☀️ Summer Days ☀️
@@ -1192,6 +1200,7 @@ export default function Home() {
             </button>
           </div>
         </section>
+)}
         </main>
 
       <footer className="bg-amber-800 text-amber-100 py-8 px-4">

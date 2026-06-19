@@ -857,7 +857,7 @@ export default function Home() {
             className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
           >
-            {"\u2728"} Stories & Recipes
+            {"\u2728"} Stories & Recipes {showStories ? '▲' : '▼'}
           </button>
           
           <button
@@ -865,7 +865,7 @@ export default function Home() {
             className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #0369a1 40%, #0ea5e9 75%, #38bdf8 100%)' }}
           >
-            ☀️ Summer Days
+            ☀️ Summer Days {showSummer ? '▲' : '▼'}
           </button>
         </nav>
         <div className="flex justify-center mt-4">
@@ -874,7 +874,7 @@ export default function Home() {
             className="px-6 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(135deg, #BE123C 0%, #EA580C 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}
           >
-            🍳 Screen-Free Books ✏️
+            🍳 Screen-Free Books ✏️ {showBooks ? '▲' : '▼'}
           </button>
           
         </div>
@@ -885,7 +885,7 @@ export default function Home() {
             className="px-6 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
             style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #92400E 100%)', fontFamily: 'Georgia, serif' }}
           >
-            🗂️ Puzzle Archive
+            🗂️ Puzzle Archive →
           </button>
         </div>
       </header>

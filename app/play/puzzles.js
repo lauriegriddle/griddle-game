@@ -3171,7 +3171,7 @@ const puzzles = [
       { word: "JUBILEE", hint: "Joyful celebration", revealedIndex: 0 },
       { word: "HERITAGE", hint: "Cultural legacy", revealedIndex: 4 },
     ],
-    funFact: "Juneteenth marks the day Union troops arrived in Galveston, Texas, to ensure enslaved people were freed, a full 2.5 years after the Emancipation Proclamation. 🎉",
+    funFact: "Juneteenth marks the day Union troops arrived in Galveston, Texas, to ensure enslaved people were freed, a full 2.5 years after the Emancipation Proclamation.",
   },
 
   // =============================================

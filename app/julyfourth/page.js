@@ -482,7 +482,7 @@ export default function JulyFourthPage() {
           </div>
           <h1 className="fade-up fade-up-2 text-3xl sm:text-4xl font-semibold mb-2 shimmer-text" style={{ fontFamily: "Cormorant Garamond, serif" }}>Red, White &amp; Griddle</h1>
           <p className="fade-up fade-up-2 text-lg text-slate-300 mb-6 italic" style={{ fontFamily: "Crimson Text, serif" }}>Fireworks, Barbecue &amp; Summer Nights</p>
-          <p className="fade-up fade-up-3 text-slate-300 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Three puzzles to celebrate the Fourth {"\u2014"} the sky lighting up, the smell of the grill, and the crickets singing once the sun goes down.</p>
+          <p className="fade-up fade-up-3 text-slate-300 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Three puzzles to celebrate the Fourth with the sky lighting up, the smell of the grill, and the sun setting.</p>
           <p className="fade-up fade-up-3 text-slate-400 text-xs mb-8" style={{ fontFamily: "Crimson Text, serif" }}>July 4, 2026</p>
           <div className="fade-up fade-up-4 flex justify-center gap-4 mb-8">
             {PUZZLES.map((p) => (

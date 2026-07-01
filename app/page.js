@@ -33,6 +33,27 @@ export default function Home() {
       hoverBg: "bg-amber-600/80"
     },
     {
+      name: "Red, White & Griddle",
+      tagline: "Fireworks, Barbecue & Summer Nights 3 puzzles!",
+      dropTime: "Live now!",
+      emoji: "\uD83C\uDF86",
+      href: "/julyfourth",
+      thumbnail: {
+        gradient: "linear-gradient(160deg, #1e3a8a 0%, #7f1d1d 55%, #b45309 100%)",
+        icon: "\uD83C\uDF86",
+        iconSize: "text-4xl",
+        title: ["Red, White", "& Griddle"],
+        subtitle: "FOURTH OF JULY SPECIAL",
+        subtitleColor: "text-red-100"
+      },
+      borderColor: "border-red-400",
+      bgColor: "from-red-100 to-blue-100",
+      textColor: "text-red-800",
+      subTextColor: "text-red-700",
+      timeColor: "text-red-600",
+      hoverBg: "bg-red-600/80"
+    },
+    {
       name: "Letter Griddle Mini",
       tagline: "A bite-sized word puzzle",
       dropTime: "7:15 PM EST",
@@ -900,7 +921,7 @@ export default function Home() {
             <p className="text-amber-600">Six daily puzzles starting at 7 PM EST!</p>
           </div>
           <style>{`
-            .daily-card { min-width: 220px; border-radius: 16px; overflow: hidden; border: 2px solid #FCD34D; flex-shrink: 0; transform: scale(0.92); transition: transform 0.3s, opacity 0.3s; opacity: 0.7; cursor: pointer; text-decoration: none; display: block; background: white; }
+            .daily-card { width: 220px; border-radius: 16px; overflow: hidden; border: 2px solid #FCD34D; flex-shrink: 0; transform: scale(0.92); transition: transform 0.3s, opacity 0.3s; opacity: 0.7; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; background: white; }
             .daily-card.active { transform: scale(1); opacity: 1; border-color: #D97706; box-shadow: 0 6px 20px rgba(217,119,6,0.2); }
             .daily-track { display: flex; gap: 16px; transition: transform 0.4s cubic-bezier(.4,0,.2,1); padding: 12px 0 20px; }
           `}</style>
@@ -914,7 +935,7 @@ export default function Home() {
                       <p className="text-white font-bold text-sm text-center px-3" style={{ fontFamily: 'Georgia, serif', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>{game.thumbnail.title.join(' ')}</p>
                       <p className="text-xs uppercase tracking-widest mt-1" style={{ color: 'rgba(255,255,255,0.85)' }}>{game.thumbnail.subtitle}</p>
                     </div>
-                    <div className="p-3 bg-gradient-to-br from-amber-50 to-yellow-100">
+                    <div className="p-3 bg-gradient-to-br from-amber-50 to-yellow-100 flex-1 flex flex-col justify-center">
                       <p className="font-bold text-amber-900 text-sm mb-1" style={{ fontFamily: 'Georgia, serif' }}>{game.name}</p>
                       <p className="text-amber-700 text-xs italic mb-1" style={{ fontFamily: 'Georgia, serif' }}>{game.tagline}</p>
                       <p className="text-amber-600 font-semibold" style={{ fontSize: '10px' }}>🕖 {game.dropTime}</p>
@@ -937,7 +958,7 @@ export default function Home() {
                       <p className="text-white font-bold text-sm text-center px-3" style={{ fontFamily: 'Georgia, serif', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>{game.thumbnail.title.join(' ')}</p>
                       <p className="text-xs uppercase tracking-widest mt-1" style={{ color: 'rgba(255,255,255,0.85)' }}>{game.thumbnail.subtitle}</p>
                     </div>
-                    <div className="p-3 bg-gradient-to-br from-amber-50 to-yellow-100">
+                    <div className="p-3 bg-gradient-to-br from-amber-50 to-yellow-100 flex-1 flex flex-col justify-center">
                       <p className="font-bold text-amber-900 text-sm mb-1" style={{ fontFamily: 'Georgia, serif' }}>{game.name}</p>
                       <p className="text-amber-700 text-xs italic mb-1" style={{ fontFamily: 'Georgia, serif' }}>{game.tagline}</p>
                       <p className="text-amber-600 font-semibold" style={{ fontSize: '10px' }}>🕖 {game.dropTime}</p>

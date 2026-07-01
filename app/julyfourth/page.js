@@ -95,7 +95,7 @@ const EventFooter = () => {
   const year = new Date().getFullYear();
   return (
     <div className="text-center mt-6 pb-4 space-y-1.5">
-      <p className="text-slate-500 text-xs">A Letter Griddle Experience</p>
+      <p className="text-slate-500 text-xs">A Letter Griddle Celebration</p>
       <p className="text-slate-500 text-xs">{"\u00A9"} {year} Letter Griddle. All rights reserved.</p>
       <div className="flex justify-center gap-3">
         <a href="https://www.lettergriddle.com/privacy" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-amber-400/80 text-xs underline underline-offset-2 transition-colors">Privacy Policy</a>

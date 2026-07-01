@@ -34,7 +34,7 @@ export default function Home() {
     },
     {
       name: "Red, White & Griddle",
-      tagline: "Fireworks, Barbecue & Summer Nights 3 puzzles!",
+      tagline: "3 puzzles!",
       dropTime: "Live now!",
       emoji: "\uD83C\uDF86",
       href: "/julyfourth",
@@ -958,7 +958,7 @@ export default function Home() {
                       <p className="text-white font-bold text-sm text-center px-3" style={{ fontFamily: 'Georgia, serif', textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>{game.thumbnail.title.join(' ')}</p>
                       <p className="text-xs uppercase tracking-widest mt-1" style={{ color: 'rgba(255,255,255,0.85)' }}>{game.thumbnail.subtitle}</p>
                     </div>
-                    <div className="p-3 bg-gradient-to-br from-amber-50 to-yellow-100 flex-1 flex flex-col justify-center">
+                    <div className="p-3 bg-gradient-to-br from-amber-50 to-yellow-100">
                       <p className="font-bold text-amber-900 text-sm mb-1" style={{ fontFamily: 'Georgia, serif' }}>{game.name}</p>
                       <p className="text-amber-700 text-xs italic mb-1" style={{ fontFamily: 'Georgia, serif' }}>{game.tagline}</p>
                       <p className="text-amber-600 font-semibold" style={{ fontSize: '10px' }}>🕖 {game.dropTime}</p>

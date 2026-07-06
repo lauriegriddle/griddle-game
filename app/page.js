@@ -33,27 +33,6 @@ export default function Home() {
       hoverBg: "bg-amber-600/80"
     },
     {
-      name: "Red, White & Griddle",
-      tagline: "3 puzzles!",
-      dropTime: "Live now!",
-      emoji: "\uD83C\uDF86",
-      href: "/julyfourth",
-      thumbnail: {
-        gradient: "linear-gradient(160deg, #1e3a8a 0%, #7f1d1d 55%, #b45309 100%)",
-        icon: "\uD83C\uDF86",
-        iconSize: "text-4xl",
-        title: ["Red, White", "& Griddle"],
-        subtitle: "FOURTH OF JULY SPECIAL",
-        subtitleColor: "text-red-100"
-      },
-      borderColor: "border-red-400",
-      bgColor: "from-red-100 to-blue-100",
-      textColor: "text-red-800",
-      subTextColor: "text-red-700",
-      timeColor: "text-red-600",
-      hoverBg: "bg-red-600/80"
-    },
-    {
       name: "Letter Griddle Mini",
       tagline: "A bite-sized word puzzle",
       dropTime: "7:15 PM EST",

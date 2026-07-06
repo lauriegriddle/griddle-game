@@ -151,7 +151,7 @@ export default function Home() {
         icon: "\uD83D\uDC51",
         iconSize: "text-4xl",
         title: ["Cafe", "Game"],
-        subtitle: "A CAFE SPECIAL",
+        subtitle: "MORNING CAFE SPECIAL",
         subtitleColor: "text-amber-200"
       },
       borderColor: "border-amber-700",

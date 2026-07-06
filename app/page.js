@@ -918,7 +918,7 @@ export default function Home() {
         <section id="daily-favorites" className="mb-16 scroll-mt-8">
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{ fontFamily: 'Georgia, serif' }}>Daily Favorites</h2>
-            <p className="text-amber-600">Six daily puzzles starting at 7 PM EST!</p>
+            <p className="text-amber-600">New evening puzzles drop starting at 7 PM EST! Morning Cafe Special drops at 7 AM EST daily!</p>
           </div>
           <style>{`
             .daily-card { width: 220px; border-radius: 16px; overflow: hidden; border: 2px solid #FCD34D; flex-shrink: 0; transform: scale(0.92); transition: transform 0.3s, opacity 0.3s; opacity: 0.7; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; background: white; }

@@ -3452,7 +3452,7 @@ const puzzles = [
     category: "Tell the Truth",
     puzzleNumber: 299,
     words: [
-      { word: "WITH", hint: "Level ___", revealedIndex: 0 },
+      { word: "WITH", hint: "Level ___ me", revealedIndex: 0 },
       { word: "FRANK", hint: "Open and honest", revealedIndex: 2 },
       { word: "CANDOR", hint: "Honest, direct speech", revealedIndex: 3 },
       { word: "STRAIGHT", hint: "Give it to me ____", revealedIndex: 0 },

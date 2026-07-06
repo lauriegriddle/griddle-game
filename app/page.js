@@ -33,6 +33,27 @@ export default function Home() {
       hoverBg: "bg-amber-600/80"
     },
     {
+      name: "Summer Escape",
+      tagline: "This week: 3 vacation states!",
+      dropTime: "Now live!",
+      emoji: "\uD83C\uDF04",
+      href: "/summerescape",
+      thumbnail: {
+        gradient: "linear-gradient(160deg, #0f766e 0%, #0369a1 100%)",
+        icon: "\uD83C\uDF04",
+        iconSize: "text-4xl",
+        title: ["Summer", "Escape"],
+        subtitle: "WEEKLY SPECIAL",
+        subtitleColor: "text-teal-100"
+      },
+      borderColor: "border-teal-400",
+      bgColor: "from-teal-100 to-sky-100",
+      textColor: "text-teal-800",
+      subTextColor: "text-teal-700",
+      timeColor: "text-teal-600",
+      hoverBg: "bg-teal-600/80"
+    },
+    {
       name: "Letter Griddle Mini",
       tagline: "A bite-sized word puzzle",
       dropTime: "7:15 PM EST",

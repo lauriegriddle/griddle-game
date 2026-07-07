@@ -1054,7 +1054,7 @@ const copyToClipboard = async (text) => {
   )}
 </div>
 
-<div className="mt-2"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-700 hover:text-amber-900 font-semibold">🥞 There are stories behind Letter Griddle games and puzzles. Read more</a></div>
+<div className="mt-2"><a href="https://lettergriddlecafe.com" target="_blank" rel="noopener noreferrer" className="text-xs text-amber-700 hover:text-amber-900 font-semibold">🥞 There are more Letter Griddle stories and puzzles. Click to explore!</a></div>
             </div>
           )}
 

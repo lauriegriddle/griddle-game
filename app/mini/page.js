@@ -188,6 +188,20 @@ const miniPuzzles = [
   { word: "BLACK", category: "Cherries", hint: "Dark sweet variety" },
   { word: "LUNAR", category: "Moon Day", hint: "Relating to the moon" },
   { word: "CANDY", category: "Junk", hint: "Sweet treat" },
+  { word: "SUGAR", category: "Barbados", hint: "Barbados built its economy on this sweet crop" },
+  { word: "SPICE", category: "India", hint: "India is the world's largest producer of these flavor-makers" },
+  { word: "LARGE", category: "Sweden", hint: "Sweden is the third largest country in the EU by area" },
+  { word: "CLIFF", category: "Norway", hint: "Dramatic rock face found along Norway's fjord edges" },
+  { word: "TILES", category: "Portugal", hint: "Beautiful hand-painted azulejo ceramics cover Portuguese walls" },
+  { word: "PASTA", category: "Italy", hint: "Italy has over 350 shapes of this beloved staple" },
+  { word: "CREPE", category: "France", hint: "Thin French pancake, sweet or savory" },
+  { word: "TOKYO", category: "Japan", hint: "Japan's bustling capital and the world's most populous city" },
+  { word: "CAIRO", category: "Egypt", hint: "Egypt's ancient capital and the largest city in Africa" },
+  { word: "CHIPS", category: "United Kingdom", hint: "The other half of Britain's most iconic takeaway dish" },
+  { word: "CLIFF", category: "Ireland", hint: "The dramatic Cliffs of Moher rise 700 feet above the sea" },
+  { word: "SYRUP", category: "Canada", hint: "Canada produces 70% of the world's maple version" },
+  { word: "KOALA", category: "Australia", hint: "Marsupial that sleeps up to 22 hours a day in eucalyptus trees" },
+  { word: "EAGLE", category: "United States", hint: "The bald version of this bird is America's national symbol" },
 ];
 
 // Generate decoy letters that aren't in the word

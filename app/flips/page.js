@@ -7,10 +7,10 @@ import { Share2, Instagram, BarChart3, X } from 'lucide-react';
 // ============================================================
 // LETTER GRIDDLE FLIPS - TRIVIA QUESTIONS
 // ============================================================
-// ACTIVE QUESTIONS: ids 111-135 (fresh content, May 15, 2026)
-// BENCHED QUESTIONS: ids 1-110 (commented out below, reuse anytime)
+// ACTIVE QUESTIONS: ids 155-174 (fresh content, July 8, 2026)
+// BENCHED QUESTIONS: ids 1-154 (commented out below, reuse anytime)
 //
-// ANCHOR DATE SET TO: May 15, 2026 at 7:45 PM
+// ANCHOR DATE SET TO: July 8, 2026 at 7:45 PM
 // Update this in getTodaysQuestion():
 //   const anchorDate = new Date(2026, 4, 15, 19, 45, 0, 0);
 //   const ANCHOR_INDEX = 0;
@@ -19,631 +19,194 @@ import { Share2, Instagram, BarChart3, X } from 'lucide-react';
 const triviaQuestions = [
 
   // ============================================================
-  // ACTIVE QUESTIONS - ids 111-135
+  // ACTIVE QUESTIONS - ids 154-174
   // ============================================================
 
   {
-    id: 111,
-    theme: "Food & Drink 🧈",
-    question: "Why is butter yellow?",
-    options: [
-      "Food coloring is added during production",
-      "From beta-carotene in the grass cows eat",
-      "The churning process oxidizes the fat",
-      "It absorbs color from the cream"
-    ],
-    correctAnswer: "From beta-carotene in the grass cows eat",
-    hint: "It comes from what the cow eats...",
-    funFact: "Butter gets its yellow color from beta-carotene, the same pigment that makes carrots orange, found in the grass and plants cows eat. Grain-fed cows produce paler butter, which is why some manufacturers add annatto dye to keep color consistent year-round!"
+    id: 155,
+    theme: "Food & Drink 🍦",
+    question: "What is the most popular ice cream flavor in the United States?",
+    options: ["Chocolate", "Vanilla", "Strawberry", "Mint chocolate chip"],
+    correctAnswer: "Vanilla",
+    hint: "It's often seen as the 'plain' choice, but it wins by a landslide...",
+    funFact: "Vanilla is America's favorite ice cream flavor by a wide margin, making up nearly 30% of all ice cream sales. It's also one of the most labor-intensive spices to produce, since vanilla orchids must be hand-pollinated!"
   },
   {
-    id: 112,
-    theme: "Literature 📖",
-    question: "What job did Mark Twain have before becoming a writer?",
-    options: [
-      "Riverboat pilot",
-      "Schoolteacher",
-      "Newspaper editor",
-      "Telegraph operator"
-    ],
-    correctAnswer: "Riverboat pilot",
-    hint: "It inspired his pen name...",
-    funFact: "Mark Twain worked as a Mississippi River steamboat pilot before writing. His pen name comes from a riverboat term: 'mark twain' means two fathoms deep, the minimum safe depth for navigation. He called it the most wonderful job in the world before the Civil War shut down river traffic!"
+    id: 156,
+    theme: "Science 🌕",
+    question: "Why does the moon look larger when it's near the horizon?",
+    options: ["It's actually closer to Earth at that point", "It's an optical illusion in the brain", "The atmosphere magnifies it like a lens", "Light bends differently at low altitude"],
+    correctAnswer: "It's an optical illusion in the brain",
+    hint: "The moon isn't actually any closer...",
+    funFact: "This is called the 'moon illusion,' and scientists still don't fully agree on why it happens! If you measure the moon with a ruler held at arm's length, it's the exact same size at the horizon as it is overhead. Your brain just perceives it differently."
   },
   {
-    id: 113,
-    theme: "Science 🌊",
-    question: "How deep is the deepest point in the ocean?",
-    options: [
-      "About 20,000 feet",
-      "About 36,000 feet",
-      "About 50,000 feet",
-      "About 60,000 feet"
-    ],
-    correctAnswer: "About 36,000 feet",
-    hint: "It's in the Pacific Ocean...",
-    funFact: "The Mariana Trench's Challenger Deep reaches about 36,000 feet, deep enough to submerge Mount Everest with a mile to spare! Less than 20 people have visited the bottom of the ocean, compared to over 600 who have been to space. The pressure there is over 1,000 times surface pressure."
-  },
-  {
-    id: 114,
-    theme: "Travel ✈️",
-    question: "Which country has the most UNESCO World Heritage Sites?",
-    options: [
-      "China",
-      "Italy",
-      "Spain",
-      "France"
-    ],
-    correctAnswer: "Italy",
-    hint: "Think Roman ruins, Renaissance art, and ancient cities...",
-    funFact: "Italy leads the world with 59 UNESCO World Heritage Sites, just edging out China! Sites include the Colosseum, Venice, Pompeii, the Amalfi Coast, and the historic centers of Florence and Rome. Italy has been continuously inhabited and culturally influential for over 3,000 years."
-  },
-  {
-    id: 115,
-    theme: "History 🏛️",
-    question: "How long did the Roman Empire last?",
-    options: [
-      "About 200 years",
-      "About 500 years",
-      "About 1,000 years",
-      "About 1,500 years"
-    ],
-    correctAnswer: "About 1,500 years",
-    hint: "Much longer than most people think...",
-    funFact: "If you count from the founding of Rome to the fall of the Eastern Roman Empire (Byzantine Empire) in 1453, Rome lasted roughly 1,500 years! The Western Empire fell in 476 AD, but the Eastern Empire continued for nearly another thousand years, only ending when Constantinople fell to the Ottomans."
-  },
-  {
-    id: 116,
-    theme: "Nature 🦋",
-    question: "How far can monarch butterflies migrate?",
-    options: [
-      "Up to 500 miles",
-      "Up to 1,000 miles",
-      "Up to 3,000 miles",
-      "Up to 5,000 miles"
-    ],
-    correctAnswer: "Up to 3,000 miles",
-    hint: "They travel from Canada to Mexico...",
-    funFact: "Monarch butterflies migrate up to 3,000 miles from Canada and the northern U.S. to their winter home in the mountains of central Mexico. The remarkable part: no single butterfly completes the round trip. It takes 3 to 4 generations to make the return journey, yet each new generation knows the way!"
-  },
-  {
-    id: 117,
-    theme: "Food & Drink 🍜",
-    question: "What country invented noodles?",
-    options: [
-      "Italy",
-      "Japan",
-      "China",
-      "India"
-    ],
-    correctAnswer: "China",
-    hint: "Archaeologists found the oldest noodles there...",
-    funFact: "The world's oldest noodles, about 4,000 years old, were discovered in China preserved under ten feet of sediment. Made from millet, they looked remarkably like modern ramen! Italy and China both developed pasta traditions independently, a great example of culinary parallel evolution."
-  },
-  {
-    id: 118,
-    theme: "Literature 📖",
-    question: "How long did it take Tolkien to write The Lord of the Rings?",
-    options: [
-      "About 2 years",
-      "About 5 years",
-      "About 12 years",
-      "About 20 years"
-    ],
-    correctAnswer: "About 12 years",
-    hint: "He started it right after The Hobbit...",
-    funFact: "J.R.R. Tolkien spent about 12 years writing The Lord of the Rings, from 1937 to 1949, though it wasn't published until 1954. He invented entire languages, including Elvish, and drew detailed maps of Middle-earth. He considered the whole work a mythology for England, which he felt lacked one."
-  },
-  {
-    id: 119,
-    theme: "Geography 🌏",
-    question: "What is the only country in the world that is also a continent?",
-    options: [
-      "Greenland",
-      "Australia",
-      "Antarctica",
-      "New Zealand"
-    ],
-    correctAnswer: "Australia",
-    hint: "It's in the Southern Hemisphere...",
-    funFact: "Australia is the only nation that is also its own continent! It's the world's sixth-largest country and home to some of the most unique wildlife on Earth, including kangaroos, koalas, and platypuses. About 80% of its plant and animal species are found nowhere else on the planet."
-  },
-  {
-    id: 120,
-    theme: "History 📜",
-    question: "What was the first printed book in Europe?",
-    options: [
-      "The Canterbury Tales",
-      "Don Quixote",
-      "The Gutenberg Bible",
-      "Shakespeare's First Folio"
-    ],
-    correctAnswer: "The Gutenberg Bible",
-    hint: "It was printed in the 1450s...",
-    funFact: "Johannes Gutenberg printed his famous Bible around 1455 using the first movable-type printing press in Europe. Before this, books had to be copied by hand, often taking years. Gutenberg's press is considered one of the most important inventions in history, democratizing knowledge and fueling the Renaissance and Reformation."
-  },
-  {
-    id: 121,
-    theme: "Science 🧠",
-    question: "What percentage of the brain is water?",
-    options: [
-      "About 40%",
-      "About 60%",
-      "About 73%",
-      "About 90%"
-    ],
-    correctAnswer: "About 73%",
-    hint: "More than most people would guess...",
-    funFact: "The human brain is about 73% water, which is why even mild dehydration can affect concentration and mood. The brain also uses about 20% of the body's total energy despite being only 2% of its weight. It generates enough electrical activity to power a small light bulb!"
-  },
-  {
-    id: 122,
-    theme: "Travel 🗺️",
-    question: "What is the most visited city in the world?",
-    options: [
-      "Paris",
-      "New York City",
-      "Bangkok",
-      "London"
-    ],
-    correctAnswer: "Bangkok",
-    hint: "It's in Southeast Asia...",
-    funFact: "Bangkok, Thailand consistently ranks as the world's most visited city, welcoming over 20 million international tourists annually! Its official ceremonial name is one of the longest place names in the world, with 168 characters in Thai. The city is known for its ornate temples, vibrant street food, and legendary hospitality."
-  },
-  {
-    id: 123,
-    theme: "Food & Drink 🍫",
-    question: "How many cacao beans does it take to make one pound of chocolate?",
-    options: [
-      "About 50 beans",
-      "About 200 beans",
-      "About 400 beans",
-      "About 1,000 beans"
-    ],
-    correctAnswer: "About 400 beans",
-    hint: "Far more than most people realize...",
-    funFact: "It takes about 400 cacao beans, the entire yield of a cacao tree for a full year, to make just one pound of chocolate! The Aztecs considered cacao so valuable they used the beans as currency. Today, the world consumes about 7.5 million tons of chocolate per year."
-  },
-  {
-    id: 124,
-    theme: "Literature 📖",
-    question: "What classic novel begins with 'Call me Ishmael'?",
-    options: [
-      "Robinson Crusoe",
-      "Moby-Dick",
-      "The Old Man and the Sea",
-      "Twenty Thousand Leagues Under the Sea"
-    ],
-    correctAnswer: "Moby-Dick",
-    hint: "It involves a white whale...",
-    funFact: "Moby-Dick by Herman Melville was published in 1851 and was a commercial failure during his lifetime. Today it's considered one of the greatest American novels. Melville based it on two real events: the sinking of the whale ship Essex in 1820 and the story of a real albino sperm whale known as Mocha Dick!"
-  },
-  {
-    id: 125,
-    theme: "Nature 🌋",
-    question: "How many volcanoes does Indonesia have?",
-    options: [
-      "About 30",
-      "About 75",
-      "About 130",
-      "About 400"
-    ],
-    correctAnswer: "About 130",
-    hint: "It sits on the Pacific Ring of Fire...",
-    funFact: "Indonesia has about 130 active volcanoes, more than any other country on Earth! It sits on the Pacific Ring of Fire where tectonic plates collide. The 1883 eruption of Krakatoa was heard 3,000 miles away and caused a global drop in temperature. Volcanic soil makes Indonesian land exceptionally fertile."
-  },
-  {
-    id: 126,
-    theme: "History 🎖️",
-    question: "What ancient wonder of the world still stands today?",
-    options: [
-      "The Colossus of Rhodes",
-      "The Lighthouse of Alexandria",
-      "The Great Pyramid of Giza",
-      "The Hanging Gardens of Babylon"
-    ],
-    correctAnswer: "The Great Pyramid of Giza",
-    hint: "It's in Egypt...",
-    funFact: "The Great Pyramid of Giza is the only one of the Seven Wonders of the Ancient World still standing. Built around 2560 BC, it was the tallest man-made structure in the world for over 3,800 years! It contains an estimated 2.3 million stone blocks, each weighing 2.5 to 15 tons."
-  },
-  {
-    id: 127,
-    theme: "Science 🌡️",
-    question: "At what temperature are Fahrenheit and Celsius the same?",
-    options: [
-      "-32 degrees",
-      "-40 degrees",
-      "0 degrees",
-      "-20 degrees"
-    ],
-    correctAnswer: "-40 degrees",
-    hint: "It's very cold...",
-    funFact: "Fahrenheit and Celsius meet at exactly -40 degrees! Below that point, Celsius readings are always higher numbers than Fahrenheit. The two scales were invented about 20 years apart: Fahrenheit in 1724 and Celsius in 1742. Interestingly, Celsius originally had 0 as boiling and 100 as freezing before it was reversed!"
-  },
-  {
-    id: 128,
-    theme: "Travel 🏯",
-    question: "How long is the Great Wall of China?",
-    options: [
-      "About 1,000 miles",
-      "About 5,500 miles",
-      "About 13,000 miles",
-      "About 20,000 miles"
-    ],
-    correctAnswer: "About 13,000 miles",
-    hint: "Much longer than most people think...",
-    funFact: "The Great Wall of China stretches about 13,000 miles when all its sections and branches are measured together! Construction spanned more than 2,000 years across multiple dynasties. Contrary to popular belief, it is NOT visible from space with the naked eye; astronauts have confirmed this!"
-  },
-  {
-    id: 129,
-    theme: "Food & Drink 🫙",
-    question: "Why do crackers have holes in them?",
-    options: [
-      "For decoration and branding",
-      "To let steam escape during baking",
-      "To make them easier to break apart",
-      "To reduce calorie content"
-    ],
-    correctAnswer: "To let steam escape during baking",
-    hint: "Think about what happens inside the oven...",
-    funFact: "The holes in crackers, called 'docker holes,' let steam escape during baking so the crackers stay flat and crisp. Without them, the steam would create air pockets and the crackers would puff up like pita bread! The tool that makes the holes is called a docker."
-  },
-  {
-    id: 130,
-    theme: "Literature 📖",
-    question: "Which author is one of the most prolific novelists of all time with over 225 books?",
-    options: [
-      "Agatha Christie",
-      "Stephen King",
-      "Nora Roberts",
-      "Isaac Asimov"
-    ],
-    correctAnswer: "Nora Roberts",
-    hint: "A beloved romance writer with several pen names...",
-    funFact: "Nora Roberts has published over 225 novels and is one of the best-selling authors of all time with over 500 million copies sold. She writes under the pen name J.D. Robb for her futuristic crime series. She once wrote two complete novels during a single blizzard that trapped her at home!"
-  },
-  {
-    id: 131,
-    theme: "Nature 🐝",
-    question: "How do bees communicate the location of flowers to each other?",
-    options: [
-      "Through a series of buzzing sounds",
-      "By leaving a scent trail",
-      "Through a waggle dance",
-      "By touching antennae"
-    ],
-    correctAnswer: "Through a waggle dance",
-    hint: "It's surprisingly literal...",
-    funFact: "Honeybees perform a 'waggle dance' to tell hivemates exactly where to find food! The angle of the dance corresponds to the direction relative to the sun, and the duration indicates distance. Karl von Frisch decoded this bee language in the 1940s and won the Nobel Prize for it in 1973!"
-  },
-  {
-    id: 132,
-    theme: "History 🌏",
-    question: "Which civilization invented the wheel?",
-    options: [
-      "Ancient Egyptians",
-      "Ancient Mesopotamians",
-      "Ancient Greeks",
-      "Ancient Chinese"
-    ],
-    correctAnswer: "Ancient Mesopotamians",
-    hint: "Think modern-day Iraq...",
-    funFact: "The wheel was invented around 3500 BC in Mesopotamia, in the region of modern-day Iraq. Interestingly, the first wheels weren't used for transportation; they were potter's wheels for shaping clay! Wheels used for vehicles came about 300 years later. The Aztec and Inca empires, remarkably, never developed the wheel."
-  },
-  {
-    id: 133,
-    theme: "Science 🔭",
-    question: "How old is the universe?",
-    options: [
-      "About 4.5 billion years",
-      "About 7 billion years",
-      "About 13.8 billion years",
-      "About 20 billion years"
-    ],
-    correctAnswer: "About 13.8 billion years",
-    hint: "It started with the Big Bang...",
-    funFact: "The universe is estimated to be about 13.8 billion years old, determined by measuring the cosmic microwave background radiation left over from the Big Bang. For context, Earth is about 4.5 billion years old, meaning the universe existed for over 9 billion years before our planet formed!"
-  },
-  {
-    id: 134,
-    theme: "Travel 🇯🇵",
-    question: "What is Japan's bullet train called?",
-    options: [
-      "Fuji Express",
-      "Shinkansen",
-      "Hikari",
-      "Nozomi"
-    ],
-    correctAnswer: "Shinkansen",
-    hint: "The name means 'new trunk line'...",
-    funFact: "Japan's Shinkansen bullet train network has been operating since 1964 and has carried over 10 billion passengers with zero passenger fatalities from accidents! Trains run every few minutes and average delays of under one minute. Staff bow to passengers as trains depart, and food wrappers are designed to be virtually silent out of respect for fellow travelers."
-  },
-  {
-    id: 135,
-    theme: "Food & Drink 🥐",
-    question: "What determines the flavor of vanilla ice cream?",
-    options: [
-      "The type of milk used",
-      "The source and quality of the vanilla bean",
-      "The churning speed",
-      "The sugar-to-cream ratio"
-    ],
-    correctAnswer: "The source and quality of the vanilla bean",
-    hint: "It all starts with the pod...",
-    funFact: "True vanilla flavor comes from vanilla beans, the seed pods of a tropical orchid vine. Madagascar produces about 80% of the world's vanilla. Each flower must be hand-pollinated within 12 hours of blooming, making real vanilla one of the world's most labor-intensive spices and second only to saffron in price per pound!"
-  },
-{
-    id: 136,
-    theme: "Summer Vacation 🏖️",
-    question: "Which U.S. state has the most visited beach destinations?",
-    options: [
-      "California",
-      "Hawaii",
-      "Florida",
-      "South Carolina"
-    ],
-    correctAnswer: "Florida",
-    hint: "Think of the state shaped like a peninsula...",
-    funFact: "Florida draws more beach visitors than any other U.S. state, with over 1,300 miles of coastline and more than 825 miles of swimmable beaches. Its warm Gulf and Atlantic waters make it a year-round destination. Clearwater Beach has been repeatedly named the number one beach in the country!"
-  },
-  {
-    id: 137,
-    theme: "Summer Holidays ☀️",
-    question: "What is the most popular holiday in the U.S. for grilling and cookouts?",
-    options: [
-      "Memorial Day",
-      "Independence Day",
-      "Labor Day",
-      "Father's Day"
-    ],
-    correctAnswer: "Independence Day",
-    hint: "Think fireworks and the Fourth...",
-    funFact: "The Fourth of July is America's top grilling holiday, with over 150 million hot dogs consumed on that single day! Americans spend around $7.7 billion on food for Independence Day celebrations. The holiday has been observed since 1776, but wasn't made a federal holiday until 1870."
-  },
-  {
-    id: 138,
-    theme: "Geography 🌍",
-    question: "What is the only sea in the world with no coastline?",
-    options: [
-      "The Caspian Sea",
-      "The Dead Sea",
-      "The Sargasso Sea",
-      "The Aral Sea"
-    ],
-    correctAnswer: "The Sargasso Sea",
-    hint: "It's defined entirely by ocean currents...",
-    funFact: "The Sargasso Sea is the only sea on Earth with no land borders.  It's defined entirely by four surrounding ocean currents in the North Atlantic. It's named for the Sargassum seaweed that floats on its surface and creates a unique ecosystem. European and American eels travel thousands of miles to breed there!"
-  },
-  {
-    id: 139,
-    theme: "Science 🌡️",
-    question: "Why does the summer solstice have the longest day of the year?",
-    options: [
-      "Earth is closest to the Sun in summer",
-      "Earth's axis tilts toward the Sun",
-      "The Moon reflects extra sunlight in summer",
-      "Earth rotates more slowly in summer"
-    ],
-    correctAnswer: "Earth's axis tilts toward the Sun",
-    hint: "It's all about the tilt, not the distance...",
-    funFact: "Earth's axis is tilted about 23.5 degrees, and during the summer solstice the Northern Hemisphere tilts directly toward the Sun, giving us more daylight hours. Interestingly, Earth is actually slightly farther from the Sun in summer than in winter! It's the angle of sunlight, not the distance, that makes summer warm."
-  },
-  {
-    id: 140,
-    theme: "Books 📚",
-    question: "What classic novel is set during a single summer and explores race and justice in the American South?",
-    options: [
-      "The Color Purple",
-      "Their Eyes Were Watching God",
-      "To Kill a Mockingbird",
-      "Of Mice and Men"
-    ],
-    correctAnswer: "To Kill a Mockingbird",
-    hint: "Narrated by a young girl named Scout...",
-    funFact: "To Kill a Mockingbird by Harper Lee was published in 1960 and won the Pulitzer Prize the following year. Lee reportedly based the story on events she witnessed as a child in Alabama. Despite being a first novel, it sold over a million copies in its first year and has never gone out of print. Lee's childhood friend Truman Capote is believed to have inspired the character Dill!"
-  },
-  {
-    id: 141,
-    theme: "Movies 🎬",
-    question: "What 1975 Steven Spielberg film is often credited with inventing the summer blockbuster?",
-    options: [
-      "Star Wars",
-      "Jaws",
-      "E.T. the Extra-Terrestrial",
-      "Close Encounters of the Third Kind"
-    ],
-    correctAnswer: "Jaws",
-    hint: "It made people afraid to go in the water...",
-    funFact: "Jaws, released in June 1975, became the first film to earn over $100 million at the box office and essentially created the concept of the 'summer blockbuster.' Spielberg was only 26 when he directed it! The mechanical shark broke down so often that Spielberg was forced to show it less, accidentally making the film far more terrifying."
-  },
-
-  {
-    id: 142,
-    theme: "Summer Sports 🏄",
-    question: "What is the most watched sport at the Summer Olympics?",
-    options: [
-      "Swimming",
-      "Track and Field",
-      "Gymnastics",
-      "Soccer"
-    ],
-    correctAnswer: "Track and Field",
-    hint: "Think running, jumping, and throwing...",
-    funFact: "Track and field is the most watched Summer Olympic sport worldwide, with events like the 100-meter dash and long jump drawing massive global audiences. Usain Bolt became the most famous Olympian of the modern era through track, winning eight gold medals across three Olympics. The first Olympic marathon in 1896 covered a route from Marathon to Athens, tracing a legendary ancient messenger's run!"
-  },
-  {
-    id: 143,
-    theme: "Outdoor Games 🎯",
-    question: "Where did the backyard game cornhole originate?",
-    options: [
-      "Kentucky",
-      "Ohio",
-      "Tennessee",
-      "Indiana"
-    ],
-    correctAnswer: "Ohio",
-    hint: "A Midwestern state known for its tailgate culture...",
-    funFact: "Cornhole is widely believed to have originated in Cincinnati, Ohio, though Kentucky also claims the title! The game gained national popularity in the early 2000s and now has a professional league, the American Cornhole League, with thousands of registered players. The official board distance is 27 feet apart and the hole is exactly 6 inches in diameter."
-  },
-  {
-    id: 144,
-    theme: "Geography 🗺️",
-    question: "What is the only country that borders both the Atlantic and Indian Oceans?",
-    options: [
-      "Brazil",
-      "Nigeria",
-      "South Africa",
-      "Angola"
-    ],
-    correctAnswer: "South Africa",
-    hint: "Think of the Cape of Good Hope...",
-    funFact: "South Africa is the only country in the world that borders both the Atlantic and Indian Oceans, meeting at Cape Agulhas, the true southernmost tip of Africa. The meeting of the two oceans creates powerful currents that made this coastline one of the most treacherous for early sailors. South Africa is also one of the few countries with three capital cities: Pretoria, Cape Town, and Bloemfontein!"
-  },
-  {
-    id: 145,
-    theme: "Summer Sky 🌤️",
-    question: "Why do fireflies glow?",
-    options: [
-      "To stay warm on cool summer nights",
-      "To attract mates and communicate",
-      "To warn predators they taste bad",
-      "To navigate in the dark"
-    ],
-    correctAnswer: "To attract mates and communicate",
-    hint: "Think about why animals put on a light show...",
-    funFact: "Fireflies produce their cold light through a chemical reaction called bioluminescence, using an enzyme called luciferase. Each firefly species has its own unique flash pattern, like a Morse code for finding a mate! Some species can even synchronize their flashes across an entire forest. The light is remarkably efficient and  nearly 100% of the energy becomes light, with almost no heat produced."
-  },
-  {
-    id: 146,
-    theme: "Summer Trends ☀️",
-    question: "Which summer activity saw its biggest boom in popularity during the early 2020s?",
-    options: [
-      "Surfing",
-      "Pickleball",
-      "Frisbee golf",
-      "Paddleboarding"
-    ],
-    correctAnswer: "Pickleball",
-    hint: "It combines elements of tennis, badminton, and ping-pong...",
-    funFact: "Pickleball became the fastest-growing sport in America during the early 2020s, with participation jumping by over 150% in just a few years! It was invented in 1965 on Bainbridge Island, Washington, by a congressman and two friends who improvised a game for their bored kids using ping-pong paddles and a perforated plastic ball. The name supposedly came from the inventor's family dog, Pickles, who would chase the ball!"
-  },
-  {
-    id: 147,
-    theme: "Summer Foods 🌽",
-    question: "Why does corn on the cob taste sweeter when eaten immediately after picking?",
-    options: [
-      "It absorbs more sunlight closer to harvest",
-      "Its sugars convert to starch within hours of picking",
-      "Morning dew adds natural sweetness",
-      "The kernels are smaller and more concentrated"
-    ],
-    correctAnswer: "Its sugars convert to starch within hours of picking",
-    hint: "The sweetness is literally a race against time...",
-    funFact: "Fresh-picked corn begins converting its sugars to starch almost immediately after harvest, which is why corn eaten minutes off the stalk tastes remarkably sweeter than store-bought. Old-time farmers used to say you should put the water on to boil before you even picked the corn! Modern 'super sweet' varieties are bred to slow this process, but nothing beats truly fresh corn."
-  },
-  {
-    id: 148,
-    theme: "Picnics 🧺",
-    question: "What country is credited with inventing the modern picnic?",
-    options: [
-      "England",
-      "Italy",
-      "France",
-      "Germany"
-    ],
+    id: 157,
+    theme: "History 🗽",
+    question: "Which country gave the United States the Statue of Liberty?",
+    options: ["England", "France", "Spain", "Italy"],
     correctAnswer: "France",
-    hint: "The word itself comes from French...",
-    funFact: "The modern picnic originated in post-Revolutionary France, where aristocrats who had lost their private parks began gathering outdoors in public gardens to eat together. The word 'pique-nique' first appeared in French around 1692! The tradition spread to England in the early 1800s, where picnic clubs became fashionable social events. Queen Victoria was reportedly an enthusiastic picnicker."
+    hint: "A gift to celebrate friendship and shared ideals of liberty...",
+    funFact: "France gave the Statue of Liberty to the U.S. in 1886 to commemorate the alliance during the American Revolution. It arrived in 350 individual pieces packed in 214 crates and took four months to assemble on-site!"
   },
   {
-    id: 149,
-    theme: "State Fairs 🎡",
-    question: "What food was famously popularized at the Texas State Fair?",
-    options: [
-      "Funnel cake",
-      "Corn dogs",
-      "Cotton candy",
-      "Deep-fried butter"
-    ],
-    correctAnswer: "Corn dogs",
-    hint: "A hot dog on a stick with a golden cornmeal coat...",
-    funFact: "The corn dog is widely credited to the Texas State Fair, where it was reportedly introduced in the 1940s. The fair has since become legendary for deep-fried innovations, including deep-fried butter, deep-fried Oreos, and deep-fried Coca-Cola, which is actual Coca-Cola batter fried into little balls! The State Fair of Texas is one of the largest in the country, drawing over 2 million visitors annually."
+    id: 158,
+    theme: "Geography 🏔️",
+    question: "What is the longest mountain range above sea level?",
+    options: ["The Rockies", "The Himalayas", "The Andes", "The Alps"],
+    correctAnswer: "The Andes",
+    hint: "It runs the entire length of South America...",
+    funFact: "The Andes stretch about 4,300 miles along the western edge of South America, making it the longest continental mountain range in the world. It passes through seven countries, from Venezuela down to the southern tip of Chile and Argentina!"
   },
   {
-    id: 150,
-    theme: "Beaches 🏖️",
-    question: "What gives the famous pink beaches of Bermuda their color?",
-    options: [
-      "Minerals in the volcanic rock",
-      "Crushed shells and red coral fragments",
-      "A type of pink algae",
-      "Reflected light from the surrounding reef"
-    ],
-    correctAnswer: "Crushed shells and red coral fragments",
-    hint: "It comes from tiny creatures and what they leave behind...",
-    funFact: "Bermuda's iconic pink sand gets its blush color from the crushed shells and skeletons of a tiny single-celled organism called Homotrema rubrum, a red foraminifera that lives on the underside of coral reefs. When they die, their bright red-pink remains wash ashore and mix with white sand. Bermuda has about 34 beaches, and the pink is most vivid on the south shore!"
+    id: 159,
+    theme: "Literature 📖",
+    question: "Who created the character Sherlock Holmes?",
+    options: ["Agatha Christie", "Arthur Conan Doyle", "Charles Dickens", "H.G. Wells"],
+    correctAnswer: "Arthur Conan Doyle",
+    hint: "He was a Scottish physician before becoming a full-time writer...",
+    funFact: "Arthur Conan Doyle wrote Sherlock Holmes stories partly to fund his medical practice. He grew so tired of the character that he killed Holmes off in 1893, but public outcry was so intense he was forced to bring him back eight years later!"
   },
   {
-    id: 151,
-    theme: "Sea Life 🐠",
-    question: "How do clownfish survive living among sea anemone's stinging tentacles?",
-    options: [
-      "They have thick scales that block the stings",
-      "A protective mucus coating makes them immune",
-      "They move too fast for the tentacles to sting",
-      "They eat the stinging cells before they activate"
-    ],
-    correctAnswer: "A protective mucus coating makes them immune",
-    hint: "Think about what coats their bodies...",
-    funFact: "Clownfish are protected by a special thick mucus coating that prevents the anemone's nematocysts from firing. Scientists believe clownfish gradually acclimate by briefly touching the anemone and slowly building up the protective layer. In return for shelter, clownfish chase away predators, remove parasites, and even fan the anemone with their fins to improve water circulation, a perfect partnership!"
+    id: 160,
+    theme: "Movies 🦖",
+    question: "Which 1993 film was the first to use realistic CGI dinosaurs?",
+    options: ["The Land Before Time", "Jurassic Park", "Godzilla", "King Kong"],
+    correctAnswer: "Jurassic Park",
+    hint: "Steven Spielberg directed this groundbreaking blockbuster...",
+    funFact: "Jurassic Park revolutionized visual effects with only about 6 minutes of CGI dinosaur footage in the entire film; the rest used animatronics. The T-Rex model alone weighed over 12,000 pounds and required 50 people to operate!"
   },
   {
-    id: 152,
-    theme: "Fishing 🎣",
-    question: "What is the most popular recreational fishing activity in the United States?",
-    options: [
-      "Deep sea fishing",
-      "Fly fishing",
-      "Freshwater fishing",
-      "Ice fishing"
-    ],
-    correctAnswer: "Freshwater fishing",
-    hint: "Think lakes, rivers, and ponds...",
-    funFact: "Freshwater fishing is by far the most popular form of recreational fishing in the U.S., with over 38 million Americans fishing in lakes, rivers, and streams each year. Bass fishing alone is a multi-billion dollar industry with professional tournaments. Fishing licenses generate hundreds of millions of dollars annually that fund wildlife conservation across the country!"
+    id: 161,
+    theme: "Music 🪈",
+    question: "What is considered the oldest known musical instrument?",
+    options: ["Drum", "Flute", "Harp", "Lyre"],
+    correctAnswer: "Flute",
+    hint: "It was carved from bone tens of thousands of years ago...",
+    funFact: "Bone flutes discovered in Germany date back about 40,000 years, making them the oldest known musical instruments. They were carved from vulture and mammoth bones by early humans in the Upper Paleolithic era!"
   },
   {
-    id: 153,
-    theme: "Hiking 🥾",
-    question: "How long is the Appalachian Trail from end to end?",
-    options: [
-      "About 800 miles",
-      "About 1,400 miles",
-      "About 2,200 miles",
-      "About 3,100 miles"
-    ],
-    correctAnswer: "About 2,200 miles",
-    hint: "It runs from Georgia all the way to Maine...",
-    funFact: "The Appalachian Trail stretches about 2,190 miles from Springer Mountain in Georgia to Mount Katahdin in Maine, passing through 14 states. Only about 3,000 people successfully 'thru-hike' the entire trail each year, a journey that typically takes 5 to 7 months! The trail was fully completed in 1937 and is maintained almost entirely by volunteers from trail clubs along its length."
+    id: 162,
+    theme: "Animals 🦒",
+    question: "How much sleep does a giraffe typically get per day?",
+    options: ["Under 2 hours", "About 6 hours", "About 10 hours", "About 14 hours"],
+    correctAnswer: "Under 2 hours",
+    hint: "They're one of the least-sleeping mammals on Earth...",
+    funFact: "Giraffes sleep as little as 30 minutes to 2 hours a day, often in short bursts of just a few minutes at a time! Their long necks and vulnerability to predators mean they rarely lie down for long, uninterrupted sleep."
   },
   {
-    id: 154,
-    theme: "Bicycling 🚴",
-    question: "What country has the highest rate of bicycle commuting in the world?",
-    options: [
-      "Denmark",
-      "Germany",
-      "Netherlands",
-      "Japan"
-    ],
-    correctAnswer: "Netherlands",
-    hint: "A flat country famous for its cycling culture...",
-    funFact: "The Netherlands has more bicycles than people:  about 23 million bikes for 17 million residents! In cities like Amsterdam and Utrecht, over 60% of all trips are made by bicycle. The Dutch cycling infrastructure is so well-developed that bike lanes have their own traffic signals, and children receive formal cycling education in school. The country has over 35,000 kilometers of dedicated bike paths!"
+    id: 163,
+    theme: "Nature 🌈",
+    question: "How many colors are traditionally identified in a rainbow?",
+    options: ["5", "6", "7", "8"],
+    correctAnswer: "7",
+    hint: "Think 'Roy G. Biv'...",
+    funFact: "Isaac Newton originally identified 7 colors in the rainbow, including indigo, partly because he wanted the number to match the 7 notes in a musical scale! A rainbow is actually a continuous spectrum with no hard boundaries between colors."
+  },
+  {
+    id: 164,
+    theme: "TV Shows 📺",
+    question: "Which show has won the most Emmy Awards in television history?",
+    options: ["The Simpsons", "Saturday Night Live", "Game of Thrones", "Cheers"],
+    correctAnswer: "Saturday Night Live",
+    hint: "It's been on the air since 1975...",
+    funFact: "Saturday Night Live has won more Emmy Awards than any other show in television history, with over 90 wins. It has aired for 50 seasons and launched the careers of countless comedy legends, from Eddie Murphy to Tina Fey!"
+  },
+  {
+    id: 165,
+    theme: "Food & Drink 🧅",
+    question: "Why do onions make you cry when you cut them?",
+    options: ["They release a gas that irritates your eyes", "Their acidity burns your skin", "They contain natural pepper spray", "Cutting releases pressurized air"],
+    correctAnswer: "They release a gas that irritates your eyes",
+    hint: "It's a chemical defense mechanism the onion evolved...",
+    funFact: "Cutting an onion releases a compound called syn-propanethial-S-oxide, which irritates the eyes and triggers tears as a defense response. Chilling onions before cutting slows the chemical reaction and can reduce the tears!"
+  },
+  {
+    id: 166,
+    theme: "Animals 🦩",
+    question: "What is a group of flamingos called?",
+    options: ["A flock", "A flamboyance", "A parade", "A pinkery"],
+    correctAnswer: "A flamboyance",
+    hint: "The name fits their vibrant color perfectly...",
+    funFact: "A group of flamingos is officially called a 'flamboyance,' a fitting name for such a colorful bird! Flamingos get their pink color from pigments in the algae and crustaceans they eat, and they're actually born gray!"
+  },
+  {
+    id: 167,
+    theme: "Travel 🗼",
+    question: "How tall is the Eiffel Tower?",
+    options: ["About 500 feet", "About 700 feet", "About 1,000 feet", "About 1,300 feet"],
+    correctAnswer: "About 1,000 feet",
+    hint: "It was the tallest man-made structure in the world for 41 years...",
+    funFact: "The Eiffel Tower stands about 1,083 feet tall and held the title of world's tallest structure from 1889 until 1930. It grows about 6 inches taller in summer, as the iron expands in the heat!"
+  },
+  {
+    id: 168,
+    theme: "History 🏺",
+    question: "Who ordered the construction of China's famous Terracotta Army?",
+    options: ["Confucius", "Qin Shi Huang", "Genghis Khan", "Kublai Khan"],
+    correctAnswer: "Qin Shi Huang",
+    hint: "He was China's first emperor...",
+    funFact: "Qin Shi Huang, China's first emperor, ordered the creation of over 8,000 life-sized terracotta soldiers to guard his tomb in the afterlife. The site wasn't discovered until 1974, when farmers digging a well stumbled upon it!"
+  },
+  {
+    id: 169,
+    theme: "Geography 🇻🇦",
+    question: "What is the smallest country in the world by population?",
+    options: ["Monaco", "San Marino", "Vatican City", "Nauru"],
+    correctAnswer: "Vatican City",
+    hint: "It's an independent city-state within Rome...",
+    funFact: "Vatican City has a population of only around 800 people, making it the smallest country in the world by both area and population. It even has its own postal service, radio station, and army, the Swiss Guard!"
+  },
+  {
+    id: 170,
+    theme: "Books 📚",
+    question: "Which now-beloved book series was rejected by 12 publishers before being accepted?",
+    options: ["The Hunger Games", "Harry Potter", "Twilight", "The Da Vinci Code"],
+    correctAnswer: "Harry Potter",
+    hint: "It went on to become the best-selling book series in history...",
+    funFact: "Harry Potter and the Philosopher's Stone was rejected by 12 publishing houses before Bloomsbury finally accepted it, and even then the editor's 8-year-old daughter is credited with convincing him it was good! The series has since sold over 600 million copies."
+  },
+  {
+    id: 171,
+    theme: "Science 🍌",
+    question: "About what percentage of human DNA do we share with bananas?",
+    options: ["About 10%", "About 25%", "About 50%", "About 75%"],
+    correctAnswer: "About 50%",
+    hint: "It's surprisingly high, given how different we look...",
+    funFact: "Humans share roughly 50% of their DNA with bananas! This is because much of our DNA codes for basic cellular functions that all living things share, like how cells divide and process energy."
+  },
+  {
+    id: 172,
+    theme: "Nature 🐋",
+    question: "What is the largest animal known to have ever existed on Earth?",
+    options: ["The woolly mammoth", "The blue whale", "The megalodon", "The Argentinosaurus"],
+    correctAnswer: "The blue whale",
+    hint: "It's still alive today and swims in our oceans...",
+    funFact: "The blue whale is the largest animal ever known to have existed, even bigger than the largest dinosaurs. It can grow up to 100 feet long and weigh as much as 200 tons, and its heart alone can weigh as much as a small car!"
+  },
+  {
+    id: 173,
+    theme: "Food & Drink 🍓",
+    question: "Which of these is technically classified as a berry?",
+    options: ["Strawberry", "Banana", "Raspberry", "Blackberry"],
+    correctAnswer: "Banana",
+    hint: "Botanists have a very different definition than the rest of us...",
+    funFact: "Botanically speaking, a banana is a true berry, but strawberries and raspberries are not! Berries must develop from a single flower with one ovary, which bananas, grapes, and even tomatoes and avocados meet, but strawberries don't."
+  },
+  {
+    id: 174,
+    theme: "Movies 🎬",
+    question: "Which 2009 film became the highest-grossing movie of all time (unadjusted for inflation)?",
+    options: ["Titanic", "Avengers: Endgame", "Avatar", "Star Wars: The Force Awakens"],
+    correctAnswer: "Avatar",
+    hint: "It's set on the alien moon of Pandora...",
+    funFact: "Avatar, directed by James Cameron, became the highest-grossing film of all time upon release in 2009. Cameron actually invented new 3D camera technology specifically to make the film, and it took nearly a decade of development before filming even began!"
   },
 ];
 
 /*
 // ============================================================
-// BENCHED QUESTIONS - ids 1-110
+// BENCHED QUESTIONS - ids 1-154
 // Uncomment and move above the closing ]; to restore
 // ============================================================
 
@@ -1636,6 +1199,623 @@ const triviaQuestions = [
     correctAnswer: "Go.",
     hint: "It's a command with an implied subject...",
     funFact: "The shortest grammatically complete sentence in English is 'Go.' It's a command where the subject 'you' is implied. 'I am.' is the shortest sentence with an explicit subject and verb. English is fascinating in how much meaning can be packed into just two letters!"
+  },
+{
+    id: 111,
+    theme: "Food & Drink 🧈",
+    question: "Why is butter yellow?",
+    options: [
+      "Food coloring is added during production",
+      "From beta-carotene in the grass cows eat",
+      "The churning process oxidizes the fat",
+      "It absorbs color from the cream"
+    ],
+    correctAnswer: "From beta-carotene in the grass cows eat",
+    hint: "It comes from what the cow eats...",
+    funFact: "Butter gets its yellow color from beta-carotene, the same pigment that makes carrots orange, found in the grass and plants cows eat. Grain-fed cows produce paler butter, which is why some manufacturers add annatto dye to keep color consistent year-round!"
+  },
+  {
+    id: 112,
+    theme: "Literature 📖",
+    question: "What job did Mark Twain have before becoming a writer?",
+    options: [
+      "Riverboat pilot",
+      "Schoolteacher",
+      "Newspaper editor",
+      "Telegraph operator"
+    ],
+    correctAnswer: "Riverboat pilot",
+    hint: "It inspired his pen name...",
+    funFact: "Mark Twain worked as a Mississippi River steamboat pilot before writing. His pen name comes from a riverboat term: 'mark twain' means two fathoms deep, the minimum safe depth for navigation. He called it the most wonderful job in the world before the Civil War shut down river traffic!"
+  },
+  {
+    id: 113,
+    theme: "Science 🌊",
+    question: "How deep is the deepest point in the ocean?",
+    options: [
+      "About 20,000 feet",
+      "About 36,000 feet",
+      "About 50,000 feet",
+      "About 60,000 feet"
+    ],
+    correctAnswer: "About 36,000 feet",
+    hint: "It's in the Pacific Ocean...",
+    funFact: "The Mariana Trench's Challenger Deep reaches about 36,000 feet, deep enough to submerge Mount Everest with a mile to spare! Less than 20 people have visited the bottom of the ocean, compared to over 600 who have been to space. The pressure there is over 1,000 times surface pressure."
+  },
+  {
+    id: 114,
+    theme: "Travel ✈️",
+    question: "Which country has the most UNESCO World Heritage Sites?",
+    options: [
+      "China",
+      "Italy",
+      "Spain",
+      "France"
+    ],
+    correctAnswer: "Italy",
+    hint: "Think Roman ruins, Renaissance art, and ancient cities...",
+    funFact: "Italy leads the world with 59 UNESCO World Heritage Sites, just edging out China! Sites include the Colosseum, Venice, Pompeii, the Amalfi Coast, and the historic centers of Florence and Rome. Italy has been continuously inhabited and culturally influential for over 3,000 years."
+  },
+  {
+    id: 115,
+    theme: "History 🏛️",
+    question: "How long did the Roman Empire last?",
+    options: [
+      "About 200 years",
+      "About 500 years",
+      "About 1,000 years",
+      "About 1,500 years"
+    ],
+    correctAnswer: "About 1,500 years",
+    hint: "Much longer than most people think...",
+    funFact: "If you count from the founding of Rome to the fall of the Eastern Roman Empire (Byzantine Empire) in 1453, Rome lasted roughly 1,500 years! The Western Empire fell in 476 AD, but the Eastern Empire continued for nearly another thousand years, only ending when Constantinople fell to the Ottomans."
+  },
+  {
+    id: 116,
+    theme: "Nature 🦋",
+    question: "How far can monarch butterflies migrate?",
+    options: [
+      "Up to 500 miles",
+      "Up to 1,000 miles",
+      "Up to 3,000 miles",
+      "Up to 5,000 miles"
+    ],
+    correctAnswer: "Up to 3,000 miles",
+    hint: "They travel from Canada to Mexico...",
+    funFact: "Monarch butterflies migrate up to 3,000 miles from Canada and the northern U.S. to their winter home in the mountains of central Mexico. The remarkable part: no single butterfly completes the round trip. It takes 3 to 4 generations to make the return journey, yet each new generation knows the way!"
+  },
+  {
+    id: 117,
+    theme: "Food & Drink 🍜",
+    question: "What country invented noodles?",
+    options: [
+      "Italy",
+      "Japan",
+      "China",
+      "India"
+    ],
+    correctAnswer: "China",
+    hint: "Archaeologists found the oldest noodles there...",
+    funFact: "The world's oldest noodles, about 4,000 years old, were discovered in China preserved under ten feet of sediment. Made from millet, they looked remarkably like modern ramen! Italy and China both developed pasta traditions independently, a great example of culinary parallel evolution."
+  },
+  {
+    id: 118,
+    theme: "Literature 📖",
+    question: "How long did it take Tolkien to write The Lord of the Rings?",
+    options: [
+      "About 2 years",
+      "About 5 years",
+      "About 12 years",
+      "About 20 years"
+    ],
+    correctAnswer: "About 12 years",
+    hint: "He started it right after The Hobbit...",
+    funFact: "J.R.R. Tolkien spent about 12 years writing The Lord of the Rings, from 1937 to 1949, though it wasn't published until 1954. He invented entire languages, including Elvish, and drew detailed maps of Middle-earth. He considered the whole work a mythology for England, which he felt lacked one."
+  },
+  {
+    id: 119,
+    theme: "Geography 🌏",
+    question: "What is the only country in the world that is also a continent?",
+    options: [
+      "Greenland",
+      "Australia",
+      "Antarctica",
+      "New Zealand"
+    ],
+    correctAnswer: "Australia",
+    hint: "It's in the Southern Hemisphere...",
+    funFact: "Australia is the only nation that is also its own continent! It's the world's sixth-largest country and home to some of the most unique wildlife on Earth, including kangaroos, koalas, and platypuses. About 80% of its plant and animal species are found nowhere else on the planet."
+  },
+  {
+    id: 120,
+    theme: "History 📜",
+    question: "What was the first printed book in Europe?",
+    options: [
+      "The Canterbury Tales",
+      "Don Quixote",
+      "The Gutenberg Bible",
+      "Shakespeare's First Folio"
+    ],
+    correctAnswer: "The Gutenberg Bible",
+    hint: "It was printed in the 1450s...",
+    funFact: "Johannes Gutenberg printed his famous Bible around 1455 using the first movable-type printing press in Europe. Before this, books had to be copied by hand, often taking years. Gutenberg's press is considered one of the most important inventions in history, democratizing knowledge and fueling the Renaissance and Reformation."
+  },
+  {
+    id: 121,
+    theme: "Science 🧠",
+    question: "What percentage of the brain is water?",
+    options: [
+      "About 40%",
+      "About 60%",
+      "About 73%",
+      "About 90%"
+    ],
+    correctAnswer: "About 73%",
+    hint: "More than most people would guess...",
+    funFact: "The human brain is about 73% water, which is why even mild dehydration can affect concentration and mood. The brain also uses about 20% of the body's total energy despite being only 2% of its weight. It generates enough electrical activity to power a small light bulb!"
+  },
+  {
+    id: 122,
+    theme: "Travel 🗺️",
+    question: "What is the most visited city in the world?",
+    options: [
+      "Paris",
+      "New York City",
+      "Bangkok",
+      "London"
+    ],
+    correctAnswer: "Bangkok",
+    hint: "It's in Southeast Asia...",
+    funFact: "Bangkok, Thailand consistently ranks as the world's most visited city, welcoming over 20 million international tourists annually! Its official ceremonial name is one of the longest place names in the world, with 168 characters in Thai. The city is known for its ornate temples, vibrant street food, and legendary hospitality."
+  },
+  {
+    id: 123,
+    theme: "Food & Drink 🍫",
+    question: "How many cacao beans does it take to make one pound of chocolate?",
+    options: [
+      "About 50 beans",
+      "About 200 beans",
+      "About 400 beans",
+      "About 1,000 beans"
+    ],
+    correctAnswer: "About 400 beans",
+    hint: "Far more than most people realize...",
+    funFact: "It takes about 400 cacao beans, the entire yield of a cacao tree for a full year, to make just one pound of chocolate! The Aztecs considered cacao so valuable they used the beans as currency. Today, the world consumes about 7.5 million tons of chocolate per year."
+  },
+  {
+    id: 124,
+    theme: "Literature 📖",
+    question: "What classic novel begins with 'Call me Ishmael'?",
+    options: [
+      "Robinson Crusoe",
+      "Moby-Dick",
+      "The Old Man and the Sea",
+      "Twenty Thousand Leagues Under the Sea"
+    ],
+    correctAnswer: "Moby-Dick",
+    hint: "It involves a white whale...",
+    funFact: "Moby-Dick by Herman Melville was published in 1851 and was a commercial failure during his lifetime. Today it's considered one of the greatest American novels. Melville based it on two real events: the sinking of the whale ship Essex in 1820 and the story of a real albino sperm whale known as Mocha Dick!"
+  },
+  {
+    id: 125,
+    theme: "Nature 🌋",
+    question: "How many volcanoes does Indonesia have?",
+    options: [
+      "About 30",
+      "About 75",
+      "About 130",
+      "About 400"
+    ],
+    correctAnswer: "About 130",
+    hint: "It sits on the Pacific Ring of Fire...",
+    funFact: "Indonesia has about 130 active volcanoes, more than any other country on Earth! It sits on the Pacific Ring of Fire where tectonic plates collide. The 1883 eruption of Krakatoa was heard 3,000 miles away and caused a global drop in temperature. Volcanic soil makes Indonesian land exceptionally fertile."
+  },
+  {
+    id: 126,
+    theme: "History 🎖️",
+    question: "What ancient wonder of the world still stands today?",
+    options: [
+      "The Colossus of Rhodes",
+      "The Lighthouse of Alexandria",
+      "The Great Pyramid of Giza",
+      "The Hanging Gardens of Babylon"
+    ],
+    correctAnswer: "The Great Pyramid of Giza",
+    hint: "It's in Egypt...",
+    funFact: "The Great Pyramid of Giza is the only one of the Seven Wonders of the Ancient World still standing. Built around 2560 BC, it was the tallest man-made structure in the world for over 3,800 years! It contains an estimated 2.3 million stone blocks, each weighing 2.5 to 15 tons."
+  },
+  {
+    id: 127,
+    theme: "Science 🌡️",
+    question: "At what temperature are Fahrenheit and Celsius the same?",
+    options: [
+      "-32 degrees",
+      "-40 degrees",
+      "0 degrees",
+      "-20 degrees"
+    ],
+    correctAnswer: "-40 degrees",
+    hint: "It's very cold...",
+    funFact: "Fahrenheit and Celsius meet at exactly -40 degrees! Below that point, Celsius readings are always higher numbers than Fahrenheit. The two scales were invented about 20 years apart: Fahrenheit in 1724 and Celsius in 1742. Interestingly, Celsius originally had 0 as boiling and 100 as freezing before it was reversed!"
+  },
+  {
+    id: 128,
+    theme: "Travel 🏯",
+    question: "How long is the Great Wall of China?",
+    options: [
+      "About 1,000 miles",
+      "About 5,500 miles",
+      "About 13,000 miles",
+      "About 20,000 miles"
+    ],
+    correctAnswer: "About 13,000 miles",
+    hint: "Much longer than most people think...",
+    funFact: "The Great Wall of China stretches about 13,000 miles when all its sections and branches are measured together! Construction spanned more than 2,000 years across multiple dynasties. Contrary to popular belief, it is NOT visible from space with the naked eye; astronauts have confirmed this!"
+  },
+  {
+    id: 129,
+    theme: "Food & Drink 🫙",
+    question: "Why do crackers have holes in them?",
+    options: [
+      "For decoration and branding",
+      "To let steam escape during baking",
+      "To make them easier to break apart",
+      "To reduce calorie content"
+    ],
+    correctAnswer: "To let steam escape during baking",
+    hint: "Think about what happens inside the oven...",
+    funFact: "The holes in crackers, called 'docker holes,' let steam escape during baking so the crackers stay flat and crisp. Without them, the steam would create air pockets and the crackers would puff up like pita bread! The tool that makes the holes is called a docker."
+  },
+  {
+    id: 130,
+    theme: "Literature 📖",
+    question: "Which author is one of the most prolific novelists of all time with over 225 books?",
+    options: [
+      "Agatha Christie",
+      "Stephen King",
+      "Nora Roberts",
+      "Isaac Asimov"
+    ],
+    correctAnswer: "Nora Roberts",
+    hint: "A beloved romance writer with several pen names...",
+    funFact: "Nora Roberts has published over 225 novels and is one of the best-selling authors of all time with over 500 million copies sold. She writes under the pen name J.D. Robb for her futuristic crime series. She once wrote two complete novels during a single blizzard that trapped her at home!"
+  },
+  {
+    id: 131,
+    theme: "Nature 🐝",
+    question: "How do bees communicate the location of flowers to each other?",
+    options: [
+      "Through a series of buzzing sounds",
+      "By leaving a scent trail",
+      "Through a waggle dance",
+      "By touching antennae"
+    ],
+    correctAnswer: "Through a waggle dance",
+    hint: "It's surprisingly literal...",
+    funFact: "Honeybees perform a 'waggle dance' to tell hivemates exactly where to find food! The angle of the dance corresponds to the direction relative to the sun, and the duration indicates distance. Karl von Frisch decoded this bee language in the 1940s and won the Nobel Prize for it in 1973!"
+  },
+  {
+    id: 132,
+    theme: "History 🌏",
+    question: "Which civilization invented the wheel?",
+    options: [
+      "Ancient Egyptians",
+      "Ancient Mesopotamians",
+      "Ancient Greeks",
+      "Ancient Chinese"
+    ],
+    correctAnswer: "Ancient Mesopotamians",
+    hint: "Think modern-day Iraq...",
+    funFact: "The wheel was invented around 3500 BC in Mesopotamia, in the region of modern-day Iraq. Interestingly, the first wheels weren't used for transportation; they were potter's wheels for shaping clay! Wheels used for vehicles came about 300 years later. The Aztec and Inca empires, remarkably, never developed the wheel."
+  },
+  {
+    id: 133,
+    theme: "Science 🔭",
+    question: "How old is the universe?",
+    options: [
+      "About 4.5 billion years",
+      "About 7 billion years",
+      "About 13.8 billion years",
+      "About 20 billion years"
+    ],
+    correctAnswer: "About 13.8 billion years",
+    hint: "It started with the Big Bang...",
+    funFact: "The universe is estimated to be about 13.8 billion years old, determined by measuring the cosmic microwave background radiation left over from the Big Bang. For context, Earth is about 4.5 billion years old, meaning the universe existed for over 9 billion years before our planet formed!"
+  },
+  {
+    id: 134,
+    theme: "Travel 🇯🇵",
+    question: "What is Japan's bullet train called?",
+    options: [
+      "Fuji Express",
+      "Shinkansen",
+      "Hikari",
+      "Nozomi"
+    ],
+    correctAnswer: "Shinkansen",
+    hint: "The name means 'new trunk line'...",
+    funFact: "Japan's Shinkansen bullet train network has been operating since 1964 and has carried over 10 billion passengers with zero passenger fatalities from accidents! Trains run every few minutes and average delays of under one minute. Staff bow to passengers as trains depart, and food wrappers are designed to be virtually silent out of respect for fellow travelers."
+  },
+  {
+    id: 135,
+    theme: "Food & Drink 🥐",
+    question: "What determines the flavor of vanilla ice cream?",
+    options: [
+      "The type of milk used",
+      "The source and quality of the vanilla bean",
+      "The churning speed",
+      "The sugar-to-cream ratio"
+    ],
+    correctAnswer: "The source and quality of the vanilla bean",
+    hint: "It all starts with the pod...",
+    funFact: "True vanilla flavor comes from vanilla beans, the seed pods of a tropical orchid vine. Madagascar produces about 80% of the world's vanilla. Each flower must be hand-pollinated within 12 hours of blooming, making real vanilla one of the world's most labor-intensive spices and second only to saffron in price per pound!"
+  },
+{
+    id: 136,
+    theme: "Summer Vacation 🏖️",
+    question: "Which U.S. state has the most visited beach destinations?",
+    options: [
+      "California",
+      "Hawaii",
+      "Florida",
+      "South Carolina"
+    ],
+    correctAnswer: "Florida",
+    hint: "Think of the state shaped like a peninsula...",
+    funFact: "Florida draws more beach visitors than any other U.S. state, with over 1,300 miles of coastline and more than 825 miles of swimmable beaches. Its warm Gulf and Atlantic waters make it a year-round destination. Clearwater Beach has been repeatedly named the number one beach in the country!"
+  },
+  {
+    id: 137,
+    theme: "Summer Holidays ☀️",
+    question: "What is the most popular holiday in the U.S. for grilling and cookouts?",
+    options: [
+      "Memorial Day",
+      "Independence Day",
+      "Labor Day",
+      "Father's Day"
+    ],
+    correctAnswer: "Independence Day",
+    hint: "Think fireworks and the Fourth...",
+    funFact: "The Fourth of July is America's top grilling holiday, with over 150 million hot dogs consumed on that single day! Americans spend around $7.7 billion on food for Independence Day celebrations. The holiday has been observed since 1776, but wasn't made a federal holiday until 1870."
+  },
+  {
+    id: 138,
+    theme: "Geography 🌍",
+    question: "What is the only sea in the world with no coastline?",
+    options: [
+      "The Caspian Sea",
+      "The Dead Sea",
+      "The Sargasso Sea",
+      "The Aral Sea"
+    ],
+    correctAnswer: "The Sargasso Sea",
+    hint: "It's defined entirely by ocean currents...",
+    funFact: "The Sargasso Sea is the only sea on Earth with no land borders.  It's defined entirely by four surrounding ocean currents in the North Atlantic. It's named for the Sargassum seaweed that floats on its surface and creates a unique ecosystem. European and American eels travel thousands of miles to breed there!"
+  },
+  {
+    id: 139,
+    theme: "Science 🌡️",
+    question: "Why does the summer solstice have the longest day of the year?",
+    options: [
+      "Earth is closest to the Sun in summer",
+      "Earth's axis tilts toward the Sun",
+      "The Moon reflects extra sunlight in summer",
+      "Earth rotates more slowly in summer"
+    ],
+    correctAnswer: "Earth's axis tilts toward the Sun",
+    hint: "It's all about the tilt, not the distance...",
+    funFact: "Earth's axis is tilted about 23.5 degrees, and during the summer solstice the Northern Hemisphere tilts directly toward the Sun, giving us more daylight hours. Interestingly, Earth is actually slightly farther from the Sun in summer than in winter! It's the angle of sunlight, not the distance, that makes summer warm."
+  },
+  {
+    id: 140,
+    theme: "Books 📚",
+    question: "What classic novel is set during a single summer and explores race and justice in the American South?",
+    options: [
+      "The Color Purple",
+      "Their Eyes Were Watching God",
+      "To Kill a Mockingbird",
+      "Of Mice and Men"
+    ],
+    correctAnswer: "To Kill a Mockingbird",
+    hint: "Narrated by a young girl named Scout...",
+    funFact: "To Kill a Mockingbird by Harper Lee was published in 1960 and won the Pulitzer Prize the following year. Lee reportedly based the story on events she witnessed as a child in Alabama. Despite being a first novel, it sold over a million copies in its first year and has never gone out of print. Lee's childhood friend Truman Capote is believed to have inspired the character Dill!"
+  },
+  {
+    id: 141,
+    theme: "Movies 🎬",
+    question: "What 1975 Steven Spielberg film is often credited with inventing the summer blockbuster?",
+    options: [
+      "Star Wars",
+      "Jaws",
+      "E.T. the Extra-Terrestrial",
+      "Close Encounters of the Third Kind"
+    ],
+    correctAnswer: "Jaws",
+    hint: "It made people afraid to go in the water...",
+    funFact: "Jaws, released in June 1975, became the first film to earn over $100 million at the box office and essentially created the concept of the 'summer blockbuster.' Spielberg was only 26 when he directed it! The mechanical shark broke down so often that Spielberg was forced to show it less, accidentally making the film far more terrifying."
+  },
+
+  {
+    id: 142,
+    theme: "Summer Sports 🏄",
+    question: "What is the most watched sport at the Summer Olympics?",
+    options: [
+      "Swimming",
+      "Track and Field",
+      "Gymnastics",
+      "Soccer"
+    ],
+    correctAnswer: "Track and Field",
+    hint: "Think running, jumping, and throwing...",
+    funFact: "Track and field is the most watched Summer Olympic sport worldwide, with events like the 100-meter dash and long jump drawing massive global audiences. Usain Bolt became the most famous Olympian of the modern era through track, winning eight gold medals across three Olympics. The first Olympic marathon in 1896 covered a route from Marathon to Athens, tracing a legendary ancient messenger's run!"
+  },
+  {
+    id: 143,
+    theme: "Outdoor Games 🎯",
+    question: "Where did the backyard game cornhole originate?",
+    options: [
+      "Kentucky",
+      "Ohio",
+      "Tennessee",
+      "Indiana"
+    ],
+    correctAnswer: "Ohio",
+    hint: "A Midwestern state known for its tailgate culture...",
+    funFact: "Cornhole is widely believed to have originated in Cincinnati, Ohio, though Kentucky also claims the title! The game gained national popularity in the early 2000s and now has a professional league, the American Cornhole League, with thousands of registered players. The official board distance is 27 feet apart and the hole is exactly 6 inches in diameter."
+  },
+  {
+    id: 144,
+    theme: "Geography 🗺️",
+    question: "What is the only country that borders both the Atlantic and Indian Oceans?",
+    options: [
+      "Brazil",
+      "Nigeria",
+      "South Africa",
+      "Angola"
+    ],
+    correctAnswer: "South Africa",
+    hint: "Think of the Cape of Good Hope...",
+    funFact: "South Africa is the only country in the world that borders both the Atlantic and Indian Oceans, meeting at Cape Agulhas, the true southernmost tip of Africa. The meeting of the two oceans creates powerful currents that made this coastline one of the most treacherous for early sailors. South Africa is also one of the few countries with three capital cities: Pretoria, Cape Town, and Bloemfontein!"
+  },
+  {
+    id: 145,
+    theme: "Summer Sky 🌤️",
+    question: "Why do fireflies glow?",
+    options: [
+      "To stay warm on cool summer nights",
+      "To attract mates and communicate",
+      "To warn predators they taste bad",
+      "To navigate in the dark"
+    ],
+    correctAnswer: "To attract mates and communicate",
+    hint: "Think about why animals put on a light show...",
+    funFact: "Fireflies produce their cold light through a chemical reaction called bioluminescence, using an enzyme called luciferase. Each firefly species has its own unique flash pattern, like a Morse code for finding a mate! Some species can even synchronize their flashes across an entire forest. The light is remarkably efficient and  nearly 100% of the energy becomes light, with almost no heat produced."
+  },
+  {
+    id: 146,
+    theme: "Summer Trends ☀️",
+    question: "Which summer activity saw its biggest boom in popularity during the early 2020s?",
+    options: [
+      "Surfing",
+      "Pickleball",
+      "Frisbee golf",
+      "Paddleboarding"
+    ],
+    correctAnswer: "Pickleball",
+    hint: "It combines elements of tennis, badminton, and ping-pong...",
+    funFact: "Pickleball became the fastest-growing sport in America during the early 2020s, with participation jumping by over 150% in just a few years! It was invented in 1965 on Bainbridge Island, Washington, by a congressman and two friends who improvised a game for their bored kids using ping-pong paddles and a perforated plastic ball. The name supposedly came from the inventor's family dog, Pickles, who would chase the ball!"
+  },
+  {
+    id: 147,
+    theme: "Summer Foods 🌽",
+    question: "Why does corn on the cob taste sweeter when eaten immediately after picking?",
+    options: [
+      "It absorbs more sunlight closer to harvest",
+      "Its sugars convert to starch within hours of picking",
+      "Morning dew adds natural sweetness",
+      "The kernels are smaller and more concentrated"
+    ],
+    correctAnswer: "Its sugars convert to starch within hours of picking",
+    hint: "The sweetness is literally a race against time...",
+    funFact: "Fresh-picked corn begins converting its sugars to starch almost immediately after harvest, which is why corn eaten minutes off the stalk tastes remarkably sweeter than store-bought. Old-time farmers used to say you should put the water on to boil before you even picked the corn! Modern 'super sweet' varieties are bred to slow this process, but nothing beats truly fresh corn."
+  },
+  {
+    id: 148,
+    theme: "Picnics 🧺",
+    question: "What country is credited with inventing the modern picnic?",
+    options: [
+      "England",
+      "Italy",
+      "France",
+      "Germany"
+    ],
+    correctAnswer: "France",
+    hint: "The word itself comes from French...",
+    funFact: "The modern picnic originated in post-Revolutionary France, where aristocrats who had lost their private parks began gathering outdoors in public gardens to eat together. The word 'pique-nique' first appeared in French around 1692! The tradition spread to England in the early 1800s, where picnic clubs became fashionable social events. Queen Victoria was reportedly an enthusiastic picnicker."
+  },
+  {
+    id: 149,
+    theme: "State Fairs 🎡",
+    question: "What food was famously popularized at the Texas State Fair?",
+    options: [
+      "Funnel cake",
+      "Corn dogs",
+      "Cotton candy",
+      "Deep-fried butter"
+    ],
+    correctAnswer: "Corn dogs",
+    hint: "A hot dog on a stick with a golden cornmeal coat...",
+    funFact: "The corn dog is widely credited to the Texas State Fair, where it was reportedly introduced in the 1940s. The fair has since become legendary for deep-fried innovations, including deep-fried butter, deep-fried Oreos, and deep-fried Coca-Cola, which is actual Coca-Cola batter fried into little balls! The State Fair of Texas is one of the largest in the country, drawing over 2 million visitors annually."
+  },
+  {
+    id: 150,
+    theme: "Beaches 🏖️",
+    question: "What gives the famous pink beaches of Bermuda their color?",
+    options: [
+      "Minerals in the volcanic rock",
+      "Crushed shells and red coral fragments",
+      "A type of pink algae",
+      "Reflected light from the surrounding reef"
+    ],
+    correctAnswer: "Crushed shells and red coral fragments",
+    hint: "It comes from tiny creatures and what they leave behind...",
+    funFact: "Bermuda's iconic pink sand gets its blush color from the crushed shells and skeletons of a tiny single-celled organism called Homotrema rubrum, a red foraminifera that lives on the underside of coral reefs. When they die, their bright red-pink remains wash ashore and mix with white sand. Bermuda has about 34 beaches, and the pink is most vivid on the south shore!"
+  },
+  {
+    id: 151,
+    theme: "Sea Life 🐠",
+    question: "How do clownfish survive living among sea anemone's stinging tentacles?",
+    options: [
+      "They have thick scales that block the stings",
+      "A protective mucus coating makes them immune",
+      "They move too fast for the tentacles to sting",
+      "They eat the stinging cells before they activate"
+    ],
+    correctAnswer: "A protective mucus coating makes them immune",
+    hint: "Think about what coats their bodies...",
+    funFact: "Clownfish are protected by a special thick mucus coating that prevents the anemone's nematocysts from firing. Scientists believe clownfish gradually acclimate by briefly touching the anemone and slowly building up the protective layer. In return for shelter, clownfish chase away predators, remove parasites, and even fan the anemone with their fins to improve water circulation, a perfect partnership!"
+  },
+  {
+    id: 152,
+    theme: "Fishing 🎣",
+    question: "What is the most popular recreational fishing activity in the United States?",
+    options: [
+      "Deep sea fishing",
+      "Fly fishing",
+      "Freshwater fishing",
+      "Ice fishing"
+    ],
+    correctAnswer: "Freshwater fishing",
+    hint: "Think lakes, rivers, and ponds...",
+    funFact: "Freshwater fishing is by far the most popular form of recreational fishing in the U.S., with over 38 million Americans fishing in lakes, rivers, and streams each year. Bass fishing alone is a multi-billion dollar industry with professional tournaments. Fishing licenses generate hundreds of millions of dollars annually that fund wildlife conservation across the country!"
+  },
+  {
+    id: 153,
+    theme: "Hiking 🥾",
+    question: "How long is the Appalachian Trail from end to end?",
+    options: [
+      "About 800 miles",
+      "About 1,400 miles",
+      "About 2,200 miles",
+      "About 3,100 miles"
+    ],
+    correctAnswer: "About 2,200 miles",
+    hint: "It runs from Georgia all the way to Maine...",
+    funFact: "The Appalachian Trail stretches about 2,190 miles from Springer Mountain in Georgia to Mount Katahdin in Maine, passing through 14 states. Only about 3,000 people successfully 'thru-hike' the entire trail each year, a journey that typically takes 5 to 7 months! The trail was fully completed in 1937 and is maintained almost entirely by volunteers from trail clubs along its length."
+  },
+  {
+    id: 154,
+    theme: "Bicycling 🚴",
+    question: "What country has the highest rate of bicycle commuting in the world?",
+    options: [
+      "Denmark",
+      "Germany",
+      "Netherlands",
+      "Japan"
+    ],
+    correctAnswer: "Netherlands",
+    hint: "A flat country famous for its cycling culture...",
+    funFact: "The Netherlands has more bicycles than people:  about 23 million bikes for 17 million residents! In cities like Amsterdam and Utrecht, over 60% of all trips are made by bicycle. The Dutch cycling infrastructure is so well-developed that bike lanes have their own traffic signals, and children receive formal cycling education in school. The country has over 35,000 kilometers of dedicated bike paths!"
   },
 
 */

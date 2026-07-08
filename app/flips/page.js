@@ -10,7 +10,7 @@ import { Share2, Instagram, BarChart3, X } from 'lucide-react';
 // ACTIVE QUESTIONS: ids 155-174 (fresh content, July 8, 2026)
 // BENCHED QUESTIONS: ids 1-154 (commented out below, reuse anytime)
 //
-// ANCHOR DATE SET TO: July 8, 2026 at 7:45 PM
+// ANCHOR DATE SET TO: May 15, 2026 at 7:45 PM
 // Update this in getTodaysQuestion():
 //   const anchorDate = new Date(2026, 4, 15, 19, 45, 0, 0);
 //   const ANCHOR_INDEX = 0;
@@ -19,7 +19,7 @@ import { Share2, Instagram, BarChart3, X } from 'lucide-react';
 const triviaQuestions = [
 
   // ============================================================
-  // ACTIVE QUESTIONS - ids 154-174
+  // ACTIVE QUESTIONS - ids 155-174
   // ============================================================
 
   {
@@ -1200,7 +1200,7 @@ const triviaQuestions = [
     hint: "It's a command with an implied subject...",
     funFact: "The shortest grammatically complete sentence in English is 'Go.' It's a command where the subject 'you' is implied. 'I am.' is the shortest sentence with an explicit subject and verb. English is fascinating in how much meaning can be packed into just two letters!"
   },
-{
+  {
     id: 111,
     theme: "Food & Drink 🧈",
     question: "Why is butter yellow?",
@@ -1817,7 +1817,7 @@ const triviaQuestions = [
     hint: "A flat country famous for its cycling culture...",
     funFact: "The Netherlands has more bicycles than people:  about 23 million bikes for 17 million residents! In cities like Amsterdam and Utrecht, over 60% of all trips are made by bicycle. The Dutch cycling infrastructure is so well-developed that bike lanes have their own traffic signals, and children receive formal cycling education in school. The country has over 35,000 kilometers of dedicated bike paths!"
   },
-
+  
 */
 
 // Function to get today's question - ANCHOR DATE SYSTEM

@@ -190,7 +190,7 @@ const miniPuzzles = [
   { word: "CANDY", category: "Junk", hint: "Sweet treat" },
   { word: "SUGAR", category: "Barbados", hint: "Barbados built its economy on this sweet crop" },
   { word: "SPICE", category: "India", hint: "India is the world's largest producer of these flavor-makers" },
-  { word: "LARGE", category: "Sweden", hint: "Sweden is the third largest country in the EU by area" },
+  { word: "LARGE", category: "Sweden", hint: "Sweden is the third country in the EU by area" },
   { word: "CLIFF", category: "Norway", hint: "Dramatic rock face found along Norway's fjord edges" },
   { word: "TILES", category: "Portugal", hint: "Beautiful hand-painted azulejo ceramics cover Portuguese walls" },
   { word: "PASTA", category: "Italy", hint: "Italy has over 350 shapes of this beloved staple" },

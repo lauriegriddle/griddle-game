@@ -3532,7 +3532,7 @@ const puzzles = [
     category: "Malala",
     puzzleNumber: 304,
     words: [
-      { word: "GIRL", hint: "Champion for girls' rights", revealedIndex: 0 },
+      { word: "GIRL", hint: "Champion for g _ _ _ s' rights", revealedIndex: 0 },
       { word: "NOBEL", hint: "___ Peace Prize winner", revealedIndex: 2 },
       { word: "RIGHTS", hint: "Human equality", revealedIndex: 3 },
       { word: "ADVOCATE", hint: "Passionate supporter", revealedIndex: 0 },

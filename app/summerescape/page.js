@@ -4,49 +4,49 @@ import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 const PUZZLES = [
   {
     id: 1,
-    theme: "California",
+    theme: "Bastille Day",
     subtitle: "",
-    emoji: "\uD83C\uDF04",
+    emoji: "\uD83C\uDDEB\uD83C\uDDF7",
     words: [
-      { word: "SURF", hint: "Riding the waves along California's famous beaches", revealedIndex: 0 },
-      { word: "COAST", hint: "The scenic edge where California meets the Pacific Ocean", revealedIndex: 2 },
-      { word: "TAHOE", hint: "A stunning alpine lake shared with Nevada, known for its clear blue water", revealedIndex: 2 },
-      { word: "REDWOOD", hint: "A towering, ancient tree species found in California's coastal forests", revealedIndex: 0 },
-      { word: "YOSEMITE", hint: "A national park famous for granite cliffs, waterfalls, and giant sequoias", revealedIndex: 4 },
+      { word: "FLAG", hint: "A tricolor banner flown across France on its national day", revealedIndex: 0 },
+      { word: "TOWER", hint: "A famous Parisian landmark that lights up for the fireworks finale", revealedIndex: 2 },
+      { word: "PICNIC", hint: "An outdoor meal enjoyed with friends during the holiday", revealedIndex: 3 },
+      { word: "PARADE", hint: "A grand procession of soldiers marching down the Champs-\u00C9lys\u00E9es", revealedIndex: 0 },
+      { word: "MILITARY", hint: "Armed forces that march in France's biggest annual parade", revealedIndex: 4 },
     ],
-    didYouKnow: "The coastal gem of San Francisco boasts one of the coolest average July temperatures in the continental US, sitting at a breezy 67\u00B0 F. The Golden State is home to both the largest tree (General Sherman, by volume) and the tallest tree (Hyperion, measuring 379.7 feet) on the planet.",
+    didYouKnow: "Bastille Day commemorates the 1789 storming of the Bastille, marking the French Revolution's start. Despite its massive historical weight, the event is full of ironies: the actual prison held only seven inmates, the building no longer exists, and locals call the holiday La F\u00EAte Nationale.",
   },
   {
     id: 2,
-    theme: "Colorado",
+    theme: "Tour de France",
     subtitle: "",
-    emoji: "\uD83C\uDFD4\uFE0F",
+    emoji: "\uD83D\uDEB4",
     words: [
-      { word: "HIGH", hint: "Way up above sea level, like Colorado's mountain towns", revealedIndex: 0 },
-      { word: "ROCKY", hint: "The mountain range that gives Colorado its rugged, jagged peaks", revealedIndex: 2 },
-      { word: "ALPINE", hint: "Relating to high mountains, like Colorado's snowy peaks", revealedIndex: 3 },
-      { word: "OUTDOOR", hint: "Activities enjoyed in nature, from hiking to skiing", revealedIndex: 0 },
-      { word: "ALTITUDE", hint: "The height above sea level that gives Colorado its thin, crisp air", revealedIndex: 4 },
+      { word: "PACK", hint: "The tight cluster of cyclists riding together for shelter from the wind", revealedIndex: 0 },
+      { word: "RIDER", hint: "A cyclist competing in the race", revealedIndex: 2 },
+      { word: "JERSEY", hint: "The colored shirt worn to mark the race leader", revealedIndex: 3 },
+      { word: "BICYCLE", hint: "The two-wheeled vehicle at the heart of this famous race", revealedIndex: 0 },
+      { word: "GRUELING", hint: "Extremely demanding and exhausting, like the race's mountain stages", revealedIndex: 4 },
     ],
-    didYouKnow: "While best known for skiing, Colorado gets an average of over 300 days of sunshine annually, more than Florida! The tallest sand dunes in North America are located in the state at Great Sand Dunes National Park, reaching up to 750 feet high.",
+    didYouKnow: "The Tour de France is a grueling race that started in 1903 to boost newspaper sales. Today, it features 22 teams racing for 21 days across massive altitude changes that can equal the height of Mt. Everest nearly 6 times.",
   },
   {
     id: 3,
-    theme: "Maine",
+    theme: "Plastic Free July",
     subtitle: "",
-    emoji: "\uD83E\uDD9E",
+    emoji: "\u267B\uFE0F",
     words: [
-      { word: "PINE", hint: "An evergreen tree common throughout Maine's forests", revealedIndex: 0 },
-      { word: "CHARM", hint: "The quaint, old-fashioned appeal of a New England coastal town", revealedIndex: 2 },
-      { word: "RUGGED", hint: "Rough and rocky, like Maine's dramatic coastline", revealedIndex: 3 },
-      { word: "LOBSTER", hint: "A prized crustacean and Maine's most famous seafood export", revealedIndex: 0 },
-      { word: "MARITIME", hint: "Relating to the sea and coastal life", revealedIndex: 4 },
+      { word: "TOTE", hint: "A reusable bag brought along instead of a plastic one", revealedIndex: 0 },
+      { word: "REUSE", hint: "To use something again instead of throwing it away", revealedIndex: 2 },
+      { word: "REDUCE", hint: "To use less of something, like single-use plastic", revealedIndex: 3 },
+      { word: "UPCYCLE", hint: "To turn old or waste materials into something new and useful", revealedIndex: 0 },
+      { word: "RESOURCE", hint: "Material or supply we use responsibly to protect the planet", revealedIndex: 4 },
     ],
-    didYouKnow: "Despite its smaller geographic size, Maine has over 3,400 miles of coastline, which is more miles than California's coast. Maine produces 99% of all wild blueberries grown in the United States, and \u201Cblueberry pie\u201D is the official state dessert.",
+    didYouKnow: "Plastic Free July is a global movement that began in Western Australia in 2011. Founded by Rebecca Prince-Ruiz, the initiative has grown to inspire over 170 million participants across 190 countries. The movement focuses on avoiding \u201Cthe big 4\u201D offenders: plastic bags, water bottles, coffee cups, and straws.",
   },
 ];
 
-const GRAND_FACT = "California, Colorado, and Maine are premier July vacation spots, each offering distinct experiences. California provides sunny beaches and redwood forests, Colorado offers cool, high-altitude mountain retreats, and Maine is celebrated for its iconic rocky coastlines, fresh seafood, and lighthouses.";
+const GRAND_FACT = "Bastille Day, the Tour de France, and Plastic Free July all take center stage in July. Bastille Day marks France's national day with military parades and fireworks beneath the Eiffel Tower, the Tour de France draws millions of spectators as cyclists race across the country, and Plastic Free July inspires people worldwide to cut back on single-use plastics for the month.";
 
 const shuffleArray = (arr) => {
   const a = [...arr];
@@ -97,7 +97,7 @@ const EventFooter = () => {
   const year = new Date().getFullYear();
   return (
     <div className="text-center mt-6 pb-4 space-y-1.5">
-      <p className="text-slate-500 text-xs">A Letter Griddle Summer Escape</p>
+      <p className="text-slate-500 text-xs">A Letter Griddle Summer Adventure</p>
       <p className="text-slate-500 text-xs">{"\u00A9"} {year} Letter Griddle. All rights reserved.</p>
       <div className="flex justify-center gap-3">
         <a href="https://www.lettergriddle.com/privacy" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-amber-400/80 text-xs underline underline-offset-2 transition-colors">Privacy Policy</a>
@@ -482,10 +482,10 @@ export default function SummerEscapePage() {
           <div className="fade-up fade-up-2 mb-4">
             <span className="text-xs tracking-[0.3em] uppercase text-slate-400 font-medium">Letter Griddle presents</span>
           </div>
-          <h1 className="fade-up fade-up-2 text-3xl sm:text-4xl font-semibold mb-2 shimmer-text" style={{ fontFamily: "Cormorant Garamond, serif" }}>Summer Escape</h1>
-          <p className="fade-up fade-up-2 text-lg text-slate-300 mb-6 italic" style={{ fontFamily: "Crimson Text, serif" }}>Week 1: America's Favorite Vacation States</p>
-          <p className="fade-up fade-up-3 text-slate-300 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Three puzzles, three getaways: sunny coastlines, mountain air, and rocky shores.</p>
-          <p className="fade-up fade-up-3 text-slate-400 text-xs mb-8" style={{ fontFamily: "Crimson Text, serif" }}>A new Summer Escape every week in July</p>
+          <h1 className="fade-up fade-up-2 text-3xl sm:text-4xl font-semibold mb-2 shimmer-text" style={{ fontFamily: "Cormorant Garamond, serif" }}>Summer Adventure</h1>
+          <p className="fade-up fade-up-2 text-lg text-slate-300 mb-6 italic" style={{ fontFamily: "Crimson Text, serif" }}>Week 2: Famous July Events Around the World</p>
+          <p className="fade-up fade-up-3 text-slate-300 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Three puzzles, three global traditions:  French flair, an epic race, and a planet-friendly pledge.</p>
+          <p className="fade-up fade-up-3 text-slate-400 text-xs mb-8" style={{ fontFamily: "Crimson Text, serif" }}>A new Summer Adventure every week in July</p>
           <div className="fade-up fade-up-4 flex justify-center gap-4 mb-8">
             {PUZZLES.map((p) => (
               <div key={p.id} className="text-center">
@@ -495,7 +495,7 @@ export default function SummerEscapePage() {
             ))}
           </div>
           <div className="fade-up fade-up-5">
-            <button onClick={() => setShowIntro(false)} className="px-8 py-3 rounded-full bg-gradient-to-r from-teal-600 to-sky-700 hover:from-teal-500 hover:to-sky-600 text-white font-semibold tracking-wide transition-all shadow-lg shadow-black/30 hover:shadow-black/40 hover:scale-105" style={{ fontFamily: "Crimson Text, serif", fontSize: "1.1rem" }}>Start the Escape</button>
+            <button onClick={() => setShowIntro(false)} className="px-8 py-3 rounded-full bg-gradient-to-r from-teal-600 to-sky-700 hover:from-teal-500 hover:to-sky-600 text-white font-semibold tracking-wide transition-all shadow-lg shadow-black/30 hover:shadow-black/40 hover:scale-105" style={{ fontFamily: "Crimson Text, serif", fontSize: "1.1rem" }}>Start the Adventure</button>
           </div>
           <div className="fade-up fade-up-6"><EventFooter /></div>
         </div>
@@ -515,10 +515,10 @@ export default function SummerEscapePage() {
         `}</style>
         <CelebrationOverlay variant="finale" loop maxWaves={6} />
         <div className="max-w-lg w-full text-center">
-          <div className="fade-up fade-up-1 text-3xl mb-4">{"\uD83C\uDF04"}</div>
-          <h2 className="fade-up fade-up-1 text-2xl sm:text-3xl font-semibold text-amber-200 mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>Escape Complete</h2>
-          <p className="fade-up fade-up-2 text-amber-200 text-base mb-2" style={{ fontFamily: "Crimson Text, serif" }}>You made it through all three states.</p>
-          <p className="fade-up fade-up-2 text-slate-300 text-sm mb-6 italic" style={{ fontFamily: "Crimson Text, serif" }}>Thanks for playing this week's Summer Escape!</p>
+          <div className="fade-up fade-up-1 text-3xl mb-4">{"\uD83C\uDF0D"}</div>
+          <h2 className="fade-up fade-up-1 text-2xl sm:text-3xl font-semibold text-amber-200 mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>Adventure Complete</h2>
+          <p className="fade-up fade-up-2 text-amber-200 text-base mb-2" style={{ fontFamily: "Crimson Text, serif" }}>You made it through all three events.</p>
+          <p className="fade-up fade-up-2 text-slate-300 text-sm mb-6 italic" style={{ fontFamily: "Crimson Text, serif" }}>Thanks for playing this week's Summer Adventure!</p>
           <div className="fade-up fade-up-3 flex justify-center gap-6 mb-6">
             {PUZZLES.map((p) => (
               <div key={p.id} className="text-center">
@@ -530,7 +530,7 @@ export default function SummerEscapePage() {
             ))}
           </div>
           <div className="fade-up fade-up-3 bg-gradient-to-br from-teal-900/40 to-sky-900/30 border-2 border-amber-500/30 rounded-xl p-5 mb-6 text-center">
-            <div className="text-2xl mb-2">{"\uD83C\uDF34"}</div>
+            <div className="text-2xl mb-2">{"\u2600\uFE0F"}</div>
             <h3 className="text-amber-200 font-semibold text-lg mb-3" style={{ fontFamily: "Cormorant Garamond, serif" }}>Did You Know?</h3>
             <p className="text-amber-100 text-base leading-relaxed" style={{ fontFamily: "Crimson Text, serif" }}>{GRAND_FACT}</p>
           </div>
@@ -577,10 +577,10 @@ export default function SummerEscapePage() {
         <div className="text-center mb-4">
           <div className="flex items-center justify-between mb-1">
             <div className="w-8" />
-            <span className="text-xs tracking-[0.2em] uppercase text-slate-300 font-medium">Letter Griddle {"\u2022"} Summer Escape</span>
+            <span className="text-xs tracking-[0.2em] uppercase text-slate-300 font-medium">Letter Griddle {"\u2022"} Summer Adventure</span>
             <button onClick={() => setShowHowToPlay(true)} className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800/60 border border-slate-700/50 text-slate-400 hover:text-amber-300 hover:border-amber-500/30 transition-all text-sm" title="How to Play">?</button>
           </div>
-          <h1 className="text-xl sm:text-2xl font-semibold text-amber-200 mt-1" style={{ fontFamily: "Cormorant Garamond, serif" }}>Summer Escape</h1>
+          <h1 className="text-xl sm:text-2xl font-semibold text-amber-200 mt-1" style={{ fontFamily: "Cormorant Garamond, serif" }}>Summer Adventure</h1>
           <div className="flex justify-center gap-3 mt-3">
             {PUZZLES.map((p, idx) => (
               <button key={p.id} onClick={() => { if (puzzleComplete[idx] || idx === currentPuzzle) { setCurrentPuzzle(idx); setShowDidYouKnow(false); setActiveWordIdx(0); } }}
@@ -599,7 +599,7 @@ export default function SummerEscapePage() {
         {showDidYouKnow && (
           <div className="fade-in mb-4">
             <div className="bg-gradient-to-br from-teal-900/40 to-sky-900/30 border-2 border-amber-500/30 rounded-xl p-5 text-center">
-              <div className="text-2xl mb-2">{"\uD83C\uDF34"}</div>
+              <div className="text-2xl mb-2">{"\u2600\uFE0F"}</div>
               <h3 className="text-amber-200 font-semibold text-lg mb-3" style={{ fontFamily: "Cormorant Garamond, serif" }}>Did You Know?</h3>
               <p className="text-amber-100 text-base leading-relaxed mb-5" style={{ fontFamily: "Crimson Text, serif" }}>{puzzle.didYouKnow}</p>
               {currentPuzzle < PUZZLES.length - 1 ? (
@@ -608,7 +608,7 @@ export default function SummerEscapePage() {
                 </button>
               ) : (
                 <button onClick={() => { setAllDone(true); setShowDidYouKnow(false); }} className="px-6 py-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-medium transition-all shadow-lg hover:scale-105" style={{ fontFamily: "Crimson Text, serif" }}>
-                  Finish the Escape {"\uD83C\uDF04"}
+                Finish the Adventure {"\uD83C\uDF0D"}
                 </button>
               )}
             </div>

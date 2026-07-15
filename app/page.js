@@ -33,17 +33,17 @@ export default function Home() {
       hoverBg: "bg-amber-600/80"
     },
     {
-      name: "Summer Escape",
-      tagline: "This week: 3 vacation states!",
+      name: "Summer Adventure",
+      tagline: "Puzzle along with 3 July events!",
       dropTime: "Now live!",
       emoji: "\uD83C\uDF04",
       href: "/summerescape",
       thumbnail: {
         gradient: "linear-gradient(160deg, #0f766e 0%, #0369a1 100%)",
-        icon: "\uD83C\uDF04",
+        icon: "🎇",
         iconSize: "text-4xl",
-        title: ["Summer", "Escape"],
-        subtitle: "WEEKLY SPECIAL",
+        title: ["Summer", "Adventure"],
+        subtitle: "WEEKLY ADVENTURE",
         subtitleColor: "text-teal-100"
       },
       borderColor: "border-teal-400",
@@ -659,7 +659,7 @@ export default function Home() {
         icon: "\uD83C\uDFD6\uFE0F",
         iconSize: "text-4xl",
         title: ["Summer", "Cottage"],
-        subtitle: "SUMMER ESCAPE",
+        subtitle: "SUMMER FUN",
         subtitleColor: "text-cyan-100"
       },
       borderColor: "border-cyan-400",

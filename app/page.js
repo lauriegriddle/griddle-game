@@ -57,11 +57,12 @@ export default function Home() {
       name: "Letter Griddle Mini",
       tagline: "A bite-sized word puzzle",
       dropTime: "7:15 PM EST",
-      emoji: "\uD83C\uDF6F",
+      emoji: "🍯",
       href: "/mini",
       thumbnail: {
         gradient: "linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #D97706 100%)",
-        title: ["Letter Griddle", "Mini"],
+        icon: "🍯",
+        iconSize: "text-4xl",title: ["Letter Griddle", "Mini"],
         subtitle: "Bite-Sized Puzzle",
         subtitleColor: "text-yellow-100"
       },

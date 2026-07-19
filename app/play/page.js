@@ -1355,64 +1355,64 @@ const copyToClipboard = async (text) => {
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
           This Week's Schedule
         </h2>
-        <p className="text-purple-600 font-semibold text-sm">July 12 - 18</p>
+        <p className="text-purple-600 font-semibold text-sm">July 19 - 25</p>
       </div>
       
       <div className="space-y-1.5 mb-3">
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 7/12</span>
-            <span className="font-semibold text-amber-800 text-sm">Malala</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 7/19</span>
+            <span className="font-semibold text-amber-800 text-sm">Ice Cream</span>
           </div>
-          <span className="text-lg">🏅</span>
+          <span className="text-lg">🍨</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 7/13</span>
-            <span className="font-semibold text-purple-800 text-sm">Heat Wave</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 7/20</span>
+            <span className="font-semibold text-purple-800 text-sm">Moon Day</span>
           </div>
-          <span className="text-lg">🌡️</span>
+          <span className="text-lg">🌙</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 7/14</span>
-            <span className="font-semibold text-amber-800 text-sm">Popsicle</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 7/21</span>
+            <span className="font-semibold text-amber-800 text-sm">Junk Food</span>
           </div>
-          <span className="text-lg">🍭</span>
+          <span className="text-lg">🍕</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 7/15</span>
-            <span className="font-semibold text-purple-800 text-sm">Hushpuppies</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 7/22</span>
+            <span className="font-semibold text-purple-800 text-sm">Hammock</span>
           </div>
-          <span className="text-lg">🐾</span>
+          <span className="text-lg">🛌</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 7/16</span>
-            <span className="font-semibold text-amber-800 text-sm">Cherries</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 7/23</span>
+            <span className="font-semibold text-amber-800 text-sm">Vanilla Ice Cream</span>
           </div>
-          <span className="text-lg">🍒</span>
+          <span className="text-lg">🍦</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 7/17</span>
-            <span className="font-semibold text-purple-800 text-sm">Emoji</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 7/24</span>
+            <span className="font-semibold text-purple-800 text-sm">Joke</span>
           </div>
-          <span className="text-lg">😊</span>
+          <span className="text-lg">😂</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 7/18</span>
-            <span className="font-semibold text-amber-800 text-sm">Nelson Mandela</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 7/25</span>
+            <span className="font-semibold text-amber-800 text-sm">Carousel</span>
           </div>
-          <span className="text-lg">🕊️</span>
+          <span className="text-lg">🎠</span>
         </div>
       </div>
       

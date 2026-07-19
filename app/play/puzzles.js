@@ -3673,7 +3673,7 @@ const puzzles = [
   // INDEX 233 - Shows July 21, 2026 at 7 PM
   // =============================================
   {
-    category: "Junk",
+    category: "Junk Food",
     puzzleNumber: 313,
     words: [
       { word: "CHIP", hint: "Crispy snack", revealedIndex: 0 },
@@ -3683,6 +3683,198 @@ const puzzles = [
       { word: "DECADENT", hint: "Luxuriously rich", revealedIndex: 4 },
     ],
     funFact: "The term 'junk food' became cemented in pop culture when the novelty song 'Junk Food Junkie' topped the music charts in 1976. 🍕",
+  },
+
+  // =============================================
+  // INDEX 234 - Shows July 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hammock",
+    puzzleNumber: 314,
+    words: [
+      { word: "HANG", hint: "Suspend between two points", revealedIndex: 0 },
+      { word: "SWING", hint: "Gentle back and forth motion", revealedIndex: 2 },
+      { word: "SNOOZE", hint: "Take a light nap", revealedIndex: 3 },
+      { word: "COMFORT", hint: "Cozy relaxation", revealedIndex: 0 },
+      { word: "CHILLING", hint: "Laid-back lounging", revealedIndex: 4 },
+    ],
+    funFact: "Hammocks were not originally created for relaxation. Invented by Indigenous cultures in Central and South America over 1,000 years ago, they were designed to protect sleepers from damp grounds, crawling insects, and dangerous wildlife. 🛌",
+  },
+
+  // =============================================
+  // INDEX 235 - Shows July 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Vanilla Ice Cream",
+    puzzleNumber: 315,
+    words: [
+      { word: "BEAN", hint: "Source of vanilla flavor", revealedIndex: 0 },
+      { word: "SCOOP", hint: "Round serving portion", revealedIndex: 2 },
+      { word: "FRENCH", hint: "Custard-based style", revealedIndex: 3 },
+      { word: "CLASSIC", hint: "Timeless favorite", revealedIndex: 0 },
+      { word: "SANDWICH", hint: "Ice cream between cookies", revealedIndex: 4 },
+    ],
+    funFact: "Vanilla ice cream is the most popular frozen dessert flavor, accounting for roughly a third of all ice cream sales. 🍦",
+  },
+
+  // =============================================
+  // INDEX 236 - Shows July 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Joke",
+    puzzleNumber: 316,
+    words: [
+      { word: "QUIP", hint: "Clever witty remark", revealedIndex: 0 },
+      { word: "CRACK", hint: "Tell a joke", revealedIndex: 2 },
+      { word: "COMEDY", hint: "Humor genre", revealedIndex: 3 },
+      { word: "COMICAL", hint: "Amusingly funny", revealedIndex: 0 },
+      { word: "CORNBALL", hint: "Cheesy, corny humor", revealedIndex: 4 },
+    ],
+    funFact: "The earliest recorded joke dates back to 1900 BC and is a Sumerian proverb. Hearty laughing exercises your abdominal muscles, temporarily boosts heart rate, and can lower cortisol levels. 😂",
+  },
+
+  // =============================================
+  // INDEX 237 - Shows July 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Carousel",
+    puzzleNumber: 317,
+    words: [
+      { word: "FAIR", hint: "Amusement event", revealedIndex: 0 },
+      { word: "MUSIC", hint: "Calliope sounds", revealedIndex: 2 },
+      { word: "ANIMAL", hint: "Horse or other ride figure", revealedIndex: 3 },
+      { word: "CHARIOT", hint: "Carriage-style ride", revealedIndex: 0 },
+      { word: "CARNIVAL", hint: "Traveling amusement show", revealedIndex: 4 },
+    ],
+    funFact: "Carousels were originally developed in the 12th century by knights in the Byzantine Empire who used baskets suspended from poles to practice jousting and agility skills. 🎠",
+  },
+
+  // =============================================
+  // INDEX 238 - Shows July 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Bagels",
+    puzzleNumber: 318,
+    words: [
+      { word: "SOFT", hint: "Fresh-baked texture", revealedIndex: 0 },
+      { word: "CHEWY", hint: "Dense satisfying bite", revealedIndex: 2 },
+      { word: "GARLIC", hint: "Savory popular variety", revealedIndex: 3 },
+      { word: "BOILING", hint: "Key step before baking", revealedIndex: 0 },
+      { word: "CINNAMON", hint: "Sweet spiced variety", revealedIndex: 4 },
+    ],
+    funFact: "Originating in 17th-century Poland, bagels became a staple. The circular shape was originally said to represent continuity, prosperity, and life. 🥯",
+  },
+
+  // =============================================
+  // INDEX 239 - Shows July 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Bagpipes",
+    puzzleNumber: 319,
+    words: [
+      { word: "WIND", hint: "Air-powered instrument", revealedIndex: 0 },
+      { word: "PIPER", hint: "Bagpipe player", revealedIndex: 2 },
+      { word: "SCOTCH", hint: "Scottish heritage", revealedIndex: 3 },
+      { word: "MUSICAL", hint: "Relating to music", revealedIndex: 0 },
+      { word: "HIGHLAND", hint: "Scottish region", revealedIndex: 4 },
+    ],
+    funFact: "The only musical instrument to be considered a weapon during times of war. 🎵",
+  },
+
+  // =============================================
+  // INDEX 240 - Shows July 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Milk Chocolate",
+    puzzleNumber: 320,
+    words: [
+      { word: "MELT", hint: "Dissolves on your tongue", revealedIndex: 0 },
+      { word: "COCOA", hint: "Chocolate base ingredient", revealedIndex: 2 },
+      { word: "SMOOTH", hint: "Silky texture", revealedIndex: 3 },
+      { word: "TEXTURE", hint: "Creamy mouthfeel", revealedIndex: 0 },
+      { word: "DECADENT", hint: "Luxuriously rich", revealedIndex: 4 },
+    ],
+    funFact: "Milk chocolate owes its creamy texture to Swiss ingenuity in 1875, when chocolatier Daniel Peter successfully combined cocoa with condensed milk provided by his friend Henri Nestlé. 🍫",
+  },
+
+  // =============================================
+  // INDEX 241 - Shows July 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Tigers",
+    puzzleNumber: 321,
+    words: [
+      { word: "CLAW", hint: "Sharp retractable nail", revealedIndex: 0 },
+      { word: "TEETH", hint: "Powerful fangs", revealedIndex: 2 },
+      { word: "BENGAL", hint: "Most common tiger subspecies", revealedIndex: 3 },
+      { word: "STRIPED", hint: "Unique coat pattern", revealedIndex: 0 },
+      { word: "SOLITARY", hint: "Prefers to live alone", revealedIndex: 4 },
+    ],
+    funFact: "Tigers are the largest of all wild cats and are famous for their unmatched size, unique stripe patterns, and love for water. 🐯",
+  },
+
+  // =============================================
+  // INDEX 242 - Shows July 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Paperback Books",
+    puzzleNumber: 322,
+    words: [
+      { word: "SOFT", hint: "Flexible cover material", revealedIndex: 0 },
+      { word: "BEACH", hint: "Perfect reading location", revealedIndex: 2 },
+      { word: "CLASSIC", hint: "Timeless literary work", revealedIndex: 3 },
+      { word: "PENGUIN", hint: "Famous paperback publisher", revealedIndex: 0 },
+      { word: "PORTABLE", hint: "Easy to carry anywhere", revealedIndex: 4 },
+    ],
+    funFact: "During World War II, the U.S. military distributed 122 million compact paperback books to troops. These 'Armed Services Editions' were designed to fit into a soldier's shirt pocket and created thousands of new readers who otherwise may never have bought books. 📚",
+  },
+
+  // =============================================
+  // INDEX 243 - Shows July 31, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Avocado",
+    puzzleNumber: 323,
+    words: [
+      { word: "HASS", hint: "Most popular variety", revealedIndex: 0 },
+      { word: "TOAST", hint: "Trendy breakfast topping", revealedIndex: 2 },
+      { word: "SLICED", hint: "Cut into pieces", revealedIndex: 3 },
+      { word: "CHOPPED", hint: "Diced for salsa or salad", revealedIndex: 0 },
+      { word: "CILANTRO", hint: "Common fresh herb pairing", revealedIndex: 4 },
+    ],
+    funFact: "Up until the early 20th century, avocados were considered a luxury delicacy primarily reserved for the tables of high society. 🥑",
+  },
+
+  // =============================================
+  // INDEX 244 - Shows August 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "MTV",
+    puzzleNumber: 324,
+    words: [
+      { word: "WANT", hint: "I ___ my MTV!", revealedIndex: 0 },
+      { word: "VIDEO", hint: "___ killed the Radio Star", revealedIndex: 2 },
+      { word: "CONCERT", hint: "Live music performance", revealedIndex: 3 },
+      { word: "POPULAR", hint: "Mainstream and trendy", revealedIndex: 0 },
+      { word: "CULTURE", hint: "Pop ___ influence", revealedIndex: 4 },
+    ],
+    funFact: "On August 1, 1981, MTV made its cable debut, permanently changing pop culture with The Buggles' 'Video Killed the Radio Star'. 📺",
+  },
+
+  // =============================================
+  // INDEX 245 - Shows August 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Coloring Book",
+    puzzleNumber: 325,
+    words: [
+      { word: "PAGE", hint: "Single sheet to color", revealedIndex: 0 },
+      { word: "RELAX", hint: "Calming activity", revealedIndex: 2 },
+      { word: "CRAYON", hint: "Waxy coloring tool", revealedIndex: 3 },
+      { word: "PIGMENT", hint: "Color-giving substance", revealedIndex: 0 },
+      { word: "BLENDING", hint: "Mixing colors together", revealedIndex: 4 },
+    ],
+    funFact: "Long before they became a staple of childhood, coloring books were actually marketed to wealthy adults. 🎨",
   },
 ];
 

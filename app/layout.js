@@ -6,8 +6,9 @@ export const metadata = {
   title: 'Letter Griddle Game - Daily Word Puzzle Game 🥞',
   description: 'Stack letters like pancakes in this delicious daily word puzzle game!',
   icons: {
-    apple: '/apple-touch-icon.png',
-  },
+  icon: '/icon.png',
+  apple: '/apple-touch-icon.png',
+},
 }
 
 export default function RootLayout({ children }) {

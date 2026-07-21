@@ -64,7 +64,7 @@ export default function Home() {
         icon: "\uD83E\uDD88",
         iconSize: "text-4xl",
         title: ["Ocean", "Adventure"],
-        subtitle: "SPECIAL PUZZLE",
+        subtitle: "SEA LIFE PUZZLE",
         subtitleColor: "text-cyan-100"
       },
       borderColor: "border-cyan-400",

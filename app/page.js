@@ -54,6 +54,27 @@ export default function Home() {
       hoverBg: "bg-teal-600/80"
     },
     {
+      name: "Ocean Adventure",
+      tagline: "Beaches, marine life & sharks!",
+      dropTime: "New!",
+      emoji: "\uD83E\uDD88",
+      href: "/ocean",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #0369a1 0%, #0891b2 50%, #22d3ee 100%)",
+        icon: "\uD83E\uDD88",
+        iconSize: "text-4xl",
+        title: ["Ocean", "Adventure"],
+        subtitle: "SPECIAL PUZZLE",
+        subtitleColor: "text-cyan-100"
+      },
+      borderColor: "border-cyan-400",
+      bgColor: "from-cyan-100 to-blue-100",
+      textColor: "text-cyan-800",
+      subTextColor: "text-cyan-700",
+      timeColor: "text-cyan-600",
+      hoverBg: "bg-cyan-600/80"
+    },
+    {
       name: "Letter Griddle Mini",
       tagline: "A bite-sized word puzzle",
       dropTime: "7:15 PM EST",

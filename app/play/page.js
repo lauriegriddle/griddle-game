@@ -976,12 +976,12 @@ const copyToClipboard = async (text) => {
           {showArchiveBanner && (
   <div
     onClick={() => setShowArchiveBanner(false)}
-    className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-lg p-1.5 mb-2 shadow-lg cursor-pointer hover:from-amber-600 hover:to-yellow-600 transition-all"
+    className="bg-gradient-to-r from-amber-700 to-yellow-700 text-white rounded-lg p-1.5 mb-2 shadow-lg cursor-pointer hover:from-amber-600 hover:to-yellow-600 transition-all"
   >
     <div className="flex items-center justify-between">
       <div className="flex-1 text-center">
   <span className="text-white font-bold text-xs" style={{fontFamily: 'Georgia, serif'}}>
-    🗂️ New! Puzzle Archive!  Play 10 bonus puzzles, replayable anytime!
+    🗂️ More puzzles in the Archive!  30 bonus puzzles, replayable anytime!
   </span>
   <div className="mt-0.5">
     <a href="/archive" onClick={(e) => e.stopPropagation()} className="text-white text-xs underline font-semibold" style={{fontFamily: 'Georgia, serif'}}>

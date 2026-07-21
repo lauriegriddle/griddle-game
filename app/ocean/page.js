@@ -484,7 +484,7 @@ export default function OceanAdventurePage() {
           </div>
           <h1 className="fade-up fade-up-2 text-3xl sm:text-4xl font-semibold mb-2 shimmer-text" style={{ fontFamily: "Cormorant Garamond, serif" }}>Ocean Adventure</h1>
           <p className="fade-up fade-up-2 text-lg text-slate-300 mb-6 italic" style={{ fontFamily: "Crimson Text, serif" }}>Beaches, Marine Life &amp; Sharks</p>
-          <p className="fade-up fade-up-3 text-slate-300 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Three puzzles diving into the wonders of the sea: sun-soaked shores, deep-sea creatures, and the sharks who call the ocean home.</p>
+          <p className="fade-up fade-up-3 text-slate-300 text-sm mb-2 leading-relaxed max-w-sm mx-auto" style={{ fontFamily: "Crimson Text, serif" }}>Three puzzles diving into the wonders of the sea:  sun-soaked shores, deep-sea creatures, and the sharks who call the ocean home.</p>
           <p className="fade-up fade-up-3 text-slate-400 text-xs mb-8" style={{ fontFamily: "Crimson Text, serif" }}>A Letter Griddle Summer Adventure special</p>
           <div className="fade-up fade-up-4 flex justify-center gap-4 mb-8">
             {PUZZLES.map((p) => (

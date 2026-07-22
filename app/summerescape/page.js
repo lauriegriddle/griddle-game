@@ -92,7 +92,38 @@ const HowToPlayModal = ({ onClose }) => (
     </div>
   </div>
 );
+const ShareModal = ({ onClose }) => {
+  const [copied, setCopied] = useState(false);
+  const shareText = "\uD83E\uDDED Summer Adventure\n\u2600\uFE0F Completed all 3 puzzles!\n\u2705\u2705\u2705\nPlay at lettergriddle.com/summerescape";
 
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(shareText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (e) {
+      console.log("Copy failed", e);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4" onClick={onClose}>
+      <div className="bg-gradient-to-br from-emerald-950 to-slate-900 border border-teal-500/30 rounded-xl p-5 max-w-sm w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-amber-200 font-semibold text-lg" style={{ fontFamily: "Cormorant Garamond, serif" }}>Share Summer Adventure</h3>
+          <button onClick={onClose} className="text-slate-400 hover:text-slate-200 transition-colors text-lg w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-700/50">{"\u2715"}</button>
+        </div>
+        <div className="bg-slate-900/60 border border-teal-500/20 rounded-lg p-4 mb-4 whitespace-pre-line text-slate-200 text-sm" style={{ fontFamily: "Georgia, serif" }}>
+          {shareText}
+        </div>
+        <button onClick={handleCopy} className="w-full px-6 py-2.5 rounded-full bg-gradient-to-r from-teal-600 to-sky-700 hover:from-teal-500 hover:to-sky-600 text-white font-medium transition-all shadow-lg">
+          {copied ? "Copied! \u2713" : "Copy to Clipboard"}
+        </button>
+        <p className="text-slate-400 text-xs text-center mt-3">Paste it anywhere \u2014 text, Instagram, email!</p>
+      </div>
+    </div>
+  );
+};
 const EventFooter = () => {
   const year = new Date().getFullYear();
   return (
@@ -428,6 +459,7 @@ export default function SummerEscapePage() {
   const [showHowToPlay, setShowHowToPlay] = useState(false);
   const [activeWordIdx, setActiveWordIdx] = useState(0);
   const [showCelebration, setShowCelebration] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   const puzzle = PUZZLES[currentPuzzle];
 
@@ -457,7 +489,18 @@ export default function SummerEscapePage() {
       setAllDone(true);
     }
   }, [puzzleComplete]);
-
+const handleShareClick = async () => {
+    const shareText = "\uD83E\uDDED Summer Adventure\n\u2600\uFE0F Completed all 3 puzzles!\n\u2705\u2705\u2705\nPlay at lettergriddle.com/summerescape";
+    if (navigator.share) {
+      try {
+        await navigator.share({ text: shareText });
+      } catch (e) {
+        // user canceled the native share sheet — no action needed
+      }
+    } else {
+      setShowShareModal(true);
+    }
+  };
   const goToNextPuzzle = () => {
     setShowDidYouKnow(false);
     if (currentPuzzle < PUZZLES.length - 1) {
@@ -514,11 +557,17 @@ export default function SummerEscapePage() {
           .fade-up-1 { animation-delay: 0.2s; } .fade-up-2 { animation-delay: 0.5s; } .fade-up-3 { animation-delay: 0.8s; } .fade-up-4 { animation-delay: 1.1s; } .fade-up-5 { animation-delay: 1.6s; }
         `}</style>
         <CelebrationOverlay variant="finale" loop maxWaves={6} />
+        {showShareModal && <ShareModal onClose={() => setShowShareModal(false)} />}
         <div className="max-w-lg w-full text-center">
           <div className="fade-up fade-up-1 text-3xl mb-4">{"\uD83C\uDF0D"}</div>
           <h2 className="fade-up fade-up-1 text-2xl sm:text-3xl font-semibold text-amber-200 mb-2" style={{ fontFamily: "Cormorant Garamond, serif" }}>Adventure Complete</h2>
           <p className="fade-up fade-up-2 text-amber-200 text-base mb-2" style={{ fontFamily: "Crimson Text, serif" }}>You made it through all three events.</p>
           <p className="fade-up fade-up-2 text-slate-300 text-sm mb-6 italic" style={{ fontFamily: "Crimson Text, serif" }}>Thanks for playing this week's Summer Adventure!</p>
+          <div className="fade-up fade-up-2 mb-6">
+            <button onClick={handleShareClick} className="px-6 py-2.5 rounded-full bg-gradient-to-r from-teal-600 to-sky-700 hover:from-teal-500 hover:to-sky-600 text-white font-medium transition-all shadow-lg hover:scale-105" style={{ fontFamily: "Crimson Text, serif" }}>
+              Share Summer Adventure {"\uD83E\uDDED"}
+            </button>
+          </div>
           <div className="fade-up fade-up-3 flex justify-center gap-6 mb-6">
             {PUZZLES.map((p) => (
               <div key={p.id} className="text-center">

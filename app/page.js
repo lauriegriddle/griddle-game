@@ -85,7 +85,7 @@ export default function Home() {
         icon: "\uD83E\uDDFA\uD83D\uDC1E",
         iconSize: "text-4xl",
         title: ["Letter Griddle", "Picnic"],
-        subtitle: "SPECIAL PUZZLE",
+        subtitle: "SUMMER SPECIAL",
         subtitleColor: "text-yellow-100"
       },
       borderColor: "border-green-400",

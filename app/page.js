@@ -75,6 +75,27 @@ export default function Home() {
       hoverBg: "bg-cyan-600/80"
     },
     {
+      name: "Letter Griddle Picnic",
+      tagline: "Pack a basket, head to the park!",
+      dropTime: "New!",
+      emoji: "\uD83E\uDDFA\uD83D\uDC1E",
+      href: "/picnic",
+      thumbnail: {
+        gradient: "linear-gradient(135deg, #b91c1c 0%, #f59e0b 50%, #16a34a 100%)",
+        icon: "\uD83E\uDDFA\uD83D\uDC1E",
+        iconSize: "text-4xl",
+        title: ["Letter Griddle", "Picnic"],
+        subtitle: "SPECIAL PUZZLE",
+        subtitleColor: "text-yellow-100"
+      },
+      borderColor: "border-green-400",
+      bgColor: "from-green-100 to-red-100",
+      textColor: "text-green-800",
+      subTextColor: "text-green-700",
+      timeColor: "text-green-600",
+      hoverBg: "bg-red-600/80"
+    },
+    {
       name: "Letter Griddle Mini",
       tagline: "A bite-sized word puzzle",
       dropTime: "7:15 PM EST",

@@ -1451,7 +1451,7 @@ const copyToClipboard = async (text) => {
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
           Letter Griddle
         </h2>
-        <p className="text-amber-600 text-xs mt-1">More games and goodies from Letter Griddle!</p>
+        <p className="text-amber-600 text-xs mt-1">More from Letter Griddle!</p>
       </div>
 
       <div className="space-y-2">

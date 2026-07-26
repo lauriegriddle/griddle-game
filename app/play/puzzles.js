@@ -3821,9 +3821,9 @@ const puzzles = [
     puzzleNumber: 322,
     words: [
       { word: "SOFT", hint: "Flexible cover material", revealedIndex: 0 },
-      { word: "BEACH", hint: "Perfect reading location", revealedIndex: 2 },
+      { word: "BEACH", hint: "Perfect summer reading location", revealedIndex: 2 },
       { word: "CLASSIC", hint: "Timeless literary work", revealedIndex: 3 },
-      { word: "PENGUIN", hint: "Famous paperback publisher", revealedIndex: 0 },
+      { word: "PENGUIN", hint: "Large and famous paperback publisher", revealedIndex: 0 },
       { word: "PORTABLE", hint: "Easy to carry anywhere", revealedIndex: 4 },
     ],
     funFact: "During World War II, the U.S. military distributed 122 million compact paperback books to troops. These 'Armed Services Editions' were designed to fit into a soldier's shirt pocket and created thousands of new readers who otherwise may never have bought books. 📚",
@@ -3840,7 +3840,7 @@ const puzzles = [
       { word: "TOAST", hint: "Trendy breakfast topping", revealedIndex: 2 },
       { word: "SLICED", hint: "Cut into pieces", revealedIndex: 3 },
       { word: "CHOPPED", hint: "Diced for salsa or salad", revealedIndex: 0 },
-      { word: "CILANTRO", hint: "Common fresh herb pairing", revealedIndex: 4 },
+      { word: "CILANTRO", hint: "Common fresh herb pairing; some say tastes soapy", revealedIndex: 4 },
     ],
     funFact: "Up until the early 20th century, avocados were considered a luxury delicacy primarily reserved for the tables of high society. 🥑",
   },
@@ -3853,9 +3853,9 @@ const puzzles = [
     puzzleNumber: 324,
     words: [
       { word: "WANT", hint: "I ___ my MTV!", revealedIndex: 0 },
-      { word: "VIDEO", hint: "___ killed the Radio Star", revealedIndex: 2 },
+      { word: "VIDEO", hint: "___ Killed the Radio Star song", revealedIndex: 2 },
       { word: "CONCERT", hint: "Live music performance", revealedIndex: 3 },
-      { word: "POPULAR", hint: "Mainstream and trendy", revealedIndex: 0 },
+      { word: "POPULAR", hint: "Mainstream, well-liked, and trendy", revealedIndex: 0 },
       { word: "CULTURE", hint: "Pop ___ influence", revealedIndex: 4 },
     ],
     funFact: "On August 1, 1981, MTV made its cable debut, permanently changing pop culture with The Buggles' 'Video Killed the Radio Star'. 📺",
@@ -3875,6 +3875,181 @@ const puzzles = [
       { word: "BLENDING", hint: "Mixing colors together", revealedIndex: 4 },
     ],
     funFact: "Long before they became a staple of childhood, coloring books were actually marketed to wealthy adults. 🎨",
+  },
+  // =============================================
+  // INDEX 246 - Shows August 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Watermelon",
+    puzzleNumber: 326,
+    words: [
+      { word: "RIND", hint: "Green striped outer layer", revealedIndex: 0 },
+      { word: "CHILL", hint: "Serve it cold", revealedIndex: 2 },
+      { word: "PICNIC", hint: "Outdoor summer meal", revealedIndex: 3 },
+      { word: "REFRESH", hint: "Cool and reviving", revealedIndex: 0 },
+      { word: "OUTDOORS", hint: "Perfect summer setting", revealedIndex: 4 },
+    ],
+    funFact: "Watermelon grows from a seed and is sweet, so it's considered a fruit. But because it belongs to the gourd family, it is also classified as a vegetable. 🍉",
+  },
+
+  // =============================================
+  // INDEX 247 - Shows August 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chocolate Chip Cookies",
+    puzzleNumber: 327,
+    words: [
+      { word: "BAKE", hint: "Cook in the oven", revealedIndex: 0 },
+      { word: "GOOEY", hint: "Soft and melty center", revealedIndex: 2 },
+      { word: "RECIPE", hint: "Baking instructions", revealedIndex: 3 },
+      { word: "CRUMBLY", hint: "Messy delicate texture", revealedIndex: 0 },
+      { word: "DOUGH", hint: "Unbaked cookie mixture", revealedIndex: 2 },
+    ],
+    funFact: "The chocolate chip cookies consumed by the Cookie Monster on Sesame Street are actually painted rice cakes! Real cookies leave a residue that is dangerous for Muppets. 🍪",
+  },
+
+  // =============================================
+  // INDEX 248 - Shows August 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Traffic Light",
+    puzzleNumber: 328,
+    words: [
+      { word: "FLOW", hint: "Smooth movement of vehicles", revealedIndex: 0 },
+      { word: "SAFER", hint: "More protected", revealedIndex: 2 },
+      { word: "SIGNAL", hint: "Visual indicator", revealedIndex: 3 },
+      { word: "CONTROL", hint: "Manage the intersection", revealedIndex: 0 },
+      { word: "FLASHING", hint: "Blinking warning light", revealedIndex: 4 },
+    ],
+    funFact: "Red is universally used to signal stop because it has the longest wavelength of any color in the visible spectrum. This allows drivers to spot the warning from further away. 🚦",
+  },
+
+  // =============================================
+  // INDEX 249 - Shows August 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Farmworker Appreciation",
+    puzzleNumber: 329,
+    words: [
+      { word: "HERO", hint: "Champion", revealedIndex: 0 },
+      { word: "EXERT", hint: "Apply great effort", revealedIndex: 2 },
+      { word: "UNSUNG", hint: "Not given enough credit", revealedIndex: 3 },
+      { word: "HARVEST", hint: "Gathering of crops", revealedIndex: 0 },
+      { word: "ECONOMIC", hint: "Relating to the economy", revealedIndex: 4 },
+    ],
+    funFact: "The dedication of farmworkers helps the U.S. farming industry contribute over $200 billion annually to the national economy. 👨‍🌾",
+  },
+
+  // =============================================
+  // INDEX 250 - Shows August 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Lighthouses",
+    puzzleNumber: 330,
+    words: [
+      { word: "LENS", hint: "Light-focusing element", revealedIndex: 0 },
+      { word: "GUIDE", hint: "Lead or direct safely", revealedIndex: 2 },
+      { word: "BEACON", hint: "Guiding light signal", revealedIndex: 3 },
+      { word: "LANTERN", hint: "Top light chamber", revealedIndex: 0 },
+      { word: "NAVIGATE", hint: "Find your way at sea", revealedIndex: 4 },
+    ],
+    funFact: "The first known lighthouse was the Pharos of Alexandria in Egypt, built around 280 B.C. It stood over 330 feet tall and was considered one of the Seven Wonders of the Ancient World. 🏗️",
+  },
+
+  // =============================================
+  // INDEX 251 - Shows August 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Happiness",
+    puzzleNumber: 331,
+    words: [
+      { word: "GLEE", hint: "Joyful delight", revealedIndex: 0 },
+      { word: "BLISS", hint: "Perfect happiness", revealedIndex: 2 },
+      { word: "THRILL", hint: "Exciting pleasure", revealedIndex: 3 },
+      { word: "DELIGHT", hint: "Great pleasure", revealedIndex: 0 },
+      { word: "JUBILANT", hint: "Feeling great joy", revealedIndex: 4 },
+    ],
+    funFact: "Foods like milk, chicken, and nuts are rich in tryptophan, which helps the brain produce serotonin, the primary chemical linked to calm and happiness. 😊",
+  },
+
+  // =============================================
+  // INDEX 252 - Shows August 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Rice Pudding",
+    puzzleNumber: 332,
+    words: [
+      { word: "MILK", hint: "Creamy base liquid", revealedIndex: 0 },
+      { word: "SUGAR", hint: "Sweetening ingredient", revealedIndex: 2 },
+      { word: "SPICES", hint: "Cinnamon or nutmeg additions", revealedIndex: 3 },
+      { word: "ROYALTY", hint: "Kings and queens", revealedIndex: 0 },
+      { word: "CARDAMOM", hint: "Aromatic spice often used", revealedIndex: 4 },
+    ],
+    funFact: "In the 14th century, rice was an extremely expensive, luxurious import from Asia. Early European rice puddings were exclusively enjoyed by kings, queens, and the elite. 🍚",
+  },
+
+  // =============================================
+  // INDEX 253 - Shows August 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "S'mores",
+    puzzleNumber: 333,
+    words: [
+      { word: "SOME", hint: "Short for '____ more'", revealedIndex: 0 },
+      { word: "ROAST", hint: "Cook over open flame", revealedIndex: 2 },
+      { word: "GRAHAM", hint: "___ cracker base", revealedIndex: 3 },
+      { word: "MELTING", hint: "Chocolate becoming gooey", revealedIndex: 0 },
+      { word: "CAMPFIRE", hint: "Outdoor cooking fire", revealedIndex: 4 },
+    ],
+    funFact: "The first official s'mores recipe was published in a 1927 Girl Scout guidebook and originally called 'Some More'. 🔥",
+  },
+
+  // =============================================
+  // INDEX 254 - Shows August 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hip Hop",
+    puzzleNumber: 334,
+    words: [
+      { word: "BEAT", hint: "Musical rhythm foundation", revealedIndex: 0 },
+      { word: "DANCE", hint: "Movement to the music", revealedIndex: 2 },
+      { word: "GROOVE", hint: "Rhythmic feel", revealedIndex: 3 },
+      { word: "DEEJAY", hint: "One who spins records", revealedIndex: 0 },
+      { word: "BREAKING", hint: "Breakdancing style", revealedIndex: 4 },
+    ],
+    funFact: "Hip Hop as a genre was born at a block party in the Bronx, New York in 1973, hosted by DJ Kool Herc. By using two turntables, he looped and extended the percussive drum breaks of funk and soul records. 🎤",
+  },
+
+  // =============================================
+  // INDEX 255 - Shows August 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Middle Child",
+    puzzleNumber: 335,
+    words: [
+      { word: "TEAM", hint: "Group player", revealedIndex: 0 },
+      { word: "PEACE", hint: "Keeping harmony", revealedIndex: 2 },
+      { word: "UNIQUE", hint: "One of a kind", revealedIndex: 3 },
+      { word: "SQUEEZE", hint: "Tight middle spot", revealedIndex: 0 },
+      { word: "SANDWICH", hint: "Between; in the middle", revealedIndex: 4 },
+    ],
+    funFact: "Raised negotiating between older and younger siblings, middles are renowned for being fantastic team players and diplomats. 👨‍👧‍👦",
+  },
+
+  // =============================================
+  // INDEX 256 - Shows August 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Calligraphy",
+    puzzleNumber: 336,
+    words: [
+      { word: "NIBS", hint: "Pen tips for ink writing", revealedIndex: 0 },
+      { word: "BRUSH", hint: "Painting tool for lettering", revealedIndex: 2 },
+      { word: "STYLED", hint: "Decoratively formed", revealedIndex: 3 },
+      { word: "FOUNTAIN", hint: "___ pen writing tool", revealedIndex: 0 },
+      { word: "FLOURISH", hint: "Decorative pen stroke", revealedIndex: 4 },
+    ],
+    funFact: "In China and Japan, calligraphy is historically considered an art form on par with painting, poetry, and archery. ✍️",
   },
 ];
 

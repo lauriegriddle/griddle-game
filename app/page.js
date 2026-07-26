@@ -6,6 +6,7 @@ export default function Home() {
   const [showStories, setShowStories] = useState(false);
   const [showBooks, setShowBooks] = useState(false);
   const [showSummer, setShowSummer] = useState(false);
+  const [showFamilyModal, setShowFamilyModal] = useState(false);
   
   
   // SECTION 1: Daily Favorites (all daily games)
@@ -897,7 +898,16 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 relative">
+      <div className="fixed top-4 right-4 z-50">
+  <button
+    onClick={() => setShowFamilyModal(true)}
+    className="p-2 rounded-full transition-all shadow-lg bg-amber-100 hover:bg-amber-200 text-amber-800 border-2 border-amber-300"
+    title="Letter Griddle Family"
+  >
+    <span className="text-xl">☰</span>
+  </button>
+</div>
       <header className="text-center py-12 px-4">
         <div className="text-6xl mb-4">{"\uD83E\uDD5E"}</div>
         <h1 className="text-4xl md:text-5xl font-bold text-amber-800 mb-4" style={{ fontFamily: 'Georgia, serif' }}>
@@ -1285,6 +1295,96 @@ export default function Home() {
           <p className="text-sm">{"\u00A9"} {new Date().getFullYear()} Letter Griddle. All rights reserved.</p>
         </div>
       </footer>
+    {showFamilyModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{backgroundColor: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowFamilyModal(false)}>
+          <div className="bg-gradient-to-b from-amber-50 to-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-2 border-amber-200" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowFamilyModal(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+            <div className="text-center mb-5">
+              <div className="text-4xl mb-1">🥞</div>
+              <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
+                The Letter Griddle Family
+              </h2>
+              <p className="text-amber-600 text-xs mt-1">More games and goodies from the cafe!</p>
+            </div>
+
+            <div className="space-y-2">
+              <a href="https://www.griddlefalls.com" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all">
+                <span className="text-2xl">☕</span>
+                <div>
+                  <p className="font-bold text-amber-800 text-sm">Griddle Falls</p>
+                  <p className="text-amber-600 text-xs">griddlefalls.com</p>
+                </div>
+              </a>
+
+              <a href="https://www.lettergriddlebuffet.com" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all">
+                <span className="text-2xl">🍽️</span>
+                <div>
+                  <p className="font-bold text-purple-800 text-sm">Letter Griddle Buffet</p>
+                  <p className="text-purple-600 text-xs">lettergriddlebuffet.com</p>
+                </div>
+              </a>
+
+              <a href="https://www.littlelettergriddle.com" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all">
+                <span className="text-2xl">🌙</span>
+                <div>
+                  <p className="font-bold text-amber-800 text-sm">Little Letter Griddle</p>
+                  <p className="text-amber-600 text-xs">littlelettergriddle.com</p>
+                </div>
+              </a>
+
+              <a href="https://www.lettergriddlecafe.com" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all">
+                <span className="text-2xl">🧡</span>
+                <div>
+                  <p className="font-bold text-purple-800 text-sm">Letter Griddle Cafe</p>
+                  <p className="text-purple-600 text-xs">lettergriddlecafe.com</p>
+                </div>
+              </a>
+
+              <a href="https://www.lettergriddlecookbook.com" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all">
+                <span className="text-2xl">🍊</span>
+                <div>
+                  <p className="font-bold text-amber-800 text-sm">Letter Griddle Cookbook</p>
+                  <p className="text-amber-600 text-xs">lettergriddlecookbook.com</p>
+                </div>
+              </a>
+
+              <a href="https://www.lettergriddlecottage.com" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all">
+                <span className="text-2xl">☀️</span>
+                <div>
+                  <p className="font-bold text-purple-800 text-sm">Letter Griddle Cottage</p>
+                  <p className="text-purple-600 text-xs">lettergriddlecottage.com</p>
+                </div>
+              </a>
+
+              <a href="https://www.kerflufflegrid.com" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all">
+                <span className="text-2xl">⏳</span>
+                <div>
+                  <p className="font-bold text-amber-800 text-sm">Kerflufflegrid</p>
+                  <p className="text-amber-600 text-xs">kerflufflegrid.com</p>
+                </div>
+              </a>
+            </div>
+
+            <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">
+              <p className="text-amber-700 font-semibold text-xs">🥞 The Letter Griddle Family of Games 🥞</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

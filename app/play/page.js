@@ -10,7 +10,7 @@ const PancakeWordGame = () => {
   const achievements = [
     { id: 'first_pancake', name: 'First Pancake', icon: '🥞', description: 'Complete your first puzzle', requirement: (stats) => stats.puzzlesCompleted >= 1 },
     { id: 'sweet_tooth', name: 'Sweet Tooth', icon: '🍯', description: 'Complete 15 puzzles', requirement: (stats) => stats.puzzlesCompleted >= 15 },
-    { id: 'second_cup', name: 'Second Cup of Coffee', icon: '☕', description: 'You came back for more fun at the Letter Griddle. We saved you a seat.', requirement: (stats) => stats.puzzlesCompleted >= 2 },
+    { id: 'second_cup', name: 'Second Cup of Coffee', icon: '☕', description: 'You came back for more fun at Letter Griddle. We saved you a seat.', requirement: (stats) => stats.puzzlesCompleted >= 2 },
     { id: 'single_stack', name: 'Single Stack', icon: '🥞', description: '3-day streak', requirement: (stats) => stats.currentStreak >= 3 },
     { id: 'double_stack', name: 'Double Stack', icon: '🥞🥞', description: '7-day streak', requirement: (stats) => stats.currentStreak >= 7 },
     { id: 'chefs_hat', name: "Chef's Hat", icon: '👨‍🍳', description: 'Complete 10 puzzles', requirement: (stats) => stats.puzzlesCompleted >= 10 },
@@ -1449,7 +1449,7 @@ const copyToClipboard = async (text) => {
       <div className="text-center mb-5">
         <div className="text-4xl mb-1">🥞</div>
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-          The Letter Griddle Family
+          Letter Griddle Games
         </h2>
         <p className="text-amber-600 text-xs mt-1">More games and goodies from Letter Griddle!</p>
       </div>
@@ -1520,7 +1520,7 @@ const copyToClipboard = async (text) => {
       </div>
 
       <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">
-        <p className="text-amber-700 font-semibold text-xs">🥞 The Letter Griddle Family of Games 🥞</p>
+        <p className="text-amber-700 font-semibold text-xs">🥞 Letter Griddle Games 🥞</p>
       </div>
     </div>
   </div>
@@ -1548,7 +1548,7 @@ const copyToClipboard = async (text) => {
             <div className="space-y-4 text-center">
               <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border-2 border-amber-200">
                 <p className="text-lg text-gray-700 leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
-                  At the Letter Griddle, we <span className="font-bold text-amber-800">serve up joy and creativity</span> through our sweet, pancake-inspired word game, sparking cozy connections with every puzzle, warming hearts worldwide.
+                  At Letter Griddle, we <span className="font-bold text-amber-800">serve up joy and creativity</span> through our sweet, pancake-inspired word game, sparking cozy connections with every puzzle, warming hearts worldwide.
                 </p>
               </div>
               

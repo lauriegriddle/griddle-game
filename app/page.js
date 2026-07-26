@@ -911,7 +911,7 @@ export default function Home() {
       <header className="text-center py-12 px-4">
         <div className="text-6xl mb-4">{"\uD83E\uDD5E"}</div>
         <h1 className="text-4xl md:text-5xl font-bold text-amber-800 mb-4" style={{ fontFamily: 'Georgia, serif' }}>
-          The Letter Griddle Games
+          Letter Griddle Games
         </h1>
         <p className="text-sm text-amber-600 font-medium mb-6">
           {"\u2728"} Play free {"\u2022"} No downloads {"\u2728"}
@@ -1309,7 +1309,7 @@ export default function Home() {
             <div className="text-center mb-5">
               <div className="text-4xl mb-1">🥞</div>
               <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-                The Letter Griddle Family
+                Letter Griddle
               </h2>
               <p className="text-amber-600 text-xs mt-1">More games and goodies from Letter Griddle!</p>
             </div>
@@ -1380,7 +1380,7 @@ export default function Home() {
             </div>
 
             <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">
-              <p className="text-amber-700 font-semibold text-xs">🥞 The Letter Griddle Family of Games 🥞</p>
+              <p className="text-amber-700 font-semibold text-xs">🥞 Letter Griddle Games 🥞</p>
             </div>
           </div>
         </div>

@@ -883,7 +883,7 @@ const copyToClipboard = async (text) => {
           <a 
   href="https://lettergriddle.com" 
   className="flex items-center gap-1 text-amber-700 hover:text-amber-900 transition-colors"
-  title="Back to Letter Griddle Games"
+  title="Back to Letter Griddle"
 >
   <span className="text-sm font-semibold hidden sm:inline underline decoration-amber-500" style={{fontFamily: 'Georgia, serif'}}>← Letter Griddle</span>
 </a>
@@ -1449,7 +1449,7 @@ const copyToClipboard = async (text) => {
       <div className="text-center mb-5">
         <div className="text-4xl mb-1">🥞</div>
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
-          Letter Griddle Games
+          Letter Griddle
         </h2>
         <p className="text-amber-600 text-xs mt-1">More games and goodies from Letter Griddle!</p>
       </div>
@@ -1520,7 +1520,7 @@ const copyToClipboard = async (text) => {
       </div>
 
       <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">
-        <p className="text-amber-700 font-semibold text-xs">🥞 Letter Griddle Games 🥞</p>
+        <p className="text-amber-700 font-semibold text-xs">🥞 Letter Griddle🥞</p>
       </div>
     </div>
   </div>

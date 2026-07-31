@@ -3953,7 +3953,7 @@ const puzzles = [
       { word: "LANTERN", hint: "Top light chamber", revealedIndex: 0 },
       { word: "NAVIGATE", hint: "Find your way at sea", revealedIndex: 4 },
     ],
-    funFact: "The first known lighthouse was the Pharos of Alexandria in Egypt, built around 280 B.C. It stood over 330 feet tall and was considered one of the Seven Wonders of the Ancient World. 🏗️",
+    funFact: "The first known lighthouse was the Pharos of Alexandria in Egypt, built around 280 B.C. It stood over 330 feet tall and was considered one of the Seven Wonders of the Ancient World. 💡",
   },
 
   // =============================================

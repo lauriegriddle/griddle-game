@@ -34,48 +34,6 @@ export default function Home() {
       hoverBg: "bg-amber-600/80"
     },
     {
-      name: "Summer Adventure",
-      tagline: "Puzzle along with 3 July events!",
-      dropTime: "Now live!",
-      emoji: "\uD83E\uDDED",
-      href: "/summerescape",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #06b6d4 100%)",
-        icon: "\uD83E\uDDED",
-        iconSize: "text-4xl",
-        title: ["Summer", "Adventure"],
-        subtitle: "WEEKLY ADVENTURE",
-        subtitleColor: "text-teal-100"
-      },
-      borderColor: "border-teal-400",
-      bgColor: "from-teal-100 to-sky-100",
-      textColor: "text-teal-800",
-      subTextColor: "text-teal-700",
-      timeColor: "text-teal-600",
-      hoverBg: "bg-teal-600/80"
-    },
-    {
-      name: "Ocean Adventure",
-      tagline: "Beaches, marine life & sharks!",
-      dropTime: "New!",
-      emoji: "\uD83E\uDD88",
-      href: "/ocean",
-      thumbnail: {
-        gradient: "linear-gradient(135deg, #0369a1 0%, #0891b2 50%, #22d3ee 100%)",
-        icon: "\uD83E\uDD88",
-        iconSize: "text-4xl",
-        title: ["Ocean", "Adventure"],
-        subtitle: "SEA LIFE PUZZLE",
-        subtitleColor: "text-cyan-100"
-      },
-      borderColor: "border-cyan-400",
-      bgColor: "from-cyan-100 to-blue-100",
-      textColor: "text-cyan-800",
-      subTextColor: "text-cyan-700",
-      timeColor: "text-cyan-600",
-      hoverBg: "bg-cyan-600/80"
-    },
-    {
       name: "Letter Griddle Picnic",
       tagline: "Pack a basket, head to the park!",
       dropTime: "New!",

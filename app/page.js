@@ -884,32 +884,9 @@ export default function Home() {
             Daily Favorites
           </button>
           
-          <button
-            onClick={() => { setShowStories(!showStories); if (!showStories) setTimeout(() => scrollToSection('stories-more'), 100); }}
-            className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
-            style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #312e81 50%, #c2410c 80%, #fbbf24 100%)' }}
-          >
-            {"\u2728"} Stories & Recipes {showStories ? '▲' : '▼'}
-          </button>
           
-          <button
-            onClick={() => { setShowSummer(!showSummer); if (!showSummer) setTimeout(() => scrollToSection('summer-days'), 100); }}
-            className="px-4 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
-            style={{ background: 'linear-gradient(160deg, #0c4a6e 0%, #0369a1 40%, #0ea5e9 75%, #38bdf8 100%)' }}
-          >
-            ☀️ Summer Days {showSummer ? '▲' : '▼'}
-          </button>
         </nav>
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={() => { setShowBooks(!showBooks); if (!showBooks) setTimeout(() => scrollToSection('books'), 100); }}
-            className="px-6 py-2 text-white rounded-full text-sm font-semibold hover:opacity-90 transition-colors shadow-md"
-            style={{ background: 'linear-gradient(135deg, #BE123C 0%, #EA580C 50%, #B45309 100%)', fontFamily: 'Georgia, serif' }}
-          >
-            🍳 Screen-Free Books ✏️ {showBooks ? '▲' : '▼'}
-          </button>
-          
-        </div>
+    
 
         <div className="flex justify-center mt-3">
           <button
@@ -1255,7 +1232,7 @@ export default function Home() {
       </footer>
     {showFamilyModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{backgroundColor: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowFamilyModal(false)}>
-          <div className="bg-gradient-to-b from-amber-50 to-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-2 border-amber-200" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-gradient-to-b from-amber-50 to-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-2 border-amber-200 max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowFamilyModal(false)}
               className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
@@ -1336,10 +1313,30 @@ export default function Home() {
                 </div>
               </a>
             </div>
+<div className="border-t-2 border-dashed border-amber-200 my-2"></div>
 
-            <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">
-              <p className="text-amber-700 font-semibold text-xs">🥞 Letter Griddle 🥞</p>
-            </div>
+
+<a href="#books" onClick={() => { setShowFamilyModal(false); setShowBooks(true); setTimeout(() => scrollToSection('books'), 100); }}
+  className="flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all cursor-pointer">
+  <span className="text-2xl">📚</span>
+  <div>
+    <p className="font-bold text-amber-800 text-sm">Screen-Free Books</p>
+    <p className="text-amber-600 text-xs">Puzzle books & journals</p>
+  </div>
+</a>
+
+<a href="#summer-days" onClick={() => { setShowFamilyModal(false); setShowSummer(true); setTimeout(() => scrollToSection('summer-days'), 100); }}
+  className="flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all cursor-pointer mt-2">
+  <span className="text-2xl">🏖️</span>
+  <div>
+    <p className="font-bold text-purple-800 text-sm">Summer Days</p>
+    <p className="text-purple-600 text-xs">Summer fun from Letter Griddle</p>
+  </div>
+</a>
+
+<div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">
+  <p className="text-amber-700 font-semibold text-xs">🥞 Letter Griddle 🥞</p>
+</div>
           </div>
         </div>
       )}

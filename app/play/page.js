@@ -1361,64 +1361,64 @@ const copyToClipboard = async (text) => {
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
           This Week's Schedule
         </h2>
-        <p className="text-purple-600 font-semibold text-sm">July 26 - August 1</p>
+        <p className="text-purple-600 font-semibold text-sm">August 2 - 8</p>
       </div>
       
       <div className="space-y-1.5 mb-3">
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 7/26</span>
-            <span className="font-semibold text-amber-800 text-sm">Bagels</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 8/2</span>
+            <span className="font-semibold text-amber-800 text-sm">Coloring Book</span>
           </div>
-          <span className="text-lg">🥯</span>
+          <span className="text-lg">🎨</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 7/27</span>
-            <span className="font-semibold text-purple-800 text-sm">Bagpipes</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 8/3</span>
+            <span className="font-semibold text-purple-800 text-sm">Watermelon</span>
           </div>
-          <span className="text-lg">🎵</span>
+          <span className="text-lg">🍉</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 7/28</span>
-            <span className="font-semibold text-amber-800 text-sm">Milk Chocolate</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 8/4</span>
+            <span className="font-semibold text-amber-800 text-sm">Chocolate Chip Cookies</span>
           </div>
-          <span className="text-lg">🍫</span>
+          <span className="text-lg">🍪</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 7/29</span>
-            <span className="font-semibold text-purple-800 text-sm">Tigers</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 8/5</span>
+            <span className="font-semibold text-purple-800 text-sm">Traffic Light</span>
           </div>
-          <span className="text-lg">🐯</span>
+          <span className="text-lg">🚦</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 7/30</span>
-            <span className="font-semibold text-amber-800 text-sm">Paperback Books</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 8/6</span>
+            <span className="font-semibold text-amber-800 text-sm">Farmworker Appreciation</span>
           </div>
-          <span className="text-lg">📗</span>
+          <span className="text-lg">👨‍🌾</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 7/31</span>
-            <span className="font-semibold text-purple-800 text-sm">Avocado</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 8/7</span>
+            <span className="font-semibold text-purple-800 text-sm">Lighthouse</span>
           </div>
-          <span className="text-lg">🥑</span>
+          <span className="text-lg">💡</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 8/1</span>
-            <span className="font-semibold text-amber-800 text-sm">MTV</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 8/8</span>
+            <span className="font-semibold text-amber-800 text-sm">Happiness</span>
           </div>
-          <span className="text-lg">📺</span>
+          <span className="text-lg">😊</span>
         </div>
       </div>
       
@@ -1520,8 +1520,11 @@ const copyToClipboard = async (text) => {
       </div>
 
       <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">
-        <p className="text-amber-700 font-semibold text-xs">🥞 Letter Griddle 🥞</p>
-      </div>
+  <a href="https://instagram.com/letter_griddle" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-xs font-bold px-4 py-2 rounded-full hover:opacity-90 transition-opacity shadow-md mb-3">
+    <svg className="w-4 h-4" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Follow @letter_griddle
+  </a>
+  <p className="text-amber-700 font-semibold text-xs">🥞 The Letter Griddle Family of Games 🥞</p>
+</div>
     </div>
   </div>
 )}

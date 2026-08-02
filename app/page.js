@@ -1130,7 +1130,11 @@ export default function Home() {
             <div className="text-3xl" style={{ animation: 'spin 8s linear infinite', display: 'inline-block' }}>☀️</div>
           </div>
           <style>{`
-            @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .modal-scroll::-webkit-scrollbar { width: 8px; }
+  .modal-scroll::-webkit-scrollbar-track { background: #FEF3C7; border-radius: 10px; }
+  .modal-scroll::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #D97706, #92400E); border-radius: 10px; }
+  .modal-scroll::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #B45309, #78350F); }
             .summer-card { min-width: 220px; background: white; border-radius: 16px; overflow: hidden; border: 2px solid #7dd3fc; flex-shrink: 0; transform: scale(0.92); transition: transform 0.3s, opacity 0.3s; opacity: 0.7; }
             .summer-card.active { transform: scale(1); opacity: 1; border-color: #0369a1; }
             .summer-track { display: flex; gap: 16px; transition: transform 0.4s cubic-bezier(.4,0,.2,1); padding: 12px 0 20px; }
@@ -1211,7 +1215,8 @@ export default function Home() {
       </footer>
     {showFamilyModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{backgroundColor: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowFamilyModal(false)}>
-          <div className="bg-gradient-to-b from-amber-50 to-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-2 border-amber-200 max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-gradient-to-b from-amber-50 to-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-2 border-amber-200 max-h-[85vh] overflow-y-auto modal-scroll"
+style={{scrollbarWidth: 'thin', scrollbarColor: '#D97706 #FEF3C7'}} onClick={(e) => e.stopPropagation()}>
             <button
               onClick={() => setShowFamilyModal(false)}
               className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"

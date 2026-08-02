@@ -3869,7 +3869,7 @@ const puzzles = [
     puzzleNumber: 325,
     words: [
       { word: "PAGE", hint: "Single sheet to color", revealedIndex: 0 },
-      { word: "RELAX", hint: "Calming activity", revealedIndex: 2 },
+      { word: "RELAX", hint: "Calming activity helps you  ______", revealedIndex: 2 },
       { word: "CRAYON", hint: "Waxy coloring tool", revealedIndex: 3 },
       { word: "PIGMENT", hint: "Color-giving substance", revealedIndex: 0 },
       { word: "BLENDING", hint: "Mixing colors together", revealedIndex: 4 },

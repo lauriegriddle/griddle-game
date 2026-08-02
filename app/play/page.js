@@ -70,7 +70,7 @@ const [scrapbook, setScrapbook] = useState([]);
 const [showScrapbookModal, setShowScrapbookModal] = useState(false);
 const [countryAsked, setCountryAsked] = useState(false);
 const [countryAnswer, setCountryAnswer] = useState(null);
-
+const [showGameModal, setShowGameModal] = useState(false);
   // Keyboard support state
   const [focusedWordIndex, setFocusedWordIndex] = useState(0);
   const gameContainerRef = useRef(null);
@@ -899,18 +899,16 @@ const copyToClipboard = async (text) => {
 >
   <span className="text-xl">☰</span>
 </button>
+
+<button
+  onClick={() => setShowGameModal(true)}
+  className="p-1.5 rounded-full transition-all shadow-md bg-amber-100 hover:bg-amber-200 text-amber-800"
+  title="Game Menu"
+>
+  <span className="text-xl">✦</span>
+</button>
             {/* MUSIC BUTTON */}
-            <button
-              onClick={toggleMusic}
-              className={`p-1.5 rounded-full transition-all shadow-md ${
-                musicEnabled 
-                  ? 'bg-amber-500 hover:bg-amber-600 text-white' 
-                  : 'bg-amber-100 hover:bg-amber-200 text-amber-800'
-              }`}
-              title={musicEnabled ? "Turn off music" : "Turn on music"}
-            >
-              <span className="text-sm">{musicEnabled ? '🔊' : '🎵'}</span>
-            </button>
+            
             <button
   onClick={toggleNightMode}
   className={`p-1.5 rounded-full transition-all shadow-md ${
@@ -923,44 +921,17 @@ const copyToClipboard = async (text) => {
   <span className="text-sm">{nightMode ? '☀️' : '🌙'}</span>
 </button>
 
-            <button
-  onClick={() => setShowScrapbookModal(true)}
-  className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
-  title="Your Scrapbook"
->
-  <span className="text-sm">📔</span>
-</button>
-
-            {/* LAUNCH BUTTON - NEW! */}
-            <button
-  onClick={() => setShowLaunchModal(true)}
-  className="p-2 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-800 transition-all shadow-md animate-pulse"
-  title="What's New"
->
-  <span className="text-xl">🏖️</span>
-</button>
-            {/* SCHEDULE BUTTON - NEW! */}
+           
+  
 <button
-  onClick={() => setShowScheduleModal(true)}
-  className="p-2 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-800 transition-all shadow-md animate-pulse"
-  title="Schedule"
->
-  <span className="text-lg">☀️</span>
-</button>
-            <button
   onClick={() => setShowHowToPlayModal(true)}
-  className="... relative"
+  className="p-2 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-800 transition-all shadow-md animate-pulse"
+
 >
   <HelpCircle size={18} />
   
 </button>
-            <button
-              onClick={() => setShowMissionModal(true)}
-              className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md"
-              title="About Letter Griddle"
-            >
-              <Info size={18} />
-            </button>
+
             <button
               onClick={() => setShowStatsModal(true)}
               className="bg-amber-100 hover:bg-amber-200 text-amber-800 p-1.5 rounded-full transition-all shadow-md relative"
@@ -1525,6 +1496,95 @@ const copyToClipboard = async (text) => {
   </a>
   <p className="text-amber-700 font-semibold text-xs">🥞 The Letter Griddle Family of Games 🥞</p>
 </div>
+    </div>
+  </div>
+)}
+
+{showGameModal && (
+  <div className="fixed inset-0 flex items-center justify-center z-50 p-4" style={{backgroundColor: 'rgba(120, 60, 0, 0.45)'}} onClick={() => setShowGameModal(false)}>
+    <div className="bg-gradient-to-b from-amber-50 to-white rounded-3xl p-6 max-w-md w-full shadow-2xl relative border-2 border-amber-200 max-h-[85vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+      <button
+        onClick={() => setShowGameModal(false)}
+        className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 z-10 bg-white rounded-full p-1 hover:bg-gray-100"
+        aria-label="Close"
+      >
+        <X size={22} />
+      </button>
+
+      <div className="text-center mb-5">
+        <div className="text-4xl mb-1">✦</div>
+        <h2 className="text-xl font-bold text-purple-800" style={{fontFamily: 'Georgia, serif'}}>
+          Game Menu
+        </h2>
+        <p className="text-purple-600 text-xs mt-1">Everything you need!</p>
+      </div>
+
+      <div className="space-y-2">
+        {/* Music Toggle */}
+        <button
+          onClick={() => { toggleMusic(); }}
+          className="w-full flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all"
+        >
+          <span className="text-2xl">{musicEnabled ? '🔊' : '🎵'}</span>
+          <div className="text-left">
+            <p className="font-bold text-purple-800 text-sm">{musicEnabled ? 'Music On' : 'Music Off'}</p>
+            <p className="text-purple-600 text-xs">{musicEnabled ? 'Click to turn off' : 'Click to turn on'}</p>
+          </div>
+          <span className="ml-auto text-purple-400 text-xs">{musicEnabled ? '●' : '○'}</span>
+        </button>
+
+        {/* What's New */}
+        <button
+          onClick={() => { setShowGameModal(false); setShowLaunchModal(true); }}
+          className="w-full flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all"
+        >
+          <span className="text-2xl">🏖️</span>
+          <div className="text-left">
+            <p className="font-bold text-amber-800 text-sm">What's New</p>
+            <p className="text-amber-600 text-xs">Summer Days & Screen-Free Books</p>
+          </div>
+        </button>
+
+        {/* Schedule */}
+        <button
+          onClick={() => { setShowGameModal(false); setShowScheduleModal(true); }}
+          className="w-full flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all"
+        >
+          <span className="text-2xl">☀️</span>
+          <div className="text-left">
+            <p className="font-bold text-purple-800 text-sm">This Week's Schedule</p>
+            <p className="text-purple-600 text-xs">See what's coming up!</p>
+          </div>
+        </button>
+
+        {/* Scrapbook */}
+<button
+  onClick={() => { setShowGameModal(false); setShowScrapbookModal(true); }}
+  className="w-full flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all"
+>
+  <span className="text-2xl">📒</span>
+  <div className="text-left">
+    <p className="font-bold text-amber-800 text-sm">Scrapbook</p>
+    <p className="text-amber-600 text-xs">Your Letter Griddle memories!</p>
+  </div>
+</button>
+
+        {/* Mission */}
+        <button
+          onClick={() => { setShowGameModal(false); setShowMissionModal(true); }}
+          className="w-full flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all"
+        >
+          <span className="text-2xl">ℹ️</span>
+          <div className="text-left">
+            <p className="font-bold text-purple-800 text-sm">Our Mission</p>
+            <p className="text-purple-600 text-xs">About Letter Griddle</p>
+          </div>
+        </button>
+      </div>
+
+      <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-purple-300">
+        <p className="text-purple-700 font-semibold text-xs">✦ Letter Griddle ✦</p>
+      </div>
     </div>
   </div>
 )}

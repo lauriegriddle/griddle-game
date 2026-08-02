@@ -1310,7 +1310,7 @@ const copyToClipboard = async (text) => {
       </div>
       
       <div className="text-center pt-4 border-t-2 border-dashed border-amber-400">
-        <p className="text-amber-700 font-semibold text-sm">Go to lettergriddle.com to explore! 🥞</p>
+        <p className="text-amber-700 font-semibold text-sm">Go to the ☰ menu on lettergriddle.com to explore! 🥞</p>
       </div>
     </div>
   </div>

@@ -1516,7 +1516,7 @@ const copyToClipboard = async (text) => {
         <h2 className="text-xl font-bold text-purple-800" style={{fontFamily: 'Georgia, serif'}}>
           Game Menu
         </h2>
-        <p className="text-purple-600 text-xs mt-1">Everything you need!</p>
+        <p className="text-purple-600 text-xs mt-1">Letter Griddle</p>
       </div>
 
       <div className="space-y-2">
@@ -1574,7 +1574,7 @@ const copyToClipboard = async (text) => {
           onClick={() => { setShowGameModal(false); setShowMissionModal(true); }}
           className="w-full flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all"
         >
-          <span className="text-2xl">ℹ️</span>
+          <span className="text-2xl">🍯</span>
           <div className="text-left">
             <p className="font-bold text-purple-800 text-sm">Our Mission</p>
             <p className="text-purple-600 text-xs">About Letter Griddle</p>

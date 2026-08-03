@@ -905,7 +905,7 @@ const copyToClipboard = async (text) => {
   className="p-1.5 rounded-full transition-all shadow-md bg-amber-100 hover:bg-amber-200 text-amber-800"
   title="Game Menu"
 >
-  <span className="text-xl">✦</span>
+  <span className="text-xl">✿</span>
 </button>
             {/* MUSIC BUTTON */}
             
@@ -1512,7 +1512,7 @@ const copyToClipboard = async (text) => {
       </button>
 
       <div className="text-center mb-5">
-        <div className="text-4xl mb-1">✦</div>
+        <div className="text-4xl mb-1">✿</div>
         <h2 className="text-xl font-bold text-purple-800" style={{fontFamily: 'Georgia, serif'}}>
           Game Menu
         </h2>
@@ -1583,7 +1583,7 @@ const copyToClipboard = async (text) => {
       </div>
 
       <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-purple-300">
-        <p className="text-purple-700 font-semibold text-xs">✦ Letter Griddle ✦</p>
+        <p className="text-purple-700 font-semibold text-xs">✿ Letter Griddle ✿</p>
       </div>
     </div>
   </div>

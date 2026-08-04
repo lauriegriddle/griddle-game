@@ -33,7 +33,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Up to 7 rows",
     hint: "Far more than just the front row you see...",
-    funFact: "Great white sharks can have up to 7 rows of teeth at once, with about 300 teeth total! They are constantly replacing lost teeth throughout their lives, cycling through roughly 20,000 teeth in a lifetime. Shark teeth are not attached to a jawbone like human teeth — they are essentially modified scales, which is why they fall out so easily."
+    funFact: "Great white sharks can have up to 7 rows of teeth at once, with about 300 teeth total! They are constantly replacing lost teeth throughout their lives, cycling through roughly 20,000 teeth in a lifetime. Shark teeth are not attached to a jawbone like human teeth.  They are essentially modified scales, which is why they fall out so easily."
   },
   {
     id: 176,
@@ -47,7 +47,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Whale Shark",
     hint: "Despite its name, it's gentle and filter-feeds like a whale...",
-    funFact: "The whale shark is the largest fish on Earth, reaching up to 40 feet long and weighing as much as 20 tons! Despite their enormous size, whale sharks are completely harmless to humans and feed by filter-feeding on tiny plankton, fish eggs, and small fish. They are slow, gentle giants that sometimes allow swimmers to hitch a ride — though scientists discourage this to protect the animals."
+    funFact: "The whale shark is the largest fish on Earth, reaching up to 40 feet long and weighing as much as 20 tons! Despite their enormous size, whale sharks are completely harmless to humans and feed by filter-feeding on tiny plankton, fish eggs, and small fish. They are slow, gentle giants that sometimes allow swimmers to hitch a ride, though scientists discourage this to protect the animals."
   },
   {
     id: 177,
@@ -61,7 +61,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Electroreception through special pores",
     hint: "They can sense something invisible to us...",
-    funFact: "Sharks have small pores on their snouts called the ampullae of Lorenzini that detect the faint electrical fields produced by all living creatures' muscle movements. This sixth sense is so precise that a shark can detect the electrical field of a fish hiding under sand! They also have a legendary sense of smell — able to detect a single drop of blood in 25 gallons of water — but electroreception is their secret weapon up close."
+    funFact: "Sharks have small pores on their snouts called the ampullae of Lorenzini that detect the faint electrical fields produced by all living creatures' muscle movements. This sixth sense is so precise that a shark can detect the electrical field of a fish hiding under sand! They also have a legendary sense of smell, able to detect a single drop of blood in 25 gallons of water but electroreception is their secret weapon up close."
   },
   {
     id: 178,
@@ -75,7 +75,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Sailfish",
     hint: "Named for the dramatic fin along its back...",
-    funFact: "The sailfish is the fastest fish in the ocean, capable of bursting to speeds of 68 miles per hour! Its impressive dorsal fin, or 'sail,' can be folded down while swimming to reduce drag and raised when herding schools of fish. Sailfish are also remarkable hunters — they work cooperatively in groups to encircle baitfish, taking turns slashing through the school with their long bills."
+    funFact: "The sailfish is the fastest fish in the ocean, capable of bursting to speeds of 68 miles per hour! Its impressive dorsal fin, or 'sail,' can be folded down while swimming to reduce drag and raised when herding schools of fish. Sailfish are also remarkable hunters. They work cooperatively in groups to encircle baitfish, taking turns slashing through the school with their long bills."
   },
   {
     id: 179,
@@ -89,7 +89,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "They hold hands with each other",
     hint: "It's as adorable as it sounds...",
-    funFact: "Sea otters hold hands while sleeping on the water's surface in a behavior called 'rafting,' so they don't drift away from each other or their kelp bed! A group of resting otters is called a raft and can contain anywhere from a few to hundreds of animals. Sea otters also wrap themselves in kelp as an anchor. They have the densest fur of any animal — up to a million hairs per square inch!"
+    funFact: "Sea otters hold hands while sleeping on the water's surface in a behavior called 'rafting,' so they don't drift away from each other or their kelp bed! A group of resting otters is called a raft and can contain anywhere from a few to hundreds of animals. Sea otters also wrap themselves in kelp as an anchor. They have the densest fur of any animal:  up to a million hairs per square inch!"
   },
   {
     id: 180,
@@ -103,7 +103,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Their leg joints bend outward, not forward",
     hint: "It's simply a matter of anatomy...",
-    funFact: "Crabs walk sideways because their leg joints are structured to bend outward rather than forward and backward, making lateral movement the path of least resistance. Interestingly, not all crabs walk sideways — some species like the sally lightfoot crab and the coconut crab can actually move in any direction! The coconut crab, the world's largest land invertebrate, can climb trees and crack open coconuts with its claws."
+    funFact: "Crabs walk sideways because their leg joints are structured to bend outward rather than forward and backward, making lateral movement the path of least resistance. Interestingly, not all crabs walk sideways. Some species like the sally lightfoot crab and the coconut crab can actually move in any direction! The coconut crab, the world's largest land invertebrate, can climb trees and crack open coconuts with its claws."
   },
   {
     id: 181,
@@ -131,7 +131,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "About 150 mph",
     hint: "It's located in Abu Dhabi...",
-    funFact: "Formula Rossa at Ferrari World in Abu Dhabi is the world's fastest roller coaster, reaching 149 miles per hour in just 4.9 seconds! Riders are required to wear protective goggles because at that speed, insects and debris become a real hazard. For comparison, the first roller coasters in 18th-century Russia were simply ice slides that people rode on sleds — quite a leap in 300 years!"
+    funFact: "Formula Rossa at Ferrari World in Abu Dhabi is the world's fastest roller coaster, reaching 149 miles per hour in just 4.9 seconds! Riders are required to wear protective goggles because at that speed, insects and debris become a real hazard. For comparison, the first roller coasters in 18th-century Russia were simply ice slides that people rode on sleds...quite a leap in 300 years!"
   },
   {
     id: 183,
@@ -173,7 +173,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "The Pan-American Highway",
     hint: "It runs through North and South America...",
-    funFact: "The Pan-American Highway is the world's longest road at about 19,000 miles, stretching from Prudhoe Bay in Alaska all the way to the southern tip of Argentina! There is one famous gap called the Darién Gap — about 60 miles of dense jungle between Panama and Colombia that has never been paved. Only a handful of adventurers have ever crossed it, and the journey takes weeks through some of the most challenging terrain on Earth."
+    funFact: "The Pan-American Highway is the world's longest road at about 19,000 miles, stretching from Prudhoe Bay in Alaska all the way to the southern tip of Argentina! There is one famous gap called the Darién Gap of about 60 miles of dense jungle between Panama and Colombia that has never been paved. Only a handful of adventurers have ever crossed it, and the journey takes weeks through some of the most challenging terrain on Earth."
   },
   {
     id: 186,
@@ -187,7 +187,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "About 92%",
     hint: "The name is quite literal...",
-    funFact: "Watermelon is about 92% water, making it one of the most hydrating foods you can eat on a hot summer day! It was originally cultivated in Africa over 5,000 years ago and placed in the tombs of Egyptian pharaohs to nourish them in the afterlife. Every part of a watermelon is edible, including the rind — in many cultures it's pickled or stir-fried as a vegetable."
+    funFact: "Watermelon is about 92% water, making it one of the most hydrating foods you can eat on a hot summer day! It was originally cultivated in Africa over 5,000 years ago and placed in the tombs of Egyptian pharaohs to nourish them in the afterlife. Every part of a watermelon is edible, including the rind and in many cultures it's pickled or stir-fried as a vegetable."
   },
   {
     id: 187,
@@ -201,7 +201,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Strawberry",
     hint: "Botanical berries are defined differently than everyday usage...",
-    funFact: "Botanically, a true berry must develop from a single flower with one ovary. By that definition, bananas, watermelons, avocados, and even pumpkins are berries — but strawberries, raspberries, and blackberries are not! Strawberries are technically 'accessory fruits' because the fleshy part develops from tissue outside the ovary. The little yellow specks on a strawberry's surface are the actual fruits!"
+    funFact: "Botanically, a true berry must develop from a single flower with one ovary. By that definition, bananas, watermelons, avocados, and even pumpkins are berries but strawberries, raspberries, and blackberries are not! Strawberries are technically 'accessory fruits' because the fleshy part develops from tissue outside the ovary. The little yellow specks on a strawberry's surface are the actual fruits!"
   },
   {
     id: 188,
@@ -215,7 +215,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "California",
     hint: "Not the state nicknamed 'The Peach State'...",
-    funFact: "Despite Georgia's famous 'Peach State' nickname, California actually produces the most peaches in the U.S. today — about 50% of the nation's total! South Carolina actually outproduces Georgia too. Georgia earned its reputation in the 19th century when its peaches were prized for quality, but modern agriculture shifted production west. Georgia does still hold the title for some of the tastiest heirloom varieties!"
+    funFact: "Despite Georgia's famous 'Peach State' nickname, California actually produces the most peaches in the U.S. today: about 50% of the nation's total! South Carolina actually outproduces Georgia too. Georgia earned its reputation in the 19th century when its peaches were prized for quality, but modern agriculture shifted production west. Georgia does still hold the title for some of the tastiest heirloom varieties!"
   },
   {
     id: 189,
@@ -229,7 +229,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "More dust, pollen, and humidity scatter light",
     hint: "Think about what's floating in warm summer air...",
-    funFact: "Summer sunsets tend to be more vivid because warm air holds more moisture, pollen, dust, and particulates that scatter sunlight into brilliant oranges, pinks, and purples. Volcanic eruptions can also supercharge sunsets worldwide for months afterward — the eruption of Krakatoa in 1883 produced vivid red sunsets seen globally for nearly two years! After a summer thunderstorm is often the best time to catch a spectacular sunset."
+    funFact: "Summer sunsets tend to be more vivid because warm air holds more moisture, pollen, dust, and particulates that scatter sunlight into brilliant oranges, pinks, and purples. Volcanic eruptions can also supercharge sunsets worldwide for months afterward; the eruption of Krakatoa in 1883 produced vivid red sunsets seen globally for nearly two years! After a summer thunderstorm is often the best time to catch a spectacular sunset."
   },
   {
     id: 190,
@@ -243,7 +243,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Vanilla",
     hint: "Sometimes the classic wins...",
-    funFact: "Vanilla has been the best-selling ice cream flavor in the U.S. for decades, accounting for about 28% of all ice cream sales! Vanilla is actually the world's most labor-intensive spice after saffron — each vanilla orchid flower must be hand-pollinated within 12 hours of blooming. The U.S. is the world's largest consumer of vanilla, using about 60% of global production mostly in ice cream and baked goods."
+    funFact: "Vanilla has been the best-selling ice cream flavor in the U.S. for decades, accounting for about 28% of all ice cream sales! Vanilla is actually the world's most labor-intensive spice after saffron. Each vanilla orchid flower must be hand-pollinated within 12 hours of blooming. The U.S. is the world's largest consumer of vanilla, using about 60% of global production mostly in ice cream and baked goods."
   },
   {
     id: 191,
@@ -257,7 +257,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Hummingbird",
     hint: "A tiny, fast-winged summer visitor...",
-    funFact: "Hummingbirds are the only birds in the world that can fly backwards, as well as hover in place, fly upside down briefly, and change direction instantly — all thanks to a unique ball-and-socket shoulder joint found in no other bird. Their wings beat 50 to 80 times per second, which creates the humming sound that gives them their name. Despite weighing less than a penny, they migrate up to 500 miles nonstop across the Gulf of Mexico!"
+    funFact: "Hummingbirds are the only birds in the world that can fly backwards, as well as hover in place, fly upside down briefly, and change direction instantly. All thanks to a unique ball-and-socket shoulder joint found in no other bird. Their wings beat 50 to 80 times per second, which creates the humming sound that gives them their name. Despite weighing less than a penny, they migrate up to 500 miles nonstop across the Gulf of Mexico!"
   },
   {
     id: 192,
@@ -271,7 +271,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Egypt",
     hint: "One of the world's oldest civilizations had a citrus secret...",
-    funFact: "The earliest recorded lemonade dates back to Egypt around 1000 AD, where a sweetened lemon drink called 'qatarmizat' was popular! It spread through the Arab world and eventually reached Europe via trade routes. The classic American lemonade stand became a cultural icon in the early 20th century and remains one of the most beloved childhood entrepreneurship traditions. Pink lemonade's origin is disputed — some credit a circus vendor who accidentally dropped cinnamon candies into a lemonade barrel!"
+    funFact: "The earliest recorded lemonade dates back to Egypt around 1000 AD, where a sweetened lemon drink called 'qatarmizat' was popular! It spread through the Arab world and eventually reached Europe via trade routes. The classic American lemonade stand became a cultural icon in the early 20th century and remains one of the most beloved childhood entrepreneurship traditions. Pink lemonade's origin is disputed. Some credit a circus vendor who accidentally dropped cinnamon candies into a lemonade barrel!"
   },
   
 ];

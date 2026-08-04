@@ -273,6 +273,426 @@ const triviaQuestions = [
     hint: "One of the world's oldest civilizations had a citrus secret...",
     funFact: "The earliest recorded lemonade dates back to Egypt around 1000 AD, where a sweetened lemon drink called 'qatarmizat' was popular! It spread through the Arab world and eventually reached Europe via trade routes. The classic American lemonade stand became a cultural icon in the early 20th century and remains one of the most beloved childhood entrepreneurship traditions. Pink lemonade's origin is disputed. Some credit a circus vendor who accidentally dropped cinnamon candies into a lemonade barrel!"
   },
+  {
+    id: 193,
+    theme: "Space Science 🚀",
+    question: "How long does it take light from the Sun to reach Earth?",
+    options: [
+      "About 2 minutes",
+      "About 8 minutes",
+      "About 20 minutes",
+      "About 1 hour"
+    ],
+    correctAnswer: "About 8 minutes",
+    hint: "Faster than you might think for 93 million miles...",
+    funFact: "Sunlight takes about 8 minutes and 20 seconds to travel the 93 million miles from the Sun to Earth. This means when you look at the Sun, you're actually seeing it as it was 8 minutes ago! Light from the next closest star, Proxima Centauri, takes over 4 years to reach us, which is why we measure cosmic distances in light-years."
+  },
+  {
+    id: 194,
+    theme: "Space Science 🌙",
+    question: "Why does the Moon always show the same face to Earth?",
+    options: [
+      "The Moon doesn't rotate at all",
+      "Its rotation matches its orbit around Earth",
+      "Earth's gravity locked the Moon in place",
+      "The Moon rotates twice for every orbit"
+    ],
+    correctAnswer: "Its rotation matches its orbit around Earth",
+    hint: "It's a remarkable cosmic coincidence called synchronous rotation...",
+    funFact: "The Moon rotates on its axis at exactly the same rate it orbits Earth, once every 27.3 days, which is why we always see the same side. This isn't a coincidence; Earth's gravity gradually slowed the Moon's rotation over billions of years until it synchronized. The far side of the Moon wasn't seen by human eyes until 1959 when a Soviet spacecraft photographed it!"
+  },
+  {
+    id: 195,
+    theme: "Space Science ⭐",
+    question: "What is the most common type of star in the universe?",
+    options: [
+      "Yellow dwarfs like our Sun",
+      "Red giants",
+      "Red dwarfs",
+      "Blue supergiants"
+    ],
+    correctAnswer: "Red dwarfs",
+    hint: "Small, cool, and incredibly long-lived...",
+    funFact: "Red dwarf stars make up about 70% of all stars in the universe! They are much smaller and cooler than our Sun and burn their fuel so slowly that they can live for trillions of years, far longer than the current age of the universe. The nearest star to our solar system, Proxima Centauri, is a red dwarf. Despite being so common, they are too dim to see with the naked eye from Earth."
+  },
+  {
+    id: 196,
+    theme: "Earth Science 🌍",
+    question: "How old is planet Earth?",
+    options: [
+      "About 1 billion years",
+      "About 2.5 billion years",
+      "About 4.5 billion years",
+      "About 8 billion years"
+    ],
+    correctAnswer: "About 4.5 billion years",
+    hint: "Older than you might imagine...",
+    funFact: "Earth formed about 4.5 billion years ago from a swirling cloud of gas and dust surrounding the young Sun. The oldest rocks ever found on Earth are about 4 billion years old, found in Canada. For perspective, if Earth's entire history were compressed into a single year, modern humans wouldn't appear until the last few minutes of December 31st!"
+  },
+  {
+    id: 197,
+    theme: "Earth Science 🌋",
+    question: "How many tectonic plates make up Earth's surface?",
+    options: [
+      "About 5",
+      "About 12",
+      "About 20",
+      "About 50"
+    ],
+    correctAnswer: "About 20",
+    hint: "More than most people learn in school...",
+    funFact: "Earth's surface is divided into about 20 tectonic plates of varying sizes, constantly moving at roughly the speed your fingernails grow about 2 inches per year. The continents were once joined in a supercontinent called Pangaea about 335 million years ago. In about 250 million years, the continents will collide again to form a new supercontinent scientists have nicknamed Pangaea Proxima!"
+  },
+  {
+    id: 198,
+    theme: "Earth Science 🌊",
+    question: "What percentage of Earth's surface is covered by water?",
+    options: [
+      "About 51%",
+      "About 61%",
+      "About 71%",
+      "About 81%"
+    ],
+    correctAnswer: "About 71%",
+    hint: "More than two thirds...",
+    funFact: "About 71% of Earth's surface is covered by water, yet over 80% of the ocean remains unexplored! The ocean contains about 97% of all water on Earth. The average depth of the ocean is about 12,100 feet, deep enough to submerge most mountains. More people have walked on the Moon than have visited the deepest point of the ocean, the Mariana Trench."
+  },
+  {
+    id: 199,
+    theme: "Literature 📖",
+    question: "Which author wrote under the pen name 'George Eliot'?",
+    options: [
+      "Charlotte Brontë",
+      "Mary Ann Evans",
+      "Jane Austen",
+      "Virginia Woolf"
+    ],
+    correctAnswer: "Mary Ann Evans",
+    hint: "She used a male pen name to be taken seriously as a writer...",
+    funFact: "Mary Ann Evans published under the pen name George Eliot because she feared her work would be dismissed as light romantic fiction if readers knew she was a woman, a common problem for female writers in Victorian England. Her novels, including Middlemarch and The Mill on the Floss, are now considered among the greatest in the English language. Middlemarch has been called the greatest novel in the English language by multiple literary polls!"
+  },
+  {
+    id: 200,
+    theme: "Literature 📚",
+    question: "What is the shortest novel ever to win the Pulitzer Prize for Fiction?",
+    options: [
+      "The Old Man and the Sea",
+      "Of Mice and Men",
+      "Animal Farm",
+      "The Great Gatsby"
+    ],
+    correctAnswer: "The Old Man and the Sea",
+    hint: "A Hemingway classic about a fisherman...",
+    funFact: "Ernest Hemingway's The Old Man and the Sea, at just 127 pages, is the shortest novel to win the Pulitzer Prize for Fiction, which it did in 1953. It also contributed to Hemingway receiving the Nobel Prize in Literature in 1954. Hemingway wrote the first draft in just eight weeks and said it was the best writing he had ever done. The old fisherman Santiago is one of literature's most beloved characters!"
+  },
+  {
+    id: 201,
+    theme: "Literature 📖",
+    question: "Which novel begins with the line 'It was the best of times, it was the worst of times'?",
+    options: [
+      "Great Expectations",
+      "Oliver Twist",
+      "A Tale of Two Cities",
+      "David Copperfield"
+    ],
+    correctAnswer: "A Tale of Two Cities",
+    hint: "A Dickens novel set during the French Revolution...",
+    funFact: "A Tale of Two Cities by Charles Dickens, published in 1859, is one of the best-selling novels of all time with over 200 million copies sold! Its opening line is the most quoted in all of English literature. Dickens originally published it in weekly installments in his literary magazine, keeping readers in suspense for months. The two cities of the title are London and Paris."
+  },
+  {
+    id: 202,
+    theme: "Cooking 🍳",
+    question: "Why does cutting onions make you cry?",
+    options: [
+      "A natural acid irritates your eyes",
+      "A sulfur gas is released that reacts with eye moisture",
+      "The smell triggers an emotional response",
+      "Tiny onion particles float into your eyes"
+    ],
+    correctAnswer: "A sulfur gas is released that reacts with eye moisture",
+    hint: "It's a chemical chain reaction...",
+    funFact: "When you cut an onion, it releases enzymes that convert sulfur compounds into a gas called syn-propanethial-S-oxide. When this gas reaches your eyes it reacts with the moisture there to form a mild sulfuric acid, which your tear ducts try to wash away! Chilling onions before cutting slows the enzyme reaction and reduces tears. Cutting near running water or a fan also helps carry the gas away before it reaches your eyes."
+  },
+  {
+    id: 203,
+    theme: "Cooking 🧁",
+    question: "What does 'sauté' mean in cooking?",
+    options: [
+      "To cook slowly in liquid",
+      "To cook quickly in a small amount of fat over high heat",
+      "To cook in an oven uncovered",
+      "To cook by submerging in boiling water"
+    ],
+    correctAnswer: "To cook quickly in a small amount of fat over high heat",
+    hint: "The word comes from the French word for 'jump'...",
+    funFact: "The word 'sauté' comes from the French verb 'sauter,' meaning to jump, because the food is tossed or jumps in the pan during cooking! The high heat and quick cooking method seals in flavor while keeping food tender. The technique was perfected in classical French cuisine and is now one of the most fundamental skills in cooking. A proper sauté pan has sloped sides specifically designed for tossing food."
+  },
+  {
+    id: 204,
+    theme: "Cooking 🌿",
+    question: "Which herb is most consumed in the world?",
+    options: [
+      "Basil",
+      "Parsley",
+      "Cilantro",
+      "Mint"
+    ],
+    correctAnswer: "Parsley",
+    hint: "A common garnish that deserves more credit...",
+    funFact: "Parsley is the world's most widely consumed herb, used in cuisines from the Middle East to Europe to the Americas! It comes in two main varieties: curly and flat-leaf, with flat-leaf having a stronger flavor preferred by most chefs. Ancient Romans wore parsley garlands at banquets believing it would prevent intoxication. It's also one of the most nutritious herbs, packed with vitamins K, C, and A."
+  },
+  {
+    id: 205,
+    theme: "Travel 🌍",
+    question: "Which country has the most international tourists visit each year?",
+    options: [
+      "United States",
+      "Spain",
+      "France",
+      "China"
+    ],
+    correctAnswer: "France",
+    hint: "Think of the Eiffel Tower and the Louvre...",
+    funFact: "France consistently ranks as the world's most visited country, welcoming around 90 million international tourists annually! Paris alone draws about 30 million visitors per year. The Louvre is the world's most visited art museum, and the Palace of Versailles draws millions more. France's combination of art, cuisine, fashion, history, and natural beauty makes it irresistible to travelers from every corner of the globe."
+  },
+  {
+    id: 206,
+    theme: "Travel ✈️",
+    question: "What is the world's busiest airport by passenger traffic?",
+    options: [
+      "London Heathrow",
+      "Dubai International",
+      "Hartsfield-Jackson Atlanta",
+      "Beijing Capital"
+    ],
+    correctAnswer: "Hartsfield-Jackson Atlanta",
+    hint: "It's in the American South...",
+    funFact: "Hartsfield-Jackson Atlanta International Airport has been the world's busiest airport by passenger traffic for over two decades, handling over 100 million passengers annually! Its central location in the eastern U.S. makes it a hub for connecting flights. The airport has its own underground train system connecting terminals, its own zip code, and generates more economic activity than any other facility in Georgia."
+  },
+  {
+    id: 207,
+    theme: "Travel 🗺️",
+    question: "What is the smallest country in the Americas?",
+    options: [
+      "Belize",
+      "Jamaica",
+      "Saint Kitts and Nevis",
+      "Barbados"
+    ],
+    correctAnswer: "Saint Kitts and Nevis",
+    hint: "A two-island Caribbean nation...",
+    funFact: "Saint Kitts and Nevis is the smallest country in the Western Hemisphere, covering just 104 square miles and home to about 53,000 people! It was the first Caribbean island to be colonized by Europeans in 1623. Despite its tiny size, it has a fascinating history as one of the most important sugar-producing colonies in the 18th century. Its volcanic peaks and rainforests make it a beloved eco-tourism destination today."
+  },
+  {
+    id: 208,
+    theme: "Outdoor Recreation 🏕️",
+    question: "What is the Leave No Trace principle most associated with?",
+    options: [
+      "Staying on marked trails only",
+      "Minimizing human impact on natural spaces",
+      "Packing out all food waste",
+      "Never building campfires"
+    ],
+    correctAnswer: "Minimizing human impact on natural spaces",
+    hint: "It's a broader philosophy than just one rule...",
+    funFact: "Leave No Trace is a set of seven principles designed to minimize human impact on the outdoors, covering everything from campfire safety to wildlife interaction to how to dispose of waste properly. The movement began in the 1960s as national parks saw surging visitor numbers. Studies show that education in Leave No Trace principles dramatically reduces environmental damage in wilderness areas. The golden rule: leave a place better than you found it!"
+  },
+  {
+    id: 209,
+    theme: "Outdoor Recreation 🎣",
+    question: "What is the world record weight for a largemouth bass?",
+    options: [
+      "About 12 pounds",
+      "About 16 pounds",
+      "About 22 pounds",
+      "About 28 pounds"
+    ],
+    correctAnswer: "About 22 pounds",
+    hint: "Caught in Japan in 2009...",
+    funFact: "The world record largemouth bass weighed 22 pounds 4 ounces and was caught in Lake Biwa, Japan in 2009 by Manabu Kurita tying a record set in Georgia in 1932! Largemouth bass are native to North America but have been introduced worldwide. Bass fishing is a multi-billion dollar industry in the U.S. with professional tournaments offering millions in prize money. The fish can live up to 16 years in the wild."
+  },
+  {
+    id: 210,
+    theme: "Outdoor Recreation 🏔️",
+    question: "What is the most hiked trail in the United States?",
+    options: [
+      "The Appalachian Trail",
+      "Angels Landing in Zion",
+      "The Rim Trail at Grand Canyon",
+      "Half Dome in Yosemite"
+    ],
+    correctAnswer: "The Rim Trail at Grand Canyon",
+    hint: "Millions of visitors walk part of it every year...",
+    funFact: "The Rim Trail at Grand Canyon National Park is the most hiked trail in the U.S., with millions of visitors walking portions of its 13 miles along the South Rim each year! Unlike most Grand Canyon trails it is mostly flat and paved, making it accessible to almost everyone. The Grand Canyon receives about 6 million visitors annually, making it one of the most visited national parks. The canyon is up to 18 miles wide and over a mile deep!"
+  },
+  {
+    id: 211,
+    theme: "Seasonal Transitions 🍂",
+    question: "Why do leaves change color in autumn?",
+    options: [
+      "Cold temperatures create new pigments",
+      "Chlorophyll breaks down revealing hidden pigments",
+      "Trees absorb minerals that change leaf color",
+      "Reduced sunlight dyes the leaves"
+    ],
+    correctAnswer: "Chlorophyll breaks down revealing hidden pigments",
+    hint: "The colors were there all along...",
+    funFact: "The brilliant reds, oranges, and yellows of autumn leaves were actually hidden there all summer! Green chlorophyll dominates during the growing season but breaks down in autumn as days shorten and temperatures drop, revealing the yellow and orange pigments beneath. The vivid reds are newly produced by some trees as sugars get trapped in the leaves. The best fall foliage happens after warm sunny days and cool but not freezing nights."
+  },
+  {
+    id: 212,
+    theme: "Seasonal Transitions 🌾",
+    question: "What is the autumnal equinox?",
+    options: [
+      "The first frost of the season",
+      "When day and night are equal length",
+      "The peak of fall foliage season",
+      "When the Sun is furthest from Earth"
+    ],
+    correctAnswer: "When day and night are equal length",
+    hint: "Think about what equinox means literally...",
+    funFact: "The word equinox comes from the Latin for 'equal night' on the autumnal equinox, day and night are each approximately 12 hours long everywhere on Earth! In the Northern Hemisphere it falls around September 22-23 each year. After this date, nights grow longer than days until the winter solstice. Many ancient cultures built monuments aligned to the equinoxes, including Stonehenge and the Mayan pyramid at Chichen Itza."
+  },
+  {
+    id: 213,
+    theme: "Seasonal Transitions 🎃",
+    question: "What was the original vegetable used to make jack-o'-lanterns?",
+    options: [
+      "Squash",
+      "Beets",
+      "Turnips",
+      "Potatoes"
+    ],
+    correctAnswer: "Turnips",
+    hint: "The Irish brought the tradition to America...",
+    funFact: "Jack-o'-lanterns originated in Ireland where people carved scary faces into turnips to ward off evil spirits during Samhain, the Celtic harvest festival! When Irish immigrants arrived in America they discovered that pumpkins were far easier to carve and much more plentiful, so the tradition switched to pumpkins. The name 'jack-o'-lantern' comes from an Irish folktale about a trickster named Stingy Jack who was condemned to wander the earth with only a carved turnip lantern to light his way."
+  },
+  {
+    id: 214,
+    theme: "Seasonal Transitions ❄️",
+    question: "What causes the first frost of autumn?",
+    options: [
+      "Snow clouds releasing frozen moisture",
+      "Ground temperature dropping below freezing on clear calm nights",
+      "Cold fronts pushing Arctic air south",
+      "Dew freezing when temperatures hit 35 degrees"
+    ],
+    correctAnswer: "Ground temperature dropping below freezing on clear calm nights",
+    hint: "Clear skies are actually key to frost formation...",
+    funFact: "Frost forms on clear, calm nights when the ground radiates heat away into the sky with no clouds to reflect it back, causing surfaces to drop below 32 degrees Fahrenheit even when air temperature is slightly warmer. Wind actually prevents frost because it mixes warmer air down to the surface! Gardeners watch for these calm clear nights in autumn to protect their plants. The first frost date varies dramatically across the U.S. from August in northern Minnesota to December in Florida."
+  },
+  {
+    id: 215,
+    theme: "Space Science 🌠",
+    question: "What causes a meteor shower?",
+    options: [
+      "Asteroids breaking apart near Earth",
+      "Earth passing through a comet's debris trail",
+      "Solar flares ejecting particles toward Earth",
+      "Fragments of the Moon entering the atmosphere"
+    ],
+    correctAnswer: "Earth passing through a comet's debris trail",
+    hint: "Comets leave something behind long after they pass...",
+    funFact: "Meteor showers occur when Earth passes through the trail of debris left behind by a comet on its orbit around the Sun. The tiny particles, most no bigger than a grain of sand, burn up in our atmosphere creating streaks of light! The Perseid meteor shower every August comes from comet Swift-Tuttle. The Leonid shower in November can occasionally produce meteor storms with thousands of meteors per hour: a truly spectacular sight."
+  },
+  {
+    id: 216,
+    theme: "Earth Science 🌪️",
+    question: "What is the difference between a hurricane and a typhoon?",
+    options: [
+      "Their wind speed categories",
+      "Only their location; they are the same storm type",
+      "Typhoons rotate clockwise, hurricanes counterclockwise",
+      "Typhoons form over land, hurricanes over water"
+    ],
+    correctAnswer: "Only their location; they are the same storm type",
+    hint: "It's all about geography...",
+    funFact: "Hurricanes and typhoons are exactly the same type of storm, a tropical cyclone, just named differently based on where they occur! Storms in the Atlantic and eastern Pacific are called hurricanes, those in the western Pacific are typhoons, and those in the Indian Ocean are simply called cyclones. They all rotate counterclockwise in the Northern Hemisphere and clockwise in the Southern Hemisphere due to Earth's rotation."
+  },
+  {
+    id: 217,
+    theme: "Cooking 🍰",
+    question: "What is the Maillard reaction in cooking?",
+    options: [
+      "The process that makes bread rise",
+      "The browning reaction that creates flavor",
+      "How fat emulsifies in sauces",
+      "The caramelization of sugars"
+    ],
+    correctAnswer: "The browning reaction that creates flavor",
+    hint: "It's responsible for the delicious crust on bread and seared meat...",
+    funFact: "The Maillard reaction is a chemical reaction between amino acids and sugars that occurs when food is heated above about 280 degrees Fahrenheit, creating hundreds of new flavor compounds and the appealing brown color on seared steaks, toast, roasted coffee, and baked bread! Named after French chemist Louis-Camille Maillard who described it in 1912, it is distinct from caramelization which only involves sugars. It's arguably the most important reaction in cooking!"
+  },
+  {
+    id: 218,
+    theme: "Travel 🏯",
+    question: "Which ancient wonder of the world was located in Alexandria, Egypt?",
+    options: [
+      "The Hanging Gardens",
+      "The Colossus",
+      "The Lighthouse of Alexandria",
+      "The Temple of Artemis"
+    ],
+    correctAnswer: "The Lighthouse of Alexandria",
+    hint: "It guided sailors for centuries...",
+    funFact: "The Lighthouse of Alexandria, built around 280 BC on the island of Pharos, stood between 330 and 430 feet tall; one of the tallest man-made structures in the ancient world! It guided ships into the busy harbor for over 1,500 years. The word 'pharos' became the word for lighthouse in many languages, including French (phare) and Spanish (faro). It was gradually destroyed by a series of earthquakes between 956 and 1323 AD."
+  },
+  {
+    id: 219,
+    theme: "Outdoor Recreation 🌿",
+    question: "How many national parks are in the United States?",
+    options: [
+      "About 40",
+      "About 63",
+      "About 85",
+      "About 120"
+    ],
+    correctAnswer: "About 63",
+    hint: "More than most people realize...",
+    funFact: "The United States has 63 designated national parks, the most recent being New River Gorge in West Virginia, designated in 2020! But the National Park System actually includes over 400 sites including monuments, historic sites, seashores, and recreation areas. Yellowstone, established in 1872, was the world's first national park. The national parks collectively receive over 300 million visits per year and are often called 'America's best idea.'"
+  },
+  {
+    id: 220,
+    theme: "Literature 📚",
+    question: "What novel features the character Atticus Finch as a lawyer defending a wrongly accused man?",
+    options: [
+      "The Grapes of Wrath",
+      "To Kill a Mockingbird",
+      "Of Mice and Men",
+      "Invisible Man"
+    ],
+    correctAnswer: "To Kill a Mockingbird",
+    hint: "Set in the American South during the 1930s...",
+    funFact: "To Kill a Mockingbird by Harper Lee was published in 1960 and won the Pulitzer Prize the following year. Atticus Finch has been voted the greatest fictional hero of the 20th century by the American Film Institute! Lee's childhood neighbor was Truman Capote, who inspired the character of Dill. Despite writing one of the most celebrated American novels, Lee was intensely private and gave almost no interviews for the last 50 years of her life."
+  },
+  {
+    id: 221,
+    theme: "Seasonal Transitions 🍁",
+    question: "Which U.S. state is most famous for fall foliage tourism?",
+    options: [
+      "New York",
+      "Vermont",
+      "Maine",
+      "New Hampshire"
+    ],
+    correctAnswer: "Vermont",
+    hint: "A small New England state with big autumn color...",
+    funFact: "Vermont is the undisputed capital of fall foliage tourism in the U.S., drawing over 3 million visitors each autumn! Its mix of sugar maples, birches, and beeches creates a spectacular palette of reds, oranges, and yellows. Vermont's foliage season typically peaks in early to mid-October. The state even has an official foliage hotline and website where rangers report weekly color conditions. Fall tourism generates hundreds of millions of dollars for Vermont's economy!"
+  },
+  {
+    id: 222,
+    theme: "Cooking 🍲",
+    question: "What is the key difference between a stock and a broth?",
+    options: [
+      "Stock uses vegetables, broth uses meat",
+      "Stock is made from bones, broth is made from meat",
+      "Broth is always salted, stock never is",
+      "They are exactly the same thing"
+    ],
+    correctAnswer: "Stock is made from bones, broth is made from meat",
+    hint: "One is richer and more gelatinous than the other...",
+    funFact: "Stock is made by simmering bones, which release collagen that turns into gelatin, giving stock a rich body and slightly sticky texture when cooled. Broth is made from simmering meat and is thinner and more flavorful on its own. Stock is the backbone of classical French cuisine and is the base for most professional sauces and soups. A good homemade stock can simmer for 4 to 8 hours to extract maximum flavor and gelatin from the bones!"
+  },
   
 ];
 

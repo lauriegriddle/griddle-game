@@ -7,208 +7,278 @@ import { Share2, Instagram, BarChart3, X } from 'lucide-react';
 // ============================================================
 // LETTER GRIDDLE FLIPS - TRIVIA QUESTIONS
 // ============================================================
-// ACTIVE QUESTIONS: ids 155-174 (fresh content, July 8, 2026)
-// BENCHED QUESTIONS: ids 1-154 (commented out below, reuse anytime)
+// ACTIVE QUESTIONS: ids 175-192 (fresh content, August 3, 2026)
+// BENCHED QUESTIONS: ids 1-174 (commented out below, reuse anytime)
 //
 // ANCHOR DATE SET TO: May 15, 2026 at 7:45 PM
 // Update this in getTodaysQuestion():
-//   const anchorDate = new Date(2026, 4, 15, 19, 45, 0, 0);
-//   const ANCHOR_INDEX = 0;
+//   const anchorDate = new Date(2026, 6, 25, 19, 45, 0, 0);
+const ANCHOR_INDEX = 0;
 // ============================================================
 
 const triviaQuestions = [
 
   // ============================================================
-  // ACTIVE QUESTIONS - ids 155-174
+  // ACTIVE QUESTIONS - ids 175-192
   // ============================================================
-
+{
+    id: 175,
+    theme: "Sharks 🦈",
+    question: "How many rows of teeth can a great white shark have at one time?",
+    options: [
+      "1 row",
+      "2 rows",
+      "Up to 7 rows",
+      "Up to 15 rows"
+    ],
+    correctAnswer: "Up to 7 rows",
+    hint: "Far more than just the front row you see...",
+    funFact: "Great white sharks can have up to 7 rows of teeth at once, with about 300 teeth total! They are constantly replacing lost teeth throughout their lives, cycling through roughly 20,000 teeth in a lifetime. Shark teeth are not attached to a jawbone like human teeth — they are essentially modified scales, which is why they fall out so easily."
+  },
   {
-    id: 155,
-    theme: "Food & Drink 🍦",
-    question: "What is the most popular ice cream flavor in the United States?",
-    options: ["Chocolate", "Vanilla", "Strawberry", "Mint chocolate chip"],
+    id: 176,
+    theme: "Sharks 🦈",
+    question: "What is the largest shark species in the world?",
+    options: [
+      "Great White Shark",
+      "Bull Shark",
+      "Whale Shark",
+      "Hammerhead Shark"
+    ],
+    correctAnswer: "Whale Shark",
+    hint: "Despite its name, it's gentle and filter-feeds like a whale...",
+    funFact: "The whale shark is the largest fish on Earth, reaching up to 40 feet long and weighing as much as 20 tons! Despite their enormous size, whale sharks are completely harmless to humans and feed by filter-feeding on tiny plankton, fish eggs, and small fish. They are slow, gentle giants that sometimes allow swimmers to hitch a ride — though scientists discourage this to protect the animals."
+  },
+  {
+    id: 177,
+    theme: "Sharks 🦈",
+    question: "How do sharks detect prey from long distances?",
+    options: [
+      "Exceptional color vision",
+      "Electroreception through special pores",
+      "Sonar clicks like dolphins",
+      "Smell alone"
+    ],
+    correctAnswer: "Electroreception through special pores",
+    hint: "They can sense something invisible to us...",
+    funFact: "Sharks have small pores on their snouts called the ampullae of Lorenzini that detect the faint electrical fields produced by all living creatures' muscle movements. This sixth sense is so precise that a shark can detect the electrical field of a fish hiding under sand! They also have a legendary sense of smell — able to detect a single drop of blood in 25 gallons of water — but electroreception is their secret weapon up close."
+  },
+  {
+    id: 178,
+    theme: "Marine Life 🌊",
+    question: "What is the fastest fish in the ocean?",
+    options: [
+      "Mako Shark",
+      "Bluefin Tuna",
+      "Sailfish",
+      "Barracuda"
+    ],
+    correctAnswer: "Sailfish",
+    hint: "Named for the dramatic fin along its back...",
+    funFact: "The sailfish is the fastest fish in the ocean, capable of bursting to speeds of 68 miles per hour! Its impressive dorsal fin, or 'sail,' can be folded down while swimming to reduce drag and raised when herding schools of fish. Sailfish are also remarkable hunters — they work cooperatively in groups to encircle baitfish, taking turns slashing through the school with their long bills."
+  },
+  {
+    id: 179,
+    theme: "Marine Life 🌊",
+    question: "How do sea otters keep from drifting apart while sleeping?",
+    options: [
+      "They anchor themselves to the seafloor",
+      "They hold hands with each other",
+      "They tangle themselves in kelp",
+      "They swim in slow circles together"
+    ],
+    correctAnswer: "They hold hands with each other",
+    hint: "It's as adorable as it sounds...",
+    funFact: "Sea otters hold hands while sleeping on the water's surface in a behavior called 'rafting,' so they don't drift away from each other or their kelp bed! A group of resting otters is called a raft and can contain anywhere from a few to hundreds of animals. Sea otters also wrap themselves in kelp as an anchor. They have the densest fur of any animal — up to a million hairs per square inch!"
+  },
+  {
+    id: 180,
+    theme: "Marine Life 🌊",
+    question: "Why do crabs walk sideways?",
+    options: [
+      "Their eyes can only see to the sides",
+      "Their leg joints bend outward, not forward",
+      "Sideways movement is faster in sand",
+      "It helps them avoid predators"
+    ],
+    correctAnswer: "Their leg joints bend outward, not forward",
+    hint: "It's simply a matter of anatomy...",
+    funFact: "Crabs walk sideways because their leg joints are structured to bend outward rather than forward and backward, making lateral movement the path of least resistance. Interestingly, not all crabs walk sideways — some species like the sally lightfoot crab and the coconut crab can actually move in any direction! The coconut crab, the world's largest land invertebrate, can climb trees and crack open coconuts with its claws."
+  },
+  {
+    id: 181,
+    theme: "Amusement Parks 🎢",
+    question: "What was the first amusement park in the United States?",
+    options: [
+      "Coney Island",
+      "Cedar Point",
+      "Lake Compounce",
+      "Disneyland"
+    ],
+    correctAnswer: "Lake Compounce",
+    hint: "It's still operating today in Connecticut...",
+    funFact: "Lake Compounce in Bristol, Connecticut opened in 1846, making it the oldest continuously operating amusement park in the United States! It predates Coney Island by decades. The park started as a simple picnic grove and gradually added rides over the years. Its wooden roller coaster, the Wildcat, has been thrilling riders since 1927!"
+  },
+  {
+    id: 182,
+    theme: "Amusement Parks 🎢",
+    question: "How fast does the world's fastest roller coaster travel?",
+    options: [
+      "About 100 mph",
+      "About 120 mph",
+      "About 150 mph",
+      "About 170 mph"
+    ],
+    correctAnswer: "About 150 mph",
+    hint: "It's located in Abu Dhabi...",
+    funFact: "Formula Rossa at Ferrari World in Abu Dhabi is the world's fastest roller coaster, reaching 149 miles per hour in just 4.9 seconds! Riders are required to wear protective goggles because at that speed, insects and debris become a real hazard. For comparison, the first roller coasters in 18th-century Russia were simply ice slides that people rode on sleds — quite a leap in 300 years!"
+  },
+  {
+    id: 183,
+    theme: "Amusement Parks 🎢",
+    question: "What does the 'E' in 'E-ticket ride' originally refer to?",
+    options: [
+      "Elite attractions at Disneyland",
+      "The highest tier in Disneyland's original ticket booklet",
+      "Electronic ticketing systems",
+      "Extra-thrilling experiences"
+    ],
+    correctAnswer: "The highest tier in Disneyland's original ticket booklet",
+    hint: "Disneyland used to sell ticket books with lettered coupons...",
+    funFact: "When Disneyland opened in 1955, guests bought ticket books with coupons labeled A through E. A-tickets were for simple rides like the Main Street vehicles, while E-tickets covered the most spectacular attractions like the Matterhorn and Pirates of the Caribbean. The phrase 'E-ticket ride' entered American slang to mean any thrilling, top-of-the-line experience. Disney phased out the ticket books in 1982."
+  },
+  {
+    id: 184,
+    theme: "Road Trips 🚗",
+    question: "How long is Route 66, America's most famous road trip highway?",
+    options: [
+      "About 1,000 miles",
+      "About 2,400 miles",
+      "About 3,100 miles",
+      "About 4,000 miles"
+    ],
+    correctAnswer: "About 2,400 miles",
+    hint: "It stretches from Chicago to Los Angeles...",
+    funFact: "Route 66 stretches 2,448 miles from Chicago, Illinois to Santa Monica, California, passing through 8 states. Established in 1926, it became the main road for families migrating west during the Dust Bowl and later a symbol of American freedom and adventure. Though officially decommissioned in 1985 when interstates replaced it, Route 66 lives on as a heritage highway with roadside diners, motels, and quirky roadside attractions still drawing travelers today."
+  },
+  {
+    id: 185,
+    theme: "Road Trips 🚗",
+    question: "What is the longest road in the world?",
+    options: [
+      "The Trans-Siberian Highway",
+      "The Pan-American Highway",
+      "The Trans-Canada Highway",
+      "The Australian Highway 1"
+    ],
+    correctAnswer: "The Pan-American Highway",
+    hint: "It runs through North and South America...",
+    funFact: "The Pan-American Highway is the world's longest road at about 19,000 miles, stretching from Prudhoe Bay in Alaska all the way to the southern tip of Argentina! There is one famous gap called the Darién Gap — about 60 miles of dense jungle between Panama and Colombia that has never been paved. Only a handful of adventurers have ever crossed it, and the journey takes weeks through some of the most challenging terrain on Earth."
+  },
+  {
+    id: 186,
+    theme: "Summer Fruits 🍉",
+    question: "Watermelon is composed of approximately what percentage of water?",
+    options: [
+      "About 72%",
+      "About 82%",
+      "About 92%",
+      "About 99%"
+    ],
+    correctAnswer: "About 92%",
+    hint: "The name is quite literal...",
+    funFact: "Watermelon is about 92% water, making it one of the most hydrating foods you can eat on a hot summer day! It was originally cultivated in Africa over 5,000 years ago and placed in the tombs of Egyptian pharaohs to nourish them in the afterlife. Every part of a watermelon is edible, including the rind — in many cultures it's pickled or stir-fried as a vegetable."
+  },
+  {
+    id: 187,
+    theme: "Summer Fruits 🍓",
+    question: "Technically speaking, which of these is NOT a berry?",
+    options: [
+      "Banana",
+      "Watermelon",
+      "Strawberry",
+      "Avocado"
+    ],
+    correctAnswer: "Strawberry",
+    hint: "Botanical berries are defined differently than everyday usage...",
+    funFact: "Botanically, a true berry must develop from a single flower with one ovary. By that definition, bananas, watermelons, avocados, and even pumpkins are berries — but strawberries, raspberries, and blackberries are not! Strawberries are technically 'accessory fruits' because the fleshy part develops from tissue outside the ovary. The little yellow specks on a strawberry's surface are the actual fruits!"
+  },
+  {
+    id: 188,
+    theme: "Summer Fruits 🍑",
+    question: "Which U.S. state produces the most peaches today?",
+    options: [
+      "Georgia",
+      "South Carolina",
+      "California",
+      "Colorado"
+    ],
+    correctAnswer: "California",
+    hint: "Not the state nicknamed 'The Peach State'...",
+    funFact: "Despite Georgia's famous 'Peach State' nickname, California actually produces the most peaches in the U.S. today — about 50% of the nation's total! South Carolina actually outproduces Georgia too. Georgia earned its reputation in the 19th century when its peaches were prized for quality, but modern agriculture shifted production west. Georgia does still hold the title for some of the tastiest heirloom varieties!"
+  },
+  {
+    id: 189,
+    theme: "Summer Sunsets 🌅",
+    question: "Why are sunsets often more colorful in summer than winter?",
+    options: [
+      "The sun is closer to Earth in summer",
+      "More dust, pollen, and humidity scatter light",
+      "Summer air contains more oxygen",
+      "The Earth's rotation slows slightly in summer"
+    ],
+    correctAnswer: "More dust, pollen, and humidity scatter light",
+    hint: "Think about what's floating in warm summer air...",
+    funFact: "Summer sunsets tend to be more vivid because warm air holds more moisture, pollen, dust, and particulates that scatter sunlight into brilliant oranges, pinks, and purples. Volcanic eruptions can also supercharge sunsets worldwide for months afterward — the eruption of Krakatoa in 1883 produced vivid red sunsets seen globally for nearly two years! After a summer thunderstorm is often the best time to catch a spectacular sunset."
+  },
+  {
+    id: 190,
+    theme: "Ice Cream 🍦",
+    question: "What is the best-selling ice cream flavor in the United States?",
+    options: [
+      "Cookies and Cream",
+      "Chocolate",
+      "Vanilla",
+      "Strawberry"
+    ],
     correctAnswer: "Vanilla",
-    hint: "It's often seen as the 'plain' choice, but it wins by a landslide...",
-    funFact: "Vanilla is America's favorite ice cream flavor by a wide margin, making up nearly 30% of all ice cream sales. It's also one of the most labor-intensive spices to produce, since vanilla orchids must be hand-pollinated!"
+    hint: "Sometimes the classic wins...",
+    funFact: "Vanilla has been the best-selling ice cream flavor in the U.S. for decades, accounting for about 28% of all ice cream sales! Vanilla is actually the world's most labor-intensive spice after saffron — each vanilla orchid flower must be hand-pollinated within 12 hours of blooming. The U.S. is the world's largest consumer of vanilla, using about 60% of global production mostly in ice cream and baked goods."
   },
   {
-    id: 156,
-    theme: "Science 🌕",
-    question: "Why does the moon look larger when it's near the horizon?",
-    options: ["It's actually closer to Earth at that point", "It's an optical illusion in the brain", "The atmosphere magnifies it like a lens", "Light bends differently at low altitude"],
-    correctAnswer: "It's an optical illusion in the brain",
-    hint: "The moon isn't actually any closer...",
-    funFact: "This is called the 'moon illusion,' and scientists still don't fully agree on why it happens! If you measure the moon with a ruler held at arm's length, it's the exact same size at the horizon as it is overhead. Your brain just perceives it differently."
+    id: 191,
+    theme: "Backyard Birds 🐦",
+    question: "Which common backyard bird can fly backwards?",
+    options: [
+      "Robin",
+      "Hummingbird",
+      "Blue Jay",
+      "Mockingbird"
+    ],
+    correctAnswer: "Hummingbird",
+    hint: "A tiny, fast-winged summer visitor...",
+    funFact: "Hummingbirds are the only birds in the world that can fly backwards, as well as hover in place, fly upside down briefly, and change direction instantly — all thanks to a unique ball-and-socket shoulder joint found in no other bird. Their wings beat 50 to 80 times per second, which creates the humming sound that gives them their name. Despite weighing less than a penny, they migrate up to 500 miles nonstop across the Gulf of Mexico!"
   },
   {
-    id: 157,
-    theme: "History 🗽",
-    question: "Which country gave the United States the Statue of Liberty?",
-    options: ["England", "France", "Spain", "Italy"],
-    correctAnswer: "France",
-    hint: "A gift to celebrate friendship and shared ideals of liberty...",
-    funFact: "France gave the Statue of Liberty to the U.S. in 1886 to commemorate the alliance during the American Revolution. It arrived in 350 individual pieces packed in 214 crates and took four months to assemble on-site!"
+    id: 192,
+    theme: "Lemonade 🍋",
+    question: "Which country is believed to have invented lemonade?",
+    options: [
+      "Greece",
+      "Egypt",
+      "Italy",
+      "France"
+    ],
+    correctAnswer: "Egypt",
+    hint: "One of the world's oldest civilizations had a citrus secret...",
+    funFact: "The earliest recorded lemonade dates back to Egypt around 1000 AD, where a sweetened lemon drink called 'qatarmizat' was popular! It spread through the Arab world and eventually reached Europe via trade routes. The classic American lemonade stand became a cultural icon in the early 20th century and remains one of the most beloved childhood entrepreneurship traditions. Pink lemonade's origin is disputed — some credit a circus vendor who accidentally dropped cinnamon candies into a lemonade barrel!"
   },
-  {
-    id: 158,
-    theme: "Geography 🏔️",
-    question: "What is the longest mountain range above sea level?",
-    options: ["The Rockies", "The Himalayas", "The Andes", "The Alps"],
-    correctAnswer: "The Andes",
-    hint: "It runs the entire length of South America...",
-    funFact: "The Andes stretch about 4,300 miles along the western edge of South America, making it the longest continental mountain range in the world. It passes through seven countries, from Venezuela down to the southern tip of Chile and Argentina!"
-  },
-  {
-    id: 159,
-    theme: "Literature 📖",
-    question: "Who created the character Sherlock Holmes?",
-    options: ["Agatha Christie", "Arthur Conan Doyle", "Charles Dickens", "H.G. Wells"],
-    correctAnswer: "Arthur Conan Doyle",
-    hint: "He was a Scottish physician before becoming a full-time writer...",
-    funFact: "Arthur Conan Doyle wrote Sherlock Holmes stories partly to fund his medical practice. He grew so tired of the character that he killed Holmes off in 1893, but public outcry was so intense he was forced to bring him back eight years later!"
-  },
-  {
-    id: 160,
-    theme: "Movies 🦖",
-    question: "Which 1993 film was the first to use realistic CGI dinosaurs?",
-    options: ["The Land Before Time", "Jurassic Park", "Godzilla", "King Kong"],
-    correctAnswer: "Jurassic Park",
-    hint: "Steven Spielberg directed this groundbreaking blockbuster...",
-    funFact: "Jurassic Park revolutionized visual effects with only about 6 minutes of CGI dinosaur footage in the entire film; the rest used animatronics. The T-Rex model alone weighed over 12,000 pounds and required 50 people to operate!"
-  },
-  {
-    id: 161,
-    theme: "Music 🪈",
-    question: "What is considered the oldest known musical instrument?",
-    options: ["Drum", "Flute", "Harp", "Lyre"],
-    correctAnswer: "Flute",
-    hint: "It was carved from bone tens of thousands of years ago...",
-    funFact: "Bone flutes discovered in Germany date back about 40,000 years, making them the oldest known musical instruments. They were carved from vulture and mammoth bones by early humans in the Upper Paleolithic era!"
-  },
-  {
-    id: 162,
-    theme: "Animals 🦒",
-    question: "How much sleep does a giraffe typically get per day?",
-    options: ["Under 2 hours", "About 6 hours", "About 10 hours", "About 14 hours"],
-    correctAnswer: "Under 2 hours",
-    hint: "They're one of the least-sleeping mammals on Earth...",
-    funFact: "Giraffes sleep as little as 30 minutes to 2 hours a day, often in short bursts of just a few minutes at a time! Their long necks and vulnerability to predators mean they rarely lie down for long, uninterrupted sleep."
-  },
-  {
-    id: 163,
-    theme: "Nature 🌈",
-    question: "How many colors are traditionally identified in a rainbow?",
-    options: ["5", "6", "7", "8"],
-    correctAnswer: "7",
-    hint: "Think 'Roy G. Biv'...",
-    funFact: "Isaac Newton originally identified 7 colors in the rainbow, including indigo, partly because he wanted the number to match the 7 notes in a musical scale! A rainbow is actually a continuous spectrum with no hard boundaries between colors."
-  },
-  {
-    id: 164,
-    theme: "TV Shows 📺",
-    question: "Which show has won the most Emmy Awards in television history?",
-    options: ["The Simpsons", "Saturday Night Live", "Game of Thrones", "Cheers"],
-    correctAnswer: "Saturday Night Live",
-    hint: "It's been on the air since 1975...",
-    funFact: "Saturday Night Live has won more Emmy Awards than any other show in television history, with over 90 wins. It has aired for 50 seasons and launched the careers of countless comedy legends, from Eddie Murphy to Tina Fey!"
-  },
-  {
-    id: 165,
-    theme: "Food & Drink 🧅",
-    question: "Why do onions make you cry when you cut them?",
-    options: ["They release a gas that irritates your eyes", "Their acidity burns your skin", "They contain natural pepper spray", "Cutting releases pressurized air"],
-    correctAnswer: "They release a gas that irritates your eyes",
-    hint: "It's a chemical defense mechanism the onion evolved...",
-    funFact: "Cutting an onion releases a compound called syn-propanethial-S-oxide, which irritates the eyes and triggers tears as a defense response. Chilling onions before cutting slows the chemical reaction and can reduce the tears!"
-  },
-  {
-    id: 166,
-    theme: "Animals 🦩",
-    question: "What is a group of flamingos called?",
-    options: ["A flock", "A flamboyance", "A parade", "A pinkery"],
-    correctAnswer: "A flamboyance",
-    hint: "The name fits their vibrant color perfectly...",
-    funFact: "A group of flamingos is officially called a 'flamboyance,' a fitting name for such a colorful bird! Flamingos get their pink color from pigments in the algae and crustaceans they eat, and they're actually born gray!"
-  },
-  {
-    id: 167,
-    theme: "Travel 🗼",
-    question: "How tall is the Eiffel Tower?",
-    options: ["About 500 feet", "About 700 feet", "About 1,000 feet", "About 1,300 feet"],
-    correctAnswer: "About 1,000 feet",
-    hint: "It was the tallest man-made structure in the world for 41 years...",
-    funFact: "The Eiffel Tower stands about 1,083 feet tall and held the title of world's tallest structure from 1889 until 1930. It grows about 6 inches taller in summer, as the iron expands in the heat!"
-  },
-  {
-    id: 168,
-    theme: "History 🏺",
-    question: "Who ordered the construction of China's famous Terracotta Army?",
-    options: ["Confucius", "Qin Shi Huang", "Genghis Khan", "Kublai Khan"],
-    correctAnswer: "Qin Shi Huang",
-    hint: "He was China's first emperor...",
-    funFact: "Qin Shi Huang, China's first emperor, ordered the creation of over 8,000 life-sized terracotta soldiers to guard his tomb in the afterlife. The site wasn't discovered until 1974, when farmers digging a well stumbled upon it!"
-  },
-  {
-    id: 169,
-    theme: "Geography 🇻🇦",
-    question: "What is the smallest country in the world by population?",
-    options: ["Monaco", "San Marino", "Vatican City", "Nauru"],
-    correctAnswer: "Vatican City",
-    hint: "It's an independent city-state within Rome...",
-    funFact: "Vatican City has a population of only around 800 people, making it the smallest country in the world by both area and population. It even has its own postal service, radio station, and army, the Swiss Guard!"
-  },
-  {
-    id: 170,
-    theme: "Books 📚",
-    question: "Which now-beloved book series was rejected by 12 publishers before being accepted?",
-    options: ["The Hunger Games", "Harry Potter", "Twilight", "The Da Vinci Code"],
-    correctAnswer: "Harry Potter",
-    hint: "It went on to become the best-selling book series in history...",
-    funFact: "Harry Potter and the Philosopher's Stone was rejected by 12 publishing houses before Bloomsbury finally accepted it, and even then the editor's 8-year-old daughter is credited with convincing him it was good! The series has since sold over 600 million copies."
-  },
-  {
-    id: 171,
-    theme: "Science 🍌",
-    question: "About what percentage of human DNA do we share with bananas?",
-    options: ["About 10%", "About 25%", "About 50%", "About 75%"],
-    correctAnswer: "About 50%",
-    hint: "It's surprisingly high, given how different we look...",
-    funFact: "Humans share roughly 50% of their DNA with bananas! This is because much of our DNA codes for basic cellular functions that all living things share, like how cells divide and process energy."
-  },
-  {
-    id: 172,
-    theme: "Nature 🐋",
-    question: "What is the largest animal known to have ever existed on Earth?",
-    options: ["The woolly mammoth", "The blue whale", "The megalodon", "The Argentinosaurus"],
-    correctAnswer: "The blue whale",
-    hint: "It's still alive today and swims in our oceans...",
-    funFact: "The blue whale is the largest animal ever known to have existed, even bigger than the largest dinosaurs. It can grow up to 100 feet long and weigh as much as 200 tons, and its heart alone can weigh as much as a small car!"
-  },
-  {
-    id: 173,
-    theme: "Food & Drink 🍓",
-    question: "Which of these is technically classified as a berry?",
-    options: ["Strawberry", "Banana", "Raspberry", "Blackberry"],
-    correctAnswer: "Banana",
-    hint: "Botanists have a very different definition than the rest of us...",
-    funFact: "Botanically speaking, a banana is a true berry, but strawberries and raspberries are not! Berries must develop from a single flower with one ovary, which bananas, grapes, and even tomatoes and avocados meet, but strawberries don't."
-  },
-  {
-    id: 174,
-    theme: "Movies 🎬",
-    question: "Which 2009 film became the highest-grossing movie of all time (unadjusted for inflation)?",
-    options: ["Titanic", "Avengers: Endgame", "Avatar", "Star Wars: The Force Awakens"],
-    correctAnswer: "Avatar",
-    hint: "It's set on the alien moon of Pandora...",
-    funFact: "Avatar, directed by James Cameron, became the highest-grossing film of all time upon release in 2009. Cameron actually invented new 3D camera technology specifically to make the film, and it took nearly a decade of development before filming even began!"
-  },
+  
 ];
 
 /*
-// ============================================================
-// BENCHED QUESTIONS - ids 1-154
-// Uncomment and move above the closing ]; to restore
-// ============================================================
+// ACTIVE QUESTIONS: ids 175-192 (fresh content, August 2026)
+// BENCHED QUESTIONS: ids 1-174 (commented out below, reuse anytime)
 
   {
     id: 1,
@@ -1817,13 +1887,192 @@ const triviaQuestions = [
     hint: "A flat country famous for its cycling culture...",
     funFact: "The Netherlands has more bicycles than people:  about 23 million bikes for 17 million residents! In cities like Amsterdam and Utrecht, over 60% of all trips are made by bicycle. The Dutch cycling infrastructure is so well-developed that bike lanes have their own traffic signals, and children receive formal cycling education in school. The country has over 35,000 kilometers of dedicated bike paths!"
   },
-  
+  {
+    id: 155,
+    theme: "Food & Drink 🍦",
+    question: "What is the most popular ice cream flavor in the United States?",
+    options: ["Chocolate", "Vanilla", "Strawberry", "Mint chocolate chip"],
+    correctAnswer: "Vanilla",
+    hint: "It's often seen as the 'plain' choice, but it wins by a landslide...",
+    funFact: "Vanilla is America's favorite ice cream flavor by a wide margin, making up nearly 30% of all ice cream sales. It's also one of the most labor-intensive spices to produce, since vanilla orchids must be hand-pollinated!"
+  },
+  {
+    id: 156,
+    theme: "Science 🌕",
+    question: "Why does the moon look larger when it's near the horizon?",
+    options: ["It's actually closer to Earth at that point", "It's an optical illusion in the brain", "The atmosphere magnifies it like a lens", "Light bends differently at low altitude"],
+    correctAnswer: "It's an optical illusion in the brain",
+    hint: "The moon isn't actually any closer...",
+    funFact: "This is called the 'moon illusion,' and scientists still don't fully agree on why it happens! If you measure the moon with a ruler held at arm's length, it's the exact same size at the horizon as it is overhead. Your brain just perceives it differently."
+  },
+  {
+    id: 157,
+    theme: "History 🗽",
+    question: "Which country gave the United States the Statue of Liberty?",
+    options: ["England", "France", "Spain", "Italy"],
+    correctAnswer: "France",
+    hint: "A gift to celebrate friendship and shared ideals of liberty...",
+    funFact: "France gave the Statue of Liberty to the U.S. in 1886 to commemorate the alliance during the American Revolution. It arrived in 350 individual pieces packed in 214 crates and took four months to assemble on-site!"
+  },
+  {
+    id: 158,
+    theme: "Geography 🏔️",
+    question: "What is the longest mountain range above sea level?",
+    options: ["The Rockies", "The Himalayas", "The Andes", "The Alps"],
+    correctAnswer: "The Andes",
+    hint: "It runs the entire length of South America...",
+    funFact: "The Andes stretch about 4,300 miles along the western edge of South America, making it the longest continental mountain range in the world. It passes through seven countries, from Venezuela down to the southern tip of Chile and Argentina!"
+  },
+  {
+    id: 159,
+    theme: "Literature 📖",
+    question: "Who created the character Sherlock Holmes?",
+    options: ["Agatha Christie", "Arthur Conan Doyle", "Charles Dickens", "H.G. Wells"],
+    correctAnswer: "Arthur Conan Doyle",
+    hint: "He was a Scottish physician before becoming a full-time writer...",
+    funFact: "Arthur Conan Doyle wrote Sherlock Holmes stories partly to fund his medical practice. He grew so tired of the character that he killed Holmes off in 1893, but public outcry was so intense he was forced to bring him back eight years later!"
+  },
+  {
+    id: 160,
+    theme: "Movies 🦖",
+    question: "Which 1993 film was the first to use realistic CGI dinosaurs?",
+    options: ["The Land Before Time", "Jurassic Park", "Godzilla", "King Kong"],
+    correctAnswer: "Jurassic Park",
+    hint: "Steven Spielberg directed this groundbreaking blockbuster...",
+    funFact: "Jurassic Park revolutionized visual effects with only about 6 minutes of CGI dinosaur footage in the entire film; the rest used animatronics. The T-Rex model alone weighed over 12,000 pounds and required 50 people to operate!"
+  },
+  {
+    id: 161,
+    theme: "Music 🪈",
+    question: "What is considered the oldest known musical instrument?",
+    options: ["Drum", "Flute", "Harp", "Lyre"],
+    correctAnswer: "Flute",
+    hint: "It was carved from bone tens of thousands of years ago...",
+    funFact: "Bone flutes discovered in Germany date back about 40,000 years, making them the oldest known musical instruments. They were carved from vulture and mammoth bones by early humans in the Upper Paleolithic era!"
+  },
+  {
+    id: 162,
+    theme: "Animals 🦒",
+    question: "How much sleep does a giraffe typically get per day?",
+    options: ["Under 2 hours", "About 6 hours", "About 10 hours", "About 14 hours"],
+    correctAnswer: "Under 2 hours",
+    hint: "They're one of the least-sleeping mammals on Earth...",
+    funFact: "Giraffes sleep as little as 30 minutes to 2 hours a day, often in short bursts of just a few minutes at a time! Their long necks and vulnerability to predators mean they rarely lie down for long, uninterrupted sleep."
+  },
+  {
+    id: 163,
+    theme: "Nature 🌈",
+    question: "How many colors are traditionally identified in a rainbow?",
+    options: ["5", "6", "7", "8"],
+    correctAnswer: "7",
+    hint: "Think 'Roy G. Biv'...",
+    funFact: "Isaac Newton originally identified 7 colors in the rainbow, including indigo, partly because he wanted the number to match the 7 notes in a musical scale! A rainbow is actually a continuous spectrum with no hard boundaries between colors."
+  },
+  {
+    id: 164,
+    theme: "TV Shows 📺",
+    question: "Which show has won the most Emmy Awards in television history?",
+    options: ["The Simpsons", "Saturday Night Live", "Game of Thrones", "Cheers"],
+    correctAnswer: "Saturday Night Live",
+    hint: "It's been on the air since 1975...",
+    funFact: "Saturday Night Live has won more Emmy Awards than any other show in television history, with over 90 wins. It has aired for 50 seasons and launched the careers of countless comedy legends, from Eddie Murphy to Tina Fey!"
+  },
+  {
+    id: 165,
+    theme: "Food & Drink 🧅",
+    question: "Why do onions make you cry when you cut them?",
+    options: ["They release a gas that irritates your eyes", "Their acidity burns your skin", "They contain natural pepper spray", "Cutting releases pressurized air"],
+    correctAnswer: "They release a gas that irritates your eyes",
+    hint: "It's a chemical defense mechanism the onion evolved...",
+    funFact: "Cutting an onion releases a compound called syn-propanethial-S-oxide, which irritates the eyes and triggers tears as a defense response. Chilling onions before cutting slows the chemical reaction and can reduce the tears!"
+  },
+  {
+    id: 166,
+    theme: "Animals 🦩",
+    question: "What is a group of flamingos called?",
+    options: ["A flock", "A flamboyance", "A parade", "A pinkery"],
+    correctAnswer: "A flamboyance",
+    hint: "The name fits their vibrant color perfectly...",
+    funFact: "A group of flamingos is officially called a 'flamboyance,' a fitting name for such a colorful bird! Flamingos get their pink color from pigments in the algae and crustaceans they eat, and they're actually born gray!"
+  },
+  {
+    id: 167,
+    theme: "Travel 🗼",
+    question: "How tall is the Eiffel Tower?",
+    options: ["About 500 feet", "About 700 feet", "About 1,000 feet", "About 1,300 feet"],
+    correctAnswer: "About 1,000 feet",
+    hint: "It was the tallest man-made structure in the world for 41 years...",
+    funFact: "The Eiffel Tower stands about 1,083 feet tall and held the title of world's tallest structure from 1889 until 1930. It grows about 6 inches taller in summer, as the iron expands in the heat!"
+  },
+  {
+    id: 168,
+    theme: "History 🏺",
+    question: "Who ordered the construction of China's famous Terracotta Army?",
+    options: ["Confucius", "Qin Shi Huang", "Genghis Khan", "Kublai Khan"],
+    correctAnswer: "Qin Shi Huang",
+    hint: "He was China's first emperor...",
+    funFact: "Qin Shi Huang, China's first emperor, ordered the creation of over 8,000 life-sized terracotta soldiers to guard his tomb in the afterlife. The site wasn't discovered until 1974, when farmers digging a well stumbled upon it!"
+  },
+  {
+    id: 169,
+    theme: "Geography 🇻🇦",
+    question: "What is the smallest country in the world by population?",
+    options: ["Monaco", "San Marino", "Vatican City", "Nauru"],
+    correctAnswer: "Vatican City",
+    hint: "It's an independent city-state within Rome...",
+    funFact: "Vatican City has a population of only around 800 people, making it the smallest country in the world by both area and population. It even has its own postal service, radio station, and army, the Swiss Guard!"
+  },
+  {
+    id: 170,
+    theme: "Books 📚",
+    question: "Which now-beloved book series was rejected by 12 publishers before being accepted?",
+    options: ["The Hunger Games", "Harry Potter", "Twilight", "The Da Vinci Code"],
+    correctAnswer: "Harry Potter",
+    hint: "It went on to become the best-selling book series in history...",
+    funFact: "Harry Potter and the Philosopher's Stone was rejected by 12 publishing houses before Bloomsbury finally accepted it, and even then the editor's 8-year-old daughter is credited with convincing him it was good! The series has since sold over 600 million copies."
+  },
+  {
+    id: 171,
+    theme: "Science 🍌",
+    question: "About what percentage of human DNA do we share with bananas?",
+    options: ["About 10%", "About 25%", "About 50%", "About 75%"],
+    correctAnswer: "About 50%",
+    hint: "It's surprisingly high, given how different we look...",
+    funFact: "Humans share roughly 50% of their DNA with bananas! This is because much of our DNA codes for basic cellular functions that all living things share, like how cells divide and process energy."
+  },
+  {
+    id: 172,
+    theme: "Nature 🐋",
+    question: "What is the largest animal known to have ever existed on Earth?",
+    options: ["The woolly mammoth", "The blue whale", "The megalodon", "The Argentinosaurus"],
+    correctAnswer: "The blue whale",
+    hint: "It's still alive today and swims in our oceans...",
+    funFact: "The blue whale is the largest animal ever known to have existed, even bigger than the largest dinosaurs. It can grow up to 100 feet long and weigh as much as 200 tons, and its heart alone can weigh as much as a small car!"
+  },
+  {
+    id: 173,
+    theme: "Food & Drink 🍓",
+    question: "Which of these is technically classified as a berry?",
+    options: ["Strawberry", "Banana", "Raspberry", "Blackberry"],
+    correctAnswer: "Banana",
+    hint: "Botanists have a very different definition than the rest of us...",
+    funFact: "Botanically speaking, a banana is a true berry, but strawberries and raspberries are not! Berries must develop from a single flower with one ovary, which bananas, grapes, and even tomatoes and avocados meet, but strawberries don't."
+  },
+  {
+    id: 174,
+    theme: "Movies 🎬",
+    question: "Which 2009 film became the highest-grossing movie of all time (unadjusted for inflation)?",
+    options: ["Titanic", "Avengers: Endgame", "Avatar", "Star Wars: The Force Awakens"],
+    correctAnswer: "Avatar",
+    hint: "It's set on the alien moon of Pandora...",
+    funFact: "Avatar, directed by James Cameron, became the highest-grossing film of all time upon release in 2009. Cameron actually invented new 3D camera technology specifically to make the film, and it took nearly a decade of development before filming even began!"
+  },
 */
 
 // Function to get today's question - ANCHOR DATE SYSTEM
 const getTodaysQuestion = () => {
   // ANCHOR DATE: February 1, 2026 at 7:45 PM = Question ID 27 (index 26)
-  const anchorDate = new Date(2026, 4, 15, 19, 45, 0, 0);
+  const anchorDate = new Date(2026, 7, 3, 19, 45, 0, 0);
 const ANCHOR_INDEX = 0;
   
   const now = new Date();

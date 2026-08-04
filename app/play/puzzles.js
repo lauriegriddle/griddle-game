@@ -3903,7 +3903,7 @@ const puzzles = [
       { word: "GOOEY", hint: "Soft and melty center", revealedIndex: 2 },
       { word: "RECIPE", hint: "Baking instructions", revealedIndex: 3 },
       { word: "CRUMBLY", hint: "Messy delicate texture", revealedIndex: 0 },
-      { word: "DOUGH", hint: "Unbaked cookie mixture", revealedIndex: 2 },
+      { word: "BAKEWARE", hint: "Pans and sheets", revealedIndex: 2 },
     ],
     funFact: "The chocolate chip cookies consumed by the Cookie Monster on Sesame Street are actually painted rice cakes! Real cookies leave a residue that is dangerous for Muppets. 🍪",
   },

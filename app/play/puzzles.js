@@ -4051,6 +4051,293 @@ const puzzles = [
     ],
     funFact: "In China and Japan, calligraphy is historically considered an art form on par with painting, poetry, and archery. ✍️",
   },
+  // =============================================
+  // INDEX 257 - Shows August 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chameleon",
+    puzzleNumber: 337,
+    words: [
+      { word: "COLD", hint: "Temperature they sense", revealedIndex: 0 },
+      { word: "COLOR", hint: "What they change", revealedIndex: 2 },
+      { word: "LIZARD", hint: "Reptile family", revealedIndex: 3 },
+      { word: "REPTILE", hint: "Cold-blooded animal class", revealedIndex: 0 },
+      { word: "BLENDING", hint: "Camouflage technique", revealedIndex: 4 },
+    ],
+    funFact: "Chameleons change color by moving tiny crystals in their skin, not just by using basic pigments. 🦎",
+  },
+
+  // =============================================
+  // INDEX 258 - Shows August 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Relaxation",
+    puzzleNumber: 338,
+    words: [
+      { word: "SLOW", hint: "Take it easy", revealedIndex: 0 },
+      { word: "CHILL", hint: "Relax and unwind", revealedIndex: 2 },
+      { word: "UNWIND", hint: "Let go of tension", revealedIndex: 3 },
+      { word: "ROUTINE", hint: "A daily practice or usual schedule", revealedIndex: 0 },
+      { word: "MEDITATE", hint: "Mindful stillness practice", revealedIndex: 4 },
+    ],
+    funFact: "45% of people do not know how to actively relax, which is why experts suggest scheduling downtime like any other important meeting. 😌",
+  },
+
+  // =============================================
+  // INDEX 259 - Shows August 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Roller Coaster",
+    puzzleNumber: 339,
+    words: [
+      { word: "WILD", hint: "Thrilling and unpredictable", revealedIndex: 0 },
+      { word: "BUMPY", hint: "Rough and jolting ride", revealedIndex: 2 },
+      { word: "SCREAM", hint: "Reaction to the drop", revealedIndex: 3 },
+      { word: "DESCENT", hint: "The thrilling downhill plunge", revealedIndex: 0 },
+      { word: "WHIPLASH", hint: "Neck-snapping speed effect", revealedIndex: 4 },
+    ],
+    funFact: "The world's fastest roller coaster is Formula Rossa in Abu Dhabi at 149 mph, the tallest was Kingda Ka in New Jersey at 456 feet, and the longest is Steel Dragon 2000 in Japan at 8,133 feet. 🎢",
+  },
+
+  // =============================================
+  // INDEX 260 - Shows August 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Thrift Shop",
+    puzzleNumber: 340,
+    words: [
+      { word: "DEAL", hint: "A bargain find", revealedIndex: 0 },
+      { word: "RETRO", hint: "Vintage style", revealedIndex: 2 },
+      { word: "RESALE", hint: "Selling secondhand", revealedIndex: 3 },
+      { word: "UPCYCLE", hint: "Transform old into new", revealedIndex: 0 },
+      { word: "RUMMAGE", hint: "Search through items", revealedIndex: 4 },
+    ],
+    funFact: "Macklemore's hit 2013 song 'Thrift Shop' skyrocketed to number one on the Billboard charts, reflecting a massive cultural wave toward secondhand fashion. 👗",
+  },
+
+  // =============================================
+  // INDEX 261 - Shows August 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Fajitas",
+    puzzleNumber: 341,
+    words: [
+      { word: "BEEF", hint: "Classic protein filling", revealedIndex: 0 },
+      { word: "ONION", hint: "Caramelized veggie topping", revealedIndex: 2 },
+      { word: "PEPPER", hint: "Colorful sautéed veggie", revealedIndex: 3 },
+      { word: "SKILLET", hint: "Cast iron cooking pan", revealedIndex: 0 },
+      { word: "SIZZLING", hint: "Hot and crackling sound", revealedIndex: 4 },
+    ],
+    funFact: "Fajitas started as a humble cowboy meal in Texas during the 1930s, where ranch hands were paid with cheap skirt steak. Today, this iconic Tex-Mex dish is famous worldwide for its interactive build-your-own style and dramatic, sizzling iron skillets. 🌮",
+  },
+
+  // =============================================
+  // INDEX 262 - Shows August 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Aviation",
+    puzzleNumber: 342,
+    words: [
+      { word: "HAWK", hint: "Kitty ____", revealedIndex: 0 },
+      { word: "PLANE", hint: "Flying machine", revealedIndex: 2 },
+      { word: "GLIDER", hint: "Engineless aircraft", revealedIndex: 3 },
+      { word: "WRIGHT", hint: "Famous flying brothers", revealedIndex: 0 },
+      { word: "BROTHERS", hint: "Orville and Wilbur", revealedIndex: 4 },
+    ],
+    funFact: "Wilbur and Orville Wright achieved the first controlled, powered human flight on December 17, 1903. Beyond inventing the airplane, they ran a print shop and bicycle business, and never finished high school. ✈️",
+  },
+
+  // =============================================
+  // INDEX 263 - Shows August 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Bacon",
+    puzzleNumber: 343,
+    words: [
+      { word: "PORK", hint: "Pig-derived meat", revealedIndex: 0 },
+      { word: "SALTY", hint: "Savory cured flavor", revealedIndex: 2 },
+      { word: "SMOKED", hint: "Slow-cooked with wood", revealedIndex: 3 },
+      { word: "STREAKY", hint: "Fatty strip variety", revealedIndex: 0 },
+      { word: "PANCAKES", hint: "Classic breakfast pairing", revealedIndex: 4 },
+    ],
+    funFact: "Ancient Chinese civilizations began salting and curing pork bellies around 1500 BCE. 🥓",
+  },
+
+  // =============================================
+  // INDEX 264 - Shows August 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Hawaiian Shirt",
+    puzzleNumber: 344,
+    words: [
+      { word: "LOOSE", hint: "Relaxed, breezy fit", revealedIndex: 0 },
+      { word: "FLORAL", hint: "Flower-printed pattern", revealedIndex: 2 },
+      { word: "BRIGHT", hint: "Bold vivid colors", revealedIndex: 3 },
+      { word: "TROPICAL", hint: "Island-inspired style", revealedIndex: 0 },
+      { word: "ALOHA", hint: "Hawaiian greeting on the shirt tag", revealedIndex: 2 },
+    ],
+    funFact: "The Hawaiian shirt—locally known as the aloha shirt—was invented in Honolulu in the early 1930s. The very first aloha shirts were sewn from bright, scrap Japanese kimono fabrics by local tailors in Hawaii. 🌺",
+  },
+
+  // =============================================
+  // INDEX 265 - Shows August 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Tooth Fairy",
+    puzzleNumber: 345,
+    words: [
+      { word: "COIN", hint: "Reward left under pillow", revealedIndex: 0 },
+      { word: "MAGIC", hint: "Enchanting fairy power", revealedIndex: 2 },
+      { word: "PILLOW", hint: "Where the tooth is hidden", revealedIndex: 3 },
+      { word: "QUARTER", hint: "Common coin reward", revealedIndex: 0 },
+      { word: "SLEEPING", hint: "Child must be doing this", revealedIndex: 4 },
+    ],
+    funFact: "In Spain, France, and Latin America, a friendly mouse named Ratóncito Pérez collects the teeth. Norse and Viking warriors paid children a 'tooth fee' for teeth, stringing them on necklaces for good luck in battle. 🧚",
+  },
+
+  // =============================================
+  // INDEX 266 - Shows August 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Cuban Sandwich",
+    puzzleNumber: 346,
+    words: [
+      { word: "PORK", hint: "Primary protein filling", revealedIndex: 0 },
+      { word: "BREAD", hint: "Cuban roll base", revealedIndex: 2 },
+      { word: "CHEESE", hint: "Melted Swiss layer", revealedIndex: 3 },
+      { word: "PICKLES", hint: "Tangy essential ingredient", revealedIndex: 0 },
+      { word: "PRESSED", hint: "Flattened and grilled", revealedIndex: 4 },
+    ],
+    funFact: "The iconic Cuban sandwich originated in the cigar-manufacturing neighborhoods of Ybor City of Tampa, Florida. 🥪",
+  },
+
+  // =============================================
+  // INDEX 267 - Shows August 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Amelia Earhart",
+    puzzleNumber: 347,
+    words: [
+      { word: "SOLO", hint: "Flying alone", revealedIndex: 0 },
+      { word: "COAST", hint: "Coast-to-coast journey", revealedIndex: 2 },
+      { word: "DEPART", hint: "From Los Angeles, CA", revealedIndex: 3 },
+      { word: "ARRIVAL", hint: "At Newark, NJ", revealedIndex: 0 },
+      { word: "LOCKHEED", hint: "Aircraft manufacturer she flew", revealedIndex: 4 },
+    ],
+    funFact: "Amelia Earhart's historic non-stop solo flight across the United States on August 24–25, 1932, spanned 2,447 miles from Los Angeles to Newark in 19 hours and 5 minutes, making her the first woman to fly coast-to-coast non-stop. ✈️",
+  },
+
+  // =============================================
+  // INDEX 268 - Shows August 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "United States National Parks",
+    puzzleNumber: 348,
+    words: [
+      { word: "MESA", hint: "Flat-topped rock formation", revealedIndex: 0 },
+      { word: "GORGE", hint: "Deep narrow canyon", revealedIndex: 2 },
+      { word: "GEYSER", hint: "Yellowstone's hot spring", revealedIndex: 3 },
+      { word: "GLACIER", hint: "Slow-moving ice mass", revealedIndex: 0 },
+      { word: "MONUMENT", hint: "Protected landmark", revealedIndex: 4 },
+    ],
+    funFact: "Yellowstone National Park was established in 1872 as the very first national park in the world, predating the creation of the official U.S. National Park Service by 44 years. Today, the entire U.S. national park system covers over 84 million acres of land. 🏞️",
+  },
+
+  // =============================================
+  // INDEX 269 - Shows August 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Equality",
+    puzzleNumber: 349,
+    words: [
+      { word: "VOTE", hint: "The right to cast a ballot", revealedIndex: 0 },
+      { word: "WOMEN", hint: "Who gained voting rights", revealedIndex: 2 },
+      { word: "RIGHTS", hint: "Freedoms and liberties", revealedIndex: 3 },
+      { word: "GRANTED", hint: "Officially given", revealedIndex: 0 },
+      { word: "SUFFRAGE", hint: "The right to vote", revealedIndex: 4 },
+    ],
+    funFact: "In 1920, the 19th Amendment was certified into the U.S. Constitution, legally securing women's voting rights. The 19th Amendment is often called the Anthony Amendment because Susan B. Anthony and Elizabeth Cady Stanton originally drafted its text in 1878. ⚖️",
+  },
+
+  // =============================================
+  // INDEX 270 - Shows August 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Bananas",
+    puzzleNumber: 350,
+    words: [
+      { word: "PEEL", hint: "Remove the outer skin", revealedIndex: 0 },
+      { word: "BREAD", hint: "Baked banana loaf", revealedIndex: 2 },
+      { word: "YELLOW", hint: "Ripe color", revealedIndex: 3 },
+      { word: "PUDDING", hint: "Creamy banana dessert", revealedIndex: 0 },
+      { word: "PLANTAIN", hint: "Cooking banana variety", revealedIndex: 4 },
+    ],
+    funFact: "The Banana Club Museum, located on Highway 111 in Mecca, California, just south of Palm Springs, houses the world's largest collection devoted to any one fruit. It contains more than 17,000 banana items, most donated by members. 🍌",
+  },
+
+  // =============================================
+  // INDEX 271 - Shows August 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "St. Augustine, Florida",
+    puzzleNumber: 351,
+    words: [
+      { word: "FORT", hint: "Historic Castillo de San Marcos", revealedIndex: 0 },
+      { word: "GHOST", hint: "Famous haunted tours", revealedIndex: 2 },
+      { word: "BRIDGE", hint: "Lions guard this landmark", revealedIndex: 3 },
+      { word: "SPANISH", hint: "Colonial heritage", revealedIndex: 0 },
+      { word: "FOUNTAIN", hint: "Of Youth attraction", revealedIndex: 4 },
+    ],
+    funFact: "St. Augustine's famous historic fort, the Castillo de San Marcos, was never captured in battle because it is built out of coquina, a rare limestone composed of fragmented seashells that acted like a dense sponge, causing cannonballs to bury themselves inside the stone. 🏰",
+  },
+
+  // =============================================
+  // INDEX 272 - Shows August 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chop Suey",
+    puzzleNumber: 352,
+    words: [
+      { word: "STIR", hint: "____ Fry", revealedIndex: 0 },
+      { word: "SAUCE", hint: "Soy _____", revealedIndex: 2 },
+      { word: "SAVORY", hint: "Rich, satisfying flavor", revealedIndex: 3 },
+      { word: "VARIETY", hint: "Mix of many ingredients", revealedIndex: 0 },
+      { word: "LEFTOVER", hint: "What the dish is made from", revealedIndex: 4 },
+    ],
+    funFact: "Chop Suey comes from the Cantonese phrase tsap seui, which translates roughly to 'miscellaneous leftovers.' In the 1920s, chop suey was so trendy that early Chinese restaurants in the U.S. were often just called 'chop suey houses.' 🍜",
+  },
+
+  // =============================================
+  // INDEX 273 - Shows August 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Whale Sharks",
+    puzzleNumber: 353,
+    words: [
+      { word: "FISH", hint: "Their true animal class", revealedIndex: 0 },
+      { word: "GIANT", hint: "Enormous in size", revealedIndex: 2 },
+      { word: "GENTLE", hint: "Peaceful despite their size", revealedIndex: 3 },
+      { word: "LARGEST", hint: "Biggest fish in the ocean", revealedIndex: 0 },
+      { word: "LIFESPAN", hint: "How long they live", revealedIndex: 4 },
+    ],
+    funFact: "Scientists believe these gentle giants can live for up to 100 to 150 years. Even though they share a name with whales, they are true fish with skeletons made of cartilage instead of bone. 🦈",
+  },
+
+  // =============================================
+  // INDEX 274 - Shows August 31, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Trail Mix",
+    puzzleNumber: 354,
+    words: [
+      { word: "NUTS", hint: "Almonds, cashews, peanuts", revealedIndex: 0 },
+      { word: "SEEDS", hint: "Sunflower or pumpkin additions", revealedIndex: 2 },
+      { word: "RAISINS", hint: "Dried grape sweetener", revealedIndex: 3 },
+      { word: "ANCIENT", hint: "Very old origins", revealedIndex: 0 },
+      { word: "OUTDOORS", hint: "Where it's enjoyed most", revealedIndex: 4 },
+    ],
+    funFact: "Ancient people ate early forms of trail mix thousands of years ago, often mixing dried fruits, nuts, and fats with dried meats like buffalo. 🥜",
+  },
 ];
 
 // ===========================================

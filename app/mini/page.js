@@ -198,7 +198,7 @@ const miniPuzzles = [
   { word: "TOKYO", category: "Japan", hint: "Japan's bustling capital and the world's most populous city" },
   { word: "CAIRO", category: "Egypt", hint: "Egypt's ancient capital and the largest city in Africa" },
   { word: "CHIPS", category: "United Kingdom", hint: "The other half of Britain's most iconic takeaway dish" },
-  { word: "CLIFF", category: "Ireland", hint: "The dramatic Cliffs of Moher rise 700 feet above the sea" },
+  { word: "CLIFF", category: "Ireland", hint: "The dramatic ____s of Moher rise 700 feet above the sea" },
   { word: "SYRUP", category: "Canada", hint: "Canada produces 70% of the world's maple version" },
   { word: "KOALA", category: "Australia", hint: "Marsupial that sleeps up to 22 hours a day in eucalyptus trees" },
   { word: "EAGLE", category: "United States", hint: "The bald version of this bird is America's national symbol" },

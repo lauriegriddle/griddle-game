@@ -4170,13 +4170,13 @@ const puzzles = [
     category: "Hawaiian Shirt",
     puzzleNumber: 344,
     words: [
-      { word: "LOOSE", hint: "Relaxed, breezy fit", revealedIndex: 0 },
+      { word: "LUAU", hint: "Island party", revealedIndex: 0 },
       { word: "FLORAL", hint: "Flower-printed pattern", revealedIndex: 2 },
       { word: "BRIGHT", hint: "Bold vivid colors", revealedIndex: 3 },
       { word: "TROPICAL", hint: "Island-inspired style", revealedIndex: 0 },
       { word: "ALOHA", hint: "Hawaiian greeting on the shirt tag", revealedIndex: 2 },
     ],
-    funFact: "The Hawaiian shirt—locally known as the aloha shirt—was invented in Honolulu in the early 1930s. The very first aloha shirts were sewn from bright, scrap Japanese kimono fabrics by local tailors in Hawaii. 🌺",
+    funFact: "The Hawaiian shirt, locally known as the aloha shirt, was invented in Honolulu in the early 1930s. The very first aloha shirts were sewn from bright, scrap Japanese kimono fabrics by local tailors in Hawaii. 🌺",
   },
 
   // =============================================

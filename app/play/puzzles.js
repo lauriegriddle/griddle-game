@@ -4339,6 +4339,358 @@ const puzzles = [
     ],
     funFact: "Ancient people ate early forms of trail mix thousands of years ago, often mixing dried fruits, nuts, and fats with dried meats like buffalo. 🥜",
   },
+
+    // =============================================
+  // INDEX 275 - Shows September 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "No Rhyme and No Reason",
+    puzzleNumber: 355,
+    words: [
+      { word: "PINT", hint: "A unit of liquid measure", revealedIndex: 0 },
+      { word: "MONTH", hint: "30 or 31 days", revealedIndex: 2 },
+      { word: "ORANGE", hint: "A citrus fruit", revealedIndex: 3 },
+      { word: "CHIMNEY", hint: "Smoke rises through this", revealedIndex: 0 },
+      { word: "MARATHON", hint: "A 26.2 mile race", revealedIndex: 4 },
+    ],
+    funFact: "The expression 'no rhyme nor reason' traces back to the 15th century, when John Russell first used it in The Boke of Nurture. It was later popularized by Shakespeare in the Comedy of Errors and As You Like It. 🎵",
+  },
+
+  // =============================================
+  // INDEX 276 - Shows September 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Earrings",
+    puzzleNumber: 356,
+    words: [
+      { word: "LOBE", hint: "Lower part of the ear", revealedIndex: 0 },
+      { word: "PEARL", hint: "Classic elegant gem", revealedIndex: 2 },
+      { word: "PIERCE", hint: "Make a hole for jewelry", revealedIndex: 3 },
+      { word: "JEWELRY", hint: "Decorative accessories", revealedIndex: 0 },
+      { word: "GEMSTONE", hint: "Precious stone in a setting", revealedIndex: 4 },
+    ],
+    funFact: "The earliest recorded evidence of earrings shows they were worn by men, such as the 5,000-year-old mummy Ötzi the Iceman discovered in the Italian Alps. Ancient doctors believed that wearing earrings could cure headaches and improve eyesight. 👂",
+  },
+
+  // =============================================
+  // INDEX 277 - Shows September 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Skyscraper",
+    puzzleNumber: 357,
+    words: [
+      { word: "SWAY", hint: "What tall buildings do in wind", revealedIndex: 0 },
+      { word: "TOWER", hint: "Tall structure", revealedIndex: 2 },
+      { word: "FACADE", hint: "Exterior face of a building", revealedIndex: 3 },
+      { word: "SKYLINE", hint: "City's silhouette", revealedIndex: 0 },
+      { word: "DOWNTOWN", hint: "City center location", revealedIndex: 4 },
+    ],
+    funFact: "Super-tall towers are built to flex. Chicago's Willis Tower can sway up to 3 feet in high winds. 🏙️",
+  },
+
+  // =============================================
+  // INDEX 278 - Shows September 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Macadamia Nuts",
+    puzzleNumber: 358,
+    words: [
+      { word: "OILY", hint: "Rich fatty texture", revealedIndex: 0 },
+      { word: "SALTY", hint: "Common seasoning", revealedIndex: 2 },
+      { word: "CREAMY", hint: "Smooth buttery flavor", revealedIndex: 3 },
+      { word: "ROASTED", hint: "Oven or dry-pan cooked", revealedIndex: 0 },
+      { word: "TROPICAL", hint: "Warm climate origin", revealedIndex: 4 },
+    ],
+    funFact: "Native to Australia, macadamia nuts grow naturally in the rainforests of Queensland and New South Wales. A Scottish-Australian chemist named John Macadam had the honor of having the nut named after him in the 1850s. 🥜",
+  },
+
+  // =============================================
+  // INDEX 279 - Shows September 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Bacon",
+    puzzleNumber: 359,
+    words: [
+      { word: "EGGS", hint: "Classic breakfast pairing", revealedIndex: 0 },
+      { word: "CRISP", hint: "Perfectly cooked texture", revealedIndex: 2 },
+      { word: "CHEESE", hint: "Melted topping", revealedIndex: 3 },
+      { word: "SAUSAGE", hint: "Another breakfast meat", revealedIndex: 0 },
+      { word: "PANCAKES", hint: "Letter Griddle's favorite!", revealedIndex: 4 },
+    ],
+    funFact: "The term 'bacon' comes from the Germanic root -bak, referring to the back of the pig. John Harris opened the first commercial bacon processing plant in England in 1770, creating a brining method still used today. 🥓",
+  },
+
+  // =============================================
+  // INDEX 280 - Shows September 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Read a Book",
+    puzzleNumber: 360,
+    words: [
+      { word: "PAGE", hint: "Turn to the next one", revealedIndex: 0 },
+      { word: "NOVEL", hint: "Long-form fiction", revealedIndex: 2 },
+      { word: "AUTHOR", hint: "The writer", revealedIndex: 3 },
+      { word: "FICTION", hint: "Imaginary storytelling", revealedIndex: 0 },
+      { word: "CHAPTERS", hint: "Divided sections of a book", revealedIndex: 4 },
+    ],
+    funFact: "Reading beats out listening to music or drinking tea for calming your nervous system. Reading fiction helps you understand different human perspectives and feelings. 📚",
+  },
+
+  // =============================================
+  // INDEX 281 - Shows September 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Google",
+    puzzleNumber: 361,
+    words: [
+      { word: "DATA", hint: "Information stored online", revealedIndex: 0 },
+      { word: "CLOUD", hint: "Online storage system", revealedIndex: 2 },
+      { word: "SEARCH", hint: "Look something up", revealedIndex: 3 },
+      { word: "BROWSER", hint: "Chrome or Safari", revealedIndex: 0 },
+      { word: "INTERNET", hint: "World Wide Web", revealedIndex: 4 },
+    ],
+    funFact: "'Google' is a playful misspelling of googol — a mathematical term for the number 1 followed by 100 zeros. In 1997, the founders offered to sell their search engine to Yahoo for $1 million, but the deal was rejected. 🔍",
+  },
+
+  // =============================================
+  // INDEX 282 - Shows September 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Star Trek",
+    puzzleNumber: 362,
+    words: [
+      { word: "BEAM", hint: "Beam me up!", revealedIndex: 0 },
+      { word: "SPOCK", hint: "Logical Vulcan officer", revealedIndex: 2 },
+      { word: "VULCAN", hint: "Spock's home planet", revealedIndex: 3 },
+      { word: "PROSPER", hint: "Live long and ___", revealedIndex: 0 },
+      { word: "FRONTIER", hint: "The final ___", revealedIndex: 4 },
+    ],
+    funFact: "Captain Kirk never says 'Beam me up, Scotty' in any original television episode or film. The closest variations are phrases like 'Beam us up' or 'Scotty, beam us up.' 🚀",
+  },
+
+  // =============================================
+  // INDEX 283 - Shows September 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Sudoku",
+    puzzleNumber: 363,
+    words: [
+      { word: "BOX", hint: "One of nine sections", revealedIndex: 0 },
+      { word: "GRID", hint: "9x9 playing field", revealedIndex: 2 },
+      { word: "BLOCK", hint: "3x3 mini section", revealedIndex: 3 },
+      { word: "COLUMN", hint: "Vertical line of numbers", revealedIndex: 0 },
+      { word: "POSSIBLE", hint: "Which numbers can go here?", revealedIndex: 4 },
+    ],
+    funFact: "Howard Garns, an American architect, invented the puzzle in 1979. The name Sudoku translates to 'the digits must remain single' or 'single number.' 🧩",
+  },
+
+  // =============================================
+  // INDEX 284 - Shows September 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "TV Dinner",
+    puzzleNumber: 364,
+    words: [
+      { word: "TRAY", hint: "Divided meal container", revealedIndex: 0 },
+      { word: "QUICK", hint: "Fast and convenient", revealedIndex: 2 },
+      { word: "FROZEN", hint: "Kept in the freezer", revealedIndex: 3 },
+      { word: "SEASON", hint: "Add flavoring", revealedIndex: 0 },
+      { word: "ALUMINUM", hint: "Original tray material", revealedIndex: 4 },
+    ],
+    funFact: "The iconic TV dinner was created by Swanson in 1953, inspired by a massive surplus of 260 tons of leftover Thanksgiving turkey. The original meal cost 98 cents and took 25 minutes to heat in an oven. 📺",
+  },
+
+  // =============================================
+  // INDEX 285 - Shows September 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Make a Hat",
+    puzzleNumber: 365,
+    words: [
+      { word: "WEAR", hint: "Put it on your head", revealedIndex: 0 },
+      { word: "DESIGN", hint: "Create the look", revealedIndex: 2 },
+      { word: "FEDORA", hint: "Classic wide-brimmed style", revealedIndex: 3 },
+      { word: "STYLISH", hint: "Fashionable and chic", revealedIndex: 0 },
+      { word: "CREATIVE", hint: "Imaginative and original", revealedIndex: 4 },
+    ],
+    funFact: "The fedora was originally a woman's hat, named after an 1882 play starring actress Sarah Bernhardt. 🎩",
+  },
+
+  // =============================================
+  // INDEX 286 - Shows September 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Video Games",
+    puzzleNumber: 366,
+    words: [
+      { word: "COIN", hint: "Insert ___ to play", revealedIndex: 0 },
+      { word: "SCORE", hint: "Track your points", revealedIndex: 2 },
+      { word: "PACMAN", hint: "Classic arcade chomper", revealedIndex: 3 },
+      { word: "ACTION", hint: "Fast-paced game genre", revealedIndex: 0 },
+      { word: "GRAPHICS", hint: "Visual game design", revealedIndex: 4 },
+    ],
+    funFact: "The peaceful game Pac-Man was created as an alternative to violent space-shooting games like Space Invaders. 🎮",
+  },
+
+  // =============================================
+  // INDEX 287 - Shows September 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Fortune Cookies",
+    puzzleNumber: 367,
+    words: [
+      { word: "WISE", hint: "Sage advice inside", revealedIndex: 0 },
+      { word: "LUCKY", hint: "Numbers on the slip", revealedIndex: 2 },
+      { word: "NUMBER", hint: "Lucky ___ on the fortune", revealedIndex: 3 },
+      { word: "MESSAGE", hint: "The fortune inside", revealedIndex: 0 },
+      { word: "JAPANESE", hint: "Origin of the concept", revealedIndex: 4 },
+    ],
+    funFact: "Fortune cookies are based on 19th-century Japanese crackers that also contained paper fortunes. In 2005, a single set of fortune cookie numbers resulted in 110 second-place Powerball winners. 🥠",
+  },
+
+  // =============================================
+  // INDEX 288 - Shows September 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "The Golden Girls",
+    puzzleNumber: 368,
+    words: [
+      { word: "OLAF", hint: "St. ___, hometown of Dorothy's ex", revealedIndex: 0 },
+      { word: "MIAMI", hint: "Florida city setting", revealedIndex: 2 },
+      { word: "CHEESE", hint: "Cheesecake at midnight!", revealedIndex: 3 },
+      { word: "PICTURE", hint: "___ it, a town in Sicily", revealedIndex: 0 },
+      { word: "ENSEMBLE", hint: "Group cast of four", revealedIndex: 4 },
+    ],
+    funFact: "Many of the stars worked with each other before The Golden Girls. Arthur and McClanahan were friends on Maude and White and McClanahan collaborated on Mama's Family. 👵",
+  },
+
+  // =============================================
+  // INDEX 289 - Shows September 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Peanut",
+    puzzleNumber: 369,
+    words: [
+      { word: "MATH", hint: "It takes about 540 peanuts to make a 12-ounce jar of peanut butter", revealedIndex: 0 },
+      { word: "SPACE", hint: "An astronaut took a peanut to the moon", revealedIndex: 2 },
+      { word: "CARVER", hint: "George Washington ___, peanut pioneer", revealedIndex: 3 },
+      { word: "LEGUMES", hint: "Plant family they belong to", revealedIndex: 0 },
+      { word: "SANDWICH", hint: "PB&J classic", revealedIndex: 4 },
+    ],
+    funFact: "Peanuts are not actually true nuts; they are legumes that grow underground in pods. 🥜",
+  },
+
+  // =============================================
+  // INDEX 290 - Shows September 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Play-Doh",
+    puzzleNumber: 370,
+    words: [
+      { word: "MOLD", hint: "Shape it into anything", revealedIndex: 0 },
+      { word: "AROMA", hint: "Distinctive nostalgic smell", revealedIndex: 2 },
+      { word: "SQUISH", hint: "Satisfying tactile action", revealedIndex: 3 },
+      { word: "PLIABLE", hint: "Soft and easy to shape", revealedIndex: 0 },
+      { word: "NONTOXIC", hint: "Safe for children", revealedIndex: 4 },
+    ],
+    funFact: "Play-Doh was invented in the 1930s as a soft compound to clean wallpaper. As coal heat faded out, a nursery school teacher let her students play with the leftover cleaner in her classroom — and they loved it! 🎨",
+  },
+
+  // =============================================
+  // INDEX 291 - Shows September 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Boston",
+    puzzleNumber: 371,
+    words: [
+      { word: "BEAN", hint: "Baked ___, city nickname food", revealedIndex: 0 },
+      { word: "CREAM", hint: "Boston ___ pie", revealedIndex: 2 },
+      { word: "ACCENT", hint: "Distinctive way of speaking", revealedIndex: 3 },
+      { word: "HISTORY", hint: "Rich colonial past", revealedIndex: 0 },
+      { word: "EDUCATED", hint: "Harvard and MIT city", revealedIndex: 4 },
+    ],
+    funFact: "Boston features many historic firsts, including America's oldest public park (Boston Common, 1634), the first public school (1635), and the country's first subway system (1897). 🏙️",
+  },
+
+  // =============================================
+  // INDEX 292 - Shows September 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Rice Krispies Treats",
+    puzzleNumber: 372,
+    words: [
+      { word: "SNAP", hint: "Snap, Crackle, ___", revealedIndex: 0 },
+      { word: "FIRST", hint: "The recipe was ___ printed on Kellogg's boxes in 1941", revealedIndex: 2 },
+      { word: "GLOBAL", hint: "Worldwide favorite treat", revealedIndex: 3 },
+      { word: "SQUARES", hint: "Classic cut shape", revealedIndex: 0 },
+      { word: "HOMEMADE", hint: "Made from scratch", revealedIndex: 4 },
+    ],
+    funFact: "Rice Krispies Treats remained purely a homemade bake until Kellogg's began selling prepackaged bars in stores in 1995. 🍚",
+  },
+
+  // =============================================
+  // INDEX 293 - Shows September 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pirates",
+    puzzleNumber: 373,
+    words: [
+      { word: "AHOY", hint: "Sailor's greeting", revealedIndex: 0 },
+      { word: "MATEY", hint: "Friendly pirate address", revealedIndex: 2 },
+      { word: "SHIVER", hint: "___ me timbers!", revealedIndex: 3 },
+      { word: "TREASURE", hint: "X marks the spot", revealedIndex: 0 },
+      { word: "SCHOONER", hint: "Two-masted sailing vessel", revealedIndex: 4 },
+    ],
+    funFact: "Alexander Graham Bell wanted people to answer the telephone by saying 'Ahoy' instead of 'Hello.' ☠️",
+  },
+
+  // =============================================
+  // INDEX 294 - Shows September 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Fried Rice",
+    puzzleNumber: 374,
+    words: [
+      { word: "STIR", hint: "Toss in the wok", revealedIndex: 0 },
+      { word: "SAUCE", hint: "Soy ___ for flavor", revealedIndex: 2 },
+      { word: "GARLIC", hint: "Aromatic essential ingredient", revealedIndex: 3 },
+      { word: "CHICKEN", hint: "Popular protein addition", revealedIndex: 0 },
+      { word: "LEFTOVER", hint: "Best made with day-old rice", revealedIndex: 4 },
+    ],
+    funFact: "Traditional wok tossing exposes food to extreme heat (over 2,000°F) for seconds without burning it, creating a signature smoky flavor. 🍚",
+  },
+
+  // =============================================
+  // INDEX 295 - Shows September 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Earth, Wind, and Fire",
+    puzzleNumber: 375,
+    words: [
+      { word: "SONG", hint: "Musical composition", revealedIndex: 0 },
+      { word: "NIGHT", hint: "21st ___ of September", revealedIndex: 2 },
+      { word: "SUMMER", hint: "Season in the song", revealedIndex: 3 },
+      { word: "MEANING", hint: "What does it all mean?", revealedIndex: 0 },
+      { word: "REMEMBER", hint: "Do you ___ the 21st night?", revealedIndex: 4 },
+    ],
+    funFact: "People flood social media to ask 'Do you remember the 21st night of September?' Fans play the Earth, Wind & Fire song on repeat every September 21st. 🎵",
+  },
+
+  // =============================================
+  // INDEX 296 - Shows September 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Autumnal Equinox",
+    puzzleNumber: 376,
+    words: [
+      { word: "FALL", hint: "The season it begins", revealedIndex: 0 },
+      { word: "COLOR", hint: "Leaves change to brilliant hues", revealedIndex: 2 },
+      { word: "SEASON", hint: "One of four annual periods", revealedIndex: 3 },
+      { word: "WEATHER", hint: "Cooling temperatures arrive", revealedIndex: 0 },
+      { word: "FESTIVAL", hint: "Harvest celebration", revealedIndex: 4 },
+    ],
+    funFact: "The autumnal equinox on September 22, 2026, marks the official start of astronomical fall in the Northern Hemisphere, occurring precisely at 8:04 PM EDT, when Earth's axis tilts neither toward nor away from the sun. 🍂",
+  },
 ];
 
 // ===========================================

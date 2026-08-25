@@ -4220,9 +4220,9 @@ const puzzles = [
     puzzleNumber: 347,
     words: [
       { word: "SOLO", hint: "Flying alone", revealedIndex: 0 },
-      { word: "COAST", hint: "Coast-to-coast journey", revealedIndex: 2 },
-      { word: "DEPART", hint: "From Los Angeles, CA", revealedIndex: 3 },
-      { word: "ARRIVAL", hint: "At Newark, NJ", revealedIndex: 0 },
+      { word: "COAST", hint: "_____-to-coast journey", revealedIndex: 2 },
+      { word: "DEPART", hint: "Leave from Los Angeles, CA", revealedIndex: 3 },
+      { word: "ARRIVAL", hint: "Lanrding at Newark, NJ", revealedIndex: 0 },
       { word: "LOCKHEED", hint: "Aircraft manufacturer she flew", revealedIndex: 4 },
     ],
     funFact: "Amelia Earhart's historic non-stop solo flight across the United States on August 24–25, 1932, spanned 2,447 miles from Los Angeles to Newark in 19 hours and 5 minutes, making her the first woman to fly coast-to-coast non-stop. ✈️",

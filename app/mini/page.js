@@ -41,7 +41,37 @@ const miniPuzzlesBenched = [
 // Words drawn from Letter Griddle puzzles #130-178
 // =============================================
 
+// Mini puzzles drawn from existing Letter Griddle 5-letter words
+// =============================================
+// ACTIVE MINI PUZZLES - 16 fresh words
+// From Letter Griddle puzzles #336-357 (Aug-Sep 2026 batch)
+// =============================================
+
 const miniPuzzles = [
+  { word: "COLOR", category: "Chameleon", hint: "What they change" },
+  { word: "BUMPY", category: "Roller Coaster", hint: "Rough and jolting ride" },
+  { word: "ONION", category: "Fajitas", hint: "Caramelized veggie topping" },
+  { word: "PLANE", category: "Aviation", hint: "Flying machine" },
+  { word: "ALOHA", category: "Hawaiian Shirt", hint: "Hawaiian greeting on the shirt tag" },
+  { word: "MAGIC", category: "Tooth Fairy", hint: "Enchanting fairy power" },
+  { word: "COAST", category: "Amelia Earhart", hint: "_____-to-coast journey" },
+  { word: "GORGE", category: "United States National Parks", hint: "Deep narrow canyon" },
+  { word: "WOMEN", category: "Equality", hint: "Who gained voting rights" },
+  { word: "GHOST", category: "St. Augustine, Florida", hint: "Famous haunted tours" },
+  { word: "SAUCE", category: "Chop Suey", hint: "Soy _____" },
+  { word: "GIANT", category: "Whale Sharks", hint: "Enormous in size" },
+  { word: "SEEDS", category: "Trail Mix", hint: "Sunflower or pumpkin additions" },
+  { word: "MONTH", category: "No Rhyme and No Reason", hint: "30 or 31 days" },
+  { word: "PEARL", category: "Earrings", hint: "Classic elegant gem" },
+  { word: "TOWER", category: "Skyscraper", hint: "Tall structure" },
+];
+
+/*
+// =============================================
+// BENCHED MINI PUZZLES (formerly active)
+// Uncomment and move above the closing ]; to restore
+// =============================================
+
   { word: "CRUST", category: "Bread", hint: "The golden outer layer of a baked loaf" },
   { word: "SOLVE", category: "Detective", hint: "To find the answer to a mystery or problem" },
   { word: "CLOUD", category: "Skygazing", hint: "A white or gray mass floating in the sky" },
@@ -182,7 +212,7 @@ const miniPuzzles = [
   { word: "WHOLE", category: "Almonds", hint: "Unsliced nut" },
   { word: "DOUGH", category: "Sugar Cookie", hint: "Unbaked mixture" },
   { word: "CHIPS", category: "French Fries", hint: "British name for fries" },
-  { word: "NOBEL", category: "Malala", hint: "\u2014 Peace Prize winner" },
+  { word: "NOBEL", category: "Malala", hint: "___ Peace Prize winner" },
   { word: "SWEAT", category: "Heat Wave", hint: "Body's cooling system" },
   { word: "FRIED", category: "Hushpuppies", hint: "Deep-cooked in oil" },
   { word: "BLACK", category: "Cherries", hint: "Dark sweet variety" },
@@ -198,7 +228,7 @@ const miniPuzzles = [
   { word: "TOKYO", category: "Japan", hint: "Japan's bustling capital and the world's most populous city" },
   { word: "CAIRO", category: "Egypt", hint: "Egypt's ancient capital and the largest city in Africa" },
   { word: "CHIPS", category: "United Kingdom", hint: "The other half of Britain's most iconic takeaway dish" },
-  { word: "CLIFF", category: "Ireland", hint: "The dramatic s of Moher rise 700 feet above the sea" },
+  { word: "CLIFF", category: "Ireland", hint: "The dramatic ___s of Moher rise 700 feet above the sea" },
   { word: "SYRUP", category: "Canada", hint: "Canada produces 70% of the world's maple version" },
   { word: "KOALA", category: "Australia", hint: "Marsupial that sleeps up to 22 hours a day in eucalyptus trees" },
   { word: "EAGLE", category: "United States", hint: "The bald version of this bird is America's national symbol" },
@@ -216,7 +246,7 @@ const miniPuzzles = [
   { word: "ROAST", category: "S'mores", hint: "Cook over open flame" },
   { word: "DANCE", category: "Hip Hop", hint: "Movement to the music" },
   { word: "PEACE", category: "Middle Child", hint: "Keeping harmony" },
-];
+*/
 
 // Generate decoy letters that aren't in the word
 const generateDecoys = (word, count = 6) => {

@@ -1463,23 +1463,14 @@ const copyToClipboard = async (text) => {
           </div>
         </a>
 
-        <a href="https://www.lettergriddlecottage.com" target="_blank" rel="noopener noreferrer"
-          className="flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all">
-          <span className="text-2xl">☀️</span>
-          <div>
-            <p className="font-bold text-purple-800 text-sm">Letter Griddle Cottage</p>
-            <p className="text-purple-600 text-xs">lettergriddlecottage.com</p>
-          </div>
-        </a>
-
-        <a href="https://www.kerflufflegrid.com" target="_blank" rel="noopener noreferrer"
-          className="flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all">
-          <span className="text-2xl">⏳</span>
-          <div>
-            <p className="font-bold text-amber-800 text-sm">Kerflufflegrid</p>
-            <p className="text-amber-600 text-xs">kerflufflegrid.com</p>
-          </div>
-        </a>
+       <a href="https://www.kerflufflegrid.com" target="_blank" rel="noopener noreferrer"
+  className="flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all">
+  <span className="text-2xl">⏳</span>
+  <div>
+    <p className="font-bold text-purple-800 text-sm">Kerflufflegrid</p>
+    <p className="text-purple-600 text-xs">kerflufflegrid.com</p>
+  </div>
+</a>
       </div>
 
       <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">

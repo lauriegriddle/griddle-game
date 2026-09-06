@@ -1280,7 +1280,7 @@ const copyToClipboard = async (text) => {
       </button>
       
       <div className="text-center mb-6">
-        <div className="text-6xl mb-3">🏖️☀️</div>
+        <div className="text-6xl mb-3">📚 </div>
         <h2 className="text-3xl font-bold text-amber-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
           New at Letter Griddle
         </h2>
@@ -1533,7 +1533,7 @@ const copyToClipboard = async (text) => {
           <span className="text-2xl">📚</span>
 <div className="text-left">
   <p className="font-bold text-amber-800 text-sm">Puzzle Books & Journals</p>
- <p className="text-amber-600 text-xs">At lettergriddle.com tap ☰ → Screen-Free Books</p>
+<p className="text-amber-600 text-xs">Puzzle books and journals from Letter Griddle</p>
 </div>
         </button>
 

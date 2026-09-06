@@ -1310,14 +1310,7 @@ style={{scrollbarWidth: 'thin', scrollbarColor: '#D97706 #FEF3C7'}} onClick={(e)
   </div>
 </a>
 
-<a href="#summer-days" onClick={() => { setShowFamilyModal(false); setShowSummer(true); setTimeout(() => scrollToSection('summer-days'), 100); }}
-  className="flex items-center gap-3 bg-gradient-to-r from-purple-100 to-violet-100 rounded-xl p-3 border-2 border-purple-300 hover:border-purple-500 hover:shadow-md transition-all cursor-pointer mt-2">
-  <span className="text-2xl">🏖️</span>
-  <div>
-    <p className="font-bold text-purple-800 text-sm">Summer Days</p>
-    <p className="text-purple-600 text-xs">Summer fun from Letter Griddle</p>
-  </div>
-</a>
+
 
 <div className="text-center mt-4 pt-3 border-t-2 border-dashed border-amber-300">
   <a href="https://instagram.com/letter_griddle" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-xs font-bold px-4 py-2 rounded-full hover:opacity-90 transition-opacity shadow-md mb-3">

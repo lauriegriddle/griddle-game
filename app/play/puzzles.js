@@ -4691,6 +4691,341 @@ const puzzles = [
     ],
     funFact: "The autumnal equinox on September 22, 2026, marks the official start of astronomical fall in the Northern Hemisphere, occurring precisely at 8:04 PM EDT, when Earth's axis tilts neither toward nor away from the sun. 🍂",
   },
+    // =============================================
+  // INDEX 297 - Shows September 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pot Pie",
+    puzzleNumber: 377,
+    words: [
+      { word: "VENT", hint: "Steam hole in the crust", revealedIndex: 0 },
+      { word: "GRAVY", hint: "Rich savory sauce filling", revealedIndex: 2 },
+      { word: "CARROT", hint: "Orange veggie inside", revealedIndex: 3 },
+      { word: "CHICKEN", hint: "Most popular variety", revealedIndex: 0 },
+      { word: "CRIMPING", hint: "Sealing the pastry edges", revealedIndex: 4 },
+    ],
+    funFact: "In the late 1700s, pot pies were commonly referred to as 'sea pies' aboard ships. Sailors threw whatever meat survived long journeys into a pot under a layer of dough. 🥧",
+  },
+
+  // =============================================
+  // INDEX 298 - Shows September 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Punctuation",
+    puzzleNumber: 378,
+    words: [
+      { word: "MARK", hint: "Written symbol", revealedIndex: 0 },
+      { word: "SPACE", hint: "Gap between words", revealedIndex: 2 },
+      { word: "PERIOD", hint: "End of sentence dot", revealedIndex: 3 },
+      { word: "HASHTAG", hint: "# symbol", revealedIndex: 0 },
+      { word: "SEPARATE", hint: "To divide or distinguish", revealedIndex: 4 },
+    ],
+    funFact: "Ancient texts were long strings of continuous letters, and people had to read them out loud to understand where words and thoughts broke. ✏️",
+  },
+
+  // =============================================
+  // INDEX 299 - Shows September 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Lobster",
+    puzzleNumber: 379,
+    words: [
+      { word: "CLAW", hint: "Powerful pinching appendage", revealedIndex: 0 },
+      { word: "OCEAN", hint: "Where they live", revealedIndex: 2 },
+      { word: "PINCER", hint: "Gripping claw tool", revealedIndex: 3 },
+      { word: "CRUSHER", hint: "Larger dominant claw", revealedIndex: 0 },
+      { word: "MOLTING", hint: "Shedding the shell to grow", revealedIndex: 4 },
+    ],
+    funFact: "Unlike humans, lobsters have copper-based hemocyanin instead of iron-based hemoglobin. Their blood is completely clear inside their bodies but turns bright blue when exposed to oxygen. 🦞",
+  },
+
+  // =============================================
+  // INDEX 300 - Shows September 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pancakes!",
+    puzzleNumber: 380,
+    words: [
+      { word: "HEAT", hint: "Griddle temperature", revealedIndex: 0 },
+      { word: "SYRUP", hint: "Sweet topping", revealedIndex: 2 },
+      { word: "BATTER", hint: "Pourable mix", revealedIndex: 3 },
+      { word: "GRIDDLE", hint: "Flat cooking surface", revealedIndex: 0 },
+      { word: "FLAPJACK", hint: "Another name for pancakes", revealedIndex: 4 },
+    ],
+    funFact: "Pancakes date back more than 30,000 years. There are so many ways to enjoy pancakes — at your favorite breakfast spot, at home, or by playing your favorite pancake-inspired word game! 🥞",
+  },
+
+  // =============================================
+  // INDEX 301 - Shows September 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chocolate Milk",
+    puzzleNumber: 381,
+    words: [
+      { word: "COLD", hint: "Best served chilled", revealedIndex: 0 },
+      { word: "COCOA", hint: "Chocolate base ingredient", revealedIndex: 2 },
+      { word: "POWDER", hint: "Mix-in form", revealedIndex: 3 },
+      { word: "COMBINE", hint: "Mix together", revealedIndex: 0 },
+      { word: "PREMIXED", hint: "Ready to drink carton", revealedIndex: 4 },
+    ],
+    funFact: "Sir Hans Sloane mixed cocoa with milk in Jamaica during the early 1700s to make the bitter drink taste better, and pharmacies in England originally sold it as a medicine. 🍫",
+  },
+
+  // =============================================
+  // INDEX 302 - Shows September 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Good Neighbor",
+    puzzleNumber: 382,
+    words: [
+      { word: "TIDY", hint: "Neat and well-kept", revealedIndex: 0 },
+      { word: "QUIET", hint: "Respectful of others", revealedIndex: 2 },
+      { word: "FENCES", hint: "Good ones make good neighbors", revealedIndex: 3 },
+      { word: "HELPFUL", hint: "Lending a hand", revealedIndex: 0 },
+      { word: "RELIABLE", hint: "Dependable and trustworthy", revealedIndex: 4 },
+    ],
+    funFact: "The phrase 'Good fences make good neighbors' comes from the famous 1914 poem 'Mending Wall' by Robert Frost. 🏘️",
+  },
+
+  // =============================================
+  // INDEX 303 - Shows September 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Coffee",
+    puzzleNumber: 383,
+    words: [
+      { word: "BEAN", hint: "Raw coffee seed", revealedIndex: 0 },
+      { word: "SUGAR", hint: "Common sweetener", revealedIndex: 2 },
+      { word: "LINGER", hint: "Savor slowly", revealedIndex: 3 },
+      { word: "BREWING", hint: "Making the perfect cup", revealedIndex: 0 },
+      { word: "ROASTING", hint: "Heating the beans", revealedIndex: 4 },
+    ],
+    funFact: "According to an expert cupper, a professional coffee taster, there are four components of a perfect cup: aroma, body, acidity, and flavor. Dark roast coffee actually has slightly less caffeine than light roast! ☕",
+  },
+
+  // =============================================
+  // INDEX 304 - Shows September 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chewing Gum",
+    puzzleNumber: 384,
+    words: [
+      { word: "MINT", hint: "Popular fresh flavor", revealedIndex: 0 },
+      { word: "BIRCH", hint: "Ancient tree bark variety", revealedIndex: 2 },
+      { word: "RESINS", hint: "Natural sticky substances", revealedIndex: 3 },
+      { word: "PLASTIC", hint: "Modern synthetic base", revealedIndex: 0 },
+      { word: "WRIGLEYS", hint: "Famous gum brand", revealedIndex: 4 },
+    ],
+    funFact: "The oldest known piece of chewed gum is roughly 9,000 to 10,000 years old, made from birch bark tar and featuring preserved ancient tooth marks. 🍬",
+  },
+
+  // =============================================
+  // INDEX 305 - Shows October 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Balloons",
+    puzzleNumber: 385,
+    words: [
+      { word: "FOIL", hint: "Shiny metallic material", revealedIndex: 0 },
+      { word: "PARTY", hint: "Celebratory occasion", revealedIndex: 2 },
+      { word: "COLORS", hint: "Bright festive hues", revealedIndex: 3 },
+      { word: "INFLATE", hint: "Fill with air or helium", revealedIndex: 0 },
+      { word: "FLOATING", hint: "Rising in the air", revealedIndex: 4 },
+    ],
+    funFact: "Scientist Michael Faraday invented the first rubber balloon in 1824 for experiments. 🎈",
+  },
+
+  // =============================================
+  // INDEX 306 - Shows October 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Peanuts",
+    puzzleNumber: 386,
+    words: [
+      { word: "LUCY", hint: "She always pulls the football away", revealedIndex: 0 },
+      { word: "LINUS", hint: "He carries a security blanket", revealedIndex: 2 },
+      { word: "SNOOPY", hint: "The beagle on his doghouse", revealedIndex: 3 },
+      { word: "CHARLIE", hint: "___ Brown, good grief!", revealedIndex: 0 },
+      { word: "CARTOONS", hint: "Comic strip and TV specials", revealedIndex: 4 },
+    ],
+    funFact: "Charlie Brown's most famous catchphrase is 'Good grief!' and the entire beloved comic strip was created by Charles M. Schultz. 🥜",
+  },
+
+  // =============================================
+  // INDEX 307 - Shows October 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Frugal Fun",
+    puzzleNumber: 387,
+    words: [
+      { word: "STAY", hint: "____-cation at home", revealedIndex: 0 },
+      { word: "LOCAL", hint: "Close to home activities", revealedIndex: 2 },
+      { word: "CREATE", hint: "Make your own fun", revealedIndex: 3 },
+      { word: "THRIFTY", hint: "Careful with spending", revealedIndex: 0 },
+      { word: "CURRENCY", hint: "Money of the realm", revealedIndex: 4 },
+    ],
+    funFact: "In the Middle Ages, people used an orange-colored clay called 'pygg' to make jars for holding spare change. Over time, potters began shaping the jars like actual pigs as a playful pun on the clay's name. 🐷",
+  },
+
+  // =============================================
+  // INDEX 308 - Shows October 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Cinnamon Buns",
+    puzzleNumber: 388,
+    words: [
+      { word: "BAKE", hint: "Cook in the oven", revealedIndex: 0 },
+      { word: "SCENT", hint: "Warm spiced aroma", revealedIndex: 2 },
+      { word: "COMFORT", hint: "Cozy feeling food", revealedIndex: 3 },
+      { word: "FROSTED", hint: "Topped with icing", revealedIndex: 0 },
+      { word: "BUTTERED", hint: "Spread with richness", revealedIndex: 4 },
+    ],
+    funFact: "Cinnamon is primarily grown in Indonesia and South America. Cinnamon tree varieties produce different types of cinnamon — some are sweeter while others are spicier. 🍮",
+  },
+
+  // =============================================
+  // INDEX 309 - Shows October 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Teachers",
+    puzzleNumber: 389,
+    words: [
+      { word: "PLAN", hint: "Lesson preparation", revealedIndex: 0 },
+      { word: "CLASS", hint: "Group of students", revealedIndex: 2 },
+      { word: "LEADER", hint: "Guide and mentor", revealedIndex: 3 },
+      { word: "STUDENT", hint: "Who they teach", revealedIndex: 0 },
+      { word: "INSTRUCT", hint: "Teach and guide", revealedIndex: 4 },
+    ],
+    funFact: "The concept of giving a teacher an apple dates back to 18th-century Scandinavia, where families who couldn't afford school fees would give teachers baskets of fresh apples as payment. 🍎",
+  },
+
+  // =============================================
+  // INDEX 310 - Shows October 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Instagram",
+    puzzleNumber: 390,
+    words: [
+      { word: "POST", hint: "Share content online", revealedIndex: 0 },
+      { word: "PHOTO", hint: "Image shared on the app", revealedIndex: 2 },
+      { word: "MOBILE", hint: "Phone-based platform", revealedIndex: 3 },
+      { word: "HASHTAG", hint: "# for discovery", revealedIndex: 0 },
+      { word: "FOLLOWER", hint: "Someone who subscribes", revealedIndex: 4 },
+    ],
+    funFact: "The name 'Instagram' combines 'instant' and 'telegram'. The very first uploaded picture was a stray dog near a taco stand in San Francisco, posted by its co-founder. 📸",
+  },
+
+  // =============================================
+  // INDEX 311 - Shows October 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pumpkin Seeds",
+    puzzleNumber: 391,
+    words: [
+      { word: "JACK", hint: "____ o'lantern", revealedIndex: 0 },
+      { word: "CARVE", hint: "Cut a pumpkin design", revealedIndex: 2 },
+      { word: "INSIDE", hint: "Found within the pumpkin", revealedIndex: 3 },
+      { word: "PROTEIN", hint: "Nutrient they're rich in", revealedIndex: 0 },
+      { word: "MINERALS", hint: "Magnesium and zinc content", revealedIndex: 4 },
+    ],
+    funFact: "Pumpkin seeds offer a rich supply of plant-based protein, healthy fats, magnesium, and zinc that support heart, immune, and bladder health. 🎃",
+  },
+
+  // =============================================
+  // INDEX 312 - Shows October 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Octopus",
+    puzzleNumber: 392,
+    words: [
+      { word: "BLUE", hint: "Color of their blood", revealedIndex: 0 },
+      { word: "ZERO", hint: "Number of bones they have", revealedIndex: 2 },
+      { word: "NINE", hint: "Number of brains they have", revealedIndex: 3 },
+      { word: "THREE", hint: "Number of hearts", revealedIndex: 0 },
+      { word: "EIGHT", hint: "Number of arms", revealedIndex: 2 },
+    ],
+    funFact: "Octopuses have one central brain and a mini-brain in each of their eight arms so the arms can move and taste independently. 🐙",
+  },
+
+  // =============================================
+  // INDEX 313 - Shows October 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "John Lennon",
+    puzzleNumber: 393,
+    words: [
+      { word: "SOLO", hint: "His post-Beatles career", revealedIndex: 0 },
+      { word: "PEACE", hint: "Give ___ a chance", revealedIndex: 2 },
+      { word: "BEATLE", hint: "Famous band member", revealedIndex: 3 },
+      { word: "PLASTIC", hint: "___ Ono Band", revealedIndex: 0 },
+      { word: "IMAGINE", hint: "His most famous song", revealedIndex: 4 },
+    ],
+    funFact: "John Lennon was the final member of The Beatles to learn to drive, passing his test at age 24. He had very poor eyesight and was practically blind without his signature round glasses. 🎵",
+  },
+
+  // =============================================
+  // INDEX 314 - Shows October 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Angel Food Cake",
+    puzzleNumber: 394,
+    words: [
+      { word: "AIRY", hint: "Light cloud-like texture", revealedIndex: 0 },
+      { word: "LAYER", hint: "Stack of cake tiers", revealedIndex: 2 },
+      { word: "FLUFFY", hint: "Soft and whipped", revealedIndex: 3 },
+      { word: "TOPPING", hint: "Fruit or whipped cream on top", revealedIndex: 0 },
+      { word: "HEAVENLY", hint: "Angelic description", revealedIndex: 4 },
+    ],
+    funFact: "Angel Food Cake is a unique fat-free dessert that gets its airy, cloud-like texture entirely from whipped egg whites and cream of tartar rather than butter or chemical leaveners. 🍰",
+  },
+
+  // =============================================
+  // INDEX 315 - Shows October 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Marathon",
+    puzzleNumber: 395,
+    words: [
+      { word: "PACE", hint: "Running speed strategy", revealedIndex: 0 },
+      { word: "WATER", hint: "Essential hydration station", revealedIndex: 2 },
+      { word: "ENERGY", hint: "Fuel for the long run", revealedIndex: 3 },
+      { word: "TRAINED", hint: "Prepared through practice", revealedIndex: 0 },
+      { word: "DISTANCE", hint: "26.2 miles total", revealedIndex: 4 },
+    ],
+    funFact: "The 26.2-mile distance became official at the 1908 London Olympics, set so the race could start at Windsor Castle and finish right in front of the British Royal Family's private box. 🏃",
+  },
+
+  // =============================================
+  // INDEX 316 - Shows October 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Savings",
+    puzzleNumber: 396,
+    words: [
+      { word: "FUND", hint: "Money set aside", revealedIndex: 0 },
+      { word: "HABIT", hint: "Regular saving practice", revealedIndex: 2 },
+      { word: "BUDGET", hint: "Spending plan", revealedIndex: 3 },
+      { word: "COMPOUND", hint: "___ interest grows over time", revealedIndex: 0 },
+      { word: "INTEREST", hint: "Money earned on savings", revealedIndex: 4 },
+    ],
+    funFact: "William Lowndes originally said 'Take care of the pence, and the pounds will take care of themselves.' People often credit this quote to Benjamin Franklin by mistake. 💰",
+  },
+
+  // =============================================
+  // INDEX 317 - Shows October 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Yorkshire Pudding",
+    puzzleNumber: 397,
+    words: [
+      { word: "BEEF", hint: "Traditionally served with this roast", revealedIndex: 0 },
+      { word: "ROAST", hint: "Sunday ___ dinner", revealedIndex: 2 },
+      { word: "SUNDAY", hint: "Traditional serving day", revealedIndex: 3 },
+      { word: "POPOVER", hint: "American cousin dish", revealedIndex: 0 },
+      { word: "DRIPPING", hint: "Beef fat used in the pan", revealedIndex: 4 },
+    ],
+    funFact: "Historically, people ate the pudding before the expensive meat course to fill up guests and save money. 🍮",
+  },
 ];
 
 // ===========================================

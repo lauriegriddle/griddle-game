@@ -1288,25 +1288,17 @@ const copyToClipboard = async (text) => {
       </div>
       
       <div className="space-y-4 mb-6">
-        <div className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-5 border-3 border-orange-300 shadow-md">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-3xl">🏖️☀️</span>
-            <h3 className="text-xl font-bold text-orange-800" style={{fontFamily: 'Georgia, serif'}}>Summer Days Games</h3>
-          </div>
-          <p className="text-orange-700 text-sm leading-relaxed">
-            Enjoy Summer Days & explore the collection of sunny games!
-          </p>
-        </div>
         
-        <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-5 border-3 border-purple-300 shadow-md">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-3xl">✏️🍳</span>
-            <h3 className="text-xl font-bold text-purple-800" style={{fontFamily: 'Georgia, serif'}}>Screen-Free Books</h3>
-          </div>
-          <p className="text-purple-700 text-sm leading-relaxed">
-            New puzzle books and journals are perfect for screen-free time!
-          </p>
-        </div>
+        
+        <a href="https://www.lettergriddle.com/?showBooks=true#books" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-5 border-3 border-purple-300 shadow-md hover:shadow-lg transition-all hover:opacity-90">
+  <div className="flex items-center gap-3 mb-2">
+    <span className="text-3xl">✏️🔍</span>
+    <h3 className="text-xl font-bold text-purple-800" style={{fontFamily: 'Georgia, serif'}}>Screen-Free Books</h3>
+  </div>
+  <p className="text-purple-700 text-sm leading-relaxed">
+    New puzzle books and journals are perfect for screen-free time!
+  </p>
+</a>
       </div>
       
       <div className="text-center pt-4 border-t-2 border-dashed border-amber-400">
@@ -1538,11 +1530,11 @@ const copyToClipboard = async (text) => {
           onClick={() => { setShowGameModal(false); setShowLaunchModal(true); }}
           className="w-full flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all"
         >
-          <span className="text-2xl">🏖️</span>
-          <div className="text-left">
-            <p className="font-bold text-amber-800 text-sm">What's New</p>
-            <p className="text-amber-600 text-xs">Summer Days & Screen-Free Books</p>
-          </div>
+          <span className="text-2xl">📚</span>
+<div className="text-left">
+  <p className="font-bold text-amber-800 text-sm">Puzzle Books & Journals</p>
+ <p className="text-amber-600 text-xs">At lettergriddle.com tap ☰ → Screen-Free Books</p>
+</div>
         </button>
 
         {/* Schedule */}

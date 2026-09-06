@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Home() {
   const [showStories, setShowStories] = useState(false);
-  const [showBooks, setShowBooks] = useState(false);
+  const [showBooks, setShowBooks] = useState(typeof window !== 'undefined' && window.location.search.includes('showBooks=true'));
   const [showSummer, setShowSummer] = useState(false);
   const [showFamilyModal, setShowFamilyModal] = useState(false);
   

@@ -4459,7 +4459,7 @@ const puzzles = [
     category: "Star Trek",
     puzzleNumber: 362,
     words: [
-      { word: "BEAM", hint: "Beam me up!", revealedIndex: 0 },
+      { word: "BEAM", hint: "____ up!", revealedIndex: 0 },
       { word: "SPOCK", hint: "Logical Vulcan officer", revealedIndex: 2 },
       { word: "VULCAN", hint: "Spock's home planet", revealedIndex: 3 },
       { word: "PROSPER", hint: "Live long and ___", revealedIndex: 0 },

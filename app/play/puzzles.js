@@ -5026,6 +5026,181 @@ const puzzles = [
     ],
     funFact: "Historically, people ate the pudding before the expensive meat course to fill up guests and save money. 🍮",
   },
+    // =============================================
+  // INDEX 318 - Shows October 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Winnie-the-Pooh",
+    puzzleNumber: 398,
+    words: [
+      { word: "OWL", hint: "The wise bird of the Hundred Acre Wood", revealedIndex: 0 },
+      { word: "BEAR", hint: "What Pooh is", revealedIndex: 2 },
+      { word: "ROBIN", hint: "Christopher ___, Pooh's best friend", revealedIndex: 3 },
+      { word: "PIGLET", hint: "Pooh's small pink friend", revealedIndex: 0 },
+      { word: "ANIMALS", hint: "The characters are stuffed ___", revealedIndex: 4 },
+    ],
+    funFact: "Author A.A. Milne based most characters, including Eeyore, Piglet, Roo, and Tigger, on his son Christopher Robin's stuffed toys. 🐻",
+  },
+
+  // =============================================
+  // INDEX 319 - Shows October 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "I Love Lucy",
+    puzzleNumber: 399,
+    words: [
+      { word: "SHOW", hint: "Classic TV program", revealedIndex: 0 },
+      { word: "ETHEL", hint: "Lucy's best friend and neighbor", revealedIndex: 2 },
+      { word: "RERUNS", hint: "Classic episodes still airing today", revealedIndex: 3 },
+      { word: "RICARDO", hint: "Lucy's last name", revealedIndex: 0 },
+      { word: "NEIGHBOR", hint: "Ethel's role in Lucy's life", revealedIndex: 4 },
+    ],
+    funFact: "Lucille Ball was a groundbreaking comedian and the first woman to run a major television studio. 📺",
+  },
+
+  // =============================================
+  // INDEX 320 - Shows October 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "The Boss",
+    puzzleNumber: 400,
+    words: [
+      { word: "HEAD", hint: "At the top of the organization", revealedIndex: 0 },
+      { word: "HONCHO", hint: "Head ___, the person in charge", revealedIndex: 2 },
+      { word: "BIGWIG", hint: "Important person of authority", revealedIndex: 3 },
+      { word: "KINGPIN", hint: "The most powerful person", revealedIndex: 0 },
+      { word: "DIRECTOR", hint: "Executive title", revealedIndex: 4 },
+    ],
+    funFact: "Around 7,500 people in the U.S. answer to Mr. or Mrs. Boss. 👔",
+  },
+
+  // =============================================
+  // INDEX 321 - Shows October 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Sloth",
+    puzzleNumber: 401,
+    words: [
+      { word: "LAZY", hint: "Slow and idle", revealedIndex: 0 },
+      { word: "SLEEP", hint: "They do this up to 20 hours a day", revealedIndex: 2 },
+      { word: "DROWSY", hint: "Sleepy and sluggish", revealedIndex: 3 },
+      { word: "RELAXED", hint: "Totally at ease", revealedIndex: 0 },
+      { word: "SLUGGISH", hint: "Moving very slowly", revealedIndex: 4 },
+    ],
+    funFact: "Despite being slow in the trees, sloths are excellent swimmers. They move through water three times faster than they do on land by using a doggy paddle. 🦥",
+  },
+
+  // =============================================
+  // INDEX 322 - Shows October 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Alaska",
+    puzzleNumber: 402,
+    words: [
+      { word: "NOME", hint: "Famous Iditarod finish city", revealedIndex: 0 },
+      { word: "MOOSE", hint: "Largest member of the deer family", revealedIndex: 2 },
+      { word: "TUNDRA", hint: "Vast frozen landscape", revealedIndex: 3 },
+      { word: "MUSHING", hint: "Dog ___, sled racing sport", revealedIndex: 0 },
+      { word: "MIDNIGHT", hint: "___ sun, summer phenomenon", revealedIndex: 4 },
+    ],
+    funFact: "Juneau is the only U.S. state capital that cannot be reached by car or road; it is only accessible by boat or plane. 🏔️",
+  },
+
+  // =============================================
+  // INDEX 323 - Shows October 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Seafood Bisque",
+    puzzleNumber: 403,
+    words: [
+      { word: "CRAB", hint: "Popular shellfish ingredient", revealedIndex: 0 },
+      { word: "BROTH", hint: "Flavorful liquid base", revealedIndex: 2 },
+      { word: "SHRIMP", hint: "Small pink shellfish", revealedIndex: 3 },
+      { word: "LOBSTER", hint: "Luxury bisque ingredient", revealedIndex: 0 },
+      { word: "SAUTEING", hint: "Quick pan cooking method", revealedIndex: 4 },
+    ],
+    funFact: "While both are creamy soups, a bisque is completely smooth and puréed, whereas a chowder is chunky and hearty. 🍲",
+  },
+
+  // =============================================
+  // INDEX 324 - Shows October 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chicken and Waffles",
+    puzzleNumber: 404,
+    words: [
+      { word: "SOUL", hint: "___ food tradition", revealedIndex: 0 },
+      { word: "SWEET", hint: "The waffle side of the pairing", revealedIndex: 2 },
+      { word: "SAVORY", hint: "The chicken side of the pairing", revealedIndex: 3 },
+      { word: "PAIRING", hint: "Two foods combined together", revealedIndex: 0 },
+      { word: "UNLIKELY", hint: "An unexpected combination", revealedIndex: 4 },
+    ],
+    funFact: "The modern pairing of fried chicken and waffles took off at the Wells Supper Club in Harlem because jazz musicians arrived too late for dinner and too early for breakfast. 🧇",
+  },
+
+  // =============================================
+  // INDEX 325 - Shows October 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Back to the Future",
+    puzzleNumber: 405,
+    words: [
+      { word: "FLUX", hint: "The ___ Capacitor makes time travel possible", revealedIndex: 0 },
+      { word: "CLOCK", hint: "One word of the Hill Valley landmark struck by lightning", revealedIndex: 2 },
+      { word: "TOWER", hint: "The other word of the Hill Valley landmark", revealedIndex: 3 },
+      { word: "SLACKER", hint: "Principal Strickland's favorite insult for Marty", revealedIndex: 0 },
+      { word: "DELOREAN", hint: "The iconic stainless-steel time machine car", revealedIndex: 4 },
+    ],
+    funFact: "The time machine in Back to the Future was originally a refrigerator that required a nuclear explosion to travel through time, but the idea was changed over safety and budget concerns. ⚡",
+  },
+
+  // =============================================
+  // INDEX 326 - Shows October 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Vibrant Color",
+    puzzleNumber: 406,
+    words: [
+      { word: "GLOW", hint: "Radiant shining light", revealedIndex: 0 },
+      { word: "VIVID", hint: "Intensely bright", revealedIndex: 2 },
+      { word: "BRIGHT", hint: "Full of light and color", revealedIndex: 3 },
+      { word: "INTENSE", hint: "Extreme and powerful hue", revealedIndex: 0 },
+      { word: "DAZZLING", hint: "Brilliantly impressive", revealedIndex: 4 },
+    ],
+    funFact: "Vibrant colors can change your mood, speed up your perception of time, and trigger physical reactions in your body. 🌈",
+  },
+
+  // =============================================
+  // INDEX 327 - Shows October 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "World Series",
+    puzzleNumber: 407,
+    words: [
+      { word: "FALL", hint: "___ Classic, nickname for the championship", revealedIndex: 0 },
+      { word: "PINCH", hint: "___ hit, batting in for another player", revealedIndex: 2 },
+      { word: "TROPHY", hint: "Commissioner's ___, the gold-and-silver award", revealedIndex: 3 },
+      { word: "PENNANT", hint: "Flag won by the league champion", revealedIndex: 0 },
+      { word: "CHAMPION", hint: "The ultimate winner of the season", revealedIndex: 4 },
+    ],
+    funFact: "The very first World Series happened in 1903 between the Pittsburgh Pirates and the Boston Americans. Boston won the best-of-nine matchup 5 games to 3. ⚾",
+  },
+
+  // =============================================
+  // INDEX 328 - Shows October 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Niagara Falls",
+    puzzleNumber: 408,
+    words: [
+      { word: "MIST", hint: "Heavy cloud of water droplets from the falls", revealedIndex: 0 },
+      { word: "GORGE", hint: "Deep canyon carved by the Niagara River", revealedIndex: 2 },
+      { word: "BRIDAL", hint: "___ Veil Falls, one of three waterfalls", revealedIndex: 3 },
+      { word: "EMERALD", hint: "Bright green color of the water", revealedIndex: 0 },
+      { word: "ROMANTIC", hint: "Honeymoon Capital of the World", revealedIndex: 4 },
+    ],
+    funFact: "In 1901, Annie Edson Taylor became the first person to survive going over Niagara Falls inside a wooden barrel. 💧",
+  },
 ];
 
 // ===========================================

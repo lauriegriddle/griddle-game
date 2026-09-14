@@ -4559,7 +4559,7 @@ const puzzles = [
       { word: "MIAMI", hint: "Florida city setting", revealedIndex: 2 },
       { word: "CHEESE", hint: "_____cake at midnight!", revealedIndex: 3 },
       { word: "PICTURE", hint: "___ it, a town in Sicily", revealedIndex: 0 },
-      { word: "ENSEMBLE", hint: "Group cast of four", revealedIndex: 4 },
+      { word: "ENSEMBLE", hint: "Group cast", revealedIndex: 4 },
     ],
     funFact: "Many of the stars worked with each other before The Golden Girls. Arthur and McClanahan were friends on Maude and White and McClanahan collaborated on Mama's Family. 👵",
   },

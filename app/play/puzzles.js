@@ -4555,9 +4555,9 @@ const puzzles = [
     category: "The Golden Girls",
     puzzleNumber: 368,
     words: [
-      { word: "OLAF", hint: "St. ___, hometown of Dorothy's ex", revealedIndex: 0 },
+      { word: "OLAF", hint: "St. ___, hometown of Rose", revealedIndex: 0 },
       { word: "MIAMI", hint: "Florida city setting", revealedIndex: 2 },
-      { word: "CHEESE", hint: "Cheesecake at midnight!", revealedIndex: 3 },
+      { word: "CHEESE", hint: "_____cake at midnight!", revealedIndex: 3 },
       { word: "PICTURE", hint: "___ it, a town in Sicily", revealedIndex: 0 },
       { word: "ENSEMBLE", hint: "Group cast of four", revealedIndex: 4 },
     ],

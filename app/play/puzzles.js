@@ -4593,7 +4593,7 @@ const puzzles = [
       { word: "PLIABLE", hint: "Soft and easy to shape", revealedIndex: 0 },
       { word: "NONTOXIC", hint: "Safe for children", revealedIndex: 4 },
     ],
-    funFact: "Play-Doh was invented in the 1930s as a soft compound to clean wallpaper. As coal heat faded out, a nursery school teacher let her students play with the leftover cleaner in her classroom — and they loved it! 🎨",
+    funFact: "Play-Doh was invented in the 1930s as a soft compound to clean wallpaper. As coal heat faded out, a nursery school teacher let her students play with the leftover cleaner in her classroom and they loved it! 🎨",
   },
 
   // =============================================

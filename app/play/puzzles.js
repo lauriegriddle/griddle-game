@@ -4619,7 +4619,7 @@ const puzzles = [
     category: "Rice Krispies Treats",
     puzzleNumber: 372,
     words: [
-      { word: "SNAP", hint: "Snap, Crackle, ___", revealedIndex: 0 },
+      { word: "SNAP", hint: "____, Crackle, Pop", revealedIndex: 0 },
       { word: "FIRST", hint: "The recipe was ___ printed on Kellogg's boxes in 1941", revealedIndex: 2 },
       { word: "GLOBAL", hint: "Worldwide favorite treat", revealedIndex: 3 },
       { word: "SQUARES", hint: "Classic cut shape", revealedIndex: 0 },

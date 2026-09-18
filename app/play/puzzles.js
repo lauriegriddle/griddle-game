@@ -4625,7 +4625,7 @@ const puzzles = [
       { word: "SQUARES", hint: "Classic cut shape", revealedIndex: 0 },
       { word: "HOMEMADE", hint: "Made from scratch", revealedIndex: 4 },
     ],
-    funFact: "Rice Krispies Treats remained purely a homemade bake until Kellogg's began selling prepackaged bars in stores in 1995. 🍚",
+    funFact: "Rice Krispies Treats remained purely a home-baked treat until Kellogg's began selling prepackaged bars in stores in 1995. 🍚",
   },
 
   // =============================================

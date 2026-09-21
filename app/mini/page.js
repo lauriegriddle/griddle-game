@@ -48,6 +48,26 @@ const miniPuzzlesBenched = [
 // =============================================
 
 const miniPuzzles = [
+  { word: "NOVEL", category: "Read a Book", hint: "Long-form fiction" },
+  { word: "SPOCK", category: "Star Trek", hint: "Logical Vulcan officer" },
+  { word: "BLOCK", category: "Sudoku", hint: "3x3 mini section" },
+  { word: "QUICK", category: "TV Dinner", hint: "Fast and convenient" },
+  { word: "SCORE", category: "Video Games", hint: "Track your points" },
+  { word: "LUCKY", category: "Fortune Cookies", hint: "Numbers on the slip" },
+  { word: "MIAMI", category: "The Golden Girls", hint: "Florida city setting" },
+  { word: "SPACE", category: "Peanut", hint: "An astronaut took a peanut to the moon" },
+  { word: "AROMA", category: "Play-Doh", hint: "Distinctive nostalgic smell" },
+  { word: "FIRST", category: "Rice Krispies Treats", hint: "The recipe was ___ printed on Kellogg's boxes in 1941" },
+  { word: "MATEY", category: "Pirates", hint: "Friendly pirate address" },
+  { word: "NIGHT", category: "Earth, Wind, and Fire", hint: "21st ___ of September" },
+];
+
+/*
+// =============================================
+// BENCHED MINI PUZZLES (formerly active)
+// Uncomment and move above the closing ]; to restore
+// =============================================
+
   { word: "COLOR", category: "Chameleon", hint: "What they change" },
   { word: "BUMPY", category: "Roller Coaster", hint: "Rough and jolting ride" },
   { word: "ONION", category: "Fajitas", hint: "Caramelized veggie topping" },
@@ -64,13 +84,6 @@ const miniPuzzles = [
   { word: "MONTH", category: "No Rhyme and No Reason", hint: "30 or 31 days" },
   { word: "PEARL", category: "Earrings", hint: "Classic elegant gem" },
   { word: "TOWER", category: "Skyscraper", hint: "Tall structure" },
-];
-
-/*
-// =============================================
-// BENCHED MINI PUZZLES (formerly active)
-// Uncomment and move above the closing ]; to restore
-// =============================================
 
   { word: "CRUST", category: "Bread", hint: "The golden outer layer of a baked loaf" },
   { word: "SOLVE", category: "Detective", hint: "To find the answer to a mystery or problem" },

@@ -19,7 +19,7 @@ const ANCHOR_INDEX = 0;
 const triviaQuestions = [
 
   // ============================================================
-  // ACTIVE QUESTIONS - ids 223-328
+  // ACTIVE QUESTIONS - ids 223-270
   // ============================================================
   {
     id: 223,
@@ -696,7 +696,7 @@ const triviaQuestions = [
 ];
 
 /*
-// ACTIVE QUESTIONS: ids 223-328 (fresh content, August 2026)
+// ACTIVE QUESTIONS: ids 223-270 (fresh content, August 2026)
 // BENCHED QUESTIONS: ids 1-222 (commented out below, reuse anytime)
 
   {

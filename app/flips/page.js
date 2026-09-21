@@ -3164,7 +3164,7 @@ const triviaQuestions = [
 // Function to get today's question - ANCHOR DATE SYSTEM
 const getTodaysQuestion = () => {
   // ANCHOR DATE: February 1, 2026 at 7:45 PM = Question ID 27 (index 26)
-  const anchorDate = new Date(2026, 7, 3, 19, 45, 0, 0);
+  const anchorDate = new Date(2026, 7, 3, 19, 45, 0, 0);;
 const ANCHOR_INDEX = 0;
   
   const now = new Date();

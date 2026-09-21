@@ -19,686 +19,685 @@ const ANCHOR_INDEX = 0;
 const triviaQuestions = [
 
   // ============================================================
-  // ACTIVE QUESTIONS - ids 175-192
+  // ACTIVE QUESTIONS - ids 223-328
   // ============================================================
-{
-    id: 175,
-    theme: "Sharks 🦈",
-    question: "How many rows of teeth can a great white shark have at one time?",
+  {
+    id: 223,
+    theme: "St. Augustine, Florida 🏰",
+    question: "What makes St. Augustine, Florida unique among U.S. cities?",
     options: [
-      "1 row",
-      "2 rows",
-      "Up to 7 rows",
-      "Up to 15 rows"
+      "It has the most lighthouses per mile of coastline",
+      "It is the oldest continuously occupied European settlement in the U.S.",
+      "It was the first city to have a paved road in America",
+      "It has the largest Spanish colonial fort ever built"
     ],
-    correctAnswer: "Up to 7 rows",
-    hint: "Far more than just the front row you see...",
-    funFact: "Great white sharks can have up to 7 rows of teeth at once, with about 300 teeth total! They are constantly replacing lost teeth throughout their lives, cycling through roughly 20,000 teeth in a lifetime. Shark teeth are not attached to a jawbone like human teeth.  They are essentially modified scales, which is why they fall out so easily."
+    correctAnswer: "It is the oldest continuously occupied European settlement in the U.S.",
+    hint: "Think about when the Spanish arrived in Florida...",
+    funFact: "St. Augustine was founded by Spanish explorer Pedro Menéndez de Avilés in 1565, making it the oldest continuously occupied European settlement in the United States — 42 years before the English settled Jamestown! The city's famous Castillo de San Marcos fort, built of coquina shell-stone, was so resilient that cannonballs simply sank into its walls rather than shattering them."
   },
   {
-    id: 176,
-    theme: "Sharks 🦈",
-    question: "What is the largest shark species in the world?",
+    id: 224,
+    theme: "Chop Suey 🍜",
+    question: "What does the Chinese phrase 'tsap seui,' the origin of 'chop suey,' translate to?",
     options: [
-      "Great White Shark",
-      "Bull Shark",
-      "Whale Shark",
-      "Hammerhead Shark"
+      "Stir-fried vegetables",
+      "Miscellaneous leftovers",
+      "Rice and noodles",
+      "Quick cooking method"
     ],
-    correctAnswer: "Whale Shark",
-    hint: "Despite its name, it's gentle and filter-feeds like a whale...",
-    funFact: "The whale shark is the largest fish on Earth, reaching up to 40 feet long and weighing as much as 20 tons! Despite their enormous size, whale sharks are completely harmless to humans and feed by filter-feeding on tiny plankton, fish eggs, and small fish. They are slow, gentle giants that sometimes allow swimmers to hitch a ride, though scientists discourage this to protect the animals."
+    correctAnswer: "Miscellaneous leftovers",
+    hint: "Think about what you'd make when cleaning out the fridge...",
+    funFact: "Chop suey comes from the Cantonese phrase 'tsap seui,' meaning miscellaneous leftovers, and was likely created by Chinese immigrants making do with whatever ingredients were available. In the 1920s, chop suey became so trendy in America that early Chinese restaurants were often simply called 'chop suey houses.' It remains one of the most famous examples of Chinese-American fusion cuisine!"
   },
   {
-    id: 177,
-    theme: "Sharks 🦈",
-    question: "How do sharks detect prey from long distances?",
+    id: 225,
+    theme: "Whale Sharks 🦈",
+    question: "How do whale sharks, the largest fish in the ocean, feed?",
     options: [
-      "Exceptional color vision",
-      "Electroreception through special pores",
-      "Sonar clicks like dolphins",
-      "Smell alone"
+      "They hunt large fish like tuna",
+      "They filter tiny plankton through their gills",
+      "They scavenge the ocean floor",
+      "They catch squid at great depths"
     ],
-    correctAnswer: "Electroreception through special pores",
-    hint: "They can sense something invisible to us...",
-    funFact: "Sharks have small pores on their snouts called the ampullae of Lorenzini that detect the faint electrical fields produced by all living creatures' muscle movements. This sixth sense is so precise that a shark can detect the electrical field of a fish hiding under sand! They also have a legendary sense of smell, able to detect a single drop of blood in 25 gallons of water but electroreception is their secret weapon up close."
+    correctAnswer: "They filter tiny plankton through their gills",
+    hint: "Despite their enormous size, their prey is microscopic...",
+    funFact: "Whale sharks are filter feeders, swimming slowly with their enormous mouths open to strain plankton, fish eggs, and tiny fish from the water — similar to how baleen whales feed. Despite reaching up to 40 feet long and weighing 20 tons, they are completely harmless to humans. Scientists believe they can live 100 to 150 years, making them one of the longest-lived animals on Earth!"
   },
   {
-    id: 178,
-    theme: "Marine Life 🌊",
-    question: "What is the fastest fish in the ocean?",
+    id: 226,
+    theme: "Trail Mix 🥜",
+    question: "What is the main reason trail mix became popular with hikers and outdoors people?",
     options: [
-      "Mako Shark",
-      "Bluefin Tuna",
-      "Sailfish",
-      "Barracuda"
+      "It was invented by a famous mountaineer",
+      "It requires no cooking and provides quick energy",
+      "It was recommended by the U.S. Army",
+      "It was the first food sold at national park stores"
     ],
-    correctAnswer: "Sailfish",
-    hint: "Named for the dramatic fin along its back...",
-    funFact: "The sailfish is the fastest fish in the ocean, capable of bursting to speeds of 68 miles per hour! Its impressive dorsal fin, or 'sail,' can be folded down while swimming to reduce drag and raised when herding schools of fish. Sailfish are also remarkable hunters. They work cooperatively in groups to encircle baitfish, taking turns slashing through the school with their long bills."
+    correctAnswer: "It requires no cooking and provides quick energy",
+    hint: "Think about what makes it perfect for the trail...",
+    funFact: "Trail mix became the ultimate outdoor snack because it is lightweight, requires no preparation or refrigeration, and delivers a powerful combination of quick energy from dried fruit and sustained energy from nuts and seeds. Ancient people ate early versions for exactly the same reasons — dried fruits, nuts, and meats were portable fuel for long journeys. The name 'gorp,' a popular trail mix nickname, is said to stand for Good Old Raisins and Peanuts!"
   },
   {
-    id: 179,
-    theme: "Marine Life 🌊",
-    question: "How do sea otters keep from drifting apart while sleeping?",
+    id: 227,
+    theme: "No Rhyme and No Reason 🎵",
+    question: "Which common English word is famously known for having no perfect rhyme?",
     options: [
-      "They anchor themselves to the seafloor",
-      "They hold hands with each other",
-      "They tangle themselves in kelp",
-      "They swim in slow circles together"
+      "Purple",
+      "Silver",
+      "Orange",
+      "All of the above"
     ],
-    correctAnswer: "They hold hands with each other",
-    hint: "It's as adorable as it sounds...",
-    funFact: "Sea otters hold hands while sleeping on the water's surface in a behavior called 'rafting,' so they don't drift away from each other or their kelp bed! A group of resting otters is called a raft and can contain anywhere from a few to hundreds of animals. Sea otters also wrap themselves in kelp as an anchor. They have the densest fur of any animal:  up to a million hairs per square inch!"
+    correctAnswer: "All of the above",
+    hint: "There are actually several of these tricky words...",
+    funFact: "Orange, silver, and purple are among the most famous words in English that have no perfect rhyme! Poets have struggled with them for centuries. The word 'month' also has no rhyme, nor does 'chimney' or 'marathon.' English is full of these rhyme-resistant words because it borrows from so many different languages, creating unusual sound combinations that stand alone."
   },
   {
-    id: 180,
-    theme: "Marine Life 🌊",
-    question: "Why do crabs walk sideways?",
+    id: 228,
+    theme: "Earrings 👂",
+    question: "What is the oldest evidence of humans wearing earrings?",
     options: [
-      "Their eyes can only see to the sides",
-      "Their leg joints bend outward, not forward",
-      "Sideways movement is faster in sand",
-      "It helps them avoid predators"
+      "Egyptian tomb paintings from 1500 BC",
+      "A 5,000-year-old mummy found in the Alps",
+      "Ancient Roman coins depicting jewelry",
+      "Greek pottery from 800 BC"
     ],
-    correctAnswer: "Their leg joints bend outward, not forward",
-    hint: "It's simply a matter of anatomy...",
-    funFact: "Crabs walk sideways because their leg joints are structured to bend outward rather than forward and backward, making lateral movement the path of least resistance. Interestingly, not all crabs walk sideways. Some species like the sally lightfoot crab and the coconut crab can actually move in any direction! The coconut crab, the world's largest land invertebrate, can climb trees and crack open coconuts with its claws."
+    correctAnswer: "A 5,000-year-old mummy found in the Alps",
+    hint: "This famous mummy has a name...",
+    funFact: "Ötzi the Iceman, a 5,300-year-old mummy discovered preserved in ice in the Italian Alps in 1991, had stretched earlobes indicating he wore earrings — making them among the oldest evidence of ear piercing ever found. Interestingly, the earliest earring wearers were men! Ancient Egyptians, Persians, and Romans all wore earrings as symbols of wealth and status, and some ancient doctors believed earrings could improve eyesight."
   },
   {
-    id: 181,
-    theme: "Amusement Parks 🎢",
-    question: "What was the first amusement park in the United States?",
+    id: 229,
+    theme: "Skyscrapers 🏙️",
+    question: "What was the world's first true skyscraper?",
     options: [
-      "Coney Island",
-      "Cedar Point",
-      "Lake Compounce",
-      "Disneyland"
+      "The Flatiron Building in New York",
+      "The Empire State Building",
+      "The Home Insurance Building in Chicago",
+      "The Eiffel Tower in Paris"
     ],
-    correctAnswer: "Lake Compounce",
-    hint: "It's still operating today in Connecticut...",
-    funFact: "Lake Compounce in Bristol, Connecticut opened in 1846, making it the oldest continuously operating amusement park in the United States! It predates Coney Island by decades. The park started as a simple picnic grove and gradually added rides over the years. Its wooden roller coaster, the Wildcat, has been thrilling riders since 1927!"
+    correctAnswer: "The Home Insurance Building in Chicago",
+    hint: "It was built in the 1880s in the Midwest...",
+    funFact: "The Home Insurance Building in Chicago, completed in 1885, is widely considered the world's first true skyscraper. It stood just 10 stories tall — modest by today's standards — but revolutionary because it used a steel skeleton frame to bear the building's weight rather than thick masonry walls. This innovation made it possible to build much taller, transforming city skylines forever. It was demolished in 1931 to make way for a larger building!"
   },
   {
-    id: 182,
-    theme: "Amusement Parks 🎢",
-    question: "How fast does the world's fastest roller coaster travel?",
+    id: 230,
+    theme: "Macadamia Nuts 🥜",
+    question: "Where are macadamia nuts originally native to?",
     options: [
-      "About 100 mph",
-      "About 120 mph",
-      "About 150 mph",
-      "About 170 mph"
+      "Hawaii",
+      "Australia",
+      "Brazil",
+      "South Africa"
     ],
-    correctAnswer: "About 150 mph",
-    hint: "It's located in Abu Dhabi...",
-    funFact: "Formula Rossa at Ferrari World in Abu Dhabi is the world's fastest roller coaster, reaching 149 miles per hour in just 4.9 seconds! Riders are required to wear protective goggles because at that speed, insects and debris become a real hazard. For comparison, the first roller coasters in 18th-century Russia were simply ice slides that people rode on sleds...quite a leap in 300 years!"
+    correctAnswer: "Australia",
+    hint: "Not where most people think...",
+    funFact: "Macadamia nuts are native to the rainforests of Queensland and New South Wales in Australia, where Aboriginal Australians had eaten them for thousands of years before Europeans arrived. They were introduced to Hawaii in the 1880s and that state became so associated with them that many people assume they originated there. A Scottish-Australian chemist named John Macadam had the nut named in his honor in the 1850s, though he never actually ate one!"
   },
   {
-    id: 183,
-    theme: "Amusement Parks 🎢",
-    question: "What does the 'E' in 'E-ticket ride' originally refer to?",
-    options: [
-      "Elite attractions at Disneyland",
-      "The highest tier in Disneyland's original ticket booklet",
-      "Electronic ticketing systems",
-      "Extra-thrilling experiences"
-    ],
-    correctAnswer: "The highest tier in Disneyland's original ticket booklet",
-    hint: "Disneyland used to sell ticket books with lettered coupons...",
-    funFact: "When Disneyland opened in 1955, guests bought ticket books with coupons labeled A through E. A-tickets were for simple rides like the Main Street vehicles, while E-tickets covered the most spectacular attractions like the Matterhorn and Pirates of the Caribbean. The phrase 'E-ticket ride' entered American slang to mean any thrilling, top-of-the-line experience. Disney phased out the ticket books in 1982."
-  },
-  {
-    id: 184,
-    theme: "Road Trips 🚗",
-    question: "How long is Route 66, America's most famous road trip highway?",
-    options: [
-      "About 1,000 miles",
-      "About 2,400 miles",
-      "About 3,100 miles",
-      "About 4,000 miles"
-    ],
-    correctAnswer: "About 2,400 miles",
-    hint: "It stretches from Chicago to Los Angeles...",
-    funFact: "Route 66 stretches 2,448 miles from Chicago, Illinois to Santa Monica, California, passing through 8 states. Established in 1926, it became the main road for families migrating west during the Dust Bowl and later a symbol of American freedom and adventure. Though officially decommissioned in 1985 when interstates replaced it, Route 66 lives on as a heritage highway with roadside diners, motels, and quirky roadside attractions still drawing travelers today."
-  },
-  {
-    id: 185,
-    theme: "Road Trips 🚗",
-    question: "What is the longest road in the world?",
-    options: [
-      "The Trans-Siberian Highway",
-      "The Pan-American Highway",
-      "The Trans-Canada Highway",
-      "The Australian Highway 1"
-    ],
-    correctAnswer: "The Pan-American Highway",
-    hint: "It runs through North and South America...",
-    funFact: "The Pan-American Highway is the world's longest road at about 19,000 miles, stretching from Prudhoe Bay in Alaska all the way to the southern tip of Argentina! There is one famous gap called the Darién Gap of about 60 miles of dense jungle between Panama and Colombia that has never been paved. Only a handful of adventurers have ever crossed it, and the journey takes weeks through some of the most challenging terrain on Earth."
-  },
-  {
-    id: 186,
-    theme: "Summer Fruits 🍉",
-    question: "Watermelon is composed of approximately what percentage of water?",
-    options: [
-      "About 72%",
-      "About 82%",
-      "About 92%",
-      "About 99%"
-    ],
-    correctAnswer: "About 92%",
-    hint: "The name is quite literal...",
-    funFact: "Watermelon is about 92% water, making it one of the most hydrating foods you can eat on a hot summer day! It was originally cultivated in Africa over 5,000 years ago and placed in the tombs of Egyptian pharaohs to nourish them in the afterlife. Every part of a watermelon is edible, including the rind and in many cultures it's pickled or stir-fried as a vegetable."
-  },
-  {
-    id: 187,
-    theme: "Summer Fruits 🍓",
-    question: "Technically speaking, which of these is NOT a berry?",
-    options: [
-      "Banana",
-      "Watermelon",
-      "Strawberry",
-      "Avocado"
-    ],
-    correctAnswer: "Strawberry",
-    hint: "Botanical berries are defined differently than everyday usage...",
-    funFact: "Botanically, a true berry must develop from a single flower with one ovary. By that definition, bananas, watermelons, avocados, and even pumpkins are berries but strawberries, raspberries, and blackberries are not! Strawberries are technically 'accessory fruits' because the fleshy part develops from tissue outside the ovary. The little yellow specks on a strawberry's surface are the actual fruits!"
-  },
-  {
-    id: 188,
-    theme: "Summer Fruits 🍑",
-    question: "Which U.S. state produces the most peaches today?",
-    options: [
-      "Georgia",
-      "South Carolina",
-      "California",
-      "Colorado"
-    ],
-    correctAnswer: "California",
-    hint: "Not the state nicknamed 'The Peach State'...",
-    funFact: "Despite Georgia's famous 'Peach State' nickname, California actually produces the most peaches in the U.S. today: about 50% of the nation's total! South Carolina actually outproduces Georgia too. Georgia earned its reputation in the 19th century when its peaches were prized for quality, but modern agriculture shifted production west. Georgia does still hold the title for some of the tastiest heirloom varieties!"
-  },
-  {
-    id: 189,
-    theme: "Summer Sunsets 🌅",
-    question: "Why are sunsets often more colorful in summer than winter?",
-    options: [
-      "The sun is closer to Earth in summer",
-      "More dust, pollen, and humidity scatter light",
-      "Summer air contains more oxygen",
-      "The Earth's rotation slows slightly in summer"
-    ],
-    correctAnswer: "More dust, pollen, and humidity scatter light",
-    hint: "Think about what's floating in warm summer air...",
-    funFact: "Summer sunsets tend to be more vivid because warm air holds more moisture, pollen, dust, and particulates that scatter sunlight into brilliant oranges, pinks, and purples. Volcanic eruptions can also supercharge sunsets worldwide for months afterward; the eruption of Krakatoa in 1883 produced vivid red sunsets seen globally for nearly two years! After a summer thunderstorm is often the best time to catch a spectacular sunset."
-  },
-  {
-    id: 190,
-    theme: "Ice Cream 🍦",
-    question: "What is the best-selling ice cream flavor in the United States?",
-    options: [
-      "Cookies and Cream",
-      "Chocolate",
-      "Vanilla",
-      "Strawberry"
-    ],
-    correctAnswer: "Vanilla",
-    hint: "Sometimes the classic wins...",
-    funFact: "Vanilla has been the best-selling ice cream flavor in the U.S. for decades, accounting for about 28% of all ice cream sales! Vanilla is actually the world's most labor-intensive spice after saffron. Each vanilla orchid flower must be hand-pollinated within 12 hours of blooming. The U.S. is the world's largest consumer of vanilla, using about 60% of global production mostly in ice cream and baked goods."
-  },
-  {
-    id: 191,
-    theme: "Backyard Birds 🐦",
-    question: "Which common backyard bird can fly backwards?",
-    options: [
-      "Robin",
-      "Hummingbird",
-      "Blue Jay",
-      "Mockingbird"
-    ],
-    correctAnswer: "Hummingbird",
-    hint: "A tiny, fast-winged summer visitor...",
-    funFact: "Hummingbirds are the only birds in the world that can fly backwards, as well as hover in place, fly upside down briefly, and change direction instantly. All thanks to a unique ball-and-socket shoulder joint found in no other bird. Their wings beat 50 to 80 times per second, which creates the humming sound that gives them their name. Despite weighing less than a penny, they migrate up to 500 miles nonstop across the Gulf of Mexico!"
-  },
-  {
-    id: 192,
-    theme: "Lemonade 🍋",
-    question: "Which country is believed to have invented lemonade?",
-    options: [
-      "Greece",
-      "Egypt",
-      "Italy",
-      "France"
-    ],
-    correctAnswer: "Egypt",
-    hint: "One of the world's oldest civilizations had a citrus secret...",
-    funFact: "The earliest recorded lemonade dates back to Egypt around 1000 AD, where a sweetened lemon drink called 'qatarmizat' was popular! It spread through the Arab world and eventually reached Europe via trade routes. The classic American lemonade stand became a cultural icon in the early 20th century and remains one of the most beloved childhood entrepreneurship traditions. Pink lemonade's origin is disputed. Some credit a circus vendor who accidentally dropped cinnamon candies into a lemonade barrel!"
-  },
-  {
-    id: 193,
-    theme: "Space Science 🚀",
-    question: "How long does it take light from the Sun to reach Earth?",
-    options: [
-      "About 2 minutes",
-      "About 8 minutes",
-      "About 20 minutes",
-      "About 1 hour"
-    ],
-    correctAnswer: "About 8 minutes",
-    hint: "Faster than you might think for 93 million miles...",
-    funFact: "Sunlight takes about 8 minutes and 20 seconds to travel the 93 million miles from the Sun to Earth. This means when you look at the Sun, you're actually seeing it as it was 8 minutes ago! Light from the next closest star, Proxima Centauri, takes over 4 years to reach us, which is why we measure cosmic distances in light-years."
-  },
-  {
-    id: 194,
-    theme: "Space Science 🌙",
-    question: "Why does the Moon always show the same face to Earth?",
-    options: [
-      "The Moon doesn't rotate at all",
-      "Its rotation matches its orbit around Earth",
-      "Earth's gravity locked the Moon in place",
-      "The Moon rotates twice for every orbit"
-    ],
-    correctAnswer: "Its rotation matches its orbit around Earth",
-    hint: "It's a remarkable cosmic coincidence called synchronous rotation...",
-    funFact: "The Moon rotates on its axis at exactly the same rate it orbits Earth, once every 27.3 days, which is why we always see the same side. This isn't a coincidence; Earth's gravity gradually slowed the Moon's rotation over billions of years until it synchronized. The far side of the Moon wasn't seen by human eyes until 1959 when a Soviet spacecraft photographed it!"
-  },
-  {
-    id: 195,
-    theme: "Space Science ⭐",
-    question: "What is the most common type of star in the universe?",
-    options: [
-      "Yellow dwarfs like our Sun",
-      "Red giants",
-      "Red dwarfs",
-      "Blue supergiants"
-    ],
-    correctAnswer: "Red dwarfs",
-    hint: "Small, cool, and incredibly long-lived...",
-    funFact: "Red dwarf stars make up about 70% of all stars in the universe! They are much smaller and cooler than our Sun and burn their fuel so slowly that they can live for trillions of years, far longer than the current age of the universe. The nearest star to our solar system, Proxima Centauri, is a red dwarf. Despite being so common, they are too dim to see with the naked eye from Earth."
-  },
-  {
-    id: 196,
-    theme: "Earth Science 🌍",
-    question: "How old is planet Earth?",
-    options: [
-      "About 1 billion years",
-      "About 2.5 billion years",
-      "About 4.5 billion years",
-      "About 8 billion years"
-    ],
-    correctAnswer: "About 4.5 billion years",
-    hint: "Older than you might imagine...",
-    funFact: "Earth formed about 4.5 billion years ago from a swirling cloud of gas and dust surrounding the young Sun. The oldest rocks ever found on Earth are about 4 billion years old, found in Canada. For perspective, if Earth's entire history were compressed into a single year, modern humans wouldn't appear until the last few minutes of December 31st!"
-  },
-  {
-    id: 197,
-    theme: "Earth Science 🌋",
-    question: "How many tectonic plates make up Earth's surface?",
-    options: [
-      "About 5",
-      "About 12",
-      "About 20",
-      "About 50"
-    ],
-    correctAnswer: "About 20",
-    hint: "More than most people learn in school...",
-    funFact: "Earth's surface is divided into about 20 tectonic plates of varying sizes, constantly moving at roughly the speed your fingernails grow about 2 inches per year. The continents were once joined in a supercontinent called Pangaea about 335 million years ago. In about 250 million years, the continents will collide again to form a new supercontinent scientists have nicknamed Pangaea Proxima!"
-  },
-  {
-    id: 198,
-    theme: "Earth Science 🌊",
-    question: "What percentage of Earth's surface is covered by water?",
-    options: [
-      "About 51%",
-      "About 61%",
-      "About 71%",
-      "About 81%"
-    ],
-    correctAnswer: "About 71%",
-    hint: "More than two thirds...",
-    funFact: "About 71% of Earth's surface is covered by water, yet over 80% of the ocean remains unexplored! The ocean contains about 97% of all water on Earth. The average depth of the ocean is about 12,100 feet, deep enough to submerge most mountains. More people have walked on the Moon than have visited the deepest point of the ocean, the Mariana Trench."
-  },
-  {
-    id: 199,
-    theme: "Literature 📖",
-    question: "Which author wrote under the pen name 'George Eliot'?",
-    options: [
-      "Charlotte Brontë",
-      "Mary Ann Evans",
-      "Jane Austen",
-      "Virginia Woolf"
-    ],
-    correctAnswer: "Mary Ann Evans",
-    hint: "She used a male pen name to be taken seriously as a writer...",
-    funFact: "Mary Ann Evans published under the pen name George Eliot because she feared her work would be dismissed as light romantic fiction if readers knew she was a woman, a common problem for female writers in Victorian England. Her novels, including Middlemarch and The Mill on the Floss, are now considered among the greatest in the English language. Middlemarch has been called the greatest novel in the English language by multiple literary polls!"
-  },
-  {
-    id: 200,
-    theme: "Literature 📚",
-    question: "What is the shortest novel ever to win the Pulitzer Prize for Fiction?",
-    options: [
-      "The Old Man and the Sea",
-      "Of Mice and Men",
-      "Animal Farm",
-      "The Great Gatsby"
-    ],
-    correctAnswer: "The Old Man and the Sea",
-    hint: "A Hemingway classic about a fisherman...",
-    funFact: "Ernest Hemingway's The Old Man and the Sea, at just 127 pages, is the shortest novel to win the Pulitzer Prize for Fiction, which it did in 1953. It also contributed to Hemingway receiving the Nobel Prize in Literature in 1954. Hemingway wrote the first draft in just eight weeks and said it was the best writing he had ever done. The old fisherman Santiago is one of literature's most beloved characters!"
-  },
-  {
-    id: 201,
-    theme: "Literature 📖",
-    question: "Which novel begins with the line 'It was the best of times, it was the worst of times'?",
-    options: [
-      "Great Expectations",
-      "Oliver Twist",
-      "A Tale of Two Cities",
-      "David Copperfield"
-    ],
-    correctAnswer: "A Tale of Two Cities",
-    hint: "A Dickens novel set during the French Revolution...",
-    funFact: "A Tale of Two Cities by Charles Dickens, published in 1859, is one of the best-selling novels of all time with over 200 million copies sold! Its opening line is the most quoted in all of English literature. Dickens originally published it in weekly installments in his literary magazine, keeping readers in suspense for months. The two cities of the title are London and Paris."
-  },
-  {
-    id: 202,
-    theme: "Cooking 🍳",
-    question: "Why does cutting onions make you cry?",
-    options: [
-      "A natural acid irritates your eyes",
-      "A sulfur gas is released that reacts with eye moisture",
-      "The smell triggers an emotional response",
-      "Tiny onion particles float into your eyes"
-    ],
-    correctAnswer: "A sulfur gas is released that reacts with eye moisture",
-    hint: "It's a chemical chain reaction...",
-    funFact: "When you cut an onion, it releases enzymes that convert sulfur compounds into a gas called syn-propanethial-S-oxide. When this gas reaches your eyes it reacts with the moisture there to form a mild sulfuric acid, which your tear ducts try to wash away! Chilling onions before cutting slows the enzyme reaction and reduces tears. Cutting near running water or a fan also helps carry the gas away before it reaches your eyes."
-  },
-  {
-    id: 203,
-    theme: "Cooking 🧁",
-    question: "What does 'sauté' mean in cooking?",
-    options: [
-      "To cook slowly in liquid",
-      "To cook quickly in a small amount of fat over high heat",
-      "To cook in an oven uncovered",
-      "To cook by submerging in boiling water"
-    ],
-    correctAnswer: "To cook quickly in a small amount of fat over high heat",
-    hint: "The word comes from the French word for 'jump'...",
-    funFact: "The word 'sauté' comes from the French verb 'sauter,' meaning to jump, because the food is tossed or jumps in the pan during cooking! The high heat and quick cooking method seals in flavor while keeping food tender. The technique was perfected in classical French cuisine and is now one of the most fundamental skills in cooking. A proper sauté pan has sloped sides specifically designed for tossing food."
-  },
-  {
-    id: 204,
-    theme: "Cooking 🌿",
-    question: "Which herb is most consumed in the world?",
-    options: [
-      "Basil",
-      "Parsley",
-      "Cilantro",
-      "Mint"
-    ],
-    correctAnswer: "Parsley",
-    hint: "A common garnish that deserves more credit...",
-    funFact: "Parsley is the world's most widely consumed herb, used in cuisines from the Middle East to Europe to the Americas! It comes in two main varieties: curly and flat-leaf, with flat-leaf having a stronger flavor preferred by most chefs. Ancient Romans wore parsley garlands at banquets believing it would prevent intoxication. It's also one of the most nutritious herbs, packed with vitamins K, C, and A."
-  },
-  {
-    id: 205,
-    theme: "Travel 🌍",
-    question: "Which country has the most international tourists visit each year?",
+    id: 231,
+    theme: "Bacon 🥓",
+    question: "Which country consumes the most bacon per person in the world?",
     options: [
       "United States",
-      "Spain",
-      "France",
-      "China"
+      "United Kingdom",
+      "Canada",
+      "Denmark"
     ],
-    correctAnswer: "France",
-    hint: "Think of the Eiffel Tower and the Louvre...",
-    funFact: "France consistently ranks as the world's most visited country, welcoming around 90 million international tourists annually! Paris alone draws about 30 million visitors per year. The Louvre is the world's most visited art museum, and the Palace of Versailles draws millions more. France's combination of art, cuisine, fashion, history, and natural beauty makes it irresistible to travelers from every corner of the globe."
+    correctAnswer: "Denmark",
+    hint: "A Scandinavian country famous for its pork production...",
+    funFact: "Denmark consistently ranks among the highest bacon consumers per capita in the world, which makes sense since Denmark has nearly twice as many pigs as people! Denmark is one of the world's largest exporters of pork products. The Danes have been curing pork since Viking times. The word 'bacon' itself comes from Germanic roots meaning 'back of the pig,' and John Harris opened the first commercial bacon processing plant in England in 1770 using a brining method still used today."
   },
   {
-    id: 206,
-    theme: "Travel ✈️",
-    question: "What is the world's busiest airport by passenger traffic?",
+    id: 232,
+    theme: "Reading 📚",
+    question: "What happens in your brain when you read fiction?",
     options: [
-      "London Heathrow",
-      "Dubai International",
-      "Hartsfield-Jackson Atlanta",
-      "Beijing Capital"
+      "Only the language centers activate",
+      "The same brain regions activate as if you were experiencing the events",
+      "Your brain activity slows significantly",
+      "Only your memory centers engage"
     ],
-    correctAnswer: "Hartsfield-Jackson Atlanta",
-    hint: "It's in the American South...",
-    funFact: "Hartsfield-Jackson Atlanta International Airport has been the world's busiest airport by passenger traffic for over two decades, handling over 100 million passengers annually! Its central location in the eastern U.S. makes it a hub for connecting flights. The airport has its own underground train system connecting terminals, its own zip code, and generates more economic activity than any other facility in Georgia."
+    correctAnswer: "The same brain regions activate as if you were experiencing the events",
+    hint: "Your brain doesn't fully distinguish between reading and doing...",
+    funFact: "Neuroscience research shows that when you read fiction, your brain activates the same regions as if you were actually experiencing what the characters are going through — motor cortex for action scenes, sensory cortex for texture and smell descriptions, emotional centers for feelings. Reading fiction also measurably increases empathy by allowing you to inhabit other perspectives. And it beats music and tea for calming the nervous system, reducing stress by up to 68% in just six minutes!"
   },
   {
-    id: 207,
-    theme: "Travel 🗺️",
-    question: "What is the smallest country in the Americas?",
+    id: 233,
+    theme: "Google 🔍",
+    question: "What were Google's founders originally going to name their search engine?",
     options: [
-      "Belize",
-      "Jamaica",
-      "Saint Kitts and Nevis",
-      "Barbados"
+      "SearchMaster",
+      "BackRub",
+      "WebCrawler",
+      "InfoSeek"
     ],
-    correctAnswer: "Saint Kitts and Nevis",
-    hint: "A two-island Caribbean nation...",
-    funFact: "Saint Kitts and Nevis is the smallest country in the Western Hemisphere, covering just 104 square miles and home to about 53,000 people! It was the first Caribbean island to be colonized by Europeans in 1623. Despite its tiny size, it has a fascinating history as one of the most important sugar-producing colonies in the 18th century. Its volcanic peaks and rainforests make it a beloved eco-tourism destination today."
+    correctAnswer: "BackRub",
+    hint: "The name referred to how it analyzed the web...",
+    funFact: "Before becoming Google, the search engine was called BackRub — named for its ability to analyze 'back links' on the web to determine a site's importance. Larry Page and Sergey Brin renamed it Google, a playful misspelling of 'googol,' the mathematical term for 1 followed by 100 zeros, representing the vast amount of information they wanted to organize. In 1997, they reportedly offered to sell the whole thing to Yahoo for just $1 million, but the deal was rejected!"
   },
   {
-    id: 208,
-    theme: "Outdoor Recreation 🏕️",
-    question: "What is the Leave No Trace principle most associated with?",
+    id: 234,
+    theme: "Star Trek 🚀",
+    question: "What famous Star Trek phrase was never actually said the way most people remember it?",
     options: [
-      "Staying on marked trails only",
-      "Minimizing human impact on natural spaces",
-      "Packing out all food waste",
-      "Never building campfires"
+      "Live long and prosper",
+      "Beam me up, Scotty",
+      "Space, the final frontier",
+      "To boldly go where no man has gone before"
     ],
-    correctAnswer: "Minimizing human impact on natural spaces",
-    hint: "It's a broader philosophy than just one rule...",
-    funFact: "Leave No Trace is a set of seven principles designed to minimize human impact on the outdoors, covering everything from campfire safety to wildlife interaction to how to dispose of waste properly. The movement began in the 1960s as national parks saw surging visitor numbers. Studies show that education in Leave No Trace principles dramatically reduces environmental damage in wilderness areas. The golden rule: leave a place better than you found it!"
+    correctAnswer: "Beam me up, Scotty",
+    hint: "It's one of the most quoted lines in pop culture...",
+    funFact: "Despite being one of the most recognizable phrases in television history, 'Beam me up, Scotty' was never said exactly that way in any Star Trek episode or film! The closest versions are 'Beam us up, Scotty' or 'Scotty, beam us up.' The misquote became so embedded in popular culture that it took on a life of its own. Alexander Graham Bell, incidentally, wanted people to answer the telephone with 'Ahoy' — a real nautical greeting!"
   },
   {
-    id: 209,
-    theme: "Outdoor Recreation 🎣",
-    question: "What is the world record weight for a largemouth bass?",
+    id: 235,
+    theme: "Sudoku 🧩",
+    question: "What country did modern Sudoku originate in?",
     options: [
-      "About 12 pounds",
-      "About 16 pounds",
-      "About 22 pounds",
-      "About 28 pounds"
+      "Japan",
+      "China",
+      "United States",
+      "United Kingdom"
     ],
-    correctAnswer: "About 22 pounds",
-    hint: "Caught in Japan in 2009...",
-    funFact: "The world record largemouth bass weighed 22 pounds 4 ounces and was caught in Lake Biwa, Japan in 2009 by Manabu Kurita tying a record set in Georgia in 1932! Largemouth bass are native to North America but have been introduced worldwide. Bass fishing is a multi-billion dollar industry in the U.S. with professional tournaments offering millions in prize money. The fish can live up to 16 years in the wild."
+    correctAnswer: "United States",
+    hint: "Despite its Japanese name, its roots are American...",
+    funFact: "Modern Sudoku was invented by Howard Garns, an American architect from Indiana, who published it in 1979 under the name 'Number Place.' It was later discovered by a Japanese publisher, renamed Sudoku (meaning 'single number'), and became a massive craze in Japan before sweeping the world in the mid-2000s. The puzzle requires no math — just logic — since any nine symbols could replace the numbers. Over 100 million Sudoku puzzles are solved worldwide every day!"
   },
   {
-    id: 210,
-    theme: "Outdoor Recreation 🏔️",
-    question: "What is the most hiked trail in the United States?",
+    id: 236,
+    theme: "TV Dinners 📺",
+    question: "What accidental surplus led to the invention of the TV dinner in 1953?",
     options: [
-      "The Appalachian Trail",
-      "Angels Landing in Zion",
-      "The Rim Trail at Grand Canyon",
-      "Half Dome in Yosemite"
+      "260 tons of leftover Thanksgiving turkey",
+      "A massive overproduction of frozen vegetables",
+      "Surplus aluminum trays from World War II",
+      "Leftover army rations from the Korean War"
     ],
-    correctAnswer: "The Rim Trail at Grand Canyon",
-    hint: "Millions of visitors walk part of it every year...",
-    funFact: "The Rim Trail at Grand Canyon National Park is the most hiked trail in the U.S., with millions of visitors walking portions of its 13 miles along the South Rim each year! Unlike most Grand Canyon trails it is mostly flat and paved, making it accessible to almost everyone. The Grand Canyon receives about 6 million visitors annually, making it one of the most visited national parks. The canyon is up to 18 miles wide and over a mile deep!"
+    correctAnswer: "260 tons of leftover Thanksgiving turkey",
+    hint: "It involved a holiday bird and a big mistake...",
+    funFact: "Swanson accidentally ordered 260 tons too much Thanksgiving turkey in 1953 and needed a creative solution fast. A salesman named Gerry Thomas suggested packaging the turkey with sides in aluminum trays inspired by airline meal trays, and the TV dinner was born! The first meal — turkey, cornbread dressing, peas, and sweet potatoes — cost 98 cents and took 25 minutes to heat. Swanson sold 10 million in the first year alone!"
   },
   {
-    id: 211,
-    theme: "Seasonal Transitions 🍂",
-    question: "Why do leaves change color in autumn?",
+    id: 237,
+    theme: "Hats 🎩",
+    question: "What was the fedora hat originally designed for?",
     options: [
-      "Cold temperatures create new pigments",
-      "Chlorophyll breaks down revealing hidden pigments",
-      "Trees absorb minerals that change leaf color",
-      "Reduced sunlight dyes the leaves"
+      "Male detectives and gangsters",
+      "Women, inspired by a stage play",
+      "Outdoor workers needing sun protection",
+      "Military officers in World War I"
     ],
-    correctAnswer: "Chlorophyll breaks down revealing hidden pigments",
-    hint: "The colors were there all along...",
-    funFact: "The brilliant reds, oranges, and yellows of autumn leaves were actually hidden there all summer! Green chlorophyll dominates during the growing season but breaks down in autumn as days shorten and temperatures drop, revealing the yellow and orange pigments beneath. The vivid reds are newly produced by some trees as sugars get trapped in the leaves. The best fall foliage happens after warm sunny days and cool but not freezing nights."
+    correctAnswer: "Women, inspired by a stage play",
+    hint: "It was named after a theatrical character...",
+    funFact: "The fedora was originally a women's hat, named after Princess Fédora, the heroine of an 1882 play starring famous actress Sarah Bernhardt. Women's rights advocates adopted it as a symbol of independence in the late 19th century. Men began wearing it in the early 1900s, eventually making it synonymous with gangsters, detectives, and Indiana Jones. Today it has come full circle as a unisex fashion accessory!"
   },
   {
-    id: 212,
-    theme: "Seasonal Transitions 🌾",
-    question: "What is the autumnal equinox?",
+    id: 238,
+    theme: "Video Games 🎮",
+    question: "What was Pac-Man's original Japanese name?",
     options: [
-      "The first frost of the season",
-      "When day and night are equal length",
-      "The peak of fall foliage season",
-      "When the Sun is furthest from Earth"
+      "Munch Man",
+      "Dot Eater",
+      "Puck Man",
+      "Chomp Master"
     ],
-    correctAnswer: "When day and night are equal length",
-    hint: "Think about what equinox means literally...",
-    funFact: "The word equinox comes from the Latin for 'equal night' on the autumnal equinox, day and night are each approximately 12 hours long everywhere on Earth! In the Northern Hemisphere it falls around September 22-23 each year. After this date, nights grow longer than days until the winter solstice. Many ancient cultures built monuments aligned to the equinoxes, including Stonehenge and the Mayan pyramid at Chichen Itza."
+    correctAnswer: "Puck Man",
+    hint: "It was changed for American release for a specific reason...",
+    funFact: "Pac-Man was originally called Puck Man in Japan, inspired by the Japanese phrase 'paku paku' describing the sound of a mouth opening and closing. When Namco brought the game to America in 1980, they changed it to Pac-Man because they feared arcade vandals would alter the 'P' to an 'F' on the cabinet! Creator Toru Iwatani designed it as a peaceful alternative to violent shooting games, famously inspired by the image of a pizza with a slice missing."
   },
   {
-    id: 213,
-    theme: "Seasonal Transitions 🎃",
-    question: "What was the original vegetable used to make jack-o'-lanterns?",
+    id: 239,
+    theme: "Fortune Cookies 🥠",
+    question: "Where did fortune cookies actually originate?",
     options: [
-      "Squash",
-      "Beets",
-      "Turnips",
-      "Potatoes"
+      "China",
+      "Japan",
+      "San Francisco's Chinatown",
+      "Hong Kong"
     ],
-    correctAnswer: "Turnips",
-    hint: "The Irish brought the tradition to America...",
-    funFact: "Jack-o'-lanterns originated in Ireland where people carved scary faces into turnips to ward off evil spirits during Samhain, the Celtic harvest festival! When Irish immigrants arrived in America they discovered that pumpkins were far easier to carve and much more plentiful, so the tradition switched to pumpkins. The name 'jack-o'-lantern' comes from an Irish folktale about a trickster named Stingy Jack who was condemned to wander the earth with only a carved turnip lantern to light his way."
+    correctAnswer: "Japan",
+    hint: "Not where most people assume...",
+    funFact: "Fortune cookies were not invented in China — they originated in Japan in the 19th century, where similar sesame-and-miso cookies containing paper fortunes were sold at temples in Kyoto! Japanese immigrants likely brought the concept to California, where it was adapted and popularized in Chinese-American restaurants. Ironically, fortune cookies are virtually unknown in China. In 2005, a single set of fortune cookie numbers resulted in 110 second-place Powerball winners, triggering a lottery fraud investigation before officials realized the connection!"
   },
   {
-    id: 214,
-    theme: "Seasonal Transitions ❄️",
-    question: "What causes the first frost of autumn?",
+    id: 240,
+    theme: "The Golden Girls 👵",
+    question: "In what city did The Golden Girls take place?",
     options: [
-      "Snow clouds releasing frozen moisture",
-      "Ground temperature dropping below freezing on clear calm nights",
-      "Cold fronts pushing Arctic air south",
-      "Dew freezing when temperatures hit 35 degrees"
+      "Fort Lauderdale",
+      "Tampa",
+      "Miami",
+      "Orlando"
     ],
-    correctAnswer: "Ground temperature dropping below freezing on clear calm nights",
-    hint: "Clear skies are actually key to frost formation...",
-    funFact: "Frost forms on clear, calm nights when the ground radiates heat away into the sky with no clouds to reflect it back, causing surfaces to drop below 32 degrees Fahrenheit even when air temperature is slightly warmer. Wind actually prevents frost because it mixes warmer air down to the surface! Gardeners watch for these calm clear nights in autumn to protect their plants. The first frost date varies dramatically across the U.S. from August in northern Minnesota to December in Florida."
+    correctAnswer: "Miami",
+    hint: "A sunny Florida city known for its vibrant culture...",
+    funFact: "The Golden Girls was set in Miami, Florida, where four older women shared a home and their lives from 1985 to 1992. The show was groundbreaking for featuring older women as the leads in a prime-time comedy and tackling serious topics like aging, dating, and health with humor and warmth. Its midnight cheesecake scenes became iconic! Despite being set in Miami's warmth, the exterior house used for filming was actually located in Los Angeles."
   },
   {
-    id: 215,
-    theme: "Space Science 🌠",
-    question: "What causes a meteor shower?",
+    id: 241,
+    theme: "Peanuts 🥜",
+    question: "How many uses for peanuts did George Washington Carver document?",
     options: [
-      "Asteroids breaking apart near Earth",
-      "Earth passing through a comet's debris trail",
-      "Solar flares ejecting particles toward Earth",
-      "Fragments of the Moon entering the atmosphere"
+      "About 50",
+      "About 150",
+      "Over 300",
+      "Over 500"
     ],
-    correctAnswer: "Earth passing through a comet's debris trail",
-    hint: "Comets leave something behind long after they pass...",
-    funFact: "Meteor showers occur when Earth passes through the trail of debris left behind by a comet on its orbit around the Sun. The tiny particles, most no bigger than a grain of sand, burn up in our atmosphere creating streaks of light! The Perseid meteor shower every August comes from comet Swift-Tuttle. The Leonid shower in November can occasionally produce meteor storms with thousands of meteors per hour: a truly spectacular sight."
+    correctAnswer: "Over 300",
+    hint: "Far more than just peanut butter...",
+    funFact: "George Washington Carver documented over 300 uses for peanuts, including dyes, plastics, soaps, cosmetics, paints, and of course food products. He developed these innovations to help Southern farmers diversify away from cotton. Interestingly, Carver did not invent peanut butter — versions of it existed long before his work. Peanuts are not actually nuts at all; they are legumes that grow underground in pods, making them more closely related to beans than to almonds or walnuts!"
   },
   {
-    id: 216,
-    theme: "Earth Science 🌪️",
-    question: "What is the difference between a hurricane and a typhoon?",
+    id: 242,
+    theme: "Play-Doh 🎨",
+    question: "What was Play-Doh originally invented to do?",
     options: [
-      "Their wind speed categories",
-      "Only their location; they are the same storm type",
-      "Typhoons rotate clockwise, hurricanes counterclockwise",
-      "Typhoons form over land, hurricanes over water"
+      "Entertain children in hospitals",
+      "Clean wallpaper",
+      "Help artists make sculptures",
+      "Teach children fine motor skills"
     ],
-    correctAnswer: "Only their location; they are the same storm type",
-    hint: "It's all about geography...",
-    funFact: "Hurricanes and typhoons are exactly the same type of storm, a tropical cyclone, just named differently based on where they occur! Storms in the Atlantic and eastern Pacific are called hurricanes, those in the western Pacific are typhoons, and those in the Indian Ocean are simply called cyclones. They all rotate counterclockwise in the Northern Hemisphere and clockwise in the Southern Hemisphere due to Earth's rotation."
+    correctAnswer: "Clean wallpaper",
+    hint: "It had a very practical, non-toy purpose...",
+    funFact: "Play-Doh was invented in the 1930s as a soft, pliable compound for cleaning coal soot off wallpaper — a common household task before electric heating replaced coal furnaces. When coal heating fell out of use, the product had no market. A nursery school teacher named Kay Zufall discovered her students loved playing with it in class and convinced the manufacturer to market it as a children's toy in 1956. Today over 3 billion cans of Play-Doh have been sold, and its distinctive smell is one of the most recognizable in the world!"
   },
   {
-    id: 217,
-    theme: "Cooking 🍰",
-    question: "What is the Maillard reaction in cooking?",
+    id: 243,
+    theme: "Boston 🏙️",
+    question: "What famous historical event took place in Boston Harbor in 1773?",
     options: [
-      "The process that makes bread rise",
-      "The browning reaction that creates flavor",
-      "How fat emulsifies in sauces",
-      "The caramelization of sugars"
+      "The signing of the Mayflower Compact",
+      "The Boston Tea Party",
+      "The Battle of Bunker Hill",
+      "Paul Revere's Midnight Ride"
     ],
-    correctAnswer: "The browning reaction that creates flavor",
-    hint: "It's responsible for the delicious crust on bread and seared meat...",
-    funFact: "The Maillard reaction is a chemical reaction between amino acids and sugars that occurs when food is heated above about 280 degrees Fahrenheit, creating hundreds of new flavor compounds and the appealing brown color on seared steaks, toast, roasted coffee, and baked bread! Named after French chemist Louis-Camille Maillard who described it in 1912, it is distinct from caramelization which only involves sugars. It's arguably the most important reaction in cooking!"
+    correctAnswer: "The Boston Tea Party",
+    hint: "It involved a very large amount of tea...",
+    funFact: "On December 16, 1773, American colonists disguised as Mohawk Indians boarded three British ships and dumped 342 chests of tea — worth about $1.7 million in today's money — into Boston Harbor to protest British taxation without representation. The event helped ignite the American Revolution. Boston is also home to the country's oldest public park (Boston Common, 1634), its first public school (1635), and America's first subway system (1897)!"
   },
   {
-    id: 218,
-    theme: "Travel 🏯",
-    question: "Which ancient wonder of the world was located in Alexandria, Egypt?",
+    id: 244,
+    theme: "Rice Krispies Treats 🍚",
+    question: "Who invented Rice Krispies Treats?",
     options: [
-      "The Hanging Gardens",
-      "The Colossus",
-      "The Lighthouse of Alexandria",
-      "The Temple of Artemis"
+      "The Kellogg brothers themselves",
+      "Two Kellogg's employees raising money for a campfire troop",
+      "A home economics teacher in Michigan",
+      "A New York City bakery chef"
     ],
-    correctAnswer: "The Lighthouse of Alexandria",
-    hint: "It guided sailors for centuries...",
-    funFact: "The Lighthouse of Alexandria, built around 280 BC on the island of Pharos, stood between 330 and 430 feet tall; one of the tallest man-made structures in the ancient world! It guided ships into the busy harbor for over 1,500 years. The word 'pharos' became the word for lighthouse in many languages, including French (phare) and Spanish (faro). It was gradually destroyed by a series of earthquakes between 956 and 1323 AD."
+    correctAnswer: "Two Kellogg's employees raising money for a campfire troop",
+    hint: "It was created for a good cause...",
+    funFact: "Rice Krispies Treats were invented in 1939 by Mildred Day and Malitta Jensen, two employees at Kellogg's in Battle Creek, Michigan, who created the recipe to raise money for a Camp Fire Girls fundraiser. Kellogg's began printing the recipe on cereal boxes in 1941, making it a beloved home-baked treat for decades before the company finally started selling pre-packaged bars in stores in 1995. Americans consume approximately 35 million Rice Krispies Treats every year!"
   },
   {
-    id: 219,
-    theme: "Outdoor Recreation 🌿",
-    question: "How many national parks are in the United States?",
+    id: 245,
+    theme: "Pirates ☠️",
+    question: "What did real pirates actually use their famous flags for?",
     options: [
-      "About 40",
-      "About 63",
-      "About 85",
-      "About 120"
+      "To identify their home port",
+      "To signal their nationality to other ships",
+      "To intimidate merchant ships into surrendering without a fight",
+      "To communicate with other pirate ships"
     ],
-    correctAnswer: "About 63",
-    hint: "More than most people realize...",
-    funFact: "The United States has 63 designated national parks, the most recent being New River Gorge in West Virginia, designated in 2020! But the National Park System actually includes over 400 sites including monuments, historic sites, seashores, and recreation areas. Yellowstone, established in 1872, was the world's first national park. The national parks collectively receive over 300 million visits per year and are often called 'America's best idea.'"
+    correctAnswer: "To intimidate merchant ships into surrendering without a fight",
+    hint: "Pirates preferred not to fight if they could avoid it...",
+    funFact: "The Jolly Roger skull-and-crossbones flag was primarily a psychological weapon — pirates flew it to terrify merchant crews into surrendering without a costly fight. If the merchant ship refused to surrender, pirates would raise a red flag, signaling no mercy would be shown. Most pirates preferred easy captures since fighting damaged the very cargo they wanted to steal! The golden age of piracy lasted roughly from 1680 to 1730, and famous pirates like Blackbeard carefully cultivated their terrifying reputations."
   },
   {
-    id: 220,
-    theme: "Literature 📚",
-    question: "What novel features the character Atticus Finch as a lawyer defending a wrongly accused man?",
+    id: 246,
+    theme: "Fried Rice 🍚",
+    question: "Why is day-old rice considered better for making fried rice?",
     options: [
-      "The Grapes of Wrath",
-      "To Kill a Mockingbird",
-      "Of Mice and Men",
-      "Invisible Man"
+      "It has more flavor after sitting overnight",
+      "Fresh rice is too moist and clumps together when fried",
+      "Day-old rice absorbs soy sauce better",
+      "It cooks faster than fresh rice"
     ],
-    correctAnswer: "To Kill a Mockingbird",
-    hint: "Set in the American South during the 1930s...",
-    funFact: "To Kill a Mockingbird by Harper Lee was published in 1960 and won the Pulitzer Prize the following year. Atticus Finch has been voted the greatest fictional hero of the 20th century by the American Film Institute! Lee's childhood neighbor was Truman Capote, who inspired the character of Dill. Despite writing one of the most celebrated American novels, Lee was intensely private and gave almost no interviews for the last 50 years of her life."
+    correctAnswer: "Fresh rice is too moist and clumps together when fried",
+    hint: "It's all about moisture content...",
+    funFact: "Day-old rice has dried out slightly in the refrigerator, giving each grain a firmer texture that separates beautifully in the hot wok rather than clumping into a sticky mass. This is why fried rice is traditionally made from leftovers! Professional chefs actually spread freshly cooked rice on sheet pans to dry it out faster. Fried rice originated in China around 600 AD and is now one of the most widely eaten dishes on Earth, with every culture putting its own spin on the basic concept."
   },
   {
-    id: 221,
-    theme: "Seasonal Transitions 🍁",
-    question: "Which U.S. state is most famous for fall foliage tourism?",
+    id: 247,
+    theme: "Earth, Wind & Fire 🎵",
+    question: "Why is September 21st celebrated by Earth, Wind & Fire fans every year?",
     options: [
-      "New York",
-      "Vermont",
-      "Maine",
-      "New Hampshire"
+      "It's the birthday of founder Maurice White",
+      "The band's first album was released on that date",
+      "It's the date mentioned in their hit song 'September'",
+      "Their first concert was held on September 21st"
     ],
-    correctAnswer: "Vermont",
-    hint: "A small New England state with big autumn color...",
-    funFact: "Vermont is the undisputed capital of fall foliage tourism in the U.S., drawing over 3 million visitors each autumn! Its mix of sugar maples, birches, and beeches creates a spectacular palette of reds, oranges, and yellows. Vermont's foliage season typically peaks in early to mid-October. The state even has an official foliage hotline and website where rangers report weekly color conditions. Fall tourism generates hundreds of millions of dollars for Vermont's economy!"
+    correctAnswer: "It's the date mentioned in their hit song 'September'",
+    hint: "Do you remember...",
+    funFact: "Every September 21st, social media floods with the question 'Do you remember the 21st night of September?' from Earth, Wind & Fire's beloved 1978 hit 'September.' The date became a global celebration, with fans playing the song on repeat and spreading joy online. Interestingly, songwriter Allee Willis, who co-wrote the song, said the date was chosen simply because it sounded good — there was no particular significance to September 21st. The song has become one of the most recognizable opening notes in pop music history!"
   },
   {
-    id: 222,
-    theme: "Cooking 🍲",
-    question: "What is the key difference between a stock and a broth?",
+    id: 248,
+    theme: "Autumnal Equinox 🍂",
+    question: "What does the word 'equinox' literally mean?",
     options: [
-      "Stock uses vegetables, broth uses meat",
-      "Stock is made from bones, broth is made from meat",
-      "Broth is always salted, stock never is",
-      "They are exactly the same thing"
+      "Turning point",
+      "Equal night",
+      "Sun crossing",
+      "Balance of seasons"
     ],
-    correctAnswer: "Stock is made from bones, broth is made from meat",
-    hint: "One is richer and more gelatinous than the other...",
-    funFact: "Stock is made by simmering bones, which release collagen that turns into gelatin, giving stock a rich body and slightly sticky texture when cooled. Broth is made from simmering meat and is thinner and more flavorful on its own. Stock is the backbone of classical French cuisine and is the base for most professional sauces and soups. A good homemade stock can simmer for 4 to 8 hours to extract maximum flavor and gelatin from the bones!"
+    correctAnswer: "Equal night",
+    hint: "It comes from Latin roots...",
+    funFact: "Equinox comes from the Latin words 'aequus' (equal) and 'nox' (night), describing the moment when day and night are each approximately 12 hours long everywhere on Earth. The autumnal equinox in the Northern Hemisphere falls around September 22-23 each year, marking the official start of astronomical fall. Ancient cultures around the world marked this event — Stonehenge aligns with the equinox sunrise, and the Mayan pyramid at Chichen Itza creates a dramatic serpent shadow on its steps!"
   },
-  
+  {
+    id: 249,
+    theme: "Pot Pie 🥧",
+    question: "How old is the pot pie as a concept?",
+    options: [
+      "About 200 years old",
+      "About 500 years old",
+      "Over 2,000 years old",
+      "About 1,000 years old"
+    ],
+    correctAnswer: "Over 2,000 years old",
+    hint: "Ancient Romans were big fans...",
+    funFact: "Pot pies date back over 2,000 years to ancient Rome and Greece, where cooks baked meats and sauces inside pastry crusts. Roman cookbooks from the 1st century AD include recipes for meat pies remarkably similar to modern pot pies! In the late 1700s, sailors called them 'sea pies' and made them with whatever meats survived long voyages under a layer of dough. Chicken pot pie became an American comfort food staple in the 20th century, with Swanson introducing the first frozen version in 1951."
+  },
+  {
+    id: 250,
+    theme: "Punctuation ✏️",
+    question: "Which punctuation mark was added to standard keyboards most recently?",
+    options: [
+      "The exclamation point",
+      "The @ symbol",
+      "The hashtag",
+      "The semicolon"
+    ],
+    correctAnswer: "The hashtag",
+    hint: "Social media brought it to prominence...",
+    funFact: "The hashtag symbol (#) existed on telephone keypads for decades as the 'pound sign' or 'number sign,' but became a punctuation mark in its own right when Twitter user Chris Messina proposed using it to group conversations in 2007. It was officially added to the Oxford English Dictionary as 'hashtag' in 2014. Today over 125 million hashtags are shared on Instagram daily! Ancient texts, by contrast, had no punctuation at all — just continuous strings of letters that readers had to sound out to find meaning."
+  },
+  {
+    id: 251,
+    theme: "Lobster 🦞",
+    question: "What color is a lobster before it is cooked?",
+    options: [
+      "Bright red",
+      "Dark greenish-brown or blue-black",
+      "Pale pink",
+      "Orange"
+    ],
+    correctAnswer: "Dark greenish-brown or blue-black",
+    hint: "The color most people associate with lobsters only appears after cooking...",
+    funFact: "Live lobsters are actually dark greenish-brown, blue-black, or even bright blue — the familiar bright red only appears when they are cooked! Heat breaks down a pigment called crustacyanin, releasing the red astaxanthin pigment underneath. Lobsters were once so abundant in colonial America that they were considered poverty food, fed to prisoners and servants. By the late 1800s, canning technology and railroad transport made them a luxury item, which they remain today!"
+  },
+  {
+    id: 252,
+    theme: "Pancakes 🥞",
+    question: "What is the world's largest pancake ever made?",
+    options: [
+      "10 feet wide, made in New York",
+      "Nearly 50 feet wide, made in England",
+      "30 feet wide, made in Canada",
+      "20 feet wide, made in Australia"
+    ],
+    correctAnswer: "Nearly 50 feet wide, made in England",
+    hint: "The record was set in Rochdale...",
+    funFact: "The world's largest pancake was made in Rochdale, England in 1994, measuring an astonishing 49 feet 3 inches in diameter and weighing 3 tons! It required a specially built griddle and crane to flip. Pancakes are among the oldest foods in human history, with evidence of grain-based flatbreads cooked on hot stones dating back over 30,000 years. Nearly every culture on Earth has its own version — from French crêpes to Russian blini to Ethiopian injera to Japanese okonomiyaki!"
+  },
+  {
+    id: 253,
+    theme: "Chocolate Milk 🍫",
+    question: "Who is credited with creating the first recipe for chocolate milk?",
+    options: [
+      "A Swiss chocolatier in the 1800s",
+      "An Irish physician in Jamaica in the 1680s",
+      "An American dairy farmer in the 1920s",
+      "A French pastry chef in Paris"
+    ],
+    correctAnswer: "An Irish physician in Jamaica in the 1680s",
+    hint: "He mixed cocoa with milk to make a bitter drink more palatable...",
+    funFact: "Sir Hans Sloane, an Irish physician visiting Jamaica in the 1680s, mixed cocoa with milk to make the bitter local cocoa drink taste better and brought the recipe back to England. Pharmacies initially sold it as a medicine! Sloane later sold his recipe to the Cadbury brothers, who commercialized it. Today chocolate milk is enjoyed worldwide and sports nutritionists have found it surprisingly effective as a post-workout recovery drink due to its ideal ratio of carbohydrates to protein."
+  },
+  {
+    id: 254,
+    theme: "Good Neighbors 🏘️",
+    question: "Where does the phrase 'Good fences make good neighbors' come from?",
+    options: [
+      "A Benjamin Franklin proverb",
+      "Robert Frost's poem 'Mending Wall'",
+      "An old English common law principle",
+      "A Thomas Jefferson letter"
+    ],
+    correctAnswer: "Robert Frost's poem 'Mending Wall'",
+    hint: "A beloved American poet wrote it in the early 20th century...",
+    funFact: "The phrase 'Good fences make good neighbors' comes from Robert Frost's famous 1914 poem 'Mending Wall,' which describes two neighbors meeting each spring to repair the stone wall between their properties. Interestingly, Frost himself seems to question this idea in the poem — the narrator wonders why the wall is necessary at all. The poem has become one of the most analyzed in American literature, with its true meaning still debated by scholars over a century later!"
+  },
+  {
+    id: 255,
+    theme: "Coffee ☕",
+    question: "Which roast of coffee actually has MORE caffeine — light or dark?",
+    options: [
+      "Dark roast, because it tastes stronger",
+      "Light roast, because roasting breaks down caffeine",
+      "They have exactly the same amount",
+      "It depends entirely on the bean origin"
+    ],
+    correctAnswer: "Light roast, because roasting breaks down caffeine",
+    hint: "Stronger flavor doesn't mean more caffeine...",
+    funFact: "Light roast coffee actually contains slightly more caffeine than dark roast because the longer roasting process breaks down caffeine molecules over time! Many people assume dark roast has more caffeine because its bold flavor seems stronger, but flavor and caffeine content are not the same thing. Coffee is the world's second most traded commodity after oil. The four components of a perfect cup, according to professional tasters, are aroma, body, acidity, and flavor."
+  },
+  {
+    id: 256,
+    theme: "Chewing Gum 🍬",
+    question: "How old is the oldest piece of chewing gum ever found?",
+    options: [
+      "About 2,000 years old",
+      "About 5,000 years old",
+      "About 9,000 years old",
+      "About 500 years old"
+    ],
+    correctAnswer: "About 9,000 years old",
+    hint: "It was found in Scandinavia and made from tree bark...",
+    funFact: "The oldest known chewing gum is roughly 9,000 to 10,000 years old, made from birch bark tar and discovered in Scandinavia — complete with preserved ancient tooth marks! People across many ancient cultures chewed various natural substances including tree resins, beeswax, and plant sap. Modern chewing gum was developed in the 1860s using chicle sap from sapodilla trees. Today, over 374 trillion sticks of gum are produced globally each year, though most modern gum uses synthetic rubber instead of natural tree products."
+  },
+  {
+    id: 257,
+    theme: "Balloons 🎈",
+    question: "Who invented the first rubber balloon and why?",
+    options: [
+      "A toymaker in France who wanted to entertain children",
+      "Scientist Michael Faraday, for scientific experiments",
+      "A circus performer in England for his act",
+      "Thomas Edison, to celebrate his inventions"
+    ],
+    correctAnswer: "Scientist Michael Faraday, for scientific experiments",
+    hint: "He needed them for a very serious scientific purpose...",
+    funFact: "Michael Faraday, the pioneering British scientist, invented the rubber balloon in 1824 not as a toy but as a container for hydrogen gas in his experiments on the properties of gases. He made them by pressing two sheets of raw rubber together with flour in between. Toy rubber balloons followed almost immediately, sold as a kit where buyers inflated them with a syringe. Mylar foil balloons weren't invented until 1978, developed by NASA for use in space experiments!"
+  },
+  {
+    id: 258,
+    theme: "Peanuts Comic Strip 🥜",
+    question: "How long did Charles M. Schulz write and draw the Peanuts comic strip?",
+    options: [
+      "About 20 years",
+      "About 35 years",
+      "About 50 years",
+      "About 15 years"
+    ],
+    correctAnswer: "About 50 years",
+    hint: "It was an extraordinarily long run...",
+    funFact: "Charles M. Schulz wrote and drew Peanuts for nearly 50 years, from 1950 until his retirement in 2000 — one of the longest runs by a single artist in comic strip history. He drew over 17,000 strips entirely by himself, refusing to use assistants. Schulz drew his final strip on the night before he passed away in February 2000, and it ran the very next morning. Peanuts became the most successful comic strip ever, appearing in 2,600 newspapers in 75 countries and 21 languages."
+  },
+  {
+    id: 259,
+    theme: "Frugal Fun 🐷",
+    question: "Why are piggy banks shaped like pigs?",
+    options: [
+      "Pigs were symbols of prosperity in ancient China",
+      "They were originally made from an orange clay called 'pygg'",
+      "A famous toymaker in Germany made the first one as a pig",
+      "Pigs were considered lucky animals in medieval Europe"
+    ],
+    correctAnswer: "They were originally made from an orange clay called 'pygg'",
+    hint: "It started as a spelling coincidence...",
+    funFact: "In medieval Europe, a cheap orange clay called 'pygg' was used to make household jars and pots for storing spare coins. As the English language evolved, 'pygg' came to be pronounced the same as 'pig,' and potters began playfully shaping the coin jars like actual pigs — a pun in clay form! By the 19th century the pig shape was standard. Today piggy banks are a universal symbol of saving money and childhood thrift around the world."
+  },
+  {
+    id: 260,
+    theme: "Cinnamon Buns 🍮",
+    question: "Which country is considered the cinnamon bun capital of the world?",
+    options: [
+      "Denmark",
+      "Sweden",
+      "Finland",
+      "Germany"
+    ],
+    correctAnswer: "Sweden",
+    hint: "They even have a national day dedicated to it...",
+    funFact: "Sweden is so devoted to cinnamon buns that October 4th is officially Kanelbullens Dag — Cinnamon Bun Day! The Swedish kanelbulle, made with cardamom in addition to cinnamon, is a cornerstone of 'fika,' the beloved Swedish tradition of taking a coffee and pastry break. Swedes consume an estimated 316 million cinnamon buns per year. The treats are baked differently across Scandinavia — Danish versions are stickier and richer, while Swedish ones tend to be lighter and more fragrant."
+  },
+  {
+    id: 261,
+    theme: "Teachers 🍎",
+    question: "Why do students traditionally give teachers apples?",
+    options: [
+      "Apples symbolize knowledge dating back to ancient Greece",
+      "Families in 18th-century Scandinavia paid teachers with food including apples",
+      "A famous American teacher requested apples as gifts in the 1800s",
+      "It began as an advertising campaign by apple growers"
+    ],
+    correctAnswer: "Families in 18th-century Scandinavia paid teachers with food including apples",
+    hint: "It started as actual payment, not just a gesture...",
+    funFact: "The tradition of giving teachers apples traces back to 18th-century Denmark and Sweden, where families who couldn't afford school fees paid teachers in food — including baskets of apples and other produce. The practice carried over to frontier America, where cash-poor families similarly compensated teachers with food. By the 20th century it had become purely symbolic, cementing the apple as the universal icon of education and appreciation for teachers worldwide."
+  },
+  {
+    id: 262,
+    theme: "Instagram 📸",
+    question: "What was the very first photo ever posted on Instagram?",
+    options: [
+      "A selfie by co-founder Kevin Systrom",
+      "A photo of the Golden Gate Bridge",
+      "A stray dog near a taco stand",
+      "A sunset over the Pacific Ocean"
+    ],
+    correctAnswer: "A stray dog near a taco stand",
+    hint: "It was posted by Instagram's co-founder and was quite ordinary...",
+    funFact: "The very first Instagram photo was posted by co-founder Kevin Systrom on July 16, 2010 — a slightly blurry image of a stray dog sitting near a taco stand in Mexico, with his girlfriend's foot in the corner of the frame. The app launched to the public in October 2010 and gained 25,000 users on its first day. Instagram was acquired by Facebook for $1 billion in 2012 when it had just 13 employees. Today over 2 billion people use Instagram every month!"
+  },
+  {
+    id: 263,
+    theme: "Pumpkin Seeds 🎃",
+    question: "How long have people been eating pumpkin seeds?",
+    options: [
+      "About 500 years, since European contact with the Americas",
+      "About 7,500 years, since ancient Mesoamerican civilizations",
+      "About 2,000 years, since Roman times",
+      "About 200 years, since they were discovered as a snack food"
+    ],
+    correctAnswer: "About 7,500 years, since ancient Mesoamerican civilizations",
+    hint: "They were a staple long before Europeans arrived in the Americas...",
+    funFact: "Pumpkin seeds have been eaten for at least 7,500 years, with evidence found in ancient Mexican caves showing they were a dietary staple of early Mesoamerican civilizations. The Aztecs prized them for both food and medicine. Today nutrition science confirms they were onto something — pumpkin seeds are rich in magnesium, zinc, healthy fats, and plant-based protein, supporting heart, immune, and bladder health. They are one of the few plant foods that are a complete source of protein!"
+  },
+  {
+    id: 264,
+    theme: "Octopus 🐙",
+    question: "How many brains does an octopus have?",
+    options: [
+      "1, like most animals",
+      "3, one per pair of arms",
+      "9, one central and one in each arm",
+      "8, one per arm"
+    ],
+    correctAnswer: "9, one central and one in each arm",
+    hint: "Each arm has a surprising degree of independence...",
+    funFact: "Octopuses have nine brains — one central brain and a mini-brain in each of their eight arms, allowing the arms to taste, touch, and move semi-independently without consulting the central brain. They also have three hearts and blue blood containing copper-based hemocyanin instead of iron-based hemoglobin. Octopuses are remarkably intelligent, capable of opening jars, solving puzzles, using tools, and even recognizing individual human faces. They are the most intelligent invertebrates on Earth!"
+  },
+  {
+    id: 265,
+    theme: "John Lennon 🎵",
+    question: "What inspired John Lennon to write the song 'Imagine'?",
+    options: [
+      "His experiences visiting war zones",
+      "A poem by Yoko Ono called 'Grapefruit'",
+      "A childhood dream he described in his diary",
+      "A conversation with Paul McCartney about world peace"
+    ],
+    correctAnswer: "A poem by Yoko Ono called 'Grapefruit'",
+    hint: "His partner and collaborator played a key role...",
+    funFact: "John Lennon credited Yoko Ono's 1964 art book 'Grapefruit,' which contained short instructional poems asking readers to imagine peaceful scenarios, as a major inspiration for 'Imagine.' The song was recorded in 1971 at Lennon's estate and became one of the best-selling singles of all time. Lennon initially gave Ono no songwriting credit — something he later said he regretted. The song has been translated into dozens of languages and is consistently ranked among the greatest songs ever recorded."
+  },
+  {
+    id: 266,
+    theme: "Angel Food Cake 🍰",
+    question: "Why is angel food cake fat-free?",
+    options: [
+      "It uses artificial fat substitutes",
+      "It gets all its structure from whipped egg whites instead of butter or oil",
+      "It is made with skim milk and low-fat flour",
+      "The baking process burns off all the fat"
+    ],
+    correctAnswer: "It gets all its structure from whipped egg whites instead of butter or oil",
+    hint: "Think about what makes it so light and airy...",
+    funFact: "Angel food cake is naturally fat-free because it uses only egg whites — no yolks, no butter, no oil. Whipped egg whites trap air bubbles that expand in the oven, creating its signature cloud-like texture entirely through protein structure rather than fat. Cream of tartar is added to stabilize the whites. The cake requires a tube pan with a removable bottom so it can be cooled upside down — if cooled right-side up, its delicate structure would collapse under its own weight!"
+  },
+  {
+    id: 267,
+    theme: "Marathon 🏃",
+    question: "Why is a marathon exactly 26.2 miles long?",
+    options: [
+      "It matches the distance from Marathon to Athens in ancient Greece",
+      "It was set at the 1908 London Olympics to end in front of the Royal Box",
+      "It was chosen by the first Boston Marathon organizers",
+      "It is based on the maximum safe running distance for human physiology"
+    ],
+    correctAnswer: "It was set at the 1908 London Olympics to end in front of the Royal Box",
+    hint: "British royalty played a role in setting the distance...",
+    funFact: "The marathon distance of 26.2 miles was standardized at the 1908 London Olympics when organizers adjusted the course so it could start at Windsor Castle — accommodating a request from the Royal Family — and finish directly in front of the Royal Box at the Olympic stadium. This specific distance was adopted as the official standard in 1921. The original ancient Greek run from Marathon to Athens was approximately 25 miles, but the Royal adjustment added that extra 1.2 miles for history!"
+  },
+  {
+    id: 268,
+    theme: "Savings 💰",
+    question: "What is compound interest, and why is it so powerful?",
+    options: [
+      "Interest paid only on the original amount saved",
+      "Interest earned on both the original amount and previously earned interest",
+      "A fixed interest rate that never changes",
+      "Interest calculated once per year regardless of balance"
+    ],
+    correctAnswer: "Interest earned on both the original amount and previously earned interest",
+    hint: "Albert Einstein reportedly called it the eighth wonder of the world...",
+    funFact: "Compound interest means your interest earns interest, creating an accelerating snowball effect over time. Albert Einstein is often credited with calling it 'the eighth wonder of the world,' saying those who understand it earn it and those who don't pay it. A classic illustration: $1,000 invested at 7% annual interest becomes about $7,600 in 30 years without adding another penny. Starting to save even small amounts early dramatically outperforms saving larger amounts later in life!"
+  },
+  {
+    id: 269,
+    theme: "Yorkshire Pudding 🍮",
+    question: "Why is Yorkshire Pudding called a 'pudding' when it is not sweet?",
+    options: [
+      "It was originally made with sugar before the recipe changed",
+      "In British English, 'pudding' historically referred to any baked or steamed dish",
+      "It was named after a famous British dessert chef",
+      "The word pudding means pastry in Old English"
+    ],
+    correctAnswer: "In British English, 'pudding' historically referred to any baked or steamed dish",
+    hint: "The British use of the word 'pudding' is much broader than the American use...",
+    funFact: "In British English, 'pudding' historically meant any dish cooked in a specific way — baked, boiled, or steamed — and could be savory or sweet. Yorkshire Pudding is a savory batter made from eggs, flour, and milk, traditionally cooked in beef dripping to create a crisp, hollow shell served with roast beef. Historically it was served before the main course to fill guests up and make the expensive meat stretch further. The same batter recipe, cooked in a single large pan, is called a popover in America!"
+  },
+  {
+    id: 270,
+    theme: "Winnie-the-Pooh 🐻",
+    question: "What real bear inspired A.A. Milne to name his famous character Winnie-the-Pooh?",
+    options: [
+      "A stuffed bear his son owned",
+      "A real bear at the London Zoo named Winnipeg",
+      "A bear character from a Canadian folk tale",
+      "A bear his family kept as a pet in the countryside"
+    ],
+    correctAnswer: "A real bear at the London Zoo named Winnipeg",
+    hint: "The bear had a connection to World War I and Canada...",
+    funFact: "Winnie-the-Pooh was named after a real bear! A Canadian soldier named Harry Colebourn bought a bear cub named Winnipeg — 'Winnie' for short — in 1914 and brought her to England as a military mascot. When his regiment deployed to France, he donated Winnie to the London Zoo, where she became beloved for her gentle nature. A.A. Milne's son Christopher Robin adored visiting Winnie and named his toy bear after her — inspiring the beloved stories. The real Winnie lived happily at the London Zoo until 1934!"
+  },
 ];
 
 /*
-// ACTIVE QUESTIONS: ids 175-192 (fresh content, August 2026)
-// BENCHED QUESTIONS: ids 1-174 (commented out below, reuse anytime)
+// ACTIVE QUESTIONS: ids 223-328 (fresh content, August 2026)
+// BENCHED QUESTIONS: ids 1-222 (commented out below, reuse anytime)
 
   {
     id: 1,
@@ -2487,6 +2486,679 @@ const triviaQuestions = [
     hint: "It's set on the alien moon of Pandora...",
     funFact: "Avatar, directed by James Cameron, became the highest-grossing film of all time upon release in 2009. Cameron actually invented new 3D camera technology specifically to make the film, and it took nearly a decade of development before filming even began!"
   },
+  {
+    id: 175,
+    theme: "Sharks 🦈",
+    question: "How many rows of teeth can a great white shark have at one time?",
+    options: [
+      "1 row",
+      "2 rows",
+      "Up to 7 rows",
+      "Up to 15 rows"
+    ],
+    correctAnswer: "Up to 7 rows",
+    hint: "Far more than just the front row you see...",
+    funFact: "Great white sharks can have up to 7 rows of teeth at once, with about 300 teeth total! They are constantly replacing lost teeth throughout their lives, cycling through roughly 20,000 teeth in a lifetime. Shark teeth are not attached to a jawbone like human teeth.  They are essentially modified scales, which is why they fall out so easily."
+  },
+  {
+    id: 176,
+    theme: "Sharks 🦈",
+    question: "What is the largest shark species in the world?",
+    options: [
+      "Great White Shark",
+      "Bull Shark",
+      "Whale Shark",
+      "Hammerhead Shark"
+    ],
+    correctAnswer: "Whale Shark",
+    hint: "Despite its name, it's gentle and filter-feeds like a whale...",
+    funFact: "The whale shark is the largest fish on Earth, reaching up to 40 feet long and weighing as much as 20 tons! Despite their enormous size, whale sharks are completely harmless to humans and feed by filter-feeding on tiny plankton, fish eggs, and small fish. They are slow, gentle giants that sometimes allow swimmers to hitch a ride, though scientists discourage this to protect the animals."
+  },
+  {
+    id: 177,
+    theme: "Sharks 🦈",
+    question: "How do sharks detect prey from long distances?",
+    options: [
+      "Exceptional color vision",
+      "Electroreception through special pores",
+      "Sonar clicks like dolphins",
+      "Smell alone"
+    ],
+    correctAnswer: "Electroreception through special pores",
+    hint: "They can sense something invisible to us...",
+    funFact: "Sharks have small pores on their snouts called the ampullae of Lorenzini that detect the faint electrical fields produced by all living creatures' muscle movements. This sixth sense is so precise that a shark can detect the electrical field of a fish hiding under sand! They also have a legendary sense of smell, able to detect a single drop of blood in 25 gallons of water but electroreception is their secret weapon up close."
+  },
+  {
+    id: 178,
+    theme: "Marine Life 🌊",
+    question: "What is the fastest fish in the ocean?",
+    options: [
+      "Mako Shark",
+      "Bluefin Tuna",
+      "Sailfish",
+      "Barracuda"
+    ],
+    correctAnswer: "Sailfish",
+    hint: "Named for the dramatic fin along its back...",
+    funFact: "The sailfish is the fastest fish in the ocean, capable of bursting to speeds of 68 miles per hour! Its impressive dorsal fin, or 'sail,' can be folded down while swimming to reduce drag and raised when herding schools of fish. Sailfish are also remarkable hunters. They work cooperatively in groups to encircle baitfish, taking turns slashing through the school with their long bills."
+  },
+  {
+    id: 179,
+    theme: "Marine Life 🌊",
+    question: "How do sea otters keep from drifting apart while sleeping?",
+    options: [
+      "They anchor themselves to the seafloor",
+      "They hold hands with each other",
+      "They tangle themselves in kelp",
+      "They swim in slow circles together"
+    ],
+    correctAnswer: "They hold hands with each other",
+    hint: "It's as adorable as it sounds...",
+    funFact: "Sea otters hold hands while sleeping on the water's surface in a behavior called 'rafting,' so they don't drift away from each other or their kelp bed! A group of resting otters is called a raft and can contain anywhere from a few to hundreds of animals. Sea otters also wrap themselves in kelp as an anchor. They have the densest fur of any animal:  up to a million hairs per square inch!"
+  },
+  {
+    id: 180,
+    theme: "Marine Life 🌊",
+    question: "Why do crabs walk sideways?",
+    options: [
+      "Their eyes can only see to the sides",
+      "Their leg joints bend outward, not forward",
+      "Sideways movement is faster in sand",
+      "It helps them avoid predators"
+    ],
+    correctAnswer: "Their leg joints bend outward, not forward",
+    hint: "It's simply a matter of anatomy...",
+    funFact: "Crabs walk sideways because their leg joints are structured to bend outward rather than forward and backward, making lateral movement the path of least resistance. Interestingly, not all crabs walk sideways. Some species like the sally lightfoot crab and the coconut crab can actually move in any direction! The coconut crab, the world's largest land invertebrate, can climb trees and crack open coconuts with its claws."
+  },
+  {
+    id: 181,
+    theme: "Amusement Parks 🎢",
+    question: "What was the first amusement park in the United States?",
+    options: [
+      "Coney Island",
+      "Cedar Point",
+      "Lake Compounce",
+      "Disneyland"
+    ],
+    correctAnswer: "Lake Compounce",
+    hint: "It's still operating today in Connecticut...",
+    funFact: "Lake Compounce in Bristol, Connecticut opened in 1846, making it the oldest continuously operating amusement park in the United States! It predates Coney Island by decades. The park started as a simple picnic grove and gradually added rides over the years. Its wooden roller coaster, the Wildcat, has been thrilling riders since 1927!"
+  },
+  {
+    id: 182,
+    theme: "Amusement Parks 🎢",
+    question: "How fast does the world's fastest roller coaster travel?",
+    options: [
+      "About 100 mph",
+      "About 120 mph",
+      "About 150 mph",
+      "About 170 mph"
+    ],
+    correctAnswer: "About 150 mph",
+    hint: "It's located in Abu Dhabi...",
+    funFact: "Formula Rossa at Ferrari World in Abu Dhabi is the world's fastest roller coaster, reaching 149 miles per hour in just 4.9 seconds! Riders are required to wear protective goggles because at that speed, insects and debris become a real hazard. For comparison, the first roller coasters in 18th-century Russia were simply ice slides that people rode on sleds...quite a leap in 300 years!"
+  },
+  {
+    id: 183,
+    theme: "Amusement Parks 🎢",
+    question: "What does the 'E' in 'E-ticket ride' originally refer to?",
+    options: [
+      "Elite attractions at Disneyland",
+      "The highest tier in Disneyland's original ticket booklet",
+      "Electronic ticketing systems",
+      "Extra-thrilling experiences"
+    ],
+    correctAnswer: "The highest tier in Disneyland's original ticket booklet",
+    hint: "Disneyland used to sell ticket books with lettered coupons...",
+    funFact: "When Disneyland opened in 1955, guests bought ticket books with coupons labeled A through E. A-tickets were for simple rides like the Main Street vehicles, while E-tickets covered the most spectacular attractions like the Matterhorn and Pirates of the Caribbean. The phrase 'E-ticket ride' entered American slang to mean any thrilling, top-of-the-line experience. Disney phased out the ticket books in 1982."
+  },
+  {
+    id: 184,
+    theme: "Road Trips 🚗",
+    question: "How long is Route 66, America's most famous road trip highway?",
+    options: [
+      "About 1,000 miles",
+      "About 2,400 miles",
+      "About 3,100 miles",
+      "About 4,000 miles"
+    ],
+    correctAnswer: "About 2,400 miles",
+    hint: "It stretches from Chicago to Los Angeles...",
+    funFact: "Route 66 stretches 2,448 miles from Chicago, Illinois to Santa Monica, California, passing through 8 states. Established in 1926, it became the main road for families migrating west during the Dust Bowl and later a symbol of American freedom and adventure. Though officially decommissioned in 1985 when interstates replaced it, Route 66 lives on as a heritage highway with roadside diners, motels, and quirky roadside attractions still drawing travelers today."
+  },
+  {
+    id: 185,
+    theme: "Road Trips 🚗",
+    question: "What is the longest road in the world?",
+    options: [
+      "The Trans-Siberian Highway",
+      "The Pan-American Highway",
+      "The Trans-Canada Highway",
+      "The Australian Highway 1"
+    ],
+    correctAnswer: "The Pan-American Highway",
+    hint: "It runs through North and South America...",
+    funFact: "The Pan-American Highway is the world's longest road at about 19,000 miles, stretching from Prudhoe Bay in Alaska all the way to the southern tip of Argentina! There is one famous gap called the Darién Gap of about 60 miles of dense jungle between Panama and Colombia that has never been paved. Only a handful of adventurers have ever crossed it, and the journey takes weeks through some of the most challenging terrain on Earth."
+  },
+  {
+    id: 186,
+    theme: "Summer Fruits 🍉",
+    question: "Watermelon is composed of approximately what percentage of water?",
+    options: [
+      "About 72%",
+      "About 82%",
+      "About 92%",
+      "About 99%"
+    ],
+    correctAnswer: "About 92%",
+    hint: "The name is quite literal...",
+    funFact: "Watermelon is about 92% water, making it one of the most hydrating foods you can eat on a hot summer day! It was originally cultivated in Africa over 5,000 years ago and placed in the tombs of Egyptian pharaohs to nourish them in the afterlife. Every part of a watermelon is edible, including the rind and in many cultures it's pickled or stir-fried as a vegetable."
+  },
+  {
+    id: 187,
+    theme: "Summer Fruits 🍓",
+    question: "Technically speaking, which of these is NOT a berry?",
+    options: [
+      "Banana",
+      "Watermelon",
+      "Strawberry",
+      "Avocado"
+    ],
+    correctAnswer: "Strawberry",
+    hint: "Botanical berries are defined differently than everyday usage...",
+    funFact: "Botanically, a true berry must develop from a single flower with one ovary. By that definition, bananas, watermelons, avocados, and even pumpkins are berries but strawberries, raspberries, and blackberries are not! Strawberries are technically 'accessory fruits' because the fleshy part develops from tissue outside the ovary. The little yellow specks on a strawberry's surface are the actual fruits!"
+  },
+  {
+    id: 188,
+    theme: "Summer Fruits 🍑",
+    question: "Which U.S. state produces the most peaches today?",
+    options: [
+      "Georgia",
+      "South Carolina",
+      "California",
+      "Colorado"
+    ],
+    correctAnswer: "California",
+    hint: "Not the state nicknamed 'The Peach State'...",
+    funFact: "Despite Georgia's famous 'Peach State' nickname, California actually produces the most peaches in the U.S. today: about 50% of the nation's total! South Carolina actually outproduces Georgia too. Georgia earned its reputation in the 19th century when its peaches were prized for quality, but modern agriculture shifted production west. Georgia does still hold the title for some of the tastiest heirloom varieties!"
+  },
+  {
+    id: 189,
+    theme: "Summer Sunsets 🌅",
+    question: "Why are sunsets often more colorful in summer than winter?",
+    options: [
+      "The sun is closer to Earth in summer",
+      "More dust, pollen, and humidity scatter light",
+      "Summer air contains more oxygen",
+      "The Earth's rotation slows slightly in summer"
+    ],
+    correctAnswer: "More dust, pollen, and humidity scatter light",
+    hint: "Think about what's floating in warm summer air...",
+    funFact: "Summer sunsets tend to be more vivid because warm air holds more moisture, pollen, dust, and particulates that scatter sunlight into brilliant oranges, pinks, and purples. Volcanic eruptions can also supercharge sunsets worldwide for months afterward; the eruption of Krakatoa in 1883 produced vivid red sunsets seen globally for nearly two years! After a summer thunderstorm is often the best time to catch a spectacular sunset."
+  },
+  {
+    id: 190,
+    theme: "Ice Cream 🍦",
+    question: "What is the best-selling ice cream flavor in the United States?",
+    options: [
+      "Cookies and Cream",
+      "Chocolate",
+      "Vanilla",
+      "Strawberry"
+    ],
+    correctAnswer: "Vanilla",
+    hint: "Sometimes the classic wins...",
+    funFact: "Vanilla has been the best-selling ice cream flavor in the U.S. for decades, accounting for about 28% of all ice cream sales! Vanilla is actually the world's most labor-intensive spice after saffron. Each vanilla orchid flower must be hand-pollinated within 12 hours of blooming. The U.S. is the world's largest consumer of vanilla, using about 60% of global production mostly in ice cream and baked goods."
+  },
+  {
+    id: 191,
+    theme: "Backyard Birds 🐦",
+    question: "Which common backyard bird can fly backwards?",
+    options: [
+      "Robin",
+      "Hummingbird",
+      "Blue Jay",
+      "Mockingbird"
+    ],
+    correctAnswer: "Hummingbird",
+    hint: "A tiny, fast-winged summer visitor...",
+    funFact: "Hummingbirds are the only birds in the world that can fly backwards, as well as hover in place, fly upside down briefly, and change direction instantly. All thanks to a unique ball-and-socket shoulder joint found in no other bird. Their wings beat 50 to 80 times per second, which creates the humming sound that gives them their name. Despite weighing less than a penny, they migrate up to 500 miles nonstop across the Gulf of Mexico!"
+  },
+  {
+    id: 192,
+    theme: "Lemonade 🍋",
+    question: "Which country is believed to have invented lemonade?",
+    options: [
+      "Greece",
+      "Egypt",
+      "Italy",
+      "France"
+    ],
+    correctAnswer: "Egypt",
+    hint: "One of the world's oldest civilizations had a citrus secret...",
+    funFact: "The earliest recorded lemonade dates back to Egypt around 1000 AD, where a sweetened lemon drink called 'qatarmizat' was popular! It spread through the Arab world and eventually reached Europe via trade routes. The classic American lemonade stand became a cultural icon in the early 20th century and remains one of the most beloved childhood entrepreneurship traditions. Pink lemonade's origin is disputed. Some credit a circus vendor who accidentally dropped cinnamon candies into a lemonade barrel!"
+  },
+  {
+    id: 193,
+    theme: "Space Science 🚀",
+    question: "How long does it take light from the Sun to reach Earth?",
+    options: [
+      "About 2 minutes",
+      "About 8 minutes",
+      "About 20 minutes",
+      "About 1 hour"
+    ],
+    correctAnswer: "About 8 minutes",
+    hint: "Faster than you might think for 93 million miles...",
+    funFact: "Sunlight takes about 8 minutes and 20 seconds to travel the 93 million miles from the Sun to Earth. This means when you look at the Sun, you're actually seeing it as it was 8 minutes ago! Light from the next closest star, Proxima Centauri, takes over 4 years to reach us, which is why we measure cosmic distances in light-years."
+  },
+  {
+    id: 194,
+    theme: "Space Science 🌙",
+    question: "Why does the Moon always show the same face to Earth?",
+    options: [
+      "The Moon doesn't rotate at all",
+      "Its rotation matches its orbit around Earth",
+      "Earth's gravity locked the Moon in place",
+      "The Moon rotates twice for every orbit"
+    ],
+    correctAnswer: "Its rotation matches its orbit around Earth",
+    hint: "It's a remarkable cosmic coincidence called synchronous rotation...",
+    funFact: "The Moon rotates on its axis at exactly the same rate it orbits Earth, once every 27.3 days, which is why we always see the same side. This isn't a coincidence; Earth's gravity gradually slowed the Moon's rotation over billions of years until it synchronized. The far side of the Moon wasn't seen by human eyes until 1959 when a Soviet spacecraft photographed it!"
+  },
+  {
+    id: 195,
+    theme: "Space Science ⭐",
+    question: "What is the most common type of star in the universe?",
+    options: [
+      "Yellow dwarfs like our Sun",
+      "Red giants",
+      "Red dwarfs",
+      "Blue supergiants"
+    ],
+    correctAnswer: "Red dwarfs",
+    hint: "Small, cool, and incredibly long-lived...",
+    funFact: "Red dwarf stars make up about 70% of all stars in the universe! They are much smaller and cooler than our Sun and burn their fuel so slowly that they can live for trillions of years, far longer than the current age of the universe. The nearest star to our solar system, Proxima Centauri, is a red dwarf. Despite being so common, they are too dim to see with the naked eye from Earth."
+  },
+  {
+    id: 196,
+    theme: "Earth Science 🌍",
+    question: "How old is planet Earth?",
+    options: [
+      "About 1 billion years",
+      "About 2.5 billion years",
+      "About 4.5 billion years",
+      "About 8 billion years"
+    ],
+    correctAnswer: "About 4.5 billion years",
+    hint: "Older than you might imagine...",
+    funFact: "Earth formed about 4.5 billion years ago from a swirling cloud of gas and dust surrounding the young Sun. The oldest rocks ever found on Earth are about 4 billion years old, found in Canada. For perspective, if Earth's entire history were compressed into a single year, modern humans wouldn't appear until the last few minutes of December 31st!"
+  },
+  {
+    id: 197,
+    theme: "Earth Science 🌋",
+    question: "How many tectonic plates make up Earth's surface?",
+    options: [
+      "About 5",
+      "About 12",
+      "About 20",
+      "About 50"
+    ],
+    correctAnswer: "About 20",
+    hint: "More than most people learn in school...",
+    funFact: "Earth's surface is divided into about 20 tectonic plates of varying sizes, constantly moving at roughly the speed your fingernails grow about 2 inches per year. The continents were once joined in a supercontinent called Pangaea about 335 million years ago. In about 250 million years, the continents will collide again to form a new supercontinent scientists have nicknamed Pangaea Proxima!"
+  },
+  {
+    id: 198,
+    theme: "Earth Science 🌊",
+    question: "What percentage of Earth's surface is covered by water?",
+    options: [
+      "About 51%",
+      "About 61%",
+      "About 71%",
+      "About 81%"
+    ],
+    correctAnswer: "About 71%",
+    hint: "More than two thirds...",
+    funFact: "About 71% of Earth's surface is covered by water, yet over 80% of the ocean remains unexplored! The ocean contains about 97% of all water on Earth. The average depth of the ocean is about 12,100 feet, deep enough to submerge most mountains. More people have walked on the Moon than have visited the deepest point of the ocean, the Mariana Trench."
+  },
+  {
+    id: 199,
+    theme: "Literature 📖",
+    question: "Which author wrote under the pen name 'George Eliot'?",
+    options: [
+      "Charlotte Brontë",
+      "Mary Ann Evans",
+      "Jane Austen",
+      "Virginia Woolf"
+    ],
+    correctAnswer: "Mary Ann Evans",
+    hint: "She used a male pen name to be taken seriously as a writer...",
+    funFact: "Mary Ann Evans published under the pen name George Eliot because she feared her work would be dismissed as light romantic fiction if readers knew she was a woman, a common problem for female writers in Victorian England. Her novels, including Middlemarch and The Mill on the Floss, are now considered among the greatest in the English language. Middlemarch has been called the greatest novel in the English language by multiple literary polls!"
+  },
+  {
+    id: 200,
+    theme: "Literature 📚",
+    question: "What is the shortest novel ever to win the Pulitzer Prize for Fiction?",
+    options: [
+      "The Old Man and the Sea",
+      "Of Mice and Men",
+      "Animal Farm",
+      "The Great Gatsby"
+    ],
+    correctAnswer: "The Old Man and the Sea",
+    hint: "A Hemingway classic about a fisherman...",
+    funFact: "Ernest Hemingway's The Old Man and the Sea, at just 127 pages, is the shortest novel to win the Pulitzer Prize for Fiction, which it did in 1953. It also contributed to Hemingway receiving the Nobel Prize in Literature in 1954. Hemingway wrote the first draft in just eight weeks and said it was the best writing he had ever done. The old fisherman Santiago is one of literature's most beloved characters!"
+  },
+  {
+    id: 201,
+    theme: "Literature 📖",
+    question: "Which novel begins with the line 'It was the best of times, it was the worst of times'?",
+    options: [
+      "Great Expectations",
+      "Oliver Twist",
+      "A Tale of Two Cities",
+      "David Copperfield"
+    ],
+    correctAnswer: "A Tale of Two Cities",
+    hint: "A Dickens novel set during the French Revolution...",
+    funFact: "A Tale of Two Cities by Charles Dickens, published in 1859, is one of the best-selling novels of all time with over 200 million copies sold! Its opening line is the most quoted in all of English literature. Dickens originally published it in weekly installments in his literary magazine, keeping readers in suspense for months. The two cities of the title are London and Paris."
+  },
+  {
+    id: 202,
+    theme: "Cooking 🍳",
+    question: "Why does cutting onions make you cry?",
+    options: [
+      "A natural acid irritates your eyes",
+      "A sulfur gas is released that reacts with eye moisture",
+      "The smell triggers an emotional response",
+      "Tiny onion particles float into your eyes"
+    ],
+    correctAnswer: "A sulfur gas is released that reacts with eye moisture",
+    hint: "It's a chemical chain reaction...",
+    funFact: "When you cut an onion, it releases enzymes that convert sulfur compounds into a gas called syn-propanethial-S-oxide. When this gas reaches your eyes it reacts with the moisture there to form a mild sulfuric acid, which your tear ducts try to wash away! Chilling onions before cutting slows the enzyme reaction and reduces tears. Cutting near running water or a fan also helps carry the gas away before it reaches your eyes."
+  },
+  {
+    id: 203,
+    theme: "Cooking 🧁",
+    question: "What does 'sauté' mean in cooking?",
+    options: [
+      "To cook slowly in liquid",
+      "To cook quickly in a small amount of fat over high heat",
+      "To cook in an oven uncovered",
+      "To cook by submerging in boiling water"
+    ],
+    correctAnswer: "To cook quickly in a small amount of fat over high heat",
+    hint: "The word comes from the French word for 'jump'...",
+    funFact: "The word 'sauté' comes from the French verb 'sauter,' meaning to jump, because the food is tossed or jumps in the pan during cooking! The high heat and quick cooking method seals in flavor while keeping food tender. The technique was perfected in classical French cuisine and is now one of the most fundamental skills in cooking. A proper sauté pan has sloped sides specifically designed for tossing food."
+  },
+  {
+    id: 204,
+    theme: "Cooking 🌿",
+    question: "Which herb is most consumed in the world?",
+    options: [
+      "Basil",
+      "Parsley",
+      "Cilantro",
+      "Mint"
+    ],
+    correctAnswer: "Parsley",
+    hint: "A common garnish that deserves more credit...",
+    funFact: "Parsley is the world's most widely consumed herb, used in cuisines from the Middle East to Europe to the Americas! It comes in two main varieties: curly and flat-leaf, with flat-leaf having a stronger flavor preferred by most chefs. Ancient Romans wore parsley garlands at banquets believing it would prevent intoxication. It's also one of the most nutritious herbs, packed with vitamins K, C, and A."
+  },
+  {
+    id: 205,
+    theme: "Travel 🌍",
+    question: "Which country has the most international tourists visit each year?",
+    options: [
+      "United States",
+      "Spain",
+      "France",
+      "China"
+    ],
+    correctAnswer: "France",
+    hint: "Think of the Eiffel Tower and the Louvre...",
+    funFact: "France consistently ranks as the world's most visited country, welcoming around 90 million international tourists annually! Paris alone draws about 30 million visitors per year. The Louvre is the world's most visited art museum, and the Palace of Versailles draws millions more. France's combination of art, cuisine, fashion, history, and natural beauty makes it irresistible to travelers from every corner of the globe."
+  },
+  {
+    id: 206,
+    theme: "Travel ✈️",
+    question: "What is the world's busiest airport by passenger traffic?",
+    options: [
+      "London Heathrow",
+      "Dubai International",
+      "Hartsfield-Jackson Atlanta",
+      "Beijing Capital"
+    ],
+    correctAnswer: "Hartsfield-Jackson Atlanta",
+    hint: "It's in the American South...",
+    funFact: "Hartsfield-Jackson Atlanta International Airport has been the world's busiest airport by passenger traffic for over two decades, handling over 100 million passengers annually! Its central location in the eastern U.S. makes it a hub for connecting flights. The airport has its own underground train system connecting terminals, its own zip code, and generates more economic activity than any other facility in Georgia."
+  },
+  {
+    id: 207,
+    theme: "Travel 🗺️",
+    question: "What is the smallest country in the Americas?",
+    options: [
+      "Belize",
+      "Jamaica",
+      "Saint Kitts and Nevis",
+      "Barbados"
+    ],
+    correctAnswer: "Saint Kitts and Nevis",
+    hint: "A two-island Caribbean nation...",
+    funFact: "Saint Kitts and Nevis is the smallest country in the Western Hemisphere, covering just 104 square miles and home to about 53,000 people! It was the first Caribbean island to be colonized by Europeans in 1623. Despite its tiny size, it has a fascinating history as one of the most important sugar-producing colonies in the 18th century. Its volcanic peaks and rainforests make it a beloved eco-tourism destination today."
+  },
+  {
+    id: 208,
+    theme: "Outdoor Recreation 🏕️",
+    question: "What is the Leave No Trace principle most associated with?",
+    options: [
+      "Staying on marked trails only",
+      "Minimizing human impact on natural spaces",
+      "Packing out all food waste",
+      "Never building campfires"
+    ],
+    correctAnswer: "Minimizing human impact on natural spaces",
+    hint: "It's a broader philosophy than just one rule...",
+    funFact: "Leave No Trace is a set of seven principles designed to minimize human impact on the outdoors, covering everything from campfire safety to wildlife interaction to how to dispose of waste properly. The movement began in the 1960s as national parks saw surging visitor numbers. Studies show that education in Leave No Trace principles dramatically reduces environmental damage in wilderness areas. The golden rule: leave a place better than you found it!"
+  },
+  {
+    id: 209,
+    theme: "Outdoor Recreation 🎣",
+    question: "What is the world record weight for a largemouth bass?",
+    options: [
+      "About 12 pounds",
+      "About 16 pounds",
+      "About 22 pounds",
+      "About 28 pounds"
+    ],
+    correctAnswer: "About 22 pounds",
+    hint: "Caught in Japan in 2009...",
+    funFact: "The world record largemouth bass weighed 22 pounds 4 ounces and was caught in Lake Biwa, Japan in 2009 by Manabu Kurita tying a record set in Georgia in 1932! Largemouth bass are native to North America but have been introduced worldwide. Bass fishing is a multi-billion dollar industry in the U.S. with professional tournaments offering millions in prize money. The fish can live up to 16 years in the wild."
+  },
+  {
+    id: 210,
+    theme: "Outdoor Recreation 🏔️",
+    question: "What is the most hiked trail in the United States?",
+    options: [
+      "The Appalachian Trail",
+      "Angels Landing in Zion",
+      "The Rim Trail at Grand Canyon",
+      "Half Dome in Yosemite"
+    ],
+    correctAnswer: "The Rim Trail at Grand Canyon",
+    hint: "Millions of visitors walk part of it every year...",
+    funFact: "The Rim Trail at Grand Canyon National Park is the most hiked trail in the U.S., with millions of visitors walking portions of its 13 miles along the South Rim each year! Unlike most Grand Canyon trails it is mostly flat and paved, making it accessible to almost everyone. The Grand Canyon receives about 6 million visitors annually, making it one of the most visited national parks. The canyon is up to 18 miles wide and over a mile deep!"
+  },
+  {
+    id: 211,
+    theme: "Seasonal Transitions 🍂",
+    question: "Why do leaves change color in autumn?",
+    options: [
+      "Cold temperatures create new pigments",
+      "Chlorophyll breaks down revealing hidden pigments",
+      "Trees absorb minerals that change leaf color",
+      "Reduced sunlight dyes the leaves"
+    ],
+    correctAnswer: "Chlorophyll breaks down revealing hidden pigments",
+    hint: "The colors were there all along...",
+    funFact: "The brilliant reds, oranges, and yellows of autumn leaves were actually hidden there all summer! Green chlorophyll dominates during the growing season but breaks down in autumn as days shorten and temperatures drop, revealing the yellow and orange pigments beneath. The vivid reds are newly produced by some trees as sugars get trapped in the leaves. The best fall foliage happens after warm sunny days and cool but not freezing nights."
+  },
+  {
+    id: 212,
+    theme: "Seasonal Transitions 🌾",
+    question: "What is the autumnal equinox?",
+    options: [
+      "The first frost of the season",
+      "When day and night are equal length",
+      "The peak of fall foliage season",
+      "When the Sun is furthest from Earth"
+    ],
+    correctAnswer: "When day and night are equal length",
+    hint: "Think about what equinox means literally...",
+    funFact: "The word equinox comes from the Latin for 'equal night' on the autumnal equinox, day and night are each approximately 12 hours long everywhere on Earth! In the Northern Hemisphere it falls around September 22-23 each year. After this date, nights grow longer than days until the winter solstice. Many ancient cultures built monuments aligned to the equinoxes, including Stonehenge and the Mayan pyramid at Chichen Itza."
+  },
+  {
+    id: 213,
+    theme: "Seasonal Transitions 🎃",
+    question: "What was the original vegetable used to make jack-o'-lanterns?",
+    options: [
+      "Squash",
+      "Beets",
+      "Turnips",
+      "Potatoes"
+    ],
+    correctAnswer: "Turnips",
+    hint: "The Irish brought the tradition to America...",
+    funFact: "Jack-o'-lanterns originated in Ireland where people carved scary faces into turnips to ward off evil spirits during Samhain, the Celtic harvest festival! When Irish immigrants arrived in America they discovered that pumpkins were far easier to carve and much more plentiful, so the tradition switched to pumpkins. The name 'jack-o'-lantern' comes from an Irish folktale about a trickster named Stingy Jack who was condemned to wander the earth with only a carved turnip lantern to light his way."
+  },
+  {
+    id: 214,
+    theme: "Seasonal Transitions ❄️",
+    question: "What causes the first frost of autumn?",
+    options: [
+      "Snow clouds releasing frozen moisture",
+      "Ground temperature dropping below freezing on clear calm nights",
+      "Cold fronts pushing Arctic air south",
+      "Dew freezing when temperatures hit 35 degrees"
+    ],
+    correctAnswer: "Ground temperature dropping below freezing on clear calm nights",
+    hint: "Clear skies are actually key to frost formation...",
+    funFact: "Frost forms on clear, calm nights when the ground radiates heat away into the sky with no clouds to reflect it back, causing surfaces to drop below 32 degrees Fahrenheit even when air temperature is slightly warmer. Wind actually prevents frost because it mixes warmer air down to the surface! Gardeners watch for these calm clear nights in autumn to protect their plants. The first frost date varies dramatically across the U.S. from August in northern Minnesota to December in Florida."
+  },
+  {
+    id: 215,
+    theme: "Space Science 🌠",
+    question: "What causes a meteor shower?",
+    options: [
+      "Asteroids breaking apart near Earth",
+      "Earth passing through a comet's debris trail",
+      "Solar flares ejecting particles toward Earth",
+      "Fragments of the Moon entering the atmosphere"
+    ],
+    correctAnswer: "Earth passing through a comet's debris trail",
+    hint: "Comets leave something behind long after they pass...",
+    funFact: "Meteor showers occur when Earth passes through the trail of debris left behind by a comet on its orbit around the Sun. The tiny particles, most no bigger than a grain of sand, burn up in our atmosphere creating streaks of light! The Perseid meteor shower every August comes from comet Swift-Tuttle. The Leonid shower in November can occasionally produce meteor storms with thousands of meteors per hour: a truly spectacular sight."
+  },
+  {
+    id: 216,
+    theme: "Earth Science 🌪️",
+    question: "What is the difference between a hurricane and a typhoon?",
+    options: [
+      "Their wind speed categories",
+      "Only their location; they are the same storm type",
+      "Typhoons rotate clockwise, hurricanes counterclockwise",
+      "Typhoons form over land, hurricanes over water"
+    ],
+    correctAnswer: "Only their location; they are the same storm type",
+    hint: "It's all about geography...",
+    funFact: "Hurricanes and typhoons are exactly the same type of storm, a tropical cyclone, just named differently based on where they occur! Storms in the Atlantic and eastern Pacific are called hurricanes, those in the western Pacific are typhoons, and those in the Indian Ocean are simply called cyclones. They all rotate counterclockwise in the Northern Hemisphere and clockwise in the Southern Hemisphere due to Earth's rotation."
+  },
+  {
+    id: 217,
+    theme: "Cooking 🍰",
+    question: "What is the Maillard reaction in cooking?",
+    options: [
+      "The process that makes bread rise",
+      "The browning reaction that creates flavor",
+      "How fat emulsifies in sauces",
+      "The caramelization of sugars"
+    ],
+    correctAnswer: "The browning reaction that creates flavor",
+    hint: "It's responsible for the delicious crust on bread and seared meat...",
+    funFact: "The Maillard reaction is a chemical reaction between amino acids and sugars that occurs when food is heated above about 280 degrees Fahrenheit, creating hundreds of new flavor compounds and the appealing brown color on seared steaks, toast, roasted coffee, and baked bread! Named after French chemist Louis-Camille Maillard who described it in 1912, it is distinct from caramelization which only involves sugars. It's arguably the most important reaction in cooking!"
+  },
+  {
+    id: 218,
+    theme: "Travel 🏯",
+    question: "Which ancient wonder of the world was located in Alexandria, Egypt?",
+    options: [
+      "The Hanging Gardens",
+      "The Colossus",
+      "The Lighthouse of Alexandria",
+      "The Temple of Artemis"
+    ],
+    correctAnswer: "The Lighthouse of Alexandria",
+    hint: "It guided sailors for centuries...",
+    funFact: "The Lighthouse of Alexandria, built around 280 BC on the island of Pharos, stood between 330 and 430 feet tall; one of the tallest man-made structures in the ancient world! It guided ships into the busy harbor for over 1,500 years. The word 'pharos' became the word for lighthouse in many languages, including French (phare) and Spanish (faro). It was gradually destroyed by a series of earthquakes between 956 and 1323 AD."
+  },
+  {
+    id: 219,
+    theme: "Outdoor Recreation 🌿",
+    question: "How many national parks are in the United States?",
+    options: [
+      "About 40",
+      "About 63",
+      "About 85",
+      "About 120"
+    ],
+    correctAnswer: "About 63",
+    hint: "More than most people realize...",
+    funFact: "The United States has 63 designated national parks, the most recent being New River Gorge in West Virginia, designated in 2020! But the National Park System actually includes over 400 sites including monuments, historic sites, seashores, and recreation areas. Yellowstone, established in 1872, was the world's first national park. The national parks collectively receive over 300 million visits per year and are often called 'America's best idea.'"
+  },
+  {
+    id: 220,
+    theme: "Literature 📚",
+    question: "What novel features the character Atticus Finch as a lawyer defending a wrongly accused man?",
+    options: [
+      "The Grapes of Wrath",
+      "To Kill a Mockingbird",
+      "Of Mice and Men",
+      "Invisible Man"
+    ],
+    correctAnswer: "To Kill a Mockingbird",
+    hint: "Set in the American South during the 1930s...",
+    funFact: "To Kill a Mockingbird by Harper Lee was published in 1960 and won the Pulitzer Prize the following year. Atticus Finch has been voted the greatest fictional hero of the 20th century by the American Film Institute! Lee's childhood neighbor was Truman Capote, who inspired the character of Dill. Despite writing one of the most celebrated American novels, Lee was intensely private and gave almost no interviews for the last 50 years of her life."
+  },
+  {
+    id: 221,
+    theme: "Seasonal Transitions 🍁",
+    question: "Which U.S. state is most famous for fall foliage tourism?",
+    options: [
+      "New York",
+      "Vermont",
+      "Maine",
+      "New Hampshire"
+    ],
+    correctAnswer: "Vermont",
+    hint: "A small New England state with big autumn color...",
+    funFact: "Vermont is the undisputed capital of fall foliage tourism in the U.S., drawing over 3 million visitors each autumn! Its mix of sugar maples, birches, and beeches creates a spectacular palette of reds, oranges, and yellows. Vermont's foliage season typically peaks in early to mid-October. The state even has an official foliage hotline and website where rangers report weekly color conditions. Fall tourism generates hundreds of millions of dollars for Vermont's economy!"
+  },
+  {
+    id: 222,
+    theme: "Cooking 🍲",
+    question: "What is the key difference between a stock and a broth?",
+    options: [
+      "Stock uses vegetables, broth uses meat",
+      "Stock is made from bones, broth is made from meat",
+      "Broth is always salted, stock never is",
+      "They are exactly the same thing"
+    ],
+    correctAnswer: "Stock is made from bones, broth is made from meat",
+    hint: "One is richer and more gelatinous than the other...",
+    funFact: "Stock is made by simmering bones, which release collagen that turns into gelatin, giving stock a rich body and slightly sticky texture when cooled. Broth is made from simmering meat and is thinner and more flavorful on its own. Stock is the backbone of classical French cuisine and is the base for most professional sauces and soups. A good homemade stock can simmer for 4 to 8 hours to extract maximum flavor and gelatin from the bones!"
+  },
+  
 */
 
 // Function to get today's question - ANCHOR DATE SYSTEM

@@ -173,7 +173,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "BackRub",
     hint: "The name referred to how it analyzed the web...",
-    funFact: "Before becoming Google, the search engine was called BackRub — named for its ability to analyze 'back links' on the web to determine a site's importance. Larry Page and Sergey Brin renamed it Google, a playful misspelling of 'googol,' the mathematical term for 1 followed by 100 zeros, representing the vast amount of information they wanted to organize. In 1997, they reportedly offered to sell the whole thing to Yahoo for just $1 million, but the deal was rejected!"
+    funFact: "Before becoming Google, the search engine was called BackRub, named for its ability to analyze 'back links' on the web to determine a site's importance. Larry Page and Sergey Brin renamed it Google, a playful misspelling of 'googol,' the mathematical term for 1 followed by 100 zeros, representing the vast amount of information they wanted to organize. In 1997, they reportedly offered to sell the whole thing to Yahoo for just $1 million, but the deal was rejected!"
   },
   {
     id: 234,

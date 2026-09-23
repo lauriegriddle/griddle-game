@@ -33,7 +33,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "It is the oldest continuously occupied European settlement in the U.S.",
     hint: "Think about when the Spanish arrived in Florida...",
-    funFact: "St. Augustine was founded by Spanish explorer Pedro Menéndez de Avilés in 1565, making it the oldest continuously occupied European settlement in the United States — 42 years before the English settled Jamestown! The city's famous Castillo de San Marcos fort, built of coquina shell-stone, was so resilient that cannonballs simply sank into its walls rather than shattering them."
+    funFact: "St. Augustine was founded by Spanish explorer Pedro Menéndez de Avilés in 1565, making it the oldest continuously occupied European settlement in the United States: 42 years before the English settled Jamestown! The city's famous Castillo de San Marcos fort, built of coquina shell-stone, was so resilient that cannonballs simply sank into its walls rather than shattering them."
   },
   {
     id: 224,
@@ -61,7 +61,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "They filter tiny plankton through their gills",
     hint: "Despite their enormous size, their prey is microscopic...",
-    funFact: "Whale sharks are filter feeders, swimming slowly with their enormous mouths open to strain plankton, fish eggs, and tiny fish from the water — similar to how baleen whales feed. Despite reaching up to 40 feet long and weighing 20 tons, they are completely harmless to humans. Scientists believe they can live 100 to 150 years, making them one of the longest-lived animals on Earth!"
+    funFact: "Whale sharks are filter feeders, swimming slowly with their enormous mouths open to strain plankton, fish eggs, and tiny fish from the water,  similar to how baleen whales feed. Despite reaching up to 40 feet long and weighing 20 tons, they are completely harmless to humans. Scientists believe they can live 100 to 150 years, making them one of the longest-lived animals on Earth!"
   },
   {
     id: 226,
@@ -75,7 +75,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "It requires no cooking and provides quick energy",
     hint: "Think about what makes it perfect for the trail...",
-    funFact: "Trail mix became the ultimate outdoor snack because it is lightweight, requires no preparation or refrigeration, and delivers a powerful combination of quick energy from dried fruit and sustained energy from nuts and seeds. Ancient people ate early versions for exactly the same reasons — dried fruits, nuts, and meats were portable fuel for long journeys. The name 'gorp,' a popular trail mix nickname, is said to stand for Good Old Raisins and Peanuts!"
+    funFact: "Trail mix became the ultimate outdoor snack because it is lightweight, requires no preparation or refrigeration, and delivers a powerful combination of quick energy from dried fruit and sustained energy from nuts and seeds. Ancient people ate early versions for exactly the same reasons: dried fruits, nuts, and meats were portable fuel for long journeys. The name 'gorp,' a popular trail mix nickname, is said to stand for Good Old Raisins and Peanuts!"
   },
   {
     id: 227,
@@ -103,7 +103,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "A 5,000-year-old mummy found in the Alps",
     hint: "This famous mummy has a name...",
-    funFact: "Ötzi the Iceman, a 5,300-year-old mummy discovered preserved in ice in the Italian Alps in 1991, had stretched earlobes indicating he wore earrings — making them among the oldest evidence of ear piercing ever found. Interestingly, the earliest earring wearers were men! Ancient Egyptians, Persians, and Romans all wore earrings as symbols of wealth and status, and some ancient doctors believed earrings could improve eyesight."
+    funFact: "Ötzi the Iceman, a 5,300-year-old mummy discovered preserved in ice in the Italian Alps in 1991, had stretched earlobes indicating he wore earrings, making them among the oldest evidence of ear piercing ever found. Interestingly, the earliest earring wearers were men! Ancient Egyptians, Persians, and Romans all wore earrings as symbols of wealth and status, and some ancient doctors believed earrings could improve eyesight."
   },
   {
     id: 229,
@@ -117,7 +117,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "The Home Insurance Building in Chicago",
     hint: "It was built in the 1880s in the Midwest...",
-    funFact: "The Home Insurance Building in Chicago, completed in 1885, is widely considered the world's first true skyscraper. It stood just 10 stories tall — modest by today's standards — but revolutionary because it used a steel skeleton frame to bear the building's weight rather than thick masonry walls. This innovation made it possible to build much taller, transforming city skylines forever. It was demolished in 1931 to make way for a larger building!"
+    funFact: "The Home Insurance Building in Chicago, completed in 1885, is widely considered the world's first true skyscraper. It stood just 10 stories tall, modest by today's standards, but revolutionary because it used a steel skeleton frame to bear the building's weight rather than thick masonry walls. This innovation made it possible to build much taller, transforming city skylines forever. It was demolished in 1931 to make way for a larger building!"
   },
   {
     id: 230,
@@ -159,7 +159,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "The same brain regions activate as if you were experiencing the events",
     hint: "Your brain doesn't fully distinguish between reading and doing...",
-    funFact: "Neuroscience research shows that when you read fiction, your brain activates the same regions as if you were actually experiencing what the characters are going through — motor cortex for action scenes, sensory cortex for texture and smell descriptions, emotional centers for feelings. Reading fiction also measurably increases empathy by allowing you to inhabit other perspectives. And it beats music and tea for calming the nervous system, reducing stress by up to 68% in just six minutes!"
+    funFact: "Neuroscience research shows that when you read fiction, your brain activates the same regions as if you were actually experiencing what the characters are going throughz; motor cortex for action scenes, sensory cortex for texture and smell descriptions, emotional centers for feelings. Reading fiction also measurably increases empathy by allowing you to inhabit other perspectives. And it beats music and tea for calming the nervous system, reducing stress by up to 68% in just six minutes!"
   },
   {
     id: 233,
@@ -187,7 +187,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Beam me up, Scotty",
     hint: "It's one of the most quoted lines in pop culture...",
-    funFact: "Despite being one of the most recognizable phrases in television history, 'Beam me up, Scotty' was never said exactly that way in any Star Trek episode or film! The closest versions are 'Beam us up, Scotty' or 'Scotty, beam us up.' The misquote became so embedded in popular culture that it took on a life of its own. Alexander Graham Bell, incidentally, wanted people to answer the telephone with 'Ahoy' — a real nautical greeting!"
+    funFact: "Despite being one of the most recognizable phrases in television history, 'Beam me up, Scotty' was never said exactly that way in any Star Trek episode or film! The closest versions are 'Beam us up, Scotty' or 'Scotty, beam us up.' The misquote became so embedded in popular culture that it took on a life of its own. Alexander Graham Bell, incidentally, wanted people to answer the telephone with 'Ahoy,' a real nautical greeting!"
   },
   {
     id: 235,
@@ -201,7 +201,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "United States",
     hint: "Despite its Japanese name, its roots are American...",
-    funFact: "Modern Sudoku was invented by Howard Garns, an American architect from Indiana, who published it in 1979 under the name 'Number Place.' It was later discovered by a Japanese publisher, renamed Sudoku (meaning 'single number'), and became a massive craze in Japan before sweeping the world in the mid-2000s. The puzzle requires no math — just logic — since any nine symbols could replace the numbers. Over 100 million Sudoku puzzles are solved worldwide every day!"
+    funFact: "Modern Sudoku was invented by Howard Garns, an American architect from Indiana, who published it in 1979 under the name 'Number Place.' It was later discovered by a Japanese publisher, renamed Sudoku (meaning 'single number'), and became a massive craze in Japan before sweeping the world in the mid-2000s. The puzzle requires no math, just logic, since any nine symbols could replace the numbers. Over 100 million Sudoku puzzles are solved worldwide every day!"
   },
   {
     id: 236,
@@ -215,7 +215,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "260 tons of leftover Thanksgiving turkey",
     hint: "It involved a holiday bird and a big mistake...",
-    funFact: "Swanson accidentally ordered 260 tons too much Thanksgiving turkey in 1953 and needed a creative solution fast. A salesman named Gerry Thomas suggested packaging the turkey with sides in aluminum trays inspired by airline meal trays, and the TV dinner was born! The first meal — turkey, cornbread dressing, peas, and sweet potatoes — cost 98 cents and took 25 minutes to heat. Swanson sold 10 million in the first year alone!"
+    funFact: "Swanson accidentally ordered 260 tons too much Thanksgiving turkey in 1953 and needed a creative solution fast. A salesman named Gerry Thomas suggested packaging the turkey with sides in aluminum trays inspired by airline meal trays, and the TV dinner was born! The first meal: turkey, cornbread dressing, peas, and sweet potatoes, cost 98 cents and took 25 minutes to heat. Swanson sold 10 million in the first year alone!"
   },
   {
     id: 237,
@@ -257,7 +257,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Japan",
     hint: "Not where most people assume...",
-    funFact: "Fortune cookies were not invented in China — they originated in Japan in the 19th century, where similar sesame-and-miso cookies containing paper fortunes were sold at temples in Kyoto! Japanese immigrants likely brought the concept to California, where it was adapted and popularized in Chinese-American restaurants. Ironically, fortune cookies are virtually unknown in China. In 2005, a single set of fortune cookie numbers resulted in 110 second-place Powerball winners, triggering a lottery fraud investigation before officials realized the connection!"
+    funFact: "Fortune cookies were not invented in China, and they originated in Japan in the 19th century, where similar sesame-and-miso cookies containing paper fortunes were sold at temples in Kyoto! Japanese immigrants likely brought the concept to California, where it was adapted and popularized in Chinese-American restaurants. Ironically, fortune cookies are virtually unknown in China. In 2005, a single set of fortune cookie numbers resulted in 110 second-place Powerball winners, triggering a lottery fraud investigation before officials realized the connection!"
   },
   {
     id: 240,
@@ -285,7 +285,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Over 300",
     hint: "Far more than just peanut butter...",
-    funFact: "George Washington Carver documented over 300 uses for peanuts, including dyes, plastics, soaps, cosmetics, paints, and of course food products. He developed these innovations to help Southern farmers diversify away from cotton. Interestingly, Carver did not invent peanut butter — versions of it existed long before his work. Peanuts are not actually nuts at all; they are legumes that grow underground in pods, making them more closely related to beans than to almonds or walnuts!"
+    funFact: "George Washington Carver documented over 300 uses for peanuts, including dyes, plastics, soaps, cosmetics, paints, and of course food products. He developed these innovations to help Southern farmers diversify away from cotton. Interestingly, Carver did not invent peanut butter, versions of it existed long before his work. Peanuts are not actually nuts at all; they are legumes that grow underground in pods, making them more closely related to beans than to almonds or walnuts!"
   },
   {
     id: 242,
@@ -299,7 +299,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Clean wallpaper",
     hint: "It had a very practical, non-toy purpose...",
-    funFact: "Play-Doh was invented in the 1930s as a soft, pliable compound for cleaning coal soot off wallpaper — a common household task before electric heating replaced coal furnaces. When coal heating fell out of use, the product had no market. A nursery school teacher named Kay Zufall discovered her students loved playing with it in class and convinced the manufacturer to market it as a children's toy in 1956. Today over 3 billion cans of Play-Doh have been sold, and its distinctive smell is one of the most recognizable in the world!"
+    funFact: "Play-Doh was invented in the 1930s as a soft, pliable compound for cleaning coal soot off wallpaper, a common household task before electric heating replaced coal furnaces. When coal heating fell out of use, the product had no market. A nursery school teacher named Kay Zufall discovered her students loved playing with it in class and convinced the manufacturer to market it as a children's toy in 1956. Today over 3 billion cans of Play-Doh have been sold, and its distinctive smell is one of the most recognizable in the world!"
   },
   {
     id: 243,
@@ -313,7 +313,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "The Boston Tea Party",
     hint: "It involved a very large amount of tea...",
-    funFact: "On December 16, 1773, American colonists disguised as Mohawk Indians boarded three British ships and dumped 342 chests of tea — worth about $1.7 million in today's money — into Boston Harbor to protest British taxation without representation. The event helped ignite the American Revolution. Boston is also home to the country's oldest public park (Boston Common, 1634), its first public school (1635), and America's first subway system (1897)!"
+    funFact: "On December 16, 1773, American colonists disguised as Mohawk Indians boarded three British ships and dumped 342 chests of tea, worth about $1.7 million in today's money, into Boston Harbor to protest British taxation without representation. The event helped ignite the American Revolution. Boston is also home to the country's oldest public park (Boston Common, 1634), its first public school (1635), and America's first subway system (1897)!"
   },
   {
     id: 244,
@@ -341,7 +341,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "To intimidate merchant ships into surrendering without a fight",
     hint: "Pirates preferred not to fight if they could avoid it...",
-    funFact: "The Jolly Roger skull-and-crossbones flag was primarily a psychological weapon — pirates flew it to terrify merchant crews into surrendering without a costly fight. If the merchant ship refused to surrender, pirates would raise a red flag, signaling no mercy would be shown. Most pirates preferred easy captures since fighting damaged the very cargo they wanted to steal! The golden age of piracy lasted roughly from 1680 to 1730, and famous pirates like Blackbeard carefully cultivated their terrifying reputations."
+    funFact: "The Jolly Roger skull-and-crossbones flag was primarily a psychological weapon; pirates flew it to terrify merchant crews into surrendering without a costly fight. If the merchant ship refused to surrender, pirates would raise a red flag, signaling no mercy would be shown. Most pirates preferred easy captures since fighting damaged the very cargo they wanted to steal! The golden age of piracy lasted roughly from 1680 to 1730, and famous pirates like Blackbeard carefully cultivated their terrifying reputations."
   },
   {
     id: 246,
@@ -369,7 +369,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "It's the date mentioned in their hit song 'September'",
     hint: "Do you remember...",
-    funFact: "Every September 21st, social media floods with the question 'Do you remember the 21st night of September?' from Earth, Wind & Fire's beloved 1978 hit 'September.' The date became a global celebration, with fans playing the song on repeat and spreading joy online. Interestingly, songwriter Allee Willis, who co-wrote the song, said the date was chosen simply because it sounded good — there was no particular significance to September 21st. The song has become one of the most recognizable opening notes in pop music history!"
+    funFact: "Every September 21st, social media floods with the question 'Do you remember the 21st night of September?' from Earth, Wind & Fire's beloved 1978 hit 'September.' The date became a global celebration, with fans playing the song on repeat and spreading joy online. Interestingly, songwriter Allee Willis, who co-wrote the song, said the date was chosen simply because it sounded good; there was no particular significance to September 21st. The song has become one of the most recognizable opening notes in pop music history!"
   },
   {
     id: 248,
@@ -383,7 +383,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Equal night",
     hint: "It comes from Latin roots...",
-    funFact: "Equinox comes from the Latin words 'aequus' (equal) and 'nox' (night), describing the moment when day and night are each approximately 12 hours long everywhere on Earth. The autumnal equinox in the Northern Hemisphere falls around September 22-23 each year, marking the official start of astronomical fall. Ancient cultures around the world marked this event — Stonehenge aligns with the equinox sunrise, and the Mayan pyramid at Chichen Itza creates a dramatic serpent shadow on its steps!"
+    funFact: "Equinox comes from the Latin words 'aequus' (equal) and 'nox' (night), describing the moment when day and night are each approximately 12 hours long everywhere on Earth. The autumnal equinox in the Northern Hemisphere falls around September 22-23 each year, marking the official start of astronomical fall. Ancient cultures around the world marked this event: Stonehenge aligns with the equinox sunrise, and the Mayan pyramid at Chichen Itza creates a dramatic serpent shadow on its steps!"
   },
   {
     id: 249,
@@ -411,7 +411,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "The hashtag",
     hint: "Social media brought it to prominence...",
-    funFact: "The hashtag symbol (#) existed on telephone keypads for decades as the 'pound sign' or 'number sign,' but became a punctuation mark in its own right when Twitter user Chris Messina proposed using it to group conversations in 2007. It was officially added to the Oxford English Dictionary as 'hashtag' in 2014. Today over 125 million hashtags are shared on Instagram daily! Ancient texts, by contrast, had no punctuation at all — just continuous strings of letters that readers had to sound out to find meaning."
+    funFact: "The hashtag symbol (#) existed on telephone keypads for decades as the 'pound sign' or 'number sign,' but became a punctuation mark in its own right when Twitter user Chris Messina proposed using it to group conversations in 2007. It was officially added to the Oxford English Dictionary as 'hashtag' in 2014. Today over 125 million hashtags are shared on Instagram daily! Ancient texts, by contrast, had no punctuation at all, just continuous strings of letters that readers had to sound out to find meaning."
   },
   {
     id: 251,
@@ -425,7 +425,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Dark greenish-brown or blue-black",
     hint: "The color most people associate with lobsters only appears after cooking...",
-    funFact: "Live lobsters are actually dark greenish-brown, blue-black, or even bright blue — the familiar bright red only appears when they are cooked! Heat breaks down a pigment called crustacyanin, releasing the red astaxanthin pigment underneath. Lobsters were once so abundant in colonial America that they were considered poverty food, fed to prisoners and servants. By the late 1800s, canning technology and railroad transport made them a luxury item, which they remain today!"
+    funFact: "Live lobsters are actually dark greenish-brown, blue-black, or even bright blue: the familiar bright red only appears when they are cooked! Heat breaks down a pigment called crustacyanin, releasing the red astaxanthin pigment underneath. Lobsters were once so abundant in colonial America that they were considered poverty food, fed to prisoners and servants. By the late 1800s, canning technology and railroad transport made them a luxury item, which they remain today!"
   },
   {
     id: 252,
@@ -439,7 +439,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Nearly 50 feet wide, made in England",
     hint: "The record was set in Rochdale...",
-    funFact: "The world's largest pancake was made in Rochdale, England in 1994, measuring an astonishing 49 feet 3 inches in diameter and weighing 3 tons! It required a specially built griddle and crane to flip. Pancakes are among the oldest foods in human history, with evidence of grain-based flatbreads cooked on hot stones dating back over 30,000 years. Nearly every culture on Earth has its own version — from French crêpes to Russian blini to Ethiopian injera to Japanese okonomiyaki!"
+    funFact: "The world's largest pancake was made in Rochdale, England in 1994, measuring an astonishing 49 feet 3 inches in diameter and weighing 3 tons! It required a specially built griddle and crane to flip. Pancakes are among the oldest foods in human history, with evidence of grain-based flatbreads cooked on hot stones dating back over 30,000 years. Nearly every culture on Earth has its own version from French crêpes to Russian blini to Ethiopian injera to Japanese okonomiyaki!"
   },
   {
     id: 253,
@@ -467,12 +467,12 @@ const triviaQuestions = [
     ],
     correctAnswer: "Robert Frost's poem 'Mending Wall'",
     hint: "A beloved American poet wrote it in the early 20th century...",
-    funFact: "The phrase 'Good fences make good neighbors' comes from Robert Frost's famous 1914 poem 'Mending Wall,' which describes two neighbors meeting each spring to repair the stone wall between their properties. Interestingly, Frost himself seems to question this idea in the poem — the narrator wonders why the wall is necessary at all. The poem has become one of the most analyzed in American literature, with its true meaning still debated by scholars over a century later!"
+    funFact: "The phrase 'Good fences make good neighbors' comes from Robert Frost's famous 1914 poem 'Mending Wall,' which describes two neighbors meeting each spring to repair the stone wall between their properties. Interestingly, Frost himself seems to question this idea in the poem the narrator wonders why the wall is necessary at all. The poem has become one of the most analyzed in American literature, with its true meaning still debated by scholars over a century later!"
   },
   {
     id: 255,
     theme: "Coffee ☕",
-    question: "Which roast of coffee actually has MORE caffeine — light or dark?",
+    question: "Which roast of coffee actually has MORE caffeine: light or dark?",
     options: [
       "Dark roast, because it tastes stronger",
       "Light roast, because roasting breaks down caffeine",
@@ -495,7 +495,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "About 9,000 years old",
     hint: "It was found in Scandinavia and made from tree bark...",
-    funFact: "The oldest known chewing gum is roughly 9,000 to 10,000 years old, made from birch bark tar and discovered in Scandinavia — complete with preserved ancient tooth marks! People across many ancient cultures chewed various natural substances including tree resins, beeswax, and plant sap. Modern chewing gum was developed in the 1860s using chicle sap from sapodilla trees. Today, over 374 trillion sticks of gum are produced globally each year, though most modern gum uses synthetic rubber instead of natural tree products."
+    funFact: "The oldest known chewing gum is roughly 9,000 to 10,000 years old, made from birch bark tar and discovered in Scandinavia complete with preserved ancient tooth marks! People across many ancient cultures chewed various natural substances including tree resins, beeswax, and plant sap. Modern chewing gum was developed in the 1860s using chicle sap from sapodilla trees. Today, over 374 trillion sticks of gum are produced globally each year, though most modern gum uses synthetic rubber instead of natural tree products."
   },
   {
     id: 257,
@@ -523,7 +523,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "About 50 years",
     hint: "It was an extraordinarily long run...",
-    funFact: "Charles M. Schulz wrote and drew Peanuts for nearly 50 years, from 1950 until his retirement in 2000 — one of the longest runs by a single artist in comic strip history. He drew over 17,000 strips entirely by himself, refusing to use assistants. Schulz drew his final strip on the night before he passed away in February 2000, and it ran the very next morning. Peanuts became the most successful comic strip ever, appearing in 2,600 newspapers in 75 countries and 21 languages."
+    funFact: "Charles M. Schulz wrote and drew Peanuts for nearly 50 years, from 1950 until his retirement in 2000, one of the longest runs by a single artist in comic strip history. He drew over 17,000 strips entirely by himself, refusing to use assistants. Schulz drew his final strip on the night before he passed away in February 2000, and it ran the very next morning. Peanuts became the most successful comic strip ever, appearing in 2,600 newspapers in 75 countries and 21 languages."
   },
   {
     id: 259,
@@ -537,7 +537,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "They were originally made from an orange clay called 'pygg'",
     hint: "It started as a spelling coincidence...",
-    funFact: "In medieval Europe, a cheap orange clay called 'pygg' was used to make household jars and pots for storing spare coins. As the English language evolved, 'pygg' came to be pronounced the same as 'pig,' and potters began playfully shaping the coin jars like actual pigs — a pun in clay form! By the 19th century the pig shape was standard. Today piggy banks are a universal symbol of saving money and childhood thrift around the world."
+    funFact: "In medieval Europe, a cheap orange clay called 'pygg' was used to make household jars and pots for storing spare coins. As the English language evolved, 'pygg' came to be pronounced the same as 'pig,' and potters began playfully shaping the coin jars like actual pigs, a pun in clay form! By the 19th century the pig shape was standard. Today piggy banks are a universal symbol of saving money and childhood thrift around the world."
   },
   {
     id: 260,
@@ -551,7 +551,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Sweden",
     hint: "They even have a national day dedicated to it...",
-    funFact: "Sweden is so devoted to cinnamon buns that October 4th is officially Kanelbullens Dag — Cinnamon Bun Day! The Swedish kanelbulle, made with cardamom in addition to cinnamon, is a cornerstone of 'fika,' the beloved Swedish tradition of taking a coffee and pastry break. Swedes consume an estimated 316 million cinnamon buns per year. The treats are baked differently across Scandinavia — Danish versions are stickier and richer, while Swedish ones tend to be lighter and more fragrant."
+    funFact: "Sweden is so devoted to cinnamon buns that October 4th is officially Kanelbullens Dag, or Cinnamon Bun Day! The Swedish kanelbulle, made with cardamom in addition to cinnamon, is a cornerstone of 'fika,' the beloved Swedish tradition of taking a coffee and pastry break. Swedes consume an estimated 316 million cinnamon buns per year. The treats are baked differently across Scandinavia. Danish versions are stickier and richer, while Swedish ones tend to be lighter and more fragrant."
   },
   {
     id: 261,
@@ -565,7 +565,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Families in 18th-century Scandinavia paid teachers with food including apples",
     hint: "It started as actual payment, not just a gesture...",
-    funFact: "The tradition of giving teachers apples traces back to 18th-century Denmark and Sweden, where families who couldn't afford school fees paid teachers in food — including baskets of apples and other produce. The practice carried over to frontier America, where cash-poor families similarly compensated teachers with food. By the 20th century it had become purely symbolic, cementing the apple as the universal icon of education and appreciation for teachers worldwide."
+    funFact: "The tradition of giving teachers apples traces back to 18th-century Denmark and Sweden, where families who couldn't afford school fees paid teachers in food, including baskets of apples and other produce. The practice carried over to frontier America, where cash-poor families similarly compensated teachers with food. By the 20th century it had become purely symbolic, cementing the apple as the universal icon of education and appreciation for teachers worldwide."
   },
   {
     id: 262,
@@ -579,7 +579,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "A stray dog near a taco stand",
     hint: "It was posted by Instagram's co-founder and was quite ordinary...",
-    funFact: "The very first Instagram photo was posted by co-founder Kevin Systrom on July 16, 2010 — a slightly blurry image of a stray dog sitting near a taco stand in Mexico, with his girlfriend's foot in the corner of the frame. The app launched to the public in October 2010 and gained 25,000 users on its first day. Instagram was acquired by Facebook for $1 billion in 2012 when it had just 13 employees. Today over 2 billion people use Instagram every month!"
+    funFact: "The very first Instagram photo was posted by co-founder Kevin Systrom on July 16, 2010, a slightly blurry image of a stray dog sitting near a taco stand in Mexico, with his girlfriend's foot in the corner of the frame. The app launched to the public in October 2010 and gained 25,000 users on its first day. Instagram was acquired by Facebook for $1 billion in 2012 when it had just 13 employees. Today over 2 billion people use Instagram every month!"
   },
   {
     id: 263,
@@ -593,7 +593,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "About 7,500 years, since ancient Mesoamerican civilizations",
     hint: "They were a staple long before Europeans arrived in the Americas...",
-    funFact: "Pumpkin seeds have been eaten for at least 7,500 years, with evidence found in ancient Mexican caves showing they were a dietary staple of early Mesoamerican civilizations. The Aztecs prized them for both food and medicine. Today nutrition science confirms they were onto something — pumpkin seeds are rich in magnesium, zinc, healthy fats, and plant-based protein, supporting heart, immune, and bladder health. They are one of the few plant foods that are a complete source of protein!"
+    funFact: "Pumpkin seeds have been eaten for at least 7,500 years, with evidence found in ancient Mexican caves showing they were a dietary staple of early Mesoamerican civilizations. The Aztecs prized them for both food and medicine. Today nutrition science confirms they were onto something; pumpkin seeds are rich in magnesium, zinc, healthy fats, and plant-based protein, supporting heart, immune, and bladder health. They are one of the few plant foods that are a complete source of protein!"
   },
   {
     id: 264,
@@ -607,7 +607,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "9, one central and one in each arm",
     hint: "Each arm has a surprising degree of independence...",
-    funFact: "Octopuses have nine brains — one central brain and a mini-brain in each of their eight arms, allowing the arms to taste, touch, and move semi-independently without consulting the central brain. They also have three hearts and blue blood containing copper-based hemocyanin instead of iron-based hemoglobin. Octopuses are remarkably intelligent, capable of opening jars, solving puzzles, using tools, and even recognizing individual human faces. They are the most intelligent invertebrates on Earth!"
+    funFact: "Octopuses have nine brains: one central brain and a mini-brain in each of their eight arms, allowing the arms to taste, touch, and move semi-independently without consulting the central brain. They also have three hearts and blue blood containing copper-based hemocyanin instead of iron-based hemoglobin. Octopuses are remarkably intelligent, capable of opening jars, solving puzzles, using tools, and even recognizing individual human faces. They are the most intelligent invertebrates on Earth!"
   },
   {
     id: 265,
@@ -621,7 +621,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "A poem by Yoko Ono called 'Grapefruit'",
     hint: "His partner and collaborator played a key role...",
-    funFact: "John Lennon credited Yoko Ono's 1964 art book 'Grapefruit,' which contained short instructional poems asking readers to imagine peaceful scenarios, as a major inspiration for 'Imagine.' The song was recorded in 1971 at Lennon's estate and became one of the best-selling singles of all time. Lennon initially gave Ono no songwriting credit — something he later said he regretted. The song has been translated into dozens of languages and is consistently ranked among the greatest songs ever recorded."
+    funFact: "John Lennon credited Yoko Ono's 1964 art book 'Grapefruit,' which contained short instructional poems asking readers to imagine peaceful scenarios, as a major inspiration for 'Imagine.' The song was recorded in 1971 at Lennon's estate and became one of the best-selling singles of all time. Lennon initially gave Ono no songwriting credit, something he later said he regretted. The song has been translated into dozens of languages and is consistently ranked among the greatest songs ever recorded."
   },
   {
     id: 266,
@@ -635,7 +635,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "It gets all its structure from whipped egg whites instead of butter or oil",
     hint: "Think about what makes it so light and airy...",
-    funFact: "Angel food cake is naturally fat-free because it uses only egg whites — no yolks, no butter, no oil. Whipped egg whites trap air bubbles that expand in the oven, creating its signature cloud-like texture entirely through protein structure rather than fat. Cream of tartar is added to stabilize the whites. The cake requires a tube pan with a removable bottom so it can be cooled upside down — if cooled right-side up, its delicate structure would collapse under its own weight!"
+    funFact: "Angel food cake is naturally fat-free because it uses only egg whites: no yolks, no butter, no oil. Whipped egg whites trap air bubbles that expand in the oven, creating its signature cloud-like texture entirely through protein structure rather than fat. Cream of tartar is added to stabilize the whites. The cake requires a tube pan with a removable bottom so it can be cooled upside down; if cooled right-side up, its delicate structure would collapse under its own weight!"
   },
   {
     id: 267,
@@ -649,7 +649,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "It was set at the 1908 London Olympics to end in front of the Royal Box",
     hint: "British royalty played a role in setting the distance...",
-    funFact: "The marathon distance of 26.2 miles was standardized at the 1908 London Olympics when organizers adjusted the course so it could start at Windsor Castle — accommodating a request from the Royal Family — and finish directly in front of the Royal Box at the Olympic stadium. This specific distance was adopted as the official standard in 1921. The original ancient Greek run from Marathon to Athens was approximately 25 miles, but the Royal adjustment added that extra 1.2 miles for history!"
+    funFact: "The marathon distance of 26.2 miles was standardized at the 1908 London Olympics when organizers adjusted the course so it could start at Windsor Castle, accommodating a request from the Royal Family, and finish directly in front of the Royal Box at the Olympic stadium. This specific distance was adopted as the official standard in 1921. The original ancient Greek run from Marathon to Athens was approximately 25 miles, but the Royal adjustment added that extra 1.2 miles for history!"
   },
   {
     id: 268,
@@ -677,7 +677,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "In British English, 'pudding' historically referred to any baked or steamed dish",
     hint: "The British use of the word 'pudding' is much broader than the American use...",
-    funFact: "In British English, 'pudding' historically meant any dish cooked in a specific way — baked, boiled, or steamed — and could be savory or sweet. Yorkshire Pudding is a savory batter made from eggs, flour, and milk, traditionally cooked in beef dripping to create a crisp, hollow shell served with roast beef. Historically it was served before the main course to fill guests up and make the expensive meat stretch further. The same batter recipe, cooked in a single large pan, is called a popover in America!"
+    funFact: "In British English, 'pudding' historically meant any dish cooked in a specific way: baked, boiled, or steamed, and could be savory or sweet. Yorkshire Pudding is a savory batter made from eggs, flour, and milk, traditionally cooked in beef dripping to create a crisp, hollow shell served with roast beef. Historically it was served before the main course to fill guests up and make the expensive meat stretch further. The same batter recipe, cooked in a single large pan, is called a popover in America!"
   },
   {
     id: 270,
@@ -691,7 +691,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "A real bear at the London Zoo named Winnipeg",
     hint: "The bear had a connection to World War I and Canada...",
-    funFact: "Winnie-the-Pooh was named after a real bear! A Canadian soldier named Harry Colebourn bought a bear cub named Winnipeg — 'Winnie' for short — in 1914 and brought her to England as a military mascot. When his regiment deployed to France, he donated Winnie to the London Zoo, where she became beloved for her gentle nature. A.A. Milne's son Christopher Robin adored visiting Winnie and named his toy bear after her — inspiring the beloved stories. The real Winnie lived happily at the London Zoo until 1934!"
+    funFact: "Winnie-the-Pooh was named after a real bear! A Canadian soldier named Harry Colebourn bought a bear cub named Winnipeg, or 'Winnie' for short, in 1914 and brought her to England as a military mascot. When his regiment deployed to France, he donated Winnie to the London Zoo, where she became beloved for her gentle nature. A.A. Milne's son Christopher Robin adored visiting Winnie and named his toy bear after her, inspiring the beloved stories. The real Winnie lived happily at the London Zoo until 1934!"
   },
 ];
 

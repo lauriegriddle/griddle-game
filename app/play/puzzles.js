@@ -4752,7 +4752,7 @@ const puzzles = [
       { word: "GRIDDLE", hint: "Flat cooking surface", revealedIndex: 0 },
       { word: "FLAPJACK", hint: "Another name for pancakes", revealedIndex: 4 },
     ],
-    funFact: "Pancakes date back more than 30,000 years. There are so many ways to enjoy pancakes — at your favorite breakfast spot, at home, or by playing your favorite pancake-inspired word game! 🥞",
+    funFact: "Pancakes date back more than 30,000 years. There are so many ways to enjoy pancakes: at your favorite breakfast spot, at home, or by playing your favorite pancake-inspired word game! 🥞",
   },
 
   // =============================================

@@ -159,7 +159,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "The same brain regions activate as if you were experiencing the events",
     hint: "Your brain doesn't fully distinguish between reading and doing...",
-    funFact: "Neuroscience research shows that when you read fiction, your brain activates the same regions as if you were actually experiencing what the characters are going throughz; motor cortex for action scenes, sensory cortex for texture and smell descriptions, emotional centers for feelings. Reading fiction also measurably increases empathy by allowing you to inhabit other perspectives. And it beats music and tea for calming the nervous system, reducing stress by up to 68% in just six minutes!"
+    funFact: "Neuroscience research shows that when you read fiction, your brain activates the same regions as if you were actually experiencing what the characters are going through; motor cortex for action scenes, sensory cortex for texture and smell descriptions, emotional centers for feelings. Reading fiction also measurably increases empathy by allowing you to inhabit other perspectives. And it beats music and tea for calming the nervous system, reducing stress by up to 68% in just six minutes!"
   },
   {
     id: 233,

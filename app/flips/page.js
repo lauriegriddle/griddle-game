@@ -200,7 +200,7 @@ const triviaQuestions = [
       "United Kingdom"
     ],
     correctAnswer: "United States",
-    hint: "Despite its Japanese name, its roots are American...",
+    hint: "Despite its Japanese name, its roots are not.",
     funFact: "Modern Sudoku was invented by Howard Garns, an American architect from Indiana, who published it in 1979 under the name 'Number Place.' It was later discovered by a Japanese publisher, renamed Sudoku (meaning 'single number'), and became a massive craze in Japan before sweeping the world in the mid-2000s. The puzzle requires no math, just logic, since any nine symbols could replace the numbers. Over 100 million Sudoku puzzles are solved worldwide every day!"
   },
   {

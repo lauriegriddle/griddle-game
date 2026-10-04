@@ -4862,7 +4862,7 @@ const puzzles = [
       { word: "LOCAL", hint: "Close to home activities", revealedIndex: 2 },
       { word: "CREATE", hint: "Make your own fun", revealedIndex: 3 },
       { word: "THRIFTY", hint: "Careful with spending", revealedIndex: 0 },
-      { word: "CURRENCY", hint: "Money of the realm", revealedIndex: 4 },
+      { word: "CURRENCY", hint: "Money in circulation to exhange", revealedIndex: 4 },
     ],
     funFact: "In the Middle Ages, people used an orange-colored clay called 'pygg' to make jars for holding spare change. Over time, potters began shaping the jars like actual pigs as a playful pun on the clay's name. 🐷",
   },

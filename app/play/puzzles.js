@@ -4880,7 +4880,7 @@ const puzzles = [
       { word: "FROSTED", hint: "Topped with icing", revealedIndex: 0 },
       { word: "BUTTERED", hint: "Spread with richness", revealedIndex: 4 },
     ],
-    funFact: "Cinnamon is primarily grown in Indonesia and South America. Cinnamon tree varieties produce different types of cinnamon — some are sweeter while others are spicier. 🍮",
+    funFact: "Cinnamon is primarily grown in Indonesia and South America. Cinnamon tree varieties produce different types of cinnamon. Some are sweeter while others are spicier. 🍮",
   },
 
   // =============================================

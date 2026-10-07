@@ -46,8 +46,42 @@ const miniPuzzlesBenched = [
 // ACTIVE MINI PUZZLES - 16 fresh words
 // From Letter Griddle puzzles #336-357 (Aug-Sep 2026 batch)
 // =============================================
+// Mini puzzles drawn from existing Letter Griddle 5-letter words
+// =============================================
+// ACTIVE MINI PUZZLES - 21 fresh words
+// From Letter Griddle puzzles #376-408 (Sep-Oct 2026 batch)
+// =============================================
 
 const miniPuzzles = [
+  { word: "GRAVY", category: "Pot Pie", hint: "Rich savory sauce filling" },
+  { word: "QUIET", category: "Good Neighbor", hint: "Respectful of others" },
+  { word: "BIRCH", category: "Chewing Gum", hint: "Ancient tree bark variety" },
+  { word: "PARTY", category: "Balloons", hint: "Celebratory occasion" },
+  { word: "LINUS", category: "Peanuts", hint: "He carries a security blanket" },
+  { word: "LOCAL", category: "Frugal Fun", hint: "Close to home activities" },
+  { word: "CLASS", category: "Teachers", hint: "Group of students" },
+  { word: "PHOTO", category: "Instagram", hint: "Image shared on the app" },
+  { word: "CARVE", category: "Pumpkin Seeds", hint: "Cut a pumpkin design" },
+  { word: "THREE", category: "Octopus", hint: "Number of hearts" },
+  { word: "EIGHT", category: "Octopus", hint: "Number of arms" },
+  { word: "LAYER", category: "Angel Food Cake", hint: "Stack of cake tiers" },
+  { word: "WATER", category: "Marathon", hint: "Essential hydration station" },
+  { word: "HABIT", category: "Savings", hint: "Regular saving practice" },
+  { word: "ROBIN", category: "Winnie-the-Pooh", hint: "Christopher ___, Pooh's best friend" },
+  { word: "ETHEL", category: "I Love Lucy", hint: "Lucy's best friend and neighbor" },
+  { word: "SLEEP", category: "Sloth", hint: "They do this up to 20 hours a day" },
+  { word: "MOOSE", category: "Alaska", hint: "Largest member of the deer family" },
+  { word: "CLOCK", category: "Back to the Future", hint: "One word of the Hill Valley landmark struck by lightning" },
+  { word: "VIVID", category: "Vibrant Color", hint: "Intensely bright" },
+  { word: "PINCH", category: "World Series", hint: "___ hit, batting in for another player" },
+];
+
+/*
+// =============================================
+// BENCHED MINI PUZZLES (formerly active)
+// Uncomment and move above the closing ]; to restore
+// =============================================
+
   { word: "NOVEL", category: "Read a Book", hint: "Long-form fiction" },
   { word: "SPOCK", category: "Star Trek", hint: "Logical Vulcan officer" },
   { word: "BLOCK", category: "Sudoku", hint: "3x3 mini section" },
@@ -60,13 +94,6 @@ const miniPuzzles = [
   { word: "FIRST", category: "Rice Krispies Treats", hint: "The recipe was ___ printed on Kellogg's boxes in 1941" },
   { word: "MATEY", category: "Pirates", hint: "Friendly pirate address" },
   { word: "NIGHT", category: "Earth, Wind, and Fire", hint: "21st ___ of September" },
-];
-
-/*
-// =============================================
-// BENCHED MINI PUZZLES (formerly active)
-// Uncomment and move above the closing ]; to restore
-// =============================================
 
   { word: "COLOR", category: "Chameleon", hint: "What they change" },
   { word: "BUMPY", category: "Roller Coaster", hint: "Rough and jolting ride" },
@@ -260,6 +287,7 @@ const miniPuzzles = [
   { word: "DANCE", category: "Hip Hop", hint: "Movement to the music" },
   { word: "PEACE", category: "Middle Child", hint: "Keeping harmony" },
 */
+
 
 // Generate decoy letters that aren't in the word
 const generateDecoys = (word, count = 6) => {

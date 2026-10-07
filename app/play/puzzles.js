@@ -4680,7 +4680,7 @@ const puzzles = [
   // INDEX 296 - Shows September 22, 2026 at 7 PM
   // =============================================
   {
-    category: "Autumnal Equinox",
+    category: "Autumn",
     puzzleNumber: 376,
     words: [
       { word: "FALL", hint: "The season it begins", revealedIndex: 0 },

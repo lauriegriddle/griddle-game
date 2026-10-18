@@ -5201,6 +5201,229 @@ const puzzles = [
     ],
     funFact: "In 1901, Annie Edson Taylor became the first person to survive going over Niagara Falls inside a wooden barrel. 💧",
   },
+    // =============================================
+  // INDEX 329 - Shows October 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chucky",
+    puzzleNumber: 409,
+    words: [
+      { word: "DOLL", hint: "What Chucky is", revealedIndex: 0 },
+      { word: "MOVIE", hint: "Child's Play film franchise", revealedIndex: 2 },
+      { word: "HORROR", hint: "Scary film genre", revealedIndex: 3 },
+      { word: "FRIENDS", hint: "_____ till the end", revealedIndex: 0 },
+      { word: "FRIGHTEN", hint: "To scare someone", revealedIndex: 4 },
+    ],
+    funFact: "Chucky has an official college degree. In 1999, the University of Central Florida voted the fictional doll as an honorary alumnus during their homecoming week. 🎎",
+  },
+
+  // =============================================
+  // INDEX 330 - Shows October 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pumpkins",
+    puzzleNumber: 410,
+    words: [
+      { word: "VINE", hint: "Plant it grows on", revealedIndex: 0 },
+      { word: "CARVE", hint: "Cut a design into it", revealedIndex: 2 },
+      { word: "SPICE", hint: "Pumpkin ___ latte flavor", revealedIndex: 3 },
+      { word: "LANTERN", hint: "Jack o'_____", revealedIndex: 0 },
+      { word: "FLAVORFUL", hint: "Tasty and delicious", revealedIndex: 4 },
+    ],
+    funFact: "Early European settlers didn't bake pumpkin pies in pastry crusts. Instead, they hollowed out the top of a pumpkin, filled it with milk, honey, and spices, and baked the entire pumpkin directly in the ashes of a fire. 🎃",
+  },
+
+  // =============================================
+  // INDEX 331 - Shows October 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Black Cat",
+    puzzleNumber: 411,
+    words: [
+      { word: "LUCK", hint: "Good or bad depending on the culture", revealedIndex: 0 },
+      { word: "ADOPT", hint: "Give one a forever home", revealedIndex: 2 },
+      { word: "FELINE", hint: "Cat family member", revealedIndex: 3 },
+      { word: "SHADOWS", hint: "They blend into the dark", revealedIndex: 0 },
+      { word: "MIDNIGHT", hint: "Dark as the night sky", revealedIndex: 4 },
+    ],
+    funFact: "Black cats are fascinating felines known for changing color in the sun and bringing good luck in many cultures. 🐱",
+  },
+
+  // =============================================
+  // INDEX 332 - Shows October 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Stuffed Animals",
+    puzzleNumber: 412,
+    words: [
+      { word: "BEAR", hint: "Classic stuffed animal", revealedIndex: 0 },
+      { word: "PLUSH", hint: "Soft fabric material", revealedIndex: 2 },
+      { word: "CUDDLY", hint: "Soft and huggable", revealedIndex: 3 },
+      { word: "SNUGGLY", hint: "Warm and cozy to hold", revealedIndex: 0 },
+      { word: "COMFORTS", hint: "What a stuffed animal provides", revealedIndex: 4 },
+    ],
+    funFact: "After the Titanic sank in 1912, Steiff created 500 teddy bears with red-rimmed eyes to honor the victims. These rare 'mourning bears' now sell for tens of thousands of dollars at auction. 🧸",
+  },
+
+  // =============================================
+  // INDEX 333 - Shows October 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Internet",
+    puzzleNumber: 413,
+    words: [
+      { word: "SURF", hint: "Browse the web", revealedIndex: 0 },
+      { word: "EMAIL", hint: "Electronic message", revealedIndex: 2 },
+      { word: "SEARCH", hint: "Look something up online", revealedIndex: 3 },
+      { word: "CONNECT", hint: "Link devices together", revealedIndex: 0 },
+      { word: "WIRELESS", hint: "WiFi connection type", revealedIndex: 4 },
+    ],
+    funFact: "The vast majority of international internet data travels through a hidden network of deep-sea cables spanning over 1.2 million kilometers across the ocean floor. 🌐",
+  },
+
+  // =============================================
+  // INDEX 334 - Shows October 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Candy Corn",
+    puzzleNumber: 414,
+    words: [
+      { word: "CONE", hint: "Its triangular shape", revealedIndex: 0 },
+      { word: "WHITE", hint: "Top color of the candy", revealedIndex: 2 },
+      { word: "ORANGE", hint: "Middle color of the candy", revealedIndex: 3 },
+      { word: "YELLOW", hint: "Bottom color of the candy", revealedIndex: 0 },
+      { word: "KERNELS", hint: "Corn-shaped pieces", revealedIndex: 4 },
+    ],
+    funFact: "Candy corn only became a Halloween staple in the 1950s. It was originally sold seasonally from March to November as a year-round farm-themed treat. 🍬",
+  },
+
+  // =============================================
+  // INDEX 335 - Shows October 31, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Halloween",
+    puzzleNumber: 415,
+    words: [
+      { word: "JACK", hint: "____ o'lantern", revealedIndex: 0 },
+      { word: "TRICK", hint: "___ or treat!", revealedIndex: 2 },
+      { word: "TREATS", hint: "Candy collected door to door", revealedIndex: 3 },
+      { word: "HAUNTED", hint: "___ house attraction", revealedIndex: 0 },
+      { word: "COSTUMES", hint: "Dress up disguises", revealedIndex: 4 },
+    ],
+    funFact: "A full moon on Halloween happens roughly every 19 years, and the next one will occur on October 31, 2039, according to the Farmers Almanac. 👻",
+  },
+
+  // =============================================
+  // INDEX 336 - Shows November 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Vegan",
+    puzzleNumber: 416,
+    words: [
+      { word: "TOFU", hint: "Plant-based protein", revealedIndex: 0 },
+      { word: "PLANT", hint: "___ based diet", revealedIndex: 2 },
+      { word: "CARBON", hint: "Lower ___ footprint", revealedIndex: 3 },
+      { word: "CRUELTY", hint: "___ free lifestyle", revealedIndex: 0 },
+      { word: "VEGANISM", hint: "The lifestyle and philosophy", revealedIndex: 4 },
+    ],
+    funFact: "The word vegan comes from the first and last letters of the word 'vegetarian.' 🌱",
+  },
+
+  // =============================================
+  // INDEX 337 - Shows November 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Ohio",
+    puzzleNumber: 417,
+    words: [
+      { word: "FLAG", hint: "State banner and symbol", revealedIndex: 0 },
+      { word: "RIVER", hint: "Ohio ___, southern border", revealedIndex: 2 },
+      { word: "SIGNAL", hint: "World's first electric traffic ___ in 1914", revealedIndex: 3 },
+      { word: "CONCRETE", hint: "World's first ___ street in 1891", revealedIndex: 0 },
+      { word: "AVIATION", hint: "Wright Brothers' home state legacy", revealedIndex: 4 },
+    ],
+    funFact: "Ohio is the 17th U.S. state, famously nicknamed the Buckeye State after its official state tree, the Ohio buckeye. 🗺️",
+  },
+
+  // =============================================
+  // INDEX 338 - Shows November 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "How Cliche!",
+    puzzleNumber: 418,
+    words: [
+      { word: "TIME", hint: "This flies when you're having fun", revealedIndex: 0 },
+      { word: "NEVER", hint: "Better late than this", revealedIndex: 2 },
+      { word: "SILVER", hint: "Every cloud has this color lining", revealedIndex: 3 },
+      { word: "OUTSIDE", hint: "Think here in relation to the box", revealedIndex: 0 },
+      { word: "OPPOSITE", hint: "This attracts something unlike itself", revealedIndex: 4 },
+    ],
+    funFact: "A cliché is an overused phrase that has lost its original impact through constant repetition. A cliché about clichés: It's a cliché for a reason. 💬",
+  },
+
+  // =============================================
+  // INDEX 339 - Shows November 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Easy-Bake Oven",
+    puzzleNumber: 419,
+    words: [
+      { word: "BULB", hint: "Light ___, the original heat source", revealedIndex: 0 },
+      { word: "TREAT", hint: "Sweet baked reward", revealedIndex: 2 },
+      { word: "KENNER", hint: "Original toy company maker", revealedIndex: 3 },
+      { word: "CROCKER", hint: "Betty ___ provided miniature boxed mixes", revealedIndex: 0 },
+      { word: "INSTANT", hint: "All 500,000 sold out when it debuted in 1963", revealedIndex: 4 },
+    ],
+    funFact: "Toy makers were originally inspired by New York City street vendors who kept pretzels warm using heating lamps. 🍳",
+  },
+
+  // =============================================
+  // INDEX 340 - Shows November 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Monopoly",
+    puzzleNumber: 420,
+    words: [
+      { word: "PARK", hint: "___ Place, most expensive property", revealedIndex: 0 },
+      { word: "TOKEN", hint: "Metal playing piece", revealedIndex: 2 },
+      { word: "TITLE", hint: "___ Deed card", revealedIndex: 3 },
+      { word: "CHANCE", hint: "Take a ___ card", revealedIndex: 0 },
+      { word: "MILBURN", hint: "___ Pennybags, aka Rich Uncle Moneybags", revealedIndex: 4 },
+    ],
+    funFact: "Parker Brothers initially rejected the game in 1933 because it had '52 fundamental errors,' including being too complex and taking too long to play. 🎲",
+  },
+
+  // =============================================
+  // INDEX 341 - Shows November 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Saxophone",
+    puzzleNumber: 421,
+    words: [
+      { word: "REED", hint: "Vibrating thin piece that makes sound", revealedIndex: 0 },
+      { word: "SINGLE", hint: "Created by one lone inventor", revealedIndex: 2 },
+      { word: "BALANCE", hint: "Designed to fill a gap between brass and woodwinds", revealedIndex: 3 },
+      { word: "OCTAVE", hint: "Key to jump to a higher register", revealedIndex: 0 },
+      { word: "WOODWIND", hint: "Its instrument family", revealedIndex: 4 },
+    ],
+    funFact: "Because of its conical bore, the saxophone produces overtones that sound surprisingly close to a human singing voice. 🎷",
+  },
+
+  // =============================================
+  // INDEX 342 - Shows November 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Getting Outside",
+    puzzleNumber: 422,
+    words: [
+      { word: "PLAY", hint: "Fun outdoor activity", revealedIndex: 0 },
+      { word: "GREEN", hint: "Color found outdoors that makes it easier to get moving", revealedIndex: 2 },
+      { word: "BOOSTER", hint: "Spending time outside is a brain ___", revealedIndex: 3 },
+      { word: "IMMUNE", hint: "This system gets a spark from playing in the dirt", revealedIndex: 0 },
+      { word: "EXERCISE", hint: "Walking outside makes this feel easier", revealedIndex: 4 },
+    ],
+    funFact: "Natural sunlight helps regulate your body's internal clock. Playing outside during the day helps you fall asleep faster and get deeper rest at night. 🌿",
+  },
 ];
 
 // ===========================================

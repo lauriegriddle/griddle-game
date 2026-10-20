@@ -878,7 +878,7 @@ export default function Home() {
         </div>
       </header>
 
-      <div style={{textAlign:'center',padding:'8px',fontFamily:'Georgia, serif',color:'#92400E',fontSize:'14px'}}>📖 New book coming October 20 · <a href="https://lauriehess.com" target="_blank" style={{color:'#6B6BB5', textDecoration:'underline'}}>From Awakening to Abundance</a> · Preview at <a href="https://lauriehess.com" target="_blank" style={{color:'#92400E', textDecoration:'underline'}}>lauriehess.com</a></div>
+      <div style={{textAlign:'center',padding:'8px',fontFamily:'Georgia, serif',color:'#92400E',fontSize:'14px'}}>📖 Now available · <em style={{color:'#6B6BB5'}}>From Awakening to Abundance</em> in paperback and Kindle · <a href="https://www.amazon.com/dp/B0HMXFNYNK" target="_blank" rel="noopener noreferrer" style={{color:'#6B6BB5', textDecoration:'underline'}}>Find it on Amazon</a> · Preview at <a href="https://lauriehess.com" target="_blank" rel="noopener noreferrer" style={{color:'#92400E', textDecoration:'underline'}}>lauriehess.com</a></div>
       <main className="max-w-6xl mx-auto px-4 pb-12">
 
         

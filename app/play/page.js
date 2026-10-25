@@ -1324,64 +1324,64 @@ const copyToClipboard = async (text) => {
         <h2 className="text-xl font-bold text-amber-800" style={{fontFamily: 'Georgia, serif'}}>
           This Week's Schedule
         </h2>
-        <p className="text-purple-600 font-semibold text-sm">October 18 - 24</p>
+        <p className="text-purple-600 font-semibold text-sm">October 25 - 31</p>
       </div>
       
       <div className="space-y-1.5 mb-3">
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 10/18</span>
-            <span className="font-semibold text-amber-800 text-sm">Alaska</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SUN 10/25</span>
+            <span className="font-semibold text-amber-800 text-sm">Chucky</span>
           </div>
-          <span className="text-lg">🏔️</span>
+          <span className="text-lg">🎎</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 10/19</span>
-            <span className="font-semibold text-purple-800 text-sm">Seafood Bisque</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">MON 10/26</span>
+            <span className="font-semibold text-purple-800 text-sm">Pumpkins</span>
           </div>
-          <span className="text-lg">🍲</span>
+          <span className="text-lg">🎃</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 10/20</span>
-            <span className="font-semibold text-amber-800 text-sm">Chicken and Waffles</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">TUES 10/27</span>
+            <span className="font-semibold text-amber-800 text-sm">Black Cat</span>
           </div>
-          <span className="text-lg">🧇</span>
+          <span className="text-lg">🐱</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 10/21</span>
-            <span className="font-semibold text-purple-800 text-sm">Back to the Future</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">WED 10/28</span>
+            <span className="font-semibold text-purple-800 text-sm">Stuffed Animals</span>
           </div>
-          <span className="text-lg">⚡</span>
+          <span className="text-lg">🧸</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 10/22</span>
-            <span className="font-semibold text-amber-800 text-sm">Vibrant Color</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">THURS 10/29</span>
+            <span className="font-semibold text-amber-800 text-sm">Internet</span>
           </div>
-          <span className="text-lg">🌈</span>
+          <span className="text-lg">🌐</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-purple-100 to-violet-100 rounded-lg p-2 border-2 border-purple-300">
           <div className="flex items-center gap-2">
-            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 10/23</span>
-            <span className="font-semibold text-purple-800 text-sm">World Series</span>
+            <span className="bg-purple-500 text-white text-xs font-bold px-2 py-0.5 rounded">FRI 10/30</span>
+            <span className="font-semibold text-purple-800 text-sm">Candy Corn</span>
           </div>
-          <span className="text-lg">⚾</span>
+          <span className="text-lg">🍬</span>
         </div>
         
         <div className="flex items-center justify-between bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg p-2 border-2 border-amber-300">
           <div className="flex items-center gap-2">
-            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 10/24</span>
-            <span className="font-semibold text-amber-800 text-sm">Niagra Fallss</span>
+            <span className="bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded">SAT 10/31</span>
+            <span className="font-semibold text-amber-800 text-sm">Halloween</span>
           </div>
-          <span className="text-lg">💧</span>
+          <span className="text-lg">👻</span>
         </div>
       </div>
       

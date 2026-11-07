@@ -5424,6 +5424,261 @@ const puzzles = [
     ],
     funFact: "Natural sunlight helps regulate your body's internal clock. Playing outside during the day helps you fall asleep faster and get deeper rest at night. 🌿",
   },
+    // =============================================
+  // INDEX 343 - Shows November 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Cappuccino",
+    puzzleNumber: 423,
+    words: [
+      { word: "MILK", hint: "Creamy dairy component", revealedIndex: 0 },
+      { word: "THICK", hint: "Rich and dense foam texture", revealedIndex: 2 },
+      { word: "LAYER", hint: "Espresso, steamed milk, then foam", revealedIndex: 3 },
+      { word: "STEAMED", hint: "Heated with a wand", revealedIndex: 0 },
+      { word: "ESPRESSO", hint: "Strong coffee base", revealedIndex: 4 },
+    ],
+    funFact: "The word cappuccino comes from the Italian term for a small hood (cappuccio), named after the brown-robed Capuchin friars whose habit color matches the drink when espresso and milk are blended. ☕",
+  },
+
+  // =============================================
+  // INDEX 344 - Shows November 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Louisiana",
+    puzzleNumber: 424,
+    words: [
+      { word: "JAZZ", hint: "Music born in New Orleans", revealedIndex: 0 },
+      { word: "CAJUN", hint: "Spicy Acadian cuisine style", revealedIndex: 2 },
+      { word: "CREOLE", hint: "Blend of French, Spanish, and African traditions", revealedIndex: 3 },
+      { word: "TABASCO", hint: "Famous hot sauce from Avery Island", revealedIndex: 0 },
+      { word: "CRAWFISH", hint: "Small freshwater shellfish, boiled with spices", revealedIndex: 4 },
+    ],
+    funFact: "Louisiana is the only state that divides its territory into 'parishes' instead of counties, a nod to its French and Spanish Catholic colonial history. 🎷",
+  },
+
+  // =============================================
+  // INDEX 345 - Shows November 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Sesame Street",
+    puzzleNumber: 425,
+    words: [
+      { word: "BIRD", hint: "Big ___, the tall yellow friend", revealedIndex: 0 },
+      { word: "COUNT", hint: "Vampire who loves numbers", revealedIndex: 2 },
+      { word: "GROUCH", hint: "Oscar the ___ lives in a trash can", revealedIndex: 3 },
+      { word: "LESSONS", hint: "ABCs and 123s", revealedIndex: 0 },
+      { word: "TEACHING", hint: "Educating young minds", revealedIndex: 4 },
+    ],
+    funFact: "Sesame Street premiered on November 10, 1969, and is one of the longest-running and most-honored children's television programs in history. 📺",
+  },
+
+  // =============================================
+  // INDEX 346 - Shows November 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Veterans",
+    puzzleNumber: 426,
+    words: [
+      { word: "AIR", hint: "____ Force", revealedIndex: 0 },
+      { word: "ARMY", hint: "Largest U.S. military branch", revealedIndex: 2 },
+      { word: "NAVY", hint: "Sea-going military branch", revealedIndex: 3 },
+      { word: "COAST", hint: "___ Guard", revealedIndex: 0 },
+      { word: "MARINE", hint: "Corps member known as 'the few and the proud'", revealedIndex: 4 },
+    ],
+    funFact: "President Dwight D. Eisenhower officially signed legislation changing the name from Armistice Day to Veterans Day so it would honor veterans of all wars, not just World War I. 🎖️",
+  },
+
+  // =============================================
+  // INDEX 347 - Shows November 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Chicken Soup for the Soul",
+    puzzleNumber: 427,
+    words: [
+      { word: "HOPE", hint: "Optimistic expectation", revealedIndex: 0 },
+      { word: "TRUST", hint: "Confidence in another", revealedIndex: 2 },
+      { word: "WARMTH", hint: "Cozy, comforting feeling", revealedIndex: 3 },
+      { word: "COMFORT", hint: "Soothing relief", revealedIndex: 0 },
+      { word: "INSPIRES", hint: "Uplifts and motivates", revealedIndex: 4 },
+    ],
+    funFact: "The very first book, Chicken Soup for the Soul: 101 Stories to Open the Heart and Rekindle the Spirit, was launched in 1993 by motivational speakers Jack Canfield and Mark Victor Hansen. New York publishers rejected it dozens of times before Health Communications, Inc. (HCI) published it. 🍲",
+  },
+
+  // =============================================
+  // INDEX 348 - Shows November 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "The Lion King",
+    puzzleNumber: 428,
+    words: [
+      { word: "NALA", hint: "Simba's childhood friend and queen", revealedIndex: 0 },
+      { word: "SIMBA", hint: "The lion cub who would be king", revealedIndex: 2 },
+      { word: "HAKUNA", hint: "___ Matata, no worries!", revealedIndex: 3 },
+      { word: "MUSICAL", hint: "Broadway adaptation type", revealedIndex: 0 },
+      { word: "ENSEMBLE", hint: "Full cast performing together", revealedIndex: 4 },
+    ],
+    funFact: "Disney executives treated The Lion King as a lower-priority side project while their top artists worked on Pocahontas, not realizing it would become a massive blockbuster. 🦁",
+  },
+
+  // =============================================
+  // INDEX 349 - Shows November 14, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Guacamole",
+    puzzleNumber: 429,
+    words: [
+      { word: "DIP", hint: "Scoop it up with a chip", revealedIndex: 0 },
+      { word: "HASS", hint: "Most popular avocado variety", revealedIndex: 2 },
+      { word: "SPICY", hint: "Adds a jalapeño kick", revealedIndex: 3 },
+      { word: "RECIPE", hint: "Ingredient instructions", revealedIndex: 0 },
+      { word: "AVOCADO", hint: "The main ingredient", revealedIndex: 4 },
+    ],
+    funFact: "Most modern guacamole is made from Hass avocados, a variety trademarked in 1935 by a California postal worker named Rudolph Hass. 🥑",
+  },
+
+  // =============================================
+  // INDEX 350 - Shows November 15, 2026 at 7 PM
+  // =============================================
+  {
+    category: "I Love to Write",
+    puzzleNumber: 430,
+    words: [
+      { word: "POEM", hint: "Verses with rhythm or rhyme", revealedIndex: 0 },
+      { word: "STORY", hint: "Tale with a beginning and end", revealedIndex: 2 },
+      { word: "PENCIL", hint: "Graphite writing tool", revealedIndex: 3 },
+      { word: "JOURNAL", hint: "Personal daily record", revealedIndex: 0 },
+      { word: "NOTEBOOK", hint: "Bound pages for writing", revealedIndex: 4 },
+    ],
+    funFact: "Founded by author John Riddle in 2002, I Love to Write Day was created to encourage people of all ages to put pen to paper, write stories, poems, or letters, and build stronger communication skills. ✍️",
+  },
+
+  // =============================================
+  // INDEX 351 - Shows November 16, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Indiana",
+    puzzleNumber: 431,
+    words: [
+      { word: "CORN", hint: "Major Midwest crop", revealedIndex: 0 },
+      { word: "STONE", hint: "Indiana limestone is famous for this", revealedIndex: 2 },
+      { word: "RACING", hint: "Sport at the Indy 500", revealedIndex: 3 },
+      { word: "HOOSIER", hint: "Nickname for an Indiana native", revealedIndex: 0 },
+      { word: "SPEEDWAY", hint: "Indianapolis Motor ___", revealedIndex: 4 },
+    ],
+    funFact: "Mount Baldy at the Indiana Dunes National Park is a 'living' dune that shifts and moves about four feet every year under the power of the wind. 🌽",
+  },
+
+  // =============================================
+  // INDEX 352 - Shows November 17, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Bread",
+    puzzleNumber: 432,
+    words: [
+      { word: "LOAF", hint: "One whole shaped bake", revealedIndex: 0 },
+      { word: "BAKED", hint: "Cooked in the oven", revealedIndex: 2 },
+      { word: "BUTTER", hint: "Classic spread", revealedIndex: 3 },
+      { word: "SCRATCH", hint: "Made from ___, using basic ingredients", revealedIndex: 0 },
+      { word: "HOMEMADE", hint: "Not store-bought", revealedIndex: 4 },
+    ],
+    funFact: "Bread actually goes stale up to six times faster inside a refrigerator than it does stored at room temperature in a paper bag or bread box. 🍞",
+  },
+
+  // =============================================
+  // INDEX 353 - Shows November 18, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Apple Cider",
+    puzzleNumber: 433,
+    words: [
+      { word: "WARM", hint: "Best served hot on a chilly day", revealedIndex: 0 },
+      { word: "SWEET", hint: "Sugary flavor", revealedIndex: 2 },
+      { word: "SPICED", hint: "Mulled with cinnamon and cloves", revealedIndex: 3 },
+      { word: "WASSAIL", hint: "Traditional hot spiced holiday drink", revealedIndex: 0 },
+      { word: "BEVERAGE", hint: "Something to drink", revealedIndex: 4 },
+    ],
+    funFact: "It takes about 36 apples (roughly 30 to 40 pieces of fruit) to press a single gallon of apple cider. 🍎",
+  },
+
+  // =============================================
+  // INDEX 354 - Shows November 19, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Carbonated Beverage",
+    puzzleNumber: 434,
+    words: [
+      { word: "POP", hint: "Midwestern word for soda", revealedIndex: 0 },
+      { word: "COKE", hint: "Famous red-labeled cola", revealedIndex: 2 },
+      { word: "PEPSI", hint: "Coke's biggest rival", revealedIndex: 3 },
+      { word: "BUBBLY", hint: "Full of fizz", revealedIndex: 0 },
+      { word: "SPARKLE", hint: "Fizz and shimmer", revealedIndex: 4 },
+    ],
+    funFact: "Created in 1885, Dr Pepper is widely recognized as the oldest major manufactured carbonated soft drink in America, predating Coca-Cola by one year. 🥤",
+  },
+
+  // =============================================
+  // INDEX 355 - Shows November 20, 2026 at 7 PM
+  // =============================================
+  {
+    category: "A Charlie Brown Thanksgiving",
+    puzzleNumber: 435,
+    words: [
+      { word: "PING", hint: "_____ Pong table used for the feast", revealedIndex: 0 },
+      { word: "TOAST", hint: "Charlie Brown's dinner bread", revealedIndex: 2 },
+      { word: "SCREAM", hint: "Charlie Brown's cry of anguish", revealedIndex: 3 },
+      { word: "POPCORN", hint: "Snack served at the quirky feast", revealedIndex: 0 },
+      { word: "PRETZELS", hint: "Salty twisted snack on the menu", revealedIndex: 4 },
+    ],
+    funFact: "A Charlie Brown Thanksgiving premiered on TV on November 20, 1973, famous for its quirky toast-and-popcorn dinner feast. 🍿",
+  },
+
+  // =============================================
+  // INDEX 356 - Shows November 21, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Rocky",
+    puzzleNumber: 436,
+    words: [
+      { word: "GOAL", hint: "Something to aim for", revealedIndex: 0 },
+      { word: "GONNA", hint: "'_____ Fly Now' theme song", revealedIndex: 2 },
+      { word: "BOXING", hint: "Sport of the film", revealedIndex: 3 },
+      { word: "WRITTEN", hint: "_____ by Sylvester Stallone in 3 days", revealedIndex: 0 },
+      { word: "DISTANCE", hint: "Going the ___, a personal goal", revealedIndex: 4 },
+    ],
+    funFact: "The iconic boxing film Rocky starring Sylvester Stallone debuted in New York City on November 21, 1976. Stallone wrote the original screenplay in just three days after being inspired by the 1975 boxing match between Muhammad Ali and Chuck Wepner. 🥊",
+  },
+
+  // =============================================
+  // INDEX 357 - Shows November 22, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Cranberry",
+    puzzleNumber: 437,
+    words: [
+      { word: "CAN", hint: "Jellied sauce often comes in this", revealedIndex: 0 },
+      { word: "TART", hint: "Sharp, puckery flavor", revealedIndex: 2 },
+      { word: "FRUIT", hint: "Berry, botanically speaking", revealedIndex: 3 },
+      { word: "BOUNCE", hint: "What ripe ones do like a rubber ball", revealedIndex: 0 },
+      { word: "VIBRANT", hint: "Bright ruby-red color", revealedIndex: 4 },
+    ],
+    funFact: "Ripe, high-quality cranberries have an internal air pocket that makes them bounce like a rubber ball. 🍒",
+  },
+
+  // =============================================
+  // INDEX 358 - Shows November 23, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Jukebox",
+    puzzleNumber: 438,
+    words: [
+      { word: "HITS", hint: "Popular songs on the playlist", revealedIndex: 0 },
+      { word: "JOINT", hint: "Establishment known as a juke ____", revealedIndex: 2 },
+      { word: "NICKEL", hint: "Five-cent coin that once played a song", revealedIndex: 3 },
+      { word: "PRESLEY", hint: "The 'Hound Dog' singer", revealedIndex: 0 },
+      { word: "NUMBERED", hint: "Selection buttons come labeled this way", revealedIndex: 4 },
+    ],
+    funFact: "'Hound Dog' by Elvis Presley (1956) is the most-played jukebox single in history. 🎶",
+  },
 ];
 
 // ===========================================

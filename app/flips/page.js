@@ -693,6 +693,427 @@ const triviaQuestions = [
     hint: "The bear had a connection to World War I and Canada...",
     funFact: "Winnie-the-Pooh was named after a real bear! A Canadian soldier named Harry Colebourn bought a bear cub named Winnipeg, or 'Winnie' for short, in 1914 and brought her to England as a military mascot. When his regiment deployed to France, he donated Winnie to the London Zoo, where she became beloved for her gentle nature. A.A. Milne's son Christopher Robin adored visiting Winnie and named his toy bear after her, inspiring the beloved stories. The real Winnie lived happily at the London Zoo until 1934!"
   },
+    {
+    id: 271,
+    theme: "Chucky 🎎",
+    question: "What is the full name of the killer doll in the Child's Play movies?",
+    options: [
+      "Charles Lee Ray",
+      "Charlie Bradford",
+      "Chuck Daniels",
+      "Charles Edward Ray"
+    ],
+    correctAnswer: "Charles Lee Ray",
+    hint: "The name follows a famous three-name pattern...",
+    funFact: "Chucky's full name is Charles Lee Ray, a three-part name that creator Don Mancini chose on purpose to echo the way infamous criminals are often named in the news. The first Child's Play film arrived in 1988 and spawned one of the longest-running horror franchises in movie history. Chucky has appeared in seven films and a TV series."
+  },
+  {
+    id: 272,
+    theme: "Pumpkins 🎃",
+    question: "How did early European settlers bake their version of pumpkin pie?",
+    options: [
+      "Inside a hollowed-out pumpkin filled with milk, honey, and spices",
+      "In a clay pot with pumpkin and cornmeal",
+      "On a griddle like a pancake",
+      "Wrapped in leaves and buried underground"
+    ],
+    correctAnswer: "Inside a hollowed-out pumpkin filled with milk, honey, and spices",
+    hint: "The pumpkin itself was the baking dish...",
+    funFact: "Early settlers did not have pastry crusts for their pumpkin dessert. They sliced the top off a pumpkin, scooped out the seeds, filled it with milk, honey, and spices, and baked the whole thing in the ashes of a fire. The pastry-crust pumpkin pie we know today developed later as baking equipment became common."
+  },
+  {
+    id: 273,
+    theme: "Black Cats 🐱",
+    question: "Why do some black cats look rusty brown when they lounge in the sun?",
+    options: [
+      "They shed their coat every afternoon",
+      "Sunlight can fade the dark pigment in their fur",
+      "Dust builds up on their coats",
+      "They switch to a different color in summer"
+    ],
+    correctAnswer: "Sunlight can fade the dark pigment in their fur",
+    hint: "Think about what happens to dark fabric left in the sun...",
+    funFact: "Black cats get their color from a dark pigment called eumelanin, and long exposure to sunlight can bleach it to a reddish-brown shade. It is sometimes called 'rusting.' Black cats are also considered good luck in many cultures, including Japan and parts of Britain, even though they have a spooky reputation elsewhere."
+  },
+  {
+    id: 274,
+    theme: "Stuffed Animals 🧸",
+    question: "Which toy company made black 'mourning bears' after the Titanic sank in 1912?",
+    options: [
+      "Gund",
+      "Steiff",
+      "Ideal Toy Company",
+      "Build-A-Bear"
+    ],
+    correctAnswer: "Steiff",
+    hint: "A German company famous for the button in the ear...",
+    funFact: "The German toy maker Steiff produced a batch of black teddy bears in 1912 as a tribute to those lost on the Titanic. These rare 'mourning bears' now sell for tens of thousands of dollars at auction. The teddy bear itself got its name from President Theodore 'Teddy' Roosevelt after a 1902 hunting trip."
+  },
+  {
+    id: 275,
+    theme: "The Internet 🌐",
+    question: "How does most international internet data travel between continents?",
+    options: [
+      "Through satellites orbiting Earth",
+      "Through cables lying on the ocean floor",
+      "Through radio towers on mountaintops",
+      "Through underground tunnels beneath borders"
+    ],
+    correctAnswer: "Through cables lying on the ocean floor",
+    hint: "The answer is surprisingly deep...",
+    funFact: "More than 95% of international internet traffic travels through fiber-optic cables on the seafloor, which together stretch well over a million kilometers. Satellites carry only a small share. The cables are about as thick as a garden hose, and ships and submersibles repair them when they break."
+  },
+  {
+    id: 276,
+    theme: "Candy Corn 🍬",
+    question: "What was candy corn originally called when it was first sold?",
+    options: [
+      "Harvest Drops",
+      "Chicken Feed",
+      "Autumn Kernels",
+      "Farmer's Delight"
+    ],
+    correctAnswer: "Chicken Feed",
+    hint: "It was marketed as a farm-themed treat...",
+    funFact: "Candy corn was invented in the 1880s by a Philadelphia candy maker, and it was originally sold under the name 'Chicken Feed' in boxes decorated with a rooster. In its early days it was a farm-themed treat sold across the fall and into the harvest season. It only became tied to Halloween later on. The three-color design was a novelty because each color had to be poured by hand."
+  },
+  {
+    id: 277,
+    theme: "Halloween 👻",
+    question: "About how often does a full moon fall on Halloween?",
+    options: [
+      "Every year",
+      "About every 5 years",
+      "About every 19 years",
+      "About every 50 years"
+    ],
+    correctAnswer: "About every 19 years",
+    hint: "It follows an ancient cycle called the Metonic cycle...",
+    funFact: "A full moon on Halloween comes around about every 19 years because the Moon's phases line up with the calendar dates on a 19-year pattern known as the Metonic cycle. The last Halloween full moon was in 2020, and the next is expected in 2039. That means most trick-or-treaters rarely get to see the classic spooky full moon."
+  },
+  {
+    id: 278,
+    theme: "Vegan 🌱",
+    question: "How was the word 'vegan' created?",
+    options: [
+      "It was borrowed from a Latin word for garden",
+      "It is short for 'vegetable organic nutrition'",
+      "It combines the first and last letters of 'vegetarian'",
+      "It was named after a village called Vegan"
+    ],
+    correctAnswer: "It combines the first and last letters of 'vegetarian'",
+    hint: "The word is a shortened form of another word...",
+    funFact: "The word 'vegan' was coined in 1944 by Donald Watson, who co-founded the Vegan Society in England. He built it from the beginning and end of the word 'vegetarian,' describing it as 'the beginning and end of vegetarian.' Today vegan food is a major part of restaurants and grocery stores worldwide."
+  },
+  {
+    id: 279,
+    theme: "Ohio 🗺️",
+    question: "Which U.S. state has the only non-rectangular state flag?",
+    options: [
+      "Maryland",
+      "Ohio",
+      "Colorado",
+      "Alaska"
+    ],
+    correctAnswer: "Ohio",
+    hint: "It's shaped like a swallowtail pennant...",
+    funFact: "Ohio has the only state flag in the country that is not a rectangle. Its swallowtail shape is called a burgee, a style of pennant used on ships. Ohio is the 17th state and is nicknamed the Buckeye State after its official state tree. It also gave the world the first electric traffic signal in Cleveland in 1914 and the first concrete street in Bellefontaine in 1891."
+  },
+  {
+    id: 280,
+    theme: "Words & Language 💬",
+    question: "The word 'cliché' originally came from which field?",
+    options: [
+      "Theater",
+      "Printing",
+      "Law",
+      "Sailing"
+    ],
+    correctAnswer: "Printing",
+    hint: "Think about metal plates and repeated stamping...",
+    funFact: "Cliché comes from a French printing term for a metal plate used to stamp the same image over and over, reportedly named for the 'click' sound it made. Over time the word came to mean any phrase or idea repeated so often that it loses its punch. The very idea of a cliché is itself a cliché for a reason!"
+  },
+  {
+    id: 281,
+    theme: "Easy-Bake Oven 🍳",
+    question: "What was the original heat source in the Easy-Bake Oven?",
+    options: [
+      "A tiny gas flame",
+      "Two ordinary light bulbs",
+      "A battery-powered coil",
+      "A small candle"
+    ],
+    correctAnswer: "Two ordinary light bulbs",
+    hint: "It was the same thing you'd use to light a lamp...",
+    funFact: "The first Easy-Bake Oven, released by Kenner in 1963, baked tiny cakes using the heat from two ordinary incandescent light bulbs. The idea came from New York City street vendors who kept pretzels warm with heat lamps. Roughly half a million ovens sold in the first year. The light bulbs were eventually replaced by a heating element, after incandescent bulbs were phased out."
+  },
+  {
+    id: 282,
+    theme: "Monopoly 🎲",
+    question: "Why did Parker Brothers originally reject Monopoly in the 1930s?",
+    options: [
+      "They thought the board was too colorful",
+      "They said it had '52 fundamental playing errors'",
+      "They felt the theme was too political",
+      "They said it cost too much to produce"
+    ],
+    correctAnswer: "They said it had '52 fundamental playing errors'",
+    hint: "They thought it was too complicated and took too long...",
+    funFact: "Parker Brothers turned down the game at first, claiming it had 52 fundamental playing errors, including being too complex and lasting too long. The company changed its mind soon after, and Monopoly became a runaway bestseller. The game's roots go back to The Landlord's Game, created by Lizzie Magie in 1904 to show the problems of land ownership."
+  },
+  {
+    id: 283,
+    theme: "Saxophone 🎷",
+    question: "Who invented the saxophone?",
+    options: [
+      "Antoine Courtois",
+      "Adolphe Sax",
+      "Theobald Boehm",
+      "Sidney Bechet"
+    ],
+    correctAnswer: "Adolphe Sax",
+    hint: "The inventor's last name became the instrument's name...",
+    funFact: "The saxophone was invented by Adolphe Sax, a Belgian instrument maker who patented it in 1846. He wanted to create an instrument that bridged the gap between brass and woodwinds, with the power of one and the agility of the other. Even though it is made of brass, the sax is classified as a woodwind because it makes sound with a vibrating reed."
+  },
+  {
+    id: 284,
+    theme: "Getting Outside 🌿",
+    question: "How does spending time in natural sunlight help you sleep?",
+    options: [
+      "It makes you physically tired",
+      "It helps reset your body's internal clock",
+      "It lowers your body temperature all night",
+      "It removes stress hormones from your blood"
+    ],
+    correctAnswer: "It helps reset your body's internal clock",
+    hint: "Think about your circadian rhythm...",
+    funFact: "Daylight helps regulate your circadian rhythm, the internal clock that tells your body when to be alert and when to wind down. Spending time outdoors during the day can help you fall asleep faster and enjoy deeper rest at night. Even a short walk outside on a cloudy day exposes you to far more light than a typical indoor room."
+  },
+  {
+    id: 285,
+    theme: "Cappuccino ☕",
+    question: "What is the word 'cappuccino' named after?",
+    options: [
+      "A small coffee cup",
+      "Brown-robed Capuchin friars",
+      "A famous Italian coffee shop",
+      "The foam that sits on top"
+    ],
+    correctAnswer: "Brown-robed Capuchin friars",
+    hint: "Think about the color of the drink and a hooded robe...",
+    funFact: "The word cappuccino comes from the Italian word 'cappuccio,' meaning 'little hood,' and refers to the Capuchin friars, whose brown robes and hoods matched the color of espresso blended with milk. The Capuchin order itself was named for its hooded habit. A traditional cappuccino is made from equal parts espresso, steamed milk, and foam."
+  },
+  {
+    id: 286,
+    theme: "Louisiana 🎷",
+    question: "What does Louisiana have instead of counties?",
+    options: [
+      "Boroughs",
+      "Parishes",
+      "Districts",
+      "Cantons"
+    ],
+    correctAnswer: "Parishes",
+    hint: "The name comes from the state's Catholic heritage...",
+    funFact: "Louisiana is the only U.S. state that divides itself into parishes instead of counties, a tradition that goes back to its French and Spanish Catholic colonial days, when church parishes served as local government units. The state has 64 of them. Alaska has boroughs instead, but Louisiana's parishes are truly one of a kind."
+  },
+  {
+    id: 287,
+    theme: "Sesame Street 📺",
+    question: "In what year did Sesame Street first premiere?",
+    options: [
+      "1959",
+      "1965",
+      "1969",
+      "1975"
+    ],
+    correctAnswer: "1969",
+    hint: "It was the same year as the Moon landing...",
+    funFact: "Sesame Street premiered on November 10, 1969, created to help prepare young children, especially those from low-income families, for school. Jim Henson's Muppets became its stars, including Big Bird, Oscar the Grouch, and Count von Count. It has become one of the longest-running children's programs in television history and has been adapted around the world."
+  },
+  {
+    id: 288,
+    theme: "Veterans Day 🎖️",
+    question: "What was Veterans Day originally called?",
+    options: [
+      "Memorial Day",
+      "Armistice Day",
+      "Liberty Day",
+      "Victory Day"
+    ],
+    correctAnswer: "Armistice Day",
+    hint: "It marked the end of World War I...",
+    funFact: "Veterans Day began as Armistice Day to mark the end of World War I on November 11, 1918, when fighting stopped at the 11th hour of the 11th day of the 11th month. In 1954, President Dwight D. Eisenhower signed a law changing the name to Veterans Day so it would honor veterans of all wars, not just the first World War."
+  },
+  {
+    id: 289,
+    theme: "Inspiring Books 🍲",
+    question: "How many times was the first 'Chicken Soup for the Soul' book rejected by publishers?",
+    options: [
+      "Never, it was accepted right away",
+      "Once or twice",
+      "Dozens of times",
+      "Only by one publisher"
+    ],
+    correctAnswer: "Dozens of times",
+    hint: "The authors had to be very persistent...",
+    funFact: "The authors of Chicken Soup for the Soul, Jack Canfield and Mark Victor Hansen, were turned down by publisher after publisher, dozens of times and by their own count well over a hundred, before a small company called Health Communications published it in 1993. The book went on to launch a series with hundreds of titles and more than 500 million copies sold worldwide."
+  },
+  {
+    id: 290,
+    theme: "The Lion King 🦁",
+    question: "Which Disney film were the studio's top artists focused on while The Lion King was in development?",
+    options: [
+      "Aladdin",
+      "Pocahontas",
+      "Hercules",
+      "Mulan"
+    ],
+    correctAnswer: "Pocahontas",
+    hint: "Executives expected this one to be the big hit...",
+    funFact: "Many of Disney's top animators chose to work on Pocahontas, which executives believed would be the studio's major prestige film. The Lion King was seen as a lower-priority project, yet it opened in 1994 and became a massive blockbuster. It later inspired a hit Broadway musical that opened in 1997 and is still running today."
+  },
+  {
+    id: 291,
+    theme: "Guacamole 🥑",
+    question: "Who developed the Hass avocado, the variety used in most modern guacamole?",
+    options: [
+      "A California mail carrier",
+      "A Mexican chef",
+      "A Hawaiian botanist",
+      "A Spanish explorer"
+    ],
+    correctAnswer: "A California mail carrier",
+    hint: "He delivered letters for a living...",
+    funFact: "The Hass avocado was developed by Rudolph Hass, a California postal worker who bought a seedling in the 1920s, grew it in his backyard, and patented the variety in 1935. Its creamy flesh and pebbly skin that turns dark when ripe made it a favorite. Today the Hass variety accounts for the vast majority of avocados eaten in the United States."
+  },
+  {
+    id: 292,
+    theme: "I Love to Write 🖋️",
+    question: "On which date is I Love to Write Day celebrated each year?",
+    options: [
+      "September 1",
+      "November 15",
+      "January 1",
+      "April 23"
+    ],
+    correctAnswer: "November 15",
+    hint: "It falls in the middle of autumn...",
+    funFact: "I Love to Write Day takes place every November 15. It was started by author John Riddle in 2002 to encourage people of all ages to pick up a pen and write poems, stories, or letters. Handwriting even has proven brain benefits, helping with memory and idea generation in ways that typing does not always match."
+  },
+  {
+    id: 293,
+    theme: "Indiana 🌽",
+    question: "What makes Mount Baldy at the Indiana Dunes unusual?",
+    options: [
+      "It is the tallest mountain in the Midwest",
+      "It is a 'living' dune that moves several feet each year",
+      "It is a dormant volcano",
+      "It is made entirely of limestone"
+    ],
+    correctAnswer: "It is a 'living' dune that moves several feet each year",
+    hint: "It never stays in one place...",
+    funFact: "Mount Baldy is a living dune that is pushed inland by the wind at roughly four feet per year, slowly burying whatever is in its path, including trees. Its sand comes from the shore of Lake Michigan. Indiana is also known for its limestone, which was used to build the Empire State Building."
+  },
+  {
+    id: 294,
+    theme: "Bread 🍞",
+    question: "Where should you store bread to keep it from going stale quickly?",
+    options: [
+      "In the refrigerator",
+      "In a paper bag or bread box at room temperature",
+      "In the freezer, unwrapped",
+      "In a sealed plastic container in the fridge"
+    ],
+    correctAnswer: "In a paper bag or bread box at room temperature",
+    hint: "Cold air is actually bread's enemy...",
+    funFact: "Bread goes stale much faster in the refrigerator than at room temperature. Cold temperatures speed up a process where the starch in bread crystallizes and hardens, making it dry and tough. For the longest life, keep it at room temperature for a few days, or slice it and freeze it, where staling basically stops."
+  },
+  {
+    id: 295,
+    theme: "Apple Cider 🍎",
+    question: "About how many apples does it take to make one gallon of apple cider?",
+    options: [
+      "About 4",
+      "About 12",
+      "About 36",
+      "About 100"
+    ],
+    correctAnswer: "About 36",
+    hint: "Roughly three dozen...",
+    funFact: "It takes roughly three dozen apples, around 36, to press a single gallon of cider. Cider makers often blend several apple varieties to balance sweetness, tartness, and aroma. The traditional hot spiced version is a cousin of wassail, a warm holiday drink that has been enjoyed for centuries."
+  },
+  {
+    id: 296,
+    theme: "Soft Drinks 🥤",
+    question: "Which famous soda is the oldest major manufactured soft drink in America?",
+    options: [
+      "Coca-Cola",
+      "Pepsi",
+      "Dr Pepper",
+      "Root Beer"
+    ],
+    correctAnswer: "Dr Pepper",
+    hint: "It was created in 1885 in Texas...",
+    funFact: "Dr Pepper was created in 1885 in Waco, Texas, by pharmacist Charles Alderton, making it the oldest major soft drink in America. Coca-Cola followed in 1886 in Atlanta, and Pepsi came along in 1893. Fun fact: in different regions of the U.S., people call fizzy drinks 'soda,' 'pop,' or even just 'Coke.'"
+  },
+  {
+    id: 297,
+    theme: "A Charlie Brown Thanksgiving 🍿",
+    question: "What does Charlie Brown's quirky Thanksgiving dinner feature?",
+    options: [
+      "Turkey, mashed potatoes, and pie",
+      "Toast, popcorn, pretzels, and jelly beans",
+      "Hot dogs, chips, and soda",
+      "Pizza, salad, and ice cream"
+    ],
+    correctAnswer: "Toast, popcorn, pretzels, and jelly beans",
+    hint: "Peppermint Patty was not impressed...",
+    funFact: "In A Charlie Brown Thanksgiving, which premiered on television on November 20, 1973, Snoopy and Woodstock prepare a feast of toast, popcorn, pretzels, and jelly beans served on a ping-pong table. It became one of the most beloved holiday specials of all time and returns to TV every November."
+  },
+  {
+    id: 298,
+    theme: "Rocky 🥊",
+    question: "How long did it take Sylvester Stallone to write the original Rocky screenplay?",
+    options: [
+      "About 3 days",
+      "About 3 months",
+      "About a year",
+      "About 3 weeks"
+    ],
+    correctAnswer: "About 3 days",
+    hint: "He wrote it in a burst of inspiration after watching a boxing match...",
+    funFact: "Sylvester Stallone reportedly wrote the Rocky screenplay in about three days after being inspired by watching Muhammad Ali fight underdog Chuck Wepner in 1975. Stallone insisted on starring in the film himself. Rocky premiered in New York in November 1976 and went on to win the Oscar for Best Picture."
+  },
+  {
+    id: 299,
+    theme: "Cranberries 🍒",
+    question: "How can you tell if a cranberry is ripe and high quality?",
+    options: [
+      "It bounces",
+      "It floats on water",
+      "It changes color in sunlight",
+      "It makes a crunching sound when squeezed"
+    ],
+    correctAnswer: "It bounces",
+    hint: "Think of a small rubber ball...",
+    funFact: "Fresh, high-quality cranberries have little pockets of air inside, which makes them bounce. Growers have long used a bounce test to sort the best berries. The air pockets also let cranberries float, which is why cranberry bogs are flooded at harvest time and the berries rise to the surface in a stunning sea of red."
+  },
+  {
+    id: 300,
+    theme: "Jukebox 🎶",
+    question: "Which Elvis Presley song is often called the most-played single in jukebox history?",
+    options: [
+      "Jailhouse Rock",
+      "Hound Dog",
+      "Love Me Tender",
+      "Heartbreak Hotel"
+    ],
+    correctAnswer: "Hound Dog",
+    hint: "It's about a very unreliable canine...",
+    funFact: "Elvis Presley's 1956 hit 'Hound Dog' is widely cited as one of the most-played songs in jukebox history. The first coin-operated music machine appeared in San Francisco in 1889, where a nickel bought a listen. The word 'jukebox' likely comes from 'juke joints,' informal roadside venues in the American South where people gathered to dance and hear music."
+  },
+  
 ];
 
 /*

@@ -3,56 +3,68 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { X, HelpCircle, BarChart3 } from 'lucide-react';
 
 // Mini puzzles drawn from existing Letter Griddle 5-letter words
-// NEW Mini puzzles - 22 words from Letter Griddle puzzles #79-99
-// Replace the existing miniPuzzles array with this one
 // =============================================
-// BENCHED MINI PUZZLES (formerly active)
-// Words from Letter Griddle puzzles #79-99
-// =============================================
-/*
-const miniPuzzlesBenched = [
-  { word: "STORY", category: "'Round the Hearth", hint: "A tale shared aloud while gathered together" },
-  { word: "PRIZE", category: "The Price is Right", hint: "Something won in a game or competition" },
-  { word: "GLIDE", category: "Moving Through the Air", hint: "To move smoothly through the air with little effort" },
-  { word: "SHREK", category: "Animated Film Characters", hint: "Green ogre who lives in a swamp and rescues a princess" },
-  { word: "PILOT", category: "Air Travel", hint: "The person who flies the aircraft" },
-  { word: "SWISS", category: "Say Cheese!", hint: "Cheese known for its signature holes" },
-  { word: "SALAD", category: "Lunch", hint: "A mix of leafy greens and vegetables, often with dressing" },
-  { word: "METAL", category: "Rock On!", hint: "Heavy rock genre featuring loud, distorted guitars and powerful drums" },
-  { word: "THYME", category: "Spices", hint: "Fragrant herb with tiny leaves, often used in soups and roasts" },
-  { word: "FURRY", category: "Cats", hint: "Covered in soft, fluffy hair perfect for petting" },
-  { word: "HOUND", category: "Dogs", hint: "A type of dog bred for hunting, known for its keen sense of smell" },
-  { word: "STAFF", category: "At the Office", hint: "The employees who work at a company or organization" },
-  { word: "STOVE", category: "In the Kitchen", hint: "Appliance with burners used for cooking food in pots and pans" },
-  { word: "VIRAL", category: "Social Media", hint: "When content spreads rapidly across the internet" },
-  { word: "FLOUR", category: "Pancakes", hint: "The main dry ingredient that gives pancakes their structure" },
-  { word: "SYRUP", category: "Pancakes", hint: "Sweet, sticky topping poured generously over a stack" },
-  { word: "FLUTE", category: "Musical Instruments", hint: "Woodwind instrument played by blowing air across an opening" },
-  { word: "BROTH", category: "Soup", hint: "Clear, savory liquid made by simmering meat or vegetables" },
-  { word: "DRIVE", category: "Ways to Go", hint: "A private road leading to a house, or a scenic route" },
-  { word: "PENNE", category: "Pasta", hint: "Cylinder pasta cut at an angle, perfect for holding chunky sauces" },
-  { word: "BACON", category: "Breakfast", hint: "Crispy strips of cured pork, a breakfast favorite" },
-  { word: "WHISK", category: "Cooking", hint: "To beat ingredients quickly with a wire tool to blend or add air" },
-];
-*/
-
-// =============================================
-// FRESH MINI PUZZLES
-// Words drawn from Letter Griddle puzzles #130-178
-// =============================================
-
-// Mini puzzles drawn from existing Letter Griddle 5-letter words
-// =============================================
-// ACTIVE MINI PUZZLES - 16 fresh words
-// From Letter Griddle puzzles #336-357 (Aug-Sep 2026 batch)
-// =============================================
-// Mini puzzles drawn from existing Letter Griddle 5-letter words
-// =============================================
-// ACTIVE MINI PUZZLES - 21 fresh words
-// From Letter Griddle puzzles #376-408 (Sep-Oct 2026 batch)
+// ACTIVE MINI PUZZLES - 20 fresh words
+// From Letter Griddle puzzles #409-438 (Oct-Nov 2026 batch)
 // =============================================
 
 const miniPuzzles = [
+  { word: "MOVIE", category: "Chucky", hint: "Child's Play film franchise" },
+  { word: "ADOPT", category: "Black Cat", hint: "Give one a forever home" },
+  { word: "PLUSH", category: "Stuffed Animals", hint: "Soft fabric material" },
+  { word: "EMAIL", category: "Internet", hint: "Electronic message" },
+  { word: "WHITE", category: "Candy Corn", hint: "Top color of the candy" },
+  { word: "TRICK", category: "Halloween", hint: "___ or treat!" },
+  { word: "PLANT", category: "Vegan", hint: "___ based diet" },
+  { word: "RIVER", category: "Ohio", hint: "Ohio ___, southern border" },
+  { word: "NEVER", category: "How Cliche!", hint: "Better late than this" },
+  { word: "TOKEN", category: "Monopoly", hint: "Metal playing piece" },
+  { word: "TITLE", category: "Monopoly", hint: "___ Deed card" },
+  { word: "THICK", category: "Cappuccino", hint: "Rich and dense foam texture" },
+  { word: "CAJUN", category: "Louisiana", hint: "Spicy Acadian cuisine style" },
+  { word: "COUNT", category: "Sesame Street", hint: "Vampire who loves numbers" },
+  { word: "SIMBA", category: "The Lion King", hint: "The lion cub who would be king" },
+  { word: "STORY", category: "I Love to Write", hint: "Tale with a beginning and end" },
+  { word: "STONE", category: "Indiana", hint: "Indiana limestone is famous _____" },
+  { word: "PEPSI", category: "Carbonated Beverage", hint: "Coke's biggest rival" },
+  { word: "GONNA", category: "Rocky", hint: "'_____ Fly Now' theme song" },
+  { word: "JOINT", category: "Jukebox", hint: "Establishment known as a juke ____" },
+  { word: "GOURD", category: "Pumpkins", hint: "Squash family relative" },
+  { word: "WITCH", category: "Black Cat", hint: "Superstitious witch's companion" },
+  { word: "FUZZY", category: "Stuffed Animals", hint: "Soft to the touch" },
+  { word: "VIRUS", category: "Internet", hint: "Malicious computer program" },
+  { word: "TASTY", category: "Candy Corn", hint: "Describes the classic treat's appeal" },
+  { word: "BEANS", category: "Vegan", hint: "Plant-based protein source" },
+  { word: "AKRON", category: "Ohio", hint: "Ohio city known for tires" },
+  { word: "WORDS", category: "How Cliche!", hint: "What a cliché is made of" },
+  { word: "HOTEL", category: "Monopoly", hint: "Upgrade from a house" },
+  { word: "FOAMY", category: "Cappuccino", hint: "Frothy milk texture" },
+  { word: "BAYOU", category: "Louisiana", hint: "Swampy Louisiana waterway" },
+  { word: "ERNIE", category: "Sesame Street", hint: "Bert's best friend" },
+  { word: "TIMON", category: "The Lion King", hint: "Simba's meerkat friend" },
+  { word: "QUILL", category: "I Love to Write", hint: "Old-fashioned feather pen" },
+  { word: "RACER", category: "Indiana", hint: "Indy 500 competitor" },
+  { word: "SODAS", category: "Carbonated Beverage", hint: "Fizzy drinks, plural" },
+  { word: "PUNCH", category: "Rocky", hint: "A boxer's blow" },
+  { word: "VINYL", category: "Jukebox", hint: "Record material" },
+  { word: "KNIFE", category: "Chucky", hint: "Chucky's weapon of choice" },
+  { word: "SQUID", category: "Octopus", hint: "Octopus's cephalopod cousin" },
+  { word: "HONEY", category: "Winnie-the-Pooh", hint: "Pooh's favorite snack" },
+  { word: "RICKY", category: "I Love Lucy", hint: "Lucy's bandleader husband" },
+  { word: "MARTY", category: "Back to the Future", hint: "The time-traveling teen protagonist" },
+  { word: "BASES", category: "World Series", hint: "Loaded when the count is full" },
+  { word: "SPLIT", category: "Marathon", hint: "Time checkpoint during a race" },
+  { word: "COINS", category: "Savings", hint: "Spare change you save" },
+  { word: "GRADE", category: "Teachers", hint: "Score on an assignment" },
+  { word: "LIKES", category: "Instagram", hint: "Tap to show appreciation for a post" },
+];
+
+/*
+// =============================================
+// BENCHED MINI PUZZLES (formerly active)
+// Uncomment and move above the closing ]; to restore
+// =============================================
+
   { word: "GRAVY", category: "Pot Pie", hint: "Rich savory sauce filling" },
   { word: "QUIET", category: "Good Neighbor", hint: "Respectful of others" },
   { word: "BIRCH", category: "Chewing Gum", hint: "Ancient tree bark variety" },
@@ -74,13 +86,6 @@ const miniPuzzles = [
   { word: "CLOCK", category: "Back to the Future", hint: "One word of the Hill Valley landmark struck by lightning" },
   { word: "VIVID", category: "Vibrant Color", hint: "Intensely bright" },
   { word: "PINCH", category: "World Series", hint: "___ hit, batting in for another player" },
-];
-
-/*
-// =============================================
-// BENCHED MINI PUZZLES (formerly active)
-// Uncomment and move above the closing ]; to restore
-// =============================================
 
   { word: "NOVEL", category: "Read a Book", hint: "Long-form fiction" },
   { word: "SPOCK", category: "Star Trek", hint: "Logical Vulcan officer" },

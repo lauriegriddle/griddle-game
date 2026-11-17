@@ -1297,7 +1297,7 @@ style={{scrollbarWidth: 'thin', scrollbarColor: '#D97706 #FEF3C7'}} onClick={(e)
   <span className="text-2xl">📚</span>
   <div>
     <p className="font-bold text-amber-800 text-sm">Reduce screen time</p>
-    <p className="text-amber-600 text-xs">Puzzle books & journals for yourself or giving as gifts</p>
+    <p className="text-amber-600 text-xs">Puzzle books & journals make great gifts!</p>
   </div>
 </a>
 

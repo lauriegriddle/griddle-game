@@ -47,7 +47,6 @@ const miniPuzzles = [
   { word: "SODAS", category: "Carbonated Beverage", hint: "Fizzy drinks, plural" },
   { word: "PUNCH", category: "Rocky", hint: "A boxer's blow" },
   { word: "VINYL", category: "Jukebox", hint: "Record material" },
-  { word: "KNIFE", category: "Chucky", hint: "Chucky's weapon of choice" },
   { word: "SQUID", category: "Octopus", hint: "Octopus's cephalopod cousin" },
   { word: "HONEY", category: "Winnie-the-Pooh", hint: "Pooh's favorite snack" },
   { word: "RICKY", category: "I Love Lucy", hint: "Lucy's bandleader husband" },

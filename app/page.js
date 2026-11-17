@@ -982,7 +982,7 @@ export default function Home() {
               🍳 Screen-Free Books ✏️
             </div>
             <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: 'Georgia, serif', textShadow: '1px 1px 3px rgba(0,0,0,0.2)' }}>Letter Griddle is off-line too!</h2>
-            <p className="italic" style={{ fontFamily: 'Georgia, serif', color: 'rgba(255,255,255,0.9)' }}>Letter Griddle now offers screen-free options</p>
+            <p className="italic" style={{ fontFamily: 'Georgia, serif', color: 'rgba(255,255,255,0.9)' }}>Clicking on any of the titles below takes you to Amazon.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-6">
             <div className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
@@ -1296,8 +1296,8 @@ style={{scrollbarWidth: 'thin', scrollbarColor: '#D97706 #FEF3C7'}} onClick={(e)
   className="flex items-center gap-3 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-3 border-2 border-amber-300 hover:border-amber-500 hover:shadow-md transition-all cursor-pointer">
   <span className="text-2xl">📚</span>
   <div>
-    <p className="font-bold text-amber-800 text-sm">Screen-Free Books</p>
-    <p className="text-amber-600 text-xs">Puzzle books & journals</p>
+    <p className="font-bold text-amber-800 text-sm">Reduce screen time</p>
+    <p className="text-amber-600 text-xs">Puzzle books & journals for yourself or giving as gifts</p>
   </div>
 </a>
 

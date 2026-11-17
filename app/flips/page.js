@@ -705,7 +705,7 @@ const triviaQuestions = [
     ],
     correctAnswer: "Charles Lee Ray",
     hint: "The name follows a famous three-name pattern...",
-    funFact: "Chucky's full name is Charles Lee Ray, a three-part name that creator Don Mancini chose on purpose to echo the way infamous criminals are often named in the news. The first Child's Play film arrived in 1988 and spawned one of the longest-running horror franchises in movie history. Chucky has appeared in seven films and a TV series."
+    funFact: "Chucky's full name is Charles Lee Ray, a three-part name that creator Don Mancini chose on purpose to echo the way infamous criminals are often named in the news. The first Child's Play film arrived in 1988 and spawned one of the longest-running horror franchises in movie history. Chucky has appeared in seven films and a TV series. I haven't seen any of them."
   },
   {
     id: 272,

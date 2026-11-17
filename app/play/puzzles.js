@@ -5560,7 +5560,7 @@ const puzzles = [
     puzzleNumber: 431,
     words: [
       { word: "CORN", hint: "Major Midwest crop", revealedIndex: 0 },
-      { word: "STONE", hint: "Indiana limestone is famous for this", revealedIndex: 2 },
+      { word: "STONE", hint: "Indiana limestone is famous _____", revealedIndex: 2 },
       { word: "RACING", hint: "Sport at the Indy 500", revealedIndex: 3 },
       { word: "HOOSIER", hint: "Nickname for an Indiana native", revealedIndex: 0 },
       { word: "SPEEDWAY", hint: "Indianapolis Motor ___", revealedIndex: 4 },

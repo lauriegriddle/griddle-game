@@ -696,7 +696,7 @@ const triviaQuestions = [
     {
     id: 271,
     theme: "Chucky 🎎",
-    question: "What is the full name of the killer doll in the Child's Play movies?",
+    question: "What is the full name of the scary doll in the Child's Play movies?",
     options: [
       "Charles Lee Ray",
       "Charlie Bradford",
@@ -1113,7 +1113,7 @@ const triviaQuestions = [
     hint: "It's about a very unreliable canine...",
     funFact: "Elvis Presley's 1956 hit 'Hound Dog' is widely cited as one of the most-played songs in jukebox history. The first coin-operated music machine appeared in San Francisco in 1889, where a nickel bought a listen. The word 'jukebox' likely comes from 'juke joints,' informal roadside venues in the American South where people gathered to dance and hear music."
   },
-  
+
 ];
 
 /*

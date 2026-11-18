@@ -5679,6 +5679,325 @@ const puzzles = [
     ],
     funFact: "'Hound Dog' by Elvis Presley (1956) is the most-played jukebox single in history. 🎶",
   },
+    // =============================================
+  // INDEX 359 - Shows November 24, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Unique Talent",
+    puzzleNumber: 439,
+    words: [
+      { word: "GIFT", hint: "A natural talent you're born with", revealedIndex: 0 },
+      { word: "SKILL", hint: "Ability gained through practice", revealedIndex: 2 },
+      { word: "FLAIR", hint: "A stylish, natural knack", revealedIndex: 3 },
+      { word: "ABILITY", hint: "The power to do something well", revealedIndex: 0 },
+      { word: "PRACTICE", hint: "Repeated effort that sharpens a talent", revealedIndex: 4 },
+    ],
+    funFact: "Unique talents are often described as a knack, aptitude, and X-factor, while real-world examples range from reading two pages at once to detecting diseases by scent. 🌟",
+  },
+
+  // =============================================
+  // INDEX 360 - Shows November 25, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Blasé",
+    puzzleNumber: 440,
+    words: [
+      { word: "BACK", hint: "Laid ____", revealedIndex: 0 },
+      { word: "SHRUG", hint: "____ off", revealedIndex: 2 },
+      { word: "APATHY", hint: "Lack of interest or enthusiasm", revealedIndex: 3 },
+      { word: "RELAXED", hint: "Calm and unbothered", revealedIndex: 0 },
+      { word: "WHATEVER", hint: "A casual 'I don't care' response", revealedIndex: 4 },
+    ],
+    funFact: "Remember: you are not supposed to be blasé about important things like birthdays, coffee restocking, car payments, 401(k)s, or fun word games. 😎",
+  },
+
+  // =============================================
+  // INDEX 361 - Shows November 26, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Thanksgiving",
+    puzzleNumber: 441,
+    words: [
+      { word: "BUSH", hint: "President who formally established the annual turkey-pardon tradition in 1989", revealedIndex: 0 },
+      { word: "FELIX", hint: "___ the Cat was the first giant helium balloon in the Macy's Thanksgiving Day Parade in 1927", revealedIndex: 2 },
+      { word: "BOUNCE", hint: "A fresh, ripe cranberry will naturally ____ like a small rubber ball", revealedIndex: 3 },
+      { word: "HARVEST", hint: "Autumn gathering of crops", revealedIndex: 0 },
+      { word: "WISHBONE", hint: "Pull it apart and make a wish", revealedIndex: 4 },
+    ],
+    funFact: "The 1621 harvest celebration between the Pilgrims and the Wampanoag lasted three days, featured seafood, venison, and fowl, and did not include turkey or pumpkin pie. 🍗",
+  },
+
+  // =============================================
+  // INDEX 362 - Shows November 27, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Black Friday",
+    puzzleNumber: 442,
+    words: [
+      { word: "GAME", hint: "College and pro teams play one this weekend", revealedIndex: 0 },
+      { word: "CROWD", hint: "Stores having sales attract a big one", revealedIndex: 2 },
+      { word: "NATIVE", hint: "___ American Heritage Day", revealedIndex: 3 },
+      { word: "BARGAIN", hint: "Sales online and in stores", revealedIndex: 0 },
+      { word: "DECORATE", hint: "Many start putting up holiday trees and lights", revealedIndex: 4 },
+    ],
+    funFact: "The phrase 'Black Friday' originally referred to a financial panic caused by a crash in the U.S. gold market in 1869, long before it meant shopping. 🛍️",
+  },
+
+  // =============================================
+  // INDEX 363 - Shows November 28, 2026 at 7 PM
+  // =============================================
+  {
+    category: "French Toast",
+    puzzleNumber: 443,
+    words: [
+      { word: "EGGS", hint: "Beaten with milk for the custard dip", revealedIndex: 0 },
+      { word: "STALE", hint: "Day-old bread works best", revealedIndex: 2 },
+      { word: "RECIPE", hint: "Cooking instructions", revealedIndex: 3 },
+      { word: "DRIZZLE", hint: "Pour syrup over the top", revealedIndex: 0 },
+      { word: "LEFTOVER", hint: "A great way to use up extra bread", revealedIndex: 4 },
+    ],
+    funFact: "The term 'French toast' first appeared in print in America in 1871, likely named to sound refined rather than indicating a French origin. 🍞",
+  },
+
+  // =============================================
+  // INDEX 364 - Shows November 29, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Lemon Pie",
+    puzzleNumber: 444,
+    words: [
+      { word: "TART", hint: "Sour and puckery", revealedIndex: 0 },
+      { word: "SLICE", hint: "One wedge of pie", revealedIndex: 2 },
+      { word: "CREAMY", hint: "Smooth, rich filling", revealedIndex: 3 },
+      { word: "WHIPPED", hint: "____ cream topping", revealedIndex: 0 },
+      { word: "MERINGUE", hint: "Fluffy toasted egg-white topping", revealedIndex: 4 },
+    ],
+    funFact: "In the early 1930s, Borden launched a famous 'Magic Lemon Cream Pie' recipe using sweetened condensed milk. Food historians theorize this quick shortcut recipe inspired the creation of Florida Key Lime Pie. 🍋",
+  },
+
+  // =============================================
+  // INDEX 365 - Shows November 30, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Mason Jar",
+    puzzleNumber: 445,
+    words: [
+      { word: "BALL", hint: "Famous jar brand", revealedIndex: 0 },
+      { word: "FIRST", hint: "Earliest, as in the original screw-top jar", revealedIndex: 2 },
+      { word: "GASKET", hint: "Rubber seal ring", revealedIndex: 3 },
+      { word: "CANNING", hint: "Preserving fruits and vegetables", revealedIndex: 0 },
+      { word: "THREADED", hint: "Screw-top lid design", revealedIndex: 4 },
+    ],
+    funFact: "Rare upside-down Ball jars (designed to rest on their lids) or unusual colors like cobalt blue, amber, and amethyst can fetch up to $1,000 among collectors. 🫙",
+  },
+
+  // =============================================
+  // INDEX 366 - Shows December 1, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Countdown",
+    puzzleNumber: 446,
+    words: [
+      { word: "DATE", hint: "A day on the calendar", revealedIndex: 0 },
+      { word: "TREAT", hint: "A little surprise behind each door", revealedIndex: 2 },
+      { word: "ADVENT", hint: "___ calendar", revealedIndex: 3 },
+      { word: "HOLIDAY", hint: "Festive season", revealedIndex: 0 },
+      { word: "CALENDAR", hint: "Counts down the days to Christmas", revealedIndex: 4 },
+    ],
+    funFact: "American popularity of the advent calendar exploded in 1954 after a newspaper photo was published showing President Dwight D. Eisenhower's grandchildren opening one. 🎄",
+  },
+
+  // =============================================
+  // INDEX 367 - Shows December 2, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Fritter",
+    puzzleNumber: 447,
+    words: [
+      { word: "FRIED", hint: "Cooked in hot oil", revealedIndex: 0 },
+      { word: "DOUGH", hint: "Thick batter-like mixture", revealedIndex: 2 },
+      { word: "APPLE", hint: "Popular fruit fritter", revealedIndex: 3 },
+      { word: "SWEET", hint: "Dusted with sugar", revealedIndex: 0 },
+      { word: "SAVORY", hint: "Corn or shrimp variety, not sugary", revealedIndex: 4 },
+    ],
+    funFact: "Portuguese sailors brought a vegetable-and-shrimp deep-frying technique to Japan in the 16th century, which eventually evolved into modern tempura. 🍤",
+  },
+
+  // =============================================
+  // INDEX 368 - Shows December 3, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Handmade Gifts",
+    puzzleNumber: 448,
+    words: [
+      { word: "KNIT", hint: "Make a scarf with needles", revealedIndex: 0 },
+      { word: "QUILT", hint: "Stitched blanket of fabric patches", revealedIndex: 2 },
+      { word: "SEWING", hint: "Needle and thread craft", revealedIndex: 3 },
+      { word: "CROCHET", hint: "Make loops with a single hook", revealedIndex: 0 },
+      { word: "MACRAME", hint: "Knotted cord craft", revealedIndex: 4 },
+    ],
+    funFact: "Crocheting with black yarn is notoriously difficult. Crafters often joke that it feels like stitching together a shadow. Receiving a handmade black-yarn item means you are truly cherished. 🧶",
+  },
+
+  // =============================================
+  // INDEX 369 - Shows December 4, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Sweater Vest",
+    puzzleNumber: 449,
+    words: [
+      { word: "KNIT", hint: "How the garment is made", revealedIndex: 0 },
+      { word: "LAYER", hint: "Wear it over a shirt", revealedIndex: 2 },
+      { word: "WARMTH", hint: "Cozy benefit", revealedIndex: 3 },
+      { word: "FASHION", hint: "Preppy style trend", revealedIndex: 0 },
+      { word: "ATHLETIC", hint: "Sporty, like the team that inspired the first one", revealedIndex: 4 },
+    ],
+    funFact: "Fourteen members of the University of Michigan football team chopped the sleeves off their wool sweaters in 1907 to create an early version of the garment with an embroidered 'M'. 🧥",
+  },
+
+  // =============================================
+  // INDEX 370 - Shows December 5, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Ninja",
+    puzzleNumber: 450,
+    words: [
+      { word: "FILM", hint: "Action movie genre", revealedIndex: 0 },
+      { word: "SPIES", hint: "Covert operatives", revealedIndex: 2 },
+      { word: "MARTIAL", hint: "___ arts training", revealedIndex: 3 },
+      { word: "THEATER", hint: "Where you might watch a ninja movie", revealedIndex: 0 },
+      { word: "STEALTHY", hint: "Silent and unseen", revealedIndex: 4 },
+    ],
+    funFact: "In feudal Japan, ninjas functioned primarily as covert operatives, scouts, and intelligence gatherers for military commanders rather than open-field combatants. 🥷",
+  },
+
+  // =============================================
+  // INDEX 371 - Shows December 6, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Microwave",
+    puzzleNumber: 451,
+    words: [
+      { word: "OVEN", hint: "Kitchen heating appliance", revealedIndex: 0 },
+      { word: "TABLE", hint: "Turn___, the rotating plate", revealedIndex: 2 },
+      { word: "DINNER", hint: "Quick TV ___ meal", revealedIndex: 3 },
+      { word: "POPCORN", hint: "A button found on many microwaves", revealedIndex: 0 },
+      { word: "LEFTOVER", hint: "Reheat last night's meal", revealedIndex: 4 },
+    ],
+    funFact: "Microwaving a damp kitchen sponge for 1 to 2 minutes kills roughly 99% of bacteria. 🍿",
+  },
+
+  // =============================================
+  // INDEX 372 - Shows December 7, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Letter Writing",
+    puzzleNumber: 452,
+    words: [
+      { word: "NOTE", hint: "Short written message", revealedIndex: 0 },
+      { word: "HELLO", hint: "Common opening greeting", revealedIndex: 2 },
+      { word: "SPECIAL", hint: "Make it feel ___ and personal", revealedIndex: 3 },
+      { word: "JOTTING", hint: "Quickly writing something down", revealedIndex: 0 },
+      { word: "GREETING", hint: "Opening words of a letter", revealedIndex: 4 },
+    ],
+    funFact: "For a long time, paper was so expensive that people saved money by skipping envelopes entirely. Instead, they folded the letter itself into a clever packet and sealed it with wax. 📬",
+  },
+
+  // =============================================
+  // INDEX 373 - Shows December 8, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Time Travel",
+    puzzleNumber: 453,
+    words: [
+      { word: "PAST", hint: "Where history lies", revealedIndex: 0 },
+      { word: "VISIT", hint: "Drop in on another era", revealedIndex: 2 },
+      { word: "FUTURE", hint: "What's yet to come", revealedIndex: 3 },
+      { word: "PRESENT", hint: "Right now", revealedIndex: 0 },
+      { word: "TRAVELER", hint: "One who journeys through time", revealedIndex: 4 },
+    ],
+    funFact: "Clocks on airplanes and satellites actually tick at a different speed than clocks on Earth due to Albert Einstein's theory of relativity. ⏳",
+  },
+
+  // =============================================
+  // INDEX 374 - Shows December 9, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Pastry",
+    puzzleNumber: 454,
+    words: [
+      { word: "TART", hint: "Open-faced fruit pastry", revealedIndex: 0 },
+      { word: "PASTE", hint: "Almond ___ filling", revealedIndex: 2 },
+      { word: "ECLAIR", hint: "Chocolate-topped, cream-filled treat", revealedIndex: 3 },
+      { word: "BAKLAVA", hint: "Layered phyllo with honey and nuts", revealedIndex: 0 },
+      { word: "BAKERIES", hint: "Where pastries are made and sold", revealedIndex: 4 },
+    ],
+    funFact: "The French word éclair translates to 'flash of lightning'. The pastry earned its name either because its glaze shines in the light or because people eat them in a flash. 🥐",
+  },
+
+  // =============================================
+  // INDEX 375 - Shows December 10, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Nobel Prize",
+    puzzleNumber: 455,
+    words: [
+      { word: "OSLO", hint: "Norwegian city where the peace prize is presented", revealedIndex: 0 },
+      { word: "FIFTY", hint: "Number of years nominations are kept secret", revealedIndex: 2 },
+      { word: "FAMILY", hint: "The Curie ___ has won five prizes", revealedIndex: 3 },
+      { word: "CEREMONY", hint: "Formal event where prizes are presented", revealedIndex: 0 },
+      { word: "DYNAMITE", hint: "Explosive invented by Alfred Nobel", revealedIndex: 4 },
+    ],
+    funFact: "Since 1901, the Nobel Prizes have been presented to Nobel Prize laureates at ceremonies on 10 December, the anniversary of Alfred Nobel's death. 🏆",
+  },
+
+  // =============================================
+  // INDEX 376 - Shows December 11, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Mountains",
+    puzzleNumber: 456,
+    words: [
+      { word: "PEAK", hint: "The top point", revealedIndex: 0 },
+      { word: "RIDGE", hint: "Long, narrow crest", revealedIndex: 2 },
+      { word: "SUMMIT", hint: "The very top", revealedIndex: 3 },
+      { word: "EVEREST", hint: "Tallest mountain above sea level", revealedIndex: 0 },
+      { word: "FOOTHILL", hint: "Low hill at the base of a mountain", revealedIndex: 4 },
+    ],
+    funFact: "The longest mountain range on Earth is the Mid-Ocean Ridge. It stretches over 40,000 miles around the globe, with about 90 percent of it hidden beneath the ocean. ⛰️",
+  },
+
+  // =============================================
+  // INDEX 377 - Shows December 12, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Gingerbread",
+    puzzleNumber: 457,
+    words: [
+      { word: "ICED", hint: "Decorated with frosting", revealedIndex: 0 },
+      { word: "HOUSE", hint: "Candy-covered holiday home", revealedIndex: 2 },
+      { word: "SPICED", hint: "Flavored with ginger and cinnamon", revealedIndex: 3 },
+      { word: "CARVING", hint: "Cutting designs from rolled dough", revealedIndex: 0 },
+      { word: "MOLASSES", hint: "Dark syrup that gives the deep flavor", revealedIndex: 4 },
+    ],
+    funFact: "Queen Elizabeth I is credited with popularizing human-shaped gingerbread figures by having bakers craft cookies that resembled visiting dignitaries. 🍪",
+  },
+
+  // =============================================
+  // INDEX 378 - Shows December 13, 2026 at 7 PM
+  // =============================================
+  {
+    category: "Violin",
+    puzzleNumber: 458,
+    words: [
+      { word: "BOW", hint: "Horsehair stick used to play", revealedIndex: 0 },
+      { word: "WOOD", hint: "What a violin is crafted from", revealedIndex: 2 },
+      { word: "BRAIN", hint: "Playing uses motor and memory skills in the ___", revealedIndex: 3 },
+      { word: "MEMORY", hint: "Playing engages complex remembering", revealedIndex: 0 },
+      { word: "WORKOUT", hint: "Playing can burn around 170 calories per hour", revealedIndex: 4 },
+    ],
+    funFact: "A standard violin is crafted from roughly 70 pieces of wood, and a bow typically holds 150 to 200 strands of horsehair. 🎻",
+  },
 ];
 
 // ===========================================

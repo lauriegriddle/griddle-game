@@ -15,7 +15,7 @@ import { X, HelpCircle, BarChart3 } from 'lucide-react';
 // =============================================
 
 const miniPuzzles = [
-  { word: "ADOPT", category: "Dogs and Cats", hint: "Give one a forever home" },
+  { word: "HAPPY", category: "New Year's Eve", hint: "Wish for the new year" },
   { word: "PLUSH", category: "Stuffed Animals", hint: "Soft fabric material" },
   { word: "EMAIL", category: "Internet", hint: "Electronic message" },
   { word: "WHITE", category: "Candy Corn", hint: "Top color of the candy" },

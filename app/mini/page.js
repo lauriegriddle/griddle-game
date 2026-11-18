@@ -33,6 +33,33 @@ const miniPuzzles = [
   { word: "PEPSI", category: "Carbonated Beverage", hint: "Coke's biggest rival" },
   { word: "GONNA", category: "Rocky", hint: "'_____ Fly Now' theme song" },
   { word: "JOINT", category: "Jukebox", hint: "Establishment known as a juke ____" },
+    { word: "GOURD", category: "Pumpkins", hint: "Squash family relative" },
+  { word: "WITCH", category: "Black Cat", hint: "Superstitious witch's companion" },
+  { word: "FUZZY", category: "Stuffed Animals", hint: "Soft to the touch" },
+  { word: "VIRUS", category: "Internet", hint: "Malicious computer program" },
+  { word: "TASTY", category: "Candy Corn", hint: "Describes the classic treat's appeal" },
+  { word: "BEANS", category: "Vegan", hint: "Plant-based protein source" },
+  { word: "AKRON", category: "Ohio", hint: "Ohio city known for tires" },
+  { word: "WORDS", category: "How Cliche!", hint: "What a cliché is made of" },
+  { word: "HOTEL", category: "Monopoly", hint: "Upgrade from a house" },
+  { word: "FOAMY", category: "Cappuccino", hint: "Frothy milk texture" },
+  { word: "BAYOU", category: "Louisiana", hint: "Swampy Louisiana waterway" },
+  { word: "ERNIE", category: "Sesame Street", hint: "Bert's best friend" },
+  { word: "TIMON", category: "The Lion King", hint: "Simba's meerkat friend" },
+  { word: "QUILL", category: "I Love to Write", hint: "Old-fashioned feather pen" },
+  { word: "RACER", category: "Indiana", hint: "Indy 500 competitor" },
+  { word: "SODAS", category: "Carbonated Beverage", hint: "Fizzy drinks, plural" },
+  { word: "PUNCH", category: "Rocky", hint: "A boxer's blow" },
+  { word: "VINYL", category: "Jukebox", hint: "Record material" },
+  { word: "SQUID", category: "Octopus", hint: "Octopus's cephalopod cousin" },
+  { word: "HONEY", category: "Winnie-the-Pooh", hint: "Pooh's favorite snack" },
+  { word: "RICKY", category: "I Love Lucy", hint: "Lucy's bandleader husband" },
+  { word: "MARTY", category: "Back to the Future", hint: "The time-traveling teen protagonist" },
+  { word: "BASES", category: "World Series", hint: "Loaded when the count is full" },
+  { word: "SPLIT", category: "Marathon", hint: "Time checkpoint during a race" },
+  { word: "COINS", category: "Savings", hint: "Spare change you save" },
+  { word: "GRADE", category: "Teachers", hint: "Score on an assignment" },
+  { word: "LIKES", category: "Instagram", hint: "Tap to show appreciation for a post" },
 ];
 
 /*
@@ -304,7 +331,8 @@ const getPuzzleInfo = () => {
   const anchorDate = new Date(2026, 2, 9, 19, 15, 0, 0); // March 9, 2026 // Month is 0-indexed, so 11 = December
   
   const daysSinceAnchor = Math.round((puzzleDate.getTime() - anchorDate.getTime()) / (1000 * 60 * 60 * 24));
-  const puzzleIndex = ((daysSinceAnchor % miniPuzzles.length) + miniPuzzles.length) % miniPuzzles.length;
+  const ROTATION_OFFSET = 18; // keeps today on PLUSH and tomorrow on EMAIL with 45 words
+const puzzleIndex = (((daysSinceAnchor + ROTATION_OFFSET) % miniPuzzles.length) + miniPuzzles.length) % miniPuzzles.length;
   const puzzleNumber = Math.max(1, daysSinceAnchor + 1);
   
   return { puzzleIndex, puzzleNumber };

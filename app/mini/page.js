@@ -8,13 +8,17 @@ import { X, HelpCircle, BarChart3 } from 'lucide-react';
 // From Letter Griddle puzzles #409-438 (Oct-Nov 2026 batch)
 // =============================================
 
+// Mini puzzles drawn from existing Letter Griddle 5-letter words
+// =============================================
+// ACTIVE MINI PUZZLES - 20 fresh words
+// From Letter Griddle puzzles #409-438 (Oct-Nov 2026 batch)
+// =============================================
+
 const miniPuzzles = [
-  { word: "MOVIE", category: "Chucky", hint: "Child's Play film franchise" },
   { word: "ADOPT", category: "Black Cat", hint: "Give one a forever home" },
   { word: "PLUSH", category: "Stuffed Animals", hint: "Soft fabric material" },
   { word: "EMAIL", category: "Internet", hint: "Electronic message" },
   { word: "WHITE", category: "Candy Corn", hint: "Top color of the candy" },
-  { word: "TRICK", category: "Halloween", hint: "___ or treat!" },
   { word: "PLANT", category: "Vegan", hint: "___ based diet" },
   { word: "RIVER", category: "Ohio", hint: "Ohio ___, southern border" },
   { word: "NEVER", category: "How Cliche!", hint: "Better late than this" },
@@ -29,33 +33,6 @@ const miniPuzzles = [
   { word: "PEPSI", category: "Carbonated Beverage", hint: "Coke's biggest rival" },
   { word: "GONNA", category: "Rocky", hint: "'_____ Fly Now' theme song" },
   { word: "JOINT", category: "Jukebox", hint: "Establishment known as a juke ____" },
-  { word: "GOURD", category: "Pumpkins", hint: "Squash family relative" },
-  { word: "WITCH", category: "Black Cat", hint: "Superstitious witch's companion" },
-  { word: "FUZZY", category: "Stuffed Animals", hint: "Soft to the touch" },
-  { word: "VIRUS", category: "Internet", hint: "Malicious computer program" },
-  { word: "TASTY", category: "Candy Corn", hint: "Describes the classic treat's appeal" },
-  { word: "BEANS", category: "Vegan", hint: "Plant-based protein source" },
-  { word: "AKRON", category: "Ohio", hint: "Ohio city known for tires" },
-  { word: "WORDS", category: "How Cliche!", hint: "What a cliché is made of" },
-  { word: "HOTEL", category: "Monopoly", hint: "Upgrade from a house" },
-  { word: "FOAMY", category: "Cappuccino", hint: "Frothy milk texture" },
-  { word: "BAYOU", category: "Louisiana", hint: "Swampy Louisiana waterway" },
-  { word: "ERNIE", category: "Sesame Street", hint: "Bert's best friend" },
-  { word: "TIMON", category: "The Lion King", hint: "Simba's meerkat friend" },
-  { word: "QUILL", category: "I Love to Write", hint: "Old-fashioned feather pen" },
-  { word: "RACER", category: "Indiana", hint: "Indy 500 competitor" },
-  { word: "SODAS", category: "Carbonated Beverage", hint: "Fizzy drinks, plural" },
-  { word: "PUNCH", category: "Rocky", hint: "A boxer's blow" },
-  { word: "VINYL", category: "Jukebox", hint: "Record material" },
-  { word: "SQUID", category: "Octopus", hint: "Octopus's cephalopod cousin" },
-  { word: "HONEY", category: "Winnie-the-Pooh", hint: "Pooh's favorite snack" },
-  { word: "RICKY", category: "I Love Lucy", hint: "Lucy's bandleader husband" },
-  { word: "MARTY", category: "Back to the Future", hint: "The time-traveling teen protagonist" },
-  { word: "BASES", category: "World Series", hint: "Loaded when the count is full" },
-  { word: "SPLIT", category: "Marathon", hint: "Time checkpoint during a race" },
-  { word: "COINS", category: "Savings", hint: "Spare change you save" },
-  { word: "GRADE", category: "Teachers", hint: "Score on an assignment" },
-  { word: "LIKES", category: "Instagram", hint: "Tap to show appreciation for a post" },
 ];
 
 /*

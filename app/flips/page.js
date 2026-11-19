@@ -447,8 +447,8 @@ const triviaQuestions = [
     question: "Who is credited with creating the first recipe for chocolate milk?",
     options: [
       "A Swiss chocolatier in the 1800s",
-      "An Irish physician in Jamaica in the 1680s",
       "An American dairy farmer in the 1920s",
+      "An Irish physician in Jamaica in the 1680s",
       "A French pastry chef in Paris"
     ],
     correctAnswer: "An Irish physician in Jamaica in the 1680s",

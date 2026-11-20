@@ -460,8 +460,8 @@ const triviaQuestions = [
     theme: "Good Neighbors 🏘️",
     question: "Where does the phrase 'Good fences make good neighbors' come from?",
     options: [
-      "A Benjamin Franklin proverb",
       "Robert Frost's poem 'Mending Wall'",
+      "A Benjamin Franklin proverb",
       "An old English common law principle",
       "A Thomas Jefferson letter"
     ],
@@ -475,8 +475,8 @@ const triviaQuestions = [
     question: "Which roast of coffee actually has MORE caffeine: light or dark?",
     options: [
       "Dark roast, because it tastes stronger",
-      "Light roast, because roasting breaks down caffeine",
       "They have exactly the same amount",
+      "Light roast, because roasting breaks down caffeine",
       "It depends entirely on the bean origin"
     ],
     correctAnswer: "Light roast, because roasting breaks down caffeine",
@@ -502,10 +502,11 @@ const triviaQuestions = [
     theme: "Balloons 🎈",
     question: "Who invented the first rubber balloon and why?",
     options: [
-      "A toymaker in France who wanted to entertain children",
       "Scientist Michael Faraday, for scientific experiments",
+      "A toymaker in France who wanted to entertain children",
       "A circus performer in England for his act",
-      "Thomas Edison, to celebrate his inventions"
+      "Thomas Edison, to celebrate his inventions",
+      
     ],
     correctAnswer: "Scientist Michael Faraday, for scientific experiments",
     hint: "He needed them for a very serious scientific purpose...",
@@ -531,8 +532,8 @@ const triviaQuestions = [
     question: "Why are piggy banks shaped like pigs?",
     options: [
       "Pigs were symbols of prosperity in ancient China",
-      "They were originally made from an orange clay called 'pygg'",
       "A famous toymaker in Germany made the first one as a pig",
+      "They were originally made from an orange clay called 'pygg'",
       "Pigs were considered lucky animals in medieval Europe"
     ],
     correctAnswer: "They were originally made from an orange clay called 'pygg'",
@@ -544,8 +545,8 @@ const triviaQuestions = [
     theme: "Cinnamon Buns 🍮",
     question: "Which country is considered the cinnamon bun capital of the world?",
     options: [
-      "Denmark",
       "Sweden",
+      "Denmark",
       "Finland",
       "Germany"
     ],
